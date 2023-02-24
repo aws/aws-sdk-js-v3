@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.279.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.278.0...v3.279.0) (2023-02-24)
+
+
+### Features
+
+* **client-securityhub:** New Security Hub APIs and updates to existing APIs that help you consolidate control findings and enable and disable controls across all supported standards ([c537c00](https://github.com/aws/aws-sdk-js-v3/commit/c537c00a1264bc3963fee835f4d39bc6c02b851c))
+
+
+
+
+
 # [3.278.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.277.0...v3.278.0) (2023-02-23)
 
 **Note:** Version bump only for package @aws-sdk/client-securityhub

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.279.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.278.0...v3.279.0) (2023-02-24)
+
+
+### Features
+
+* **client-connect:** StartTaskContact API now supports linked task creation with a new optional RelatedContactId parameter ([a4ec9d7](https://github.com/aws/aws-sdk-js-v3/commit/a4ec9d7eab7893444f65fc69b379dde461b68df1))
+
+
+
+
+
 # [3.278.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.277.0...v3.278.0) (2023-02-23)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

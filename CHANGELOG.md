@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.279.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.278.0...v3.279.0) (2023-02-24)
+
+
+### Bug Fixes
+
+* **smithy-client:** optional param in error handling path ([#4410](https://github.com/aws/aws-sdk-js-v3/issues/4410)) ([df945f5](https://github.com/aws/aws-sdk-js-v3/commit/df945f5225c6f7962e2b56d8c899156df427920a))
+
+
+### Features
+
+* **client-connectcases:** This release adds the ability to delete domains through the DeleteDomain API. For more information see https://docs.aws.amazon.com/cases/latest/APIReference/Welcome.html ([54f2e5f](https://github.com/aws/aws-sdk-js-v3/commit/54f2e5f7946f93ef6f3d79cd60774f1076e53d8b))
+* **client-connect:** StartTaskContact API now supports linked task creation with a new optional RelatedContactId parameter ([a4ec9d7](https://github.com/aws/aws-sdk-js-v3/commit/a4ec9d7eab7893444f65fc69b379dde461b68df1))
+* **client-securityhub:** New Security Hub APIs and updates to existing APIs that help you consolidate control findings and enable and disable controls across all supported standards ([c537c00](https://github.com/aws/aws-sdk-js-v3/commit/c537c00a1264bc3963fee835f4d39bc6c02b851c))
+
+
+
+
+
 # [3.278.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.277.0...v3.278.0) (2023-02-23)
 
 
