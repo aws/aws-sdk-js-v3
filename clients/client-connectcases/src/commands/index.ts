@@ -7,6 +7,7 @@ export * from "./CreateFieldCommand";
 export * from "./CreateLayoutCommand";
 export * from "./CreateRelatedItemCommand";
 export * from "./CreateTemplateCommand";
+export * from "./DeleteDomainCommand";
 export * from "./GetCaseCommand";
 export * from "./GetCaseEventConfigurationCommand";
 export * from "./GetDomainCommand";

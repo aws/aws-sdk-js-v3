@@ -15,48 +15,39 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import {
-  CreateDomainRequest,
-  CreateDomainRequestFilterSensitiveLog,
-  CreateDomainResponse,
-  CreateDomainResponseFilterSensitiveLog,
+  DeleteDomainRequest,
+  DeleteDomainRequestFilterSensitiveLog,
+  DeleteDomainResponse,
+  DeleteDomainResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateDomainCommand,
-  serializeAws_restJson1CreateDomainCommand,
+  deserializeAws_restJson1DeleteDomainCommand,
+  serializeAws_restJson1DeleteDomainCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface CreateDomainCommandInput extends CreateDomainRequest {}
-export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
+export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
+export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a domain, which is a container for all case data, such as cases, fields, templates
- *       and layouts. Each Amazon Connect instance can be associated with only one Cases
- *       domain.</p>
- *          <important>
- *             <p>This will not associate your connect instance to Cases domain. Instead, use the
- *           Amazon Connect
- *         <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html">CreateIntegrationAssociation</a> API. You need specific IAM
- *         permissions to successfully associate the Cases domain. For more information, see
- *           <a href="https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam">Onboard to Cases</a>.</p>
- *          </important>
+ * <p>Deletes a domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, CreateDomainCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, CreateDomainCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, DeleteDomainCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
+ * // const { ConnectCasesClient, DeleteDomainCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
- * const command = new CreateDomainCommand(input);
+ * const command = new DeleteDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link CreateDomainCommandInput} for command's `input` shape.
- * @see {@link CreateDomainCommandOutput} for command's `response` shape.
+ * @see {@link DeleteDomainCommandInput} for command's `input` shape.
+ * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
  *
  */
-export class CreateDomainCommand extends $Command<
-  CreateDomainCommandInput,
-  CreateDomainCommandOutput,
+export class DeleteDomainCommand extends $Command<
+  DeleteDomainCommandInput,
+  DeleteDomainCommandOutput,
   ConnectCasesClientResolvedConfig
 > {
   // Start section: command_properties
@@ -71,7 +62,7 @@ export class CreateDomainCommand extends $Command<
     };
   }
 
-  constructor(readonly input: CreateDomainCommandInput) {
+  constructor(readonly input: DeleteDomainCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -84,21 +75,21 @@ export class CreateDomainCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectCasesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateDomainCommandInput, CreateDomainCommandOutput> {
+  ): Handler<DeleteDomainCommandInput, DeleteDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateDomainCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteDomainCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectCasesClient";
-    const commandName = "CreateDomainCommand";
+    const commandName = "DeleteDomainCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +99,12 @@ export class CreateDomainCommand extends $Command<
     );
   }
 
-  private serialize(input: CreateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDomainCommand(input, context);
+  private serialize(input: DeleteDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DeleteDomainCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainCommandOutput> {
-    return deserializeAws_restJson1CreateDomainCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainCommandOutput> {
+    return deserializeAws_restJson1DeleteDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

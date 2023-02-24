@@ -31,6 +31,11 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
 /**
  * <p>Searches for cases within their associated Cases domain. Search results are returned
  *       as a paginated list of abridged case documents.</p>
+ *          <note>
+ *             <p>For <code>customer_id</code> you must provide the full customer profile ARN in this
+ *         format: <code> arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain
+ *           name/profiles/profile ID</code>. </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

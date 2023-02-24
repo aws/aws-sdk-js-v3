@@ -930,6 +930,15 @@ export interface CreateDomainResponse {
   domainStatus: DomainStatus | string | undefined;
 }
 
+export interface DeleteDomainRequest {
+  /**
+   * <p>The unique identifier of the Cases domain. </p>
+   */
+  domainId: string | undefined;
+}
+
+export interface DeleteDomainResponse {}
+
 export interface GetCaseEventConfigurationRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -2285,6 +2294,20 @@ export const CreateDomainRequestFilterSensitiveLog = (obj: CreateDomainRequest):
  * @internal
  */
 export const CreateDomainResponseFilterSensitiveLog = (obj: CreateDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainRequestFilterSensitiveLog = (obj: DeleteDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainResponseFilterSensitiveLog = (obj: DeleteDomainResponse): any => ({
   ...obj,
 });
 
