@@ -18,3 +18,5 @@ export * from "./ListFindingAggregatorsPaginator";
 export * from "./ListInvitationsPaginator";
 export * from "./ListMembersPaginator";
 export * from "./ListOrganizationAdminAccountsPaginator";
+export * from "./ListSecurityControlDefinitionsPaginator";
+export * from "./ListStandardsControlAssociationsPaginator";

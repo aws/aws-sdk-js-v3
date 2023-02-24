@@ -629,6 +629,11 @@ export interface AssociatedStandard {
   StandardsId?: string;
 }
 
+export enum AssociationStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
 export enum AutoEnableStandards {
   DEFAULT = "DEFAULT",
   NONE = "NONE",
@@ -1856,8 +1861,8 @@ export interface AwsBackupBackupVaultNotificationsDetails {
   BackupVaultEvents?: string[];
 
   /**
-   * <p>An ARN that uniquely identifies the Amazon SNS topic for a backup vault’s events.
-   *       </p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the Amazon SNS topic for
+   *          a backup vault's events. </p>
    */
   SnsTopicArn?: string;
 }
@@ -4914,8 +4919,11 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
   NetworkInterfaceCount?: AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails;
 
   /**
-   * <p>
-   *          The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p>
+   * <p> The price protection threshold for On-Demand Instances. This is the maximum you'll pay
+   *          for an On-Demand Instance, expressed as a percentage above the least expensive current
+   *          generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects
+   *          instance types with your attributes, it excludes instance types priced above your
+   *          threshold.</p>
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
    *          <p>A high value, such as <code>999999</code>, turns off price protection.</p>
    */
@@ -4929,11 +4937,10 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
   RequireHibernateSupport?: boolean;
 
   /**
-   * <p>
-   *          The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a
-   *          percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When
-   *          Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.
-   *       </p>
+   * <p> The price protection threshold for Spot Instances. This is the maximum you'll pay for a
+   *          Spot Instance, expressed as a percentage above the least expensive current generation M, C,
+   *          or R instance type with your specified attributes. When Amazon EC2 selects instance
+   *          types with your attributes, it excludes instance types priced above your threshold. </p>
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
    *          <p>A high value, such as <code>999999</code>, turns off price protection.</p>
    */
@@ -4989,9 +4996,9 @@ export interface AwsEc2LaunchTemplateDataMaintenanceOptionsDetails {
  */
 export interface AwsEc2LaunchTemplateDataMetadataOptionsDetails {
   /**
-   * <p>
-   *          Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled, and you won’t be able to access your instance metadata.
-   *       </p>
+   * <p> Enables or disables the HTTP metadata endpoint on your instances. If the parameter is
+   *          not specified, the default state is enabled, and you won't be able to access your instance
+   *          metadata. </p>
    */
   HttpEndpoint?: string;
 
@@ -10292,16 +10299,6 @@ export interface AwsIamAttachedManagedPolicy {
 }
 
 /**
- * <p>A managed policy that is attached to the IAM group.</p>
- */
-export interface AwsIamGroupPolicy {
-  /**
-   * <p>The name of the policy.</p>
-   */
-  PolicyName?: string;
-}
-
-/**
  * @internal
  */
 export const AcceptAdministratorInvitationRequestFilterSensitiveLog = (
@@ -12662,12 +12659,5 @@ export const AwsIamAccessKeyDetailsFilterSensitiveLog = (obj: AwsIamAccessKeyDet
  * @internal
  */
 export const AwsIamAttachedManagedPolicyFilterSensitiveLog = (obj: AwsIamAttachedManagedPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamGroupPolicyFilterSensitiveLog = (obj: AwsIamGroupPolicy): any => ({
   ...obj,
 });

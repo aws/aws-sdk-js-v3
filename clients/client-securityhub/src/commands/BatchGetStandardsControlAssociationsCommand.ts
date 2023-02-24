@@ -14,40 +14,44 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DescribeActionTargetsRequest,
-  DescribeActionTargetsRequestFilterSensitiveLog,
-  DescribeActionTargetsResponse,
-  DescribeActionTargetsResponseFilterSensitiveLog,
-} from "../models/models_2";
+  BatchGetStandardsControlAssociationsRequest,
+  BatchGetStandardsControlAssociationsRequestFilterSensitiveLog,
+  BatchGetStandardsControlAssociationsResponse,
+  BatchGetStandardsControlAssociationsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
-  deserializeAws_restJson1DescribeActionTargetsCommand,
-  serializeAws_restJson1DescribeActionTargetsCommand,
+  deserializeAws_restJson1BatchGetStandardsControlAssociationsCommand,
+  serializeAws_restJson1BatchGetStandardsControlAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
-export interface DescribeActionTargetsCommandInput extends DescribeActionTargetsRequest {}
-export interface DescribeActionTargetsCommandOutput extends DescribeActionTargetsResponse, __MetadataBearer {}
+export interface BatchGetStandardsControlAssociationsCommandInput extends BatchGetStandardsControlAssociationsRequest {}
+export interface BatchGetStandardsControlAssociationsCommandOutput
+  extends BatchGetStandardsControlAssociationsResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Returns a list of the custom action targets in Security Hub in your account.</p>
+ * <p>
+ *          For a batch of security controls and standards, identifies whether each control is currently enabled or disabled in a standard.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, DescribeActionTargetsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, DescribeActionTargetsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, BatchGetStandardsControlAssociationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, BatchGetStandardsControlAssociationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const command = new DescribeActionTargetsCommand(input);
+ * const command = new BatchGetStandardsControlAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeActionTargetsCommandInput} for command's `input` shape.
- * @see {@link DescribeActionTargetsCommandOutput} for command's `response` shape.
+ * @see {@link BatchGetStandardsControlAssociationsCommandInput} for command's `input` shape.
+ * @see {@link BatchGetStandardsControlAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
-export class DescribeActionTargetsCommand extends $Command<
-  DescribeActionTargetsCommandInput,
-  DescribeActionTargetsCommandOutput,
+export class BatchGetStandardsControlAssociationsCommand extends $Command<
+  BatchGetStandardsControlAssociationsCommandInput,
+  BatchGetStandardsControlAssociationsCommandOutput,
   SecurityHubClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +66,7 @@ export class DescribeActionTargetsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DescribeActionTargetsCommandInput) {
+  constructor(readonly input: BatchGetStandardsControlAssociationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,23 +79,23 @@ export class DescribeActionTargetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeActionTargetsCommandInput, DescribeActionTargetsCommandOutput> {
+  ): Handler<BatchGetStandardsControlAssociationsCommandInput, BatchGetStandardsControlAssociationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeActionTargetsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, BatchGetStandardsControlAssociationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityHubClient";
-    const commandName = "DescribeActionTargetsCommand";
+    const commandName = "BatchGetStandardsControlAssociationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeActionTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeActionTargetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: BatchGetStandardsControlAssociationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetStandardsControlAssociationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +105,18 @@ export class DescribeActionTargetsCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeActionTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeActionTargetsCommand(input, context);
+  private serialize(
+    input: BatchGetStandardsControlAssociationsCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1BatchGetStandardsControlAssociationsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActionTargetsCommandOutput> {
-    return deserializeAws_restJson1DescribeActionTargetsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<BatchGetStandardsControlAssociationsCommandOutput> {
+    return deserializeAws_restJson1BatchGetStandardsControlAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

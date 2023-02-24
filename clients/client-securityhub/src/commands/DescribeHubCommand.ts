@@ -18,7 +18,7 @@ import {
   DescribeHubRequestFilterSensitiveLog,
   DescribeHubResponse,
   DescribeHubResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeHubCommand,
   serializeAws_restJson1DescribeHubCommand,

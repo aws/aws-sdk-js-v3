@@ -18,7 +18,7 @@ import {
   DeleteInsightRequestFilterSensitiveLog,
   DeleteInsightResponse,
   DeleteInsightResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DeleteInsightCommand,
   serializeAws_restJson1DeleteInsightCommand,

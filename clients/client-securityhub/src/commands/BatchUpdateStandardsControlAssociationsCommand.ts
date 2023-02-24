@@ -14,43 +14,45 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DescribeOrganizationConfigurationRequest,
-  DescribeOrganizationConfigurationRequestFilterSensitiveLog,
-  DescribeOrganizationConfigurationResponse,
-  DescribeOrganizationConfigurationResponseFilterSensitiveLog,
-} from "../models/models_2";
+  BatchUpdateStandardsControlAssociationsRequest,
+  BatchUpdateStandardsControlAssociationsRequestFilterSensitiveLog,
+  BatchUpdateStandardsControlAssociationsResponse,
+  BatchUpdateStandardsControlAssociationsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
-  deserializeAws_restJson1DescribeOrganizationConfigurationCommand,
-  serializeAws_restJson1DescribeOrganizationConfigurationCommand,
+  deserializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand,
+  serializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
-export interface DescribeOrganizationConfigurationCommandInput extends DescribeOrganizationConfigurationRequest {}
-export interface DescribeOrganizationConfigurationCommandOutput
-  extends DescribeOrganizationConfigurationResponse,
+export interface BatchUpdateStandardsControlAssociationsCommandInput
+  extends BatchUpdateStandardsControlAssociationsRequest {}
+export interface BatchUpdateStandardsControlAssociationsCommandOutput
+  extends BatchUpdateStandardsControlAssociationsResponse,
     __MetadataBearer {}
 
 /**
- * <p>Returns information about the Organizations configuration for Security Hub. Can only be
- *          called from a Security Hub administrator account.</p>
+ * <p>
+ *          For a batch of security controls and standards, this operation updates the enablement status of a control in a standard.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, DescribeOrganizationConfigurationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, DescribeOrganizationConfigurationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, BatchUpdateStandardsControlAssociationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, BatchUpdateStandardsControlAssociationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const command = new DescribeOrganizationConfigurationCommand(input);
+ * const command = new BatchUpdateStandardsControlAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeOrganizationConfigurationCommandInput} for command's `input` shape.
- * @see {@link DescribeOrganizationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link BatchUpdateStandardsControlAssociationsCommandInput} for command's `input` shape.
+ * @see {@link BatchUpdateStandardsControlAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
-export class DescribeOrganizationConfigurationCommand extends $Command<
-  DescribeOrganizationConfigurationCommandInput,
-  DescribeOrganizationConfigurationCommandOutput,
+export class BatchUpdateStandardsControlAssociationsCommand extends $Command<
+  BatchUpdateStandardsControlAssociationsCommandInput,
+  BatchUpdateStandardsControlAssociationsCommandOutput,
   SecurityHubClientResolvedConfig
 > {
   // Start section: command_properties
@@ -65,7 +67,7 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DescribeOrganizationConfigurationCommandInput) {
+  constructor(readonly input: BatchUpdateStandardsControlAssociationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -78,23 +80,29 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeOrganizationConfigurationCommandInput, DescribeOrganizationConfigurationCommandOutput> {
+  ): Handler<
+    BatchUpdateStandardsControlAssociationsCommandInput,
+    BatchUpdateStandardsControlAssociationsCommandOutput
+  > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeOrganizationConfigurationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(
+        configuration,
+        BatchUpdateStandardsControlAssociationsCommand.getEndpointParameterInstructions()
+      )
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityHubClient";
-    const commandName = "DescribeOrganizationConfigurationCommand";
+    const commandName = "BatchUpdateStandardsControlAssociationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrganizationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrganizationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: BatchUpdateStandardsControlAssociationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchUpdateStandardsControlAssociationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,17 +113,17 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
   }
 
   private serialize(
-    input: DescribeOrganizationConfigurationCommandInput,
+    input: BatchUpdateStandardsControlAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOrganizationConfigurationCommand(input, context);
+    return serializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeOrganizationConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeOrganizationConfigurationCommand(output, context);
+  ): Promise<BatchUpdateStandardsControlAssociationsCommandOutput> {
+    return deserializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

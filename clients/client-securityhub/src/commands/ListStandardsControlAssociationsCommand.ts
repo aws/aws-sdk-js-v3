@@ -14,42 +14,44 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DeleteMembersRequest,
-  DeleteMembersRequestFilterSensitiveLog,
-  DeleteMembersResponse,
-  DeleteMembersResponseFilterSensitiveLog,
+  ListStandardsControlAssociationsRequest,
+  ListStandardsControlAssociationsRequestFilterSensitiveLog,
+  ListStandardsControlAssociationsResponse,
+  ListStandardsControlAssociationsResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_restJson1DeleteMembersCommand,
-  serializeAws_restJson1DeleteMembersCommand,
+  deserializeAws_restJson1ListStandardsControlAssociationsCommand,
+  serializeAws_restJson1ListStandardsControlAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
-export interface DeleteMembersCommandInput extends DeleteMembersRequest {}
-export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __MetadataBearer {}
+export interface ListStandardsControlAssociationsCommandInput extends ListStandardsControlAssociationsRequest {}
+export interface ListStandardsControlAssociationsCommandOutput
+  extends ListStandardsControlAssociationsResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Deletes the specified member accounts from Security Hub.</p>
- *          <p>Can be used to delete member accounts that belong to an organization as well as member
- *          accounts that were invited manually.</p>
+ * <p>
+ *          Specifies whether a control is currently enabled or disabled in each enabled standard in the calling account.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, DeleteMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, DeleteMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, ListStandardsControlAssociationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, ListStandardsControlAssociationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const command = new DeleteMembersCommand(input);
+ * const command = new ListStandardsControlAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DeleteMembersCommandInput} for command's `input` shape.
- * @see {@link DeleteMembersCommandOutput} for command's `response` shape.
+ * @see {@link ListStandardsControlAssociationsCommandInput} for command's `input` shape.
+ * @see {@link ListStandardsControlAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
-export class DeleteMembersCommand extends $Command<
-  DeleteMembersCommandInput,
-  DeleteMembersCommandOutput,
+export class ListStandardsControlAssociationsCommand extends $Command<
+  ListStandardsControlAssociationsCommandInput,
+  ListStandardsControlAssociationsCommandOutput,
   SecurityHubClientResolvedConfig
 > {
   // Start section: command_properties
@@ -64,7 +66,7 @@ export class DeleteMembersCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DeleteMembersCommandInput) {
+  constructor(readonly input: ListStandardsControlAssociationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -77,21 +79,23 @@ export class DeleteMembersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteMembersCommandInput, DeleteMembersCommandOutput> {
+  ): Handler<ListStandardsControlAssociationsCommandInput, ListStandardsControlAssociationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteMembersCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListStandardsControlAssociationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityHubClient";
-    const commandName = "DeleteMembersCommand";
+    const commandName = "ListStandardsControlAssociationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: ListStandardsControlAssociationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListStandardsControlAssociationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +105,18 @@ export class DeleteMembersCommand extends $Command<
     );
   }
 
-  private serialize(input: DeleteMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMembersCommand(input, context);
+  private serialize(
+    input: ListStandardsControlAssociationsCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListStandardsControlAssociationsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMembersCommandOutput> {
-    return deserializeAws_restJson1DeleteMembersCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListStandardsControlAssociationsCommandOutput> {
+    return deserializeAws_restJson1ListStandardsControlAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

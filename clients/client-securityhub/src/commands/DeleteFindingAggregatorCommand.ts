@@ -18,7 +18,7 @@ import {
   DeleteFindingAggregatorRequestFilterSensitiveLog,
   DeleteFindingAggregatorResponse,
   DeleteFindingAggregatorResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DeleteFindingAggregatorCommand,
   serializeAws_restJson1DeleteFindingAggregatorCommand,

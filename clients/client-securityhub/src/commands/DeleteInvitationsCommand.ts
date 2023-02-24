@@ -18,7 +18,7 @@ import {
   DeleteInvitationsRequestFilterSensitiveLog,
   DeleteInvitationsResponse,
   DeleteInvitationsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DeleteInvitationsCommand,
   serializeAws_restJson1DeleteInvitationsCommand,

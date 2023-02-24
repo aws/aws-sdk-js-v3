@@ -14,42 +14,42 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DeleteMembersRequest,
-  DeleteMembersRequestFilterSensitiveLog,
-  DeleteMembersResponse,
-  DeleteMembersResponseFilterSensitiveLog,
-} from "../models/models_2";
+  BatchGetSecurityControlsRequest,
+  BatchGetSecurityControlsRequestFilterSensitiveLog,
+  BatchGetSecurityControlsResponse,
+  BatchGetSecurityControlsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
-  deserializeAws_restJson1DeleteMembersCommand,
-  serializeAws_restJson1DeleteMembersCommand,
+  deserializeAws_restJson1BatchGetSecurityControlsCommand,
+  serializeAws_restJson1BatchGetSecurityControlsCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
-export interface DeleteMembersCommandInput extends DeleteMembersRequest {}
-export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __MetadataBearer {}
+export interface BatchGetSecurityControlsCommandInput extends BatchGetSecurityControlsRequest {}
+export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityControlsResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified member accounts from Security Hub.</p>
- *          <p>Can be used to delete member accounts that belong to an organization as well as member
- *          accounts that were invited manually.</p>
+ * <p>
+ *          Provides details about a batch of security controls for the current Amazon Web Services account and Amazon Web Services Region.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, DeleteMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, DeleteMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, BatchGetSecurityControlsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, BatchGetSecurityControlsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const command = new DeleteMembersCommand(input);
+ * const command = new BatchGetSecurityControlsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DeleteMembersCommandInput} for command's `input` shape.
- * @see {@link DeleteMembersCommandOutput} for command's `response` shape.
+ * @see {@link BatchGetSecurityControlsCommandInput} for command's `input` shape.
+ * @see {@link BatchGetSecurityControlsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
-export class DeleteMembersCommand extends $Command<
-  DeleteMembersCommandInput,
-  DeleteMembersCommandOutput,
+export class BatchGetSecurityControlsCommand extends $Command<
+  BatchGetSecurityControlsCommandInput,
+  BatchGetSecurityControlsCommandOutput,
   SecurityHubClientResolvedConfig
 > {
   // Start section: command_properties
@@ -64,7 +64,7 @@ export class DeleteMembersCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DeleteMembersCommandInput) {
+  constructor(readonly input: BatchGetSecurityControlsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -77,21 +77,23 @@ export class DeleteMembersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteMembersCommandInput, DeleteMembersCommandOutput> {
+  ): Handler<BatchGetSecurityControlsCommandInput, BatchGetSecurityControlsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteMembersCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchGetSecurityControlsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityHubClient";
-    const commandName = "DeleteMembersCommand";
+    const commandName = "BatchGetSecurityControlsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: BatchGetSecurityControlsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetSecurityControlsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +103,12 @@ export class DeleteMembersCommand extends $Command<
     );
   }
 
-  private serialize(input: DeleteMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMembersCommand(input, context);
+  private serialize(input: BatchGetSecurityControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1BatchGetSecurityControlsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMembersCommandOutput> {
-    return deserializeAws_restJson1DeleteMembersCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetSecurityControlsCommandOutput> {
+    return deserializeAws_restJson1BatchGetSecurityControlsCommand(output, context);
   }
 
   // Start section: command_body_extra
