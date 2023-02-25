@@ -1,2 +1,4 @@
+export * from "./apiKeyMiddleware";
 export * from "./configurations";
-export * from "./middleware";
+export * from "./getApiKeyPlugin";
+export * from "./resolveApiKeyConfig";

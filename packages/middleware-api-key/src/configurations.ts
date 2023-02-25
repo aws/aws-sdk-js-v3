@@ -1,13 +1,18 @@
-import { Provider } from "@aws-sdk/types";
-import { normalizeProvider } from "@aws-sdk/util-middleware";
+import { Provider, TokenIdentity, TokenIdentityProvider } from "@aws-sdk/types";
 
 export interface ApiKeyInputConfig {
   /**
+   * @deprecated
    * The API key to use when making requests.
    *
    * This is optional because some operations may not require an API key.
    */
   apiKey?: string | Provider<string>;
+
+  /**
+   * Token identity with API key to use when making requests.
+   */
+  identity?: TokenIdentity | TokenIdentityProvider;
 }
 
 export interface ApiKeyPreviouslyResolved {}
@@ -18,18 +23,5 @@ export interface ApiKeyResolvedConfig {
    *
    * This is optional because some operations may not require an API key.
    */
-  apiKey?: Provider<string>;
+  identity?: TokenIdentityProvider;
 }
-
-// We have to provide a resolve function when we have config, even if it doesn't
-// actually do anything to the input value. "If any of inputConfig, resolvedConfig,
-// or resolveFunction are set, then all of inputConfig, resolvedConfig, and
-// resolveFunction must be set."
-export const resolveApiKeyConfig = <T>(
-  input: T & ApiKeyPreviouslyResolved & ApiKeyInputConfig
-): T & ApiKeyResolvedConfig => {
-  return {
-    ...input,
-    apiKey: input.apiKey ? normalizeProvider(input.apiKey) : undefined,
-  };
-};
