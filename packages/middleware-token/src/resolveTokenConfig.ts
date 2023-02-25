@@ -1,8 +1,15 @@
+import { normalizeIdentityProvider } from "@aws-sdk/util-identity-auth";
+
 import { TokenInputConfig, TokenResolvedConfig } from "./configurations";
-import { normalizeTokenProvider } from "./normalizeTokenProvider";
 import { tokenDefaultProvider } from "./tokenDefaultProvider";
 
-export const resolveTokenConfig = <T>(input: T & TokenInputConfig): T & TokenResolvedConfig => ({
-  ...input,
-  token: input.token ? normalizeTokenProvider(input.token) : tokenDefaultProvider(input as any),
-});
+export const resolveTokenConfig = <T>(input: T & TokenInputConfig): T & TokenResolvedConfig => {
+  // Use deprecated token over identity
+  if (input.token !== undefined) {
+    input.identity = input.token;
+  }
+  return {
+    ...input,
+    identity: input.identity ? normalizeIdentityProvider(input.identity) : tokenDefaultProvider(input as any),
+  };
+};

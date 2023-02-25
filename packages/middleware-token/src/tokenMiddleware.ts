@@ -28,7 +28,7 @@ export const tokenMiddleware =
   async (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>> => {
     if (!HttpRequest.isInstance(args.request) || context.currentAuthConfig) return next(args);
 
-    const token = options.token && (await options.token());
+    const token = options.identity && (await options.identity());
     if (token?.token) {
       const authConfig: HttpAuthDefinition = {
         in: HttpAuthLocation.HEADER,

@@ -1,8 +1,9 @@
-import { normalizeTokenProvider } from "./normalizeTokenProvider";
+import { normalizeIdentityProvider } from "@aws-sdk/util-identity-auth";
+
 import { resolveTokenConfig } from "./resolveTokenConfig";
 import { tokenDefaultProvider } from "./tokenDefaultProvider";
 
-jest.mock("./normalizeTokenProvider");
+jest.mock("@aws-sdk/util-identity-auth");
 jest.mock("./tokenDefaultProvider");
 
 const ONE_HOUR_IN_MS = 3600 * 1000;
@@ -19,9 +20,9 @@ describe(resolveTokenConfig.name, () => {
     jest.clearAllMocks();
   });
 
-  describe("sets token from normalizeTokenProvider if token is provided", () => {
+  describe("sets token from normalizeIdentityProvider if token is provided", () => {
     beforeEach(() => {
-      (normalizeTokenProvider as jest.Mock).mockReturnValue(mockOutputToken);
+      (normalizeIdentityProvider as jest.Mock).mockReturnValue(mockOutputToken);
       (tokenDefaultProvider as jest.Mock).mockReturnValue(mockOutputToken);
     });
 
@@ -30,8 +31,12 @@ describe(resolveTokenConfig.name, () => {
     });
 
     const testTokenProviderWithToken = (token) => {
-      expect(resolveTokenConfig({ ...mockInput, token })).toEqual({ ...mockInput, token: mockOutputToken });
-      expect(normalizeTokenProvider).toHaveBeenCalledWith(token);
+      expect(resolveTokenConfig({ ...mockInput, token })).toEqual({
+        ...mockInput,
+        token,
+        identity: mockOutputToken,
+      });
+      expect(normalizeIdentityProvider).toHaveBeenCalledWith(token);
     };
 
     it("when token is a function", () => {
@@ -48,8 +53,45 @@ describe(resolveTokenConfig.name, () => {
 
   it("sets token from tokenDefaultProvider if token is not provided", () => {
     (tokenDefaultProvider as jest.Mock).mockReturnValue(mockOutputToken);
-    expect(resolveTokenConfig(mockInput)).toEqual({ ...mockInput, token: mockOutputToken });
+    expect(resolveTokenConfig(mockInput)).toEqual({ ...mockInput, identity: mockOutputToken });
     expect(tokenDefaultProvider).toHaveBeenCalledWith(mockInput);
-    expect(normalizeTokenProvider).not.toHaveBeenCalled();
+    expect(normalizeIdentityProvider).not.toHaveBeenCalled();
+  });
+
+  it("sets token over identity", () => {
+    const token = {
+      token: "token set",
+    };
+    const identity = {
+      token: "identity set",
+    };
+    expect(
+      resolveTokenConfig({
+        ...mockInput,
+        token,
+        identity,
+      })
+    ).toEqual({
+      ...mockInput,
+      token,
+      identity: mockOutputToken,
+    });
+    expect(normalizeIdentityProvider).toHaveBeenCalledWith(token);
+  });
+
+  it("sets identity with no token in config", () => {
+    const identity = {
+      token: "identity set",
+    };
+    expect(
+      resolveTokenConfig({
+        ...mockInput,
+        identity,
+      })
+    ).toEqual({
+      ...mockInput,
+      identity: mockOutputToken,
+    });
+    expect(normalizeIdentityProvider).toHaveBeenCalledWith(identity);
   });
 });
