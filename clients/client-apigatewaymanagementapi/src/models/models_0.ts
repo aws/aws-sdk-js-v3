@@ -118,7 +118,7 @@ export interface PostToConnectionRequest {
   /**
    * <p>The data to be sent to the client specified by its connection id.</p>
    */
-  Data: Uint8Array | undefined;
+  Data: Uint8Array | string | undefined;
 
   /**
    * <p>The identifier of the connection that a specific client is using.</p>
