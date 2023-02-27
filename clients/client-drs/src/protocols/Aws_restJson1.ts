@@ -3850,6 +3850,7 @@ const deserializeAws_restJson1DataReplicationInfo = (output: any, context: __Ser
       output.replicatedDisks != null
         ? deserializeAws_restJson1DataReplicationInfoReplicatedDisks(output.replicatedDisks, context)
         : undefined,
+    stagingAvailabilityZone: __expectString(output.stagingAvailabilityZone),
   } as any;
 };
 
@@ -4071,6 +4072,7 @@ const deserializeAws_restJson1LifeCycleLastLaunch = (output: any, context: __Ser
       output.initiated != null
         ? deserializeAws_restJson1LifeCycleLastLaunchInitiated(output.initiated, context)
         : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -4166,6 +4168,7 @@ const deserializeAws_restJson1RecoveryInstance = (output: any, context: __SerdeC
       output.failback != null ? deserializeAws_restJson1RecoveryInstanceFailback(output.failback, context) : undefined,
     isDrill: __expectBoolean(output.isDrill),
     jobID: __expectString(output.jobID),
+    originAvailabilityZone: __expectString(output.originAvailabilityZone),
     originEnvironment: __expectString(output.originEnvironment),
     pointInTimeSnapshotDateTime: __expectString(output.pointInTimeSnapshotDateTime),
     recoveryInstanceID: __expectString(output.recoveryInstanceID),
@@ -4208,6 +4211,7 @@ const deserializeAws_restJson1RecoveryInstanceDataReplicationInfo = (
       output.replicatedDisks != null
         ? deserializeAws_restJson1RecoveryInstanceDataReplicationInfoReplicatedDisks(output.replicatedDisks, context)
         : undefined,
+    stagingAvailabilityZone: __expectString(output.stagingAvailabilityZone),
   } as any;
 };
 
