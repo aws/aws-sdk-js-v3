@@ -229,6 +229,7 @@ import {
   Cors,
   DeadLetterConfig,
   DestinationConfig,
+  DocumentDBEventSourceConfig,
   EC2AccessDeniedException,
   EC2ThrottledException,
   EC2UnexpectedException,
@@ -484,6 +485,12 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
     ...(input.BisectBatchOnFunctionError != null && { BisectBatchOnFunctionError: input.BisectBatchOnFunctionError }),
     ...(input.DestinationConfig != null && {
       DestinationConfig: serializeAws_restJson1DestinationConfig(input.DestinationConfig, context),
+    }),
+    ...(input.DocumentDBEventSourceConfig != null && {
+      DocumentDBEventSourceConfig: serializeAws_restJson1DocumentDBEventSourceConfig(
+        input.DocumentDBEventSourceConfig,
+        context
+      ),
     }),
     ...(input.Enabled != null && { Enabled: input.Enabled }),
     ...(input.EventSourceArn != null && { EventSourceArn: input.EventSourceArn }),
@@ -2319,6 +2326,12 @@ export const serializeAws_restJson1UpdateEventSourceMappingCommand = async (
     ...(input.DestinationConfig != null && {
       DestinationConfig: serializeAws_restJson1DestinationConfig(input.DestinationConfig, context),
     }),
+    ...(input.DocumentDBEventSourceConfig != null && {
+      DocumentDBEventSourceConfig: serializeAws_restJson1DocumentDBEventSourceConfig(
+        input.DocumentDBEventSourceConfig,
+        context
+      ),
+    }),
     ...(input.Enabled != null && { Enabled: input.Enabled }),
     ...(input.FilterCriteria != null && {
       FilterCriteria: serializeAws_restJson1FilterCriteria(input.FilterCriteria, context),
@@ -2795,6 +2808,12 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
   if (data.DestinationConfig != null) {
     contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
   }
+  if (data.DocumentDBEventSourceConfig != null) {
+    contents.DocumentDBEventSourceConfig = deserializeAws_restJson1DocumentDBEventSourceConfig(
+      data.DocumentDBEventSourceConfig,
+      context
+    );
+  }
   if (data.EventSourceArn != null) {
     contents.EventSourceArn = __expectString(data.EventSourceArn);
   }
@@ -3265,6 +3284,12 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
   }
   if (data.DestinationConfig != null) {
     contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
+  }
+  if (data.DocumentDBEventSourceConfig != null) {
+    contents.DocumentDBEventSourceConfig = deserializeAws_restJson1DocumentDBEventSourceConfig(
+      data.DocumentDBEventSourceConfig,
+      context
+    );
   }
   if (data.EventSourceArn != null) {
     contents.EventSourceArn = __expectString(data.EventSourceArn);
@@ -3910,6 +3935,12 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
   }
   if (data.DestinationConfig != null) {
     contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
+  }
+  if (data.DocumentDBEventSourceConfig != null) {
+    contents.DocumentDBEventSourceConfig = deserializeAws_restJson1DocumentDBEventSourceConfig(
+      data.DocumentDBEventSourceConfig,
+      context
+    );
   }
   if (data.EventSourceArn != null) {
     contents.EventSourceArn = __expectString(data.EventSourceArn);
@@ -4807,6 +4838,9 @@ export const deserializeAws_restJson1GetRuntimeManagementConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.FunctionArn != null) {
+    contents.FunctionArn = __expectString(data.FunctionArn);
+  }
   if (data.RuntimeVersionArn != null) {
     contents.RuntimeVersionArn = __expectString(data.RuntimeVersionArn);
   }
@@ -6544,6 +6578,12 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
   if (data.DestinationConfig != null) {
     contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
   }
+  if (data.DocumentDBEventSourceConfig != null) {
+    contents.DocumentDBEventSourceConfig = deserializeAws_restJson1DocumentDBEventSourceConfig(
+      data.DocumentDBEventSourceConfig,
+      context
+    );
+  }
   if (data.EventSourceArn != null) {
     contents.EventSourceArn = __expectString(data.EventSourceArn);
   }
@@ -7973,6 +8013,17 @@ const serializeAws_restJson1DestinationConfig = (input: DestinationConfig, conte
   };
 };
 
+const serializeAws_restJson1DocumentDBEventSourceConfig = (
+  input: DocumentDBEventSourceConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CollectionName != null && { CollectionName: input.CollectionName }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.FullDocument != null && { FullDocument: input.FullDocument }),
+  };
+};
+
 const serializeAws_restJson1EndpointLists = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -8456,6 +8507,17 @@ const deserializeAws_restJson1DestinationConfig = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1DocumentDBEventSourceConfig = (
+  output: any,
+  context: __SerdeContext
+): DocumentDBEventSourceConfig => {
+  return {
+    CollectionName: __expectString(output.CollectionName),
+    DatabaseName: __expectString(output.DatabaseName),
+    FullDocument: __expectString(output.FullDocument),
+  } as any;
+};
+
 const deserializeAws_restJson1EndpointLists = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -8526,6 +8588,10 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
     DestinationConfig:
       output.DestinationConfig != null
         ? deserializeAws_restJson1DestinationConfig(output.DestinationConfig, context)
+        : undefined,
+    DocumentDBEventSourceConfig:
+      output.DocumentDBEventSourceConfig != null
+        ? deserializeAws_restJson1DocumentDBEventSourceConfig(output.DocumentDBEventSourceConfig, context)
         : undefined,
     EventSourceArn: __expectString(output.EventSourceArn),
     FilterCriteria:
