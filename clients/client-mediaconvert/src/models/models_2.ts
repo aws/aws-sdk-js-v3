@@ -13,6 +13,29 @@ import {
   StatusUpdateInterval,
 } from "./models_1";
 
+export interface GetJobResponse {
+  /**
+   * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   */
+  Job?: Job;
+}
+
+export interface GetJobTemplateRequest {
+  /**
+   * The name of the job template.
+   */
+  Name: string | undefined;
+}
+
+export interface GetJobTemplateResponse {
+  /**
+   * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
+   */
+  JobTemplate?: JobTemplate;
+}
+
+export interface GetPolicyRequest {}
+
 export enum InputPolicy {
   ALLOWED = "ALLOWED",
   DISALLOWED = "DISALLOWED",
@@ -428,6 +451,34 @@ export interface UpdateQueueResponse {
    */
   Queue?: Queue;
 }
+
+/**
+ * @internal
+ */
+export const GetJobResponseFilterSensitiveLog = (obj: GetJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobTemplateRequestFilterSensitiveLog = (obj: GetJobTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobTemplateResponseFilterSensitiveLog = (obj: GetJobTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPolicyRequestFilterSensitiveLog = (obj: GetPolicyRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

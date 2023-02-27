@@ -14,12 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  GetJobRequest,
-  GetJobRequestFilterSensitiveLog,
-  GetJobResponse,
-  GetJobResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetJobRequest, GetJobRequestFilterSensitiveLog } from "../models/models_1";
+import { GetJobResponse, GetJobResponseFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_restJson1GetJobCommand, serializeAws_restJson1GetJobCommand } from "../protocols/Aws_restJson1";
 
 export interface GetJobCommandInput extends GetJobRequest {}

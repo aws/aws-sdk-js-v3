@@ -19,7 +19,7 @@ import {
   GetJobTemplateRequestFilterSensitiveLog,
   GetJobTemplateResponse,
   GetJobTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1GetJobTemplateCommand,
   serializeAws_restJson1GetJobTemplateCommand,

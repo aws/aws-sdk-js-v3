@@ -685,12 +685,12 @@ export interface MpdSettings {
   TimedMetadataBoxVersion?: MpdTimedMetadataBoxVersion | string;
 
   /**
-   * Specify the event message box (eMSG) scheme ID URI (scheme_id_uri) for ID3 timed metadata in your output. For more informaiton, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the default value: https://aomedia.org/emsg/ID3 When you specify a value for ID3 metadata scheme ID URI, you must also set ID3 metadata (timedMetadata) to Passthrough.
+   * Specify the event message box (eMSG) scheme ID URI (scheme_id_uri) for ID3 timed metadata in your output. For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the default value: https://aomedia.org/emsg/ID3 When you specify a value for ID3 metadata scheme ID URI, you must also set ID3 metadata (timedMetadata) to Passthrough.
    */
   TimedMetadataSchemeIdUri?: string;
 
   /**
-   * Specify the event message box (eMSG) value for ID3 timed metadata in your output. For more informaiton, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value, you must also set ID3 metadata (timedMetadata) to Passthrough.
+   * Specify the event message box (eMSG) value for ID3 timed metadata in your output. For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value, you must also set ID3 metadata (timedMetadata) to Passthrough.
    */
   TimedMetadataValue?: string;
 }
@@ -1159,6 +1159,36 @@ export enum H264AdaptiveQuantization {
   OFF = "OFF",
 }
 
+export enum BandwidthReductionFilterSharpening {
+  HIGH = "HIGH",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+  OFF = "OFF",
+}
+
+export enum BandwidthReductionFilterStrength {
+  AUTO = "AUTO",
+  HIGH = "HIGH",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+  OFF = "OFF",
+}
+
+/**
+ * The Bandwidth reduction filter increases the video quality of your output relative to its bitrate. Use to lower the bitrate of your constant quality QVBR output, with little or no perceptual decrease in quality. Or, use to increase the video quality of outputs with other rate control modes relative to the bitrate that you specify. Bandwidth reduction increases further when your input is low quality or noisy.Outputs that use this feature incur pro-tier pricing.When you include Bandwidth reduction filter, you cannot include the Noise reducer preprocessor.
+ */
+export interface BandwidthReductionFilter {
+  /**
+   * Optionally specify the level of sharpening to apply when you use the Bandwidth reduction filter.  Sharpening adds contrast to the edges of your video content and can reduce softness. Keep the default value Off to apply no sharpening. Set Sharpening strength to Low to apply a minimal amount of sharpening, or High to apply a maximum amount of sharpening.
+   */
+  Sharpening?: BandwidthReductionFilterSharpening | string;
+
+  /**
+   * Specify the strength of the Bandwidth reduction filter. For most workflows, we recommend that you choose Auto. Your output bandwidth will be reduced by at least 8 percent with no perceptual decrease in video quality. If your output bandwidth isn't constrained, set Filter strength to Low or Medium. Low results in minimal to no impact in perceptual quality. For more bandwidth reduction, choose High. The filter helps equalize quality between all scenes and increases video softness. We recommend that you choose High for low bitrate outputs.
+   */
+  Strength?: BandwidthReductionFilterStrength | string;
+}
+
 export enum H264CodecLevel {
   AUTO = "AUTO",
   LEVEL_1 = "LEVEL_1",
@@ -1331,6 +1361,11 @@ export interface H264Settings {
    * Keep the default value, Auto (AUTO), for this setting to have MediaConvert automatically apply the best types of quantization for your video content. When you want to apply your quantization settings manually, you must set H264AdaptiveQuantization to a value other than Auto (AUTO). Use this setting to specify the strength of any adaptive quantization filters that you enable. If you don't want MediaConvert to do any adaptive quantization in this transcode, set Adaptive quantization (H264AdaptiveQuantization) to Off (OFF). Related settings: The value that you choose here applies to the following settings: H264FlickerAdaptiveQuantization, H264SpatialAdaptiveQuantization, and H264TemporalAdaptiveQuantization.
    */
   AdaptiveQuantization?: H264AdaptiveQuantization | string;
+
+  /**
+   * The Bandwidth reduction filter increases the video quality of your output relative to its bitrate. Use to lower the bitrate of your constant quality QVBR output, with little or no perceptual decrease in quality. Or, use to increase the video quality of outputs with other rate control modes relative to the bitrate that you specify. Bandwidth reduction increases further when your input is low quality or noisy.Outputs that use this feature incur pro-tier pricing.When you include Bandwidth reduction filter, you cannot include the Noise reducer preprocessor.
+   */
+  BandwidthReductionFilter?: BandwidthReductionFilter;
 
   /**
    * Specify the average bitrate in bits per second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when rounded down to the nearest multiple of 1000.
@@ -3055,6 +3090,11 @@ export enum ColorSpaceConversion {
   NONE = "NONE",
 }
 
+export enum HDRToSDRToneMapper {
+  PRESERVE_DETAILS = "PRESERVE_DETAILS",
+  VIBRANT = "VIBRANT",
+}
+
 export enum SampleRangeConversion {
   LIMITED_RANGE_CLIP = "LIMITED_RANGE_CLIP",
   LIMITED_RANGE_SQUEEZE = "LIMITED_RANGE_SQUEEZE",
@@ -3089,6 +3129,11 @@ export interface ColorCorrector {
    * Use these settings when you convert to the HDR 10 color space. Specify the SMPTE ST 2086 Mastering Display Color Volume static metadata that you want signaled in the output. These values don't affect the pixel values that are encoded in the video stream. They are intended to help the downstream video player display content in a way that reflects the intentions of the the content creator. When you set Color space conversion (ColorSpaceConversion) to HDR 10 (FORCE_HDR10), these settings are required. You must set values for Max frame average light level (maxFrameAverageLightLevel) and Max content light level (maxContentLightLevel); these settings don't have a default value. The default values for the other HDR 10 metadata settings are defined by the P3D65 color space. For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr.
    */
   Hdr10Metadata?: Hdr10Metadata;
+
+  /**
+   * Specify how MediaConvert maps brightness and colors from your HDR input to your SDR output. The mode that you select represents a creative choice, with different tradeoffs in the details and tones of your output. To maintain details in bright or saturated areas of your output: Choose Preserve details. For some sources, your SDR output may look less bright and less saturated when compared to your HDR source. MediaConvert automatically applies this mode for HLG sources, regardless of your choice. For a bright and saturated output: Choose Vibrant. We recommend that you choose this mode when any of your source content is HDR10, and for the best results when it is mastered for 1000 nits. You may notice loss of details in bright or saturated areas of your output. HDR to SDR tone mapping has no effect when your input is SDR.
+   */
+  HdrToSdrToneMapper?: HDRToSDRToneMapper | string;
 
   /**
    * Hue in degrees.
@@ -3304,7 +3349,7 @@ export interface NoiseReducerTemporalFilterSettings {
 }
 
 /**
- * Enable the Noise reducer (NoiseReducer) feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default. When you enable Noise reducer (NoiseReducer), you must also select a value for Noise reducer filter (NoiseReducerFilter).
+ * Enable the Noise reducer feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default. When you enable Noise reducer, you must also select a value for Noise reducer filter. For AVC outputs, when you include Noise reducer, you cannot include the Bandwidth reduction filter.
  */
 export interface NoiseReducer {
   /**
@@ -3433,7 +3478,7 @@ export interface VideoPreprocessor {
   ImageInserter?: ImageInserter;
 
   /**
-   * Enable the Noise reducer (NoiseReducer) feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
+   * Enable the Noise reducer feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default. When you enable Noise reducer, you must also select a value for Noise reducer filter. For AVC outputs, when you include Noise reducer, you cannot include the Bandwidth reduction filter.
    */
   NoiseReducer?: NoiseReducer;
 
@@ -4673,29 +4718,6 @@ export interface GetJobRequest {
   Id: string | undefined;
 }
 
-export interface GetJobResponse {
-  /**
-   * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
-   */
-  Job?: Job;
-}
-
-export interface GetJobTemplateRequest {
-  /**
-   * The name of the job template.
-   */
-  Name: string | undefined;
-}
-
-export interface GetJobTemplateResponse {
-  /**
-   * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
-   */
-  JobTemplate?: JobTemplate;
-}
-
-export interface GetPolicyRequest {}
-
 /**
  * @internal
  */
@@ -4819,6 +4841,13 @@ export const AvcIntraSettingsFilterSensitiveLog = (obj: AvcIntraSettings): any =
  * @internal
  */
 export const FrameCaptureSettingsFilterSensitiveLog = (obj: FrameCaptureSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BandwidthReductionFilterFilterSensitiveLog = (obj: BandwidthReductionFilter): any => ({
   ...obj,
 });
 
@@ -5309,33 +5338,5 @@ export const DisassociateCertificateResponseFilterSensitiveLog = (obj: Disassoci
  * @internal
  */
 export const GetJobRequestFilterSensitiveLog = (obj: GetJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobResponseFilterSensitiveLog = (obj: GetJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobTemplateRequestFilterSensitiveLog = (obj: GetJobTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobTemplateResponseFilterSensitiveLog = (obj: GetJobTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPolicyRequestFilterSensitiveLog = (obj: GetPolicyRequest): any => ({
   ...obj,
 });

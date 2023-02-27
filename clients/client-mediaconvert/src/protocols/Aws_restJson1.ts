@@ -177,6 +177,7 @@ import {
   AvcIntraSettings,
   AvcIntraUhdSettings,
   BadRequestException,
+  BandwidthReductionFilter,
   ClipLimits,
   ColorCorrector,
   ConflictException,
@@ -3244,6 +3245,16 @@ const serializeAws_restJson1AvcIntraUhdSettings = (input: AvcIntraUhdSettings, c
   };
 };
 
+const serializeAws_restJson1BandwidthReductionFilter = (
+  input: BandwidthReductionFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Sharpening != null && { sharpening: input.Sharpening }),
+    ...(input.Strength != null && { strength: input.Strength }),
+  };
+};
+
 const serializeAws_restJson1BurninDestinationSettings = (
   input: BurninDestinationSettings,
   context: __SerdeContext
@@ -3534,6 +3545,7 @@ const serializeAws_restJson1ColorCorrector = (input: ColorCorrector, context: __
     ...(input.Hdr10Metadata != null && {
       hdr10Metadata: serializeAws_restJson1Hdr10Metadata(input.Hdr10Metadata, context),
     }),
+    ...(input.HdrToSdrToneMapper != null && { hdrToSdrToneMapper: input.HdrToSdrToneMapper }),
     ...(input.Hue != null && { hue: input.Hue }),
     ...(input.SampleRangeConversion != null && { sampleRangeConversion: input.SampleRangeConversion }),
     ...(input.Saturation != null && { saturation: input.Saturation }),
@@ -3921,6 +3933,9 @@ const serializeAws_restJson1H264QvbrSettings = (input: H264QvbrSettings, context
 const serializeAws_restJson1H264Settings = (input: H264Settings, context: __SerdeContext): any => {
   return {
     ...(input.AdaptiveQuantization != null && { adaptiveQuantization: input.AdaptiveQuantization }),
+    ...(input.BandwidthReductionFilter != null && {
+      bandwidthReductionFilter: serializeAws_restJson1BandwidthReductionFilter(input.BandwidthReductionFilter, context),
+    }),
     ...(input.Bitrate != null && { bitrate: input.Bitrate }),
     ...(input.CodecLevel != null && { codecLevel: input.CodecLevel }),
     ...(input.CodecProfile != null && { codecProfile: input.CodecProfile }),
@@ -6315,6 +6330,16 @@ const deserializeAws_restJson1AvcIntraUhdSettings = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_restJson1BandwidthReductionFilter = (
+  output: any,
+  context: __SerdeContext
+): BandwidthReductionFilter => {
+  return {
+    Sharpening: __expectString(output.sharpening),
+    Strength: __expectString(output.strength),
+  } as any;
+};
+
 const deserializeAws_restJson1BurninDestinationSettings = (
   output: any,
   context: __SerdeContext
@@ -6608,6 +6633,7 @@ const deserializeAws_restJson1ColorCorrector = (output: any, context: __SerdeCon
     Contrast: __expectInt32(output.contrast),
     Hdr10Metadata:
       output.hdr10Metadata != null ? deserializeAws_restJson1Hdr10Metadata(output.hdr10Metadata, context) : undefined,
+    HdrToSdrToneMapper: __expectString(output.hdrToSdrToneMapper),
     Hue: __expectInt32(output.hue),
     SampleRangeConversion: __expectString(output.sampleRangeConversion),
     Saturation: __expectInt32(output.saturation),
@@ -6991,6 +7017,10 @@ const deserializeAws_restJson1H264QvbrSettings = (output: any, context: __SerdeC
 const deserializeAws_restJson1H264Settings = (output: any, context: __SerdeContext): H264Settings => {
   return {
     AdaptiveQuantization: __expectString(output.adaptiveQuantization),
+    BandwidthReductionFilter:
+      output.bandwidthReductionFilter != null
+        ? deserializeAws_restJson1BandwidthReductionFilter(output.bandwidthReductionFilter, context)
+        : undefined,
     Bitrate: __expectInt32(output.bitrate),
     CodecLevel: __expectString(output.codecLevel),
     CodecProfile: __expectString(output.codecProfile),
