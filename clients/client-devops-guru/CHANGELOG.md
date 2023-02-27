@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.280.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.279.0...v3.280.0) (2023-02-27)
+
+
+### Features
+
+* **client-devops-guru:** This release adds the description field on ListAnomaliesForInsight and DescribeAnomaly API responses for proactive anomalies. ([58828d8](https://github.com/aws/aws-sdk-js-v3/commit/58828d843d3cf08562d4e69dbad06eb0a939bbb2))
+
+
+
+
+
 # [3.279.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.278.0...v3.279.0) (2023-02-24)
 
 **Note:** Version bump only for package @aws-sdk/client-devops-guru

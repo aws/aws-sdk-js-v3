@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.280.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.279.0...v3.280.0) (2023-02-27)
+
+
+### Features
+
+* **client-devops-guru:** This release adds the description field on ListAnomaliesForInsight and DescribeAnomaly API responses for proactive anomalies. ([58828d8](https://github.com/aws/aws-sdk-js-v3/commit/58828d843d3cf08562d4e69dbad06eb0a939bbb2))
+* **client-drs:** New fields were added to reflect availability zone data in source server and recovery instance description commands responses, as well as source server launch status. ([3b2a484](https://github.com/aws/aws-sdk-js-v3/commit/3b2a48431cafc1e2def4a6300ecb47d5c106d18e))
+* **client-internetmonitor:** CloudWatch Internet Monitor is a a new service within CloudWatch that will help application developers and network engineers continuously monitor internet performance metrics such as availability and performance between their AWS-hosted applications and end-users of these applications ([287cd60](https://github.com/aws/aws-sdk-js-v3/commit/287cd606c626d617eb9469a985b2210c67b3f198))
+* **client-lambda:** This release adds the ability to create ESMs with Document DB change streams as event source. For more information see  https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html. ([84d9c25](https://github.com/aws/aws-sdk-js-v3/commit/84d9c25d22b89f334d79fac3c44ae55104c6bdf8))
+* **client-mediaconvert:** The AWS Elemental MediaConvert SDK has added support for HDR10 to SDR tone mapping, and animated GIF video input sources. ([6e976d0](https://github.com/aws/aws-sdk-js-v3/commit/6e976d07e09c97fe7afbc1ee1e4cafb7d6d9edcc))
+* **client-timestream-write:** This release adds the ability to ingest batched historical data or migrate data in bulk from S3 into Timestream using CSV files. ([0435738](https://github.com/aws/aws-sdk-js-v3/commit/0435738024c04f03b02f54d172902e409bfd45ac))
+* **clients:** update client endpoints as of 2023-02-27 ([6570862](https://github.com/aws/aws-sdk-js-v3/commit/65708620d23e0e9d1883c700b843417aa4018baa))
+
+
+
+
+
 # [3.279.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.278.0...v3.279.0) (2023-02-24)
 
 

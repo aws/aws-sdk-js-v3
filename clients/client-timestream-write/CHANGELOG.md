@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.280.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.279.0...v3.280.0) (2023-02-27)
+
+
+### Features
+
+* **client-timestream-write:** This release adds the ability to ingest batched historical data or migrate data in bulk from S3 into Timestream using CSV files. ([0435738](https://github.com/aws/aws-sdk-js-v3/commit/0435738024c04f03b02f54d172902e409bfd45ac))
+
+
+
+
+
 # [3.279.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.278.0...v3.279.0) (2023-02-24)
 
 **Note:** Version bump only for package @aws-sdk/client-timestream-write

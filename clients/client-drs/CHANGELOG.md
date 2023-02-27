@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.280.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.279.0...v3.280.0) (2023-02-27)
+
+
+### Features
+
+* **client-drs:** New fields were added to reflect availability zone data in source server and recovery instance description commands responses, as well as source server launch status. ([3b2a484](https://github.com/aws/aws-sdk-js-v3/commit/3b2a48431cafc1e2def4a6300ecb47d5c106d18e))
+
+
+
+
+
 # [3.279.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.278.0...v3.279.0) (2023-02-24)
 
 **Note:** Version bump only for package @aws-sdk/client-drs

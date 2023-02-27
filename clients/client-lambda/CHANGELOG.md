@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.280.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.279.0...v3.280.0) (2023-02-27)
+
+
+### Features
+
+* **client-lambda:** This release adds the ability to create ESMs with Document DB change streams as event source. For more information see  https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html. ([84d9c25](https://github.com/aws/aws-sdk-js-v3/commit/84d9c25d22b89f334d79fac3c44ae55104c6bdf8))
+
+
+
+
+
 # [3.279.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.278.0...v3.279.0) (2023-02-24)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda
