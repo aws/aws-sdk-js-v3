@@ -30,9 +30,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- * List all tags on a Timestream resource.
- * </p>
+ * <p> Lists all tags on a Timestream resource. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

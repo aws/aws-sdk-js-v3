@@ -30,9 +30,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *     Removes the association of tags from a Timestream resource.
- * </p>
+ * <p> Removes the association of tags from a Timestream resource. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -15,45 +15,41 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  CreateTableRequest,
-  CreateTableRequestFilterSensitiveLog,
-  CreateTableResponse,
-  CreateTableResponseFilterSensitiveLog,
+  ResumeBatchLoadTaskRequest,
+  ResumeBatchLoadTaskRequestFilterSensitiveLog,
+  ResumeBatchLoadTaskResponse,
+  ResumeBatchLoadTaskResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0CreateTableCommand,
-  serializeAws_json1_0CreateTableCommand,
+  deserializeAws_json1_0ResumeBatchLoadTaskCommand,
+  serializeAws_json1_0ResumeBatchLoadTaskCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
-export interface CreateTableCommandInput extends CreateTableRequest {}
-export interface CreateTableCommandOutput extends CreateTableResponse, __MetadataBearer {}
+export interface ResumeBatchLoadTaskCommandInput extends ResumeBatchLoadTaskRequest {}
+export interface ResumeBatchLoadTaskCommandOutput extends ResumeBatchLoadTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a new table to an existing database in your account. In an Amazon Web Services account, table names must be at least unique within each Region if they are in the same
- *          database. You might have identical table names in the same Region if the tables are in
- *          separate databases. While creating the table, you must specify the table name, database
- *          name, and the retention properties. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
- *             <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-table.html">code
- *             sample</a> for details. </p>
+ * <p>
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamWriteClient, CreateTableCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
- * // const { TimestreamWriteClient, CreateTableCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * import { TimestreamWriteClient, ResumeBatchLoadTaskCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
+ * // const { TimestreamWriteClient, ResumeBatchLoadTaskCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
- * const command = new CreateTableCommand(input);
+ * const command = new ResumeBatchLoadTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link CreateTableCommandInput} for command's `input` shape.
- * @see {@link CreateTableCommandOutput} for command's `response` shape.
+ * @see {@link ResumeBatchLoadTaskCommandInput} for command's `input` shape.
+ * @see {@link ResumeBatchLoadTaskCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
  *
  */
-export class CreateTableCommand extends $Command<
-  CreateTableCommandInput,
-  CreateTableCommandOutput,
+export class ResumeBatchLoadTaskCommand extends $Command<
+  ResumeBatchLoadTaskCommandInput,
+  ResumeBatchLoadTaskCommandOutput,
   TimestreamWriteClientResolvedConfig
 > {
   // Start section: command_properties
@@ -68,7 +64,7 @@ export class CreateTableCommand extends $Command<
     };
   }
 
-  constructor(readonly input: CreateTableCommandInput) {
+  constructor(readonly input: ResumeBatchLoadTaskCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -81,9 +77,11 @@ export class CreateTableCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TimestreamWriteClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateTableCommandInput, CreateTableCommandOutput> {
+  ): Handler<ResumeBatchLoadTaskCommandInput, ResumeBatchLoadTaskCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateTableCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ResumeBatchLoadTaskCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(
       getEndpointDiscoveryPlugin(configuration, { clientStack, options, isDiscoveredEndpointRequired: true })
     );
@@ -92,13 +90,13 @@ export class CreateTableCommand extends $Command<
 
     const { logger } = configuration;
     const clientName = "TimestreamWriteClient";
-    const commandName = "CreateTableCommand";
+    const commandName = "ResumeBatchLoadTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: ResumeBatchLoadTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResumeBatchLoadTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +106,12 @@ export class CreateTableCommand extends $Command<
     );
   }
 
-  private serialize(input: CreateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateTableCommand(input, context);
+  private serialize(input: ResumeBatchLoadTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0ResumeBatchLoadTaskCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTableCommandOutput> {
-    return deserializeAws_json1_0CreateTableCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeBatchLoadTaskCommandOutput> {
+    return deserializeAws_json1_0ResumeBatchLoadTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

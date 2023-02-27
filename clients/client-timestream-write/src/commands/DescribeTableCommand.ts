@@ -30,11 +30,10 @@ export interface DescribeTableCommandInput extends DescribeTableRequest {}
 export interface DescribeTableCommandOutput extends DescribeTableResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the table, including the table name, database name,
- *       retention duration of the memory store and the magnetic store.
- *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
- *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-table.html">code sample</a> for details.
- *       </p>
+ * <p>Returns information about the table, including the table name, database name, retention
+ *          duration of the memory store and the magnetic store. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
+ *             <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-table.html">code
+ *             sample</a> for details. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

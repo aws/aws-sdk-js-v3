@@ -15,44 +15,48 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  UpdateDatabaseRequest,
-  UpdateDatabaseRequestFilterSensitiveLog,
-  UpdateDatabaseResponse,
-  UpdateDatabaseResponseFilterSensitiveLog,
+  CreateBatchLoadTaskRequest,
+  CreateBatchLoadTaskRequestFilterSensitiveLog,
+  CreateBatchLoadTaskResponse,
+  CreateBatchLoadTaskResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0UpdateDatabaseCommand,
-  serializeAws_json1_0UpdateDatabaseCommand,
+  deserializeAws_json1_0CreateBatchLoadTaskCommand,
+  serializeAws_json1_0CreateBatchLoadTaskCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
-export interface UpdateDatabaseCommandInput extends UpdateDatabaseRequest {}
-export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __MetadataBearer {}
+export interface CreateBatchLoadTaskCommandInput extends CreateBatchLoadTaskRequest {}
+export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskResponse, __MetadataBearer {}
 
 /**
- * <p> Modifies the KMS key for an existing database. While updating the
- *          database, you must specify the database name and the identifier of the new KMS key to be used (<code>KmsKeyId</code>). If there are any concurrent
- *             <code>UpdateDatabase</code> requests, first writer wins. </p>
- *          <p>See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.update-db.html">code sample</a>
- *          for details.</p>
+ * <p>Creates a new Timestream batch load task. A batch load task processes data from
+ *          a CSV source in an S3 location and writes to a Timestream table. A mapping from
+ *          source to target is defined in a batch load task. Errors and events are written to a report
+ *          at an S3 location. For the report, if the KMS key is not specified, the
+ *          batch load task will be encrypted with a Timestream managed KMS key
+ *          located in your account. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed
+ *             keys</a>. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. For
+ *          details, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-batch-load.html">code
+ *             sample</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamWriteClient, UpdateDatabaseCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
- * // const { TimestreamWriteClient, UpdateDatabaseCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * import { TimestreamWriteClient, CreateBatchLoadTaskCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
+ * // const { TimestreamWriteClient, CreateBatchLoadTaskCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
- * const command = new UpdateDatabaseCommand(input);
+ * const command = new CreateBatchLoadTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdateDatabaseCommandInput} for command's `input` shape.
- * @see {@link UpdateDatabaseCommandOutput} for command's `response` shape.
+ * @see {@link CreateBatchLoadTaskCommandInput} for command's `input` shape.
+ * @see {@link CreateBatchLoadTaskCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
  *
  */
-export class UpdateDatabaseCommand extends $Command<
-  UpdateDatabaseCommandInput,
-  UpdateDatabaseCommandOutput,
+export class CreateBatchLoadTaskCommand extends $Command<
+  CreateBatchLoadTaskCommandInput,
+  CreateBatchLoadTaskCommandOutput,
   TimestreamWriteClientResolvedConfig
 > {
   // Start section: command_properties
@@ -67,7 +71,7 @@ export class UpdateDatabaseCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UpdateDatabaseCommandInput) {
+  constructor(readonly input: CreateBatchLoadTaskCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -80,10 +84,10 @@ export class UpdateDatabaseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TimestreamWriteClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput> {
+  ): Handler<CreateBatchLoadTaskCommandInput, CreateBatchLoadTaskCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateDatabaseCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateBatchLoadTaskCommand.getEndpointParameterInstructions())
     );
     this.middlewareStack.use(
       getEndpointDiscoveryPlugin(configuration, { clientStack, options, isDiscoveredEndpointRequired: true })
@@ -93,13 +97,13 @@ export class UpdateDatabaseCommand extends $Command<
 
     const { logger } = configuration;
     const clientName = "TimestreamWriteClient";
-    const commandName = "UpdateDatabaseCommand";
+    const commandName = "CreateBatchLoadTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatabaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDatabaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: CreateBatchLoadTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateBatchLoadTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +113,12 @@ export class UpdateDatabaseCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdateDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateDatabaseCommand(input, context);
+  private serialize(input: CreateBatchLoadTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0CreateBatchLoadTaskCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatabaseCommandOutput> {
-    return deserializeAws_json1_0UpdateDatabaseCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBatchLoadTaskCommandOutput> {
+    return deserializeAws_json1_0CreateBatchLoadTaskCommand(output, context);
   }
 
   // Start section: command_body_extra
