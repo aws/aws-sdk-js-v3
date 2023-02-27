@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1GetRuleCommand, serializeAws_json1_1GetRuleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link GetRuleCommand}.
+ */
 export interface GetRuleCommandInput extends GetRuleRequest {}
+/**
+ * The output of {@link GetRuleCommand}.
+ */
 export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer {}
 
 /**

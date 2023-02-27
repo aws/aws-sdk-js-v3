@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListS3BucketsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListS3BucketsCommand}.
+ */
 export interface ListS3BucketsCommandInput extends ListS3BucketsRequest {}
+/**
+ * The output of {@link ListS3BucketsCommand}.
+ */
 export interface ListS3BucketsCommandOutput extends ListS3BucketsResponse, __MetadataBearer {}
 
 /**

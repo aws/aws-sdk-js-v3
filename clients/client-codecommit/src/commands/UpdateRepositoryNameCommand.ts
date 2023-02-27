@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateRepositoryNameCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateRepositoryNameCommand}.
+ */
 export interface UpdateRepositoryNameCommandInput extends UpdateRepositoryNameInput {}
+/**
+ * The output of {@link UpdateRepositoryNameCommand}.
+ */
 export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
 
 /**

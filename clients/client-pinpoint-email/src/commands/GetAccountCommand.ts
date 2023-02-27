@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAccountCommand}.
+ */
 export interface GetAccountCommandInput extends GetAccountRequest {}
+/**
+ * The output of {@link GetAccountCommand}.
+ */
 export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataBearer {}
 
 /**

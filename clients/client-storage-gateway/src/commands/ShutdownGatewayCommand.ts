@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link ShutdownGatewayCommand}.
+ */
 export interface ShutdownGatewayCommandInput extends ShutdownGatewayInput {}
+/**
+ * The output of {@link ShutdownGatewayCommand}.
+ */
 export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __MetadataBearer {}
 
 /**

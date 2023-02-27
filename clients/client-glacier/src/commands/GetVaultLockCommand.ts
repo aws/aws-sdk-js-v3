@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetVaultLockCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetVaultLockCommand}.
+ */
 export interface GetVaultLockCommandInput extends GetVaultLockInput {}
+/**
+ * The output of {@link GetVaultLockCommand}.
+ */
 export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __MetadataBearer {}
 
 /**

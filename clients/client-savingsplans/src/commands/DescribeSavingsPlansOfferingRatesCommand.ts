@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 
+/**
+ * The input for {@link DescribeSavingsPlansOfferingRatesCommand}.
+ */
 export interface DescribeSavingsPlansOfferingRatesCommandInput extends DescribeSavingsPlansOfferingRatesRequest {}
+/**
+ * The output of {@link DescribeSavingsPlansOfferingRatesCommand}.
+ */
 export interface DescribeSavingsPlansOfferingRatesCommandOutput
   extends DescribeSavingsPlansOfferingRatesResponse,
     __MetadataBearer {}

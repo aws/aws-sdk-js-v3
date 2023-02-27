@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListPullRequestsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListPullRequestsCommand}.
+ */
 export interface ListPullRequestsCommandInput extends ListPullRequestsInput {}
+/**
+ * The output of {@link ListPullRequestsCommand}.
+ */
 export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, __MetadataBearer {}
 
 /**

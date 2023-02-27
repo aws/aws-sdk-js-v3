@@ -16,7 +16,13 @@ import { XmlEnumsOutput, XmlEnumsOutputFilterSensitiveLog } from "../models/mode
 import { deserializeAws_queryXmlEnumsCommand, serializeAws_queryXmlEnumsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link XmlEnumsCommand}.
+ */
 export interface XmlEnumsCommandInput {}
+/**
+ * The output of {@link XmlEnumsCommand}.
+ */
 export interface XmlEnumsCommandOutput extends XmlEnumsOutput, __MetadataBearer {}
 
 /**

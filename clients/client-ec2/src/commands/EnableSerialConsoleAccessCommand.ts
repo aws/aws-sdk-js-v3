@@ -25,7 +25,13 @@ import {
   serializeAws_ec2EnableSerialConsoleAccessCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link EnableSerialConsoleAccessCommand}.
+ */
 export interface EnableSerialConsoleAccessCommandInput extends EnableSerialConsoleAccessRequest {}
+/**
+ * The output of {@link EnableSerialConsoleAccessCommand}.
+ */
 export interface EnableSerialConsoleAccessCommandOutput extends EnableSerialConsoleAccessResult, __MetadataBearer {}
 
 /**

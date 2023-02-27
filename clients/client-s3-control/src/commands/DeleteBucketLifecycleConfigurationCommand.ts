@@ -24,7 +24,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link DeleteBucketLifecycleConfigurationCommand}.
+ */
 export interface DeleteBucketLifecycleConfigurationCommandInput extends DeleteBucketLifecycleConfigurationRequest {}
+/**
+ * The output of {@link DeleteBucketLifecycleConfigurationCommand}.
+ */
 export interface DeleteBucketLifecycleConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

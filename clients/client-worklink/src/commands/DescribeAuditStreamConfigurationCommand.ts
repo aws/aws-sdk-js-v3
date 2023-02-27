@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * The input for {@link DescribeAuditStreamConfigurationCommand}.
+ */
 export interface DescribeAuditStreamConfigurationCommandInput extends DescribeAuditStreamConfigurationRequest {}
+/**
+ * The output of {@link DescribeAuditStreamConfigurationCommand}.
+ */
 export interface DescribeAuditStreamConfigurationCommandOutput
   extends DescribeAuditStreamConfigurationResponse,
     __MetadataBearer {}

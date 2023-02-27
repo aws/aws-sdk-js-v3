@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDistributionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDistributionCommand}.
+ */
 export interface CreateDistributionCommandInput extends CreateDistributionRequest {}
+/**
+ * The output of {@link CreateDistributionCommand}.
+ */
 export interface CreateDistributionCommandOutput extends CreateDistributionResult, __MetadataBearer {}
 
 /**

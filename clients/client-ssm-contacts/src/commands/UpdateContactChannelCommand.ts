@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
+/**
+ * The input for {@link UpdateContactChannelCommand}.
+ */
 export interface UpdateContactChannelCommandInput extends UpdateContactChannelRequest {}
+/**
+ * The output of {@link UpdateContactChannelCommand}.
+ */
 export interface UpdateContactChannelCommandOutput extends UpdateContactChannelResult, __MetadataBearer {}
 
 /**

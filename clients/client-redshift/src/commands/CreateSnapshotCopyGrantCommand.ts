@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link CreateSnapshotCopyGrantCommand}.
+ */
 export interface CreateSnapshotCopyGrantCommandInput extends CreateSnapshotCopyGrantMessage {}
+/**
+ * The output of {@link CreateSnapshotCopyGrantCommand}.
+ */
 export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopyGrantResult, __MetadataBearer {}
 
 /**

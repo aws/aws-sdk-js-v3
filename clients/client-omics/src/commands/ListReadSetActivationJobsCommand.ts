@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListReadSetActivationJobsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListReadSetActivationJobsCommand}.
+ */
 export interface ListReadSetActivationJobsCommandInput extends ListReadSetActivationJobsRequest {}
+/**
+ * The output of {@link ListReadSetActivationJobsCommand}.
+ */
 export interface ListReadSetActivationJobsCommandOutput extends ListReadSetActivationJobsResponse, __MetadataBearer {}
 
 /**

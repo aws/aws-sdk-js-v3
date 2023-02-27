@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCredentialsForIdentityCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCredentialsForIdentityCommand}.
+ */
 export interface GetCredentialsForIdentityCommandInput extends GetCredentialsForIdentityInput {}
+/**
+ * The output of {@link GetCredentialsForIdentityCommand}.
+ */
 export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsForIdentityResponse, __MetadataBearer {}
 
 /**

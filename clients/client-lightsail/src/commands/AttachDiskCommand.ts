@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AttachDiskCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AttachDiskCommand}.
+ */
 export interface AttachDiskCommandInput extends AttachDiskRequest {}
+/**
+ * The output of {@link AttachDiskCommand}.
+ */
 export interface AttachDiskCommandOutput extends AttachDiskResult, __MetadataBearer {}
 
 /**

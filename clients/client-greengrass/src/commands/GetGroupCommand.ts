@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetGroupCommand}.
+ */
 export interface GetGroupCommandInput extends GetGroupRequest {}
+/**
+ * The output of {@link GetGroupCommand}.
+ */
 export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandInput extends ListTagsForResourceMessage {}
+/**
+ * The output of {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandOutput extends TagListMessage, __MetadataBearer {}
 
 /**

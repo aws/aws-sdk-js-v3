@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopSuiteRunCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopSuiteRunCommand}.
+ */
 export interface StopSuiteRunCommandInput extends StopSuiteRunRequest {}
+/**
+ * The output of {@link StopSuiteRunCommand}.
+ */
 export interface StopSuiteRunCommandOutput extends StopSuiteRunResponse, __MetadataBearer {}
 
 /**

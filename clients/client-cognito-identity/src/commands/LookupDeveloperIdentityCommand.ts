@@ -26,7 +26,13 @@ import {
   serializeAws_json1_1LookupDeveloperIdentityCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link LookupDeveloperIdentityCommand}.
+ */
 export interface LookupDeveloperIdentityCommandInput extends LookupDeveloperIdentityInput {}
+/**
+ * The output of {@link LookupDeveloperIdentityCommand}.
+ */
 export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIdentityResponse, __MetadataBearer {}
 
 /**

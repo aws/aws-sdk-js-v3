@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteAttachmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAttachmentCommand}.
+ */
 export interface DeleteAttachmentCommandInput extends DeleteAttachmentRequest {}
+/**
+ * The output of {@link DeleteAttachmentCommand}.
+ */
 export interface DeleteAttachmentCommandOutput extends DeleteAttachmentResponse, __MetadataBearer {}
 
 /**

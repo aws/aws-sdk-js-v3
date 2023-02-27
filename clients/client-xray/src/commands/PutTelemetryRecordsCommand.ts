@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * The input for {@link PutTelemetryRecordsCommand}.
+ */
 export interface PutTelemetryRecordsCommandInput extends PutTelemetryRecordsRequest {}
+/**
+ * The output of {@link PutTelemetryRecordsCommand}.
+ */
 export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsResult, __MetadataBearer {}
 
 /**

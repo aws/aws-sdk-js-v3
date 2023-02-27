@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateCreatedArtifactCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateCreatedArtifactCommand}.
+ */
 export interface AssociateCreatedArtifactCommandInput extends AssociateCreatedArtifactRequest {}
+/**
+ * The output of {@link AssociateCreatedArtifactCommand}.
+ */
 export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedArtifactResult, __MetadataBearer {}
 
 /**

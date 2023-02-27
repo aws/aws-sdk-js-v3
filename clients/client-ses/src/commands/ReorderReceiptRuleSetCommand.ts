@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link ReorderReceiptRuleSetCommand}.
+ */
 export interface ReorderReceiptRuleSetCommandInput extends ReorderReceiptRuleSetRequest {}
+/**
+ * The output of {@link ReorderReceiptRuleSetCommand}.
+ */
 export interface ReorderReceiptRuleSetCommandOutput extends ReorderReceiptRuleSetResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SearchAddressBooksCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SearchAddressBooksCommand}.
+ */
 export interface SearchAddressBooksCommandInput extends SearchAddressBooksRequest {}
+/**
+ * The output of {@link SearchAddressBooksCommand}.
+ */
 export interface SearchAddressBooksCommandOutput extends SearchAddressBooksResponse, __MetadataBearer {}
 
 /**

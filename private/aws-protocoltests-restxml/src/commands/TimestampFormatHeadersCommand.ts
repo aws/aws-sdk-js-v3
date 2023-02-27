@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link TimestampFormatHeadersCommand}.
+ */
 export interface TimestampFormatHeadersCommandInput extends TimestampFormatHeadersIO {}
+/**
+ * The output of {@link TimestampFormatHeadersCommand}.
+ */
 export interface TimestampFormatHeadersCommandOutput extends TimestampFormatHeadersIO, __MetadataBearer {}
 
 /**

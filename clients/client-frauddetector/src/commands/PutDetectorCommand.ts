@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutDetectorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutDetectorCommand}.
+ */
 export interface PutDetectorCommandInput extends PutDetectorRequest {}
+/**
+ * The output of {@link PutDetectorCommand}.
+ */
 export interface PutDetectorCommandOutput extends PutDetectorResult, __MetadataBearer {}
 
 /**

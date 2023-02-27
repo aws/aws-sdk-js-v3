@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteVerifiedAccessGroupCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteVerifiedAccessGroupCommand}.
+ */
 export interface DeleteVerifiedAccessGroupCommandInput extends DeleteVerifiedAccessGroupRequest {}
+/**
+ * The output of {@link DeleteVerifiedAccessGroupCommand}.
+ */
 export interface DeleteVerifiedAccessGroupCommandOutput extends DeleteVerifiedAccessGroupResult, __MetadataBearer {}
 
 /**

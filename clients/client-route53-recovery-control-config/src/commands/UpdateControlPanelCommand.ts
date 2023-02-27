@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
 
+/**
+ * The input for {@link UpdateControlPanelCommand}.
+ */
 export interface UpdateControlPanelCommandInput extends UpdateControlPanelRequest {}
+/**
+ * The output of {@link UpdateControlPanelCommand}.
+ */
 export interface UpdateControlPanelCommandOutput extends UpdateControlPanelResponse, __MetadataBearer {}
 
 /**

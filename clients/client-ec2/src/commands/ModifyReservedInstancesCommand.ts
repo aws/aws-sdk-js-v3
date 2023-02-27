@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyReservedInstancesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyReservedInstancesCommand}.
+ */
 export interface ModifyReservedInstancesCommandInput extends ModifyReservedInstancesRequest {}
+/**
+ * The output of {@link ModifyReservedInstancesCommand}.
+ */
 export interface ModifyReservedInstancesCommandOutput extends ModifyReservedInstancesResult, __MetadataBearer {}
 
 /**

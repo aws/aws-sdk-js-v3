@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetArchiveRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetArchiveRuleCommand}.
+ */
 export interface GetArchiveRuleCommandInput extends GetArchiveRuleRequest {}
+/**
+ * The output of {@link GetArchiveRuleCommand}.
+ */
 export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __MetadataBearer {}
 
 /**

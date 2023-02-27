@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelBatchJobExecutionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelBatchJobExecutionCommand}.
+ */
 export interface CancelBatchJobExecutionCommandInput extends CancelBatchJobExecutionRequest {}
+/**
+ * The output of {@link CancelBatchJobExecutionCommand}.
+ */
 export interface CancelBatchJobExecutionCommandOutput extends CancelBatchJobExecutionResponse, __MetadataBearer {}
 
 /**

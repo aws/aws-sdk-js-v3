@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
+/**
+ * The input for {@link StartSimulationCommand}.
+ */
 export interface StartSimulationCommandInput extends StartSimulationInput {}
+/**
+ * The output of {@link StartSimulationCommand}.
+ */
 export interface StartSimulationCommandOutput extends StartSimulationOutput, __MetadataBearer {}
 
 /**

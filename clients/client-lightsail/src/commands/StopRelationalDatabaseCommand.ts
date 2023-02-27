@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopRelationalDatabaseCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopRelationalDatabaseCommand}.
+ */
 export interface StopRelationalDatabaseCommandInput extends StopRelationalDatabaseRequest {}
+/**
+ * The output of {@link StopRelationalDatabaseCommand}.
+ */
 export interface StopRelationalDatabaseCommandOutput extends StopRelationalDatabaseResult, __MetadataBearer {}
 
 /**

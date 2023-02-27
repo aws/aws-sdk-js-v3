@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link AssociateVPCWithHostedZoneCommand}.
+ */
 export interface AssociateVPCWithHostedZoneCommandInput extends AssociateVPCWithHostedZoneRequest {}
+/**
+ * The output of {@link AssociateVPCWithHostedZoneCommand}.
+ */
 export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWithHostedZoneResponse, __MetadataBearer {}
 
 /**

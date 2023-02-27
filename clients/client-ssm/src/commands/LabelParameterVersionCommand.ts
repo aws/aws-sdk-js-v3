@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link LabelParameterVersionCommand}.
+ */
 export interface LabelParameterVersionCommandInput extends LabelParameterVersionRequest {}
+/**
+ * The output of {@link LabelParameterVersionCommand}.
+ */
 export interface LabelParameterVersionCommandOutput extends LabelParameterVersionResult, __MetadataBearer {}
 
 /**

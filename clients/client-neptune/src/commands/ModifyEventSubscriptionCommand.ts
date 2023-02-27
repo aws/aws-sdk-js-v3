@@ -25,7 +25,13 @@ import {
   serializeAws_queryModifyEventSubscriptionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyEventSubscriptionCommand}.
+ */
 export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscriptionMessage {}
+/**
+ * The output of {@link ModifyEventSubscriptionCommand}.
+ */
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResult, __MetadataBearer {}
 
 /**

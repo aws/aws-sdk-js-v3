@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link UpdateDocumentCommand}.
+ */
 export interface UpdateDocumentCommandInput extends UpdateDocumentRequest {}
+/**
+ * The output of {@link UpdateDocumentCommand}.
+ */
 export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __MetadataBearer {}
 
 /**

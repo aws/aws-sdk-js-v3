@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link SearchProvisionedProductsCommand}.
+ */
 export interface SearchProvisionedProductsCommandInput extends SearchProvisionedProductsInput {}
+/**
+ * The output of {@link SearchProvisionedProductsCommand}.
+ */
 export interface SearchProvisionedProductsCommandOutput extends SearchProvisionedProductsOutput, __MetadataBearer {}
 
 /**

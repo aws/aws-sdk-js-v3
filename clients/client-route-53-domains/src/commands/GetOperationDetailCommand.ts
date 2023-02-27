@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link GetOperationDetailCommand}.
+ */
 export interface GetOperationDetailCommandInput extends GetOperationDetailRequest {}
+/**
+ * The output of {@link GetOperationDetailCommand}.
+ */
 export interface GetOperationDetailCommandOutput extends GetOperationDetailResponse, __MetadataBearer {}
 
 /**

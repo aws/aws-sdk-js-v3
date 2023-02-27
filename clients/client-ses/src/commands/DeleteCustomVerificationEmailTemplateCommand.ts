@@ -23,8 +23,14 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link DeleteCustomVerificationEmailTemplateCommand}.
+ */
 export interface DeleteCustomVerificationEmailTemplateCommandInput
   extends DeleteCustomVerificationEmailTemplateRequest {}
+/**
+ * The output of {@link DeleteCustomVerificationEmailTemplateCommand}.
+ */
 export interface DeleteCustomVerificationEmailTemplateCommandOutput extends __MetadataBearer {}
 
 /**

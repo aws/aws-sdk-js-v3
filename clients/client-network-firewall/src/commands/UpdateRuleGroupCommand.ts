@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0UpdateRuleGroupCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateRuleGroupCommand}.
+ */
 export interface UpdateRuleGroupCommandInput extends UpdateRuleGroupRequest {}
+/**
+ * The output of {@link UpdateRuleGroupCommand}.
+ */
 export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, __MetadataBearer {}
 
 /**

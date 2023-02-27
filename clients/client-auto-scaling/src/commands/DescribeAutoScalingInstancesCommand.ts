@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeAutoScalingInstancesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeAutoScalingInstancesCommand}.
+ */
 export interface DescribeAutoScalingInstancesCommandInput extends DescribeAutoScalingInstancesType {}
+/**
+ * The output of {@link DescribeAutoScalingInstancesCommand}.
+ */
 export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingInstancesType, __MetadataBearer {}
 
 /**

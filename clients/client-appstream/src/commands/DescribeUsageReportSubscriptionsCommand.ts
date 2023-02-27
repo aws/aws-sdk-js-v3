@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeUsageReportSubscriptionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeUsageReportSubscriptionsCommand}.
+ */
 export interface DescribeUsageReportSubscriptionsCommandInput extends DescribeUsageReportSubscriptionsRequest {}
+/**
+ * The output of {@link DescribeUsageReportSubscriptionsCommand}.
+ */
 export interface DescribeUsageReportSubscriptionsCommandOutput
   extends DescribeUsageReportSubscriptionsResult,
     __MetadataBearer {}

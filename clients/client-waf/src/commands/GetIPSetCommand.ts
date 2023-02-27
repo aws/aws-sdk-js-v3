@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1GetIPSetCommand, serializeAws_json1_1GetIPSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * The input for {@link GetIPSetCommand}.
+ */
 export interface GetIPSetCommandInput extends GetIPSetRequest {}
+/**
+ * The output of {@link GetIPSetCommand}.
+ */
 export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBearer {}
 
 /**

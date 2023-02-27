@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ProvisionByoipCidrCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ProvisionByoipCidrCommand}.
+ */
 export interface ProvisionByoipCidrCommandInput extends ProvisionByoipCidrRequest {}
+/**
+ * The output of {@link ProvisionByoipCidrCommand}.
+ */
 export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResult, __MetadataBearer {}
 
 /**

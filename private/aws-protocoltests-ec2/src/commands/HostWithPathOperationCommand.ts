@@ -18,7 +18,13 @@ import {
   serializeAws_ec2HostWithPathOperationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link HostWithPathOperationCommand}.
+ */
 export interface HostWithPathOperationCommandInput {}
+/**
+ * The output of {@link HostWithPathOperationCommand}.
+ */
 export interface HostWithPathOperationCommandOutput extends __MetadataBearer {}
 
 export class HostWithPathOperationCommand extends $Command<

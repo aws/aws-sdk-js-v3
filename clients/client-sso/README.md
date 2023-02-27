@@ -221,3 +221,38 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+GetRoleCredentials
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/classes/getrolecredentialscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/getrolecredentialscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/getrolecredentialscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAccountRoles
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/classes/listaccountrolescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/listaccountrolescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/listaccountrolescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAccounts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/classes/listaccountscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/listaccountscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/listaccountscommandoutput.html)
+
+</details>
+<details>
+<summary>
+Logout
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/classes/logoutcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/logoutcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso/interfaces/logoutcommandoutput.html)
+
+</details>

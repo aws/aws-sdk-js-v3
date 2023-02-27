@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link GetAppValidationConfigurationCommand}.
+ */
 export interface GetAppValidationConfigurationCommandInput extends GetAppValidationConfigurationRequest {}
+/**
+ * The output of {@link GetAppValidationConfigurationCommand}.
+ */
 export interface GetAppValidationConfigurationCommandOutput
   extends GetAppValidationConfigurationResponse,
     __MetadataBearer {}

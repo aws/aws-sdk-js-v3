@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * The input for {@link ListResourceTypesCommand}.
+ */
 export interface ListResourceTypesCommandInput extends ListResourceTypesRequest {}
+/**
+ * The output of {@link ListResourceTypesCommand}.
+ */
 export interface ListResourceTypesCommandOutput extends ListResourceTypesResponse, __MetadataBearer {}
 
 /**

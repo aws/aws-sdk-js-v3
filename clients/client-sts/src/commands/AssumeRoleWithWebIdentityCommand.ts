@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
+/**
+ * The input for {@link AssumeRoleWithWebIdentityCommand}.
+ */
 export interface AssumeRoleWithWebIdentityCommandInput extends AssumeRoleWithWebIdentityRequest {}
+/**
+ * The output of {@link AssumeRoleWithWebIdentityCommand}.
+ */
 export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWebIdentityResponse, __MetadataBearer {}
 
 /**

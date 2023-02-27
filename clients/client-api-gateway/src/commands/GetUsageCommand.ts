@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1GetUsageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetUsageCommand}.
+ */
 export interface GetUsageCommandInput extends GetUsageRequest {}
+/**
+ * The output of {@link GetUsageCommand}.
+ */
 export interface GetUsageCommandOutput extends Usage, __MetadataBearer {}
 
 /**

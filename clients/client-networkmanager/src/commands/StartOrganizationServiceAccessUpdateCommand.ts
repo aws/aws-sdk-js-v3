@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartOrganizationServiceAccessUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartOrganizationServiceAccessUpdateCommand}.
+ */
 export interface StartOrganizationServiceAccessUpdateCommandInput extends StartOrganizationServiceAccessUpdateRequest {}
+/**
+ * The output of {@link StartOrganizationServiceAccessUpdateCommand}.
+ */
 export interface StartOrganizationServiceAccessUpdateCommandOutput
   extends StartOrganizationServiceAccessUpdateResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateFunctionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateFunctionCommand}.
+ */
 export interface CreateFunctionCommandInput extends CreateFunctionRequest {}
+/**
+ * The output of {@link CreateFunctionCommand}.
+ */
 export interface CreateFunctionCommandOutput extends CreateFunctionResponse, __MetadataBearer {}
 
 /**

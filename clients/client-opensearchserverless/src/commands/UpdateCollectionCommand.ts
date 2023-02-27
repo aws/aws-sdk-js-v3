@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0UpdateCollectionCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateCollectionCommand}.
+ */
 export interface UpdateCollectionCommandInput extends UpdateCollectionRequest {}
+/**
+ * The output of {@link UpdateCollectionCommand}.
+ */
 export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse, __MetadataBearer {}
 
 /**

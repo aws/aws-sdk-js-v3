@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
+/**
+ * The input for {@link GetAppMonitorDataCommand}.
+ */
 export interface GetAppMonitorDataCommandInput extends GetAppMonitorDataRequest {}
+/**
+ * The output of {@link GetAppMonitorDataCommand}.
+ */
 export interface GetAppMonitorDataCommandOutput extends GetAppMonitorDataResponse, __MetadataBearer {}
 
 /**

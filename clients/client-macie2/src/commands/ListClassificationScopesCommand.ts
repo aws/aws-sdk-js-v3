@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListClassificationScopesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListClassificationScopesCommand}.
+ */
 export interface ListClassificationScopesCommandInput extends ListClassificationScopesRequest {}
+/**
+ * The output of {@link ListClassificationScopesCommand}.
+ */
 export interface ListClassificationScopesCommandOutput extends ListClassificationScopesResponse, __MetadataBearer {}
 
 /**

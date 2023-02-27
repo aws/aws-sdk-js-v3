@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeConformancePackStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeConformancePackStatusCommand}.
+ */
 export interface DescribeConformancePackStatusCommandInput extends DescribeConformancePackStatusRequest {}
+/**
+ * The output of {@link DescribeConformancePackStatusCommand}.
+ */
 export interface DescribeConformancePackStatusCommandOutput
   extends DescribeConformancePackStatusResponse,
     __MetadataBearer {}

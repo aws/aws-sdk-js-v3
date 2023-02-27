@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateAccountCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateAccountCommand}.
+ */
 export interface CreateAccountCommandInput extends CreateAccountRequest {}
+/**
+ * The output of {@link CreateAccountCommand}.
+ */
 export interface CreateAccountCommandOutput extends CreateAccountResponse, __MetadataBearer {}
 
 /**

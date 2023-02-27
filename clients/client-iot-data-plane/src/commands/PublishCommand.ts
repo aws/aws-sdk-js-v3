@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1PublishCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PublishCommand}.
+ */
 export interface PublishCommandInput extends PublishRequest {}
+/**
+ * The output of {@link PublishCommand}.
+ */
 export interface PublishCommandOutput extends __MetadataBearer {}
 
 /**

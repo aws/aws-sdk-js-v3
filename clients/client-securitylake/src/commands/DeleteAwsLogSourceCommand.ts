@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * The input for {@link DeleteAwsLogSourceCommand}.
+ */
 export interface DeleteAwsLogSourceCommandInput extends DeleteAwsLogSourceRequest {}
+/**
+ * The output of {@link DeleteAwsLogSourceCommand}.
+ */
 export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceResponse, __MetadataBearer {}
 
 /**

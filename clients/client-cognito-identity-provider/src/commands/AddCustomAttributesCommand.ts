@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AddCustomAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddCustomAttributesCommand}.
+ */
 export interface AddCustomAttributesCommandInput extends AddCustomAttributesRequest {}
+/**
+ * The output of {@link AddCustomAttributesCommand}.
+ */
 export interface AddCustomAttributesCommandOutput extends AddCustomAttributesResponse, __MetadataBearer {}
 
 /**

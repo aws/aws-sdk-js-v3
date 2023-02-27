@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListInstanceAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListInstanceAttributesCommand}.
+ */
 export interface ListInstanceAttributesCommandInput extends ListInstanceAttributesRequest {}
+/**
+ * The output of {@link ListInstanceAttributesCommand}.
+ */
 export interface ListInstanceAttributesCommandOutput extends ListInstanceAttributesResponse, __MetadataBearer {}
 
 /**

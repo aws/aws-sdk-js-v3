@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeAlarmsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeAlarmsCommand}.
+ */
 export interface DescribeAlarmsCommandInput extends DescribeAlarmsInput {}
+/**
+ * The output of {@link DescribeAlarmsCommand}.
+ */
 export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteImagePermissionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteImagePermissionsCommand}.
+ */
 export interface DeleteImagePermissionsCommandInput extends DeleteImagePermissionsRequest {}
+/**
+ * The output of {@link DeleteImagePermissionsCommand}.
+ */
 export interface DeleteImagePermissionsCommandOutput extends DeleteImagePermissionsResult, __MetadataBearer {}
 
 /**

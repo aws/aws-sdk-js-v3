@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetComputeAccessCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetComputeAccessCommand}.
+ */
 export interface GetComputeAccessCommandInput extends GetComputeAccessInput {}
+/**
+ * The output of {@link GetComputeAccessCommand}.
+ */
 export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, __MetadataBearer {}
 
 /**

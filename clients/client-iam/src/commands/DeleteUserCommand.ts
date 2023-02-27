@@ -17,7 +17,13 @@ import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { DeleteUserRequest, DeleteUserRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryDeleteUserCommand, serializeAws_queryDeleteUserCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteUserCommand}.
+ */
 export interface DeleteUserCommandInput extends DeleteUserRequest {}
+/**
+ * The output of {@link DeleteUserCommand}.
+ */
 export interface DeleteUserCommandOutput extends __MetadataBearer {}
 
 /**

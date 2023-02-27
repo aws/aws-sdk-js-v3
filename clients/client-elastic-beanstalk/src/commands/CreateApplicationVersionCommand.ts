@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateApplicationVersionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateApplicationVersionCommand}.
+ */
 export interface CreateApplicationVersionCommandInput extends CreateApplicationVersionMessage {}
+/**
+ * The output of {@link CreateApplicationVersionCommand}.
+ */
 export interface CreateApplicationVersionCommandOutput extends ApplicationVersionDescriptionMessage, __MetadataBearer {}
 
 /**

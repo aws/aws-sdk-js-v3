@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DisableImageDeprecationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisableImageDeprecationCommand}.
+ */
 export interface DisableImageDeprecationCommandInput extends DisableImageDeprecationRequest {}
+/**
+ * The output of {@link DisableImageDeprecationCommand}.
+ */
 export interface DisableImageDeprecationCommandOutput extends DisableImageDeprecationResult, __MetadataBearer {}
 
 /**

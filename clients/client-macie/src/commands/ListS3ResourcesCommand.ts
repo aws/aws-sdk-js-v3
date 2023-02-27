@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListS3ResourcesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListS3ResourcesCommand}.
+ */
 export interface ListS3ResourcesCommandInput extends ListS3ResourcesRequest {}
+/**
+ * The output of {@link ListS3ResourcesCommand}.
+ */
 export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __MetadataBearer {}
 
 /**

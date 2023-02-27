@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateFindingsReportCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateFindingsReportCommand}.
+ */
 export interface CreateFindingsReportCommandInput extends CreateFindingsReportRequest {}
+/**
+ * The output of {@link CreateFindingsReportCommand}.
+ */
 export interface CreateFindingsReportCommandOutput extends CreateFindingsReportResponse, __MetadataBearer {}
 
 /**

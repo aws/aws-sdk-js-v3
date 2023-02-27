@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * The input for {@link SendTaskFailureCommand}.
+ */
 export interface SendTaskFailureCommandInput extends SendTaskFailureInput {}
+/**
+ * The output of {@link SendTaskFailureCommand}.
+ */
 export interface SendTaskFailureCommandOutput extends SendTaskFailureOutput, __MetadataBearer {}
 
 /**

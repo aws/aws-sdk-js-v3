@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetCampaignStateBatchCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetCampaignStateBatchCommand}.
+ */
 export interface GetCampaignStateBatchCommandInput extends GetCampaignStateBatchRequest {}
+/**
+ * The output of {@link GetCampaignStateBatchCommand}.
+ */
 export interface GetCampaignStateBatchCommandOutput extends GetCampaignStateBatchResponse, __MetadataBearer {}
 
 /**

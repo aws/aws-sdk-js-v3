@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * The input for {@link AssociateDefaultViewCommand}.
+ */
 export interface AssociateDefaultViewCommandInput extends AssociateDefaultViewInput {}
+/**
+ * The output of {@link AssociateDefaultViewCommand}.
+ */
 export interface AssociateDefaultViewCommandOutput extends AssociateDefaultViewOutput, __MetadataBearer {}
 
 /**

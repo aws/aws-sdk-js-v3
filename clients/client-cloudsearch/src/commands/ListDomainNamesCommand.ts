@@ -20,7 +20,13 @@ import {
   serializeAws_queryListDomainNamesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListDomainNamesCommand}.
+ */
 export interface ListDomainNamesCommandInput {}
+/**
+ * The output of {@link ListDomainNamesCommand}.
+ */
 export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, __MetadataBearer {}
 
 /**

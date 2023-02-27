@@ -25,7 +25,13 @@ import {
   serializeAws_queryListGroupsForUserCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListGroupsForUserCommand}.
+ */
 export interface ListGroupsForUserCommandInput extends ListGroupsForUserRequest {}
+/**
+ * The output of {@link ListGroupsForUserCommand}.
+ */
 export interface ListGroupsForUserCommandOutput extends ListGroupsForUserResponse, __MetadataBearer {}
 
 /**

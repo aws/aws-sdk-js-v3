@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetClassificationExportConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetClassificationExportConfigurationCommand}.
+ */
 export interface GetClassificationExportConfigurationCommandInput extends GetClassificationExportConfigurationRequest {}
+/**
+ * The output of {@link GetClassificationExportConfigurationCommand}.
+ */
 export interface GetClassificationExportConfigurationCommandOutput
   extends GetClassificationExportConfigurationResponse,
     __MetadataBearer {}

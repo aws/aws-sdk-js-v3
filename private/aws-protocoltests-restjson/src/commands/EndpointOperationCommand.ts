@@ -18,7 +18,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link EndpointOperationCommand}.
+ */
 export interface EndpointOperationCommandInput {}
+/**
+ * The output of {@link EndpointOperationCommand}.
+ */
 export interface EndpointOperationCommandOutput extends __MetadataBearer {}
 
 export class EndpointOperationCommand extends $Command<

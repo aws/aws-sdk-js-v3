@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SendEventCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SendEventCommand}.
+ */
 export interface SendEventCommandInput extends SendEventRequest {}
+/**
+ * The output of {@link SendEventCommand}.
+ */
 export interface SendEventCommandOutput extends SendEventResponse, __MetadataBearer {}
 
 /**

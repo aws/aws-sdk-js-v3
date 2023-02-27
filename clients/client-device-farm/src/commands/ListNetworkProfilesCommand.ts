@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListNetworkProfilesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListNetworkProfilesCommand}.
+ */
 export interface ListNetworkProfilesCommandInput extends ListNetworkProfilesRequest {}
+/**
+ * The output of {@link ListNetworkProfilesCommand}.
+ */
 export interface ListNetworkProfilesCommandOutput extends ListNetworkProfilesResult, __MetadataBearer {}
 
 /**

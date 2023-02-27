@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDevicePoolCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDevicePoolCommand}.
+ */
 export interface CreateDevicePoolCommandInput extends CreateDevicePoolRequest {}
+/**
+ * The output of {@link CreateDevicePoolCommand}.
+ */
 export interface CreateDevicePoolCommandOutput extends CreateDevicePoolResult, __MetadataBearer {}
 
 /**

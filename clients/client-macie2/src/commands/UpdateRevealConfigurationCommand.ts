@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateRevealConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateRevealConfigurationCommand}.
+ */
 export interface UpdateRevealConfigurationCommandInput extends UpdateRevealConfigurationRequest {}
+/**
+ * The output of {@link UpdateRevealConfigurationCommand}.
+ */
 export interface UpdateRevealConfigurationCommandOutput extends UpdateRevealConfigurationResponse, __MetadataBearer {}
 
 /**

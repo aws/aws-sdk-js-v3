@@ -21,7 +21,13 @@ import {
   serializeAws_restJson1GetRetentionSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetRetentionSettingsCommand}.
+ */
 export interface GetRetentionSettingsCommandInput extends GetRetentionSettingsRequest {}
+/**
+ * The output of {@link GetRetentionSettingsCommand}.
+ */
 export interface GetRetentionSettingsCommandOutput extends GetRetentionSettingsResponse, __MetadataBearer {}
 
 /**

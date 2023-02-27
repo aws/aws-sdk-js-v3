@@ -16,7 +16,13 @@ import { XmlMapsOutput, XmlMapsOutputFilterSensitiveLog } from "../models/models
 import { deserializeAws_queryXmlEmptyMapsCommand, serializeAws_queryXmlEmptyMapsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link XmlEmptyMapsCommand}.
+ */
 export interface XmlEmptyMapsCommandInput {}
+/**
+ * The output of {@link XmlEmptyMapsCommand}.
+ */
 export interface XmlEmptyMapsCommandOutput extends XmlMapsOutput, __MetadataBearer {}
 
 export class XmlEmptyMapsCommand extends $Command<

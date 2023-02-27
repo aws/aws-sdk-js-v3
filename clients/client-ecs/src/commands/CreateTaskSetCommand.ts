@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateTaskSetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateTaskSetCommand}.
+ */
 export interface CreateTaskSetCommandInput extends CreateTaskSetRequest {}
+/**
+ * The output of {@link CreateTaskSetCommand}.
+ */
 export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __MetadataBearer {}
 
 /**

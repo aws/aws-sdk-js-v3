@@ -24,7 +24,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * The input for {@link DeleteRecoveryGroupCommand}.
+ */
 export interface DeleteRecoveryGroupCommandInput extends DeleteRecoveryGroupRequest {}
+/**
+ * The output of {@link DeleteRecoveryGroupCommand}.
+ */
 export interface DeleteRecoveryGroupCommandOutput extends __MetadataBearer {}
 
 /**

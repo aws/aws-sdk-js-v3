@@ -17,7 +17,13 @@ import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 import { DeleteFaqRequest, DeleteFaqRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_json1_1DeleteFaqCommand, serializeAws_json1_1DeleteFaqCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteFaqCommand}.
+ */
 export interface DeleteFaqCommandInput extends DeleteFaqRequest {}
+/**
+ * The output of {@link DeleteFaqCommand}.
+ */
 export interface DeleteFaqCommandOutput extends __MetadataBearer {}
 
 /**

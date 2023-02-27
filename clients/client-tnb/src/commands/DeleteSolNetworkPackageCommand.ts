@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
+/**
+ * The input for {@link DeleteSolNetworkPackageCommand}.
+ */
 export interface DeleteSolNetworkPackageCommandInput extends DeleteSolNetworkPackageInput {}
+/**
+ * The output of {@link DeleteSolNetworkPackageCommand}.
+ */
 export interface DeleteSolNetworkPackageCommandOutput extends __MetadataBearer {}
 
 /**

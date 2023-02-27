@@ -22,7 +22,13 @@ import {
 } from "../models/models_3";
 import { deserializeAws_ec2DescribeFleetsCommand, serializeAws_ec2DescribeFleetsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeFleetsCommand}.
+ */
 export interface DescribeFleetsCommandInput extends DescribeFleetsRequest {}
+/**
+ * The output of {@link DescribeFleetsCommand}.
+ */
 export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __MetadataBearer {}
 
 /**

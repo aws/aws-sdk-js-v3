@@ -26,7 +26,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_restJson1GetBotCommand, serializeAws_restJson1GetBotCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBotCommand}.
+ */
 export interface GetBotCommandInput extends GetBotRequest {}
+/**
+ * The output of {@link GetBotCommand}.
+ */
 export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
 
 /**

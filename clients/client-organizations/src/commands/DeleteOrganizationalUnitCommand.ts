@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteOrganizationalUnitCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteOrganizationalUnitCommand}.
+ */
 export interface DeleteOrganizationalUnitCommandInput extends DeleteOrganizationalUnitRequest {}
+/**
+ * The output of {@link DeleteOrganizationalUnitCommand}.
+ */
 export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer {}
 
 /**

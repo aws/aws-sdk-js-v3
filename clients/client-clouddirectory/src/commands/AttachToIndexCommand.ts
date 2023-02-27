@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AttachToIndexCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AttachToIndexCommand}.
+ */
 export interface AttachToIndexCommandInput extends AttachToIndexRequest {}
+/**
+ * The output of {@link AttachToIndexCommand}.
+ */
 export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __MetadataBearer {}
 
 /**

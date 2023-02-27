@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDelegationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDelegationsCommand}.
+ */
 export interface GetDelegationsCommandInput extends GetDelegationsRequest {}
+/**
+ * The output of {@link GetDelegationsCommand}.
+ */
 export interface GetDelegationsCommandOutput extends GetDelegationsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link DeleteUserCommand}.
+ */
 export interface DeleteUserCommandInput extends DeleteUserRequest {}
+/**
+ * The output of {@link DeleteUserCommand}.
+ */
 export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataBearer {}
 
 /**

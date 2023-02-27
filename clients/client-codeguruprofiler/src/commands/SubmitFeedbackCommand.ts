@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SubmitFeedbackCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SubmitFeedbackCommand}.
+ */
 export interface SubmitFeedbackCommandInput extends SubmitFeedbackRequest {}
+/**
+ * The output of {@link SubmitFeedbackCommand}.
+ */
 export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __MetadataBearer {}
 
 /**

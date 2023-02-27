@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
+/**
+ * The input for {@link PutPermissionsBoundaryToPermissionSetCommand}.
+ */
 export interface PutPermissionsBoundaryToPermissionSetCommandInput
   extends PutPermissionsBoundaryToPermissionSetRequest {}
+/**
+ * The output of {@link PutPermissionsBoundaryToPermissionSetCommand}.
+ */
 export interface PutPermissionsBoundaryToPermissionSetCommandOutput
   extends PutPermissionsBoundaryToPermissionSetResponse,
     __MetadataBearer {}

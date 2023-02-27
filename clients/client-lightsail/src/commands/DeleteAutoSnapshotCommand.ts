@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteAutoSnapshotCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteAutoSnapshotCommand}.
+ */
 export interface DeleteAutoSnapshotCommandInput extends DeleteAutoSnapshotRequest {}
+/**
+ * The output of {@link DeleteAutoSnapshotCommand}.
+ */
 export interface DeleteAutoSnapshotCommandOutput extends DeleteAutoSnapshotResult, __MetadataBearer {}
 
 /**

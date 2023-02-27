@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link CreateConfigurationSetEventDestinationCommand}.
+ */
 export interface CreateConfigurationSetEventDestinationCommandInput
   extends CreateConfigurationSetEventDestinationRequest {}
+/**
+ * The output of {@link CreateConfigurationSetEventDestinationCommand}.
+ */
 export interface CreateConfigurationSetEventDestinationCommandOutput
   extends CreateConfigurationSetEventDestinationResponse,
     __MetadataBearer {}

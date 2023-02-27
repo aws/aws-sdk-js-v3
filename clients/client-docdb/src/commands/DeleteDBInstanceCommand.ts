@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteDBInstanceCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteDBInstanceCommand}.
+ */
 export interface DeleteDBInstanceCommandInput extends DeleteDBInstanceMessage {}
+/**
+ * The output of {@link DeleteDBInstanceCommand}.
+ */
 export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * The input for {@link GetSampledRequestsCommand}.
+ */
 export interface GetSampledRequestsCommandInput extends GetSampledRequestsRequest {}
+/**
+ * The output of {@link GetSampledRequestsCommand}.
+ */
 export interface GetSampledRequestsCommandOutput extends GetSampledRequestsResponse, __MetadataBearer {}
 
 /**

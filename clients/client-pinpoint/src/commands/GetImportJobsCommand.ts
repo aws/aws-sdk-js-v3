@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetImportJobsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetImportJobsCommand}.
+ */
 export interface GetImportJobsCommandInput extends GetImportJobsRequest {}
+/**
+ * The output of {@link GetImportJobsCommand}.
+ */
 export interface GetImportJobsCommandOutput extends GetImportJobsResponse, __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 } from "../models/models_2";
 import { deserializeAws_ec2CreateVpcCommand, serializeAws_ec2CreateVpcCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateVpcCommand}.
+ */
 export interface CreateVpcCommandInput extends CreateVpcRequest {}
+/**
+ * The output of {@link CreateVpcCommand}.
+ */
 export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBearer {}
 
 /**

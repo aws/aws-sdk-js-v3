@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeScheduledActionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeScheduledActionsCommand}.
+ */
 export interface DescribeScheduledActionsCommandInput extends DescribeScheduledActionsRequest {}
+/**
+ * The output of {@link DescribeScheduledActionsCommand}.
+ */
 export interface DescribeScheduledActionsCommandOutput extends DescribeScheduledActionsResponse, __MetadataBearer {}
 
 /**

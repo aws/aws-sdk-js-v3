@@ -25,7 +25,13 @@ import {
   serializeAws_queryContinueUpdateRollbackCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ContinueUpdateRollbackCommand}.
+ */
 export interface ContinueUpdateRollbackCommandInput extends ContinueUpdateRollbackInput {}
+/**
+ * The output of {@link ContinueUpdateRollbackCommand}.
+ */
 export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollbackOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryListPlatformVersionsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListPlatformVersionsCommand}.
+ */
 export interface ListPlatformVersionsCommandInput extends ListPlatformVersionsRequest {}
+/**
+ * The output of {@link ListPlatformVersionsCommand}.
+ */
 export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsResult, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_queryRestartAppServerCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RestartAppServerCommand}.
+ */
 export interface RestartAppServerCommandInput extends RestartAppServerMessage {}
+/**
+ * The output of {@link RestartAppServerCommand}.
+ */
 export interface RestartAppServerCommandOutput extends __MetadataBearer {}
 
 /**

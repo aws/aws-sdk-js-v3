@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateBackendCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateBackendCommand}.
+ */
 export interface CreateBackendCommandInput extends CreateBackendRequest {}
+/**
+ * The output of {@link CreateBackendCommand}.
+ */
 export interface CreateBackendCommandOutput extends CreateBackendResponse, __MetadataBearer {}
 
 /**

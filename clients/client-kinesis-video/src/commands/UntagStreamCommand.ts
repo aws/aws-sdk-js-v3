@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UntagStreamCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UntagStreamCommand}.
+ */
 export interface UntagStreamCommandInput extends UntagStreamInput {}
+/**
+ * The output of {@link UntagStreamCommand}.
+ */
 export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1InvalidateProjectCacheCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link InvalidateProjectCacheCommand}.
+ */
 export interface InvalidateProjectCacheCommandInput extends InvalidateProjectCacheInput {}
+/**
+ * The output of {@link InvalidateProjectCacheCommand}.
+ */
 export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCacheOutput, __MetadataBearer {}
 
 /**

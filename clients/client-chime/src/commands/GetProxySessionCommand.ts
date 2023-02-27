@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetProxySessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetProxySessionCommand}.
+ */
 export interface GetProxySessionCommandInput extends GetProxySessionRequest {}
+/**
+ * The output of {@link GetProxySessionCommand}.
+ */
 export interface GetProxySessionCommandOutput extends GetProxySessionResponse, __MetadataBearer {}
 
 /**

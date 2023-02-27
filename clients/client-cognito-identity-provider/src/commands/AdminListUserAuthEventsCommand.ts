@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminListUserAuthEventsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminListUserAuthEventsCommand}.
+ */
 export interface AdminListUserAuthEventsCommandInput extends AdminListUserAuthEventsRequest {}
+/**
+ * The output of {@link AdminListUserAuthEventsCommand}.
+ */
 export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthEventsResponse, __MetadataBearer {}
 
 /**

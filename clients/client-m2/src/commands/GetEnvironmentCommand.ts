@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetEnvironmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetEnvironmentCommand}.
+ */
 export interface GetEnvironmentCommandInput extends GetEnvironmentRequest {}
+/**
+ * The output of {@link GetEnvironmentCommand}.
+ */
 export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __MetadataBearer {}
 
 /**

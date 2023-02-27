@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * The input for {@link DeleteApplicationCommand}.
+ */
 export interface DeleteApplicationCommandInput extends DeleteApplicationRequest {}
+/**
+ * The output of {@link DeleteApplicationCommand}.
+ */
 export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**

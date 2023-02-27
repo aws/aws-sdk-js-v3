@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutDataProtectionPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutDataProtectionPolicyCommand}.
+ */
 export interface PutDataProtectionPolicyCommandInput extends PutDataProtectionPolicyRequest {}
+/**
+ * The output of {@link PutDataProtectionPolicyCommand}.
+ */
 export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**

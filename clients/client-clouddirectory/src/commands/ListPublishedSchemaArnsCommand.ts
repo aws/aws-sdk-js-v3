@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListPublishedSchemaArnsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPublishedSchemaArnsCommand}.
+ */
 export interface ListPublishedSchemaArnsCommandInput extends ListPublishedSchemaArnsRequest {}
+/**
+ * The output of {@link ListPublishedSchemaArnsCommand}.
+ */
 export interface ListPublishedSchemaArnsCommandOutput extends ListPublishedSchemaArnsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeAddressesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeAddressesCommand}.
+ */
 export interface DescribeAddressesCommandInput extends DescribeAddressesRequest {}
+/**
+ * The output of {@link DescribeAddressesCommand}.
+ */
 export interface DescribeAddressesCommandOutput extends DescribeAddressesResult, __MetadataBearer {}
 
 /**

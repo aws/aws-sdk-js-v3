@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ExecuteStatementCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ExecuteStatementCommand}.
+ */
 export interface ExecuteStatementCommandInput extends ExecuteStatementInput {}
+/**
+ * The output of {@link ExecuteStatementCommand}.
+ */
 export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartSuiteRunCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartSuiteRunCommand}.
+ */
 export interface StartSuiteRunCommandInput extends StartSuiteRunRequest {}
+/**
+ * The output of {@link StartSuiteRunCommand}.
+ */
 export interface StartSuiteRunCommandOutput extends StartSuiteRunResponse, __MetadataBearer {}
 
 /**

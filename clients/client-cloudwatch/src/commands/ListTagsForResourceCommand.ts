@@ -25,7 +25,13 @@ import {
   serializeAws_queryListTagsForResourceCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandInput extends ListTagsForResourceInput {}
+/**
+ * The output of {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**

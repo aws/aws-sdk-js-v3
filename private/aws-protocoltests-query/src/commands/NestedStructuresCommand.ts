@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link NestedStructuresCommand}.
+ */
 export interface NestedStructuresCommandInput extends NestedStructuresInput {}
+/**
+ * The output of {@link NestedStructuresCommand}.
+ */
 export interface NestedStructuresCommandOutput extends __MetadataBearer {}
 
 /**

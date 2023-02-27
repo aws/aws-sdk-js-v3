@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * The input for {@link DisassociateDomainCommand}.
+ */
 export interface DisassociateDomainCommandInput extends DisassociateDomainRequest {}
+/**
+ * The output of {@link DisassociateDomainCommand}.
+ */
 export interface DisassociateDomainCommandOutput extends DisassociateDomainResponse, __MetadataBearer {}
 
 /**

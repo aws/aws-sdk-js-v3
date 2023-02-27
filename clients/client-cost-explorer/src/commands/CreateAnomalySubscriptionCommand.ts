@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateAnomalySubscriptionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateAnomalySubscriptionCommand}.
+ */
 export interface CreateAnomalySubscriptionCommandInput extends CreateAnomalySubscriptionRequest {}
+/**
+ * The output of {@link CreateAnomalySubscriptionCommand}.
+ */
 export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateAppInstanceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateAppInstanceCommand}.
+ */
 export interface UpdateAppInstanceCommandInput extends UpdateAppInstanceRequest {}
+/**
+ * The output of {@link UpdateAppInstanceCommand}.
+ */
 export interface UpdateAppInstanceCommandOutput extends UpdateAppInstanceResponse, __MetadataBearer {}
 
 /**

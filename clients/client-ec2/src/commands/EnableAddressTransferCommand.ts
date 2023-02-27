@@ -25,7 +25,13 @@ import {
   serializeAws_ec2EnableAddressTransferCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link EnableAddressTransferCommand}.
+ */
 export interface EnableAddressTransferCommandInput extends EnableAddressTransferRequest {}
+/**
+ * The output of {@link EnableAddressTransferCommand}.
+ */
 export interface EnableAddressTransferCommandOutput extends EnableAddressTransferResult, __MetadataBearer {}
 
 /**

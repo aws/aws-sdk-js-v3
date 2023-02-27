@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateFindingsFilterCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateFindingsFilterCommand}.
+ */
 export interface UpdateFindingsFilterCommandInput extends UpdateFindingsFilterRequest {}
+/**
+ * The output of {@link UpdateFindingsFilterCommand}.
+ */
 export interface UpdateFindingsFilterCommandOutput extends UpdateFindingsFilterResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * The input for {@link StopDiscovererCommand}.
+ */
 export interface StopDiscovererCommandInput extends StopDiscovererRequest {}
+/**
+ * The output of {@link StopDiscovererCommand}.
+ */
 export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __MetadataBearer {}
 
 /**

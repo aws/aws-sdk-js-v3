@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1AssociateApprovedOriginCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateApprovedOriginCommand}.
+ */
 export interface AssociateApprovedOriginCommandInput extends AssociateApprovedOriginRequest {}
+/**
+ * The output of {@link AssociateApprovedOriginCommand}.
+ */
 export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {}
 
 /**

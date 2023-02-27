@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link DescribeIAMPolicyAssignmentCommand}.
+ */
 export interface DescribeIAMPolicyAssignmentCommandInput extends DescribeIAMPolicyAssignmentRequest {}
+/**
+ * The output of {@link DescribeIAMPolicyAssignmentCommand}.
+ */
 export interface DescribeIAMPolicyAssignmentCommandOutput
   extends DescribeIAMPolicyAssignmentResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DisassociateSubnetsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DisassociateSubnetsCommand}.
+ */
 export interface DisassociateSubnetsCommandInput extends DisassociateSubnetsRequest {}
+/**
+ * The output of {@link DisassociateSubnetsCommand}.
+ */
 export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsResponse, __MetadataBearer {}
 
 /**

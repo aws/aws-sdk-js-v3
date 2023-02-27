@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryGetDashboardCommand, serializeAws_queryGetDashboardCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetDashboardCommand}.
+ */
 export interface GetDashboardCommandInput extends GetDashboardInput {}
+/**
+ * The output of {@link GetDashboardCommand}.
+ */
 export interface GetDashboardCommandOutput extends GetDashboardOutput, __MetadataBearer {}
 
 /**

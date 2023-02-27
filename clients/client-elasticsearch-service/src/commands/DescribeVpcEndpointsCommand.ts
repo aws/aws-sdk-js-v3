@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DescribeVpcEndpointsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeVpcEndpointsCommand}.
+ */
 export interface DescribeVpcEndpointsCommandInput extends DescribeVpcEndpointsRequest {}
+/**
+ * The output of {@link DescribeVpcEndpointsCommand}.
+ */
 export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsResponse, __MetadataBearer {}
 
 /**

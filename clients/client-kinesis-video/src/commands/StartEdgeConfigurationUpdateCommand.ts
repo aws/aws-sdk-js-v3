@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartEdgeConfigurationUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartEdgeConfigurationUpdateCommand}.
+ */
 export interface StartEdgeConfigurationUpdateCommandInput extends StartEdgeConfigurationUpdateInput {}
+/**
+ * The output of {@link StartEdgeConfigurationUpdateCommand}.
+ */
 export interface StartEdgeConfigurationUpdateCommandOutput
   extends StartEdgeConfigurationUpdateOutput,
     __MetadataBearer {}

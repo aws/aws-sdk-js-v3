@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link AuthorizeClusterSecurityGroupIngressCommand}.
+ */
 export interface AuthorizeClusterSecurityGroupIngressCommandInput extends AuthorizeClusterSecurityGroupIngressMessage {}
+/**
+ * The output of {@link AuthorizeClusterSecurityGroupIngressCommand}.
+ */
 export interface AuthorizeClusterSecurityGroupIngressCommandOutput
   extends AuthorizeClusterSecurityGroupIngressResult,
     __MetadataBearer {}

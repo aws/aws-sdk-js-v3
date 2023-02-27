@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link GetReusableDelegationSetLimitCommand}.
+ */
 export interface GetReusableDelegationSetLimitCommandInput extends GetReusableDelegationSetLimitRequest {}
+/**
+ * The output of {@link GetReusableDelegationSetLimitCommand}.
+ */
 export interface GetReusableDelegationSetLimitCommandOutput
   extends GetReusableDelegationSetLimitResponse,
     __MetadataBearer {}

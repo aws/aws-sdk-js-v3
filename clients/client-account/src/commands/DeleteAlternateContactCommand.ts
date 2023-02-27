@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteAlternateContactCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAlternateContactCommand}.
+ */
 export interface DeleteAlternateContactCommandInput extends DeleteAlternateContactRequest {}
+/**
+ * The output of {@link DeleteAlternateContactCommand}.
+ */
 export interface DeleteAlternateContactCommandOutput extends __MetadataBearer {}
 
 /**

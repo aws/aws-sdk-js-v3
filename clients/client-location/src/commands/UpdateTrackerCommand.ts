@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateTrackerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateTrackerCommand}.
+ */
 export interface UpdateTrackerCommandInput extends UpdateTrackerRequest {}
+/**
+ * The output of {@link UpdateTrackerCommand}.
+ */
 export interface UpdateTrackerCommandOutput extends UpdateTrackerResponse, __MetadataBearer {}
 
 /**

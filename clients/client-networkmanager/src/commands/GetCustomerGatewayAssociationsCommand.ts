@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetCustomerGatewayAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetCustomerGatewayAssociationsCommand}.
+ */
 export interface GetCustomerGatewayAssociationsCommandInput extends GetCustomerGatewayAssociationsRequest {}
+/**
+ * The output of {@link GetCustomerGatewayAssociationsCommand}.
+ */
 export interface GetCustomerGatewayAssociationsCommandOutput
   extends GetCustomerGatewayAssociationsResponse,
     __MetadataBearer {}

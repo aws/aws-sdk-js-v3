@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateHITTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateHITTypeCommand}.
+ */
 export interface CreateHITTypeCommandInput extends CreateHITTypeRequest {}
+/**
+ * The output of {@link CreateHITTypeCommand}.
+ */
 export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __MetadataBearer {}
 
 /**

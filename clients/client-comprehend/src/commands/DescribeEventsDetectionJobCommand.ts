@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeEventsDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeEventsDetectionJobCommand}.
+ */
 export interface DescribeEventsDetectionJobCommandInput extends DescribeEventsDetectionJobRequest {}
+/**
+ * The output of {@link DescribeEventsDetectionJobCommand}.
+ */
 export interface DescribeEventsDetectionJobCommandOutput extends DescribeEventsDetectionJobResponse, __MetadataBearer {}
 
 /**

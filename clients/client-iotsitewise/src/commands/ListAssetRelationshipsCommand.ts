@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAssetRelationshipsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAssetRelationshipsCommand}.
+ */
 export interface ListAssetRelationshipsCommandInput extends ListAssetRelationshipsRequest {}
+/**
+ * The output of {@link ListAssetRelationshipsCommand}.
+ */
 export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationshipsResponse, __MetadataBearer {}
 
 /**

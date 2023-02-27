@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * The input for {@link RestoreSecretCommand}.
+ */
 export interface RestoreSecretCommandInput extends RestoreSecretRequest {}
+/**
+ * The output of {@link RestoreSecretCommand}.
+ */
 export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * The input for {@link DescribeEmergencyContactSettingsCommand}.
+ */
 export interface DescribeEmergencyContactSettingsCommandInput extends DescribeEmergencyContactSettingsRequest {}
+/**
+ * The output of {@link DescribeEmergencyContactSettingsCommand}.
+ */
 export interface DescribeEmergencyContactSettingsCommandOutput
   extends DescribeEmergencyContactSettingsResponse,
     __MetadataBearer {}

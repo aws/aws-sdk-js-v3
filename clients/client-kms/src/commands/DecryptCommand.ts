@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1DecryptCommand, serializeAws_json1_1DecryptCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DecryptCommand}.
+ */
 export interface DecryptCommandInput extends DecryptRequest {}
+/**
+ * The output of {@link DecryptCommand}.
+ */
 export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer {}
 
 /**

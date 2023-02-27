@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AttachThingPrincipalCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AttachThingPrincipalCommand}.
+ */
 export interface AttachThingPrincipalCommandInput extends AttachThingPrincipalRequest {}
+/**
+ * The output of {@link AttachThingPrincipalCommand}.
+ */
 export interface AttachThingPrincipalCommandOutput extends AttachThingPrincipalResponse, __MetadataBearer {}
 
 /**

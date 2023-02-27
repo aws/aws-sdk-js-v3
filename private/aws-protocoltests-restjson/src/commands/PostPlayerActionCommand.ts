@@ -24,7 +24,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link PostPlayerActionCommand}.
+ */
 export interface PostPlayerActionCommandInput extends PostPlayerActionInput {}
+/**
+ * The output of {@link PostPlayerActionCommand}.
+ */
 export interface PostPlayerActionCommandOutput extends PostPlayerActionOutput, __MetadataBearer {}
 
 /**

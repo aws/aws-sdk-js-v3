@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link UpdateServiceActionCommand}.
+ */
 export interface UpdateServiceActionCommandInput extends UpdateServiceActionInput {}
+/**
+ * The output of {@link UpdateServiceActionCommand}.
+ */
 export interface UpdateServiceActionCommandOutput extends UpdateServiceActionOutput, __MetadataBearer {}
 
 /**

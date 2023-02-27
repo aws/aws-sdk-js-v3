@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeVocabularyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeVocabularyCommand}.
+ */
 export interface DescribeVocabularyCommandInput extends DescribeVocabularyRequest {}
+/**
+ * The output of {@link DescribeVocabularyCommand}.
+ */
 export interface DescribeVocabularyCommandOutput extends DescribeVocabularyResponse, __MetadataBearer {}
 
 /**

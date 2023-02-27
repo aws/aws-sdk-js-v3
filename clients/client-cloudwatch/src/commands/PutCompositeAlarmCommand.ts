@@ -20,7 +20,13 @@ import {
   serializeAws_queryPutCompositeAlarmCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PutCompositeAlarmCommand}.
+ */
 export interface PutCompositeAlarmCommandInput extends PutCompositeAlarmInput {}
+/**
+ * The output of {@link PutCompositeAlarmCommand}.
+ */
 export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link GetIdentityMailFromDomainAttributesCommand}.
+ */
 export interface GetIdentityMailFromDomainAttributesCommandInput extends GetIdentityMailFromDomainAttributesRequest {}
+/**
+ * The output of {@link GetIdentityMailFromDomainAttributesCommand}.
+ */
 export interface GetIdentityMailFromDomainAttributesCommandOutput
   extends GetIdentityMailFromDomainAttributesResponse,
     __MetadataBearer {}

@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
+/**
+ * The input for {@link DeleteSpeakerCommand}.
+ */
 export interface DeleteSpeakerCommandInput extends DeleteSpeakerRequest {}
+/**
+ * The output of {@link DeleteSpeakerCommand}.
+ */
 export interface DeleteSpeakerCommandOutput extends __MetadataBearer {}
 
 /**

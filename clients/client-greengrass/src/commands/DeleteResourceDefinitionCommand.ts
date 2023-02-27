@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteResourceDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteResourceDefinitionCommand}.
+ */
 export interface DeleteResourceDefinitionCommandInput extends DeleteResourceDefinitionRequest {}
+/**
+ * The output of {@link DeleteResourceDefinitionCommand}.
+ */
 export interface DeleteResourceDefinitionCommandOutput extends DeleteResourceDefinitionResponse, __MetadataBearer {}
 
 /**

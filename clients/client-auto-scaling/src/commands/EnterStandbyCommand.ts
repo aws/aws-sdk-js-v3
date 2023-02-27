@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryEnterStandbyCommand, serializeAws_queryEnterStandbyCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link EnterStandbyCommand}.
+ */
 export interface EnterStandbyCommandInput extends EnterStandbyQuery {}
+/**
+ * The output of {@link EnterStandbyCommand}.
+ */
 export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __MetadataBearer {}
 
 /**

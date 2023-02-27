@@ -28,7 +28,13 @@ import {
   serializeAws_restJson1GetObjectCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetObjectCommand}.
+ */
 export interface GetObjectCommandInput extends GetObjectRequest {}
+/**
+ * The output of {@link GetObjectCommand}.
+ */
 export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectResponse, "Body">, __MetadataBearer {}
 
 /**

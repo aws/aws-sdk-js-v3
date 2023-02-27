@@ -23,8 +23,14 @@ import {
   serializeAws_restJson1DeleteAppInstanceStreamingConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAppInstanceStreamingConfigurationsCommand}.
+ */
 export interface DeleteAppInstanceStreamingConfigurationsCommandInput
   extends DeleteAppInstanceStreamingConfigurationsRequest {}
+/**
+ * The output of {@link DeleteAppInstanceStreamingConfigurationsCommand}.
+ */
 export interface DeleteAppInstanceStreamingConfigurationsCommandOutput extends __MetadataBearer {}
 
 /**

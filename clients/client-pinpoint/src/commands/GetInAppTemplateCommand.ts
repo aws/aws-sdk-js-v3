@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetInAppTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetInAppTemplateCommand}.
+ */
 export interface GetInAppTemplateCommandInput extends GetInAppTemplateRequest {}
+/**
+ * The output of {@link GetInAppTemplateCommand}.
+ */
 export interface GetInAppTemplateCommandOutput extends GetInAppTemplateResponse, __MetadataBearer {}
 
 /**

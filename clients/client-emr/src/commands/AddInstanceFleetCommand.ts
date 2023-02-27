@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AddInstanceFleetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddInstanceFleetCommand}.
+ */
 export interface AddInstanceFleetCommandInput extends AddInstanceFleetInput {}
+/**
+ * The output of {@link AddInstanceFleetCommand}.
+ */
 export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, __MetadataBearer {}
 
 /**

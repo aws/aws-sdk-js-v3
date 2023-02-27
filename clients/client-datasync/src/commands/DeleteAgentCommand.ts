@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteAgentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteAgentCommand}.
+ */
 export interface DeleteAgentCommandInput extends DeleteAgentRequest {}
+/**
+ * The output of {@link DeleteAgentCommand}.
+ */
 export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __MetadataBearer {}
 
 /**

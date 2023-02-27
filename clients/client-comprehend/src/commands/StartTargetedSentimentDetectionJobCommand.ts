@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartTargetedSentimentDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartTargetedSentimentDetectionJobCommand}.
+ */
 export interface StartTargetedSentimentDetectionJobCommandInput extends StartTargetedSentimentDetectionJobRequest {}
+/**
+ * The output of {@link StartTargetedSentimentDetectionJobCommand}.
+ */
 export interface StartTargetedSentimentDetectionJobCommandOutput
   extends StartTargetedSentimentDetectionJobResponse,
     __MetadataBearer {}

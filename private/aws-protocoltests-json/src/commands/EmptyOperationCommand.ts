@@ -18,7 +18,13 @@ import {
   serializeAws_json1_1EmptyOperationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EmptyOperationCommand}.
+ */
 export interface EmptyOperationCommandInput {}
+/**
+ * The output of {@link EmptyOperationCommand}.
+ */
 export interface EmptyOperationCommandOutput extends __MetadataBearer {}
 
 export class EmptyOperationCommand extends $Command<

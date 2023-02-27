@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAuthorizerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAuthorizerCommand}.
+ */
 export interface GetAuthorizerCommandInput extends GetAuthorizerRequest {}
+/**
+ * The output of {@link GetAuthorizerCommand}.
+ */
 export interface GetAuthorizerCommandOutput extends GetAuthorizerResponse, __MetadataBearer {}
 
 /**

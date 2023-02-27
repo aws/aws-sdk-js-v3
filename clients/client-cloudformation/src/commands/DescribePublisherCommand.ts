@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribePublisherCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribePublisherCommand}.
+ */
 export interface DescribePublisherCommandInput extends DescribePublisherInput {}
+/**
+ * The output of {@link DescribePublisherCommand}.
+ */
 export interface DescribePublisherCommandOutput extends DescribePublisherOutput, __MetadataBearer {}
 
 /**

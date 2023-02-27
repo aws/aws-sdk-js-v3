@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelFindingsReportCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelFindingsReportCommand}.
+ */
 export interface CancelFindingsReportCommandInput extends CancelFindingsReportRequest {}
+/**
+ * The output of {@link CancelFindingsReportCommand}.
+ */
 export interface CancelFindingsReportCommandOutput extends CancelFindingsReportResponse, __MetadataBearer {}
 
 /**

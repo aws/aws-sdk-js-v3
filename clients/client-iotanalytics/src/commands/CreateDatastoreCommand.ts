@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateDatastoreCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateDatastoreCommand}.
+ */
 export interface CreateDatastoreCommandInput extends CreateDatastoreRequest {}
+/**
+ * The output of {@link CreateDatastoreCommand}.
+ */
 export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, __MetadataBearer {}
 
 /**

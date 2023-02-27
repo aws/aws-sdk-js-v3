@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetRecommendationSummariesCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetRecommendationSummariesCommand}.
+ */
 export interface GetRecommendationSummariesCommandInput extends GetRecommendationSummariesRequest {}
+/**
+ * The output of {@link GetRecommendationSummariesCommand}.
+ */
 export interface GetRecommendationSummariesCommandOutput extends GetRecommendationSummariesResponse, __MetadataBearer {}
 
 /**

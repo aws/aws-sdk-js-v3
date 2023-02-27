@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link CreateUsageLimitCommand}.
+ */
 export interface CreateUsageLimitCommandInput extends CreateUsageLimitMessage {}
+/**
+ * The output of {@link CreateUsageLimitCommand}.
+ */
 export interface CreateUsageLimitCommandOutput extends UsageLimit, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_ec2CancelConversionTaskCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CancelConversionTaskCommand}.
+ */
 export interface CancelConversionTaskCommandInput extends CancelConversionRequest {}
+/**
+ * The output of {@link CancelConversionTaskCommand}.
+ */
 export interface CancelConversionTaskCommandOutput extends __MetadataBearer {}
 
 /**

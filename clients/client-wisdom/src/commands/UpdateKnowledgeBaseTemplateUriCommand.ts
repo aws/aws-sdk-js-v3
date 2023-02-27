@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * The input for {@link UpdateKnowledgeBaseTemplateUriCommand}.
+ */
 export interface UpdateKnowledgeBaseTemplateUriCommandInput extends UpdateKnowledgeBaseTemplateUriRequest {}
+/**
+ * The output of {@link UpdateKnowledgeBaseTemplateUriCommand}.
+ */
 export interface UpdateKnowledgeBaseTemplateUriCommandOutput
   extends UpdateKnowledgeBaseTemplateUriResponse,
     __MetadataBearer {}

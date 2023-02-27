@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link EnableHostedZoneDNSSECCommand}.
+ */
 export interface EnableHostedZoneDNSSECCommandInput extends EnableHostedZoneDNSSECRequest {}
+/**
+ * The output of {@link EnableHostedZoneDNSSECCommand}.
+ */
 export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNSSECResponse, __MetadataBearer {}
 
 /**

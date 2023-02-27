@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
+/**
+ * The input for {@link DeleteTableCommand}.
+ */
 export interface DeleteTableCommandInput extends DeleteTableRequest {}
+/**
+ * The output of {@link DeleteTableCommand}.
+ */
 export interface DeleteTableCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetCampaignCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetCampaignCommand}.
+ */
 export interface GetCampaignCommandInput extends GetCampaignRequest {}
+/**
+ * The output of {@link GetCampaignCommand}.
+ */
 export interface GetCampaignCommandOutput extends GetCampaignResponse, __MetadataBearer {}
 
 /**

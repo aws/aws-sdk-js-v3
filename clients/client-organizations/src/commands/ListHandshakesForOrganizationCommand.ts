@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListHandshakesForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListHandshakesForOrganizationCommand}.
+ */
 export interface ListHandshakesForOrganizationCommandInput extends ListHandshakesForOrganizationRequest {}
+/**
+ * The output of {@link ListHandshakesForOrganizationCommand}.
+ */
 export interface ListHandshakesForOrganizationCommandOutput
   extends ListHandshakesForOrganizationResponse,
     __MetadataBearer {}

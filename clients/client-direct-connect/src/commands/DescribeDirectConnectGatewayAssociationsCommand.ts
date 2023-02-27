@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeDirectConnectGatewayAssociationsCommand}.
+ */
 export interface DescribeDirectConnectGatewayAssociationsCommandInput
   extends DescribeDirectConnectGatewayAssociationsRequest {}
+/**
+ * The output of {@link DescribeDirectConnectGatewayAssociationsCommand}.
+ */
 export interface DescribeDirectConnectGatewayAssociationsCommandOutput
   extends DescribeDirectConnectGatewayAssociationsResult,
     __MetadataBearer {}

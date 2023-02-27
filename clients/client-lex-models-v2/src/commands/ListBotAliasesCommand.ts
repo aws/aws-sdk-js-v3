@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListBotAliasesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListBotAliasesCommand}.
+ */
 export interface ListBotAliasesCommandInput extends ListBotAliasesRequest {}
+/**
+ * The output of {@link ListBotAliasesCommand}.
+ */
 export interface ListBotAliasesCommandOutput extends ListBotAliasesResponse, __MetadataBearer {}
 
 /**

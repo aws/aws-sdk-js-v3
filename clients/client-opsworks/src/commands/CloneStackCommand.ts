@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CloneStackCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CloneStackCommand}.
+ */
 export interface CloneStackCommandInput extends CloneStackRequest {}
+/**
+ * The output of {@link CloneStackCommand}.
+ */
 export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBearer {}
 
 /**

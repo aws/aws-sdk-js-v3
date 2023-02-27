@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateLayoutCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateLayoutCommand}.
+ */
 export interface CreateLayoutCommandInput extends CreateLayoutRequest {}
+/**
+ * The output of {@link CreateLayoutCommand}.
+ */
 export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __MetadataBearer {}
 
 /**

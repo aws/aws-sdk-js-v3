@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link DeleteDedicatedIpPoolCommand}.
+ */
 export interface DeleteDedicatedIpPoolCommandInput extends DeleteDedicatedIpPoolRequest {}
+/**
+ * The output of {@link DeleteDedicatedIpPoolCommand}.
+ */
 export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoolResponse, __MetadataBearer {}
 
 /**

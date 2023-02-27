@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutCorsPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutCorsPolicyCommand}.
+ */
 export interface PutCorsPolicyCommandInput extends PutCorsPolicyInput {}
+/**
+ * The output of {@link PutCorsPolicyCommand}.
+ */
 export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __MetadataBearer {}
 
 /**

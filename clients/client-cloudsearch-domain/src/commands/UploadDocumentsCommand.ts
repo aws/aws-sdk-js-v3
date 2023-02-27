@@ -29,6 +29,9 @@ import {
   serializeAws_restJson1UploadDocumentsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UploadDocumentsCommand}.
+ */
 type UploadDocumentsCommandInputType = Omit<UploadDocumentsRequest, "documents"> & {
   /**
    * For *`UploadDocumentsRequest["documents"]`*, see {@link UploadDocumentsRequest.documents}.
@@ -39,6 +42,9 @@ type UploadDocumentsCommandInputType = Omit<UploadDocumentsRequest, "documents">
  * This interface extends from `UploadDocumentsRequest` interface. There are more parameters than `documents` defined in {@link UploadDocumentsRequest}
  */
 export interface UploadDocumentsCommandInput extends UploadDocumentsCommandInputType {}
+/**
+ * The output of {@link UploadDocumentsCommand}.
+ */
 export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, __MetadataBearer {}
 
 /**

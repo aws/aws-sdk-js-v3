@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UntagResourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandInput extends UntagResourceInput {}
+/**
+ * The output of {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**

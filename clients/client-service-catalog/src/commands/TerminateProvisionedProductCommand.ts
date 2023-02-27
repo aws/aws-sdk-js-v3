@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link TerminateProvisionedProductCommand}.
+ */
 export interface TerminateProvisionedProductCommandInput extends TerminateProvisionedProductInput {}
+/**
+ * The output of {@link TerminateProvisionedProductCommand}.
+ */
 export interface TerminateProvisionedProductCommandOutput extends TerminateProvisionedProductOutput, __MetadataBearer {}
 
 /**

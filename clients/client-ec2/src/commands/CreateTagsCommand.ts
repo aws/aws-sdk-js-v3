@@ -17,7 +17,13 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { CreateTagsRequest, CreateTagsRequestFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_ec2CreateTagsCommand, serializeAws_ec2CreateTagsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateTagsCommand}.
+ */
 export interface CreateTagsCommandInput extends CreateTagsRequest {}
+/**
+ * The output of {@link CreateTagsCommand}.
+ */
 export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListChannelMembershipsForAppInstanceUserCommand}.
+ */
 export interface ListChannelMembershipsForAppInstanceUserCommandInput
   extends ListChannelMembershipsForAppInstanceUserRequest {}
+/**
+ * The output of {@link ListChannelMembershipsForAppInstanceUserCommand}.
+ */
 export interface ListChannelMembershipsForAppInstanceUserCommandOutput
   extends ListChannelMembershipsForAppInstanceUserResponse,
     __MetadataBearer {}

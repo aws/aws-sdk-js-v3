@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetGameCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetGameCommand}.
+ */
 export interface GetGameCommandInput extends GetGameRequest {}
+/**
+ * The output of {@link GetGameCommand}.
+ */
 export interface GetGameCommandOutput extends GetGameResult, __MetadataBearer {}
 
 /**

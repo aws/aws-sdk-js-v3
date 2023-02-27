@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateOrganizationalUnitCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateOrganizationalUnitCommand}.
+ */
 export interface UpdateOrganizationalUnitCommandInput extends UpdateOrganizationalUnitRequest {}
+/**
+ * The output of {@link UpdateOrganizationalUnitCommand}.
+ */
 export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizationalUnitResponse, __MetadataBearer {}
 
 /**

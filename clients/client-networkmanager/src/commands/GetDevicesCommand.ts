@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDevicesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDevicesCommand}.
+ */
 export interface GetDevicesCommandInput extends GetDevicesRequest {}
+/**
+ * The output of {@link GetDevicesCommand}.
+ */
 export interface GetDevicesCommandOutput extends GetDevicesResponse, __MetadataBearer {}
 
 /**

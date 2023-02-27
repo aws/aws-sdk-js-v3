@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SuspendGameServerGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SuspendGameServerGroupCommand}.
+ */
 export interface SuspendGameServerGroupCommandInput extends SuspendGameServerGroupInput {}
+/**
+ * The output of {@link SuspendGameServerGroupCommand}.
+ */
 export interface SuspendGameServerGroupCommandOutput extends SuspendGameServerGroupOutput, __MetadataBearer {}
 
 /**

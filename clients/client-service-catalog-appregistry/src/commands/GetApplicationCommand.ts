@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * The input for {@link GetApplicationCommand}.
+ */
 export interface GetApplicationCommandInput extends GetApplicationRequest {}
+/**
+ * The output of {@link GetApplicationCommand}.
+ */
 export interface GetApplicationCommandOutput extends GetApplicationResponse, __MetadataBearer {}
 
 /**

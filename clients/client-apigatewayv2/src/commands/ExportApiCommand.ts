@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ExportApiCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ExportApiCommand}.
+ */
 export interface ExportApiCommandInput extends ExportApiRequest {}
+/**
+ * The output of {@link ExportApiCommand}.
+ */
 export interface ExportApiCommandOutput extends ExportApiResponse, __MetadataBearer {}
 
 export class ExportApiCommand extends $Command<

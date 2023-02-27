@@ -19,7 +19,13 @@ import {
   serializeAws_ec2GreetingWithErrorsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GreetingWithErrorsCommand}.
+ */
 export interface GreetingWithErrorsCommandInput {}
+/**
+ * The output of {@link GreetingWithErrorsCommand}.
+ */
 export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutput, __MetadataBearer {}
 
 /**

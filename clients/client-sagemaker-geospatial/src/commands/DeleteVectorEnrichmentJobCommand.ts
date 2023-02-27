@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../SageMakerGeospatialClient";
 
+/**
+ * The input for {@link DeleteVectorEnrichmentJobCommand}.
+ */
 export interface DeleteVectorEnrichmentJobCommandInput extends DeleteVectorEnrichmentJobInput {}
+/**
+ * The output of {@link DeleteVectorEnrichmentJobCommand}.
+ */
 export interface DeleteVectorEnrichmentJobCommandOutput extends DeleteVectorEnrichmentJobOutput, __MetadataBearer {}
 
 /**

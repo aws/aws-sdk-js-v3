@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartLoggingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartLoggingCommand}.
+ */
 export interface StartLoggingCommandInput extends StartLoggingRequest {}
+/**
+ * The output of {@link StartLoggingCommand}.
+ */
 export interface StartLoggingCommandOutput extends StartLoggingResponse, __MetadataBearer {}
 
 /**

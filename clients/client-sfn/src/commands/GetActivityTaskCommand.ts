@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * The input for {@link GetActivityTaskCommand}.
+ */
 export interface GetActivityTaskCommandInput extends GetActivityTaskInput {}
+/**
+ * The output of {@link GetActivityTaskCommand}.
+ */
 export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __MetadataBearer {}
 
 /**

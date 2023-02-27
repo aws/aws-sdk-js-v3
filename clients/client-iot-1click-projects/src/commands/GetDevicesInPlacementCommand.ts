@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetDevicesInPlacementCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDevicesInPlacementCommand}.
+ */
 export interface GetDevicesInPlacementCommandInput extends GetDevicesInPlacementRequest {}
+/**
+ * The output of {@link GetDevicesInPlacementCommand}.
+ */
 export interface GetDevicesInPlacementCommandOutput extends GetDevicesInPlacementResponse, __MetadataBearer {}
 
 /**

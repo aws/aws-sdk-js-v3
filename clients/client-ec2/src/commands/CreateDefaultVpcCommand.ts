@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateDefaultVpcCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateDefaultVpcCommand}.
+ */
 export interface CreateDefaultVpcCommandInput extends CreateDefaultVpcRequest {}
+/**
+ * The output of {@link CreateDefaultVpcCommand}.
+ */
 export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, __MetadataBearer {}
 
 /**

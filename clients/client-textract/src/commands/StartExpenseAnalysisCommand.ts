@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
+/**
+ * The input for {@link StartExpenseAnalysisCommand}.
+ */
 export interface StartExpenseAnalysisCommandInput extends StartExpenseAnalysisRequest {}
+/**
+ * The output of {@link StartExpenseAnalysisCommand}.
+ */
 export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisResponse, __MetadataBearer {}
 
 /**

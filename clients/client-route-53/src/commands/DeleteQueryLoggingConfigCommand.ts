@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link DeleteQueryLoggingConfigCommand}.
+ */
 export interface DeleteQueryLoggingConfigCommandInput extends DeleteQueryLoggingConfigRequest {}
+/**
+ * The output of {@link DeleteQueryLoggingConfigCommand}.
+ */
 export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggingConfigResponse, __MetadataBearer {}
 
 /**

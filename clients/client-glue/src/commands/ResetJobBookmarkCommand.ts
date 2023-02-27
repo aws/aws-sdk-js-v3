@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ResetJobBookmarkCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ResetJobBookmarkCommand}.
+ */
 export interface ResetJobBookmarkCommandInput extends ResetJobBookmarkRequest {}
+/**
+ * The output of {@link ResetJobBookmarkCommand}.
+ */
 export interface ResetJobBookmarkCommandOutput extends ResetJobBookmarkResponse, __MetadataBearer {}
 
 /**

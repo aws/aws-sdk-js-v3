@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAttendeeTagsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAttendeeTagsCommand}.
+ */
 export interface ListAttendeeTagsCommandInput extends ListAttendeeTagsRequest {}
+/**
+ * The output of {@link ListAttendeeTagsCommand}.
+ */
 export interface ListAttendeeTagsCommandOutput extends ListAttendeeTagsResponse, __MetadataBearer {}
 
 /**

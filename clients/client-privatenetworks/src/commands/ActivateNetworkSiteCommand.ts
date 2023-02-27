@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ActivateNetworkSiteCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ActivateNetworkSiteCommand}.
+ */
 export interface ActivateNetworkSiteCommandInput extends ActivateNetworkSiteRequest {}
+/**
+ * The output of {@link ActivateNetworkSiteCommand}.
+ */
 export interface ActivateNetworkSiteCommandOutput extends ActivateNetworkSiteResponse, __MetadataBearer {}
 
 /**

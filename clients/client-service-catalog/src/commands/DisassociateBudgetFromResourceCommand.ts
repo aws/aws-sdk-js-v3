@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link DisassociateBudgetFromResourceCommand}.
+ */
 export interface DisassociateBudgetFromResourceCommandInput extends DisassociateBudgetFromResourceInput {}
+/**
+ * The output of {@link DisassociateBudgetFromResourceCommand}.
+ */
 export interface DisassociateBudgetFromResourceCommandOutput
   extends DisassociateBudgetFromResourceOutput,
     __MetadataBearer {}

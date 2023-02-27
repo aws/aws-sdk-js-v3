@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RevokeVpcEndpointAccessCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RevokeVpcEndpointAccessCommand}.
+ */
 export interface RevokeVpcEndpointAccessCommandInput extends RevokeVpcEndpointAccessRequest {}
+/**
+ * The output of {@link RevokeVpcEndpointAccessCommand}.
+ */
 export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointAccessResponse, __MetadataBearer {}
 
 /**

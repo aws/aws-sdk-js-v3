@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteVpcEndpointsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteVpcEndpointsCommand}.
+ */
 export interface DeleteVpcEndpointsCommandInput extends DeleteVpcEndpointsRequest {}
+/**
+ * The output of {@link DeleteVpcEndpointsCommand}.
+ */
 export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResult, __MetadataBearer {}
 
 /**

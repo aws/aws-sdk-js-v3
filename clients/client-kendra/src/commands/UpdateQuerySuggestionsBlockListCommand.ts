@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1UpdateQuerySuggestionsBlockListCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateQuerySuggestionsBlockListCommand}.
+ */
 export interface UpdateQuerySuggestionsBlockListCommandInput extends UpdateQuerySuggestionsBlockListRequest {}
+/**
+ * The output of {@link UpdateQuerySuggestionsBlockListCommand}.
+ */
 export interface UpdateQuerySuggestionsBlockListCommandOutput extends __MetadataBearer {}
 
 /**

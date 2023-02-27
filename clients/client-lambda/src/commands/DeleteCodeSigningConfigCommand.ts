@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteCodeSigningConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteCodeSigningConfigCommand}.
+ */
 export interface DeleteCodeSigningConfigCommandInput extends DeleteCodeSigningConfigRequest {}
+/**
+ * The output of {@link DeleteCodeSigningConfigCommand}.
+ */
 export interface DeleteCodeSigningConfigCommandOutput extends DeleteCodeSigningConfigResponse, __MetadataBearer {}
 
 /**

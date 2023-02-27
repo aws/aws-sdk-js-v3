@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * The input for {@link ReplicateSecretToRegionsCommand}.
+ */
 export interface ReplicateSecretToRegionsCommandInput extends ReplicateSecretToRegionsRequest {}
+/**
+ * The output of {@link ReplicateSecretToRegionsCommand}.
+ */
 export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretToRegionsResponse, __MetadataBearer {}
 
 /**

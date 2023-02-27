@@ -25,7 +25,13 @@ import {
   serializeAws_queryListGroupPoliciesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListGroupPoliciesCommand}.
+ */
 export interface ListGroupPoliciesCommandInput extends ListGroupPoliciesRequest {}
+/**
+ * The output of {@link ListGroupPoliciesCommand}.
+ */
 export interface ListGroupPoliciesCommandOutput extends ListGroupPoliciesResponse, __MetadataBearer {}
 
 /**

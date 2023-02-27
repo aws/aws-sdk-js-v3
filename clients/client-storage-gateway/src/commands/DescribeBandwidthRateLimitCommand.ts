@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link DescribeBandwidthRateLimitCommand}.
+ */
 export interface DescribeBandwidthRateLimitCommandInput extends DescribeBandwidthRateLimitInput {}
+/**
+ * The output of {@link DescribeBandwidthRateLimitCommand}.
+ */
 export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwidthRateLimitOutput, __MetadataBearer {}
 
 /**

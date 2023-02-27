@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UnarchiveFindingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UnarchiveFindingsCommand}.
+ */
 export interface UnarchiveFindingsCommandInput extends UnarchiveFindingsRequest {}
+/**
+ * The output of {@link UnarchiveFindingsCommand}.
+ */
 export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsResponse, __MetadataBearer {}
 
 /**

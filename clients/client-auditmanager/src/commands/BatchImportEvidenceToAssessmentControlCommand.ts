@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchImportEvidenceToAssessmentControlCommand}.
+ */
 export interface BatchImportEvidenceToAssessmentControlCommandInput
   extends BatchImportEvidenceToAssessmentControlRequest {}
+/**
+ * The output of {@link BatchImportEvidenceToAssessmentControlCommand}.
+ */
 export interface BatchImportEvidenceToAssessmentControlCommandOutput
   extends BatchImportEvidenceToAssessmentControlResponse,
     __MetadataBearer {}

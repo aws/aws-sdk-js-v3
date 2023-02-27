@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link SendWorkflowStepStateCommand}.
+ */
 export interface SendWorkflowStepStateCommandInput extends SendWorkflowStepStateRequest {}
+/**
+ * The output of {@link SendWorkflowStepStateCommand}.
+ */
 export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStateResponse, __MetadataBearer {}
 
 /**

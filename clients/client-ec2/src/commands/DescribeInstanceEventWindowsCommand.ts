@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeInstanceEventWindowsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeInstanceEventWindowsCommand}.
+ */
 export interface DescribeInstanceEventWindowsCommandInput extends DescribeInstanceEventWindowsRequest {}
+/**
+ * The output of {@link DescribeInstanceEventWindowsCommand}.
+ */
 export interface DescribeInstanceEventWindowsCommandOutput
   extends DescribeInstanceEventWindowsResult,
     __MetadataBearer {}

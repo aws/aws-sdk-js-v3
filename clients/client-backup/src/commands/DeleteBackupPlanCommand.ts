@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteBackupPlanCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteBackupPlanCommand}.
+ */
 export interface DeleteBackupPlanCommandInput extends DeleteBackupPlanInput {}
+/**
+ * The output of {@link DeleteBackupPlanCommand}.
+ */
 export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, __MetadataBearer {}
 
 /**

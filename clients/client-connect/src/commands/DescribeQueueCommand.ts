@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeQueueCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeQueueCommand}.
+ */
 export interface DescribeQueueCommandInput extends DescribeQueueRequest {}
+/**
+ * The output of {@link DescribeQueueCommand}.
+ */
 export interface DescribeQueueCommandOutput extends DescribeQueueResponse, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteAlertManagerDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAlertManagerDefinitionCommand}.
+ */
 export interface DeleteAlertManagerDefinitionCommandInput extends DeleteAlertManagerDefinitionRequest {}
+/**
+ * The output of {@link DeleteAlertManagerDefinitionCommand}.
+ */
 export interface DeleteAlertManagerDefinitionCommandOutput extends __MetadataBearer {}
 
 /**

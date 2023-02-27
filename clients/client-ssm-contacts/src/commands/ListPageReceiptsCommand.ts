@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
+/**
+ * The input for {@link ListPageReceiptsCommand}.
+ */
 export interface ListPageReceiptsCommandInput extends ListPageReceiptsRequest {}
+/**
+ * The output of {@link ListPageReceiptsCommand}.
+ */
 export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, __MetadataBearer {}
 
 /**

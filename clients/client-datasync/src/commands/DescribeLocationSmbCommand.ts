@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeLocationSmbCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLocationSmbCommand}.
+ */
 export interface DescribeLocationSmbCommandInput extends DescribeLocationSmbRequest {}
+/**
+ * The output of {@link DescribeLocationSmbCommand}.
+ */
 export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbResponse, __MetadataBearer {}
 
 /**

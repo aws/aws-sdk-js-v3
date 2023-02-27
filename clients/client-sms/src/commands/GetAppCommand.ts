@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1GetAppCommand, serializeAws_json1_1GetAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link GetAppCommand}.
+ */
 export interface GetAppCommandInput extends GetAppRequest {}
+/**
+ * The output of {@link GetAppCommand}.
+ */
 export interface GetAppCommandOutput extends GetAppResponse, __MetadataBearer {}
 
 /**

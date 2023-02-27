@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteTextMessageSpendLimitOverrideCommand}.
+ */
 export interface DeleteTextMessageSpendLimitOverrideCommandInput extends DeleteTextMessageSpendLimitOverrideRequest {}
+/**
+ * The output of {@link DeleteTextMessageSpendLimitOverrideCommand}.
+ */
 export interface DeleteTextMessageSpendLimitOverrideCommandOutput
   extends DeleteTextMessageSpendLimitOverrideResult,
     __MetadataBearer {}

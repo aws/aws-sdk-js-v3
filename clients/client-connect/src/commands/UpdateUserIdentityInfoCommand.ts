@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateUserIdentityInfoCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateUserIdentityInfoCommand}.
+ */
 export interface UpdateUserIdentityInfoCommandInput extends UpdateUserIdentityInfoRequest {}
+/**
+ * The output of {@link UpdateUserIdentityInfoCommand}.
+ */
 export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
 
 /**

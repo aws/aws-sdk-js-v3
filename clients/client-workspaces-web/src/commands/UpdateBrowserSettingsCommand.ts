@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link UpdateBrowserSettingsCommand}.
+ */
 export interface UpdateBrowserSettingsCommandInput extends UpdateBrowserSettingsRequest {}
+/**
+ * The output of {@link UpdateBrowserSettingsCommand}.
+ */
 export interface UpdateBrowserSettingsCommandOutput extends UpdateBrowserSettingsResponse, __MetadataBearer {}
 
 /**

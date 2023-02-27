@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListDeploymentConfigsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListDeploymentConfigsCommand}.
+ */
 export interface ListDeploymentConfigsCommandInput extends ListDeploymentConfigsInput {}
+/**
+ * The output of {@link ListDeploymentConfigsCommand}.
+ */
 export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfigsOutput, __MetadataBearer {}
 
 /**

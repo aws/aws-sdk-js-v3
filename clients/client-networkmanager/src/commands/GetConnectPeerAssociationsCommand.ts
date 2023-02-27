@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetConnectPeerAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetConnectPeerAssociationsCommand}.
+ */
 export interface GetConnectPeerAssociationsCommandInput extends GetConnectPeerAssociationsRequest {}
+/**
+ * The output of {@link GetConnectPeerAssociationsCommand}.
+ */
 export interface GetConnectPeerAssociationsCommandOutput extends GetConnectPeerAssociationsResponse, __MetadataBearer {}
 
 /**

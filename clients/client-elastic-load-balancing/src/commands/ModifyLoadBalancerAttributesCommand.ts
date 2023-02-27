@@ -29,7 +29,13 @@ import {
   serializeAws_queryModifyLoadBalancerAttributesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyLoadBalancerAttributesCommand}.
+ */
 export interface ModifyLoadBalancerAttributesCommandInput extends ModifyLoadBalancerAttributesInput {}
+/**
+ * The output of {@link ModifyLoadBalancerAttributesCommand}.
+ */
 export interface ModifyLoadBalancerAttributesCommandOutput
   extends ModifyLoadBalancerAttributesOutput,
     __MetadataBearer {}

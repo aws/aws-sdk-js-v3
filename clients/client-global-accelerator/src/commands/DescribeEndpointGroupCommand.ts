@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeEndpointGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeEndpointGroupCommand}.
+ */
 export interface DescribeEndpointGroupCommandInput extends DescribeEndpointGroupRequest {}
+/**
+ * The output of {@link DescribeEndpointGroupCommand}.
+ */
 export interface DescribeEndpointGroupCommandOutput extends DescribeEndpointGroupResponse, __MetadataBearer {}
 
 /**

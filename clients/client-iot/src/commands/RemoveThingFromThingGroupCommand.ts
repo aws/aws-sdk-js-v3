@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RemoveThingFromThingGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RemoveThingFromThingGroupCommand}.
+ */
 export interface RemoveThingFromThingGroupCommandInput extends RemoveThingFromThingGroupRequest {}
+/**
+ * The output of {@link RemoveThingFromThingGroupCommand}.
+ */
 export interface RemoveThingFromThingGroupCommandOutput extends RemoveThingFromThingGroupResponse, __MetadataBearer {}
 
 /**

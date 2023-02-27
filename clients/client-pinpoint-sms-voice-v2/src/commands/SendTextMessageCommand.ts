@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0SendTextMessageCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link SendTextMessageCommand}.
+ */
 export interface SendTextMessageCommandInput extends SendTextMessageRequest {}
+/**
+ * The output of {@link SendTextMessageCommand}.
+ */
 export interface SendTextMessageCommandOutput extends SendTextMessageResult, __MetadataBearer {}
 
 /**

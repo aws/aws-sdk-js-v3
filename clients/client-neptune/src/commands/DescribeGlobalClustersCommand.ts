@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeGlobalClustersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeGlobalClustersCommand}.
+ */
 export interface DescribeGlobalClustersCommandInput extends DescribeGlobalClustersMessage {}
+/**
+ * The output of {@link DescribeGlobalClustersCommand}.
+ */
 export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessage, __MetadataBearer {}
 
 /**

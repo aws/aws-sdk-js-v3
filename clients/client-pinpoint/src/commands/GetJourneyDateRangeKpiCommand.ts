@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetJourneyDateRangeKpiCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetJourneyDateRangeKpiCommand}.
+ */
 export interface GetJourneyDateRangeKpiCommandInput extends GetJourneyDateRangeKpiRequest {}
+/**
+ * The output of {@link GetJourneyDateRangeKpiCommand}.
+ */
 export interface GetJourneyDateRangeKpiCommandOutput extends GetJourneyDateRangeKpiResponse, __MetadataBearer {}
 
 /**

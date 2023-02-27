@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link UpdateHostKeyCommand}.
+ */
 export interface UpdateHostKeyCommandInput extends UpdateHostKeyRequest {}
+/**
+ * The output of {@link UpdateHostKeyCommand}.
+ */
 export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __MetadataBearer {}
 
 /**

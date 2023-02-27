@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateVirtualNodeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateVirtualNodeCommand}.
+ */
 export interface CreateVirtualNodeCommandInput extends CreateVirtualNodeInput {}
+/**
+ * The output of {@link CreateVirtualNodeCommand}.
+ */
 export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput, __MetadataBearer {}
 
 /**

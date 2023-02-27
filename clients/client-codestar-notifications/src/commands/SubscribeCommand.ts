@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1SubscribeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SubscribeCommand}.
+ */
 export interface SubscribeCommandInput extends SubscribeRequest {}
+/**
+ * The output of {@link SubscribeCommand}.
+ */
 export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBearer {}
 
 /**

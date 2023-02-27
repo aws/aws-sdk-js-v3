@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ExportClientVpnClientConfigurationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ExportClientVpnClientConfigurationCommand}.
+ */
 export interface ExportClientVpnClientConfigurationCommandInput extends ExportClientVpnClientConfigurationRequest {}
+/**
+ * The output of {@link ExportClientVpnClientConfigurationCommand}.
+ */
 export interface ExportClientVpnClientConfigurationCommandOutput
   extends ExportClientVpnClientConfigurationResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RejectInputDeviceTransferCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RejectInputDeviceTransferCommand}.
+ */
 export interface RejectInputDeviceTransferCommandInput extends RejectInputDeviceTransferRequest {}
+/**
+ * The output of {@link RejectInputDeviceTransferCommand}.
+ */
 export interface RejectInputDeviceTransferCommandOutput extends RejectInputDeviceTransferResponse, __MetadataBearer {}
 
 /**

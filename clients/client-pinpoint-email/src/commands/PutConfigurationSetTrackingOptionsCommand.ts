@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutConfigurationSetTrackingOptionsCommand}.
+ */
 export interface PutConfigurationSetTrackingOptionsCommandInput extends PutConfigurationSetTrackingOptionsRequest {}
+/**
+ * The output of {@link PutConfigurationSetTrackingOptionsCommand}.
+ */
 export interface PutConfigurationSetTrackingOptionsCommandOutput
   extends PutConfigurationSetTrackingOptionsResponse,
     __MetadataBearer {}

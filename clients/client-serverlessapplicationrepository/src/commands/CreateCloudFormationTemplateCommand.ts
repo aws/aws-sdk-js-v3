@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
 
+/**
+ * The input for {@link CreateCloudFormationTemplateCommand}.
+ */
 export interface CreateCloudFormationTemplateCommandInput extends CreateCloudFormationTemplateRequest {}
+/**
+ * The output of {@link CreateCloudFormationTemplateCommand}.
+ */
 export interface CreateCloudFormationTemplateCommandOutput
   extends CreateCloudFormationTemplateResponse,
     __MetadataBearer {}

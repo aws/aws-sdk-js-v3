@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeletePhoneNumberCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePhoneNumberCommand}.
+ */
 export interface DeletePhoneNumberCommandInput extends DeletePhoneNumberRequest {}
+/**
+ * The output of {@link DeletePhoneNumberCommand}.
+ */
 export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
 
 /**

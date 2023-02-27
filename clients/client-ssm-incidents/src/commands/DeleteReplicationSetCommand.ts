@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
+/**
+ * The input for {@link DeleteReplicationSetCommand}.
+ */
 export interface DeleteReplicationSetCommandInput extends DeleteReplicationSetInput {}
+/**
+ * The output of {@link DeleteReplicationSetCommand}.
+ */
 export interface DeleteReplicationSetCommandOutput extends DeleteReplicationSetOutput, __MetadataBearer {}
 
 /**

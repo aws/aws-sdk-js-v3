@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetControlCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetControlCommand}.
+ */
 export interface GetControlCommandInput extends GetControlRequest {}
+/**
+ * The output of {@link GetControlCommand}.
+ */
 export interface GetControlCommandOutput extends GetControlResponse, __MetadataBearer {}
 
 /**

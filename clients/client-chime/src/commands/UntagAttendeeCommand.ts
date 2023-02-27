@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UntagAttendeeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UntagAttendeeCommand}.
+ */
 export interface UntagAttendeeCommandInput extends UntagAttendeeRequest {}
+/**
+ * The output of {@link UntagAttendeeCommand}.
+ */
 export interface UntagAttendeeCommandOutput extends __MetadataBearer {}
 
 /**

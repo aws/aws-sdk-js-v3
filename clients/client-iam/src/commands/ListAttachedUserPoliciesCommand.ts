@@ -25,7 +25,13 @@ import {
   serializeAws_queryListAttachedUserPoliciesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListAttachedUserPoliciesCommand}.
+ */
 export interface ListAttachedUserPoliciesCommandInput extends ListAttachedUserPoliciesRequest {}
+/**
+ * The output of {@link ListAttachedUserPoliciesCommand}.
+ */
 export interface ListAttachedUserPoliciesCommandOutput extends ListAttachedUserPoliciesResponse, __MetadataBearer {}
 
 /**

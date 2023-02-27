@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetCustomEntityTypesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetCustomEntityTypesCommand}.
+ */
 export interface BatchGetCustomEntityTypesCommandInput extends BatchGetCustomEntityTypesRequest {}
+/**
+ * The output of {@link BatchGetCustomEntityTypesCommand}.
+ */
 export interface BatchGetCustomEntityTypesCommandOutput extends BatchGetCustomEntityTypesResponse, __MetadataBearer {}
 
 /**

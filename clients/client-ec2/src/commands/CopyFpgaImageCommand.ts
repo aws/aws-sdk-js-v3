@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_ec2CopyFpgaImageCommand, serializeAws_ec2CopyFpgaImageCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CopyFpgaImageCommand}.
+ */
 export interface CopyFpgaImageCommandInput extends CopyFpgaImageRequest {}
+/**
+ * The output of {@link CopyFpgaImageCommand}.
+ */
 export interface CopyFpgaImageCommandOutput extends CopyFpgaImageResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisableUserCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisableUserCommand}.
+ */
 export interface DisableUserCommandInput extends DisableUserRequest {}
+/**
+ * The output of {@link DisableUserCommand}.
+ */
 export interface DisableUserCommandOutput extends DisableUserResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateAnomalyMonitorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateAnomalyMonitorCommand}.
+ */
 export interface UpdateAnomalyMonitorCommandInput extends UpdateAnomalyMonitorRequest {}
+/**
+ * The output of {@link UpdateAnomalyMonitorCommand}.
+ */
 export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorResponse, __MetadataBearer {}
 
 /**

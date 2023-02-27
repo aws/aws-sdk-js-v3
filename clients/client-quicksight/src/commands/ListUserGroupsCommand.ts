@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link ListUserGroupsCommand}.
+ */
 export interface ListUserGroupsCommandInput extends ListUserGroupsRequest {}
+/**
+ * The output of {@link ListUserGroupsCommand}.
+ */
 export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __MetadataBearer {}
 
 /**

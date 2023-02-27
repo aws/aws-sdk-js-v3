@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListVodSourcesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListVodSourcesCommand}.
+ */
 export interface ListVodSourcesCommandInput extends ListVodSourcesRequest {}
+/**
+ * The output of {@link ListVodSourcesCommand}.
+ */
 export interface ListVodSourcesCommandOutput extends ListVodSourcesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link DescribeActivationsCommand}.
+ */
 export interface DescribeActivationsCommandInput extends DescribeActivationsRequest {}
+/**
+ * The output of {@link DescribeActivationsCommand}.
+ */
 export interface DescribeActivationsCommandOutput extends DescribeActivationsResult, __MetadataBearer {}
 
 /**

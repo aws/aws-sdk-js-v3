@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateColumnStatisticsForPartitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateColumnStatisticsForPartitionCommand}.
+ */
 export interface UpdateColumnStatisticsForPartitionCommandInput extends UpdateColumnStatisticsForPartitionRequest {}
+/**
+ * The output of {@link UpdateColumnStatisticsForPartitionCommand}.
+ */
 export interface UpdateColumnStatisticsForPartitionCommandOutput
   extends UpdateColumnStatisticsForPartitionResponse,
     __MetadataBearer {}

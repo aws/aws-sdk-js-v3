@@ -25,8 +25,14 @@ import {
   serializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RebalanceSlotsInGlobalReplicationGroupCommand}.
+ */
 export interface RebalanceSlotsInGlobalReplicationGroupCommandInput
   extends RebalanceSlotsInGlobalReplicationGroupMessage {}
+/**
+ * The output of {@link RebalanceSlotsInGlobalReplicationGroupCommand}.
+ */
 export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput
   extends RebalanceSlotsInGlobalReplicationGroupResult,
     __MetadataBearer {}

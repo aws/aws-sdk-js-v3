@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateLoadBalancerTlsCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateLoadBalancerTlsCertificateCommand}.
+ */
 export interface CreateLoadBalancerTlsCertificateCommandInput extends CreateLoadBalancerTlsCertificateRequest {}
+/**
+ * The output of {@link CreateLoadBalancerTlsCertificateCommand}.
+ */
 export interface CreateLoadBalancerTlsCertificateCommandOutput
   extends CreateLoadBalancerTlsCertificateResult,
     __MetadataBearer {}

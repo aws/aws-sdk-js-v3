@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1SetTimeBasedAutoScalingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SetTimeBasedAutoScalingCommand}.
+ */
 export interface SetTimeBasedAutoScalingCommandInput extends SetTimeBasedAutoScalingRequest {}
+/**
+ * The output of {@link SetTimeBasedAutoScalingCommand}.
+ */
 export interface SetTimeBasedAutoScalingCommandOutput extends __MetadataBearer {}
 
 /**

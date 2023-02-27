@@ -203,3 +203,478 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+AcceptInputDeviceTransfer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/acceptinputdevicetransfercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/acceptinputdevicetransfercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/acceptinputdevicetransfercommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchDelete
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/batchdeletecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/batchdeletecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/batchdeletecommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchStart
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/batchstartcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/batchstartcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/batchstartcommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchStop
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/batchstopcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/batchstopcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/batchstopcommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchUpdateSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/batchupdateschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/batchupdateschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/batchupdateschedulecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CancelInputDeviceTransfer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/cancelinputdevicetransfercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/cancelinputdevicetransfercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/cancelinputdevicetransfercommandoutput.html)
+
+</details>
+<details>
+<summary>
+ClaimDevice
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/claimdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/claimdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/claimdevicecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateChannel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/createchannelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/createchannelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/createchannelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateInput
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/createinputcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/createinputcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/createinputcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateInputSecurityGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/createinputsecuritygroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/createinputsecuritygroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/createinputsecuritygroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateMultiplex
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/createmultiplexcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/createmultiplexcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/createmultiplexcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateMultiplexProgram
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/createmultiplexprogramcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/createmultiplexprogramcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/createmultiplexprogramcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreatePartnerInput
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/createpartnerinputcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/createpartnerinputcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/createpartnerinputcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateTags
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/createtagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/createtagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/createtagscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteChannel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/deletechannelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deletechannelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deletechannelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteInput
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/deleteinputcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deleteinputcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deleteinputcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteInputSecurityGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/deleteinputsecuritygroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deleteinputsecuritygroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deleteinputsecuritygroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteMultiplex
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/deletemultiplexcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deletemultiplexcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deletemultiplexcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteMultiplexProgram
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/deletemultiplexprogramcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deletemultiplexprogramcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deletemultiplexprogramcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteReservation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/deletereservationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deletereservationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deletereservationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/deleteschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deleteschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deleteschedulecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteTags
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/deletetagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deletetagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/deletetagscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeChannel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/describechannelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describechannelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describechannelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeInput
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/describeinputcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describeinputcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describeinputcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeInputDevice
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/describeinputdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describeinputdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describeinputdevicecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeInputDeviceThumbnail
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/describeinputdevicethumbnailcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describeinputdevicethumbnailcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describeinputdevicethumbnailcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeInputSecurityGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/describeinputsecuritygroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describeinputsecuritygroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describeinputsecuritygroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeMultiplex
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/describemultiplexcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describemultiplexcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describemultiplexcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeMultiplexProgram
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/describemultiplexprogramcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describemultiplexprogramcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describemultiplexprogramcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeOffering
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/describeofferingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describeofferingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describeofferingcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeReservation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/describereservationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describereservationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describereservationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/describeschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describeschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/describeschedulecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListChannels
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/listchannelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listchannelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listchannelscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListInputDevices
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/listinputdevicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listinputdevicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listinputdevicescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListInputDeviceTransfers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/listinputdevicetransferscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listinputdevicetransferscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listinputdevicetransferscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListInputs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/listinputscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listinputscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listinputscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListInputSecurityGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/listinputsecuritygroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listinputsecuritygroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listinputsecuritygroupscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListMultiplexes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/listmultiplexescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listmultiplexescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listmultiplexescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListMultiplexPrograms
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/listmultiplexprogramscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listmultiplexprogramscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listmultiplexprogramscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListOfferings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/listofferingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listofferingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listofferingscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListReservations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/listreservationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listreservationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listreservationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+PurchaseOffering
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/purchaseofferingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/purchaseofferingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/purchaseofferingcommandoutput.html)
+
+</details>
+<details>
+<summary>
+RebootInputDevice
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/rebootinputdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/rebootinputdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/rebootinputdevicecommandoutput.html)
+
+</details>
+<details>
+<summary>
+RejectInputDeviceTransfer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/rejectinputdevicetransfercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/rejectinputdevicetransfercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/rejectinputdevicetransfercommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartChannel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/startchannelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/startchannelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/startchannelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartInputDeviceMaintenanceWindow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/startinputdevicemaintenancewindowcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/startinputdevicemaintenancewindowcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/startinputdevicemaintenancewindowcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartMultiplex
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/startmultiplexcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/startmultiplexcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/startmultiplexcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopChannel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/stopchannelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/stopchannelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/stopchannelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopMultiplex
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/stopmultiplexcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/stopmultiplexcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/stopmultiplexcommandoutput.html)
+
+</details>
+<details>
+<summary>
+TransferInputDevice
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/transferinputdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/transferinputdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/transferinputdevicecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateChannel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/updatechannelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updatechannelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updatechannelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateChannelClass
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/updatechannelclasscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updatechannelclasscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updatechannelclasscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateInput
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/updateinputcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updateinputcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updateinputcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateInputDevice
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/updateinputdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updateinputdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updateinputdevicecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateInputSecurityGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/updateinputsecuritygroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updateinputsecuritygroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updateinputsecuritygroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateMultiplex
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/updatemultiplexcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updatemultiplexcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updatemultiplexcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateMultiplexProgram
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/updatemultiplexprogramcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updatemultiplexprogramcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updatemultiplexprogramcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateReservation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/updatereservationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updatereservationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/updatereservationcommandoutput.html)
+
+</details>

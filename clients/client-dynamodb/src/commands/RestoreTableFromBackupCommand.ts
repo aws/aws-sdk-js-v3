@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0RestoreTableFromBackupCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link RestoreTableFromBackupCommand}.
+ */
 export interface RestoreTableFromBackupCommandInput extends RestoreTableFromBackupInput {}
+/**
+ * The output of {@link RestoreTableFromBackupCommand}.
+ */
 export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBackupOutput, __MetadataBearer {}
 
 /**

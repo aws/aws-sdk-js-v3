@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListTemplatesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListTemplatesCommand}.
+ */
 export interface ListTemplatesCommandInput extends ListMigrationWorkflowTemplatesRequest {}
+/**
+ * The output of {@link ListTemplatesCommand}.
+ */
 export interface ListTemplatesCommandOutput extends ListMigrationWorkflowTemplatesResponse, __MetadataBearer {}
 
 /**

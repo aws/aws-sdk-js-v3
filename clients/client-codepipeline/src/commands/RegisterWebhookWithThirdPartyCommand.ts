@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RegisterWebhookWithThirdPartyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterWebhookWithThirdPartyCommand}.
+ */
 export interface RegisterWebhookWithThirdPartyCommandInput extends RegisterWebhookWithThirdPartyInput {}
+/**
+ * The output of {@link RegisterWebhookWithThirdPartyCommand}.
+ */
 export interface RegisterWebhookWithThirdPartyCommandOutput
   extends RegisterWebhookWithThirdPartyOutput,
     __MetadataBearer {}

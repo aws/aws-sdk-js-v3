@@ -25,6 +25,9 @@ import {
   serializeAws_restJson1PutObjectCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutObjectCommand}.
+ */
 type PutObjectCommandInputType = Omit<PutObjectRequest, "Body"> & {
   /**
    * For *`PutObjectRequest["Body"]`*, see {@link PutObjectRequest.Body}.
@@ -35,6 +38,9 @@ type PutObjectCommandInputType = Omit<PutObjectRequest, "Body"> & {
  * This interface extends from `PutObjectRequest` interface. There are more parameters than `Body` defined in {@link PutObjectRequest}
  */
 export interface PutObjectCommandInput extends PutObjectCommandInputType {}
+/**
+ * The output of {@link PutObjectCommand}.
+ */
 export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBearer {}
 
 /**

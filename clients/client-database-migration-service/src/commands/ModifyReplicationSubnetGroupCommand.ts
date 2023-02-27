@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ModifyReplicationSubnetGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ModifyReplicationSubnetGroupCommand}.
+ */
 export interface ModifyReplicationSubnetGroupCommandInput extends ModifyReplicationSubnetGroupMessage {}
+/**
+ * The output of {@link ModifyReplicationSubnetGroupCommand}.
+ */
 export interface ModifyReplicationSubnetGroupCommandOutput
   extends ModifyReplicationSubnetGroupResponse,
     __MetadataBearer {}

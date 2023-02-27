@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ConfirmCustomerAgreementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ConfirmCustomerAgreementCommand}.
+ */
 export interface ConfirmCustomerAgreementCommandInput extends ConfirmCustomerAgreementRequest {}
+/**
+ * The output of {@link ConfirmCustomerAgreementCommand}.
+ */
 export interface ConfirmCustomerAgreementCommandOutput extends ConfirmCustomerAgreementResponse, __MetadataBearer {}
 
 /**

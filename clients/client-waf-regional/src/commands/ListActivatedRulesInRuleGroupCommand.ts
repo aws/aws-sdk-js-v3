@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link ListActivatedRulesInRuleGroupCommand}.
+ */
 export interface ListActivatedRulesInRuleGroupCommandInput extends ListActivatedRulesInRuleGroupRequest {}
+/**
+ * The output of {@link ListActivatedRulesInRuleGroupCommand}.
+ */
 export interface ListActivatedRulesInRuleGroupCommandOutput
   extends ListActivatedRulesInRuleGroupResponse,
     __MetadataBearer {}

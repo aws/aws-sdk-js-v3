@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DisassociateSecurityKeyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateSecurityKeyCommand}.
+ */
 export interface DisassociateSecurityKeyCommandInput extends DisassociateSecurityKeyRequest {}
+/**
+ * The output of {@link DisassociateSecurityKeyCommand}.
+ */
 export interface DisassociateSecurityKeyCommandOutput extends __MetadataBearer {}
 
 /**

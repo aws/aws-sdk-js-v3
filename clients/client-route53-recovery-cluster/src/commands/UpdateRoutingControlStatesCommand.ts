@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryClusterClient";
 
+/**
+ * The input for {@link UpdateRoutingControlStatesCommand}.
+ */
 export interface UpdateRoutingControlStatesCommandInput extends UpdateRoutingControlStatesRequest {}
+/**
+ * The output of {@link UpdateRoutingControlStatesCommand}.
+ */
 export interface UpdateRoutingControlStatesCommandOutput extends UpdateRoutingControlStatesResponse, __MetadataBearer {}
 
 /**

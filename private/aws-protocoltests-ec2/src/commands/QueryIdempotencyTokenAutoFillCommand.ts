@@ -22,7 +22,13 @@ import {
   serializeAws_ec2QueryIdempotencyTokenAutoFillCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link QueryIdempotencyTokenAutoFillCommand}.
+ */
 export interface QueryIdempotencyTokenAutoFillCommandInput extends QueryIdempotencyTokenAutoFillInput {}
+/**
+ * The output of {@link QueryIdempotencyTokenAutoFillCommand}.
+ */
 export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1UpdateACLCommand, serializeAws_json1_1UpdateACLCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateACLCommand}.
+ */
 export interface UpdateACLCommandInput extends UpdateACLRequest {}
+/**
+ * The output of {@link UpdateACLCommand}.
+ */
 export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBearer {}
 
 /**

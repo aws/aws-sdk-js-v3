@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link PutEmailMonitoringConfigurationCommand}.
+ */
 export interface PutEmailMonitoringConfigurationCommandInput extends PutEmailMonitoringConfigurationRequest {}
+/**
+ * The output of {@link PutEmailMonitoringConfigurationCommand}.
+ */
 export interface PutEmailMonitoringConfigurationCommandOutput
   extends PutEmailMonitoringConfigurationResponse,
     __MetadataBearer {}

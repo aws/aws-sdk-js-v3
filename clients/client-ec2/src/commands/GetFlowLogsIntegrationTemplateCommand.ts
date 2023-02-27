@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetFlowLogsIntegrationTemplateCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetFlowLogsIntegrationTemplateCommand}.
+ */
 export interface GetFlowLogsIntegrationTemplateCommandInput extends GetFlowLogsIntegrationTemplateRequest {}
+/**
+ * The output of {@link GetFlowLogsIntegrationTemplateCommand}.
+ */
 export interface GetFlowLogsIntegrationTemplateCommandOutput
   extends GetFlowLogsIntegrationTemplateResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeNatGatewaysCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeNatGatewaysCommand}.
+ */
 export interface DescribeNatGatewaysCommandInput extends DescribeNatGatewaysRequest {}
+/**
+ * The output of {@link DescribeNatGatewaysCommand}.
+ */
 export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysResult, __MetadataBearer {}
 
 /**

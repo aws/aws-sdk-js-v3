@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetAccountBalanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetAccountBalanceCommand}.
+ */
 export interface GetAccountBalanceCommandInput extends GetAccountBalanceRequest {}
+/**
+ * The output of {@link GetAccountBalanceCommand}.
+ */
 export interface GetAccountBalanceCommandOutput extends GetAccountBalanceResponse, __MetadataBearer {}
 
 /**

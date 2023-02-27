@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1EnableUserCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EnableUserCommand}.
+ */
 export interface EnableUserCommandInput extends EnableUserRequest {}
+/**
+ * The output of {@link EnableUserCommand}.
+ */
 export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBearer {}
 
 /**

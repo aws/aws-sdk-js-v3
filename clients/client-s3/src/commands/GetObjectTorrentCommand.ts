@@ -28,7 +28,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetObjectTorrentCommand}.
+ */
 export interface GetObjectTorrentCommandInput extends GetObjectTorrentRequest {}
+/**
+ * The output of {@link GetObjectTorrentCommand}.
+ */
 export interface GetObjectTorrentCommandOutput
   extends __WithSdkStreamMixin<GetObjectTorrentOutput, "Body">,
     __MetadataBearer {}

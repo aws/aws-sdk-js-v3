@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CancelKeyDeletionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CancelKeyDeletionCommand}.
+ */
 export interface CancelKeyDeletionCommandInput extends CancelKeyDeletionRequest {}
+/**
+ * The output of {@link CancelKeyDeletionCommand}.
+ */
 export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionResponse, __MetadataBearer {}
 
 /**

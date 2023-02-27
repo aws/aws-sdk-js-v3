@@ -25,7 +25,13 @@ import {
   serializeAws_queryCheckDNSAvailabilityCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CheckDNSAvailabilityCommand}.
+ */
 export interface CheckDNSAvailabilityCommandInput extends CheckDNSAvailabilityMessage {}
+/**
+ * The output of {@link CheckDNSAvailabilityCommand}.
+ */
 export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityResultMessage, __MetadataBearer {}
 
 /**

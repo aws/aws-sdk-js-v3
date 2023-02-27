@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeProtectedResourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeProtectedResourceCommand}.
+ */
 export interface DescribeProtectedResourceCommandInput extends DescribeProtectedResourceInput {}
+/**
+ * The output of {@link DescribeProtectedResourceCommand}.
+ */
 export interface DescribeProtectedResourceCommandOutput extends DescribeProtectedResourceOutput, __MetadataBearer {}
 
 /**

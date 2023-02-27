@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeFaqCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeFaqCommand}.
+ */
 export interface DescribeFaqCommandInput extends DescribeFaqRequest {}
+/**
+ * The output of {@link DescribeFaqCommand}.
+ */
 export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __MetadataBearer {}
 
 /**

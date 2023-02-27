@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListCollectorsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListCollectorsCommand}.
+ */
 export interface ListCollectorsCommandInput extends ListCollectorsRequest {}
+/**
+ * The output of {@link ListCollectorsCommand}.
+ */
 export interface ListCollectorsCommandOutput extends ListCollectorsResponse, __MetadataBearer {}
 
 /**

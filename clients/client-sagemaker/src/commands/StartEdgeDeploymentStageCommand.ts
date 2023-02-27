@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link StartEdgeDeploymentStageCommand}.
+ */
 export interface StartEdgeDeploymentStageCommandInput extends StartEdgeDeploymentStageRequest {}
+/**
+ * The output of {@link StartEdgeDeploymentStageCommand}.
+ */
 export interface StartEdgeDeploymentStageCommandOutput extends __MetadataBearer {}
 
 /**

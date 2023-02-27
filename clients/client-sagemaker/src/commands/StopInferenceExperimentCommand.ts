@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link StopInferenceExperimentCommand}.
+ */
 export interface StopInferenceExperimentCommandInput extends StopInferenceExperimentRequest {}
+/**
+ * The output of {@link StopInferenceExperimentCommand}.
+ */
 export interface StopInferenceExperimentCommandOutput extends StopInferenceExperimentResponse, __MetadataBearer {}
 
 /**

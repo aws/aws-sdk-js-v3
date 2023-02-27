@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ResumeGameServerGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ResumeGameServerGroupCommand}.
+ */
 export interface ResumeGameServerGroupCommandInput extends ResumeGameServerGroupInput {}
+/**
+ * The output of {@link ResumeGameServerGroupCommand}.
+ */
 export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGroupOutput, __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 import { deserializeAws_queryCreateQueueCommand, serializeAws_queryCreateQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link CreateQueueCommand}.
+ */
 export interface CreateQueueCommandInput extends CreateQueueRequest {}
+/**
+ * The output of {@link CreateQueueCommand}.
+ */
 export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataBearer {}
 
 /**

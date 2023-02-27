@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateArchiveCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateArchiveCommand}.
+ */
 export interface CreateArchiveCommandInput extends CreateArchiveRequest {}
+/**
+ * The output of {@link CreateArchiveCommand}.
+ */
 export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __MetadataBearer {}
 
 /**

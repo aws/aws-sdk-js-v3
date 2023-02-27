@@ -22,7 +22,13 @@ import {
 import { deserializeAws_querySendRawEmailCommand, serializeAws_querySendRawEmailCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link SendRawEmailCommand}.
+ */
 export interface SendRawEmailCommandInput extends SendRawEmailRequest {}
+/**
+ * The output of {@link SendRawEmailCommand}.
+ */
 export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlTestFunctionCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link TestFunctionCommand}.
+ */
 export interface TestFunctionCommandInput extends TestFunctionRequest {}
+/**
+ * The output of {@link TestFunctionCommand}.
+ */
 export interface TestFunctionCommandOutput extends TestFunctionResult, __MetadataBearer {}
 
 /**

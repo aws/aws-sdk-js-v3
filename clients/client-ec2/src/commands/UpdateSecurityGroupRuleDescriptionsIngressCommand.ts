@@ -25,8 +25,14 @@ import {
   serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link UpdateSecurityGroupRuleDescriptionsIngressCommand}.
+ */
 export interface UpdateSecurityGroupRuleDescriptionsIngressCommandInput
   extends UpdateSecurityGroupRuleDescriptionsIngressRequest {}
+/**
+ * The output of {@link UpdateSecurityGroupRuleDescriptionsIngressCommand}.
+ */
 export interface UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
   extends UpdateSecurityGroupRuleDescriptionsIngressResult,
     __MetadataBearer {}

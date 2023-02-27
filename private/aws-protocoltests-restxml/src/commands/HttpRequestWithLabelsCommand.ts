@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link HttpRequestWithLabelsCommand}.
+ */
 export interface HttpRequestWithLabelsCommandInput extends HttpRequestWithLabelsInput {}
+/**
+ * The output of {@link HttpRequestWithLabelsCommand}.
+ */
 export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
 
 /**

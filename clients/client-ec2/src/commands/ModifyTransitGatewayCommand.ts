@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyTransitGatewayCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyTransitGatewayCommand}.
+ */
 export interface ModifyTransitGatewayCommandInput extends ModifyTransitGatewayRequest {}
+/**
+ * The output of {@link ModifyTransitGatewayCommand}.
+ */
 export interface ModifyTransitGatewayCommandOutput extends ModifyTransitGatewayResult, __MetadataBearer {}
 
 /**

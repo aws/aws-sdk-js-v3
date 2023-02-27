@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListPackageVersionDependenciesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPackageVersionDependenciesCommand}.
+ */
 export interface ListPackageVersionDependenciesCommandInput extends ListPackageVersionDependenciesRequest {}
+/**
+ * The output of {@link ListPackageVersionDependenciesCommand}.
+ */
 export interface ListPackageVersionDependenciesCommandOutput
   extends ListPackageVersionDependenciesResult,
     __MetadataBearer {}

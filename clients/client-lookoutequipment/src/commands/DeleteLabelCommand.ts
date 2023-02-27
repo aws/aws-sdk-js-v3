@@ -20,7 +20,13 @@ import {
   serializeAws_json1_0DeleteLabelCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteLabelCommand}.
+ */
 export interface DeleteLabelCommandInput extends DeleteLabelRequest {}
+/**
+ * The output of {@link DeleteLabelCommand}.
+ */
 export interface DeleteLabelCommandOutput extends __MetadataBearer {}
 
 /**

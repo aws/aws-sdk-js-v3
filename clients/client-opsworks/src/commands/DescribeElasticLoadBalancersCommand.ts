@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeElasticLoadBalancersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeElasticLoadBalancersCommand}.
+ */
 export interface DescribeElasticLoadBalancersCommandInput extends DescribeElasticLoadBalancersRequest {}
+/**
+ * The output of {@link DescribeElasticLoadBalancersCommand}.
+ */
 export interface DescribeElasticLoadBalancersCommandOutput
   extends DescribeElasticLoadBalancersResult,
     __MetadataBearer {}

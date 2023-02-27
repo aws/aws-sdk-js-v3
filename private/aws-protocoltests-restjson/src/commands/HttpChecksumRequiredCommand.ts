@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link HttpChecksumRequiredCommand}.
+ */
 export interface HttpChecksumRequiredCommandInput extends HttpChecksumRequiredInputOutput {}
+/**
+ * The output of {@link HttpChecksumRequiredCommand}.
+ */
 export interface HttpChecksumRequiredCommandOutput extends HttpChecksumRequiredInputOutput, __MetadataBearer {}
 
 /**

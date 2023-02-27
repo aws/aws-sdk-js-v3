@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteLoggerDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteLoggerDefinitionCommand}.
+ */
 export interface DeleteLoggerDefinitionCommandInput extends DeleteLoggerDefinitionRequest {}
+/**
+ * The output of {@link DeleteLoggerDefinitionCommand}.
+ */
 export interface DeleteLoggerDefinitionCommandOutput extends DeleteLoggerDefinitionResponse, __MetadataBearer {}
 
 /**

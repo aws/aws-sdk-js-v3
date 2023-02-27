@@ -27,7 +27,13 @@ import {
   serializeAws_restJson1DeleteBotChannelAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteBotChannelAssociationCommand}.
+ */
 export interface DeleteBotChannelAssociationCommandInput extends DeleteBotChannelAssociationRequest {}
+/**
+ * The output of {@link DeleteBotChannelAssociationCommand}.
+ */
 export interface DeleteBotChannelAssociationCommandOutput extends __MetadataBearer {}
 
 /**

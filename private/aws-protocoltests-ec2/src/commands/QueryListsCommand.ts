@@ -16,7 +16,13 @@ import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import { QueryListsInput, QueryListsInputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_ec2QueryListsCommand, serializeAws_ec2QueryListsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link QueryListsCommand}.
+ */
 export interface QueryListsCommandInput extends QueryListsInput {}
+/**
+ * The output of {@link QueryListsCommand}.
+ */
 export interface QueryListsCommandOutput extends __MetadataBearer {}
 
 /**

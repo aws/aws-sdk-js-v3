@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1DisassociateTransitGatewayConnectPeerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateTransitGatewayConnectPeerCommand}.
+ */
 export interface DisassociateTransitGatewayConnectPeerCommandInput
   extends DisassociateTransitGatewayConnectPeerRequest {}
+/**
+ * The output of {@link DisassociateTransitGatewayConnectPeerCommand}.
+ */
 export interface DisassociateTransitGatewayConnectPeerCommandOutput
   extends DisassociateTransitGatewayConnectPeerResponse,
     __MetadataBearer {}

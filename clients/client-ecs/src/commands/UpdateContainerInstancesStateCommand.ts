@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateContainerInstancesStateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateContainerInstancesStateCommand}.
+ */
 export interface UpdateContainerInstancesStateCommandInput extends UpdateContainerInstancesStateRequest {}
+/**
+ * The output of {@link UpdateContainerInstancesStateCommand}.
+ */
 export interface UpdateContainerInstancesStateCommandOutput
   extends UpdateContainerInstancesStateResponse,
     __MetadataBearer {}

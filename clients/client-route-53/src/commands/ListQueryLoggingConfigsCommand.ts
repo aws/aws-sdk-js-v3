@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link ListQueryLoggingConfigsCommand}.
+ */
 export interface ListQueryLoggingConfigsCommandInput extends ListQueryLoggingConfigsRequest {}
+/**
+ * The output of {@link ListQueryLoggingConfigsCommand}.
+ */
 export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingConfigsResponse, __MetadataBearer {}
 
 /**

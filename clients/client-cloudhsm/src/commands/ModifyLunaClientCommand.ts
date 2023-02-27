@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ModifyLunaClientCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ModifyLunaClientCommand}.
+ */
 export interface ModifyLunaClientCommandInput extends ModifyLunaClientRequest {}
+/**
+ * The output of {@link ModifyLunaClientCommand}.
+ */
 export interface ModifyLunaClientCommandOutput extends ModifyLunaClientResponse, __MetadataBearer {}
 
 /**

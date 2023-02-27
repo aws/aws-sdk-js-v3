@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListReceivedGrantsForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListReceivedGrantsForOrganizationCommand}.
+ */
 export interface ListReceivedGrantsForOrganizationCommandInput extends ListReceivedGrantsForOrganizationRequest {}
+/**
+ * The output of {@link ListReceivedGrantsForOrganizationCommand}.
+ */
 export interface ListReceivedGrantsForOrganizationCommandOutput
   extends ListReceivedGrantsForOrganizationResponse,
     __MetadataBearer {}

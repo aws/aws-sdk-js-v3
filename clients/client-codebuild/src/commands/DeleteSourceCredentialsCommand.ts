@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteSourceCredentialsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteSourceCredentialsCommand}.
+ */
 export interface DeleteSourceCredentialsCommandInput extends DeleteSourceCredentialsInput {}
+/**
+ * The output of {@link DeleteSourceCredentialsCommand}.
+ */
 export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCredentialsOutput, __MetadataBearer {}
 
 /**

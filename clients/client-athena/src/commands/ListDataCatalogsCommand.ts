@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListDataCatalogsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListDataCatalogsCommand}.
+ */
 export interface ListDataCatalogsCommandInput extends ListDataCatalogsInput {}
+/**
+ * The output of {@link ListDataCatalogsCommand}.
+ */
 export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, __MetadataBearer {}
 
 /**

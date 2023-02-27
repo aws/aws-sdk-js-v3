@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribePredictorBacktestExportJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribePredictorBacktestExportJobCommand}.
+ */
 export interface DescribePredictorBacktestExportJobCommandInput extends DescribePredictorBacktestExportJobRequest {}
+/**
+ * The output of {@link DescribePredictorBacktestExportJobCommand}.
+ */
 export interface DescribePredictorBacktestExportJobCommandOutput
   extends DescribePredictorBacktestExportJobResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateJourneyStateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateJourneyStateCommand}.
+ */
 export interface UpdateJourneyStateCommandInput extends UpdateJourneyStateRequest {}
+/**
+ * The output of {@link UpdateJourneyStateCommand}.
+ */
 export interface UpdateJourneyStateCommandOutput extends UpdateJourneyStateResponse, __MetadataBearer {}
 
 /**

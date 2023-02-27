@@ -17,7 +17,13 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { DeleteKeyPairRequest, DeleteKeyPairRequestFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_ec2DeleteKeyPairCommand, serializeAws_ec2DeleteKeyPairCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteKeyPairCommand}.
+ */
 export interface DeleteKeyPairCommandInput extends DeleteKeyPairRequest {}
+/**
+ * The output of {@link DeleteKeyPairCommand}.
+ */
 export interface DeleteKeyPairCommandOutput extends __MetadataBearer {}
 
 /**

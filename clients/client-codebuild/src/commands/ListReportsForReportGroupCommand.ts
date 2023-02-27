@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListReportsForReportGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListReportsForReportGroupCommand}.
+ */
 export interface ListReportsForReportGroupCommandInput extends ListReportsForReportGroupInput {}
+/**
+ * The output of {@link ListReportsForReportGroupCommand}.
+ */
 export interface ListReportsForReportGroupCommandOutput extends ListReportsForReportGroupOutput, __MetadataBearer {}
 
 /**

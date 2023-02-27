@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SearchQueuesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SearchQueuesCommand}.
+ */
 export interface SearchQueuesCommandInput extends SearchQueuesRequest {}
+/**
+ * The output of {@link SearchQueuesCommand}.
+ */
 export interface SearchQueuesCommandOutput extends SearchQueuesResponse, __MetadataBearer {}
 
 /**

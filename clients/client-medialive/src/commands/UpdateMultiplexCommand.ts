@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateMultiplexCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateMultiplexCommand}.
+ */
 export interface UpdateMultiplexCommandInput extends UpdateMultiplexRequest {}
+/**
+ * The output of {@link UpdateMultiplexCommand}.
+ */
 export interface UpdateMultiplexCommandOutput extends UpdateMultiplexResponse, __MetadataBearer {}
 
 /**

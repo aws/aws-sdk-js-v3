@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeBackupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeBackupsCommand}.
+ */
 export interface DescribeBackupsCommandInput extends DescribeBackupsRequest {}
+/**
+ * The output of {@link DescribeBackupsCommand}.
+ */
 export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListResourceDefinitionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListResourceDefinitionsCommand}.
+ */
 export interface ListResourceDefinitionsCommandInput extends ListResourceDefinitionsRequest {}
+/**
+ * The output of {@link ListResourceDefinitionsCommand}.
+ */
 export interface ListResourceDefinitionsCommandOutput extends ListResourceDefinitionsResponse, __MetadataBearer {}
 
 /**

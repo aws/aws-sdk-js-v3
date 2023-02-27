@@ -25,8 +25,14 @@ import {
   serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetTransitGatewayMulticastDomainAssociationsCommand}.
+ */
 export interface GetTransitGatewayMulticastDomainAssociationsCommandInput
   extends GetTransitGatewayMulticastDomainAssociationsRequest {}
+/**
+ * The output of {@link GetTransitGatewayMulticastDomainAssociationsCommand}.
+ */
 export interface GetTransitGatewayMulticastDomainAssociationsCommandOutput
   extends GetTransitGatewayMulticastDomainAssociationsResult,
     __MetadataBearer {}

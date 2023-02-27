@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetApplicationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetApplicationsCommand}.
+ */
 export interface BatchGetApplicationsCommandInput extends BatchGetApplicationsInput {}
+/**
+ * The output of {@link BatchGetApplicationsCommand}.
+ */
 export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsOutput, __MetadataBearer {}
 
 /**

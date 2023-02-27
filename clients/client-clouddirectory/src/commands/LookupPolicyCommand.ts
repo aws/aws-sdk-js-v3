@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1LookupPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link LookupPolicyCommand}.
+ */
 export interface LookupPolicyCommandInput extends LookupPolicyRequest {}
+/**
+ * The output of {@link LookupPolicyCommand}.
+ */
 export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __MetadataBearer {}
 
 /**

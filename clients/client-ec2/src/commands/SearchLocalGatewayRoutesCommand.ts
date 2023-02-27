@@ -25,7 +25,13 @@ import {
   serializeAws_ec2SearchLocalGatewayRoutesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link SearchLocalGatewayRoutesCommand}.
+ */
 export interface SearchLocalGatewayRoutesCommandInput extends SearchLocalGatewayRoutesRequest {}
+/**
+ * The output of {@link SearchLocalGatewayRoutesCommand}.
+ */
 export interface SearchLocalGatewayRoutesCommandOutput extends SearchLocalGatewayRoutesResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopContactStreamingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopContactStreamingCommand}.
+ */
 export interface StopContactStreamingCommandInput extends StopContactStreamingRequest {}
+/**
+ * The output of {@link StopContactStreamingCommand}.
+ */
 export interface StopContactStreamingCommandOutput extends StopContactStreamingResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RegisterClusterCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RegisterClusterCommand}.
+ */
 export interface RegisterClusterCommandInput extends RegisterClusterRequest {}
+/**
+ * The output of {@link RegisterClusterCommand}.
+ */
 export interface RegisterClusterCommandOutput extends RegisterClusterResponse, __MetadataBearer {}
 
 /**

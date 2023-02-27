@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * The input for {@link DeleteRegexPatternSetCommand}.
+ */
 export interface DeleteRegexPatternSetCommandInput extends DeleteRegexPatternSetRequest {}
+/**
+ * The output of {@link DeleteRegexPatternSetCommand}.
+ */
 export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSetResponse, __MetadataBearer {}
 
 /**

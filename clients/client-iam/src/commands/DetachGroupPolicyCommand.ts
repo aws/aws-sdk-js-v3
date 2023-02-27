@@ -20,7 +20,13 @@ import {
   serializeAws_queryDetachGroupPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DetachGroupPolicyCommand}.
+ */
 export interface DetachGroupPolicyCommandInput extends DetachGroupPolicyRequest {}
+/**
+ * The output of {@link DetachGroupPolicyCommand}.
+ */
 export interface DetachGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**

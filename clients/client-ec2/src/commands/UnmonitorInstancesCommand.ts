@@ -25,7 +25,13 @@ import {
   serializeAws_ec2UnmonitorInstancesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link UnmonitorInstancesCommand}.
+ */
 export interface UnmonitorInstancesCommandInput extends UnmonitorInstancesRequest {}
+/**
+ * The output of {@link UnmonitorInstancesCommand}.
+ */
 export interface UnmonitorInstancesCommandOutput extends UnmonitorInstancesResult, __MetadataBearer {}
 
 /**

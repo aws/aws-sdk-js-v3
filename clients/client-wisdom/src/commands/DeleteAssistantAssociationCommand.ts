@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * The input for {@link DeleteAssistantAssociationCommand}.
+ */
 export interface DeleteAssistantAssociationCommandInput extends DeleteAssistantAssociationRequest {}
+/**
+ * The output of {@link DeleteAssistantAssociationCommand}.
+ */
 export interface DeleteAssistantAssociationCommandOutput extends DeleteAssistantAssociationResponse, __MetadataBearer {}
 
 /**

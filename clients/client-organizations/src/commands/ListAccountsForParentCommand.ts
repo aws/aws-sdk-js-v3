@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListAccountsForParentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAccountsForParentCommand}.
+ */
 export interface ListAccountsForParentCommandInput extends ListAccountsForParentRequest {}
+/**
+ * The output of {@link ListAccountsForParentCommand}.
+ */
 export interface ListAccountsForParentCommandOutput extends ListAccountsForParentResponse, __MetadataBearer {}
 
 /**

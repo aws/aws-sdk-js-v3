@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
+/**
+ * The input for {@link GetResourcePermissionCommand}.
+ */
 export interface GetResourcePermissionCommandInput extends GetResourcePermissionInput {}
+/**
+ * The output of {@link GetResourcePermissionCommand}.
+ */
 export interface GetResourcePermissionCommandOutput extends GetResourcePermissionOutput, __MetadataBearer {}
 
 /**

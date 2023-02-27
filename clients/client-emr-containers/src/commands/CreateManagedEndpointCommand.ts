@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateManagedEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateManagedEndpointCommand}.
+ */
 export interface CreateManagedEndpointCommandInput extends CreateManagedEndpointRequest {}
+/**
+ * The output of {@link CreateManagedEndpointCommand}.
+ */
 export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpointResponse, __MetadataBearer {}
 
 /**

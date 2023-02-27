@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteBackupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteBackupCommand}.
+ */
 export interface DeleteBackupCommandInput extends DeleteBackupRequest {}
+/**
+ * The output of {@link DeleteBackupCommand}.
+ */
 export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __MetadataBearer {}
 
 /**

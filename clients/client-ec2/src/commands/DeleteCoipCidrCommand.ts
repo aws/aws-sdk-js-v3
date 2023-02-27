@@ -22,7 +22,13 @@ import {
 } from "../models/models_2";
 import { deserializeAws_ec2DeleteCoipCidrCommand, serializeAws_ec2DeleteCoipCidrCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteCoipCidrCommand}.
+ */
 export interface DeleteCoipCidrCommandInput extends DeleteCoipCidrRequest {}
+/**
+ * The output of {@link DeleteCoipCidrCommand}.
+ */
 export interface DeleteCoipCidrCommandOutput extends DeleteCoipCidrResult, __MetadataBearer {}
 
 /**

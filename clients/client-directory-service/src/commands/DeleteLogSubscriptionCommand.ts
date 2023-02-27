@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteLogSubscriptionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteLogSubscriptionCommand}.
+ */
 export interface DeleteLogSubscriptionCommandInput extends DeleteLogSubscriptionRequest {}
+/**
+ * The output of {@link DeleteLogSubscriptionCommand}.
+ */
 export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptionResult, __MetadataBearer {}
 
 /**

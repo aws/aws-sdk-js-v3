@@ -24,7 +24,13 @@ import {
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * The input for {@link GetConfigurationCommand}.
+ */
 export interface GetConfigurationCommandInput {}
+/**
+ * The output of {@link GetConfigurationCommand}.
+ */
 export interface GetConfigurationCommandOutput extends GetConfigurationResponse, __MetadataBearer {}
 
 /**

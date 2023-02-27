@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * The input for {@link UpdateFleetMetadataCommand}.
+ */
 export interface UpdateFleetMetadataCommandInput extends UpdateFleetMetadataRequest {}
+/**
+ * The output of {@link UpdateFleetMetadataCommand}.
+ */
 export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataResponse, __MetadataBearer {}
 
 /**

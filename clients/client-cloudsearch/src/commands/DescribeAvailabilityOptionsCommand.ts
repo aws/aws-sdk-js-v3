@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeAvailabilityOptionsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeAvailabilityOptionsCommand}.
+ */
 export interface DescribeAvailabilityOptionsCommandInput extends DescribeAvailabilityOptionsRequest {}
+/**
+ * The output of {@link DescribeAvailabilityOptionsCommand}.
+ */
 export interface DescribeAvailabilityOptionsCommandOutput
   extends DescribeAvailabilityOptionsResponse,
     __MetadataBearer {}

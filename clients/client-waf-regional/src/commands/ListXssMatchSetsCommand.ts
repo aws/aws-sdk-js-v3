@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link ListXssMatchSetsCommand}.
+ */
 export interface ListXssMatchSetsCommandInput extends ListXssMatchSetsRequest {}
+/**
+ * The output of {@link ListXssMatchSetsCommand}.
+ */
 export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse, __MetadataBearer {}
 
 /**

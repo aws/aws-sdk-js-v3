@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link DisassociateMemberFromGroupCommand}.
+ */
 export interface DisassociateMemberFromGroupCommandInput extends DisassociateMemberFromGroupRequest {}
+/**
+ * The output of {@link DisassociateMemberFromGroupCommand}.
+ */
 export interface DisassociateMemberFromGroupCommandOutput
   extends DisassociateMemberFromGroupResponse,
     __MetadataBearer {}

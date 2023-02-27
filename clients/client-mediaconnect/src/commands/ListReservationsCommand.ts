@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListReservationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListReservationsCommand}.
+ */
 export interface ListReservationsCommandInput extends ListReservationsRequest {}
+/**
+ * The output of {@link ListReservationsCommand}.
+ */
 export interface ListReservationsCommandOutput extends ListReservationsResponse, __MetadataBearer {}
 
 /**

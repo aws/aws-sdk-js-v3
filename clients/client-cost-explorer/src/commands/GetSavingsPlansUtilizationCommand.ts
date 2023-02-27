@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetSavingsPlansUtilizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetSavingsPlansUtilizationCommand}.
+ */
 export interface GetSavingsPlansUtilizationCommandInput extends GetSavingsPlansUtilizationRequest {}
+/**
+ * The output of {@link GetSavingsPlansUtilizationCommand}.
+ */
 export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlansUtilizationResponse, __MetadataBearer {}
 
 /**

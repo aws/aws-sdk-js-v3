@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * The input for {@link ListSimulationApplicationsCommand}.
+ */
 export interface ListSimulationApplicationsCommandInput extends ListSimulationApplicationsRequest {}
+/**
+ * The output of {@link ListSimulationApplicationsCommand}.
+ */
 export interface ListSimulationApplicationsCommandOutput extends ListSimulationApplicationsResponse, __MetadataBearer {}
 
 /**

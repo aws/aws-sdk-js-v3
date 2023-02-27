@@ -29,8 +29,14 @@ import {
   serializeAws_restJson1DescribeReservedElasticsearchInstanceOfferingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeReservedElasticsearchInstanceOfferingsCommand}.
+ */
 export interface DescribeReservedElasticsearchInstanceOfferingsCommandInput
   extends DescribeReservedElasticsearchInstanceOfferingsRequest {}
+/**
+ * The output of {@link DescribeReservedElasticsearchInstanceOfferingsCommand}.
+ */
 export interface DescribeReservedElasticsearchInstanceOfferingsCommandOutput
   extends DescribeReservedElasticsearchInstanceOfferingsResponse,
     __MetadataBearer {}

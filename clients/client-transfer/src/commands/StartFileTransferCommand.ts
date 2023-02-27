@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link StartFileTransferCommand}.
+ */
 export interface StartFileTransferCommandInput extends StartFileTransferRequest {}
+/**
+ * The output of {@link StartFileTransferCommand}.
+ */
 export interface StartFileTransferCommandOutput extends StartFileTransferResponse, __MetadataBearer {}
 
 /**

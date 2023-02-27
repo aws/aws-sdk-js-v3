@@ -25,8 +25,14 @@ import {
   serializeAws_ec2RegisterInstanceEventNotificationAttributesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RegisterInstanceEventNotificationAttributesCommand}.
+ */
 export interface RegisterInstanceEventNotificationAttributesCommandInput
   extends RegisterInstanceEventNotificationAttributesRequest {}
+/**
+ * The output of {@link RegisterInstanceEventNotificationAttributesCommand}.
+ */
 export interface RegisterInstanceEventNotificationAttributesCommandOutput
   extends RegisterInstanceEventNotificationAttributesResult,
     __MetadataBearer {}

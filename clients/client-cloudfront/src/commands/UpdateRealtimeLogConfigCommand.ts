@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlUpdateRealtimeLogConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link UpdateRealtimeLogConfigCommand}.
+ */
 export interface UpdateRealtimeLogConfigCommandInput extends UpdateRealtimeLogConfigRequest {}
+/**
+ * The output of {@link UpdateRealtimeLogConfigCommand}.
+ */
 export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogConfigResult, __MetadataBearer {}
 
 /**

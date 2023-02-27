@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1PutConfigRuleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutConfigRuleCommand}.
+ */
 export interface PutConfigRuleCommandInput extends PutConfigRuleRequest {}
+/**
+ * The output of {@link PutConfigRuleCommand}.
+ */
 export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
 
 /**

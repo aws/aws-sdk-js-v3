@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * The input for {@link GetCredentialsCommand}.
+ */
 export interface GetCredentialsCommandInput extends GetCredentialsRequest {}
+/**
+ * The output of {@link GetCredentialsCommand}.
+ */
 export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __MetadataBearer {}
 
 /**

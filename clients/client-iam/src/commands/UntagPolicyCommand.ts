@@ -17,7 +17,13 @@ import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { UntagPolicyRequest, UntagPolicyRequestFilterSensitiveLog } from "../models/models_1";
 import { deserializeAws_queryUntagPolicyCommand, serializeAws_queryUntagPolicyCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UntagPolicyCommand}.
+ */
 export interface UntagPolicyCommandInput extends UntagPolicyRequest {}
+/**
+ * The output of {@link UntagPolicyCommand}.
+ */
 export interface UntagPolicyCommandOutput extends __MetadataBearer {}
 
 /**

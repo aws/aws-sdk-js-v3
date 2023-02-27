@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetTypedLinkFacetInformationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetTypedLinkFacetInformationCommand}.
+ */
 export interface GetTypedLinkFacetInformationCommandInput extends GetTypedLinkFacetInformationRequest {}
+/**
+ * The output of {@link GetTypedLinkFacetInformationCommand}.
+ */
 export interface GetTypedLinkFacetInformationCommandOutput
   extends GetTypedLinkFacetInformationResponse,
     __MetadataBearer {}

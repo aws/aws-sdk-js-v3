@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CancelCapacityReservationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CancelCapacityReservationCommand}.
+ */
 export interface CancelCapacityReservationCommandInput extends CancelCapacityReservationRequest {}
+/**
+ * The output of {@link CancelCapacityReservationCommand}.
+ */
 export interface CancelCapacityReservationCommandOutput extends CancelCapacityReservationResult, __MetadataBearer {}
 
 /**

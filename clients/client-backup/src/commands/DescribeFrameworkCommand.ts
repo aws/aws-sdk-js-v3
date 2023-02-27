@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeFrameworkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeFrameworkCommand}.
+ */
 export interface DescribeFrameworkCommandInput extends DescribeFrameworkInput {}
+/**
+ * The output of {@link DescribeFrameworkCommand}.
+ */
 export interface DescribeFrameworkCommandOutput extends DescribeFrameworkOutput, __MetadataBearer {}
 
 /**

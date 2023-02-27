@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListFindingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListFindingsCommand}.
+ */
 export interface ListFindingsCommandInput extends ListFindingsRequest {}
+/**
+ * The output of {@link ListFindingsCommand}.
+ */
 export interface ListFindingsCommandOutput extends ListFindingsResponse, __MetadataBearer {}
 
 /**

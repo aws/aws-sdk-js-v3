@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link StartSegmentDetectionCommand}.
+ */
 export interface StartSegmentDetectionCommandInput extends StartSegmentDetectionRequest {}
+/**
+ * The output of {@link StartSegmentDetectionCommand}.
+ */
 export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectionResponse, __MetadataBearer {}
 
 /**

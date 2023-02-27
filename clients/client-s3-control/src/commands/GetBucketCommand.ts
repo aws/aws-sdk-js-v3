@@ -23,7 +23,13 @@ import {
 import { deserializeAws_restXmlGetBucketCommand, serializeAws_restXmlGetBucketCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link GetBucketCommand}.
+ */
 export interface GetBucketCommandInput extends GetBucketRequest {}
+/**
+ * The output of {@link GetBucketCommand}.
+ */
 export interface GetBucketCommandOutput extends GetBucketResult, __MetadataBearer {}
 
 /**

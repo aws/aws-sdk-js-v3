@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetRelationalDatabaseParametersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRelationalDatabaseParametersCommand}.
+ */
 export interface GetRelationalDatabaseParametersCommandInput extends GetRelationalDatabaseParametersRequest {}
+/**
+ * The output of {@link GetRelationalDatabaseParametersCommand}.
+ */
 export interface GetRelationalDatabaseParametersCommandOutput
   extends GetRelationalDatabaseParametersResult,
     __MetadataBearer {}

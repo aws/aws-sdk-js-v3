@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListInferenceSchedulersCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListInferenceSchedulersCommand}.
+ */
 export interface ListInferenceSchedulersCommandInput extends ListInferenceSchedulersRequest {}
+/**
+ * The output of {@link ListInferenceSchedulersCommand}.
+ */
 export interface ListInferenceSchedulersCommandOutput extends ListInferenceSchedulersResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateEventSourcesConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateEventSourcesConfigCommand}.
+ */
 export interface UpdateEventSourcesConfigCommandInput extends UpdateEventSourcesConfigRequest {}
+/**
+ * The output of {@link UpdateEventSourcesConfigCommand}.
+ */
 export interface UpdateEventSourcesConfigCommandOutput extends UpdateEventSourcesConfigResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * The input for {@link AssociateResourceCommand}.
+ */
 export interface AssociateResourceCommandInput extends AssociateResourceRequest {}
+/**
+ * The output of {@link AssociateResourceCommand}.
+ */
 export interface AssociateResourceCommandOutput extends AssociateResourceResponse, __MetadataBearer {}
 
 /**

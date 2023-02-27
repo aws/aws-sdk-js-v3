@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteVoiceTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteVoiceTemplateCommand}.
+ */
 export interface DeleteVoiceTemplateCommandInput extends DeleteVoiceTemplateRequest {}
+/**
+ * The output of {@link DeleteVoiceTemplateCommand}.
+ */
 export interface DeleteVoiceTemplateCommandOutput extends DeleteVoiceTemplateResponse, __MetadataBearer {}
 
 /**

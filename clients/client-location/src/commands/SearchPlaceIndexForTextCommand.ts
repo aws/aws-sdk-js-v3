@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SearchPlaceIndexForTextCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SearchPlaceIndexForTextCommand}.
+ */
 export interface SearchPlaceIndexForTextCommandInput extends SearchPlaceIndexForTextRequest {}
+/**
+ * The output of {@link SearchPlaceIndexForTextCommand}.
+ */
 export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexForTextResponse, __MetadataBearer {}
 
 /**

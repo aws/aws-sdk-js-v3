@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDevicePoolCompatibilityCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDevicePoolCompatibilityCommand}.
+ */
 export interface GetDevicePoolCompatibilityCommandInput extends GetDevicePoolCompatibilityRequest {}
+/**
+ * The output of {@link GetDevicePoolCompatibilityCommand}.
+ */
 export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCompatibilityResult, __MetadataBearer {}
 
 /**

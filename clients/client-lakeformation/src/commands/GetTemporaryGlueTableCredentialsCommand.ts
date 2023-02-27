@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetTemporaryGlueTableCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetTemporaryGlueTableCredentialsCommand}.
+ */
 export interface GetTemporaryGlueTableCredentialsCommandInput extends GetTemporaryGlueTableCredentialsRequest {}
+/**
+ * The output of {@link GetTemporaryGlueTableCredentialsCommand}.
+ */
 export interface GetTemporaryGlueTableCredentialsCommandOutput
   extends GetTemporaryGlueTableCredentialsResponse,
     __MetadataBearer {}

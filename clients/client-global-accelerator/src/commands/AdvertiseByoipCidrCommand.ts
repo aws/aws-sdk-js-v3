@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1AdvertiseByoipCidrCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdvertiseByoipCidrCommand}.
+ */
 export interface AdvertiseByoipCidrCommandInput extends AdvertiseByoipCidrRequest {}
+/**
+ * The output of {@link AdvertiseByoipCidrCommand}.
+ */
 export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResponse, __MetadataBearer {}
 
 /**

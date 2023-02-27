@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetApnsVoipSandboxChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetApnsVoipSandboxChannelCommand}.
+ */
 export interface GetApnsVoipSandboxChannelCommandInput extends GetApnsVoipSandboxChannelRequest {}
+/**
+ * The output of {@link GetApnsVoipSandboxChannelCommand}.
+ */
 export interface GetApnsVoipSandboxChannelCommandOutput extends GetApnsVoipSandboxChannelResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateAnnotationStoreCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateAnnotationStoreCommand}.
+ */
 export interface CreateAnnotationStoreCommandInput extends CreateAnnotationStoreRequest {}
+/**
+ * The output of {@link CreateAnnotationStoreCommand}.
+ */
 export interface CreateAnnotationStoreCommandOutput extends CreateAnnotationStoreResponse, __MetadataBearer {}
 
 /**

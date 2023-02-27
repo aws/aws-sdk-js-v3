@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateConnectPeerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateConnectPeerCommand}.
+ */
 export interface CreateConnectPeerCommandInput extends CreateConnectPeerRequest {}
+/**
+ * The output of {@link CreateConnectPeerCommand}.
+ */
 export interface CreateConnectPeerCommandOutput extends CreateConnectPeerResponse, __MetadataBearer {}
 
 /**

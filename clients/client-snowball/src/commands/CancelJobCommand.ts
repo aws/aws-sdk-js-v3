@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1CancelJobCommand, serializeAws_json1_1CancelJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * The input for {@link CancelJobCommand}.
+ */
 export interface CancelJobCommandInput extends CancelJobRequest {}
+/**
+ * The output of {@link CancelJobCommand}.
+ */
 export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBearer {}
 
 /**

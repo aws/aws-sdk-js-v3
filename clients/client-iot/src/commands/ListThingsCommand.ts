@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListThingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListThingsCommand}.
+ */
 export interface ListThingsCommandInput extends ListThingsRequest {}
+/**
+ * The output of {@link ListThingsCommand}.
+ */
 export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataBearer {}
 
 /**

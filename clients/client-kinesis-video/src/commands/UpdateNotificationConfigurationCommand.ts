@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateNotificationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateNotificationConfigurationCommand}.
+ */
 export interface UpdateNotificationConfigurationCommandInput extends UpdateNotificationConfigurationInput {}
+/**
+ * The output of {@link UpdateNotificationConfigurationCommand}.
+ */
 export interface UpdateNotificationConfigurationCommandOutput
   extends UpdateNotificationConfigurationOutput,
     __MetadataBearer {}

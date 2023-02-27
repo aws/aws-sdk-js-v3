@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1StopResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopResourceCommand}.
+ */
 export interface StopResourceCommandInput extends StopResourceRequest {}
+/**
+ * The output of {@link StopResourceCommand}.
+ */
 export interface StopResourceCommandOutput extends __MetadataBearer {}
 
 /**

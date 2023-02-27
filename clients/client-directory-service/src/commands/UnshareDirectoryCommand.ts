@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UnshareDirectoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UnshareDirectoryCommand}.
+ */
 export interface UnshareDirectoryCommandInput extends UnshareDirectoryRequest {}
+/**
+ * The output of {@link UnshareDirectoryCommand}.
+ */
 export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, __MetadataBearer {}
 
 /**

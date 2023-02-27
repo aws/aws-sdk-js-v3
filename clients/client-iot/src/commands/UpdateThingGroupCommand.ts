@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateThingGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateThingGroupCommand}.
+ */
 export interface UpdateThingGroupCommandInput extends UpdateThingGroupRequest {}
+/**
+ * The output of {@link UpdateThingGroupCommand}.
+ */
 export interface UpdateThingGroupCommandOutput extends UpdateThingGroupResponse, __MetadataBearer {}
 
 /**

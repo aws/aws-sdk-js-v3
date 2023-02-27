@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeWarmPoolCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeWarmPoolCommand}.
+ */
 export interface DescribeWarmPoolCommandInput extends DescribeWarmPoolType {}
+/**
+ * The output of {@link DescribeWarmPoolCommand}.
+ */
 export interface DescribeWarmPoolCommandOutput extends DescribeWarmPoolAnswer, __MetadataBearer {}
 
 /**

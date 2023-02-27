@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link DeleteTemplateCommand}.
+ */
 export interface DeleteTemplateCommandInput extends DeleteTemplateRequest {}
+/**
+ * The output of {@link DeleteTemplateCommand}.
+ */
 export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __MetadataBearer {}
 
 /**

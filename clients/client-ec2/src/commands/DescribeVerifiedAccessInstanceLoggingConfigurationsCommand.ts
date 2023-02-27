@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommand}.
+ */
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput
   extends DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {}
+/**
+ * The output of {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommand}.
+ */
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput
   extends DescribeVerifiedAccessInstanceLoggingConfigurationsResult,
     __MetadataBearer {}

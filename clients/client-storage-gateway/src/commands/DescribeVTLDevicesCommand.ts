@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link DescribeVTLDevicesCommand}.
+ */
 export interface DescribeVTLDevicesCommandInput extends DescribeVTLDevicesInput {}
+/**
+ * The output of {@link DescribeVTLDevicesCommand}.
+ */
 export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutput, __MetadataBearer {}
 
 /**

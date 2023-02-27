@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeLocationFsxOntapCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLocationFsxOntapCommand}.
+ */
 export interface DescribeLocationFsxOntapCommandInput extends DescribeLocationFsxOntapRequest {}
+/**
+ * The output of {@link DescribeLocationFsxOntapCommand}.
+ */
 export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationFsxOntapResponse, __MetadataBearer {}
 
 /**

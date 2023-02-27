@@ -25,8 +25,14 @@ import {
   serializeAws_ec2GetAssociatedEnclaveCertificateIamRolesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetAssociatedEnclaveCertificateIamRolesCommand}.
+ */
 export interface GetAssociatedEnclaveCertificateIamRolesCommandInput
   extends GetAssociatedEnclaveCertificateIamRolesRequest {}
+/**
+ * The output of {@link GetAssociatedEnclaveCertificateIamRolesCommand}.
+ */
 export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput
   extends GetAssociatedEnclaveCertificateIamRolesResult,
     __MetadataBearer {}

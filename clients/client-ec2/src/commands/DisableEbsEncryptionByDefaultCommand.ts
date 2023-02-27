@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DisableEbsEncryptionByDefaultCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisableEbsEncryptionByDefaultCommand}.
+ */
 export interface DisableEbsEncryptionByDefaultCommandInput extends DisableEbsEncryptionByDefaultRequest {}
+/**
+ * The output of {@link DisableEbsEncryptionByDefaultCommand}.
+ */
 export interface DisableEbsEncryptionByDefaultCommandOutput
   extends DisableEbsEncryptionByDefaultResult,
     __MetadataBearer {}

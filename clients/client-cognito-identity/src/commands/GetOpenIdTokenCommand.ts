@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetOpenIdTokenCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetOpenIdTokenCommand}.
+ */
 export interface GetOpenIdTokenCommandInput extends GetOpenIdTokenInput {}
+/**
+ * The output of {@link GetOpenIdTokenCommand}.
+ */
 export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __MetadataBearer {}
 
 /**

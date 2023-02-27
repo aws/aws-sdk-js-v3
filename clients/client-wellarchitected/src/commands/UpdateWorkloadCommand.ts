@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * The input for {@link UpdateWorkloadCommand}.
+ */
 export interface UpdateWorkloadCommandInput extends UpdateWorkloadInput {}
+/**
+ * The output of {@link UpdateWorkloadCommand}.
+ */
 export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __MetadataBearer {}
 
 /**

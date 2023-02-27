@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListArchivesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListArchivesCommand}.
+ */
 export interface ListArchivesCommandInput extends ListArchivesRequest {}
+/**
+ * The output of {@link ListArchivesCommand}.
+ */
 export interface ListArchivesCommandOutput extends ListArchivesResponse, __MetadataBearer {}
 
 /**

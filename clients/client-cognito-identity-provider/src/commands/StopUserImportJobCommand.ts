@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1StopUserImportJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopUserImportJobCommand}.
+ */
 export interface StopUserImportJobCommandInput extends StopUserImportJobRequest {}
+/**
+ * The output of {@link StopUserImportJobCommand}.
+ */
 export interface StopUserImportJobCommandOutput extends StopUserImportJobResponse, __MetadataBearer {}
 
 /**

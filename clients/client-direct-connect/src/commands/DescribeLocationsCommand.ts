@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DescribeLocationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLocationsCommand}.
+ */
 export interface DescribeLocationsCommandInput {}
+/**
+ * The output of {@link DescribeLocationsCommand}.
+ */
 export interface DescribeLocationsCommandOutput extends Locations, __MetadataBearer {}
 
 /**

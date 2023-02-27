@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDomainsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDomainsCommand}.
+ */
 export interface GetDomainsCommandInput extends GetDomainsRequest {}
+/**
+ * The output of {@link GetDomainsCommand}.
+ */
 export interface GetDomainsCommandOutput extends GetDomainsResult, __MetadataBearer {}
 
 /**

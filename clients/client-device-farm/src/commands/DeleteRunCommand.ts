@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1DeleteRunCommand, serializeAws_json1_1DeleteRunCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteRunCommand}.
+ */
 export interface DeleteRunCommandInput extends DeleteRunRequest {}
+/**
+ * The output of {@link DeleteRunCommand}.
+ */
 export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBearer {}
 
 /**

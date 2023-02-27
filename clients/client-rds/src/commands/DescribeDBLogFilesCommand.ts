@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DescribeDBLogFilesCommand}.
+ */
 export interface DescribeDBLogFilesCommandInput extends DescribeDBLogFilesMessage {}
+/**
+ * The output of {@link DescribeDBLogFilesCommand}.
+ */
 export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesResponse, __MetadataBearer {}
 
 /**

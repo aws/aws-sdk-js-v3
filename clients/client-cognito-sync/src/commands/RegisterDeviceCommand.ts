@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RegisterDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RegisterDeviceCommand}.
+ */
 export interface RegisterDeviceCommandInput extends RegisterDeviceRequest {}
+/**
+ * The output of {@link RegisterDeviceCommand}.
+ */
 export interface RegisterDeviceCommandOutput extends RegisterDeviceResponse, __MetadataBearer {}
 
 /**

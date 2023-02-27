@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetRetainedMessageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetRetainedMessageCommand}.
+ */
 export interface GetRetainedMessageCommandInput extends GetRetainedMessageRequest {}
+/**
+ * The output of {@link GetRetainedMessageCommand}.
+ */
 export interface GetRetainedMessageCommandOutput extends GetRetainedMessageResponse, __MetadataBearer {}
 
 /**

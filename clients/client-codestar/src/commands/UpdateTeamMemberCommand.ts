@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateTeamMemberCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateTeamMemberCommand}.
+ */
 export interface UpdateTeamMemberCommandInput extends UpdateTeamMemberRequest {}
+/**
+ * The output of {@link UpdateTeamMemberCommand}.
+ */
 export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, __MetadataBearer {}
 
 /**

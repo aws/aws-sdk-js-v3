@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeNodeAssociationStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeNodeAssociationStatusCommand}.
+ */
 export interface DescribeNodeAssociationStatusCommandInput extends DescribeNodeAssociationStatusRequest {}
+/**
+ * The output of {@link DescribeNodeAssociationStatusCommand}.
+ */
 export interface DescribeNodeAssociationStatusCommandOutput
   extends DescribeNodeAssociationStatusResponse,
     __MetadataBearer {}

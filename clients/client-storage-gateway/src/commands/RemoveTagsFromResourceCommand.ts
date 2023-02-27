@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link RemoveTagsFromResourceCommand}.
+ */
 export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResourceInput {}
+/**
+ * The output of {@link RemoveTagsFromResourceCommand}.
+ */
 export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResourceOutput, __MetadataBearer {}
 
 /**

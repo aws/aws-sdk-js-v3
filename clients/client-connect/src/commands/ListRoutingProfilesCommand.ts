@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListRoutingProfilesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListRoutingProfilesCommand}.
+ */
 export interface ListRoutingProfilesCommandInput extends ListRoutingProfilesRequest {}
+/**
+ * The output of {@link ListRoutingProfilesCommand}.
+ */
 export interface ListRoutingProfilesCommandOutput extends ListRoutingProfilesResponse, __MetadataBearer {}
 
 /**

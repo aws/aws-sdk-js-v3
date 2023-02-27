@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0CreateRuleGroupCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateRuleGroupCommand}.
+ */
 export interface CreateRuleGroupCommandInput extends CreateRuleGroupRequest {}
+/**
+ * The output of {@link CreateRuleGroupCommand}.
+ */
 export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DescribeOrderableClusterOptionsCommand}.
+ */
 export interface DescribeOrderableClusterOptionsCommandInput extends DescribeOrderableClusterOptionsMessage {}
+/**
+ * The output of {@link DescribeOrderableClusterOptionsCommand}.
+ */
 export interface DescribeOrderableClusterOptionsCommandOutput
   extends OrderableClusterOptionsMessage,
     __MetadataBearer {}

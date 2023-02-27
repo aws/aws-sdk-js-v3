@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDataProtectionPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDataProtectionPolicyCommand}.
+ */
 export interface GetDataProtectionPolicyCommandInput extends GetDataProtectionPolicyRequest {}
+/**
+ * The output of {@link GetDataProtectionPolicyCommand}.
+ */
 export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**

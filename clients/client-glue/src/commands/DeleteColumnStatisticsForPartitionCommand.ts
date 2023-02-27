@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteColumnStatisticsForPartitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteColumnStatisticsForPartitionCommand}.
+ */
 export interface DeleteColumnStatisticsForPartitionCommandInput extends DeleteColumnStatisticsForPartitionRequest {}
+/**
+ * The output of {@link DeleteColumnStatisticsForPartitionCommand}.
+ */
 export interface DeleteColumnStatisticsForPartitionCommandOutput
   extends DeleteColumnStatisticsForPartitionResponse,
     __MetadataBearer {}

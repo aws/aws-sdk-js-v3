@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListChangeSetsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListChangeSetsCommand}.
+ */
 export interface ListChangeSetsCommandInput extends ListChangeSetsRequest {}
+/**
+ * The output of {@link ListChangeSetsCommand}.
+ */
 export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __MetadataBearer {}
 
 /**

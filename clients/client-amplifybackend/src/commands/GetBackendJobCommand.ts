@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetBackendJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBackendJobCommand}.
+ */
 export interface GetBackendJobCommandInput extends GetBackendJobRequest {}
+/**
+ * The output of {@link GetBackendJobCommand}.
+ */
 export interface GetBackendJobCommandOutput extends GetBackendJobResponse, __MetadataBearer {}
 
 /**

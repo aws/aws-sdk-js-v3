@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateClusterV2Command,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateClusterV2Command}.
+ */
 export interface CreateClusterV2CommandInput extends CreateClusterV2Request {}
+/**
+ * The output of {@link CreateClusterV2Command}.
+ */
 export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, __MetadataBearer {}
 
 /**

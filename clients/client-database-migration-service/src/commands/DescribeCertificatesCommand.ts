@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeCertificatesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeCertificatesCommand}.
+ */
 export interface DescribeCertificatesCommandInput extends DescribeCertificatesMessage {}
+/**
+ * The output of {@link DescribeCertificatesCommand}.
+ */
 export interface DescribeCertificatesCommandOutput extends DescribeCertificatesResponse, __MetadataBearer {}
 
 /**

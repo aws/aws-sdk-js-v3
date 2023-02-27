@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link CreateCommentCommand}.
+ */
 export interface CreateCommentCommandInput extends CreateCommentRequest {}
+/**
+ * The output of {@link CreateCommentCommand}.
+ */
 export interface CreateCommentCommandOutput extends CreateCommentResponse, __MetadataBearer {}
 
 /**

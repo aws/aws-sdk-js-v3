@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutChannelPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutChannelPolicyCommand}.
+ */
 export interface PutChannelPolicyCommandInput extends PutChannelPolicyRequest {}
+/**
+ * The output of {@link PutChannelPolicyCommand}.
+ */
 export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse, __MetadataBearer {}
 
 /**

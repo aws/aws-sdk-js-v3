@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * The input for {@link DeleteCrossAccountAuthorizationCommand}.
+ */
 export interface DeleteCrossAccountAuthorizationCommandInput extends DeleteCrossAccountAuthorizationRequest {}
+/**
+ * The output of {@link DeleteCrossAccountAuthorizationCommand}.
+ */
 export interface DeleteCrossAccountAuthorizationCommandOutput
   extends DeleteCrossAccountAuthorizationResponse,
     __MetadataBearer {}

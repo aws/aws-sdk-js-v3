@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdatePartitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdatePartitionCommand}.
+ */
 export interface UpdatePartitionCommandInput extends UpdatePartitionRequest {}
+/**
+ * The output of {@link UpdatePartitionCommand}.
+ */
 export interface UpdatePartitionCommandOutput extends UpdatePartitionResponse, __MetadataBearer {}
 
 /**

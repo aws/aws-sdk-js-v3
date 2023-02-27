@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeDetectorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeDetectorCommand}.
+ */
 export interface DescribeDetectorCommandInput extends DescribeDetectorRequest {}
+/**
+ * The output of {@link DescribeDetectorCommand}.
+ */
 export interface DescribeDetectorCommandOutput extends DescribeDetectorResponse, __MetadataBearer {}
 
 /**

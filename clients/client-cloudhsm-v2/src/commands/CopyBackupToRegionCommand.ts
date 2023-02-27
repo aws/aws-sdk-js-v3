@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CopyBackupToRegionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CopyBackupToRegionCommand}.
+ */
 export interface CopyBackupToRegionCommandInput extends CopyBackupToRegionRequest {}
+/**
+ * The output of {@link CopyBackupToRegionCommand}.
+ */
 export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionResponse, __MetadataBearer {}
 
 /**

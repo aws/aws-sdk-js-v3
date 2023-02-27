@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetLicenseConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetLicenseConfigurationCommand}.
+ */
 export interface GetLicenseConfigurationCommandInput extends GetLicenseConfigurationRequest {}
+/**
+ * The output of {@link GetLicenseConfigurationCommand}.
+ */
 export interface GetLicenseConfigurationCommandOutput extends GetLicenseConfigurationResponse, __MetadataBearer {}
 
 /**

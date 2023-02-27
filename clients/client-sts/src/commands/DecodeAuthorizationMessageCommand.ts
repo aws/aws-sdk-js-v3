@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
+/**
+ * The input for {@link DecodeAuthorizationMessageCommand}.
+ */
 export interface DecodeAuthorizationMessageCommandInput extends DecodeAuthorizationMessageRequest {}
+/**
+ * The output of {@link DecodeAuthorizationMessageCommand}.
+ */
 export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthorizationMessageResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutAggregationAuthorizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutAggregationAuthorizationCommand}.
+ */
 export interface PutAggregationAuthorizationCommandInput extends PutAggregationAuthorizationRequest {}
+/**
+ * The output of {@link PutAggregationAuthorizationCommand}.
+ */
 export interface PutAggregationAuthorizationCommandOutput
   extends PutAggregationAuthorizationResponse,
     __MetadataBearer {}

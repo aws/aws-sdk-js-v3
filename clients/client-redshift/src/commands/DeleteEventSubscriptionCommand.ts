@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DeleteEventSubscriptionCommand}.
+ */
 export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscriptionMessage {}
+/**
+ * The output of {@link DeleteEventSubscriptionCommand}.
+ */
 export interface DeleteEventSubscriptionCommandOutput extends __MetadataBearer {}
 
 /**

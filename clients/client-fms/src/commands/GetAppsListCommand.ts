@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetAppsListCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetAppsListCommand}.
+ */
 export interface GetAppsListCommandInput extends GetAppsListRequest {}
+/**
+ * The output of {@link GetAppsListCommand}.
+ */
 export interface GetAppsListCommandOutput extends GetAppsListResponse, __MetadataBearer {}
 
 /**

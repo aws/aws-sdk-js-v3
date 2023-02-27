@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteImageBuilderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteImageBuilderCommand}.
+ */
 export interface DeleteImageBuilderCommandInput extends DeleteImageBuilderRequest {}
+/**
+ * The output of {@link DeleteImageBuilderCommand}.
+ */
 export interface DeleteImageBuilderCommandOutput extends DeleteImageBuilderResult, __MetadataBearer {}
 
 /**

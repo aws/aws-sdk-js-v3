@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateStreamModeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateStreamModeCommand}.
+ */
 export interface UpdateStreamModeCommandInput extends UpdateStreamModeInput {}
+/**
+ * The output of {@link UpdateStreamModeCommand}.
+ */
 export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
 
 /**

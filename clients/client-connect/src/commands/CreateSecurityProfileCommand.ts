@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateSecurityProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateSecurityProfileCommand}.
+ */
 export interface CreateSecurityProfileCommandInput extends CreateSecurityProfileRequest {}
+/**
+ * The output of {@link CreateSecurityProfileCommand}.
+ */
 export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfileResponse, __MetadataBearer {}
 
 /**

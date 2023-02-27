@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteVerifiedAccessEndpointCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteVerifiedAccessEndpointCommand}.
+ */
 export interface DeleteVerifiedAccessEndpointCommandInput extends DeleteVerifiedAccessEndpointRequest {}
+/**
+ * The output of {@link DeleteVerifiedAccessEndpointCommand}.
+ */
 export interface DeleteVerifiedAccessEndpointCommandOutput
   extends DeleteVerifiedAccessEndpointResult,
     __MetadataBearer {}

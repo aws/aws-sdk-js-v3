@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
+/**
+ * The input for {@link DescribeSeverityLevelsCommand}.
+ */
 export interface DescribeSeverityLevelsCommandInput extends DescribeSeverityLevelsRequest {}
+/**
+ * The output of {@link DescribeSeverityLevelsCommand}.
+ */
 export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLevelsResponse, __MetadataBearer {}
 
 /**

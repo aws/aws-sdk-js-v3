@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link ChangeTagsForResourceCommand}.
+ */
 export interface ChangeTagsForResourceCommandInput extends ChangeTagsForResourceRequest {}
+/**
+ * The output of {@link ChangeTagsForResourceCommand}.
+ */
 export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourceResponse, __MetadataBearer {}
 
 /**

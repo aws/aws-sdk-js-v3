@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateBatchSegmentJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateBatchSegmentJobCommand}.
+ */
 export interface CreateBatchSegmentJobCommandInput extends CreateBatchSegmentJobRequest {}
+/**
+ * The output of {@link CreateBatchSegmentJobCommand}.
+ */
 export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJobResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateInstanceCommand}.
+ */
 export interface UpdateInstanceCommandInput extends UpdateInstanceRequest {}
+/**
+ * The output of {@link UpdateInstanceCommand}.
+ */
 export interface UpdateInstanceCommandOutput extends __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetIntentVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetIntentVersionsCommand}.
+ */
 export interface GetIntentVersionsCommandInput extends GetIntentVersionsRequest {}
+/**
+ * The output of {@link GetIntentVersionsCommand}.
+ */
 export interface GetIntentVersionsCommandOutput extends GetIntentVersionsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
+/**
+ * The input for {@link GetRequestedServiceQuotaChangeCommand}.
+ */
 export interface GetRequestedServiceQuotaChangeCommandInput extends GetRequestedServiceQuotaChangeRequest {}
+/**
+ * The output of {@link GetRequestedServiceQuotaChangeCommand}.
+ */
 export interface GetRequestedServiceQuotaChangeCommandOutput
   extends GetRequestedServiceQuotaChangeResponse,
     __MetadataBearer {}

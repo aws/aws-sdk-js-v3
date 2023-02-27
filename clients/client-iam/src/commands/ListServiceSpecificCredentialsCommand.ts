@@ -25,7 +25,13 @@ import {
   serializeAws_queryListServiceSpecificCredentialsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListServiceSpecificCredentialsCommand}.
+ */
 export interface ListServiceSpecificCredentialsCommandInput extends ListServiceSpecificCredentialsRequest {}
+/**
+ * The output of {@link ListServiceSpecificCredentialsCommand}.
+ */
 export interface ListServiceSpecificCredentialsCommandOutput
   extends ListServiceSpecificCredentialsResponse,
     __MetadataBearer {}

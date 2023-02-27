@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AcceptAdministratorInvitationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AcceptAdministratorInvitationCommand}.
+ */
 export interface AcceptAdministratorInvitationCommandInput extends AcceptAdministratorInvitationRequest {}
+/**
+ * The output of {@link AcceptAdministratorInvitationCommand}.
+ */
 export interface AcceptAdministratorInvitationCommandOutput
   extends AcceptAdministratorInvitationResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PurchaseReservedNodesOfferingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PurchaseReservedNodesOfferingCommand}.
+ */
 export interface PurchaseReservedNodesOfferingCommandInput extends PurchaseReservedNodesOfferingRequest {}
+/**
+ * The output of {@link PurchaseReservedNodesOfferingCommand}.
+ */
 export interface PurchaseReservedNodesOfferingCommandOutput
   extends PurchaseReservedNodesOfferingResponse,
     __MetadataBearer {}

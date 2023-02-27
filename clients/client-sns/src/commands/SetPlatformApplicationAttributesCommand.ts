@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link SetPlatformApplicationAttributesCommand}.
+ */
 export interface SetPlatformApplicationAttributesCommandInput extends SetPlatformApplicationAttributesInput {}
+/**
+ * The output of {@link SetPlatformApplicationAttributesCommand}.
+ */
 export interface SetPlatformApplicationAttributesCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateUserToPermissionGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateUserToPermissionGroupCommand}.
+ */
 export interface AssociateUserToPermissionGroupCommandInput extends AssociateUserToPermissionGroupRequest {}
+/**
+ * The output of {@link AssociateUserToPermissionGroupCommand}.
+ */
 export interface AssociateUserToPermissionGroupCommandOutput
   extends AssociateUserToPermissionGroupResponse,
     __MetadataBearer {}

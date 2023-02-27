@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RegisterElasticIpCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterElasticIpCommand}.
+ */
 export interface RegisterElasticIpCommandInput extends RegisterElasticIpRequest {}
+/**
+ * The output of {@link RegisterElasticIpCommand}.
+ */
 export interface RegisterElasticIpCommandOutput extends RegisterElasticIpResult, __MetadataBearer {}
 
 /**

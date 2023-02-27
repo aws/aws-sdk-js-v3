@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link PutRetentionPolicyCommand}.
+ */
 export interface PutRetentionPolicyCommandInput extends PutRetentionPolicyRequest {}
+/**
+ * The output of {@link PutRetentionPolicyCommand}.
+ */
 export interface PutRetentionPolicyCommandOutput extends PutRetentionPolicyResponse, __MetadataBearer {}
 
 /**

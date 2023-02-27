@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminInitiateAuthCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminInitiateAuthCommand}.
+ */
 export interface AdminInitiateAuthCommandInput extends AdminInitiateAuthRequest {}
+/**
+ * The output of {@link AdminInitiateAuthCommand}.
+ */
 export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthResponse, __MetadataBearer {}
 
 /**

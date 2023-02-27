@@ -29,8 +29,14 @@ import {
   serializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateCustomRoutingAcceleratorAttributesCommand}.
+ */
 export interface UpdateCustomRoutingAcceleratorAttributesCommandInput
   extends UpdateCustomRoutingAcceleratorAttributesRequest {}
+/**
+ * The output of {@link UpdateCustomRoutingAcceleratorAttributesCommand}.
+ */
 export interface UpdateCustomRoutingAcceleratorAttributesCommandOutput
   extends UpdateCustomRoutingAcceleratorAttributesResponse,
     __MetadataBearer {}

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetReportDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetReportDefinitionCommand}.
+ */
 export interface GetReportDefinitionCommandInput extends GetReportDefinitionRequest {}
+/**
+ * The output of {@link GetReportDefinitionCommand}.
+ */
 export interface GetReportDefinitionCommandOutput extends GetReportDefinitionResult, __MetadataBearer {}
 
 /**

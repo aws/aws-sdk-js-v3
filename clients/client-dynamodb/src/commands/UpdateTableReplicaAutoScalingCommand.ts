@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0UpdateTableReplicaAutoScalingCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateTableReplicaAutoScalingCommand}.
+ */
 export interface UpdateTableReplicaAutoScalingCommandInput extends UpdateTableReplicaAutoScalingInput {}
+/**
+ * The output of {@link UpdateTableReplicaAutoScalingCommand}.
+ */
 export interface UpdateTableReplicaAutoScalingCommandOutput
   extends UpdateTableReplicaAutoScalingOutput,
     __MetadataBearer {}

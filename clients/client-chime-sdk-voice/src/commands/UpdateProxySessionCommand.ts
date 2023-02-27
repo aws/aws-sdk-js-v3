@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateProxySessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateProxySessionCommand}.
+ */
 export interface UpdateProxySessionCommandInput extends UpdateProxySessionRequest {}
+/**
+ * The output of {@link UpdateProxySessionCommand}.
+ */
 export interface UpdateProxySessionCommandOutput extends UpdateProxySessionResponse, __MetadataBearer {}
 
 export class UpdateProxySessionCommand extends $Command<

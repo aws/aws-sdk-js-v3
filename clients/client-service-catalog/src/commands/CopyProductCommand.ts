@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link CopyProductCommand}.
+ */
 export interface CopyProductCommandInput extends CopyProductInput {}
+/**
+ * The output of {@link CopyProductCommand}.
+ */
 export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataBearer {}
 
 /**

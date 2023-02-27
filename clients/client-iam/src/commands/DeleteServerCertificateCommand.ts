@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteServerCertificateCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteServerCertificateCommand}.
+ */
 export interface DeleteServerCertificateCommandInput extends DeleteServerCertificateRequest {}
+/**
+ * The output of {@link DeleteServerCertificateCommand}.
+ */
 export interface DeleteServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**

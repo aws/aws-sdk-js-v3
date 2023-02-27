@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetApiAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetApiAssociationCommand}.
+ */
 export interface GetApiAssociationCommandInput extends GetApiAssociationRequest {}
+/**
+ * The output of {@link GetApiAssociationCommand}.
+ */
 export interface GetApiAssociationCommandOutput extends GetApiAssociationResponse, __MetadataBearer {}
 
 /**

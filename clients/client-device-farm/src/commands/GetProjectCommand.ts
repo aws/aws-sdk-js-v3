@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetProjectCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetProjectCommand}.
+ */
 export interface GetProjectCommandInput extends GetProjectRequest {}
+/**
+ * The output of {@link GetProjectCommand}.
+ */
 export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetInsightsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetInsightsCommand}.
+ */
 export interface GetInsightsCommandInput extends GetInsightsRequest {}
+/**
+ * The output of {@link GetInsightsCommand}.
+ */
 export interface GetInsightsCommandOutput extends GetInsightsResponse, __MetadataBearer {}
 
 /**

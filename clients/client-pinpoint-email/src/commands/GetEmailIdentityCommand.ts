@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetEmailIdentityCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetEmailIdentityCommand}.
+ */
 export interface GetEmailIdentityCommandInput extends GetEmailIdentityRequest {}
+/**
+ * The output of {@link GetEmailIdentityCommand}.
+ */
 export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse, __MetadataBearer {}
 
 /**

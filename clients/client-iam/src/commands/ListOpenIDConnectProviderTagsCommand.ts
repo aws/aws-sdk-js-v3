@@ -25,7 +25,13 @@ import {
   serializeAws_queryListOpenIDConnectProviderTagsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListOpenIDConnectProviderTagsCommand}.
+ */
 export interface ListOpenIDConnectProviderTagsCommandInput extends ListOpenIDConnectProviderTagsRequest {}
+/**
+ * The output of {@link ListOpenIDConnectProviderTagsCommand}.
+ */
 export interface ListOpenIDConnectProviderTagsCommandOutput
   extends ListOpenIDConnectProviderTagsResponse,
     __MetadataBearer {}

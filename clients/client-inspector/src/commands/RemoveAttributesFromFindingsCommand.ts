@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RemoveAttributesFromFindingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RemoveAttributesFromFindingsCommand}.
+ */
 export interface RemoveAttributesFromFindingsCommandInput extends RemoveAttributesFromFindingsRequest {}
+/**
+ * The output of {@link RemoveAttributesFromFindingsCommand}.
+ */
 export interface RemoveAttributesFromFindingsCommandOutput
   extends RemoveAttributesFromFindingsResponse,
     __MetadataBearer {}

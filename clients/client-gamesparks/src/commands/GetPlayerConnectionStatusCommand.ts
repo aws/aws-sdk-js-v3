@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetPlayerConnectionStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPlayerConnectionStatusCommand}.
+ */
 export interface GetPlayerConnectionStatusCommandInput extends GetPlayerConnectionStatusRequest {}
+/**
+ * The output of {@link GetPlayerConnectionStatusCommand}.
+ */
 export interface GetPlayerConnectionStatusCommandOutput extends GetPlayerConnectionStatusResult, __MetadataBearer {}
 
 /**

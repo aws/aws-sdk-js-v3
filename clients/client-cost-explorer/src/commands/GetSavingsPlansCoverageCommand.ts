@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetSavingsPlansCoverageCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetSavingsPlansCoverageCommand}.
+ */
 export interface GetSavingsPlansCoverageCommandInput extends GetSavingsPlansCoverageRequest {}
+/**
+ * The output of {@link GetSavingsPlansCoverageCommand}.
+ */
 export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCoverageResponse, __MetadataBearer {}
 
 /**

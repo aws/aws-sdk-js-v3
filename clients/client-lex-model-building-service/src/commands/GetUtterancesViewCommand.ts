@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetUtterancesViewCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetUtterancesViewCommand}.
+ */
 export interface GetUtterancesViewCommandInput extends GetUtterancesViewRequest {}
+/**
+ * The output of {@link GetUtterancesViewCommand}.
+ */
 export interface GetUtterancesViewCommandOutput extends GetUtterancesViewResponse, __MetadataBearer {}
 
 /**

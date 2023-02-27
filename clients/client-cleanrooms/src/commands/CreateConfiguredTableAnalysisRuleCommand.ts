@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateConfiguredTableAnalysisRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateConfiguredTableAnalysisRuleCommand}.
+ */
 export interface CreateConfiguredTableAnalysisRuleCommandInput extends CreateConfiguredTableAnalysisRuleInput {}
+/**
+ * The output of {@link CreateConfiguredTableAnalysisRuleCommand}.
+ */
 export interface CreateConfiguredTableAnalysisRuleCommandOutput
   extends CreateConfiguredTableAnalysisRuleOutput,
     __MetadataBearer {}

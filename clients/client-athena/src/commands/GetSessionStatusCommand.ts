@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetSessionStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetSessionStatusCommand}.
+ */
 export interface GetSessionStatusCommandInput extends GetSessionStatusRequest {}
+/**
+ * The output of {@link GetSessionStatusCommand}.
+ */
 export interface GetSessionStatusCommandOutput extends GetSessionStatusResponse, __MetadataBearer {}
 
 /**

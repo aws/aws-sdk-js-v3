@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteWorkspaceApiKeyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteWorkspaceApiKeyCommand}.
+ */
 export interface DeleteWorkspaceApiKeyCommandInput extends DeleteWorkspaceApiKeyRequest {}
+/**
+ * The output of {@link DeleteWorkspaceApiKeyCommand}.
+ */
 export interface DeleteWorkspaceApiKeyCommandOutput extends DeleteWorkspaceApiKeyResponse, __MetadataBearer {}
 
 /**

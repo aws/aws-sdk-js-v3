@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribePendingAggregationRequestsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribePendingAggregationRequestsCommand}.
+ */
 export interface DescribePendingAggregationRequestsCommandInput extends DescribePendingAggregationRequestsRequest {}
+/**
+ * The output of {@link DescribePendingAggregationRequestsCommand}.
+ */
 export interface DescribePendingAggregationRequestsCommandOutput
   extends DescribePendingAggregationRequestsResponse,
     __MetadataBearer {}

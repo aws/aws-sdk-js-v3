@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteHumanTaskUiCommand}.
+ */
 export interface DeleteHumanTaskUiCommandInput extends DeleteHumanTaskUiRequest {}
+/**
+ * The output of {@link DeleteHumanTaskUiCommand}.
+ */
 export interface DeleteHumanTaskUiCommandOutput extends DeleteHumanTaskUiResponse, __MetadataBearer {}
 
 /**

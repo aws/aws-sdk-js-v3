@@ -26,8 +26,14 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link StartDBInstanceAutomatedBackupsReplicationCommand}.
+ */
 export interface StartDBInstanceAutomatedBackupsReplicationCommandInput
   extends StartDBInstanceAutomatedBackupsReplicationMessage {}
+/**
+ * The output of {@link StartDBInstanceAutomatedBackupsReplicationCommand}.
+ */
 export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
   extends StartDBInstanceAutomatedBackupsReplicationResult,
     __MetadataBearer {}

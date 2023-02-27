@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryModifyUserCommand, serializeAws_queryModifyUserCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyUserCommand}.
+ */
 export interface ModifyUserCommandInput extends ModifyUserMessage {}
+/**
+ * The output of {@link ModifyUserCommand}.
+ */
 export interface ModifyUserCommandOutput extends User, __MetadataBearer {}
 
 /**

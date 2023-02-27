@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link ListLocalDisksCommand}.
+ */
 export interface ListLocalDisksCommandInput extends ListLocalDisksInput {}
+/**
+ * The output of {@link ListLocalDisksCommand}.
+ */
 export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __MetadataBearer {}
 
 /**

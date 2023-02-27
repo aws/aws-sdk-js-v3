@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateTestGridUrlCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateTestGridUrlCommand}.
+ */
 export interface CreateTestGridUrlCommandInput extends CreateTestGridUrlRequest {}
+/**
+ * The output of {@link CreateTestGridUrlCommand}.
+ */
 export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult, __MetadataBearer {}
 
 /**

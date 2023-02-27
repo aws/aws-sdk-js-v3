@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteAuthorizerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAuthorizerCommand}.
+ */
 export interface DeleteAuthorizerCommandInput extends DeleteAuthorizerRequest {}
+/**
+ * The output of {@link DeleteAuthorizerCommand}.
+ */
 export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse, __MetadataBearer {}
 
 /**

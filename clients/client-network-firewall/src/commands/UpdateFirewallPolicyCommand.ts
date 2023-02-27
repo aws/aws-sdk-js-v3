@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0UpdateFirewallPolicyCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateFirewallPolicyCommand}.
+ */
 export interface UpdateFirewallPolicyCommandInput extends UpdateFirewallPolicyRequest {}
+/**
+ * The output of {@link UpdateFirewallPolicyCommand}.
+ */
 export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_ec2DisassociateAddressCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisassociateAddressCommand}.
+ */
 export interface DisassociateAddressCommandInput extends DisassociateAddressRequest {}
+/**
+ * The output of {@link DisassociateAddressCommand}.
+ */
 export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
 
 /**

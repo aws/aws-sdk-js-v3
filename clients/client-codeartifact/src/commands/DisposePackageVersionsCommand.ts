@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisposePackageVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisposePackageVersionsCommand}.
+ */
 export interface DisposePackageVersionsCommandInput extends DisposePackageVersionsRequest {}
+/**
+ * The output of {@link DisposePackageVersionsCommand}.
+ */
 export interface DisposePackageVersionsCommandOutput extends DisposePackageVersionsResult, __MetadataBearer {}
 
 /**

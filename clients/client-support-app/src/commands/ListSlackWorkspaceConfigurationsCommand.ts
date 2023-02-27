@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
+/**
+ * The input for {@link ListSlackWorkspaceConfigurationsCommand}.
+ */
 export interface ListSlackWorkspaceConfigurationsCommandInput extends ListSlackWorkspaceConfigurationsRequest {}
+/**
+ * The output of {@link ListSlackWorkspaceConfigurationsCommand}.
+ */
 export interface ListSlackWorkspaceConfigurationsCommandOutput
   extends ListSlackWorkspaceConfigurationsResult,
     __MetadataBearer {}

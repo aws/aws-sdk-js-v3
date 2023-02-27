@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetAssignmentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetAssignmentCommand}.
+ */
 export interface GetAssignmentCommandInput extends GetAssignmentRequest {}
+/**
+ * The output of {@link GetAssignmentCommand}.
+ */
 export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __MetadataBearer {}
 
 /**

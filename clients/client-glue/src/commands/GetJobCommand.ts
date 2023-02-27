@@ -18,7 +18,13 @@ import { GetJobRequest, GetJobRequestFilterSensitiveLog } from "../models/models
 import { GetJobResponse, GetJobResponseFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_json1_1GetJobCommand, serializeAws_json1_1GetJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetJobCommand}.
+ */
 export interface GetJobCommandInput extends GetJobRequest {}
+/**
+ * The output of {@link GetJobCommand}.
+ */
 export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
 
 /**

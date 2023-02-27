@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetMethodCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetMethodCommand}.
+ */
 export interface GetMethodCommandInput extends GetMethodRequest {}
+/**
+ * The output of {@link GetMethodCommand}.
+ */
 export interface GetMethodCommandOutput extends Method, __MetadataBearer {}
 
 /**

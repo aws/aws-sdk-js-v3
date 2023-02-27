@@ -27,7 +27,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1ListUsersCommand, serializeAws_json1_1ListUsersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListUsersCommand}.
+ */
 export interface ListUsersCommandInput extends ListUsersRequest {}
+/**
+ * The output of {@link ListUsersCommand}.
+ */
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**

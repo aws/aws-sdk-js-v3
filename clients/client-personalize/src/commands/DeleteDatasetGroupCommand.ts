@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteDatasetGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteDatasetGroupCommand}.
+ */
 export interface DeleteDatasetGroupCommandInput extends DeleteDatasetGroupRequest {}
+/**
+ * The output of {@link DeleteDatasetGroupCommand}.
+ */
 export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
 
 /**

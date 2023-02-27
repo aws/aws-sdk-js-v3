@@ -25,7 +25,13 @@ import {
   serializeAws_queryStartDBClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link StartDBClusterCommand}.
+ */
 export interface StartDBClusterCommandInput extends StartDBClusterMessage {}
+/**
+ * The output of {@link StartDBClusterCommand}.
+ */
 export interface StartDBClusterCommandOutput extends StartDBClusterResult, __MetadataBearer {}
 
 /**

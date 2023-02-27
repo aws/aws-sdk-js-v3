@@ -20,7 +20,13 @@ import {
   serializeAws_ec2ModifyInstanceAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyInstanceAttributeCommand}.
+ */
 export interface ModifyInstanceAttributeCommandInput extends ModifyInstanceAttributeRequest {}
+/**
+ * The output of {@link ModifyInstanceAttributeCommand}.
+ */
 export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {}
 
 /**

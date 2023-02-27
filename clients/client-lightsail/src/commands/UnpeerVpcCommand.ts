@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_json1_1UnpeerVpcCommand, serializeAws_json1_1UnpeerVpcCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UnpeerVpcCommand}.
+ */
 export interface UnpeerVpcCommandInput extends UnpeerVpcRequest {}
+/**
+ * The output of {@link UnpeerVpcCommand}.
+ */
 export interface UnpeerVpcCommandOutput extends UnpeerVpcResult, __MetadataBearer {}
 
 /**

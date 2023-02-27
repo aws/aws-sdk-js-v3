@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateFlowSourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateFlowSourceCommand}.
+ */
 export interface UpdateFlowSourceCommandInput extends UpdateFlowSourceRequest {}
+/**
+ * The output of {@link UpdateFlowSourceCommand}.
+ */
 export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse, __MetadataBearer {}
 
 /**

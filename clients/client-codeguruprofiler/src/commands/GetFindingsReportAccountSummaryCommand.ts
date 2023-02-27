@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetFindingsReportAccountSummaryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetFindingsReportAccountSummaryCommand}.
+ */
 export interface GetFindingsReportAccountSummaryCommandInput extends GetFindingsReportAccountSummaryRequest {}
+/**
+ * The output of {@link GetFindingsReportAccountSummaryCommand}.
+ */
 export interface GetFindingsReportAccountSummaryCommandOutput
   extends GetFindingsReportAccountSummaryResponse,
     __MetadataBearer {}

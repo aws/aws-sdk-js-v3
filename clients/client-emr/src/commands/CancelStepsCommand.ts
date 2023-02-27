@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CancelStepsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CancelStepsCommand}.
+ */
 export interface CancelStepsCommandInput extends CancelStepsInput {}
+/**
+ * The output of {@link CancelStepsCommand}.
+ */
 export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataBearer {}
 
 /**

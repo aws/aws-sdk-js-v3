@@ -20,7 +20,13 @@ import {
   serializeAws_ec2ReplaceNetworkAclEntryCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ReplaceNetworkAclEntryCommand}.
+ */
 export interface ReplaceNetworkAclEntryCommandInput extends ReplaceNetworkAclEntryRequest {}
+/**
+ * The output of {@link ReplaceNetworkAclEntryCommand}.
+ */
 export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AuthorizeSecurityGroupIngressCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AuthorizeSecurityGroupIngressCommand}.
+ */
 export interface AuthorizeSecurityGroupIngressCommandInput extends AuthorizeSecurityGroupIngressRequest {}
+/**
+ * The output of {@link AuthorizeSecurityGroupIngressCommand}.
+ */
 export interface AuthorizeSecurityGroupIngressCommandOutput
   extends AuthorizeSecurityGroupIngressResult,
     __MetadataBearer {}

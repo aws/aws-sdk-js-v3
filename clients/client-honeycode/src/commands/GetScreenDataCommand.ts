@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetScreenDataCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetScreenDataCommand}.
+ */
 export interface GetScreenDataCommandInput extends GetScreenDataRequest {}
+/**
+ * The output of {@link GetScreenDataCommand}.
+ */
 export interface GetScreenDataCommandOutput extends GetScreenDataResult, __MetadataBearer {}
 
 /**

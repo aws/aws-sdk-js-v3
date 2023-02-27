@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1DeleteAppCommand, serializeAws_json1_1DeleteAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link DeleteAppCommand}.
+ */
 export interface DeleteAppCommandInput extends DeleteAppRequest {}
+/**
+ * The output of {@link DeleteAppCommand}.
+ */
 export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBearer {}
 
 /**

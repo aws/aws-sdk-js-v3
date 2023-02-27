@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AddFacetToObjectCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AddFacetToObjectCommand}.
+ */
 export interface AddFacetToObjectCommandInput extends AddFacetToObjectRequest {}
+/**
+ * The output of {@link AddFacetToObjectCommand}.
+ */
 export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse, __MetadataBearer {}
 
 /**

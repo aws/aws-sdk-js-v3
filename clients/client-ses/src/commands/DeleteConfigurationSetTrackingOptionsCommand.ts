@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link DeleteConfigurationSetTrackingOptionsCommand}.
+ */
 export interface DeleteConfigurationSetTrackingOptionsCommandInput
   extends DeleteConfigurationSetTrackingOptionsRequest {}
+/**
+ * The output of {@link DeleteConfigurationSetTrackingOptionsCommand}.
+ */
 export interface DeleteConfigurationSetTrackingOptionsCommandOutput
   extends DeleteConfigurationSetTrackingOptionsResponse,
     __MetadataBearer {}

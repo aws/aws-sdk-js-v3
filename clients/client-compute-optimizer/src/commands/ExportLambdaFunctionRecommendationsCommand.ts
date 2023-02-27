@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ExportLambdaFunctionRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ExportLambdaFunctionRecommendationsCommand}.
+ */
 export interface ExportLambdaFunctionRecommendationsCommandInput extends ExportLambdaFunctionRecommendationsRequest {}
+/**
+ * The output of {@link ExportLambdaFunctionRecommendationsCommand}.
+ */
 export interface ExportLambdaFunctionRecommendationsCommandOutput
   extends ExportLambdaFunctionRecommendationsResponse,
     __MetadataBearer {}

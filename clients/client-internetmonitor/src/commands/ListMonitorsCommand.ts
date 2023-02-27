@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListMonitorsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListMonitorsCommand}.
+ */
 export interface ListMonitorsCommandInput extends ListMonitorsInput {}
+/**
+ * The output of {@link ListMonitorsCommand}.
+ */
 export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __MetadataBearer {}
 
 /**

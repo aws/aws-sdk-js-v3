@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListSubChannelsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSubChannelsCommand}.
+ */
 export interface ListSubChannelsCommandInput extends ListSubChannelsRequest {}
+/**
+ * The output of {@link ListSubChannelsCommand}.
+ */
 export interface ListSubChannelsCommandOutput extends ListSubChannelsResponse, __MetadataBearer {}
 
 /**

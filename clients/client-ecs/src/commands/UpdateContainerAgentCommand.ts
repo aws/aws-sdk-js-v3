@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateContainerAgentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateContainerAgentCommand}.
+ */
 export interface UpdateContainerAgentCommandInput extends UpdateContainerAgentRequest {}
+/**
+ * The output of {@link UpdateContainerAgentCommand}.
+ */
 export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentResponse, __MetadataBearer {}
 
 /**

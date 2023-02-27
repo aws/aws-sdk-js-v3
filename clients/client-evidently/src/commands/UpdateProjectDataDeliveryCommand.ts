@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateProjectDataDeliveryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateProjectDataDeliveryCommand}.
+ */
 export interface UpdateProjectDataDeliveryCommandInput extends UpdateProjectDataDeliveryRequest {}
+/**
+ * The output of {@link UpdateProjectDataDeliveryCommand}.
+ */
 export interface UpdateProjectDataDeliveryCommandOutput extends UpdateProjectDataDeliveryResponse, __MetadataBearer {}
 
 /**

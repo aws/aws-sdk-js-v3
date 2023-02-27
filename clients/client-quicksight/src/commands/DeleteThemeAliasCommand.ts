@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link DeleteThemeAliasCommand}.
+ */
 export interface DeleteThemeAliasCommandInput extends DeleteThemeAliasRequest {}
+/**
+ * The output of {@link DeleteThemeAliasCommand}.
+ */
 export interface DeleteThemeAliasCommandOutput extends DeleteThemeAliasResponse, __MetadataBearer {}
 
 /**

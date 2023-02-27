@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1RefreshSchemasCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RefreshSchemasCommand}.
+ */
 export interface RefreshSchemasCommandInput extends RefreshSchemasMessage {}
+/**
+ * The output of {@link RefreshSchemasCommand}.
+ */
 export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __MetadataBearer {}
 
 /**

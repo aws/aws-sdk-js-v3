@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetProfileObjectTypeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetProfileObjectTypeCommand}.
+ */
 export interface GetProfileObjectTypeCommandInput extends GetProfileObjectTypeRequest {}
+/**
+ * The output of {@link GetProfileObjectTypeCommand}.
+ */
 export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeResponse, __MetadataBearer {}
 
 /**

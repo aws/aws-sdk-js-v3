@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * The input for {@link ListCheckSummariesCommand}.
+ */
 export interface ListCheckSummariesCommandInput extends ListCheckSummariesInput {}
+/**
+ * The output of {@link ListCheckSummariesCommand}.
+ */
 export interface ListCheckSummariesCommandOutput extends ListCheckSummariesOutput, __MetadataBearer {}
 
 /**

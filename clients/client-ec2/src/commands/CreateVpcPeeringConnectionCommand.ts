@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateVpcPeeringConnectionCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateVpcPeeringConnectionCommand}.
+ */
 export interface CreateVpcPeeringConnectionCommandInput extends CreateVpcPeeringConnectionRequest {}
+/**
+ * The output of {@link CreateVpcPeeringConnectionCommand}.
+ */
 export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**

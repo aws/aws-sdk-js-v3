@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
+/**
+ * The input for {@link CreateTokenCommand}.
+ */
 export interface CreateTokenCommandInput extends CreateTokenRequest {}
+/**
+ * The output of {@link CreateTokenCommand}.
+ */
 export interface CreateTokenCommandOutput extends CreateTokenResponse, __MetadataBearer {}
 
 /**

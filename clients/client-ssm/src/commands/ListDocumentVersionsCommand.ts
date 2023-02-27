@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link ListDocumentVersionsCommand}.
+ */
 export interface ListDocumentVersionsCommandInput extends ListDocumentVersionsRequest {}
+/**
+ * The output of {@link ListDocumentVersionsCommand}.
+ */
 export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsResult, __MetadataBearer {}
 
 /**

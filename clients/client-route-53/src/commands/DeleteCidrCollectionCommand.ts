@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link DeleteCidrCollectionCommand}.
+ */
 export interface DeleteCidrCollectionCommandInput extends DeleteCidrCollectionRequest {}
+/**
+ * The output of {@link DeleteCidrCollectionCommand}.
+ */
 export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutAccountSendingAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutAccountSendingAttributesCommand}.
+ */
 export interface PutAccountSendingAttributesCommandInput extends PutAccountSendingAttributesRequest {}
+/**
+ * The output of {@link PutAccountSendingAttributesCommand}.
+ */
 export interface PutAccountSendingAttributesCommandOutput
   extends PutAccountSendingAttributesResponse,
     __MetadataBearer {}

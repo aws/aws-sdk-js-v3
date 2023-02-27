@@ -26,7 +26,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * The input for {@link SearchCommand}.
+ */
 export interface SearchCommandInput extends SearchInput {}
+/**
+ * The output of {@link SearchCommand}.
+ */
 export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
 
 /**

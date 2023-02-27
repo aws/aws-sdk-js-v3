@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1VerifySoftwareTokenCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link VerifySoftwareTokenCommand}.
+ */
 export interface VerifySoftwareTokenCommandInput extends VerifySoftwareTokenRequest {}
+/**
+ * The output of {@link VerifySoftwareTokenCommand}.
+ */
 export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenResponse, __MetadataBearer {}
 
 /**

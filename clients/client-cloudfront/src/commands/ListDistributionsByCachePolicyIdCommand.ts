@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlListDistributionsByCachePolicyIdCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link ListDistributionsByCachePolicyIdCommand}.
+ */
 export interface ListDistributionsByCachePolicyIdCommandInput extends ListDistributionsByCachePolicyIdRequest {}
+/**
+ * The output of {@link ListDistributionsByCachePolicyIdCommand}.
+ */
 export interface ListDistributionsByCachePolicyIdCommandOutput
   extends ListDistributionsByCachePolicyIdResult,
     __MetadataBearer {}

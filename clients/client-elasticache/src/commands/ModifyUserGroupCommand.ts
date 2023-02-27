@@ -25,7 +25,13 @@ import {
   serializeAws_queryModifyUserGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyUserGroupCommand}.
+ */
 export interface ModifyUserGroupCommandInput extends ModifyUserGroupMessage {}
+/**
+ * The output of {@link ModifyUserGroupCommand}.
+ */
 export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**

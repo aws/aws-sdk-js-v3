@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListJobsByStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListJobsByStatusCommand}.
+ */
 export interface ListJobsByStatusCommandInput extends ListJobsByStatusRequest {}
+/**
+ * The output of {@link ListJobsByStatusCommand}.
+ */
 export interface ListJobsByStatusCommandOutput extends ListJobsByStatusResponse, __MetadataBearer {}
 
 /**

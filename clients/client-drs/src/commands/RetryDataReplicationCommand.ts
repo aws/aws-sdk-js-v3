@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RetryDataReplicationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RetryDataReplicationCommand}.
+ */
 export interface RetryDataReplicationCommandInput extends RetryDataReplicationRequest {}
+/**
+ * The output of {@link RetryDataReplicationCommand}.
+ */
 export interface RetryDataReplicationCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**

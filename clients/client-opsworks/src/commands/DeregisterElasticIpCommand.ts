@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeregisterElasticIpCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterElasticIpCommand}.
+ */
 export interface DeregisterElasticIpCommandInput extends DeregisterElasticIpRequest {}
+/**
+ * The output of {@link DeregisterElasticIpCommand}.
+ */
 export interface DeregisterElasticIpCommandOutput extends __MetadataBearer {}
 
 /**

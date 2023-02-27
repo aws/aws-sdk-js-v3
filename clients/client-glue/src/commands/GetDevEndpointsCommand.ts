@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDevEndpointsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDevEndpointsCommand}.
+ */
 export interface GetDevEndpointsCommandInput extends GetDevEndpointsRequest {}
+/**
+ * The output of {@link GetDevEndpointsCommand}.
+ */
 export interface GetDevEndpointsCommandOutput extends GetDevEndpointsResponse, __MetadataBearer {}
 
 /**

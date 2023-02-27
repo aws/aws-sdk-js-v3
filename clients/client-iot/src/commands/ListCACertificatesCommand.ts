@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListCACertificatesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListCACertificatesCommand}.
+ */
 export interface ListCACertificatesCommandInput extends ListCACertificatesRequest {}
+/**
+ * The output of {@link ListCACertificatesCommand}.
+ */
 export interface ListCACertificatesCommandOutput extends ListCACertificatesResponse, __MetadataBearer {}
 
 /**

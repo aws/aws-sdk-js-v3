@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateRelatedItemCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateRelatedItemCommand}.
+ */
 export interface CreateRelatedItemCommandInput extends CreateRelatedItemRequest {}
+/**
+ * The output of {@link CreateRelatedItemCommand}.
+ */
 export interface CreateRelatedItemCommandOutput extends CreateRelatedItemResponse, __MetadataBearer {}
 
 /**

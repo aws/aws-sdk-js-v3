@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link UpdateDefaultMailDomainCommand}.
+ */
 export interface UpdateDefaultMailDomainCommandInput extends UpdateDefaultMailDomainRequest {}
+/**
+ * The output of {@link UpdateDefaultMailDomainCommand}.
+ */
 export interface UpdateDefaultMailDomainCommandOutput extends UpdateDefaultMailDomainResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * The input for {@link GetJobManifestCommand}.
+ */
 export interface GetJobManifestCommandInput extends GetJobManifestRequest {}
+/**
+ * The output of {@link GetJobManifestCommand}.
+ */
 export interface GetJobManifestCommandOutput extends GetJobManifestResult, __MetadataBearer {}
 
 /**

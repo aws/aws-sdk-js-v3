@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetObjectRetentionCommand}.
+ */
 export interface GetObjectRetentionCommandInput extends GetObjectRetentionRequest {}
+/**
+ * The output of {@link GetObjectRetentionCommand}.
+ */
 export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutput, __MetadataBearer {}
 
 /**

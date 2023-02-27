@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListEphemeridesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListEphemeridesCommand}.
+ */
 export interface ListEphemeridesCommandInput extends ListEphemeridesRequest {}
+/**
+ * The output of {@link ListEphemeridesCommand}.
+ */
 export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryListDashboardsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListDashboardsCommand}.
+ */
 export interface ListDashboardsCommandInput extends ListDashboardsInput {}
+/**
+ * The output of {@link ListDashboardsCommand}.
+ */
 export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __MetadataBearer {}
 
 /**

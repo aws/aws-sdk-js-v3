@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDataIntegrationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDataIntegrationCommand}.
+ */
 export interface GetDataIntegrationCommandInput extends GetDataIntegrationRequest {}
+/**
+ * The output of {@link GetDataIntegrationCommand}.
+ */
 export interface GetDataIntegrationCommandOutput extends GetDataIntegrationResponse, __MetadataBearer {}
 
 /**

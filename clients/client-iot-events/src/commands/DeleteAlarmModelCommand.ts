@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteAlarmModelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAlarmModelCommand}.
+ */
 export interface DeleteAlarmModelCommandInput extends DeleteAlarmModelRequest {}
+/**
+ * The output of {@link DeleteAlarmModelCommand}.
+ */
 export interface DeleteAlarmModelCommandOutput extends DeleteAlarmModelResponse, __MetadataBearer {}
 
 /**

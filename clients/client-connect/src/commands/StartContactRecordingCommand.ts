@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartContactRecordingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartContactRecordingCommand}.
+ */
 export interface StartContactRecordingCommandInput extends StartContactRecordingRequest {}
+/**
+ * The output of {@link StartContactRecordingCommand}.
+ */
 export interface StartContactRecordingCommandOutput extends StartContactRecordingResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlListDistributionsCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link ListDistributionsCommand}.
+ */
 export interface ListDistributionsCommandInput extends ListDistributionsRequest {}
+/**
+ * The output of {@link ListDistributionsCommand}.
+ */
 export interface ListDistributionsCommandOutput extends ListDistributionsResult, __MetadataBearer {}
 
 /**

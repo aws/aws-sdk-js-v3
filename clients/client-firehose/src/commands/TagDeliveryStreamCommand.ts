@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1TagDeliveryStreamCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link TagDeliveryStreamCommand}.
+ */
 export interface TagDeliveryStreamCommandInput extends TagDeliveryStreamInput {}
+/**
+ * The output of {@link TagDeliveryStreamCommand}.
+ */
 export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput, __MetadataBearer {}
 
 /**

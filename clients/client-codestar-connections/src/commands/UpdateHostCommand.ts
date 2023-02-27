@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0UpdateHostCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateHostCommand}.
+ */
 export interface UpdateHostCommandInput extends UpdateHostInput {}
+/**
+ * The output of {@link UpdateHostCommand}.
+ */
 export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBearer {}
 
 /**

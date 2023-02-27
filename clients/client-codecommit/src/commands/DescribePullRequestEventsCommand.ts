@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribePullRequestEventsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribePullRequestEventsCommand}.
+ */
 export interface DescribePullRequestEventsCommandInput extends DescribePullRequestEventsInput {}
+/**
+ * The output of {@link DescribePullRequestEventsCommand}.
+ */
 export interface DescribePullRequestEventsCommandOutput extends DescribePullRequestEventsOutput, __MetadataBearer {}
 
 /**

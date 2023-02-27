@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchGetAccountStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchGetAccountStatusCommand}.
+ */
 export interface BatchGetAccountStatusCommandInput extends BatchGetAccountStatusRequest {}
+/**
+ * The output of {@link BatchGetAccountStatusCommand}.
+ */
 export interface BatchGetAccountStatusCommandOutput extends BatchGetAccountStatusResponse, __MetadataBearer {}
 
 /**

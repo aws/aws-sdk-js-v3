@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetSchemaByDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetSchemaByDefinitionCommand}.
+ */
 export interface GetSchemaByDefinitionCommandInput extends GetSchemaByDefinitionInput {}
+/**
+ * The output of {@link GetSchemaByDefinitionCommand}.
+ */
 export interface GetSchemaByDefinitionCommandOutput extends GetSchemaByDefinitionResponse, __MetadataBearer {}
 
 /**

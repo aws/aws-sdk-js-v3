@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteTransitGatewayRouteTableAnnouncementCommand}.
+ */
 export interface DeleteTransitGatewayRouteTableAnnouncementCommandInput
   extends DeleteTransitGatewayRouteTableAnnouncementRequest {}
+/**
+ * The output of {@link DeleteTransitGatewayRouteTableAnnouncementCommand}.
+ */
 export interface DeleteTransitGatewayRouteTableAnnouncementCommandOutput
   extends DeleteTransitGatewayRouteTableAnnouncementResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ResolveComponentCandidatesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ResolveComponentCandidatesCommand}.
+ */
 export interface ResolveComponentCandidatesCommandInput extends ResolveComponentCandidatesRequest {}
+/**
+ * The output of {@link ResolveComponentCandidatesCommand}.
+ */
 export interface ResolveComponentCandidatesCommandOutput extends ResolveComponentCandidatesResponse, __MetadataBearer {}
 
 /**

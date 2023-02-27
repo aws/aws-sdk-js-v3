@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeSchemasCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeSchemasCommand}.
+ */
 export interface DescribeSchemasCommandInput extends DescribeSchemasMessage {}
+/**
+ * The output of {@link DescribeSchemasCommand}.
+ */
 export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, __MetadataBearer {}
 
 /**

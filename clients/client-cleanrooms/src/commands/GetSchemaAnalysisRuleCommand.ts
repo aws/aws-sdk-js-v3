@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSchemaAnalysisRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSchemaAnalysisRuleCommand}.
+ */
 export interface GetSchemaAnalysisRuleCommandInput extends GetSchemaAnalysisRuleInput {}
+/**
+ * The output of {@link GetSchemaAnalysisRuleCommand}.
+ */
 export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRuleOutput, __MetadataBearer {}
 
 /**

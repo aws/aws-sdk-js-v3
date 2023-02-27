@@ -26,7 +26,13 @@ import {
   serializeAws_json1_1DeleteIdentitiesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteIdentitiesCommand}.
+ */
 export interface DeleteIdentitiesCommandInput extends DeleteIdentitiesInput {}
+/**
+ * The output of {@link DeleteIdentitiesCommand}.
+ */
 export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse, __MetadataBearer {}
 
 /**

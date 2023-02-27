@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdatePricingRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdatePricingRuleCommand}.
+ */
 export interface UpdatePricingRuleCommandInput extends UpdatePricingRuleInput {}
+/**
+ * The output of {@link UpdatePricingRuleCommand}.
+ */
 export interface UpdatePricingRuleCommandOutput extends UpdatePricingRuleOutput, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
 
+/**
+ * The input for {@link CreateSafetyRuleCommand}.
+ */
 export interface CreateSafetyRuleCommandInput extends CreateSafetyRuleRequest {}
+/**
+ * The output of {@link CreateSafetyRuleCommand}.
+ */
 export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse, __MetadataBearer {}
 
 /**

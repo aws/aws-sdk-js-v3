@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCustomRulePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCustomRulePolicyCommand}.
+ */
 export interface GetCustomRulePolicyCommandInput extends GetCustomRulePolicyRequest {}
+/**
+ * The output of {@link GetCustomRulePolicyCommand}.
+ */
 export interface GetCustomRulePolicyCommandOutput extends GetCustomRulePolicyResponse, __MetadataBearer {}
 
 /**

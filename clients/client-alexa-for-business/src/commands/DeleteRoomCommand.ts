@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteRoomCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteRoomCommand}.
+ */
 export interface DeleteRoomCommandInput extends DeleteRoomRequest {}
+/**
+ * The output of {@link DeleteRoomCommand}.
+ */
 export interface DeleteRoomCommandOutput extends DeleteRoomResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateSecurityProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateSecurityProfileCommand}.
+ */
 export interface UpdateSecurityProfileCommandInput extends UpdateSecurityProfileRequest {}
+/**
+ * The output of {@link UpdateSecurityProfileCommand}.
+ */
 export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
 
 /**

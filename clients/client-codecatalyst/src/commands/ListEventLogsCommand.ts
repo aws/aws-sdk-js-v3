@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListEventLogsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListEventLogsCommand}.
+ */
 export interface ListEventLogsCommandInput extends ListEventLogsRequest {}
+/**
+ * The output of {@link ListEventLogsCommand}.
+ */
 export interface ListEventLogsCommandOutput extends ListEventLogsResponse, __MetadataBearer {}
 
 /**

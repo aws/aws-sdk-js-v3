@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1StartDataCollectionByAgentIdsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartDataCollectionByAgentIdsCommand}.
+ */
 export interface StartDataCollectionByAgentIdsCommandInput extends StartDataCollectionByAgentIdsRequest {}
+/**
+ * The output of {@link StartDataCollectionByAgentIdsCommand}.
+ */
 export interface StartDataCollectionByAgentIdsCommandOutput
   extends StartDataCollectionByAgentIdsResponse,
     __MetadataBearer {}

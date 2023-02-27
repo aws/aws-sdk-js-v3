@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * The input for {@link CreateMilestoneCommand}.
+ */
 export interface CreateMilestoneCommandInput extends CreateMilestoneInput {}
+/**
+ * The output of {@link CreateMilestoneCommand}.
+ */
 export interface CreateMilestoneCommandOutput extends CreateMilestoneOutput, __MetadataBearer {}
 
 /**

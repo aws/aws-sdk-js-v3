@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartRecoveryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartRecoveryCommand}.
+ */
 export interface StartRecoveryCommandInput extends StartRecoveryRequest {}
+/**
+ * The output of {@link StartRecoveryCommand}.
+ */
 export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __MetadataBearer {}
 
 /**

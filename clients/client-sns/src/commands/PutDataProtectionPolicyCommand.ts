@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link PutDataProtectionPolicyCommand}.
+ */
 export interface PutDataProtectionPolicyCommandInput extends PutDataProtectionPolicyInput {}
+/**
+ * The output of {@link PutDataProtectionPolicyCommand}.
+ */
 export interface PutDataProtectionPolicyCommandOutput extends __MetadataBearer {}
 
 /**

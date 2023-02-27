@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeInternetGatewaysCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeInternetGatewaysCommand}.
+ */
 export interface DescribeInternetGatewaysCommandInput extends DescribeInternetGatewaysRequest {}
+/**
+ * The output of {@link DescribeInternetGatewaysCommand}.
+ */
 export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetGatewaysResult, __MetadataBearer {}
 
 /**

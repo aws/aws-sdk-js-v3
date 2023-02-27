@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetNetworkProfileCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetNetworkProfileCommand}.
+ */
 export interface GetNetworkProfileCommandInput extends GetNetworkProfileRequest {}
+/**
+ * The output of {@link GetNetworkProfileCommand}.
+ */
 export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResponse, __MetadataBearer {}
 
 /**

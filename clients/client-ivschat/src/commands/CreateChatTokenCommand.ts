@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateChatTokenCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateChatTokenCommand}.
+ */
 export interface CreateChatTokenCommandInput extends CreateChatTokenRequest {}
+/**
+ * The output of {@link CreateChatTokenCommand}.
+ */
 export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, __MetadataBearer {}
 
 /**

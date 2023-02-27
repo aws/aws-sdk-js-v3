@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RegisterAgentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RegisterAgentCommand}.
+ */
 export interface RegisterAgentCommandInput extends RegisterAgentRequest {}
+/**
+ * The output of {@link RegisterAgentCommand}.
+ */
 export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __MetadataBearer {}
 
 /**

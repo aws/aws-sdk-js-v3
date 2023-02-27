@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DeleteKeywordCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteKeywordCommand}.
+ */
 export interface DeleteKeywordCommandInput extends DeleteKeywordRequest {}
+/**
+ * The output of {@link DeleteKeywordCommand}.
+ */
 export interface DeleteKeywordCommandOutput extends DeleteKeywordResult, __MetadataBearer {}
 
 /**

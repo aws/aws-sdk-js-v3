@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteAccessControlConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteAccessControlConfigurationCommand}.
+ */
 export interface DeleteAccessControlConfigurationCommandInput extends DeleteAccessControlConfigurationRequest {}
+/**
+ * The output of {@link DeleteAccessControlConfigurationCommand}.
+ */
 export interface DeleteAccessControlConfigurationCommandOutput
   extends DeleteAccessControlConfigurationResponse,
     __MetadataBearer {}

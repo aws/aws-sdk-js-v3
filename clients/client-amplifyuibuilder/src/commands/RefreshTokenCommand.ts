@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RefreshTokenCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RefreshTokenCommand}.
+ */
 export interface RefreshTokenCommandInput extends RefreshTokenRequest {}
+/**
+ * The output of {@link RefreshTokenCommand}.
+ */
 export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ChangePasswordCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ChangePasswordCommand}.
+ */
 export interface ChangePasswordCommandInput extends ChangePasswordRequest {}
+/**
+ * The output of {@link ChangePasswordCommand}.
+ */
 export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __MetadataBearer {}
 
 /**

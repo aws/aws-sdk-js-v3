@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeExportCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeExportCommand}.
+ */
 export interface DescribeExportCommandInput extends DescribeExportRequest {}
+/**
+ * The output of {@link DescribeExportCommand}.
+ */
 export interface DescribeExportCommandOutput extends DescribeExportResponse, __MetadataBearer {}
 
 /**

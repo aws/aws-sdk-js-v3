@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DeleteTableCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteTableCommand}.
+ */
 export interface DeleteTableCommandInput extends DeleteTableInput {}
+/**
+ * The output of {@link DeleteTableCommand}.
+ */
 export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataBearer {}
 
 /**

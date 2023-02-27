@@ -23,7 +23,13 @@ import {
   serializeAws_queryPutScheduledUpdateGroupActionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PutScheduledUpdateGroupActionCommand}.
+ */
 export interface PutScheduledUpdateGroupActionCommandInput extends PutScheduledUpdateGroupActionType {}
+/**
+ * The output of {@link PutScheduledUpdateGroupActionCommand}.
+ */
 export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBearer {}
 
 /**

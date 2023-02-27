@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeletePullRequestApprovalRuleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeletePullRequestApprovalRuleCommand}.
+ */
 export interface DeletePullRequestApprovalRuleCommandInput extends DeletePullRequestApprovalRuleInput {}
+/**
+ * The output of {@link DeletePullRequestApprovalRuleCommand}.
+ */
 export interface DeletePullRequestApprovalRuleCommandOutput
   extends DeletePullRequestApprovalRuleOutput,
     __MetadataBearer {}

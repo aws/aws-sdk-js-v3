@@ -229,3 +229,182 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CancelRotateSecret
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/cancelrotatesecretcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/cancelrotatesecretcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/cancelrotatesecretcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateSecret
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/createsecretcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/createsecretcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/createsecretcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/deleteresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/deleteresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/deleteresourcepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSecret
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/deletesecretcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/deletesecretcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/deletesecretcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSecret
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/describesecretcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/describesecretcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/describesecretcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetRandomPassword
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/getrandompasswordcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/getrandompasswordcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/getrandompasswordcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/getresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/getresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/getresourcepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSecretValue
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/getsecretvaluecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/getsecretvaluecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/getsecretvaluecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSecrets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/listsecretscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/listsecretscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/listsecretscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSecretVersionIds
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/listsecretversionidscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/listsecretversionidscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/listsecretversionidscommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/putresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/putresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/putresourcepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutSecretValue
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/putsecretvaluecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/putsecretvaluecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/putsecretvaluecommandoutput.html)
+
+</details>
+<details>
+<summary>
+RemoveRegionsFromReplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/removeregionsfromreplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/removeregionsfromreplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/removeregionsfromreplicationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ReplicateSecretToRegions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/replicatesecrettoregionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/replicatesecrettoregionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/replicatesecrettoregionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+RestoreSecret
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/restoresecretcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/restoresecretcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/restoresecretcommandoutput.html)
+
+</details>
+<details>
+<summary>
+RotateSecret
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/rotatesecretcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/rotatesecretcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/rotatesecretcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopReplicationToReplica
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/stopreplicationtoreplicacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/stopreplicationtoreplicacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/stopreplicationtoreplicacommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSecret
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/updatesecretcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/updatesecretcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/updatesecretcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSecretVersionStage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/updatesecretversionstagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/updatesecretversionstagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/updatesecretversionstagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ValidateResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/classes/validateresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/validateresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-secrets manager/interfaces/validateresourcepolicycommandoutput.html)
+
+</details>

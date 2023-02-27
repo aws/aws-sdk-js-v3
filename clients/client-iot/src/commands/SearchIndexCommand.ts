@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SearchIndexCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SearchIndexCommand}.
+ */
 export interface SearchIndexCommandInput extends SearchIndexRequest {}
+/**
+ * The output of {@link SearchIndexCommand}.
+ */
 export interface SearchIndexCommandOutput extends SearchIndexResponse, __MetadataBearer {}
 
 /**

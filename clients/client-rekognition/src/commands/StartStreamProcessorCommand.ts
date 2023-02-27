@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link StartStreamProcessorCommand}.
+ */
 export interface StartStreamProcessorCommandInput extends StartStreamProcessorRequest {}
+/**
+ * The output of {@link StartStreamProcessorCommand}.
+ */
 export interface StartStreamProcessorCommandOutput extends StartStreamProcessorResponse, __MetadataBearer {}
 
 /**

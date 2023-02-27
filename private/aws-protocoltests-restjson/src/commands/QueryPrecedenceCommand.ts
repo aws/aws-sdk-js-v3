@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link QueryPrecedenceCommand}.
+ */
 export interface QueryPrecedenceCommandInput extends QueryPrecedenceInput {}
+/**
+ * The output of {@link QueryPrecedenceCommand}.
+ */
 export interface QueryPrecedenceCommandOutput extends __MetadataBearer {}
 
 export class QueryPrecedenceCommand extends $Command<

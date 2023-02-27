@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link DeleteConnectClientAddInCommand}.
+ */
 export interface DeleteConnectClientAddInCommandInput extends DeleteConnectClientAddInRequest {}
+/**
+ * The output of {@link DeleteConnectClientAddInCommand}.
+ */
 export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClientAddInResult, __MetadataBearer {}
 
 /**

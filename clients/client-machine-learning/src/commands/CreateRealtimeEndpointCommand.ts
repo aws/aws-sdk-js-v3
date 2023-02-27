@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateRealtimeEndpointCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateRealtimeEndpointCommand}.
+ */
 export interface CreateRealtimeEndpointCommandInput extends CreateRealtimeEndpointInput {}
+/**
+ * The output of {@link CreateRealtimeEndpointCommand}.
+ */
 export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpointOutput, __MetadataBearer {}
 
 /**

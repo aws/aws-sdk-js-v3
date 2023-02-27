@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeConfigurationAggregatorSourcesStatusCommand}.
+ */
 export interface DescribeConfigurationAggregatorSourcesStatusCommandInput
   extends DescribeConfigurationAggregatorSourcesStatusRequest {}
+/**
+ * The output of {@link DescribeConfigurationAggregatorSourcesStatusCommand}.
+ */
 export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
   extends DescribeConfigurationAggregatorSourcesStatusResponse,
     __MetadataBearer {}

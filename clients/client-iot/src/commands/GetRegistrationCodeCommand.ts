@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetRegistrationCodeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetRegistrationCodeCommand}.
+ */
 export interface GetRegistrationCodeCommandInput extends GetRegistrationCodeRequest {}
+/**
+ * The output of {@link GetRegistrationCodeCommand}.
+ */
 export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeResponse, __MetadataBearer {}
 
 /**

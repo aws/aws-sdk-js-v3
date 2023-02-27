@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteTrackerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteTrackerCommand}.
+ */
 export interface DeleteTrackerCommandInput extends DeleteTrackerRequest {}
+/**
+ * The output of {@link DeleteTrackerCommand}.
+ */
 export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __MetadataBearer {}
 
 /**

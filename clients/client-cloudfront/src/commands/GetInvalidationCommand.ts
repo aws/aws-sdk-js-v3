@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlGetInvalidationCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link GetInvalidationCommand}.
+ */
 export interface GetInvalidationCommandInput extends GetInvalidationRequest {}
+/**
+ * The output of {@link GetInvalidationCommand}.
+ */
 export interface GetInvalidationCommandOutput extends GetInvalidationResult, __MetadataBearer {}
 
 /**

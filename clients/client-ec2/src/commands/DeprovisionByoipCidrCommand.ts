@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeprovisionByoipCidrCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeprovisionByoipCidrCommand}.
+ */
 export interface DeprovisionByoipCidrCommandInput extends DeprovisionByoipCidrRequest {}
+/**
+ * The output of {@link DeprovisionByoipCidrCommand}.
+ */
 export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrResult, __MetadataBearer {}
 
 /**

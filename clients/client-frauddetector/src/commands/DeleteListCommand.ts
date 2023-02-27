@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteListCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteListCommand}.
+ */
 export interface DeleteListCommandInput extends DeleteListRequest {}
+/**
+ * The output of {@link DeleteListCommand}.
+ */
 export interface DeleteListCommandOutput extends DeleteListResult, __MetadataBearer {}
 
 /**

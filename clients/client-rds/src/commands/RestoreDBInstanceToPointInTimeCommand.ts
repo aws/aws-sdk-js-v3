@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link RestoreDBInstanceToPointInTimeCommand}.
+ */
 export interface RestoreDBInstanceToPointInTimeCommandInput extends RestoreDBInstanceToPointInTimeMessage {}
+/**
+ * The output of {@link RestoreDBInstanceToPointInTimeCommand}.
+ */
 export interface RestoreDBInstanceToPointInTimeCommandOutput
   extends RestoreDBInstanceToPointInTimeResult,
     __MetadataBearer {}

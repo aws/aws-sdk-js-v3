@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * The input for {@link CreateAssistantCommand}.
+ */
 export interface CreateAssistantCommandInput extends CreateAssistantRequest {}
+/**
+ * The output of {@link CreateAssistantCommand}.
+ */
 export interface CreateAssistantCommandOutput extends CreateAssistantResponse, __MetadataBearer {}
 
 /**

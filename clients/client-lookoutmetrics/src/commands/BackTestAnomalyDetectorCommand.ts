@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BackTestAnomalyDetectorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BackTestAnomalyDetectorCommand}.
+ */
 export interface BackTestAnomalyDetectorCommandInput extends BackTestAnomalyDetectorRequest {}
+/**
+ * The output of {@link BackTestAnomalyDetectorCommand}.
+ */
 export interface BackTestAnomalyDetectorCommandOutput extends BackTestAnomalyDetectorResponse, __MetadataBearer {}
 
 /**

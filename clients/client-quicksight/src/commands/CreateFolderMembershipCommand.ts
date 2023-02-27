@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link CreateFolderMembershipCommand}.
+ */
 export interface CreateFolderMembershipCommandInput extends CreateFolderMembershipRequest {}
+/**
+ * The output of {@link CreateFolderMembershipCommand}.
+ */
 export interface CreateFolderMembershipCommandOutput extends CreateFolderMembershipResponse, __MetadataBearer {}
 
 /**

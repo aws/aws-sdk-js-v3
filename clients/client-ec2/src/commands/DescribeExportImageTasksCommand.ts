@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeExportImageTasksCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeExportImageTasksCommand}.
+ */
 export interface DescribeExportImageTasksCommandInput extends DescribeExportImageTasksRequest {}
+/**
+ * The output of {@link DescribeExportImageTasksCommand}.
+ */
 export interface DescribeExportImageTasksCommandOutput extends DescribeExportImageTasksResult, __MetadataBearer {}
 
 /**

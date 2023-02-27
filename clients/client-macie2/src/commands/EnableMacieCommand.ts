@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1EnableMacieCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link EnableMacieCommand}.
+ */
 export interface EnableMacieCommandInput extends EnableMacieRequest {}
+/**
+ * The output of {@link EnableMacieCommand}.
+ */
 export interface EnableMacieCommandOutput extends EnableMacieResponse, __MetadataBearer {}
 
 /**

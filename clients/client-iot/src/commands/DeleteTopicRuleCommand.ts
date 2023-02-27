@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteTopicRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteTopicRuleCommand}.
+ */
 export interface DeleteTopicRuleCommandInput extends DeleteTopicRuleRequest {}
+/**
+ * The output of {@link DeleteTopicRuleCommand}.
+ */
 export interface DeleteTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**

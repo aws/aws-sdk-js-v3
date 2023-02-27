@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeAffectedEntitiesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeAffectedEntitiesCommand}.
+ */
 export interface DescribeAffectedEntitiesCommandInput extends DescribeAffectedEntitiesRequest {}
+/**
+ * The output of {@link DescribeAffectedEntitiesCommand}.
+ */
 export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedEntitiesResponse, __MetadataBearer {}
 
 /**

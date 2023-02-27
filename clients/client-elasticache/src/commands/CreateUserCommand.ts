@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryCreateUserCommand, serializeAws_queryCreateUserCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateUserCommand}.
+ */
 export interface CreateUserCommandInput extends CreateUserMessage {}
+/**
+ * The output of {@link CreateUserCommand}.
+ */
 export interface CreateUserCommandOutput extends User, __MetadataBearer {}
 
 /**

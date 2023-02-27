@@ -23,8 +23,14 @@ import {
   serializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateTimeSeriesFromAssetPropertyCommand}.
+ */
 export interface DisassociateTimeSeriesFromAssetPropertyCommandInput
   extends DisassociateTimeSeriesFromAssetPropertyRequest {}
+/**
+ * The output of {@link DisassociateTimeSeriesFromAssetPropertyCommand}.
+ */
 export interface DisassociateTimeSeriesFromAssetPropertyCommandOutput extends __MetadataBearer {}
 
 /**

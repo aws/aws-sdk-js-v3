@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link DeleteAppLaunchConfigurationCommand}.
+ */
 export interface DeleteAppLaunchConfigurationCommandInput extends DeleteAppLaunchConfigurationRequest {}
+/**
+ * The output of {@link DeleteAppLaunchConfigurationCommand}.
+ */
 export interface DeleteAppLaunchConfigurationCommandOutput
   extends DeleteAppLaunchConfigurationResponse,
     __MetadataBearer {}

@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
 
+/**
+ * The input for {@link GetTagKeysCommand}.
+ */
 export interface GetTagKeysCommandInput extends GetTagKeysInput {}
+/**
+ * The output of {@link GetTagKeysCommand}.
+ */
 export interface GetTagKeysCommandOutput extends GetTagKeysOutput, __MetadataBearer {}
 
 /**

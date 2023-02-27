@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetOnPremisesInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetOnPremisesInstanceCommand}.
+ */
 export interface GetOnPremisesInstanceCommandInput extends GetOnPremisesInstanceInput {}
+/**
+ * The output of {@link GetOnPremisesInstanceCommand}.
+ */
 export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanceOutput, __MetadataBearer {}
 
 /**

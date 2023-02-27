@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDiskCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDiskCommand}.
+ */
 export interface CreateDiskCommandInput extends CreateDiskRequest {}
+/**
+ * The output of {@link CreateDiskCommand}.
+ */
 export interface CreateDiskCommandOutput extends CreateDiskResult, __MetadataBearer {}
 
 /**

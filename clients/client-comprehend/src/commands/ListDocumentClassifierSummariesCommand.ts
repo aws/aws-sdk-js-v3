@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListDocumentClassifierSummariesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListDocumentClassifierSummariesCommand}.
+ */
 export interface ListDocumentClassifierSummariesCommandInput extends ListDocumentClassifierSummariesRequest {}
+/**
+ * The output of {@link ListDocumentClassifierSummariesCommand}.
+ */
 export interface ListDocumentClassifierSummariesCommandOutput
   extends ListDocumentClassifierSummariesResponse,
     __MetadataBearer {}

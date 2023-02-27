@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteTaskSetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteTaskSetCommand}.
+ */
 export interface DeleteTaskSetCommandInput extends DeleteTaskSetRequest {}
+/**
+ * The output of {@link DeleteTaskSetCommand}.
+ */
 export interface DeleteTaskSetCommandOutput extends DeleteTaskSetResponse, __MetadataBearer {}
 
 /**

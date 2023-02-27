@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutApprovalResultCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutApprovalResultCommand}.
+ */
 export interface PutApprovalResultCommandInput extends PutApprovalResultInput {}
+/**
+ * The output of {@link PutApprovalResultCommand}.
+ */
 export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput, __MetadataBearer {}
 
 /**

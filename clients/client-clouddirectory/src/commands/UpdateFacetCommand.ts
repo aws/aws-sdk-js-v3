@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateFacetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateFacetCommand}.
+ */
 export interface UpdateFacetCommandInput extends UpdateFacetRequest {}
+/**
+ * The output of {@link UpdateFacetCommand}.
+ */
 export interface UpdateFacetCommandOutput extends UpdateFacetResponse, __MetadataBearer {}
 
 /**

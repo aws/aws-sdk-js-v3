@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteEphemerisCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteEphemerisCommand}.
+ */
 export interface DeleteEphemerisCommandInput extends DeleteEphemerisRequest {}
+/**
+ * The output of {@link DeleteEphemerisCommand}.
+ */
 export interface DeleteEphemerisCommandOutput extends EphemerisIdResponse, __MetadataBearer {}
 
 /**

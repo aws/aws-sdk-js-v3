@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateChannelMessageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateChannelMessageCommand}.
+ */
 export interface UpdateChannelMessageCommandInput extends UpdateChannelMessageRequest {}
+/**
+ * The output of {@link UpdateChannelMessageCommand}.
+ */
 export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageResponse, __MetadataBearer {}
 
 /**

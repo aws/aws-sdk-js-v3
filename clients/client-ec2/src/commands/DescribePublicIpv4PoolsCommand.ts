@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribePublicIpv4PoolsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribePublicIpv4PoolsCommand}.
+ */
 export interface DescribePublicIpv4PoolsCommandInput extends DescribePublicIpv4PoolsRequest {}
+/**
+ * The output of {@link DescribePublicIpv4PoolsCommand}.
+ */
 export interface DescribePublicIpv4PoolsCommandOutput extends DescribePublicIpv4PoolsResult, __MetadataBearer {}
 
 /**

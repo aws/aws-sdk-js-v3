@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * The input for {@link ListPrincipalsCommand}.
+ */
 export interface ListPrincipalsCommandInput extends ListPrincipalsRequest {}
+/**
+ * The output of {@link ListPrincipalsCommand}.
+ */
 export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __MetadataBearer {}
 
 /**

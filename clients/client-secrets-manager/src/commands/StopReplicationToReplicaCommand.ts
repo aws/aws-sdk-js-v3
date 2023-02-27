@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * The input for {@link StopReplicationToReplicaCommand}.
+ */
 export interface StopReplicationToReplicaCommandInput extends StopReplicationToReplicaRequest {}
+/**
+ * The output of {@link StopReplicationToReplicaCommand}.
+ */
 export interface StopReplicationToReplicaCommandOutput extends StopReplicationToReplicaResponse, __MetadataBearer {}
 
 /**

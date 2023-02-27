@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link DeleteClientBrandingCommand}.
+ */
 export interface DeleteClientBrandingCommandInput extends DeleteClientBrandingRequest {}
+/**
+ * The output of {@link DeleteClientBrandingCommand}.
+ */
 export interface DeleteClientBrandingCommandOutput extends DeleteClientBrandingResult, __MetadataBearer {}
 
 /**

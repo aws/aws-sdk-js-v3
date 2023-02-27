@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteStreamingImageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteStreamingImageCommand}.
+ */
 export interface DeleteStreamingImageCommandInput extends DeleteStreamingImageRequest {}
+/**
+ * The output of {@link DeleteStreamingImageCommand}.
+ */
 export interface DeleteStreamingImageCommandOutput extends DeleteStreamingImageResponse, __MetadataBearer {}
 
 /**

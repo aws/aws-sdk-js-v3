@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CreateNetworkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateNetworkCommand}.
+ */
 export interface CreateNetworkCommandInput extends CreateNetworkInput {}
+/**
+ * The output of {@link CreateNetworkCommand}.
+ */
 export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __MetadataBearer {}
 
 /**

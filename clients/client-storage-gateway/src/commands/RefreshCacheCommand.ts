@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link RefreshCacheCommand}.
+ */
 export interface RefreshCacheCommandInput extends RefreshCacheInput {}
+/**
+ * The output of {@link RefreshCacheCommand}.
+ */
 export interface RefreshCacheCommandOutput extends RefreshCacheOutput, __MetadataBearer {}
 
 /**

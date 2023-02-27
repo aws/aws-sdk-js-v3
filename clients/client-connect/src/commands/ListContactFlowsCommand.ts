@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListContactFlowsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListContactFlowsCommand}.
+ */
 export interface ListContactFlowsCommandInput extends ListContactFlowsRequest {}
+/**
+ * The output of {@link ListContactFlowsCommand}.
+ */
 export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse, __MetadataBearer {}
 
 /**

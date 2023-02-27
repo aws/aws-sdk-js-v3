@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetProductsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetProductsCommand}.
+ */
 export interface GetProductsCommandInput extends GetProductsRequest {}
+/**
+ * The output of {@link GetProductsCommand}.
+ */
 export interface GetProductsCommandOutput extends GetProductsResponse, __MetadataBearer {}
 
 /**

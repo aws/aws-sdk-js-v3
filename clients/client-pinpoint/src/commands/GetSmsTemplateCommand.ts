@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSmsTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSmsTemplateCommand}.
+ */
 export interface GetSmsTemplateCommandInput extends GetSmsTemplateRequest {}
+/**
+ * The output of {@link GetSmsTemplateCommand}.
+ */
 export interface GetSmsTemplateCommandOutput extends GetSmsTemplateResponse, __MetadataBearer {}
 
 /**

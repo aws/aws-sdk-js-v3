@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlCreateOriginAccessControlCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link CreateOriginAccessControlCommand}.
+ */
 export interface CreateOriginAccessControlCommandInput extends CreateOriginAccessControlRequest {}
+/**
+ * The output of {@link CreateOriginAccessControlCommand}.
+ */
 export interface CreateOriginAccessControlCommandOutput extends CreateOriginAccessControlResult, __MetadataBearer {}
 
 /**

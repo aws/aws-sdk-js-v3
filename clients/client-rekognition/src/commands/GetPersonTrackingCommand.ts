@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link GetPersonTrackingCommand}.
+ */
 export interface GetPersonTrackingCommandInput extends GetPersonTrackingRequest {}
+/**
+ * The output of {@link GetPersonTrackingCommand}.
+ */
 export interface GetPersonTrackingCommandOutput extends GetPersonTrackingResponse, __MetadataBearer {}
 
 /**

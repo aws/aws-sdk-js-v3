@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeUserGroupsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeUserGroupsCommand}.
+ */
 export interface DescribeUserGroupsCommandInput extends DescribeUserGroupsMessage {}
+/**
+ * The output of {@link DescribeUserGroupsCommand}.
+ */
 export interface DescribeUserGroupsCommandOutput extends DescribeUserGroupsResult, __MetadataBearer {}
 
 /**

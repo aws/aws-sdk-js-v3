@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link GetByteMatchSetCommand}.
+ */
 export interface GetByteMatchSetCommandInput extends GetByteMatchSetRequest {}
+/**
+ * The output of {@link GetByteMatchSetCommand}.
+ */
 export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, __MetadataBearer {}
 
 /**

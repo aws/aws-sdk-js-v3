@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetFunctionCodeSigningConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetFunctionCodeSigningConfigCommand}.
+ */
 export interface GetFunctionCodeSigningConfigCommandInput extends GetFunctionCodeSigningConfigRequest {}
+/**
+ * The output of {@link GetFunctionCodeSigningConfigCommand}.
+ */
 export interface GetFunctionCodeSigningConfigCommandOutput
   extends GetFunctionCodeSigningConfigResponse,
     __MetadataBearer {}

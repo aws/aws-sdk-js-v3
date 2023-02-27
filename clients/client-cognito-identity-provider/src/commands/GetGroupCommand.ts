@@ -27,7 +27,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetGroupCommand, serializeAws_json1_1GetGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetGroupCommand}.
+ */
 export interface GetGroupCommandInput extends GetGroupRequest {}
+/**
+ * The output of {@link GetGroupCommand}.
+ */
 export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBearer {}
 
 /**

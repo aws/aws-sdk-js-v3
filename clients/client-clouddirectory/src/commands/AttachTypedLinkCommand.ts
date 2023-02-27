@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AttachTypedLinkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AttachTypedLinkCommand}.
+ */
 export interface AttachTypedLinkCommandInput extends AttachTypedLinkRequest {}
+/**
+ * The output of {@link AttachTypedLinkCommand}.
+ */
 export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, __MetadataBearer {}
 
 /**

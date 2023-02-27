@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartAccessLoggingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartAccessLoggingCommand}.
+ */
 export interface StartAccessLoggingCommandInput extends StartAccessLoggingInput {}
+/**
+ * The output of {@link StartAccessLoggingCommand}.
+ */
 export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutput, __MetadataBearer {}
 
 /**

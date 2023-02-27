@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAttachmentsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAttachmentsCommand}.
+ */
 export interface ListAttachmentsCommandInput extends ListAttachmentsRequest {}
+/**
+ * The output of {@link ListAttachmentsCommand}.
+ */
 export interface ListAttachmentsCommandOutput extends ListAttachmentsResponse, __MetadataBearer {}
 
 /**

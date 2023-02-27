@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetCaseEventConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetCaseEventConfigurationCommand}.
+ */
 export interface GetCaseEventConfigurationCommandInput extends GetCaseEventConfigurationRequest {}
+/**
+ * The output of {@link GetCaseEventConfigurationCommand}.
+ */
 export interface GetCaseEventConfigurationCommandOutput extends GetCaseEventConfigurationResponse, __MetadataBearer {}
 
 /**

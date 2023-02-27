@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateDomainEntryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateDomainEntryCommand}.
+ */
 export interface UpdateDomainEntryCommandInput extends UpdateDomainEntryRequest {}
+/**
+ * The output of {@link UpdateDomainEntryCommand}.
+ */
 export interface UpdateDomainEntryCommandOutput extends UpdateDomainEntryResult, __MetadataBearer {}
 
 /**

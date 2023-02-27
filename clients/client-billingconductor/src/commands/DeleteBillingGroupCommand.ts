@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteBillingGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteBillingGroupCommand}.
+ */
 export interface DeleteBillingGroupCommandInput extends DeleteBillingGroupInput {}
+/**
+ * The output of {@link DeleteBillingGroupCommand}.
+ */
 export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link PutEmailIdentityDkimAttributesCommand}.
+ */
 export interface PutEmailIdentityDkimAttributesCommandInput extends PutEmailIdentityDkimAttributesRequest {}
+/**
+ * The output of {@link PutEmailIdentityDkimAttributesCommand}.
+ */
 export interface PutEmailIdentityDkimAttributesCommandOutput
   extends PutEmailIdentityDkimAttributesResponse,
     __MetadataBearer {}

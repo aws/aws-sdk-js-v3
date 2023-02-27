@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchDisassociateUserStackCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchDisassociateUserStackCommand}.
+ */
 export interface BatchDisassociateUserStackCommandInput extends BatchDisassociateUserStackRequest {}
+/**
+ * The output of {@link BatchDisassociateUserStackCommand}.
+ */
 export interface BatchDisassociateUserStackCommandOutput extends BatchDisassociateUserStackResult, __MetadataBearer {}
 
 /**

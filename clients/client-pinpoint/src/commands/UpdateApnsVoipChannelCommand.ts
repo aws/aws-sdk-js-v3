@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateApnsVoipChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateApnsVoipChannelCommand}.
+ */
 export interface UpdateApnsVoipChannelCommandInput extends UpdateApnsVoipChannelRequest {}
+/**
+ * The output of {@link UpdateApnsVoipChannelCommand}.
+ */
 export interface UpdateApnsVoipChannelCommandOutput extends UpdateApnsVoipChannelResponse, __MetadataBearer {}
 
 /**

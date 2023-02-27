@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CancelStatementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CancelStatementCommand}.
+ */
 export interface CancelStatementCommandInput extends CancelStatementRequest {}
+/**
+ * The output of {@link CancelStatementCommand}.
+ */
 export interface CancelStatementCommandOutput extends CancelStatementResponse, __MetadataBearer {}
 
 /**

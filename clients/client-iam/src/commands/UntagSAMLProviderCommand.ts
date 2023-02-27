@@ -20,7 +20,13 @@ import {
   serializeAws_queryUntagSAMLProviderCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UntagSAMLProviderCommand}.
+ */
 export interface UntagSAMLProviderCommandInput extends UntagSAMLProviderRequest {}
+/**
+ * The output of {@link UntagSAMLProviderCommand}.
+ */
 export interface UntagSAMLProviderCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartInputDeviceMaintenanceWindowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartInputDeviceMaintenanceWindowCommand}.
+ */
 export interface StartInputDeviceMaintenanceWindowCommandInput extends StartInputDeviceMaintenanceWindowRequest {}
+/**
+ * The output of {@link StartInputDeviceMaintenanceWindowCommand}.
+ */
 export interface StartInputDeviceMaintenanceWindowCommandOutput
   extends StartInputDeviceMaintenanceWindowResponse,
     __MetadataBearer {}

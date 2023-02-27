@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * The input for {@link ListServiceVersionsCommand}.
+ */
 export interface ListServiceVersionsCommandInput extends ListServiceVersionsRequest {}
+/**
+ * The output of {@link ListServiceVersionsCommand}.
+ */
 export interface ListServiceVersionsCommandOutput extends ListServiceVersionsResult, __MetadataBearer {}
 
 /**

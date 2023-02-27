@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1TestEventPatternCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link TestEventPatternCommand}.
+ */
 export interface TestEventPatternCommandInput extends TestEventPatternRequest {}
+/**
+ * The output of {@link TestEventPatternCommand}.
+ */
 export interface TestEventPatternCommandOutput extends TestEventPatternResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AttachObjectCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AttachObjectCommand}.
+ */
 export interface AttachObjectCommandInput extends AttachObjectRequest {}
+/**
+ * The output of {@link AttachObjectCommand}.
+ */
 export interface AttachObjectCommandOutput extends AttachObjectResponse, __MetadataBearer {}
 
 /**

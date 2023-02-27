@@ -25,8 +25,14 @@ import {
   serializeAws_json1_0GetEffectiveRecommendationPreferencesCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetEffectiveRecommendationPreferencesCommand}.
+ */
 export interface GetEffectiveRecommendationPreferencesCommandInput
   extends GetEffectiveRecommendationPreferencesRequest {}
+/**
+ * The output of {@link GetEffectiveRecommendationPreferencesCommand}.
+ */
 export interface GetEffectiveRecommendationPreferencesCommandOutput
   extends GetEffectiveRecommendationPreferencesResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RejectGrantCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RejectGrantCommand}.
+ */
 export interface RejectGrantCommandInput extends RejectGrantRequest {}
+/**
+ * The output of {@link RejectGrantCommand}.
+ */
 export interface RejectGrantCommandOutput extends RejectGrantResponse, __MetadataBearer {}
 
 /**

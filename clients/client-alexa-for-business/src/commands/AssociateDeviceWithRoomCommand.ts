@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateDeviceWithRoomCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateDeviceWithRoomCommand}.
+ */
 export interface AssociateDeviceWithRoomCommandInput extends AssociateDeviceWithRoomRequest {}
+/**
+ * The output of {@link AssociateDeviceWithRoomCommand}.
+ */
 export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWithRoomResponse, __MetadataBearer {}
 
 /**

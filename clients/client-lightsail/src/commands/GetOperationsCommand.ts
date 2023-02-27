@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetOperationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetOperationsCommand}.
+ */
 export interface GetOperationsCommandInput extends GetOperationsRequest {}
+/**
+ * The output of {@link GetOperationsCommand}.
+ */
 export interface GetOperationsCommandOutput extends GetOperationsResult, __MetadataBearer {}
 
 /**

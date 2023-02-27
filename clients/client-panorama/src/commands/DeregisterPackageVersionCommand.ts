@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeregisterPackageVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeregisterPackageVersionCommand}.
+ */
 export interface DeregisterPackageVersionCommandInput extends DeregisterPackageVersionRequest {}
+/**
+ * The output of {@link DeregisterPackageVersionCommand}.
+ */
 export interface DeregisterPackageVersionCommandOutput extends DeregisterPackageVersionResponse, __MetadataBearer {}
 
 /**

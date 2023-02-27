@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1EnableClientAuthenticationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EnableClientAuthenticationCommand}.
+ */
 export interface EnableClientAuthenticationCommandInput extends EnableClientAuthenticationRequest {}
+/**
+ * The output of {@link EnableClientAuthenticationCommand}.
+ */
 export interface EnableClientAuthenticationCommandOutput extends EnableClientAuthenticationResult, __MetadataBearer {}
 
 /**

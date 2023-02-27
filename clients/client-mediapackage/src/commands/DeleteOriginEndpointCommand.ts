@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteOriginEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteOriginEndpointCommand}.
+ */
 export interface DeleteOriginEndpointCommandInput extends DeleteOriginEndpointRequest {}
+/**
+ * The output of {@link DeleteOriginEndpointCommand}.
+ */
 export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointResponse, __MetadataBearer {}
 
 /**

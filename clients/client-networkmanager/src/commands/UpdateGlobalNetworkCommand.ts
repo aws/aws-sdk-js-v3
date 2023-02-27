@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateGlobalNetworkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateGlobalNetworkCommand}.
+ */
 export interface UpdateGlobalNetworkCommandInput extends UpdateGlobalNetworkRequest {}
+/**
+ * The output of {@link UpdateGlobalNetworkCommand}.
+ */
 export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkResponse, __MetadataBearer {}
 
 /**

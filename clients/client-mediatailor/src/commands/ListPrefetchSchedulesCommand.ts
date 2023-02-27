@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListPrefetchSchedulesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPrefetchSchedulesCommand}.
+ */
 export interface ListPrefetchSchedulesCommandInput extends ListPrefetchSchedulesRequest {}
+/**
+ * The output of {@link ListPrefetchSchedulesCommand}.
+ */
 export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedulesResponse, __MetadataBearer {}
 
 /**

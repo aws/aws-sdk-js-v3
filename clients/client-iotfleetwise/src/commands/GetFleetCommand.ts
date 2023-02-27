@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_0GetFleetCommand, serializeAws_json1_0GetFleetCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetFleetCommand}.
+ */
 export interface GetFleetCommandInput extends GetFleetRequest {}
+/**
+ * The output of {@link GetFleetCommand}.
+ */
 export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DeleteVpcIngressConnectionCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteVpcIngressConnectionCommand}.
+ */
 export interface DeleteVpcIngressConnectionCommandInput extends DeleteVpcIngressConnectionRequest {}
+/**
+ * The output of {@link DeleteVpcIngressConnectionCommand}.
+ */
 export interface DeleteVpcIngressConnectionCommandOutput extends DeleteVpcIngressConnectionResponse, __MetadataBearer {}
 
 /**

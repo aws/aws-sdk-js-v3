@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1PutRetentionPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutRetentionPolicyCommand}.
+ */
 export interface PutRetentionPolicyCommandInput extends PutRetentionPolicyRequest {}
+/**
+ * The output of {@link PutRetentionPolicyCommand}.
+ */
 export interface PutRetentionPolicyCommandOutput extends __MetadataBearer {}
 
 /**

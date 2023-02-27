@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetIceServerConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetIceServerConfigCommand}.
+ */
 export interface GetIceServerConfigCommandInput extends GetIceServerConfigRequest {}
+/**
+ * The output of {@link GetIceServerConfigCommand}.
+ */
 export interface GetIceServerConfigCommandOutput extends GetIceServerConfigResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1PutMetricFilterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutMetricFilterCommand}.
+ */
 export interface PutMetricFilterCommandInput extends PutMetricFilterRequest {}
+/**
+ * The output of {@link PutMetricFilterCommand}.
+ */
 export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteLocationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteLocationCommand}.
+ */
 export interface DeleteLocationCommandInput extends DeleteLocationRequest {}
+/**
+ * The output of {@link DeleteLocationCommand}.
+ */
 export interface DeleteLocationCommandOutput extends DeleteLocationResponse, __MetadataBearer {}
 
 /**

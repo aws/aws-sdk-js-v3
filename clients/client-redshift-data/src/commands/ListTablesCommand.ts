@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
+/**
+ * The input for {@link ListTablesCommand}.
+ */
 export interface ListTablesCommandInput extends ListTablesRequest {}
+/**
+ * The output of {@link ListTablesCommand}.
+ */
 export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataBearer {}
 
 /**

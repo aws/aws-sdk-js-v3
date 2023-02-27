@@ -23,7 +23,13 @@ import {
   serializeAws_queryDeleteNotificationConfigurationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteNotificationConfigurationCommand}.
+ */
 export interface DeleteNotificationConfigurationCommandInput extends DeleteNotificationConfigurationType {}
+/**
+ * The output of {@link DeleteNotificationConfigurationCommand}.
+ */
 export interface DeleteNotificationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

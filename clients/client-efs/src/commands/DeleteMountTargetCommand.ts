@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteMountTargetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteMountTargetCommand}.
+ */
 export interface DeleteMountTargetCommandInput extends DeleteMountTargetRequest {}
+/**
+ * The output of {@link DeleteMountTargetCommand}.
+ */
 export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
 
 /**

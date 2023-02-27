@@ -25,6 +25,9 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link StreamingTraitsWithMediaTypeCommand}.
+ */
 type StreamingTraitsWithMediaTypeCommandInputType = Omit<StreamingTraitsWithMediaTypeInputOutput, "blob"> & {
   /**
    * For *`StreamingTraitsWithMediaTypeInputOutput["blob"]`*, see {@link StreamingTraitsWithMediaTypeInputOutput.blob}.
@@ -35,6 +38,9 @@ type StreamingTraitsWithMediaTypeCommandInputType = Omit<StreamingTraitsWithMedi
  * This interface extends from `StreamingTraitsWithMediaTypeInputOutput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsWithMediaTypeInputOutput}
  */
 export interface StreamingTraitsWithMediaTypeCommandInput extends StreamingTraitsWithMediaTypeCommandInputType {}
+/**
+ * The output of {@link StreamingTraitsWithMediaTypeCommand}.
+ */
 export interface StreamingTraitsWithMediaTypeCommandOutput
   extends __WithSdkStreamMixin<StreamingTraitsWithMediaTypeInputOutput, "blob">,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeactivateTypeCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeactivateTypeCommand}.
+ */
 export interface DeactivateTypeCommandInput extends DeactivateTypeInput {}
+/**
+ * The output of {@link DeactivateTypeCommand}.
+ */
 export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __MetadataBearer {}
 
 /**

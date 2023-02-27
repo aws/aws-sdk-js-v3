@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeRepositoriesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeRepositoriesCommand}.
+ */
 export interface DescribeRepositoriesCommandInput extends DescribeRepositoriesRequest {}
+/**
+ * The output of {@link DescribeRepositoriesCommand}.
+ */
 export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesResponse, __MetadataBearer {}
 
 /**

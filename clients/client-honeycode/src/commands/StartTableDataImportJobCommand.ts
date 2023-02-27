@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartTableDataImportJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartTableDataImportJobCommand}.
+ */
 export interface StartTableDataImportJobCommandInput extends StartTableDataImportJobRequest {}
+/**
+ * The output of {@link StartTableDataImportJobCommand}.
+ */
 export interface StartTableDataImportJobCommandOutput extends StartTableDataImportJobResult, __MetadataBearer {}
 
 /**

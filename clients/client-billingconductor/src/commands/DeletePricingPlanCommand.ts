@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeletePricingPlanCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePricingPlanCommand}.
+ */
 export interface DeletePricingPlanCommandInput extends DeletePricingPlanInput {}
+/**
+ * The output of {@link DeletePricingPlanCommand}.
+ */
 export interface DeletePricingPlanCommandOutput extends DeletePricingPlanOutput, __MetadataBearer {}
 
 /**

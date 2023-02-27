@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartMatchBackfillCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartMatchBackfillCommand}.
+ */
 export interface StartMatchBackfillCommandInput extends StartMatchBackfillInput {}
+/**
+ * The output of {@link StartMatchBackfillCommand}.
+ */
 export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutput, __MetadataBearer {}
 
 /**

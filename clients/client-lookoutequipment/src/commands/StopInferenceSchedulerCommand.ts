@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0StopInferenceSchedulerCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link StopInferenceSchedulerCommand}.
+ */
 export interface StopInferenceSchedulerCommandInput extends StopInferenceSchedulerRequest {}
+/**
+ * The output of {@link StopInferenceSchedulerCommand}.
+ */
 export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedulerResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1EvaluateMappingTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link EvaluateMappingTemplateCommand}.
+ */
 export interface EvaluateMappingTemplateCommandInput extends EvaluateMappingTemplateRequest {}
+/**
+ * The output of {@link EvaluateMappingTemplateCommand}.
+ */
 export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTemplateResponse, __MetadataBearer {}
 
 /**

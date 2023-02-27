@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetPersonalizedRankingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPersonalizedRankingCommand}.
+ */
 export interface GetPersonalizedRankingCommandInput extends GetPersonalizedRankingRequest {}
+/**
+ * The output of {@link GetPersonalizedRankingCommand}.
+ */
 export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRankingResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteSAMLProviderCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteSAMLProviderCommand}.
+ */
 export interface DeleteSAMLProviderCommandInput extends DeleteSAMLProviderRequest {}
+/**
+ * The output of {@link DeleteSAMLProviderCommand}.
+ */
 export interface DeleteSAMLProviderCommandOutput extends __MetadataBearer {}
 
 /**

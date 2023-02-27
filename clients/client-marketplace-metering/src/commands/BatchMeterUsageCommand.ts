@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1BatchMeterUsageCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchMeterUsageCommand}.
+ */
 export interface BatchMeterUsageCommandInput extends BatchMeterUsageRequest {}
+/**
+ * The output of {@link BatchMeterUsageCommand}.
+ */
 export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __MetadataBearer {}
 
 /**

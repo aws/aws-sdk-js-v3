@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateFargateProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateFargateProfileCommand}.
+ */
 export interface CreateFargateProfileCommandInput extends CreateFargateProfileRequest {}
+/**
+ * The output of {@link CreateFargateProfileCommand}.
+ */
 export interface CreateFargateProfileCommandOutput extends CreateFargateProfileResponse, __MetadataBearer {}
 
 /**

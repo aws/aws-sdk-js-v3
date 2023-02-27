@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link AssociateTagOptionWithResourceCommand}.
+ */
 export interface AssociateTagOptionWithResourceCommandInput extends AssociateTagOptionWithResourceInput {}
+/**
+ * The output of {@link AssociateTagOptionWithResourceCommand}.
+ */
 export interface AssociateTagOptionWithResourceCommandOutput
   extends AssociateTagOptionWithResourceOutput,
     __MetadataBearer {}

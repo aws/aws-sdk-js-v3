@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateQuickConnectCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateQuickConnectCommand}.
+ */
 export interface CreateQuickConnectCommandInput extends CreateQuickConnectRequest {}
+/**
+ * The output of {@link CreateQuickConnectCommand}.
+ */
 export interface CreateQuickConnectCommandOutput extends CreateQuickConnectResponse, __MetadataBearer {}
 
 /**

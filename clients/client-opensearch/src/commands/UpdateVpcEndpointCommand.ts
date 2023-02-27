@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateVpcEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateVpcEndpointCommand}.
+ */
 export interface UpdateVpcEndpointCommandInput extends UpdateVpcEndpointRequest {}
+/**
+ * The output of {@link UpdateVpcEndpointCommand}.
+ */
 export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointResponse, __MetadataBearer {}
 
 /**

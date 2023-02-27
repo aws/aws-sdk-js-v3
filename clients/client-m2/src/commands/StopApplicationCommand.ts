@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopApplicationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopApplicationCommand}.
+ */
 export interface StopApplicationCommandInput extends StopApplicationRequest {}
+/**
+ * The output of {@link StopApplicationCommand}.
+ */
 export interface StopApplicationCommandOutput extends StopApplicationResponse, __MetadataBearer {}
 
 /**

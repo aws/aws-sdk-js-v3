@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeBundleTasksCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeBundleTasksCommand}.
+ */
 export interface DescribeBundleTasksCommandInput extends DescribeBundleTasksRequest {}
+/**
+ * The output of {@link DescribeBundleTasksCommand}.
+ */
 export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksResult, __MetadataBearer {}
 
 /**

@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
+/**
+ * The input for {@link DeleteDatabaseCommand}.
+ */
 export interface DeleteDatabaseCommandInput extends DeleteDatabaseRequest {}
+/**
+ * The output of {@link DeleteDatabaseCommand}.
+ */
 export interface DeleteDatabaseCommandOutput extends __MetadataBearer {}
 
 /**

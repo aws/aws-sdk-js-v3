@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RestoreEventDataStoreCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RestoreEventDataStoreCommand}.
+ */
 export interface RestoreEventDataStoreCommandInput extends RestoreEventDataStoreRequest {}
+/**
+ * The output of {@link RestoreEventDataStoreCommand}.
+ */
 export interface RestoreEventDataStoreCommandOutput extends RestoreEventDataStoreResponse, __MetadataBearer {}
 
 /**

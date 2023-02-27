@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteProvisionedConcurrencyConfigCommand}.
+ */
 export interface DeleteProvisionedConcurrencyConfigCommandInput extends DeleteProvisionedConcurrencyConfigRequest {}
+/**
+ * The output of {@link DeleteProvisionedConcurrencyConfigCommand}.
+ */
 export interface DeleteProvisionedConcurrencyConfigCommandOutput extends __MetadataBearer {}
 
 /**

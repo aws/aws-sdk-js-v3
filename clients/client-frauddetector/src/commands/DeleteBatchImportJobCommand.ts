@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteBatchImportJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteBatchImportJobCommand}.
+ */
 export interface DeleteBatchImportJobCommandInput extends DeleteBatchImportJobRequest {}
+/**
+ * The output of {@link DeleteBatchImportJobCommand}.
+ */
 export interface DeleteBatchImportJobCommandOutput extends DeleteBatchImportJobResult, __MetadataBearer {}
 
 /**

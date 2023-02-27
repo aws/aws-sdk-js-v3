@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RecognizeTextCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RecognizeTextCommand}.
+ */
 export interface RecognizeTextCommandInput extends RecognizeTextRequest {}
+/**
+ * The output of {@link RecognizeTextCommand}.
+ */
 export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __MetadataBearer {}
 
 /**

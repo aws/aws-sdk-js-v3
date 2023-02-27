@@ -26,7 +26,13 @@ import {
   serializeAws_json1_1SubscribeToShardCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SubscribeToShardCommand}.
+ */
 export interface SubscribeToShardCommandInput extends SubscribeToShardInput {}
+/**
+ * The output of {@link SubscribeToShardCommand}.
+ */
 export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, __MetadataBearer {}
 
 /**

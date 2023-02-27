@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteJobCommand}.
+ */
 export interface DeleteJobCommandInput extends DeleteJobRequest {}
+/**
+ * The output of {@link DeleteJobCommand}.
+ */
 export interface DeleteJobCommandOutput extends DeleteJobResult, __MetadataBearer {}
 
 /**

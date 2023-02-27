@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetSpotPlacementScoresCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetSpotPlacementScoresCommand}.
+ */
 export interface GetSpotPlacementScoresCommandInput extends GetSpotPlacementScoresRequest {}
+/**
+ * The output of {@link GetSpotPlacementScoresCommand}.
+ */
 export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementScoresResult, __MetadataBearer {}
 
 /**

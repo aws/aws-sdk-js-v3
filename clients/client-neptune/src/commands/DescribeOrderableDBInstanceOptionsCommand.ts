@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeOrderableDBInstanceOptionsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeOrderableDBInstanceOptionsCommand}.
+ */
 export interface DescribeOrderableDBInstanceOptionsCommandInput extends DescribeOrderableDBInstanceOptionsMessage {}
+/**
+ * The output of {@link DescribeOrderableDBInstanceOptionsCommand}.
+ */
 export interface DescribeOrderableDBInstanceOptionsCommandOutput
   extends OrderableDBInstanceOptionsMessage,
     __MetadataBearer {}

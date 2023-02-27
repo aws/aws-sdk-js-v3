@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateGeofenceCollectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateGeofenceCollectionCommand}.
+ */
 export interface CreateGeofenceCollectionCommandInput extends CreateGeofenceCollectionRequest {}
+/**
+ * The output of {@link CreateGeofenceCollectionCommand}.
+ */
 export interface CreateGeofenceCollectionCommandOutput extends CreateGeofenceCollectionResponse, __MetadataBearer {}
 
 /**

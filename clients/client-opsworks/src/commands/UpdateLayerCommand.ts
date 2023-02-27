@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateLayerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateLayerCommand}.
+ */
 export interface UpdateLayerCommandInput extends UpdateLayerRequest {}
+/**
+ * The output of {@link UpdateLayerCommand}.
+ */
 export interface UpdateLayerCommandOutput extends __MetadataBearer {}
 
 /**

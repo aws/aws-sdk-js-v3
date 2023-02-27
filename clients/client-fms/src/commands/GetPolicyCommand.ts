@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetPolicyCommand, serializeAws_json1_1GetPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetPolicyCommand}.
+ */
 export interface GetPolicyCommandInput extends GetPolicyRequest {}
+/**
+ * The output of {@link GetPolicyCommand}.
+ */
 export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBearer {}
 
 /**

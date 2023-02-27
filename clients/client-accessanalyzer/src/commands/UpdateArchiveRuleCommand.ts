@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateArchiveRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateArchiveRuleCommand}.
+ */
 export interface UpdateArchiveRuleCommandInput extends UpdateArchiveRuleRequest {}
+/**
+ * The output of {@link UpdateArchiveRuleCommand}.
+ */
 export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**

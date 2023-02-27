@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetMinuteUsageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetMinuteUsageCommand}.
+ */
 export interface GetMinuteUsageCommandInput extends GetMinuteUsageRequest {}
+/**
+ * The output of {@link GetMinuteUsageCommand}.
+ */
 export interface GetMinuteUsageCommandOutput extends GetMinuteUsageResponse, __MetadataBearer {}
 
 /**

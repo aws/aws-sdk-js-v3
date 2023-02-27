@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetRegistryPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRegistryPolicyCommand}.
+ */
 export interface GetRegistryPolicyCommandInput extends GetRegistryPolicyRequest {}
+/**
+ * The output of {@link GetRegistryPolicyCommand}.
+ */
 export interface GetRegistryPolicyCommandOutput extends GetRegistryPolicyResponse, __MetadataBearer {}
 
 /**

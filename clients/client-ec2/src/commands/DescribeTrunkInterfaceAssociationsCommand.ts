@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeTrunkInterfaceAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeTrunkInterfaceAssociationsCommand}.
+ */
 export interface DescribeTrunkInterfaceAssociationsCommandInput extends DescribeTrunkInterfaceAssociationsRequest {}
+/**
+ * The output of {@link DescribeTrunkInterfaceAssociationsCommand}.
+ */
 export interface DescribeTrunkInterfaceAssociationsCommandOutput
   extends DescribeTrunkInterfaceAssociationsResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateCampaignCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateCampaignCommand}.
+ */
 export interface UpdateCampaignCommandInput extends UpdateCampaignRequest {}
+/**
+ * The output of {@link UpdateCampaignCommand}.
+ */
 export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __MetadataBearer {}
 
 /**

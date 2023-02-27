@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DescribeEndpointConfigCommand}.
+ */
 export interface DescribeEndpointConfigCommandInput extends DescribeEndpointConfigInput {}
+/**
+ * The output of {@link DescribeEndpointConfigCommand}.
+ */
 export interface DescribeEndpointConfigCommandOutput extends DescribeEndpointConfigOutput, __MetadataBearer {}
 
 /**

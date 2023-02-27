@@ -25,7 +25,13 @@ import {
   serializeAws_queryPutAnomalyDetectorCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PutAnomalyDetectorCommand}.
+ */
 export interface PutAnomalyDetectorCommandInput extends PutAnomalyDetectorInput {}
+/**
+ * The output of {@link PutAnomalyDetectorCommand}.
+ */
 export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeChangeSetHooksCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeChangeSetHooksCommand}.
+ */
 export interface DescribeChangeSetHooksCommandInput extends DescribeChangeSetHooksInput {}
+/**
+ * The output of {@link DescribeChangeSetHooksCommand}.
+ */
 export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHooksOutput, __MetadataBearer {}
 
 /**

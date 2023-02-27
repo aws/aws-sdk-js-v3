@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CompleteMultipartUploadCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CompleteMultipartUploadCommand}.
+ */
 export interface CompleteMultipartUploadCommandInput extends CompleteMultipartUploadInput {}
+/**
+ * The output of {@link CompleteMultipartUploadCommand}.
+ */
 export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOutput, __MetadataBearer {}
 
 /**

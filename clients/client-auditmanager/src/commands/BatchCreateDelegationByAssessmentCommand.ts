@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchCreateDelegationByAssessmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchCreateDelegationByAssessmentCommand}.
+ */
 export interface BatchCreateDelegationByAssessmentCommandInput extends BatchCreateDelegationByAssessmentRequest {}
+/**
+ * The output of {@link BatchCreateDelegationByAssessmentCommand}.
+ */
 export interface BatchCreateDelegationByAssessmentCommandOutput
   extends BatchCreateDelegationByAssessmentResponse,
     __MetadataBearer {}

@@ -24,7 +24,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * The input for {@link GetDefaultViewCommand}.
+ */
 export interface GetDefaultViewCommandInput {}
+/**
+ * The output of {@link GetDefaultViewCommand}.
+ */
 export interface GetDefaultViewCommandOutput extends GetDefaultViewOutput, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1TestRoleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link TestRoleCommand}.
+ */
 export interface TestRoleCommandInput extends TestRoleRequest {}
+/**
+ * The output of {@link TestRoleCommand}.
+ */
 export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBearer {}
 
 /**

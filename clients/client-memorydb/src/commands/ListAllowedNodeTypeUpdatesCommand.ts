@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListAllowedNodeTypeUpdatesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAllowedNodeTypeUpdatesCommand}.
+ */
 export interface ListAllowedNodeTypeUpdatesCommandInput extends ListAllowedNodeTypeUpdatesRequest {}
+/**
+ * The output of {@link ListAllowedNodeTypeUpdatesCommand}.
+ */
 export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNodeTypeUpdatesResponse, __MetadataBearer {}
 
 /**

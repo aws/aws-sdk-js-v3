@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
+/**
+ * The input for {@link GetContactPolicyCommand}.
+ */
 export interface GetContactPolicyCommandInput extends GetContactPolicyRequest {}
+/**
+ * The output of {@link GetContactPolicyCommand}.
+ */
 export interface GetContactPolicyCommandOutput extends GetContactPolicyResult, __MetadataBearer {}
 
 /**

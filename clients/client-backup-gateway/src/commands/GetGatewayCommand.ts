@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetGatewayCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetGatewayCommand}.
+ */
 export interface GetGatewayCommandInput extends GetGatewayInput {}
+/**
+ * The output of {@link GetGatewayCommand}.
+ */
 export interface GetGatewayCommandOutput extends GetGatewayOutput, __MetadataBearer {}
 
 /**

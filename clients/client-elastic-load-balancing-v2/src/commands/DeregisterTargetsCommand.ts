@@ -29,7 +29,13 @@ import {
   serializeAws_queryDeregisterTargetsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeregisterTargetsCommand}.
+ */
 export interface DeregisterTargetsCommandInput extends DeregisterTargetsInput {}
+/**
+ * The output of {@link DeregisterTargetsCommand}.
+ */
 export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput, __MetadataBearer {}
 
 /**

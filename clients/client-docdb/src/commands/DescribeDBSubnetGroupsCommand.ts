@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeDBSubnetGroupsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeDBSubnetGroupsCommand}.
+ */
 export interface DescribeDBSubnetGroupsCommandInput extends DescribeDBSubnetGroupsMessage {}
+/**
+ * The output of {@link DescribeDBSubnetGroupsCommand}.
+ */
 export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessage, __MetadataBearer {}
 
 /**

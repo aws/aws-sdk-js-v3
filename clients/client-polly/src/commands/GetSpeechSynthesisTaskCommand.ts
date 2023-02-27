@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSpeechSynthesisTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSpeechSynthesisTaskCommand}.
+ */
 export interface GetSpeechSynthesisTaskCommandInput extends GetSpeechSynthesisTaskInput {}
+/**
+ * The output of {@link GetSpeechSynthesisTaskCommand}.
+ */
 export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisTaskOutput, __MetadataBearer {}
 
 /**

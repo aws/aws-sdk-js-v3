@@ -20,7 +20,13 @@ import {
   serializeAws_ec2DisassociateRouteTableCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisassociateRouteTableCommand}.
+ */
 export interface DisassociateRouteTableCommandInput extends DisassociateRouteTableRequest {}
+/**
+ * The output of {@link DisassociateRouteTableCommand}.
+ */
 export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteSessionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteSessionCommand}.
+ */
 export interface DeleteSessionCommandInput extends DeleteSessionRequest {}
+/**
+ * The output of {@link DeleteSessionCommand}.
+ */
 export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __MetadataBearer {}
 
 /**

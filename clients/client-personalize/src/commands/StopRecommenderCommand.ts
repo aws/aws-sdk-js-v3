@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopRecommenderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopRecommenderCommand}.
+ */
 export interface StopRecommenderCommandInput extends StopRecommenderRequest {}
+/**
+ * The output of {@link StopRecommenderCommand}.
+ */
 export interface StopRecommenderCommandOutput extends StopRecommenderResponse, __MetadataBearer {}
 
 /**

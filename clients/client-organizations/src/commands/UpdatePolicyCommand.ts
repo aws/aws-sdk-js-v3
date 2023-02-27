@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdatePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdatePolicyCommand}.
+ */
 export interface UpdatePolicyCommandInput extends UpdatePolicyRequest {}
+/**
+ * The output of {@link UpdatePolicyCommand}.
+ */
 export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0BatchExecuteStatementCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link BatchExecuteStatementCommand}.
+ */
 export interface BatchExecuteStatementCommandInput extends BatchExecuteStatementInput {}
+/**
+ * The output of {@link BatchExecuteStatementCommand}.
+ */
 export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementOutput, __MetadataBearer {}
 
 /**

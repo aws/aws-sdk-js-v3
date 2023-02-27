@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteSmsTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteSmsTemplateCommand}.
+ */
 export interface DeleteSmsTemplateCommandInput extends DeleteSmsTemplateRequest {}
+/**
+ * The output of {@link DeleteSmsTemplateCommand}.
+ */
 export interface DeleteSmsTemplateCommandOutput extends DeleteSmsTemplateResponse, __MetadataBearer {}
 
 /**

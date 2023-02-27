@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListCustomMetricsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListCustomMetricsCommand}.
+ */
 export interface ListCustomMetricsCommandInput extends ListCustomMetricsRequest {}
+/**
+ * The output of {@link ListCustomMetricsCommand}.
+ */
 export interface ListCustomMetricsCommandOutput extends ListCustomMetricsResponse, __MetadataBearer {}
 
 /**

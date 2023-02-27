@@ -25,7 +25,13 @@ import {
   serializeAws_ec2TerminateInstancesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link TerminateInstancesCommand}.
+ */
 export interface TerminateInstancesCommandInput extends TerminateInstancesRequest {}
+/**
+ * The output of {@link TerminateInstancesCommand}.
+ */
 export interface TerminateInstancesCommandOutput extends TerminateInstancesResult, __MetadataBearer {}
 
 /**

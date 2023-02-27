@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link ListCidrBlocksCommand}.
+ */
 export interface ListCidrBlocksCommandInput extends ListCidrBlocksRequest {}
+/**
+ * The output of {@link ListCidrBlocksCommand}.
+ */
 export interface ListCidrBlocksCommandOutput extends ListCidrBlocksResponse, __MetadataBearer {}
 
 /**

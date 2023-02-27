@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeRegistriesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeRegistriesCommand}.
+ */
 export interface DescribeRegistriesCommandInput extends DescribeRegistriesRequest {}
+/**
+ * The output of {@link DescribeRegistriesCommand}.
+ */
 export interface DescribeRegistriesCommandOutput extends DescribeRegistriesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSettingsCommand}.
+ */
 export interface GetSettingsCommandInput extends GetSettingsRequest {}
+/**
+ * The output of {@link GetSettingsCommand}.
+ */
 export interface GetSettingsCommandOutput extends GetSettingsResponse, __MetadataBearer {}
 
 /**

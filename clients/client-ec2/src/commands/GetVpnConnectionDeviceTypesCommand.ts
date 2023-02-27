@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetVpnConnectionDeviceTypesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetVpnConnectionDeviceTypesCommand}.
+ */
 export interface GetVpnConnectionDeviceTypesCommandInput extends GetVpnConnectionDeviceTypesRequest {}
+/**
+ * The output of {@link GetVpnConnectionDeviceTypesCommand}.
+ */
 export interface GetVpnConnectionDeviceTypesCommandOutput extends GetVpnConnectionDeviceTypesResult, __MetadataBearer {}
 
 /**

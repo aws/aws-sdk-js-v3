@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartSchemaExtensionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartSchemaExtensionCommand}.
+ */
 export interface StartSchemaExtensionCommandInput extends StartSchemaExtensionRequest {}
+/**
+ * The output of {@link StartSchemaExtensionCommand}.
+ */
 export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionResult, __MetadataBearer {}
 
 /**

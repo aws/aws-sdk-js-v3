@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link CreateWorkspacesCommand}.
+ */
 export interface CreateWorkspacesCommandInput extends CreateWorkspacesRequest {}
+/**
+ * The output of {@link CreateWorkspacesCommand}.
+ */
 export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, __MetadataBearer {}
 
 /**

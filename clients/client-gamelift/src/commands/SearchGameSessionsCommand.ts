@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SearchGameSessionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SearchGameSessionsCommand}.
+ */
 export interface SearchGameSessionsCommandInput extends SearchGameSessionsInput {}
+/**
+ * The output of {@link SearchGameSessionsCommand}.
+ */
 export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeVirtualClusterCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeVirtualClusterCommand}.
+ */
 export interface DescribeVirtualClusterCommandInput extends DescribeVirtualClusterRequest {}
+/**
+ * The output of {@link DescribeVirtualClusterCommand}.
+ */
 export interface DescribeVirtualClusterCommandOutput extends DescribeVirtualClusterResponse, __MetadataBearer {}
 
 /**

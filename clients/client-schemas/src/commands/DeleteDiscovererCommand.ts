@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * The input for {@link DeleteDiscovererCommand}.
+ */
 export interface DeleteDiscovererCommandInput extends DeleteDiscovererRequest {}
+/**
+ * The output of {@link DeleteDiscovererCommand}.
+ */
 export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
 
 /**

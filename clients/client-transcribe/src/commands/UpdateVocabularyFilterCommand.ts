@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
+/**
+ * The input for {@link UpdateVocabularyFilterCommand}.
+ */
 export interface UpdateVocabularyFilterCommandInput extends UpdateVocabularyFilterRequest {}
+/**
+ * The output of {@link UpdateVocabularyFilterCommand}.
+ */
 export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFilterResponse, __MetadataBearer {}
 
 /**

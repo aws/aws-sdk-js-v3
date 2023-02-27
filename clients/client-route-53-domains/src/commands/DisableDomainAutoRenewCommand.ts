@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link DisableDomainAutoRenewCommand}.
+ */
 export interface DisableDomainAutoRenewCommandInput extends DisableDomainAutoRenewRequest {}
+/**
+ * The output of {@link DisableDomainAutoRenewCommand}.
+ */
 export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRenewResponse, __MetadataBearer {}
 
 /**

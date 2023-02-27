@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteAdmChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAdmChannelCommand}.
+ */
 export interface DeleteAdmChannelCommandInput extends DeleteAdmChannelRequest {}
+/**
+ * The output of {@link DeleteAdmChannelCommand}.
+ */
 export interface DeleteAdmChannelCommandOutput extends DeleteAdmChannelResponse, __MetadataBearer {}
 
 /**

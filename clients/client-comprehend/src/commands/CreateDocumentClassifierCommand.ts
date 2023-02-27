@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDocumentClassifierCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDocumentClassifierCommand}.
+ */
 export interface CreateDocumentClassifierCommandInput extends CreateDocumentClassifierRequest {}
+/**
+ * The output of {@link CreateDocumentClassifierCommand}.
+ */
 export interface CreateDocumentClassifierCommandOutput extends CreateDocumentClassifierResponse, __MetadataBearer {}
 
 /**

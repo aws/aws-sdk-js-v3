@@ -17,7 +17,13 @@ import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { TagPolicyRequest, TagPolicyRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryTagPolicyCommand, serializeAws_queryTagPolicyCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link TagPolicyCommand}.
+ */
 export interface TagPolicyCommandInput extends TagPolicyRequest {}
+/**
+ * The output of {@link TagPolicyCommand}.
+ */
 export interface TagPolicyCommandOutput extends __MetadataBearer {}
 
 /**

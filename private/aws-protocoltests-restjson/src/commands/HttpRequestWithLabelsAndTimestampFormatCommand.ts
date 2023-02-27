@@ -22,8 +22,14 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link HttpRequestWithLabelsAndTimestampFormatCommand}.
+ */
 export interface HttpRequestWithLabelsAndTimestampFormatCommandInput
   extends HttpRequestWithLabelsAndTimestampFormatInput {}
+/**
+ * The output of {@link HttpRequestWithLabelsAndTimestampFormatCommand}.
+ */
 export interface HttpRequestWithLabelsAndTimestampFormatCommandOutput extends __MetadataBearer {}
 
 /**

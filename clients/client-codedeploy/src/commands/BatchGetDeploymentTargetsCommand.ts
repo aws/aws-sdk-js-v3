@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetDeploymentTargetsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetDeploymentTargetsCommand}.
+ */
 export interface BatchGetDeploymentTargetsCommandInput extends BatchGetDeploymentTargetsInput {}
+/**
+ * The output of {@link BatchGetDeploymentTargetsCommand}.
+ */
 export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeploymentTargetsOutput, __MetadataBearer {}
 
 /**

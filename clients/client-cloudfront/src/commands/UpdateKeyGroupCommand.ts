@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlUpdateKeyGroupCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link UpdateKeyGroupCommand}.
+ */
 export interface UpdateKeyGroupCommandInput extends UpdateKeyGroupRequest {}
+/**
+ * The output of {@link UpdateKeyGroupCommand}.
+ */
 export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __MetadataBearer {}
 
 /**

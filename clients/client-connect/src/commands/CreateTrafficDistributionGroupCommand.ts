@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateTrafficDistributionGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateTrafficDistributionGroupCommand}.
+ */
 export interface CreateTrafficDistributionGroupCommandInput extends CreateTrafficDistributionGroupRequest {}
+/**
+ * The output of {@link CreateTrafficDistributionGroupCommand}.
+ */
 export interface CreateTrafficDistributionGroupCommandOutput
   extends CreateTrafficDistributionGroupResponse,
     __MetadataBearer {}

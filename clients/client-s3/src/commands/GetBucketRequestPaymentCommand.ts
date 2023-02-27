@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetBucketRequestPaymentCommand}.
+ */
 export interface GetBucketRequestPaymentCommandInput extends GetBucketRequestPaymentRequest {}
+/**
+ * The output of {@link GetBucketRequestPaymentCommand}.
+ */
 export interface GetBucketRequestPaymentCommandOutput extends GetBucketRequestPaymentOutput, __MetadataBearer {}
 
 /**

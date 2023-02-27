@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetProgrammaticAccessCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetProgrammaticAccessCredentialsCommand}.
+ */
 export interface GetProgrammaticAccessCredentialsCommandInput extends GetProgrammaticAccessCredentialsRequest {}
+/**
+ * The output of {@link GetProgrammaticAccessCredentialsCommand}.
+ */
 export interface GetProgrammaticAccessCredentialsCommandOutput
   extends GetProgrammaticAccessCredentialsResponse,
     __MetadataBearer {}

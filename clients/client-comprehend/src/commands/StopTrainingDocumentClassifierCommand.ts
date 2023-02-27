@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopTrainingDocumentClassifierCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopTrainingDocumentClassifierCommand}.
+ */
 export interface StopTrainingDocumentClassifierCommandInput extends StopTrainingDocumentClassifierRequest {}
+/**
+ * The output of {@link StopTrainingDocumentClassifierCommand}.
+ */
 export interface StopTrainingDocumentClassifierCommandOutput
   extends StopTrainingDocumentClassifierResponse,
     __MetadataBearer {}

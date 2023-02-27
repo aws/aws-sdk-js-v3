@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListVpcEndpointsForDomainCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListVpcEndpointsForDomainCommand}.
+ */
 export interface ListVpcEndpointsForDomainCommandInput extends ListVpcEndpointsForDomainRequest {}
+/**
+ * The output of {@link ListVpcEndpointsForDomainCommand}.
+ */
 export interface ListVpcEndpointsForDomainCommandOutput extends ListVpcEndpointsForDomainResponse, __MetadataBearer {}
 
 /**

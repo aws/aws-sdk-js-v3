@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListRepositoriesForApprovalRuleTemplateCommand}.
+ */
 export interface ListRepositoriesForApprovalRuleTemplateCommandInput
   extends ListRepositoriesForApprovalRuleTemplateInput {}
+/**
+ * The output of {@link ListRepositoriesForApprovalRuleTemplateCommand}.
+ */
 export interface ListRepositoriesForApprovalRuleTemplateCommandOutput
   extends ListRepositoriesForApprovalRuleTemplateOutput,
     __MetadataBearer {}

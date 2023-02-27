@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * The input for {@link CreateKnowledgeBaseCommand}.
+ */
 export interface CreateKnowledgeBaseCommandInput extends CreateKnowledgeBaseRequest {}
+/**
+ * The output of {@link CreateKnowledgeBaseCommand}.
+ */
 export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseResponse, __MetadataBearer {}
 
 /**

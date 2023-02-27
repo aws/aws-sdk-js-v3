@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RemoveFlowVpcInterfaceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RemoveFlowVpcInterfaceCommand}.
+ */
 export interface RemoveFlowVpcInterfaceCommandInput extends RemoveFlowVpcInterfaceRequest {}
+/**
+ * The output of {@link RemoveFlowVpcInterfaceCommand}.
+ */
 export interface RemoveFlowVpcInterfaceCommandOutput extends RemoveFlowVpcInterfaceResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0TransactGetItemsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link TransactGetItemsCommand}.
+ */
 export interface TransactGetItemsCommandInput extends TransactGetItemsInput {}
+/**
+ * The output of {@link TransactGetItemsCommand}.
+ */
 export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ResetPersonalPINCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ResetPersonalPINCommand}.
+ */
 export interface ResetPersonalPINCommandInput extends ResetPersonalPINRequest {}
+/**
+ * The output of {@link ResetPersonalPINCommand}.
+ */
 export interface ResetPersonalPINCommandOutput extends ResetPersonalPINResponse, __MetadataBearer {}
 
 /**

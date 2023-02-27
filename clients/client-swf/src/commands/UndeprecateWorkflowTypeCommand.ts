@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link UndeprecateWorkflowTypeCommand}.
+ */
 export interface UndeprecateWorkflowTypeCommandInput extends UndeprecateWorkflowTypeInput {}
+/**
+ * The output of {@link UndeprecateWorkflowTypeCommand}.
+ */
 export interface UndeprecateWorkflowTypeCommandOutput extends __MetadataBearer {}
 
 /**

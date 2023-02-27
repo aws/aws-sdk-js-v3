@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0RestoreTableToPointInTimeCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link RestoreTableToPointInTimeCommand}.
+ */
 export interface RestoreTableToPointInTimeCommandInput extends RestoreTableToPointInTimeInput {}
+/**
+ * The output of {@link RestoreTableToPointInTimeCommand}.
+ */
 export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPointInTimeOutput, __MetadataBearer {}
 
 /**

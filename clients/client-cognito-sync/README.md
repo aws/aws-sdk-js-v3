@@ -216,3 +216,142 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+BulkPublish
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/bulkpublishcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/bulkpublishcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/bulkpublishcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/deletedatasetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/deletedatasetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/deletedatasetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/describedatasetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/describedatasetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/describedatasetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeIdentityPoolUsage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/describeidentitypoolusagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/describeidentitypoolusagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/describeidentitypoolusagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeIdentityUsage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/describeidentityusagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/describeidentityusagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/describeidentityusagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetBulkPublishDetails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/getbulkpublishdetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/getbulkpublishdetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/getbulkpublishdetailscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetCognitoEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/getcognitoeventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/getcognitoeventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/getcognitoeventscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetIdentityPoolConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/getidentitypoolconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/getidentitypoolconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/getidentitypoolconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListDatasets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/listdatasetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/listdatasetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/listdatasetscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListIdentityPoolUsage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/listidentitypoolusagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/listidentitypoolusagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/listidentitypoolusagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListRecords
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/listrecordscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/listrecordscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/listrecordscommandoutput.html)
+
+</details>
+<details>
+<summary>
+RegisterDevice
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/registerdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/registerdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/registerdevicecommandoutput.html)
+
+</details>
+<details>
+<summary>
+SetCognitoEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/setcognitoeventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/setcognitoeventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/setcognitoeventscommandoutput.html)
+
+</details>
+<details>
+<summary>
+SetIdentityPoolConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/setidentitypoolconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/setidentitypoolconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/setidentitypoolconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+SubscribeToDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/subscribetodatasetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/subscribetodatasetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/subscribetodatasetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UnsubscribeFromDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/unsubscribefromdatasetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/unsubscribefromdatasetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/unsubscribefromdatasetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateRecords
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/classes/updaterecordscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/updaterecordscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cognito sync/interfaces/updaterecordscommandoutput.html)
+
+</details>

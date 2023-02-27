@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link XmlEmptyListsCommand}.
+ */
 export interface XmlEmptyListsCommandInput extends XmlListsInputOutput {}
+/**
+ * The output of {@link XmlEmptyListsCommand}.
+ */
 export interface XmlEmptyListsCommandOutput extends XmlListsInputOutput, __MetadataBearer {}
 
 export class XmlEmptyListsCommand extends $Command<

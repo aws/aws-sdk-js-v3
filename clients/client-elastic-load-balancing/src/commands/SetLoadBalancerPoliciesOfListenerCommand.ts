@@ -29,7 +29,13 @@ import {
   serializeAws_querySetLoadBalancerPoliciesOfListenerCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SetLoadBalancerPoliciesOfListenerCommand}.
+ */
 export interface SetLoadBalancerPoliciesOfListenerCommandInput extends SetLoadBalancerPoliciesOfListenerInput {}
+/**
+ * The output of {@link SetLoadBalancerPoliciesOfListenerCommand}.
+ */
 export interface SetLoadBalancerPoliciesOfListenerCommandOutput
   extends SetLoadBalancerPoliciesOfListenerOutput,
     __MetadataBearer {}

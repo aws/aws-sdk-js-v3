@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1StartMeetingTranscriptionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartMeetingTranscriptionCommand}.
+ */
 export interface StartMeetingTranscriptionCommandInput extends StartMeetingTranscriptionRequest {}
+/**
+ * The output of {@link StartMeetingTranscriptionCommand}.
+ */
 export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_queryCancelUpdateStackCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CancelUpdateStackCommand}.
+ */
 export interface CancelUpdateStackCommandInput extends CancelUpdateStackInput {}
+/**
+ * The output of {@link CancelUpdateStackCommand}.
+ */
 export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
 
 /**

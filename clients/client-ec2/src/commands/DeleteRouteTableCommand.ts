@@ -20,7 +20,13 @@ import {
   serializeAws_ec2DeleteRouteTableCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteRouteTableCommand}.
+ */
 export interface DeleteRouteTableCommandInput extends DeleteRouteTableRequest {}
+/**
+ * The output of {@link DeleteRouteTableCommand}.
+ */
 export interface DeleteRouteTableCommandOutput extends __MetadataBearer {}
 
 /**

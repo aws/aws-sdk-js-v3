@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListTaskDefinitionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTaskDefinitionsCommand}.
+ */
 export interface ListTaskDefinitionsCommandInput extends ListTaskDefinitionsRequest {}
+/**
+ * The output of {@link ListTaskDefinitionsCommand}.
+ */
 export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsResponse, __MetadataBearer {}
 
 /**

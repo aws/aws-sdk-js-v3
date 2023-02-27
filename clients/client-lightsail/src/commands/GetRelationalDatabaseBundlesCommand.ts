@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetRelationalDatabaseBundlesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRelationalDatabaseBundlesCommand}.
+ */
 export interface GetRelationalDatabaseBundlesCommandInput extends GetRelationalDatabaseBundlesRequest {}
+/**
+ * The output of {@link GetRelationalDatabaseBundlesCommand}.
+ */
 export interface GetRelationalDatabaseBundlesCommandOutput
   extends GetRelationalDatabaseBundlesResult,
     __MetadataBearer {}

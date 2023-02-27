@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeAppsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeAppsCommand}.
+ */
 export interface DescribeAppsCommandInput extends DescribeAppsRequest {}
+/**
+ * The output of {@link DescribeAppsCommand}.
+ */
 export interface DescribeAppsCommandOutput extends DescribeAppsResult, __MetadataBearer {}
 
 /**

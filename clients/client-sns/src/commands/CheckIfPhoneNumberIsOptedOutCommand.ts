@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link CheckIfPhoneNumberIsOptedOutCommand}.
+ */
 export interface CheckIfPhoneNumberIsOptedOutCommandInput extends CheckIfPhoneNumberIsOptedOutInput {}
+/**
+ * The output of {@link CheckIfPhoneNumberIsOptedOutCommand}.
+ */
 export interface CheckIfPhoneNumberIsOptedOutCommandOutput
   extends CheckIfPhoneNumberIsOptedOutResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteQueuedReservedInstancesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteQueuedReservedInstancesCommand}.
+ */
 export interface DeleteQueuedReservedInstancesCommandInput extends DeleteQueuedReservedInstancesRequest {}
+/**
+ * The output of {@link DeleteQueuedReservedInstancesCommand}.
+ */
 export interface DeleteQueuedReservedInstancesCommandOutput
   extends DeleteQueuedReservedInstancesResult,
     __MetadataBearer {}

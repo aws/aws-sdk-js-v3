@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateSampleFindingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateSampleFindingsCommand}.
+ */
 export interface CreateSampleFindingsCommandInput extends CreateSampleFindingsRequest {}
+/**
+ * The output of {@link CreateSampleFindingsCommand}.
+ */
 export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsResponse, __MetadataBearer {}
 
 /**

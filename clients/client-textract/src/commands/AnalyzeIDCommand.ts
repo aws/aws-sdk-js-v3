@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1AnalyzeIDCommand, serializeAws_json1_1AnalyzeIDCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
+/**
+ * The input for {@link AnalyzeIDCommand}.
+ */
 export interface AnalyzeIDCommandInput extends AnalyzeIDRequest {}
+/**
+ * The output of {@link AnalyzeIDCommand}.
+ */
 export interface AnalyzeIDCommandOutput extends AnalyzeIDResponse, __MetadataBearer {}
 
 /**

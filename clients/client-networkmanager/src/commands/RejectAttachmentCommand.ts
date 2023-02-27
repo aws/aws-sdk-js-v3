@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RejectAttachmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RejectAttachmentCommand}.
+ */
 export interface RejectAttachmentCommandInput extends RejectAttachmentRequest {}
+/**
+ * The output of {@link RejectAttachmentCommand}.
+ */
 export interface RejectAttachmentCommandOutput extends RejectAttachmentResponse, __MetadataBearer {}
 
 /**

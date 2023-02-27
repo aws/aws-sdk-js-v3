@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopDeploymentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopDeploymentCommand}.
+ */
 export interface StopDeploymentCommandInput extends StopDeploymentInput {}
+/**
+ * The output of {@link StopDeploymentCommand}.
+ */
 export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DisassociateDeviceFromPlacementCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateDeviceFromPlacementCommand}.
+ */
 export interface DisassociateDeviceFromPlacementCommandInput extends DisassociateDeviceFromPlacementRequest {}
+/**
+ * The output of {@link DisassociateDeviceFromPlacementCommand}.
+ */
 export interface DisassociateDeviceFromPlacementCommandOutput
   extends DisassociateDeviceFromPlacementResponse,
     __MetadataBearer {}

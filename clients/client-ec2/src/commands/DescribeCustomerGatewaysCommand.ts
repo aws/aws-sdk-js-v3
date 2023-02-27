@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeCustomerGatewaysCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeCustomerGatewaysCommand}.
+ */
 export interface DescribeCustomerGatewaysCommandInput extends DescribeCustomerGatewaysRequest {}
+/**
+ * The output of {@link DescribeCustomerGatewaysCommand}.
+ */
 export interface DescribeCustomerGatewaysCommandOutput extends DescribeCustomerGatewaysResult, __MetadataBearer {}
 
 /**

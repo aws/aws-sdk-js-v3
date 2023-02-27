@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link DeleteServerCatalogCommand}.
+ */
 export interface DeleteServerCatalogCommandInput extends DeleteServerCatalogRequest {}
+/**
+ * The output of {@link DeleteServerCatalogCommand}.
+ */
 export interface DeleteServerCatalogCommandOutput extends DeleteServerCatalogResponse, __MetadataBearer {}
 
 /**

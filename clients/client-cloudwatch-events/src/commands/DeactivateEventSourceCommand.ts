@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeactivateEventSourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeactivateEventSourceCommand}.
+ */
 export interface DeactivateEventSourceCommandInput extends DeactivateEventSourceRequest {}
+/**
+ * The output of {@link DeactivateEventSourceCommand}.
+ */
 export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
 
 /**

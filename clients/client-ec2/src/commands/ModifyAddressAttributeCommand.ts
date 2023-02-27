@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyAddressAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyAddressAttributeCommand}.
+ */
 export interface ModifyAddressAttributeCommandInput extends ModifyAddressAttributeRequest {}
+/**
+ * The output of {@link ModifyAddressAttributeCommand}.
+ */
 export interface ModifyAddressAttributeCommandOutput extends ModifyAddressAttributeResult, __MetadataBearer {}
 
 /**

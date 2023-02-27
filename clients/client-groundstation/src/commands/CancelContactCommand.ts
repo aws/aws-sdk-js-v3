@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelContactCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelContactCommand}.
+ */
 export interface CancelContactCommandInput extends CancelContactRequest {}
+/**
+ * The output of {@link CancelContactCommand}.
+ */
 export interface CancelContactCommandOutput extends ContactIdResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeAccountAuditConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeAccountAuditConfigurationCommand}.
+ */
 export interface DescribeAccountAuditConfigurationCommandInput extends DescribeAccountAuditConfigurationRequest {}
+/**
+ * The output of {@link DescribeAccountAuditConfigurationCommand}.
+ */
 export interface DescribeAccountAuditConfigurationCommandOutput
   extends DescribeAccountAuditConfigurationResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSourceRepositoryCloneUrlsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSourceRepositoryCloneUrlsCommand}.
+ */
 export interface GetSourceRepositoryCloneUrlsCommandInput extends GetSourceRepositoryCloneUrlsRequest {}
+/**
+ * The output of {@link GetSourceRepositoryCloneUrlsCommand}.
+ */
 export interface GetSourceRepositoryCloneUrlsCommandOutput
   extends GetSourceRepositoryCloneUrlsResponse,
     __MetadataBearer {}

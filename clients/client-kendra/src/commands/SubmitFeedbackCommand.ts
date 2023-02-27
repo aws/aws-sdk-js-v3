@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1SubmitFeedbackCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SubmitFeedbackCommand}.
+ */
 export interface SubmitFeedbackCommandInput extends SubmitFeedbackRequest {}
+/**
+ * The output of {@link SubmitFeedbackCommand}.
+ */
 export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
 
 /**

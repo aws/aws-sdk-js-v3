@@ -20,7 +20,13 @@ import {
   serializeAws_queryDetachUserPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DetachUserPolicyCommand}.
+ */
 export interface DetachUserPolicyCommandInput extends DetachUserPolicyRequest {}
+/**
+ * The output of {@link DetachUserPolicyCommand}.
+ */
 export interface DetachUserPolicyCommandOutput extends __MetadataBearer {}
 
 /**

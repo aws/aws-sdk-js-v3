@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartConfigRulesEvaluationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartConfigRulesEvaluationCommand}.
+ */
 export interface StartConfigRulesEvaluationCommandInput extends StartConfigRulesEvaluationRequest {}
+/**
+ * The output of {@link StartConfigRulesEvaluationCommand}.
+ */
 export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRulesEvaluationResponse, __MetadataBearer {}
 
 /**

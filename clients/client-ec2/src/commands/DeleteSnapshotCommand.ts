@@ -17,7 +17,13 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { DeleteSnapshotRequest, DeleteSnapshotRequestFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_ec2DeleteSnapshotCommand, serializeAws_ec2DeleteSnapshotCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteSnapshotCommand}.
+ */
 export interface DeleteSnapshotCommandInput extends DeleteSnapshotRequest {}
+/**
+ * The output of {@link DeleteSnapshotCommand}.
+ */
 export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
 
 /**

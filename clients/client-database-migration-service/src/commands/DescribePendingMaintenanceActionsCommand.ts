@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribePendingMaintenanceActionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribePendingMaintenanceActionsCommand}.
+ */
 export interface DescribePendingMaintenanceActionsCommandInput extends DescribePendingMaintenanceActionsMessage {}
+/**
+ * The output of {@link DescribePendingMaintenanceActionsCommand}.
+ */
 export interface DescribePendingMaintenanceActionsCommandOutput
   extends DescribePendingMaintenanceActionsResponse,
     __MetadataBearer {}

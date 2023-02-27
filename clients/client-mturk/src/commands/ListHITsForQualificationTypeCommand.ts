@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListHITsForQualificationTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListHITsForQualificationTypeCommand}.
+ */
 export interface ListHITsForQualificationTypeCommandInput extends ListHITsForQualificationTypeRequest {}
+/**
+ * The output of {@link ListHITsForQualificationTypeCommand}.
+ */
 export interface ListHITsForQualificationTypeCommandOutput
   extends ListHITsForQualificationTypeResponse,
     __MetadataBearer {}

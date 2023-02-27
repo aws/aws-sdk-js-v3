@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * The input for {@link DescribeJournalKinesisStreamCommand}.
+ */
 export interface DescribeJournalKinesisStreamCommandInput extends DescribeJournalKinesisStreamRequest {}
+/**
+ * The output of {@link DescribeJournalKinesisStreamCommand}.
+ */
 export interface DescribeJournalKinesisStreamCommandOutput
   extends DescribeJournalKinesisStreamResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateBackupSelectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateBackupSelectionCommand}.
+ */
 export interface CreateBackupSelectionCommandInput extends CreateBackupSelectionInput {}
+/**
+ * The output of {@link CreateBackupSelectionCommand}.
+ */
 export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectionOutput, __MetadataBearer {}
 
 /**

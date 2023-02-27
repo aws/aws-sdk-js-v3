@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListCustomRoutingAcceleratorsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListCustomRoutingAcceleratorsCommand}.
+ */
 export interface ListCustomRoutingAcceleratorsCommandInput extends ListCustomRoutingAcceleratorsRequest {}
+/**
+ * The output of {@link ListCustomRoutingAcceleratorsCommand}.
+ */
 export interface ListCustomRoutingAcceleratorsCommandOutput
   extends ListCustomRoutingAcceleratorsResponse,
     __MetadataBearer {}

@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link AllQueryStringTypesCommand}.
+ */
 export interface AllQueryStringTypesCommandInput extends AllQueryStringTypesInput {}
+/**
+ * The output of {@link AllQueryStringTypesCommand}.
+ */
 export interface AllQueryStringTypesCommandOutput extends __MetadataBearer {}
 
 /**

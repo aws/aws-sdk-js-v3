@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link NotifyWhenUploadedCommand}.
+ */
 export interface NotifyWhenUploadedCommandInput extends NotifyWhenUploadedInput {}
+/**
+ * The output of {@link NotifyWhenUploadedCommand}.
+ */
 export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutput, __MetadataBearer {}
 
 /**

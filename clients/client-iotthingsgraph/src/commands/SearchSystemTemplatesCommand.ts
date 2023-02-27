@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SearchSystemTemplatesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SearchSystemTemplatesCommand}.
+ */
 export interface SearchSystemTemplatesCommandInput extends SearchSystemTemplatesRequest {}
+/**
+ * The output of {@link SearchSystemTemplatesCommand}.
+ */
 export interface SearchSystemTemplatesCommandOutput extends SearchSystemTemplatesResponse, __MetadataBearer {}
 
 /**

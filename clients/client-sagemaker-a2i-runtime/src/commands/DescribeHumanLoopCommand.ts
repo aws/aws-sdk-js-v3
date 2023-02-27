@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../SageMakerA2IRuntimeClient";
 
+/**
+ * The input for {@link DescribeHumanLoopCommand}.
+ */
 export interface DescribeHumanLoopCommandInput extends DescribeHumanLoopRequest {}
+/**
+ * The output of {@link DescribeHumanLoopCommand}.
+ */
 export interface DescribeHumanLoopCommandOutput extends DescribeHumanLoopResponse, __MetadataBearer {}
 
 /**

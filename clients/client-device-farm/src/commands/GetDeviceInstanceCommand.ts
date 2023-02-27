@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDeviceInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDeviceInstanceCommand}.
+ */
 export interface GetDeviceInstanceCommandInput extends GetDeviceInstanceRequest {}
+/**
+ * The output of {@link GetDeviceInstanceCommand}.
+ */
 export interface GetDeviceInstanceCommandOutput extends GetDeviceInstanceResult, __MetadataBearer {}
 
 /**

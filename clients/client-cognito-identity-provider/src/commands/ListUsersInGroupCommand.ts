@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1ListUsersInGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListUsersInGroupCommand}.
+ */
 export interface ListUsersInGroupCommandInput extends ListUsersInGroupRequest {}
+/**
+ * The output of {@link ListUsersInGroupCommand}.
+ */
 export interface ListUsersInGroupCommandOutput extends ListUsersInGroupResponse, __MetadataBearer {}
 
 /**

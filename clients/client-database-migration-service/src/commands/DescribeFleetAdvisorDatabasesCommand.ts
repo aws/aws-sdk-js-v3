@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeFleetAdvisorDatabasesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeFleetAdvisorDatabasesCommand}.
+ */
 export interface DescribeFleetAdvisorDatabasesCommandInput extends DescribeFleetAdvisorDatabasesRequest {}
+/**
+ * The output of {@link DescribeFleetAdvisorDatabasesCommand}.
+ */
 export interface DescribeFleetAdvisorDatabasesCommandOutput
   extends DescribeFleetAdvisorDatabasesResponse,
     __MetadataBearer {}

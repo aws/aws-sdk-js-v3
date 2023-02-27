@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteDBClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteDBClusterCommand}.
+ */
 export interface DeleteDBClusterCommandInput extends DeleteDBClusterMessage {}
+/**
+ * The output of {@link DeleteDBClusterCommand}.
+ */
 export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __MetadataBearer {}
 
 /**

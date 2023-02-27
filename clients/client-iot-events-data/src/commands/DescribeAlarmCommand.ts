@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeAlarmCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeAlarmCommand}.
+ */
 export interface DescribeAlarmCommandInput extends DescribeAlarmRequest {}
+/**
+ * The output of {@link DescribeAlarmCommand}.
+ */
 export interface DescribeAlarmCommandOutput extends DescribeAlarmResponse, __MetadataBearer {}
 
 /**

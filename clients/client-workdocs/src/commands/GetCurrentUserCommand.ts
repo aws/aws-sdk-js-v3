@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link GetCurrentUserCommand}.
+ */
 export interface GetCurrentUserCommandInput extends GetCurrentUserRequest {}
+/**
+ * The output of {@link GetCurrentUserCommand}.
+ */
 export interface GetCurrentUserCommandOutput extends GetCurrentUserResponse, __MetadataBearer {}
 
 /**

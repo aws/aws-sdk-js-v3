@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopBgpFailoverTestCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopBgpFailoverTestCommand}.
+ */
 export interface StopBgpFailoverTestCommandInput extends StopBgpFailoverTestRequest {}
+/**
+ * The output of {@link StopBgpFailoverTestCommand}.
+ */
 export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestResponse, __MetadataBearer {}
 
 /**

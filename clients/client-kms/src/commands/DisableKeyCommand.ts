@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DisableKeyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisableKeyCommand}.
+ */
 export interface DisableKeyCommandInput extends DisableKeyRequest {}
+/**
+ * The output of {@link DisableKeyCommand}.
+ */
 export interface DisableKeyCommandOutput extends __MetadataBearer {}
 
 /**

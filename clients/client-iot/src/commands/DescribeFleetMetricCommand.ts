@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeFleetMetricCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeFleetMetricCommand}.
+ */
 export interface DescribeFleetMetricCommandInput extends DescribeFleetMetricRequest {}
+/**
+ * The output of {@link DescribeFleetMetricCommand}.
+ */
 export interface DescribeFleetMetricCommandOutput extends DescribeFleetMetricResponse, __MetadataBearer {}
 
 /**

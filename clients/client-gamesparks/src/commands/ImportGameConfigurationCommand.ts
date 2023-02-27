@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ImportGameConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ImportGameConfigurationCommand}.
+ */
 export interface ImportGameConfigurationCommandInput extends ImportGameConfigurationRequest {}
+/**
+ * The output of {@link ImportGameConfigurationCommand}.
+ */
 export interface ImportGameConfigurationCommandOutput extends ImportGameConfigurationResult, __MetadataBearer {}
 
 /**

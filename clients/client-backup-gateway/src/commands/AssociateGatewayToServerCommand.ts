@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0AssociateGatewayToServerCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link AssociateGatewayToServerCommand}.
+ */
 export interface AssociateGatewayToServerCommandInput extends AssociateGatewayToServerInput {}
+/**
+ * The output of {@link AssociateGatewayToServerCommand}.
+ */
 export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayToServerOutput, __MetadataBearer {}
 
 /**

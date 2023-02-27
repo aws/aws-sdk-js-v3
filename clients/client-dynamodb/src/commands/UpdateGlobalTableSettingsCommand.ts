@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0UpdateGlobalTableSettingsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateGlobalTableSettingsCommand}.
+ */
 export interface UpdateGlobalTableSettingsCommandInput extends UpdateGlobalTableSettingsInput {}
+/**
+ * The output of {@link UpdateGlobalTableSettingsCommand}.
+ */
 export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTableSettingsOutput, __MetadataBearer {}
 
 /**

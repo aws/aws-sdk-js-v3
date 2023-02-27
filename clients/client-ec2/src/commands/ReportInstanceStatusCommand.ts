@@ -20,7 +20,13 @@ import {
   serializeAws_ec2ReportInstanceStatusCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ReportInstanceStatusCommand}.
+ */
 export interface ReportInstanceStatusCommandInput extends ReportInstanceStatusRequest {}
+/**
+ * The output of {@link ReportInstanceStatusCommand}.
+ */
 export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
 
 /**

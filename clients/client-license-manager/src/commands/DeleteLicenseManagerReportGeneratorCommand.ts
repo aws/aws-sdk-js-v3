@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteLicenseManagerReportGeneratorCommand}.
+ */
 export interface DeleteLicenseManagerReportGeneratorCommandInput extends DeleteLicenseManagerReportGeneratorRequest {}
+/**
+ * The output of {@link DeleteLicenseManagerReportGeneratorCommand}.
+ */
 export interface DeleteLicenseManagerReportGeneratorCommandOutput
   extends DeleteLicenseManagerReportGeneratorResponse,
     __MetadataBearer {}

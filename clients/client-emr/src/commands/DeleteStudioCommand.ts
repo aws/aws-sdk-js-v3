@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteStudioCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteStudioCommand}.
+ */
 export interface DeleteStudioCommandInput extends DeleteStudioInput {}
+/**
+ * The output of {@link DeleteStudioCommand}.
+ */
 export interface DeleteStudioCommandOutput extends __MetadataBearer {}
 
 /**

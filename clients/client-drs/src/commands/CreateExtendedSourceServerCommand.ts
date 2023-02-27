@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateExtendedSourceServerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateExtendedSourceServerCommand}.
+ */
 export interface CreateExtendedSourceServerCommandInput extends CreateExtendedSourceServerRequest {}
+/**
+ * The output of {@link CreateExtendedSourceServerCommand}.
+ */
 export interface CreateExtendedSourceServerCommandOutput extends CreateExtendedSourceServerResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchDeleteBuildsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchDeleteBuildsCommand}.
+ */
 export interface BatchDeleteBuildsCommandInput extends BatchDeleteBuildsInput {}
+/**
+ * The output of {@link BatchDeleteBuildsCommand}.
+ */
 export interface BatchDeleteBuildsCommandOutput extends BatchDeleteBuildsOutput, __MetadataBearer {}
 
 /**

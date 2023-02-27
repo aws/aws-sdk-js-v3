@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetApplicationRevisionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetApplicationRevisionCommand}.
+ */
 export interface GetApplicationRevisionCommandInput extends GetApplicationRevisionInput {}
+/**
+ * The output of {@link GetApplicationRevisionCommand}.
+ */
 export interface GetApplicationRevisionCommandOutput extends GetApplicationRevisionOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link RetrieveTapeArchiveCommand}.
+ */
 export interface RetrieveTapeArchiveCommandInput extends RetrieveTapeArchiveInput {}
+/**
+ * The output of {@link RetrieveTapeArchiveCommand}.
+ */
 export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2RejectVpcEndpointConnectionsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RejectVpcEndpointConnectionsCommand}.
+ */
 export interface RejectVpcEndpointConnectionsCommandInput extends RejectVpcEndpointConnectionsRequest {}
+/**
+ * The output of {@link RejectVpcEndpointConnectionsCommand}.
+ */
 export interface RejectVpcEndpointConnectionsCommandOutput
   extends RejectVpcEndpointConnectionsResult,
     __MetadataBearer {}

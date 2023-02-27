@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link CreatePresignedDomainUrlCommand}.
+ */
 export interface CreatePresignedDomainUrlCommandInput extends CreatePresignedDomainUrlRequest {}
+/**
+ * The output of {@link CreatePresignedDomainUrlCommand}.
+ */
 export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDomainUrlResponse, __MetadataBearer {}
 
 /**

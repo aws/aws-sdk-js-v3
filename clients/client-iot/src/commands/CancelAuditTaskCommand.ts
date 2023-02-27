@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelAuditTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelAuditTaskCommand}.
+ */
 export interface CancelAuditTaskCommandInput extends CancelAuditTaskRequest {}
+/**
+ * The output of {@link CancelAuditTaskCommand}.
+ */
 export interface CancelAuditTaskCommandOutput extends CancelAuditTaskResponse, __MetadataBearer {}
 
 /**

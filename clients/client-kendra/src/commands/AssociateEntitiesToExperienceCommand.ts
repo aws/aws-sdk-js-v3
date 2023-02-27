@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateEntitiesToExperienceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateEntitiesToExperienceCommand}.
+ */
 export interface AssociateEntitiesToExperienceCommandInput extends AssociateEntitiesToExperienceRequest {}
+/**
+ * The output of {@link AssociateEntitiesToExperienceCommand}.
+ */
 export interface AssociateEntitiesToExperienceCommandOutput
   extends AssociateEntitiesToExperienceResponse,
     __MetadataBearer {}

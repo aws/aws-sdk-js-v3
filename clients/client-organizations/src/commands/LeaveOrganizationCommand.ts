@@ -19,7 +19,13 @@ import {
   serializeAws_json1_1LeaveOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link LeaveOrganizationCommand}.
+ */
 export interface LeaveOrganizationCommandInput {}
+/**
+ * The output of {@link LeaveOrganizationCommand}.
+ */
 export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
 
 /**

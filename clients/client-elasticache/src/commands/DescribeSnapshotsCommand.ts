@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeSnapshotsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeSnapshotsCommand}.
+ */
 export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsMessage {}
+/**
+ * The output of {@link DescribeSnapshotsCommand}.
+ */
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMessage, __MetadataBearer {}
 
 /**

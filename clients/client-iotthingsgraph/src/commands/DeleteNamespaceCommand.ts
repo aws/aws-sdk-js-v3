@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteNamespaceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteNamespaceCommand}.
+ */
 export interface DeleteNamespaceCommandInput extends DeleteNamespaceRequest {}
+/**
+ * The output of {@link DeleteNamespaceCommand}.
+ */
 export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, __MetadataBearer {}
 
 /**

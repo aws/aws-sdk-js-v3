@@ -20,7 +20,13 @@ import {
   serializeAws_ec2ResetInstanceAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ResetInstanceAttributeCommand}.
+ */
 export interface ResetInstanceAttributeCommandInput extends ResetInstanceAttributeRequest {}
+/**
+ * The output of {@link ResetInstanceAttributeCommand}.
+ */
 export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
 
 /**

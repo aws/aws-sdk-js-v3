@@ -20,7 +20,13 @@ import {
   serializeAws_queryPutMetricDataCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PutMetricDataCommand}.
+ */
 export interface PutMetricDataCommandInput extends PutMetricDataInput {}
+/**
+ * The output of {@link PutMetricDataCommand}.
+ */
 export interface PutMetricDataCommandOutput extends __MetadataBearer {}
 
 /**

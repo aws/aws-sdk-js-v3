@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeHealthServiceStatusForOrganizationCommand}.
+ */
 export interface DescribeHealthServiceStatusForOrganizationCommandInput {}
+/**
+ * The output of {@link DescribeHealthServiceStatusForOrganizationCommand}.
+ */
 export interface DescribeHealthServiceStatusForOrganizationCommandOutput
   extends DescribeHealthServiceStatusForOrganizationResponse,
     __MetadataBearer {}

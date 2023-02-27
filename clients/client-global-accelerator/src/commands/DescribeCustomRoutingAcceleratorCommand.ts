@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeCustomRoutingAcceleratorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeCustomRoutingAcceleratorCommand}.
+ */
 export interface DescribeCustomRoutingAcceleratorCommandInput extends DescribeCustomRoutingAcceleratorRequest {}
+/**
+ * The output of {@link DescribeCustomRoutingAcceleratorCommand}.
+ */
 export interface DescribeCustomRoutingAcceleratorCommandOutput
   extends DescribeCustomRoutingAcceleratorResponse,
     __MetadataBearer {}

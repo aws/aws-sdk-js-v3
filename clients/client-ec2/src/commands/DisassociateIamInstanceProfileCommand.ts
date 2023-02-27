@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DisassociateIamInstanceProfileCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisassociateIamInstanceProfileCommand}.
+ */
 export interface DisassociateIamInstanceProfileCommandInput extends DisassociateIamInstanceProfileRequest {}
+/**
+ * The output of {@link DisassociateIamInstanceProfileCommand}.
+ */
 export interface DisassociateIamInstanceProfileCommandOutput
   extends DisassociateIamInstanceProfileResult,
     __MetadataBearer {}

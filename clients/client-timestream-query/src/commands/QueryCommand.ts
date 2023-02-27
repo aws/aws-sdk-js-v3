@@ -23,7 +23,13 @@ import {
 import { deserializeAws_json1_0QueryCommand, serializeAws_json1_0QueryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
+/**
+ * The input for {@link QueryCommand}.
+ */
 export interface QueryCommandInput extends QueryRequest {}
+/**
+ * The output of {@link QueryCommand}.
+ */
 export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
 
 /**

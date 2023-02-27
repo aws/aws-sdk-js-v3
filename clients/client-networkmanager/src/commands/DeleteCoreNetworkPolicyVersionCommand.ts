@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteCoreNetworkPolicyVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteCoreNetworkPolicyVersionCommand}.
+ */
 export interface DeleteCoreNetworkPolicyVersionCommandInput extends DeleteCoreNetworkPolicyVersionRequest {}
+/**
+ * The output of {@link DeleteCoreNetworkPolicyVersionCommand}.
+ */
 export interface DeleteCoreNetworkPolicyVersionCommandOutput
   extends DeleteCoreNetworkPolicyVersionResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeregisterTaskDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterTaskDefinitionCommand}.
+ */
 export interface DeregisterTaskDefinitionCommandInput extends DeregisterTaskDefinitionRequest {}
+/**
+ * The output of {@link DeregisterTaskDefinitionCommand}.
+ */
 export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDefinitionResponse, __MetadataBearer {}
 
 /**

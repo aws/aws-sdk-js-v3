@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
+/**
+ * The input for {@link CreateSlackChannelConfigurationCommand}.
+ */
 export interface CreateSlackChannelConfigurationCommandInput extends CreateSlackChannelConfigurationRequest {}
+/**
+ * The output of {@link CreateSlackChannelConfigurationCommand}.
+ */
 export interface CreateSlackChannelConfigurationCommandOutput
   extends CreateSlackChannelConfigurationResult,
     __MetadataBearer {}

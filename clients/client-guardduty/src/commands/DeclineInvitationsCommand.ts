@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeclineInvitationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeclineInvitationsCommand}.
+ */
 export interface DeclineInvitationsCommandInput extends DeclineInvitationsRequest {}
+/**
+ * The output of {@link DeclineInvitationsCommand}.
+ */
 export interface DeclineInvitationsCommandOutput extends DeclineInvitationsResponse, __MetadataBearer {}
 
 /**

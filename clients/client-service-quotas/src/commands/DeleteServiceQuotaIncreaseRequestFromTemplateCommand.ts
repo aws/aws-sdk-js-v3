@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
+/**
+ * The input for {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommand}.
+ */
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput
   extends DeleteServiceQuotaIncreaseRequestFromTemplateRequest {}
+/**
+ * The output of {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommand}.
+ */
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
   extends DeleteServiceQuotaIncreaseRequestFromTemplateResponse,
     __MetadataBearer {}

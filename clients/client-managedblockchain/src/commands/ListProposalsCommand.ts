@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListProposalsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListProposalsCommand}.
+ */
 export interface ListProposalsCommandInput extends ListProposalsInput {}
+/**
+ * The output of {@link ListProposalsCommand}.
+ */
 export interface ListProposalsCommandOutput extends ListProposalsOutput, __MetadataBearer {}
 
 /**

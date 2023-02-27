@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeletePushTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePushTemplateCommand}.
+ */
 export interface DeletePushTemplateCommandInput extends DeletePushTemplateRequest {}
+/**
+ * The output of {@link DeletePushTemplateCommand}.
+ */
 export interface DeletePushTemplateCommandOutput extends DeletePushTemplateResponse, __MetadataBearer {}
 
 /**

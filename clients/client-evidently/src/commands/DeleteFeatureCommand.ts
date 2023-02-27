@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteFeatureCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteFeatureCommand}.
+ */
 export interface DeleteFeatureCommandInput extends DeleteFeatureRequest {}
+/**
+ * The output of {@link DeleteFeatureCommand}.
+ */
 export interface DeleteFeatureCommandOutput extends DeleteFeatureResponse, __MetadataBearer {}
 
 /**

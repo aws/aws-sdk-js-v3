@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateSpotDatafeedSubscriptionCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateSpotDatafeedSubscriptionCommand}.
+ */
 export interface CreateSpotDatafeedSubscriptionCommandInput extends CreateSpotDatafeedSubscriptionRequest {}
+/**
+ * The output of {@link CreateSpotDatafeedSubscriptionCommand}.
+ */
 export interface CreateSpotDatafeedSubscriptionCommandOutput
   extends CreateSpotDatafeedSubscriptionResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DescribePendingMaintenanceActionsCommand}.
+ */
 export interface DescribePendingMaintenanceActionsCommandInput extends DescribePendingMaintenanceActionsMessage {}
+/**
+ * The output of {@link DescribePendingMaintenanceActionsCommand}.
+ */
 export interface DescribePendingMaintenanceActionsCommandOutput
   extends PendingMaintenanceActionsMessage,
     __MetadataBearer {}

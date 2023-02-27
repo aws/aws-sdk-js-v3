@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetActionTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetActionTypeCommand}.
+ */
 export interface GetActionTypeCommandInput extends GetActionTypeInput {}
+/**
+ * The output of {@link GetActionTypeCommand}.
+ */
 export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __MetadataBearer {}
 
 /**

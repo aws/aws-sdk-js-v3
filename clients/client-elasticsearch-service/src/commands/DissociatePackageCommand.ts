@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DissociatePackageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DissociatePackageCommand}.
+ */
 export interface DissociatePackageCommandInput extends DissociatePackageRequest {}
+/**
+ * The output of {@link DissociatePackageCommand}.
+ */
 export interface DissociatePackageCommandOutput extends DissociatePackageResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetUsageTotalsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetUsageTotalsCommand}.
+ */
 export interface GetUsageTotalsCommandInput extends GetUsageTotalsRequest {}
+/**
+ * The output of {@link GetUsageTotalsCommand}.
+ */
 export interface GetUsageTotalsCommandOutput extends GetUsageTotalsResponse, __MetadataBearer {}
 
 /**

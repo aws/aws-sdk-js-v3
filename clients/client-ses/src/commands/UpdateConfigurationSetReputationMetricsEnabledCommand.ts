@@ -23,8 +23,14 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link UpdateConfigurationSetReputationMetricsEnabledCommand}.
+ */
 export interface UpdateConfigurationSetReputationMetricsEnabledCommandInput
   extends UpdateConfigurationSetReputationMetricsEnabledRequest {}
+/**
+ * The output of {@link UpdateConfigurationSetReputationMetricsEnabledCommand}.
+ */
 export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput extends __MetadataBearer {}
 
 /**

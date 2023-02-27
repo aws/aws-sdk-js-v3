@@ -29,8 +29,14 @@ import {
   serializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddApplicationCloudWatchLoggingOptionCommand}.
+ */
 export interface AddApplicationCloudWatchLoggingOptionCommandInput
   extends AddApplicationCloudWatchLoggingOptionRequest {}
+/**
+ * The output of {@link AddApplicationCloudWatchLoggingOptionCommand}.
+ */
 export interface AddApplicationCloudWatchLoggingOptionCommandOutput
   extends AddApplicationCloudWatchLoggingOptionResponse,
     __MetadataBearer {}

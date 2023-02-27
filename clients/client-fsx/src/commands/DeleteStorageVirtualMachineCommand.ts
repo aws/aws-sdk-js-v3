@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteStorageVirtualMachineCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteStorageVirtualMachineCommand}.
+ */
 export interface DeleteStorageVirtualMachineCommandInput extends DeleteStorageVirtualMachineRequest {}
+/**
+ * The output of {@link DeleteStorageVirtualMachineCommand}.
+ */
 export interface DeleteStorageVirtualMachineCommandOutput
   extends DeleteStorageVirtualMachineResponse,
     __MetadataBearer {}

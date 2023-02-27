@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyEbsDefaultKmsKeyIdCommand}.
+ */
 export interface ModifyEbsDefaultKmsKeyIdCommandInput extends ModifyEbsDefaultKmsKeyIdRequest {}
+/**
+ * The output of {@link ModifyEbsDefaultKmsKeyIdCommand}.
+ */
 export interface ModifyEbsDefaultKmsKeyIdCommandOutput extends ModifyEbsDefaultKmsKeyIdResult, __MetadataBearer {}
 
 /**

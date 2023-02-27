@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetTaskProtectionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetTaskProtectionCommand}.
+ */
 export interface GetTaskProtectionCommandInput extends GetTaskProtectionRequest {}
+/**
+ * The output of {@link GetTaskProtectionCommand}.
+ */
 export interface GetTaskProtectionCommandOutput extends GetTaskProtectionResponse, __MetadataBearer {}
 
 /**

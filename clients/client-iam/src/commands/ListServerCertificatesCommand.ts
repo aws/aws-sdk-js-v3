@@ -25,7 +25,13 @@ import {
   serializeAws_queryListServerCertificatesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListServerCertificatesCommand}.
+ */
 export interface ListServerCertificatesCommandInput extends ListServerCertificatesRequest {}
+/**
+ * The output of {@link ListServerCertificatesCommand}.
+ */
 export interface ListServerCertificatesCommandOutput extends ListServerCertificatesResponse, __MetadataBearer {}
 
 /**

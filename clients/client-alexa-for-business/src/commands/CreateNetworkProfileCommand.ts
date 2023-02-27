@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateNetworkProfileCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateNetworkProfileCommand}.
+ */
 export interface CreateNetworkProfileCommandInput extends CreateNetworkProfileRequest {}
+/**
+ * The output of {@link CreateNetworkProfileCommand}.
+ */
 export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1IncreaseReplicationFactorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link IncreaseReplicationFactorCommand}.
+ */
 export interface IncreaseReplicationFactorCommandInput extends IncreaseReplicationFactorRequest {}
+/**
+ * The output of {@link IncreaseReplicationFactorCommand}.
+ */
 export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicationFactorResponse, __MetadataBearer {}
 
 /**

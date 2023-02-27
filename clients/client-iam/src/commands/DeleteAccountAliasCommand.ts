@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteAccountAliasCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteAccountAliasCommand}.
+ */
 export interface DeleteAccountAliasCommandInput extends DeleteAccountAliasRequest {}
+/**
+ * The output of {@link DeleteAccountAliasCommand}.
+ */
 export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
 
 /**

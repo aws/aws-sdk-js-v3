@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link ListFileSharesCommand}.
+ */
 export interface ListFileSharesCommandInput extends ListFileSharesInput {}
+/**
+ * The output of {@link ListFileSharesCommand}.
+ */
 export interface ListFileSharesCommandOutput extends ListFileSharesOutput, __MetadataBearer {}
 
 /**

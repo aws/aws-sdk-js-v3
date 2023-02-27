@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * The input for {@link DiscoverInstancesCommand}.
+ */
 export interface DiscoverInstancesCommandInput extends DiscoverInstancesRequest {}
+/**
+ * The output of {@link DiscoverInstancesCommand}.
+ */
 export interface DiscoverInstancesCommandOutput extends DiscoverInstancesResponse, __MetadataBearer {}
 
 /**

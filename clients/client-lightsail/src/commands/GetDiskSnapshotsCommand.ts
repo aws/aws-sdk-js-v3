@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDiskSnapshotsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDiskSnapshotsCommand}.
+ */
 export interface GetDiskSnapshotsCommandInput extends GetDiskSnapshotsRequest {}
+/**
+ * The output of {@link GetDiskSnapshotsCommand}.
+ */
 export interface GetDiskSnapshotsCommandOutput extends GetDiskSnapshotsResult, __MetadataBearer {}
 
 /**

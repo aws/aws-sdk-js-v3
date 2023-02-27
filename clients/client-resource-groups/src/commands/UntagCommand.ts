@@ -22,7 +22,13 @@ import {
 import { deserializeAws_restJson1UntagCommand, serializeAws_restJson1UntagCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
+/**
+ * The input for {@link UntagCommand}.
+ */
 export interface UntagCommandInput extends UntagInput {}
+/**
+ * The output of {@link UntagCommand}.
+ */
 export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
 
 /**

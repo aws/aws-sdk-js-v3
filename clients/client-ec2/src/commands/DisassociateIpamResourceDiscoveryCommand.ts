@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DisassociateIpamResourceDiscoveryCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisassociateIpamResourceDiscoveryCommand}.
+ */
 export interface DisassociateIpamResourceDiscoveryCommandInput extends DisassociateIpamResourceDiscoveryRequest {}
+/**
+ * The output of {@link DisassociateIpamResourceDiscoveryCommand}.
+ */
 export interface DisassociateIpamResourceDiscoveryCommandOutput
   extends DisassociateIpamResourceDiscoveryResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeAnomalyDetectorsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeAnomalyDetectorsCommand}.
+ */
 export interface DescribeAnomalyDetectorsCommandInput extends DescribeAnomalyDetectorsInput {}
+/**
+ * The output of {@link DescribeAnomalyDetectorsCommand}.
+ */
 export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDetectorsOutput, __MetadataBearer {}
 
 /**

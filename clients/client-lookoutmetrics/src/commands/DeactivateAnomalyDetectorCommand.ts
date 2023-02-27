@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeactivateAnomalyDetectorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeactivateAnomalyDetectorCommand}.
+ */
 export interface DeactivateAnomalyDetectorCommandInput extends DeactivateAnomalyDetectorRequest {}
+/**
+ * The output of {@link DeactivateAnomalyDetectorCommand}.
+ */
 export interface DeactivateAnomalyDetectorCommandOutput extends DeactivateAnomalyDetectorResponse, __MetadataBearer {}
 
 /**

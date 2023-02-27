@@ -20,7 +20,13 @@ import {
   serializeAws_queryChangePasswordCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ChangePasswordCommand}.
+ */
 export interface ChangePasswordCommandInput extends ChangePasswordRequest {}
+/**
+ * The output of {@link ChangePasswordCommand}.
+ */
 export interface ChangePasswordCommandOutput extends __MetadataBearer {}
 
 /**

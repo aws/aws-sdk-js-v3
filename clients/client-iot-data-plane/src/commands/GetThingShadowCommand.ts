@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetThingShadowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetThingShadowCommand}.
+ */
 export interface GetThingShadowCommandInput extends GetThingShadowRequest {}
+/**
+ * The output of {@link GetThingShadowCommand}.
+ */
 export interface GetThingShadowCommandOutput extends GetThingShadowResponse, __MetadataBearer {}
 
 /**

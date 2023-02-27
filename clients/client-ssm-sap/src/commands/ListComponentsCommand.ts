@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
+/**
+ * The input for {@link ListComponentsCommand}.
+ */
 export interface ListComponentsCommandInput extends ListComponentsInput {}
+/**
+ * The output of {@link ListComponentsCommand}.
+ */
 export interface ListComponentsCommandOutput extends ListComponentsOutput, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DisassociateRecoveryPointFromParentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateRecoveryPointFromParentCommand}.
+ */
 export interface DisassociateRecoveryPointFromParentCommandInput extends DisassociateRecoveryPointFromParentInput {}
+/**
+ * The output of {@link DisassociateRecoveryPointFromParentCommand}.
+ */
 export interface DisassociateRecoveryPointFromParentCommandOutput extends __MetadataBearer {}
 
 /**

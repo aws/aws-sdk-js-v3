@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetUsageStatisticsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetUsageStatisticsCommand}.
+ */
 export interface GetUsageStatisticsCommandInput extends GetUsageStatisticsRequest {}
+/**
+ * The output of {@link GetUsageStatisticsCommand}.
+ */
 export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsResponse, __MetadataBearer {}
 
 /**

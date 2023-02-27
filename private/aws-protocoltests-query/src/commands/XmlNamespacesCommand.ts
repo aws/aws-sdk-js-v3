@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link XmlNamespacesCommand}.
+ */
 export interface XmlNamespacesCommandInput {}
+/**
+ * The output of {@link XmlNamespacesCommand}.
+ */
 export interface XmlNamespacesCommandOutput extends XmlNamespacesOutput, __MetadataBearer {}
 
 export class XmlNamespacesCommand extends $Command<

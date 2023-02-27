@@ -23,7 +23,13 @@ import {
   serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link DeleteFieldLevelEncryptionConfigCommand}.
+ */
 export interface DeleteFieldLevelEncryptionConfigCommandInput extends DeleteFieldLevelEncryptionConfigRequest {}
+/**
+ * The output of {@link DeleteFieldLevelEncryptionConfigCommand}.
+ */
 export interface DeleteFieldLevelEncryptionConfigCommandOutput extends __MetadataBearer {}
 
 /**

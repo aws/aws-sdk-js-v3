@@ -18,7 +18,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link EndpointOperationCommand}.
+ */
 export interface EndpointOperationCommandInput {}
+/**
+ * The output of {@link EndpointOperationCommand}.
+ */
 export interface EndpointOperationCommandOutput extends __MetadataBearer {}
 
 export class EndpointOperationCommand extends $Command<

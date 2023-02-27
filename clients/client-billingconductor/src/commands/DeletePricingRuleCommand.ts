@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeletePricingRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePricingRuleCommand}.
+ */
 export interface DeletePricingRuleCommandInput extends DeletePricingRuleInput {}
+/**
+ * The output of {@link DeletePricingRuleCommand}.
+ */
 export interface DeletePricingRuleCommandOutput extends DeletePricingRuleOutput, __MetadataBearer {}
 
 /**

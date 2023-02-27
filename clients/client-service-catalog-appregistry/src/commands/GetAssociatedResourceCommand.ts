@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * The input for {@link GetAssociatedResourceCommand}.
+ */
 export interface GetAssociatedResourceCommandInput extends GetAssociatedResourceRequest {}
+/**
+ * The output of {@link GetAssociatedResourceCommand}.
+ */
 export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourceResponse, __MetadataBearer {}
 
 /**

@@ -17,7 +17,13 @@ import { DeleteTagsMessage, DeleteTagsMessageFilterSensitiveLog } from "../model
 import { deserializeAws_queryDeleteTagsCommand, serializeAws_queryDeleteTagsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DeleteTagsCommand}.
+ */
 export interface DeleteTagsCommandInput extends DeleteTagsMessage {}
+/**
+ * The output of {@link DeleteTagsCommand}.
+ */
 export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**

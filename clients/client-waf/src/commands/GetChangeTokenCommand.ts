@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * The input for {@link GetChangeTokenCommand}.
+ */
 export interface GetChangeTokenCommandInput extends GetChangeTokenRequest {}
+/**
+ * The output of {@link GetChangeTokenCommand}.
+ */
 export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __MetadataBearer {}
 
 /**

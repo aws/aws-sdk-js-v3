@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0CreateConfigurationSetCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateConfigurationSetCommand}.
+ */
 export interface CreateConfigurationSetCommandInput extends CreateConfigurationSetRequest {}
+/**
+ * The output of {@link CreateConfigurationSetCommand}.
+ */
 export interface CreateConfigurationSetCommandOutput extends CreateConfigurationSetResult, __MetadataBearer {}
 
 /**

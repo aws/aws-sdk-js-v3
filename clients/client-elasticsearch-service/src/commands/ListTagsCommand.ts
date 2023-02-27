@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListTagsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListTagsCommand}.
+ */
 export interface ListTagsCommandInput extends ListTagsRequest {}
+/**
+ * The output of {@link ListTagsCommand}.
+ */
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**

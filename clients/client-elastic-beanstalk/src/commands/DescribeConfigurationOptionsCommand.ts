@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeConfigurationOptionsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeConfigurationOptionsCommand}.
+ */
 export interface DescribeConfigurationOptionsCommandInput extends DescribeConfigurationOptionsMessage {}
+/**
+ * The output of {@link DescribeConfigurationOptionsCommand}.
+ */
 export interface DescribeConfigurationOptionsCommandOutput extends ConfigurationOptionsDescription, __MetadataBearer {}
 
 /**

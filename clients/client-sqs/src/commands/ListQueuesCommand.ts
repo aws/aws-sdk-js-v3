@@ -22,7 +22,13 @@ import {
 import { deserializeAws_queryListQueuesCommand, serializeAws_queryListQueuesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link ListQueuesCommand}.
+ */
 export interface ListQueuesCommandInput extends ListQueuesRequest {}
+/**
+ * The output of {@link ListQueuesCommand}.
+ */
 export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBearer {}
 
 /**

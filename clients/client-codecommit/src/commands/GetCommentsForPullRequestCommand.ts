@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCommentsForPullRequestCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCommentsForPullRequestCommand}.
+ */
 export interface GetCommentsForPullRequestCommandInput extends GetCommentsForPullRequestInput {}
+/**
+ * The output of {@link GetCommentsForPullRequestCommand}.
+ */
 export interface GetCommentsForPullRequestCommandOutput extends GetCommentsForPullRequestOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchAcknowledgeAlarmCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchAcknowledgeAlarmCommand}.
+ */
 export interface BatchAcknowledgeAlarmCommandInput extends BatchAcknowledgeAlarmRequest {}
+/**
+ * The output of {@link BatchAcknowledgeAlarmCommand}.
+ */
 export interface BatchAcknowledgeAlarmCommandOutput extends BatchAcknowledgeAlarmResponse, __MetadataBearer {}
 
 /**

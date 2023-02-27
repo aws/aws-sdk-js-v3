@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * The input for {@link UpdateNamespaceCommand}.
+ */
 export interface UpdateNamespaceCommandInput extends UpdateNamespaceRequest {}
+/**
+ * The output of {@link UpdateNamespaceCommand}.
+ */
 export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, __MetadataBearer {}
 
 /**

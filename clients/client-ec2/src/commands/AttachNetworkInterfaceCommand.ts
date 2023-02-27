@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AttachNetworkInterfaceCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AttachNetworkInterfaceCommand}.
+ */
 export interface AttachNetworkInterfaceCommandInput extends AttachNetworkInterfaceRequest {}
+/**
+ * The output of {@link AttachNetworkInterfaceCommand}.
+ */
 export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterfaceResult, __MetadataBearer {}
 
 /**

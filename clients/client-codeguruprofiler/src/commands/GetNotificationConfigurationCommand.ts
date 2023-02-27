@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetNotificationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetNotificationConfigurationCommand}.
+ */
 export interface GetNotificationConfigurationCommandInput extends GetNotificationConfigurationRequest {}
+/**
+ * The output of {@link GetNotificationConfigurationCommand}.
+ */
 export interface GetNotificationConfigurationCommandOutput
   extends GetNotificationConfigurationResponse,
     __MetadataBearer {}

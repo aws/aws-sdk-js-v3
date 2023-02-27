@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ReadPresetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ReadPresetCommand}.
+ */
 export interface ReadPresetCommandInput extends ReadPresetRequest {}
+/**
+ * The output of {@link ReadPresetCommand}.
+ */
 export interface ReadPresetCommandOutput extends ReadPresetResponse, __MetadataBearer {}
 
 /**

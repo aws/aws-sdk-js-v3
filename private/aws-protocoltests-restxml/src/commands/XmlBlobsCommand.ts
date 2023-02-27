@@ -16,7 +16,13 @@ import { XmlBlobsInputOutput, XmlBlobsInputOutputFilterSensitiveLog } from "../m
 import { deserializeAws_restXmlXmlBlobsCommand, serializeAws_restXmlXmlBlobsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link XmlBlobsCommand}.
+ */
 export interface XmlBlobsCommandInput extends XmlBlobsInputOutput {}
+/**
+ * The output of {@link XmlBlobsCommand}.
+ */
 export interface XmlBlobsCommandOutput extends XmlBlobsInputOutput, __MetadataBearer {}
 
 /**

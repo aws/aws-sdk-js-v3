@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteDatasetImportJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteDatasetImportJobCommand}.
+ */
 export interface DeleteDatasetImportJobCommandInput extends DeleteDatasetImportJobRequest {}
+/**
+ * The output of {@link DeleteDatasetImportJobCommand}.
+ */
 export interface DeleteDatasetImportJobCommandOutput extends __MetadataBearer {}
 
 /**

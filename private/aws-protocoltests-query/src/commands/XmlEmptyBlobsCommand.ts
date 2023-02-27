@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link XmlEmptyBlobsCommand}.
+ */
 export interface XmlEmptyBlobsCommandInput {}
+/**
+ * The output of {@link XmlEmptyBlobsCommand}.
+ */
 export interface XmlEmptyBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer {}
 
 export class XmlEmptyBlobsCommand extends $Command<

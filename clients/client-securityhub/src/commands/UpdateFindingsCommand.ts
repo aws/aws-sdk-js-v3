@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link UpdateFindingsCommand}.
+ */
 export interface UpdateFindingsCommandInput extends UpdateFindingsRequest {}
+/**
+ * The output of {@link UpdateFindingsCommand}.
+ */
 export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __MetadataBearer {}
 
 /**

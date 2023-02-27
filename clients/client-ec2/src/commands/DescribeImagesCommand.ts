@@ -22,7 +22,13 @@ import {
 } from "../models/models_3";
 import { deserializeAws_ec2DescribeImagesCommand, serializeAws_ec2DescribeImagesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeImagesCommand}.
+ */
 export interface DescribeImagesCommandInput extends DescribeImagesRequest {}
+/**
+ * The output of {@link DescribeImagesCommand}.
+ */
 export interface DescribeImagesCommandOutput extends DescribeImagesResult, __MetadataBearer {}
 
 /**

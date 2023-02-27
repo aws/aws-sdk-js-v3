@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * The input for {@link ListSupportedResourceTypesCommand}.
+ */
 export interface ListSupportedResourceTypesCommandInput extends ListSupportedResourceTypesInput {}
+/**
+ * The output of {@link ListSupportedResourceTypesCommand}.
+ */
 export interface ListSupportedResourceTypesCommandOutput extends ListSupportedResourceTypesOutput, __MetadataBearer {}
 
 /**

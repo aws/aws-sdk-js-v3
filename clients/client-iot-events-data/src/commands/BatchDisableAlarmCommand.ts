@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchDisableAlarmCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchDisableAlarmCommand}.
+ */
 export interface BatchDisableAlarmCommandInput extends BatchDisableAlarmRequest {}
+/**
+ * The output of {@link BatchDisableAlarmCommand}.
+ */
 export interface BatchDisableAlarmCommandOutput extends BatchDisableAlarmResponse, __MetadataBearer {}
 
 /**

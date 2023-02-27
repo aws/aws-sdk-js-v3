@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateNetworkProfileCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateNetworkProfileCommand}.
+ */
 export interface UpdateNetworkProfileCommandInput extends UpdateNetworkProfileRequest {}
+/**
+ * The output of {@link UpdateNetworkProfileCommand}.
+ */
 export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileResponse, __MetadataBearer {}
 
 /**

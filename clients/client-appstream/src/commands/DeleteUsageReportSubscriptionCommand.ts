@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteUsageReportSubscriptionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteUsageReportSubscriptionCommand}.
+ */
 export interface DeleteUsageReportSubscriptionCommandInput extends DeleteUsageReportSubscriptionRequest {}
+/**
+ * The output of {@link DeleteUsageReportSubscriptionCommand}.
+ */
 export interface DeleteUsageReportSubscriptionCommandOutput
   extends DeleteUsageReportSubscriptionResult,
     __MetadataBearer {}

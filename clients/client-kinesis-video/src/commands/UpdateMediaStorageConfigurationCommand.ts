@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateMediaStorageConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateMediaStorageConfigurationCommand}.
+ */
 export interface UpdateMediaStorageConfigurationCommandInput extends UpdateMediaStorageConfigurationInput {}
+/**
+ * The output of {@link UpdateMediaStorageConfigurationCommand}.
+ */
 export interface UpdateMediaStorageConfigurationCommandOutput
   extends UpdateMediaStorageConfigurationOutput,
     __MetadataBearer {}

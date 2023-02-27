@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListPartnerEventSourceAccountsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListPartnerEventSourceAccountsCommand}.
+ */
 export interface ListPartnerEventSourceAccountsCommandInput extends ListPartnerEventSourceAccountsRequest {}
+/**
+ * The output of {@link ListPartnerEventSourceAccountsCommand}.
+ */
 export interface ListPartnerEventSourceAccountsCommandOutput
   extends ListPartnerEventSourceAccountsResponse,
     __MetadataBearer {}

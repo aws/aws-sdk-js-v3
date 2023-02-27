@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1EnableAWSServiceAccessCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EnableAWSServiceAccessCommand}.
+ */
 export interface EnableAWSServiceAccessCommandInput extends EnableAWSServiceAccessRequest {}
+/**
+ * The output of {@link EnableAWSServiceAccessCommand}.
+ */
 export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
 
 /**

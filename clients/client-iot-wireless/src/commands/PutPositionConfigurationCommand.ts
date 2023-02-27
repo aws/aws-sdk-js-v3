@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutPositionConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutPositionConfigurationCommand}.
+ */
 export interface PutPositionConfigurationCommandInput extends PutPositionConfigurationRequest {}
+/**
+ * The output of {@link PutPositionConfigurationCommand}.
+ */
 export interface PutPositionConfigurationCommandOutput extends PutPositionConfigurationResponse, __MetadataBearer {}
 
 /**

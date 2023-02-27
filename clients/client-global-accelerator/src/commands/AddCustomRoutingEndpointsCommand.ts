@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1AddCustomRoutingEndpointsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddCustomRoutingEndpointsCommand}.
+ */
 export interface AddCustomRoutingEndpointsCommandInput extends AddCustomRoutingEndpointsRequest {}
+/**
+ * The output of {@link AddCustomRoutingEndpointsCommand}.
+ */
 export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRoutingEndpointsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeFileCachesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeFileCachesCommand}.
+ */
 export interface DescribeFileCachesCommandInput extends DescribeFileCachesRequest {}
+/**
+ * The output of {@link DescribeFileCachesCommand}.
+ */
 export interface DescribeFileCachesCommandOutput extends DescribeFileCachesResponse, __MetadataBearer {}
 
 /**

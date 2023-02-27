@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListManagedSchemaArnsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListManagedSchemaArnsCommand}.
+ */
 export interface ListManagedSchemaArnsCommandInput extends ListManagedSchemaArnsRequest {}
+/**
+ * The output of {@link ListManagedSchemaArnsCommand}.
+ */
 export interface ListManagedSchemaArnsCommandOutput extends ListManagedSchemaArnsResponse, __MetadataBearer {}
 
 /**

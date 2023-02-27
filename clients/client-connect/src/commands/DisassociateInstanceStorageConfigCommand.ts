@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DisassociateInstanceStorageConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateInstanceStorageConfigCommand}.
+ */
 export interface DisassociateInstanceStorageConfigCommandInput extends DisassociateInstanceStorageConfigRequest {}
+/**
+ * The output of {@link DisassociateInstanceStorageConfigCommand}.
+ */
 export interface DisassociateInstanceStorageConfigCommandOutput extends __MetadataBearer {}
 
 /**

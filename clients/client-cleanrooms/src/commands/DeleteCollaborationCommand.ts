@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteCollaborationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteCollaborationCommand}.
+ */
 export interface DeleteCollaborationCommandInput extends DeleteCollaborationInput {}
+/**
+ * The output of {@link DeleteCollaborationCommand}.
+ */
 export interface DeleteCollaborationCommandOutput extends DeleteCollaborationOutput, __MetadataBearer {}
 
 /**

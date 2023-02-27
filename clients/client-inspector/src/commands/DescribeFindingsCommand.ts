@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeFindingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeFindingsCommand}.
+ */
 export interface DescribeFindingsCommandInput extends DescribeFindingsRequest {}
+/**
+ * The output of {@link DescribeFindingsCommand}.
+ */
 export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse, __MetadataBearer {}
 
 /**

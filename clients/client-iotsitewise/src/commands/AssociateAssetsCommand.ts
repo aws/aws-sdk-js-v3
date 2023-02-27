@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1AssociateAssetsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateAssetsCommand}.
+ */
 export interface AssociateAssetsCommandInput extends AssociateAssetsRequest {}
+/**
+ * The output of {@link AssociateAssetsCommand}.
+ */
 export interface AssociateAssetsCommandOutput extends __MetadataBearer {}
 
 /**

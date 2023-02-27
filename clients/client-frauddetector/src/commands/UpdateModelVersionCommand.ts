@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateModelVersionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateModelVersionCommand}.
+ */
 export interface UpdateModelVersionCommandInput extends UpdateModelVersionRequest {}
+/**
+ * The output of {@link UpdateModelVersionCommand}.
+ */
 export interface UpdateModelVersionCommandOutput extends UpdateModelVersionResult, __MetadataBearer {}
 
 /**

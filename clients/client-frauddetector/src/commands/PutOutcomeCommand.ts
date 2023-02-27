@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutOutcomeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutOutcomeCommand}.
+ */
 export interface PutOutcomeCommandInput extends PutOutcomeRequest {}
+/**
+ * The output of {@link PutOutcomeCommand}.
+ */
 export interface PutOutcomeCommandOutput extends PutOutcomeResult, __MetadataBearer {}
 
 /**

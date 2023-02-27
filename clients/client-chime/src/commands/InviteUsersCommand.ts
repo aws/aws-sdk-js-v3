@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1InviteUsersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link InviteUsersCommand}.
+ */
 export interface InviteUsersCommandInput extends InviteUsersRequest {}
+/**
+ * The output of {@link InviteUsersCommand}.
+ */
 export interface InviteUsersCommandOutput extends InviteUsersResponse, __MetadataBearer {}
 
 /**

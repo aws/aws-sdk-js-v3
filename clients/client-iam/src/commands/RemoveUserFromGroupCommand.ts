@@ -20,7 +20,13 @@ import {
   serializeAws_queryRemoveUserFromGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RemoveUserFromGroupCommand}.
+ */
 export interface RemoveUserFromGroupCommandInput extends RemoveUserFromGroupRequest {}
+/**
+ * The output of {@link RemoveUserFromGroupCommand}.
+ */
 export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
 
 /**

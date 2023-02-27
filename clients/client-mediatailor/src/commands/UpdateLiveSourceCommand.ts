@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateLiveSourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateLiveSourceCommand}.
+ */
 export interface UpdateLiveSourceCommandInput extends UpdateLiveSourceRequest {}
+/**
+ * The output of {@link UpdateLiveSourceCommand}.
+ */
 export interface UpdateLiveSourceCommandOutput extends UpdateLiveSourceResponse, __MetadataBearer {}
 
 /**

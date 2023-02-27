@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteImagePipelineCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteImagePipelineCommand}.
+ */
 export interface DeleteImagePipelineCommandInput extends DeleteImagePipelineRequest {}
+/**
+ * The output of {@link DeleteImagePipelineCommand}.
+ */
 export interface DeleteImagePipelineCommandOutput extends DeleteImagePipelineResponse, __MetadataBearer {}
 
 /**

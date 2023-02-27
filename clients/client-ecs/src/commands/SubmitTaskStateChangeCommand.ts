@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SubmitTaskStateChangeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SubmitTaskStateChangeCommand}.
+ */
 export interface SubmitTaskStateChangeCommandInput extends SubmitTaskStateChangeRequest {}
+/**
+ * The output of {@link SubmitTaskStateChangeCommand}.
+ */
 export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChangeResponse, __MetadataBearer {}
 
 /**

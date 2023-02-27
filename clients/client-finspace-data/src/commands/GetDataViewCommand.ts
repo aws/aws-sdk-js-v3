@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDataViewCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDataViewCommand}.
+ */
 export interface GetDataViewCommandInput extends GetDataViewRequest {}
+/**
+ * The output of {@link GetDataViewCommand}.
+ */
 export interface GetDataViewCommandOutput extends GetDataViewResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchGetFreeTrialInfoCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchGetFreeTrialInfoCommand}.
+ */
 export interface BatchGetFreeTrialInfoCommandInput extends BatchGetFreeTrialInfoRequest {}
+/**
+ * The output of {@link BatchGetFreeTrialInfoCommand}.
+ */
 export interface BatchGetFreeTrialInfoCommandOutput extends BatchGetFreeTrialInfoResponse, __MetadataBearer {}
 
 /**

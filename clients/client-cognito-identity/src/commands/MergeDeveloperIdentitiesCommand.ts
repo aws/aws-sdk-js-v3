@@ -26,7 +26,13 @@ import {
   serializeAws_json1_1MergeDeveloperIdentitiesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link MergeDeveloperIdentitiesCommand}.
+ */
 export interface MergeDeveloperIdentitiesCommandInput extends MergeDeveloperIdentitiesInput {}
+/**
+ * The output of {@link MergeDeveloperIdentitiesCommand}.
+ */
 export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIdentitiesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListLayoutsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListLayoutsCommand}.
+ */
 export interface ListLayoutsCommandInput extends ListLayoutsRequest {}
+/**
+ * The output of {@link ListLayoutsCommand}.
+ */
 export interface ListLayoutsCommandOutput extends ListLayoutsResponse, __MetadataBearer {}
 
 /**

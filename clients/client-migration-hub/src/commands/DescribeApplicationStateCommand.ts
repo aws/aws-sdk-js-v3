@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeApplicationStateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeApplicationStateCommand}.
+ */
 export interface DescribeApplicationStateCommandInput extends DescribeApplicationStateRequest {}
+/**
+ * The output of {@link DescribeApplicationStateCommand}.
+ */
 export interface DescribeApplicationStateCommandOutput extends DescribeApplicationStateResult, __MetadataBearer {}
 
 /**

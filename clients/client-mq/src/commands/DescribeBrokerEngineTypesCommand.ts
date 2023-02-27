@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeBrokerEngineTypesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeBrokerEngineTypesCommand}.
+ */
 export interface DescribeBrokerEngineTypesCommandInput extends DescribeBrokerEngineTypesRequest {}
+/**
+ * The output of {@link DescribeBrokerEngineTypesCommand}.
+ */
 export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEngineTypesResponse, __MetadataBearer {}
 
 /**

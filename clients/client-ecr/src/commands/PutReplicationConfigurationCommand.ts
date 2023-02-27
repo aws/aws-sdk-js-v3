@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutReplicationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutReplicationConfigurationCommand}.
+ */
 export interface PutReplicationConfigurationCommandInput extends PutReplicationConfigurationRequest {}
+/**
+ * The output of {@link PutReplicationConfigurationCommand}.
+ */
 export interface PutReplicationConfigurationCommandOutput
   extends PutReplicationConfigurationResponse,
     __MetadataBearer {}

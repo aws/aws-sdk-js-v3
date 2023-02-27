@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetListsMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetListsMetadataCommand}.
+ */
 export interface GetListsMetadataCommandInput extends GetListsMetadataRequest {}
+/**
+ * The output of {@link GetListsMetadataCommand}.
+ */
 export interface GetListsMetadataCommandOutput extends GetListsMetadataResult, __MetadataBearer {}
 
 /**

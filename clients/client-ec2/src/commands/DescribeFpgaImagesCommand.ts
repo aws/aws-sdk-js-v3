@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeFpgaImagesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeFpgaImagesCommand}.
+ */
 export interface DescribeFpgaImagesCommandInput extends DescribeFpgaImagesRequest {}
+/**
+ * The output of {@link DescribeFpgaImagesCommand}.
+ */
 export interface DescribeFpgaImagesCommandOutput extends DescribeFpgaImagesResult, __MetadataBearer {}
 
 /**

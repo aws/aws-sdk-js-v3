@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListCreateAccountStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListCreateAccountStatusCommand}.
+ */
 export interface ListCreateAccountStatusCommandInput extends ListCreateAccountStatusRequest {}
+/**
+ * The output of {@link ListCreateAccountStatusCommand}.
+ */
 export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountStatusResponse, __MetadataBearer {}
 
 /**

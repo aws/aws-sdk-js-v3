@@ -206,3 +206,70 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CompleteAttachmentUpload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/completeattachmentuploadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/completeattachmentuploadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/completeattachmentuploadcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateParticipantConnection
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/createparticipantconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/createparticipantconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/createparticipantconnectioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DisconnectParticipant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/disconnectparticipantcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/disconnectparticipantcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/disconnectparticipantcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/getattachmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/getattachmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/getattachmentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetTranscript
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/gettranscriptcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/gettranscriptcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/gettranscriptcommandoutput.html)
+
+</details>
+<details>
+<summary>
+SendEvent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/sendeventcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/sendeventcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/sendeventcommandoutput.html)
+
+</details>
+<details>
+<summary>
+SendMessage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/sendmessagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/sendmessagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/sendmessagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartAttachmentUpload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/classes/startattachmentuploadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/startattachmentuploadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectparticipant/interfaces/startattachmentuploadcommandoutput.html)
+
+</details>

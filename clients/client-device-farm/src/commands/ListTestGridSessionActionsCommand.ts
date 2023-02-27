@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListTestGridSessionActionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTestGridSessionActionsCommand}.
+ */
 export interface ListTestGridSessionActionsCommandInput extends ListTestGridSessionActionsRequest {}
+/**
+ * The output of {@link ListTestGridSessionActionsCommand}.
+ */
 export interface ListTestGridSessionActionsCommandOutput extends ListTestGridSessionActionsResult, __MetadataBearer {}
 
 /**

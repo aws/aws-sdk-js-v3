@@ -24,7 +24,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link GetClusterCredentialsWithIAMCommand}.
+ */
 export interface GetClusterCredentialsWithIAMCommandInput extends GetClusterCredentialsWithIAMMessage {}
+/**
+ * The output of {@link GetClusterCredentialsWithIAMCommand}.
+ */
 export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtendedCredentials, __MetadataBearer {}
 
 /**

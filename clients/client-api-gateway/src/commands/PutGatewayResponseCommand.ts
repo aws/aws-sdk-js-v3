@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutGatewayResponseCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutGatewayResponseCommand}.
+ */
 export interface PutGatewayResponseCommandInput extends PutGatewayResponseRequest {}
+/**
+ * The output of {@link PutGatewayResponseCommand}.
+ */
 export interface PutGatewayResponseCommandOutput extends GatewayResponse, __MetadataBearer {}
 
 /**

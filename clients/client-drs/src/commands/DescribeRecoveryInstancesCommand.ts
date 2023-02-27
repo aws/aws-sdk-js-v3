@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeRecoveryInstancesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeRecoveryInstancesCommand}.
+ */
 export interface DescribeRecoveryInstancesCommandInput extends DescribeRecoveryInstancesRequest {}
+/**
+ * The output of {@link DescribeRecoveryInstancesCommand}.
+ */
 export interface DescribeRecoveryInstancesCommandOutput extends DescribeRecoveryInstancesResponse, __MetadataBearer {}
 
 /**

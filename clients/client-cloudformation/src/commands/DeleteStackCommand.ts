@@ -17,7 +17,13 @@ import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 import { DeleteStackInput, DeleteStackInputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryDeleteStackCommand, serializeAws_queryDeleteStackCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteStackCommand}.
+ */
 export interface DeleteStackCommandInput extends DeleteStackInput {}
+/**
+ * The output of {@link DeleteStackCommand}.
+ */
 export interface DeleteStackCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateTokenCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateTokenCommand}.
+ */
 export interface CreateTokenCommandInput extends CreateTokenRequest {}
+/**
+ * The output of {@link CreateTokenCommand}.
+ */
 export interface CreateTokenCommandOutput extends CreateTokenResponse, __MetadataBearer {}
 
 /**

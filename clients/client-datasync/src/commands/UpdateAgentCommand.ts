@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateAgentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateAgentCommand}.
+ */
 export interface UpdateAgentCommandInput extends UpdateAgentRequest {}
+/**
+ * The output of {@link UpdateAgentCommand}.
+ */
 export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __MetadataBearer {}
 
 /**

@@ -25,6 +25,9 @@ import {
   serializeAws_restJson1PutObjectCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutObjectCommand}.
+ */
 type PutObjectCommandInputType = Omit<PutObjectInput, "InlineChunk"> & {
   /**
    * For *`PutObjectInput["InlineChunk"]`*, see {@link PutObjectInput.InlineChunk}.
@@ -35,6 +38,9 @@ type PutObjectCommandInputType = Omit<PutObjectInput, "InlineChunk"> & {
  * This interface extends from `PutObjectInput` interface. There are more parameters than `InlineChunk` defined in {@link PutObjectInput}
  */
 export interface PutObjectCommandInput extends PutObjectCommandInputType {}
+/**
+ * The output of {@link PutObjectCommand}.
+ */
 export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBearer {}
 
 /**

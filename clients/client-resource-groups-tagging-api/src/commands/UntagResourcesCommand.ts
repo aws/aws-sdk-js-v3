@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
 
+/**
+ * The input for {@link UntagResourcesCommand}.
+ */
 export interface UntagResourcesCommandInput extends UntagResourcesInput {}
+/**
+ * The output of {@link UntagResourcesCommand}.
+ */
 export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __MetadataBearer {}
 
 /**

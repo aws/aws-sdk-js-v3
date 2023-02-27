@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateFlowEntitlementCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateFlowEntitlementCommand}.
+ */
 export interface UpdateFlowEntitlementCommandInput extends UpdateFlowEntitlementRequest {}
+/**
+ * The output of {@link UpdateFlowEntitlementCommand}.
+ */
 export interface UpdateFlowEntitlementCommandOutput extends UpdateFlowEntitlementResponse, __MetadataBearer {}
 
 /**

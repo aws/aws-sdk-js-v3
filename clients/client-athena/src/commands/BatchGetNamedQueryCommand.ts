@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetNamedQueryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetNamedQueryCommand}.
+ */
 export interface BatchGetNamedQueryCommandInput extends BatchGetNamedQueryInput {}
+/**
+ * The output of {@link BatchGetNamedQueryCommand}.
+ */
 export interface BatchGetNamedQueryCommandOutput extends BatchGetNamedQueryOutput, __MetadataBearer {}
 
 /**

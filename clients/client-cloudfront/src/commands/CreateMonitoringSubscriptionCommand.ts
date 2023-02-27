@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlCreateMonitoringSubscriptionCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link CreateMonitoringSubscriptionCommand}.
+ */
 export interface CreateMonitoringSubscriptionCommandInput extends CreateMonitoringSubscriptionRequest {}
+/**
+ * The output of {@link CreateMonitoringSubscriptionCommand}.
+ */
 export interface CreateMonitoringSubscriptionCommandOutput
   extends CreateMonitoringSubscriptionResult,
     __MetadataBearer {}

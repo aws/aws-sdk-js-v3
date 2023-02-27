@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0ReleasePhoneNumberCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ReleasePhoneNumberCommand}.
+ */
 export interface ReleasePhoneNumberCommandInput extends ReleasePhoneNumberRequest {}
+/**
+ * The output of {@link ReleasePhoneNumberCommand}.
+ */
 export interface ReleasePhoneNumberCommandOutput extends ReleasePhoneNumberResult, __MetadataBearer {}
 
 /**

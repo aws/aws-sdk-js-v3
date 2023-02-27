@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeTrustsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeTrustsCommand}.
+ */
 export interface DescribeTrustsCommandInput extends DescribeTrustsRequest {}
+/**
+ * The output of {@link DescribeTrustsCommand}.
+ */
 export interface DescribeTrustsCommandOutput extends DescribeTrustsResult, __MetadataBearer {}
 
 /**

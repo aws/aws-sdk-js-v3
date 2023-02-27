@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RemoveNotificationChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RemoveNotificationChannelCommand}.
+ */
 export interface RemoveNotificationChannelCommandInput extends RemoveNotificationChannelRequest {}
+/**
+ * The output of {@link RemoveNotificationChannelCommand}.
+ */
 export interface RemoveNotificationChannelCommandOutput extends RemoveNotificationChannelResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
+/**
+ * The input for {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandInput extends TagResourceRequest {}
+/**
+ * The output of {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**

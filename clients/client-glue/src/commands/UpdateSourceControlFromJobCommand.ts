@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateSourceControlFromJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateSourceControlFromJobCommand}.
+ */
 export interface UpdateSourceControlFromJobCommandInput extends UpdateSourceControlFromJobRequest {}
+/**
+ * The output of {@link UpdateSourceControlFromJobCommand}.
+ */
 export interface UpdateSourceControlFromJobCommandOutput extends UpdateSourceControlFromJobResponse, __MetadataBearer {}
 
 /**

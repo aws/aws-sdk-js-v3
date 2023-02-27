@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateCampaignNameCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateCampaignNameCommand}.
+ */
 export interface UpdateCampaignNameCommandInput extends UpdateCampaignNameRequest {}
+/**
+ * The output of {@link UpdateCampaignNameCommand}.
+ */
 export interface UpdateCampaignNameCommandOutput extends __MetadataBearer {}
 
 /**

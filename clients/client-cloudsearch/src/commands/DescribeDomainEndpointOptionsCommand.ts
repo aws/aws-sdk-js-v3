@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeDomainEndpointOptionsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeDomainEndpointOptionsCommand}.
+ */
 export interface DescribeDomainEndpointOptionsCommandInput extends DescribeDomainEndpointOptionsRequest {}
+/**
+ * The output of {@link DescribeDomainEndpointOptionsCommand}.
+ */
 export interface DescribeDomainEndpointOptionsCommandOutput
   extends DescribeDomainEndpointOptionsResponse,
     __MetadataBearer {}

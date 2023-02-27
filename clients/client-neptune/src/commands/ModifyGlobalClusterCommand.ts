@@ -25,7 +25,13 @@ import {
   serializeAws_queryModifyGlobalClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyGlobalClusterCommand}.
+ */
 export interface ModifyGlobalClusterCommandInput extends ModifyGlobalClusterMessage {}
+/**
+ * The output of {@link ModifyGlobalClusterCommand}.
+ */
 export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterResult, __MetadataBearer {}
 
 /**

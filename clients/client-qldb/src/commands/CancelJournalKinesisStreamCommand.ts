@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * The input for {@link CancelJournalKinesisStreamCommand}.
+ */
 export interface CancelJournalKinesisStreamCommandInput extends CancelJournalKinesisStreamRequest {}
+/**
+ * The output of {@link CancelJournalKinesisStreamCommand}.
+ */
 export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKinesisStreamResponse, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DeletePredictorBacktestExportJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeletePredictorBacktestExportJobCommand}.
+ */
 export interface DeletePredictorBacktestExportJobCommandInput extends DeletePredictorBacktestExportJobRequest {}
+/**
+ * The output of {@link DeletePredictorBacktestExportJobCommand}.
+ */
 export interface DeletePredictorBacktestExportJobCommandOutput extends __MetadataBearer {}
 
 /**

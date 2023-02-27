@@ -22,7 +22,13 @@ import {
 } from "../models/models_2";
 import { deserializeAws_ec2CreateSubnetCommand, serializeAws_ec2CreateSubnetCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateSubnetCommand}.
+ */
 export interface CreateSubnetCommandInput extends CreateSubnetRequest {}
+/**
+ * The output of {@link CreateSubnetCommand}.
+ */
 export interface CreateSubnetCommandOutput extends CreateSubnetResult, __MetadataBearer {}
 
 /**

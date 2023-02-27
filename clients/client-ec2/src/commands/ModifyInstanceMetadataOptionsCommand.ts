@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyInstanceMetadataOptionsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyInstanceMetadataOptionsCommand}.
+ */
 export interface ModifyInstanceMetadataOptionsCommandInput extends ModifyInstanceMetadataOptionsRequest {}
+/**
+ * The output of {@link ModifyInstanceMetadataOptionsCommand}.
+ */
 export interface ModifyInstanceMetadataOptionsCommandOutput
   extends ModifyInstanceMetadataOptionsResult,
     __MetadataBearer {}

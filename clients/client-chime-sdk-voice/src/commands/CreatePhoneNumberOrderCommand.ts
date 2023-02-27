@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreatePhoneNumberOrderCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreatePhoneNumberOrderCommand}.
+ */
 export interface CreatePhoneNumberOrderCommandInput extends CreatePhoneNumberOrderRequest {}
+/**
+ * The output of {@link CreatePhoneNumberOrderCommand}.
+ */
 export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOrderResponse, __MetadataBearer {}
 
 export class CreatePhoneNumberOrderCommand extends $Command<

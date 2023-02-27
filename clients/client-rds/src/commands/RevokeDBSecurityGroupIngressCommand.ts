@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link RevokeDBSecurityGroupIngressCommand}.
+ */
 export interface RevokeDBSecurityGroupIngressCommandInput extends RevokeDBSecurityGroupIngressMessage {}
+/**
+ * The output of {@link RevokeDBSecurityGroupIngressCommand}.
+ */
 export interface RevokeDBSecurityGroupIngressCommandOutput
   extends RevokeDBSecurityGroupIngressResult,
     __MetadataBearer {}

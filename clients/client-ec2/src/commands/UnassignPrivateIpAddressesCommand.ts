@@ -23,7 +23,13 @@ import {
   serializeAws_ec2UnassignPrivateIpAddressesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link UnassignPrivateIpAddressesCommand}.
+ */
 export interface UnassignPrivateIpAddressesCommandInput extends UnassignPrivateIpAddressesRequest {}
+/**
+ * The output of {@link UnassignPrivateIpAddressesCommand}.
+ */
 export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * The input for {@link GetResourcePolicyCommand}.
+ */
 export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest {}
+/**
+ * The output of {@link GetResourcePolicyCommand}.
+ */
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**

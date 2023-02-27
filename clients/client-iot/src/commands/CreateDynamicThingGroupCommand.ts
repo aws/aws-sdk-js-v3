@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateDynamicThingGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateDynamicThingGroupCommand}.
+ */
 export interface CreateDynamicThingGroupCommandInput extends CreateDynamicThingGroupRequest {}
+/**
+ * The output of {@link CreateDynamicThingGroupCommand}.
+ */
 export interface CreateDynamicThingGroupCommandOutput extends CreateDynamicThingGroupResponse, __MetadataBearer {}
 
 /**

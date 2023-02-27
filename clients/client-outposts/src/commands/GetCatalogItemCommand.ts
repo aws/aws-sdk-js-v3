@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetCatalogItemCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetCatalogItemCommand}.
+ */
 export interface GetCatalogItemCommandInput extends GetCatalogItemInput {}
+/**
+ * The output of {@link GetCatalogItemCommand}.
+ */
 export interface GetCatalogItemCommandOutput extends GetCatalogItemOutput, __MetadataBearer {}
 
 /**

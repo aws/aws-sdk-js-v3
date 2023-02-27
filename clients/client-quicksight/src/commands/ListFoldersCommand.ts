@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link ListFoldersCommand}.
+ */
 export interface ListFoldersCommandInput extends ListFoldersRequest {}
+/**
+ * The output of {@link ListFoldersCommand}.
+ */
 export interface ListFoldersCommandOutput extends ListFoldersResponse, __MetadataBearer {}
 
 /**

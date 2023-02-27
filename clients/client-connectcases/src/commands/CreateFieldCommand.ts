@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateFieldCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateFieldCommand}.
+ */
 export interface CreateFieldCommandInput extends CreateFieldRequest {}
+/**
+ * The output of {@link CreateFieldCommand}.
+ */
 export interface CreateFieldCommandOutput extends CreateFieldResponse, __MetadataBearer {}
 
 /**

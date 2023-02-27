@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link HttpPrefixHeadersCommand}.
+ */
 export interface HttpPrefixHeadersCommandInput extends HttpPrefixHeadersInputOutput {}
+/**
+ * The output of {@link HttpPrefixHeadersCommand}.
+ */
 export interface HttpPrefixHeadersCommandOutput extends HttpPrefixHeadersInputOutput, __MetadataBearer {}
 
 /**

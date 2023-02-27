@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1TerminateRecoveryInstancesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link TerminateRecoveryInstancesCommand}.
+ */
 export interface TerminateRecoveryInstancesCommandInput extends TerminateRecoveryInstancesRequest {}
+/**
+ * The output of {@link TerminateRecoveryInstancesCommand}.
+ */
 export interface TerminateRecoveryInstancesCommandOutput extends TerminateRecoveryInstancesResponse, __MetadataBearer {}
 
 /**

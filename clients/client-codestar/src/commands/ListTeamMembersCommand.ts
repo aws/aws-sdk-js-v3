@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListTeamMembersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTeamMembersCommand}.
+ */
 export interface ListTeamMembersCommandInput extends ListTeamMembersRequest {}
+/**
+ * The output of {@link ListTeamMembersCommand}.
+ */
 export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __MetadataBearer {}
 
 /**

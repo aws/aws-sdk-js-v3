@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListChannelMessagesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListChannelMessagesCommand}.
+ */
 export interface ListChannelMessagesCommandInput extends ListChannelMessagesRequest {}
+/**
+ * The output of {@link ListChannelMessagesCommand}.
+ */
 export interface ListChannelMessagesCommandOutput extends ListChannelMessagesResponse, __MetadataBearer {}
 
 /**

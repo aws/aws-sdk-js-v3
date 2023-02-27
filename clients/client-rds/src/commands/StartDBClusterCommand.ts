@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link StartDBClusterCommand}.
+ */
 export interface StartDBClusterCommandInput extends StartDBClusterMessage {}
+/**
+ * The output of {@link StartDBClusterCommand}.
+ */
 export interface StartDBClusterCommandOutput extends StartDBClusterResult, __MetadataBearer {}
 
 /**

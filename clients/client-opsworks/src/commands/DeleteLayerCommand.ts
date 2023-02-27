@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteLayerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteLayerCommand}.
+ */
 export interface DeleteLayerCommandInput extends DeleteLayerRequest {}
+/**
+ * The output of {@link DeleteLayerCommand}.
+ */
 export interface DeleteLayerCommandOutput extends __MetadataBearer {}
 
 /**

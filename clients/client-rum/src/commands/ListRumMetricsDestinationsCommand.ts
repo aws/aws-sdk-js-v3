@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
+/**
+ * The input for {@link ListRumMetricsDestinationsCommand}.
+ */
 export interface ListRumMetricsDestinationsCommandInput extends ListRumMetricsDestinationsRequest {}
+/**
+ * The output of {@link ListRumMetricsDestinationsCommand}.
+ */
 export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsDestinationsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeTypeRegistrationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeTypeRegistrationCommand}.
+ */
 export interface DescribeTypeRegistrationCommandInput extends DescribeTypeRegistrationInput {}
+/**
+ * The output of {@link DescribeTypeRegistrationCommand}.
+ */
 export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegistrationOutput, __MetadataBearer {}
 
 /**

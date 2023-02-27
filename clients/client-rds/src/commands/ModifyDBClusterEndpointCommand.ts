@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link ModifyDBClusterEndpointCommand}.
+ */
 export interface ModifyDBClusterEndpointCommandInput extends ModifyDBClusterEndpointMessage {}
+/**
+ * The output of {@link ModifyDBClusterEndpointCommand}.
+ */
 export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint, __MetadataBearer {}
 
 /**

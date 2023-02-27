@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link CreateConnectionAliasCommand}.
+ */
 export interface CreateConnectionAliasCommandInput extends CreateConnectionAliasRequest {}
+/**
+ * The output of {@link CreateConnectionAliasCommand}.
+ */
 export interface CreateConnectionAliasCommandOutput extends CreateConnectionAliasResult, __MetadataBearer {}
 
 /**

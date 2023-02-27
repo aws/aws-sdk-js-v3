@@ -25,7 +25,13 @@ import {
   serializeAws_queryUpdateServiceAccessPoliciesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateServiceAccessPoliciesCommand}.
+ */
 export interface UpdateServiceAccessPoliciesCommandInput extends UpdateServiceAccessPoliciesRequest {}
+/**
+ * The output of {@link UpdateServiceAccessPoliciesCommand}.
+ */
 export interface UpdateServiceAccessPoliciesCommandOutput
   extends UpdateServiceAccessPoliciesResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetContactMethodsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetContactMethodsCommand}.
+ */
 export interface GetContactMethodsCommandInput extends GetContactMethodsRequest {}
+/**
+ * The output of {@link GetContactMethodsCommand}.
+ */
 export interface GetContactMethodsCommandOutput extends GetContactMethodsResult, __MetadataBearer {}
 
 /**

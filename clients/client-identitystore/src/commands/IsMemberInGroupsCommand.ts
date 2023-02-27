@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1IsMemberInGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link IsMemberInGroupsCommand}.
+ */
 export interface IsMemberInGroupsCommandInput extends IsMemberInGroupsRequest {}
+/**
+ * The output of {@link IsMemberInGroupsCommand}.
+ */
 export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse, __MetadataBearer {}
 
 /**

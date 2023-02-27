@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListReviewableHITsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListReviewableHITsCommand}.
+ */
 export interface ListReviewableHITsCommandInput extends ListReviewableHITsRequest {}
+/**
+ * The output of {@link ListReviewableHITsCommand}.
+ */
 export interface ListReviewableHITsCommandOutput extends ListReviewableHITsResponse, __MetadataBearer {}
 
 /**

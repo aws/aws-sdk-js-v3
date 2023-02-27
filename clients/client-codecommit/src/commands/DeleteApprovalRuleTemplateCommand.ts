@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteApprovalRuleTemplateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteApprovalRuleTemplateCommand}.
+ */
 export interface DeleteApprovalRuleTemplateCommandInput extends DeleteApprovalRuleTemplateInput {}
+/**
+ * The output of {@link DeleteApprovalRuleTemplateCommand}.
+ */
 export interface DeleteApprovalRuleTemplateCommandOutput extends DeleteApprovalRuleTemplateOutput, __MetadataBearer {}
 
 /**

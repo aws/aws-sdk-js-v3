@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListCrawlsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListCrawlsCommand}.
+ */
 export interface ListCrawlsCommandInput extends ListCrawlsRequest {}
+/**
+ * The output of {@link ListCrawlsCommand}.
+ */
 export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataBearer {}
 
 /**

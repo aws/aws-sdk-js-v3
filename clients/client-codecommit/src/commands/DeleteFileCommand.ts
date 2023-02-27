@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteFileCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteFileCommand}.
+ */
 export interface DeleteFileCommandInput extends DeleteFileInput {}
+/**
+ * The output of {@link DeleteFileCommand}.
+ */
 export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBearer {}
 
 /**

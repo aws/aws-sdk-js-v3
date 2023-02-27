@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * The input for {@link UpdateWorkgroupCommand}.
+ */
 export interface UpdateWorkgroupCommandInput extends UpdateWorkgroupRequest {}
+/**
+ * The output of {@link UpdateWorkgroupCommand}.
+ */
 export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, __MetadataBearer {}
 
 /**

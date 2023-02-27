@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateQueueCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateQueueCommand}.
+ */
 export interface CreateQueueCommandInput extends CreateQueueRequest {}
+/**
+ * The output of {@link CreateQueueCommand}.
+ */
 export interface CreateQueueCommandOutput extends CreateQueueResponse, __MetadataBearer {}
 
 /**

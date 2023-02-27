@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutDomainPermissionsPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutDomainPermissionsPolicyCommand}.
+ */
 export interface PutDomainPermissionsPolicyCommandInput extends PutDomainPermissionsPolicyRequest {}
+/**
+ * The output of {@link PutDomainPermissionsPolicyCommand}.
+ */
 export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermissionsPolicyResult, __MetadataBearer {}
 
 /**

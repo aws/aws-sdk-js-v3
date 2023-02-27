@@ -31,7 +31,13 @@ import {
   TranscribeStreamingClientResolvedConfig,
 } from "../TranscribeStreamingClient";
 
+/**
+ * The input for {@link StartStreamTranscriptionCommand}.
+ */
 export interface StartStreamTranscriptionCommandInput extends StartStreamTranscriptionRequest {}
+/**
+ * The output of {@link StartStreamTranscriptionCommand}.
+ */
 export interface StartStreamTranscriptionCommandOutput extends StartStreamTranscriptionResponse, __MetadataBearer {}
 
 /**

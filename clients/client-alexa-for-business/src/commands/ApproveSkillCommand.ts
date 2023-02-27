@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ApproveSkillCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ApproveSkillCommand}.
+ */
 export interface ApproveSkillCommandInput extends ApproveSkillRequest {}
+/**
+ * The output of {@link ApproveSkillCommand}.
+ */
 export interface ApproveSkillCommandOutput extends ApproveSkillResponse, __MetadataBearer {}
 
 /**

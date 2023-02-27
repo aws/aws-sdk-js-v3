@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetOrganizationConformancePackDetailedStatusCommand}.
+ */
 export interface GetOrganizationConformancePackDetailedStatusCommandInput
   extends GetOrganizationConformancePackDetailedStatusRequest {}
+/**
+ * The output of {@link GetOrganizationConformancePackDetailedStatusCommand}.
+ */
 export interface GetOrganizationConformancePackDetailedStatusCommandOutput
   extends GetOrganizationConformancePackDetailedStatusResponse,
     __MetadataBearer {}

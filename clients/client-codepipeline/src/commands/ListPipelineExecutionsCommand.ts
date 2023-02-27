@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListPipelineExecutionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListPipelineExecutionsCommand}.
+ */
 export interface ListPipelineExecutionsCommandInput extends ListPipelineExecutionsInput {}
+/**
+ * The output of {@link ListPipelineExecutionsCommand}.
+ */
 export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecutionsOutput, __MetadataBearer {}
 
 /**

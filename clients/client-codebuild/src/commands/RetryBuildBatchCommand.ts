@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RetryBuildBatchCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RetryBuildBatchCommand}.
+ */
 export interface RetryBuildBatchCommandInput extends RetryBuildBatchInput {}
+/**
+ * The output of {@link RetryBuildBatchCommand}.
+ */
 export interface RetryBuildBatchCommandOutput extends RetryBuildBatchOutput, __MetadataBearer {}
 
 /**

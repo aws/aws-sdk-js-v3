@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateIntentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateIntentCommand}.
+ */
 export interface UpdateIntentCommandInput extends UpdateIntentRequest {}
+/**
+ * The output of {@link UpdateIntentCommand}.
+ */
 export interface UpdateIntentCommandOutput extends UpdateIntentResponse, __MetadataBearer {}
 
 /**

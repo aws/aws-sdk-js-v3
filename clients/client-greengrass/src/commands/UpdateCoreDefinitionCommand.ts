@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateCoreDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateCoreDefinitionCommand}.
+ */
 export interface UpdateCoreDefinitionCommandInput extends UpdateCoreDefinitionRequest {}
+/**
+ * The output of {@link UpdateCoreDefinitionCommand}.
+ */
 export interface UpdateCoreDefinitionCommandOutput extends UpdateCoreDefinitionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeEC2InstanceLimitsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeEC2InstanceLimitsCommand}.
+ */
 export interface DescribeEC2InstanceLimitsCommandInput extends DescribeEC2InstanceLimitsInput {}
+/**
+ * The output of {@link DescribeEC2InstanceLimitsCommand}.
+ */
 export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2InstanceLimitsOutput, __MetadataBearer {}
 
 /**

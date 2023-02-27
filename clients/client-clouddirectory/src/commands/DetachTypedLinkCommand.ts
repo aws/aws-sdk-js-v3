@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DetachTypedLinkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DetachTypedLinkCommand}.
+ */
 export interface DetachTypedLinkCommandInput extends DetachTypedLinkRequest {}
+/**
+ * The output of {@link DetachTypedLinkCommand}.
+ */
 export interface DetachTypedLinkCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeAuditSuppressionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeAuditSuppressionCommand}.
+ */
 export interface DescribeAuditSuppressionCommandInput extends DescribeAuditSuppressionRequest {}
+/**
+ * The output of {@link DescribeAuditSuppressionCommand}.
+ */
 export interface DescribeAuditSuppressionCommandOutput extends DescribeAuditSuppressionResponse, __MetadataBearer {}
 
 /**

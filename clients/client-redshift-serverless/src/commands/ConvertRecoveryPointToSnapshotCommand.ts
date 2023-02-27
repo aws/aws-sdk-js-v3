@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * The input for {@link ConvertRecoveryPointToSnapshotCommand}.
+ */
 export interface ConvertRecoveryPointToSnapshotCommandInput extends ConvertRecoveryPointToSnapshotRequest {}
+/**
+ * The output of {@link ConvertRecoveryPointToSnapshotCommand}.
+ */
 export interface ConvertRecoveryPointToSnapshotCommandOutput
   extends ConvertRecoveryPointToSnapshotResponse,
     __MetadataBearer {}

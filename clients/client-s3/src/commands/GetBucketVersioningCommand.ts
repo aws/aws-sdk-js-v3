@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetBucketVersioningCommand}.
+ */
 export interface GetBucketVersioningCommandInput extends GetBucketVersioningRequest {}
+/**
+ * The output of {@link GetBucketVersioningCommand}.
+ */
 export interface GetBucketVersioningCommandOutput extends GetBucketVersioningOutput, __MetadataBearer {}
 
 /**

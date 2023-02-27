@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateUploadUrlCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateUploadUrlCommand}.
+ */
 export interface CreateUploadUrlCommandInput extends CreateUploadUrlRequest {}
+/**
+ * The output of {@link CreateUploadUrlCommand}.
+ */
 export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, __MetadataBearer {}
 
 /**

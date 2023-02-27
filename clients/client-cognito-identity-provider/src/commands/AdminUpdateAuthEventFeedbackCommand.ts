@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminUpdateAuthEventFeedbackCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminUpdateAuthEventFeedbackCommand}.
+ */
 export interface AdminUpdateAuthEventFeedbackCommandInput extends AdminUpdateAuthEventFeedbackRequest {}
+/**
+ * The output of {@link AdminUpdateAuthEventFeedbackCommand}.
+ */
 export interface AdminUpdateAuthEventFeedbackCommandOutput
   extends AdminUpdateAuthEventFeedbackResponse,
     __MetadataBearer {}

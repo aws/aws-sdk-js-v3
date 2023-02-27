@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DeleteTagsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteTagsCommand}.
+ */
 export interface DeleteTagsCommandInput extends DeleteTagsRequest {}
+/**
+ * The output of {@link DeleteTagsCommand}.
+ */
 export interface DeleteTagsCommandOutput extends DeleteTagsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link GetHealthCheckLastFailureReasonCommand}.
+ */
 export interface GetHealthCheckLastFailureReasonCommandInput extends GetHealthCheckLastFailureReasonRequest {}
+/**
+ * The output of {@link GetHealthCheckLastFailureReasonCommand}.
+ */
 export interface GetHealthCheckLastFailureReasonCommandOutput
   extends GetHealthCheckLastFailureReasonResponse,
     __MetadataBearer {}

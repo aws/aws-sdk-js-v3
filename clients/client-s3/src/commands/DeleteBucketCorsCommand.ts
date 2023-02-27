@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link DeleteBucketCorsCommand}.
+ */
 export interface DeleteBucketCorsCommandInput extends DeleteBucketCorsRequest {}
+/**
+ * The output of {@link DeleteBucketCorsCommand}.
+ */
 export interface DeleteBucketCorsCommandOutput extends __MetadataBearer {}
 
 /**

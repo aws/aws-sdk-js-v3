@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchDetectTargetedSentimentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchDetectTargetedSentimentCommand}.
+ */
 export interface BatchDetectTargetedSentimentCommandInput extends BatchDetectTargetedSentimentRequest {}
+/**
+ * The output of {@link BatchDetectTargetedSentimentCommand}.
+ */
 export interface BatchDetectTargetedSentimentCommandOutput
   extends BatchDetectTargetedSentimentResponse,
     __MetadataBearer {}

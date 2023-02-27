@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeVpcClassicLinkCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeVpcClassicLinkCommand}.
+ */
 export interface DescribeVpcClassicLinkCommandInput extends DescribeVpcClassicLinkRequest {}
+/**
+ * The output of {@link DescribeVpcClassicLinkCommand}.
+ */
 export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicLinkResult, __MetadataBearer {}
 
 /**

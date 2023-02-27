@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyFpgaImageAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyFpgaImageAttributeCommand}.
+ */
 export interface ModifyFpgaImageAttributeCommandInput extends ModifyFpgaImageAttributeRequest {}
+/**
+ * The output of {@link ModifyFpgaImageAttributeCommand}.
+ */
 export interface ModifyFpgaImageAttributeCommandOutput extends ModifyFpgaImageAttributeResult, __MetadataBearer {}
 
 /**

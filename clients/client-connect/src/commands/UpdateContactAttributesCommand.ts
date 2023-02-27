@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateContactAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateContactAttributesCommand}.
+ */
 export interface UpdateContactAttributesCommandInput extends UpdateContactAttributesRequest {}
+/**
+ * The output of {@link UpdateContactAttributesCommand}.
+ */
 export interface UpdateContactAttributesCommandOutput extends UpdateContactAttributesResponse, __MetadataBearer {}
 
 /**

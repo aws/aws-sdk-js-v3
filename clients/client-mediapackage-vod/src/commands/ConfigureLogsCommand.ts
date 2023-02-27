@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ConfigureLogsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ConfigureLogsCommand}.
+ */
 export interface ConfigureLogsCommandInput extends ConfigureLogsRequest {}
+/**
+ * The output of {@link ConfigureLogsCommand}.
+ */
 export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __MetadataBearer {}
 
 /**

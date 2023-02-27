@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteIntegrationAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteIntegrationAssociationCommand}.
+ */
 export interface DeleteIntegrationAssociationCommandInput extends DeleteIntegrationAssociationRequest {}
+/**
+ * The output of {@link DeleteIntegrationAssociationCommand}.
+ */
 export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBearer {}
 
 /**

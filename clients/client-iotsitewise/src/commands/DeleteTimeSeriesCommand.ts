@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteTimeSeriesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteTimeSeriesCommand}.
+ */
 export interface DeleteTimeSeriesCommandInput extends DeleteTimeSeriesRequest {}
+/**
+ * The output of {@link DeleteTimeSeriesCommand}.
+ */
 export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
 
 /**

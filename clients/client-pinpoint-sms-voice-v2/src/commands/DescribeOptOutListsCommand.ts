@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DescribeOptOutListsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeOptOutListsCommand}.
+ */
 export interface DescribeOptOutListsCommandInput extends DescribeOptOutListsRequest {}
+/**
+ * The output of {@link DescribeOptOutListsCommand}.
+ */
 export interface DescribeOptOutListsCommandOutput extends DescribeOptOutListsResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeMountTargetsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeMountTargetsCommand}.
+ */
 export interface DescribeMountTargetsCommandInput extends DescribeMountTargetsRequest {}
+/**
+ * The output of {@link DescribeMountTargetsCommand}.
+ */
 export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * The input for {@link DeleteActivityCommand}.
+ */
 export interface DeleteActivityCommandInput extends DeleteActivityInput {}
+/**
+ * The output of {@link DeleteActivityCommand}.
+ */
 export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __MetadataBearer {}
 
 /**

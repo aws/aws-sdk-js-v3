@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListCustomVocabularyItemsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListCustomVocabularyItemsCommand}.
+ */
 export interface ListCustomVocabularyItemsCommandInput extends ListCustomVocabularyItemsRequest {}
+/**
+ * The output of {@link ListCustomVocabularyItemsCommand}.
+ */
 export interface ListCustomVocabularyItemsCommandOutput extends ListCustomVocabularyItemsResponse, __MetadataBearer {}
 
 /**

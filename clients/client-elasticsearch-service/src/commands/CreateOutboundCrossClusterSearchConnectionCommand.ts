@@ -29,8 +29,14 @@ import {
   serializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateOutboundCrossClusterSearchConnectionCommand}.
+ */
 export interface CreateOutboundCrossClusterSearchConnectionCommandInput
   extends CreateOutboundCrossClusterSearchConnectionRequest {}
+/**
+ * The output of {@link CreateOutboundCrossClusterSearchConnectionCommand}.
+ */
 export interface CreateOutboundCrossClusterSearchConnectionCommandOutput
   extends CreateOutboundCrossClusterSearchConnectionResponse,
     __MetadataBearer {}

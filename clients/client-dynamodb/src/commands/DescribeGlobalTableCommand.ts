@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DescribeGlobalTableCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeGlobalTableCommand}.
+ */
 export interface DescribeGlobalTableCommandInput extends DescribeGlobalTableInput {}
+/**
+ * The output of {@link DescribeGlobalTableCommand}.
+ */
 export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOutput, __MetadataBearer {}
 
 /**

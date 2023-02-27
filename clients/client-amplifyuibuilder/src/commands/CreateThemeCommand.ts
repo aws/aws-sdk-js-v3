@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateThemeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateThemeCommand}.
+ */
 export interface CreateThemeCommandInput extends CreateThemeRequest {}
+/**
+ * The output of {@link CreateThemeCommand}.
+ */
 export interface CreateThemeCommandOutput extends CreateThemeResponse, __MetadataBearer {}
 
 /**

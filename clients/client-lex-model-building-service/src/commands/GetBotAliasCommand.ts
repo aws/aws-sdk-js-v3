@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetBotAliasCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBotAliasCommand}.
+ */
 export interface GetBotAliasCommandInput extends GetBotAliasRequest {}
+/**
+ * The output of {@link GetBotAliasCommand}.
+ */
 export interface GetBotAliasCommandOutput extends GetBotAliasResponse, __MetadataBearer {}
 
 /**

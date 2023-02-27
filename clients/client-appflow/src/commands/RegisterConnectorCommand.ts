@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RegisterConnectorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RegisterConnectorCommand}.
+ */
 export interface RegisterConnectorCommandInput extends RegisterConnectorRequest {}
+/**
+ * The output of {@link RegisterConnectorCommand}.
+ */
 export interface RegisterConnectorCommandOutput extends RegisterConnectorResponse, __MetadataBearer {}
 
 /**

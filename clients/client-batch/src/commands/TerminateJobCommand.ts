@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1TerminateJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link TerminateJobCommand}.
+ */
 export interface TerminateJobCommandInput extends TerminateJobRequest {}
+/**
+ * The output of {@link TerminateJobCommand}.
+ */
 export interface TerminateJobCommandOutput extends TerminateJobResponse, __MetadataBearer {}
 
 /**

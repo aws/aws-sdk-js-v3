@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetAttributeValuesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetAttributeValuesCommand}.
+ */
 export interface GetAttributeValuesCommandInput extends GetAttributeValuesRequest {}
+/**
+ * The output of {@link GetAttributeValuesCommand}.
+ */
 export interface GetAttributeValuesCommandOutput extends GetAttributeValuesResponse, __MetadataBearer {}
 
 /**

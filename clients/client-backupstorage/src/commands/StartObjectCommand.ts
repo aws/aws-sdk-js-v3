@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartObjectCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartObjectCommand}.
+ */
 export interface StartObjectCommandInput extends StartObjectInput {}
+/**
+ * The output of {@link StartObjectCommand}.
+ */
 export interface StartObjectCommandOutput extends StartObjectOutput, __MetadataBearer {}
 
 /**

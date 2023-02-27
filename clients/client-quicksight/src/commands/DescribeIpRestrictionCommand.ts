@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link DescribeIpRestrictionCommand}.
+ */
 export interface DescribeIpRestrictionCommandInput extends DescribeIpRestrictionRequest {}
+/**
+ * The output of {@link DescribeIpRestrictionCommand}.
+ */
 export interface DescribeIpRestrictionCommandOutput extends DescribeIpRestrictionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
+/**
+ * The input for {@link CreateGroupCommand}.
+ */
 export interface CreateGroupCommandInput extends CreateGroupInput {}
+/**
+ * The output of {@link CreateGroupCommand}.
+ */
 export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataBearer {}
 
 /**

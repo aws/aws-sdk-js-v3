@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
+/**
+ * The input for {@link UpdateResponsePlanCommand}.
+ */
 export interface UpdateResponsePlanCommandInput extends UpdateResponsePlanInput {}
+/**
+ * The output of {@link UpdateResponsePlanCommand}.
+ */
 export interface UpdateResponsePlanCommandOutput extends UpdateResponsePlanOutput, __MetadataBearer {}
 
 /**

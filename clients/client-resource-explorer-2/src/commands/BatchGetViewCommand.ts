@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * The input for {@link BatchGetViewCommand}.
+ */
 export interface BatchGetViewCommandInput extends BatchGetViewInput {}
+/**
+ * The output of {@link BatchGetViewCommand}.
+ */
 export interface BatchGetViewCommandOutput extends BatchGetViewOutput, __MetadataBearer {}
 
 /**

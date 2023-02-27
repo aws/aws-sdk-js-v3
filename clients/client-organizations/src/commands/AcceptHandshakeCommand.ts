@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AcceptHandshakeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AcceptHandshakeCommand}.
+ */
 export interface AcceptHandshakeCommandInput extends AcceptHandshakeRequest {}
+/**
+ * The output of {@link AcceptHandshakeCommand}.
+ */
 export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, __MetadataBearer {}
 
 /**

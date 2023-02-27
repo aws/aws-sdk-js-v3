@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link DeleteNotificationSubscriptionCommand}.
+ */
 export interface DeleteNotificationSubscriptionCommandInput extends DeleteNotificationSubscriptionRequest {}
+/**
+ * The output of {@link DeleteNotificationSubscriptionCommand}.
+ */
 export interface DeleteNotificationSubscriptionCommandOutput extends __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DescribeMyUserProfileCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeMyUserProfileCommand}.
+ */
 export interface DescribeMyUserProfileCommandInput {}
+/**
+ * The output of {@link DescribeMyUserProfileCommand}.
+ */
 export interface DescribeMyUserProfileCommandOutput extends DescribeMyUserProfileResult, __MetadataBearer {}
 
 /**

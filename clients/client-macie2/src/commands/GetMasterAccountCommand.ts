@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetMasterAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetMasterAccountCommand}.
+ */
 export interface GetMasterAccountCommandInput extends GetMasterAccountRequest {}
+/**
+ * The output of {@link GetMasterAccountCommand}.
+ */
 export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse, __MetadataBearer {}
 
 /**

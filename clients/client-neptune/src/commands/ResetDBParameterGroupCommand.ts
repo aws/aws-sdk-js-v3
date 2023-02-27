@@ -25,7 +25,13 @@ import {
   serializeAws_queryResetDBParameterGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ResetDBParameterGroupCommand}.
+ */
 export interface ResetDBParameterGroupCommandInput extends ResetDBParameterGroupMessage {}
+/**
+ * The output of {@link ResetDBParameterGroupCommand}.
+ */
 export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupNameMessage, __MetadataBearer {}
 
 /**

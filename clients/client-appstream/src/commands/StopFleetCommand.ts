@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1StopFleetCommand, serializeAws_json1_1StopFleetCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopFleetCommand}.
+ */
 export interface StopFleetCommandInput extends StopFleetRequest {}
+/**
+ * The output of {@link StopFleetCommand}.
+ */
 export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBearer {}
 
 /**

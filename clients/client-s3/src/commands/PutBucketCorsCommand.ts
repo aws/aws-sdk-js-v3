@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link PutBucketCorsCommand}.
+ */
 export interface PutBucketCorsCommandInput extends PutBucketCorsRequest {}
+/**
+ * The output of {@link PutBucketCorsCommand}.
+ */
 export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
 
 /**

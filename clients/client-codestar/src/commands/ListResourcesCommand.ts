@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListResourcesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListResourcesCommand}.
+ */
 export interface ListResourcesCommandInput extends ListResourcesRequest {}
+/**
+ * The output of {@link ListResourcesCommand}.
+ */
 export interface ListResourcesCommandOutput extends ListResourcesResult, __MetadataBearer {}
 
 /**

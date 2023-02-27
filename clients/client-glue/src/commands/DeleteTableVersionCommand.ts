@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteTableVersionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteTableVersionCommand}.
+ */
 export interface DeleteTableVersionCommandInput extends DeleteTableVersionRequest {}
+/**
+ * The output of {@link DeleteTableVersionCommand}.
+ */
 export interface DeleteTableVersionCommandOutput extends DeleteTableVersionResponse, __MetadataBearer {}
 
 /**

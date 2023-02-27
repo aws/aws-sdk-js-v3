@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyVpcTenancyCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyVpcTenancyCommand}.
+ */
 export interface ModifyVpcTenancyCommandInput extends ModifyVpcTenancyRequest {}
+/**
+ * The output of {@link ModifyVpcTenancyCommand}.
+ */
 export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, __MetadataBearer {}
 
 /**

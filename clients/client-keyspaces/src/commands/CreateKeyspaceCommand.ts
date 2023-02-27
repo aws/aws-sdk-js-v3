@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0CreateKeyspaceCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateKeyspaceCommand}.
+ */
 export interface CreateKeyspaceCommandInput extends CreateKeyspaceRequest {}
+/**
+ * The output of {@link CreateKeyspaceCommand}.
+ */
 export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __MetadataBearer {}
 
 /**

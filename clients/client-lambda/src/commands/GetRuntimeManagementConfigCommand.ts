@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetRuntimeManagementConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetRuntimeManagementConfigCommand}.
+ */
 export interface GetRuntimeManagementConfigCommandInput extends GetRuntimeManagementConfigRequest {}
+/**
+ * The output of {@link GetRuntimeManagementConfigCommand}.
+ */
 export interface GetRuntimeManagementConfigCommandOutput extends GetRuntimeManagementConfigResponse, __MetadataBearer {}
 
 /**

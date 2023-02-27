@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeLifecycleConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeLifecycleConfigurationCommand}.
+ */
 export interface DescribeLifecycleConfigurationCommandInput extends DescribeLifecycleConfigurationRequest {}
+/**
+ * The output of {@link DescribeLifecycleConfigurationCommand}.
+ */
 export interface DescribeLifecycleConfigurationCommandOutput
   extends LifecycleConfigurationDescription,
     __MetadataBearer {}

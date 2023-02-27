@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutCoreNetworkPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutCoreNetworkPolicyCommand}.
+ */
 export interface PutCoreNetworkPolicyCommandInput extends PutCoreNetworkPolicyRequest {}
+/**
+ * The output of {@link PutCoreNetworkPolicyCommand}.
+ */
 export interface PutCoreNetworkPolicyCommandOutput extends PutCoreNetworkPolicyResponse, __MetadataBearer {}
 
 /**

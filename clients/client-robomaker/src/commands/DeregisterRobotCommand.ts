@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * The input for {@link DeregisterRobotCommand}.
+ */
 export interface DeregisterRobotCommandInput extends DeregisterRobotRequest {}
+/**
+ * The output of {@link DeregisterRobotCommand}.
+ */
 export interface DeregisterRobotCommandOutput extends DeregisterRobotResponse, __MetadataBearer {}
 
 /**

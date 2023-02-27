@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteBotLocaleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteBotLocaleCommand}.
+ */
 export interface DeleteBotLocaleCommandInput extends DeleteBotLocaleRequest {}
+/**
+ * The output of {@link DeleteBotLocaleCommand}.
+ */
 export interface DeleteBotLocaleCommandOutput extends DeleteBotLocaleResponse, __MetadataBearer {}
 
 /**

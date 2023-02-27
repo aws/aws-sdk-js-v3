@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * The input for {@link DeleteServiceTemplateCommand}.
+ */
 export interface DeleteServiceTemplateCommandInput extends DeleteServiceTemplateInput {}
+/**
+ * The output of {@link DeleteServiceTemplateCommand}.
+ */
 export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplateOutput, __MetadataBearer {}
 
 /**

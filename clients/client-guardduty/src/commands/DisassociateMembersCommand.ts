@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociateMembersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateMembersCommand}.
+ */
 export interface DisassociateMembersCommandInput extends DisassociateMembersRequest {}
+/**
+ * The output of {@link DisassociateMembersCommand}.
+ */
 export interface DisassociateMembersCommandOutput extends DisassociateMembersResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteApplicationFromEnvironmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteApplicationFromEnvironmentCommand}.
+ */
 export interface DeleteApplicationFromEnvironmentCommandInput extends DeleteApplicationFromEnvironmentRequest {}
+/**
+ * The output of {@link DeleteApplicationFromEnvironmentCommand}.
+ */
 export interface DeleteApplicationFromEnvironmentCommandOutput
   extends DeleteApplicationFromEnvironmentResponse,
     __MetadataBearer {}

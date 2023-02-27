@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutStudioMembersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutStudioMembersCommand}.
+ */
 export interface PutStudioMembersCommandInput extends PutStudioMembersRequest {}
+/**
+ * The output of {@link PutStudioMembersCommand}.
+ */
 export interface PutStudioMembersCommandOutput extends PutStudioMembersResponse, __MetadataBearer {}
 
 /**

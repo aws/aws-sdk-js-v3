@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeCacheEngineVersionsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeCacheEngineVersionsCommand}.
+ */
 export interface DescribeCacheEngineVersionsCommandInput extends DescribeCacheEngineVersionsMessage {}
+/**
+ * The output of {@link DescribeCacheEngineVersionsCommand}.
+ */
 export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVersionMessage, __MetadataBearer {}
 
 /**

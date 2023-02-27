@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteAttendeeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAttendeeCommand}.
+ */
 export interface DeleteAttendeeCommandInput extends DeleteAttendeeRequest {}
+/**
+ * The output of {@link DeleteAttendeeCommand}.
+ */
 export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListActiveViolationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListActiveViolationsCommand}.
+ */
 export interface ListActiveViolationsCommandInput extends ListActiveViolationsRequest {}
+/**
+ * The output of {@link ListActiveViolationsCommand}.
+ */
 export interface ListActiveViolationsCommandOutput extends ListActiveViolationsResponse, __MetadataBearer {}
 
 /**

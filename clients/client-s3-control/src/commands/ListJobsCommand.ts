@@ -23,7 +23,13 @@ import {
 import { deserializeAws_restXmlListJobsCommand, serializeAws_restXmlListJobsCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link ListJobsCommand}.
+ */
 export interface ListJobsCommandInput extends ListJobsRequest {}
+/**
+ * The output of {@link ListJobsCommand}.
+ */
 export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer {}
 
 /**

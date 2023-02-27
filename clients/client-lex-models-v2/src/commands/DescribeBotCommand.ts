@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeBotCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeBotCommand}.
+ */
 export interface DescribeBotCommandInput extends DescribeBotRequest {}
+/**
+ * The output of {@link DescribeBotCommand}.
+ */
 export interface DescribeBotCommandOutput extends DescribeBotResponse, __MetadataBearer {}
 
 /**

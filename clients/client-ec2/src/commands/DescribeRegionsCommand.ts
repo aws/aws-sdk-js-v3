@@ -22,7 +22,13 @@ import {
 } from "../models/models_4";
 import { deserializeAws_ec2DescribeRegionsCommand, serializeAws_ec2DescribeRegionsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeRegionsCommand}.
+ */
 export interface DescribeRegionsCommandInput extends DescribeRegionsRequest {}
+/**
+ * The output of {@link DescribeRegionsCommand}.
+ */
 export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribePlaceIndexCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribePlaceIndexCommand}.
+ */
 export interface DescribePlaceIndexCommandInput extends DescribePlaceIndexRequest {}
+/**
+ * The output of {@link DescribePlaceIndexCommand}.
+ */
 export interface DescribePlaceIndexCommandOutput extends DescribePlaceIndexResponse, __MetadataBearer {}
 
 /**

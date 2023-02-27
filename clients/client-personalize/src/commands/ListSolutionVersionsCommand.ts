@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListSolutionVersionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListSolutionVersionsCommand}.
+ */
 export interface ListSolutionVersionsCommandInput extends ListSolutionVersionsRequest {}
+/**
+ * The output of {@link ListSolutionVersionsCommand}.
+ */
 export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsResponse, __MetadataBearer {}
 
 /**

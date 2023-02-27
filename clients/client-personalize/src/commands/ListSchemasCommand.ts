@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListSchemasCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListSchemasCommand}.
+ */
 export interface ListSchemasCommandInput extends ListSchemasRequest {}
+/**
+ * The output of {@link ListSchemasCommand}.
+ */
 export interface ListSchemasCommandOutput extends ListSchemasResponse, __MetadataBearer {}
 
 /**

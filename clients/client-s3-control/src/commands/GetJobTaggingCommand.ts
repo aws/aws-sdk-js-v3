@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link GetJobTaggingCommand}.
+ */
 export interface GetJobTaggingCommandInput extends GetJobTaggingRequest {}
+/**
+ * The output of {@link GetJobTaggingCommand}.
+ */
 export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __MetadataBearer {}
 
 /**

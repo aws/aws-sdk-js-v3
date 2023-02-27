@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateRouteCalculatorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateRouteCalculatorCommand}.
+ */
 export interface UpdateRouteCalculatorCommandInput extends UpdateRouteCalculatorRequest {}
+/**
+ * The output of {@link UpdateRouteCalculatorCommand}.
+ */
 export interface UpdateRouteCalculatorCommandOutput extends UpdateRouteCalculatorResponse, __MetadataBearer {}
 
 /**

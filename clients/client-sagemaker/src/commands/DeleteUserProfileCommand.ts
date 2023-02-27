@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteUserProfileCommand}.
+ */
 export interface DeleteUserProfileCommandInput extends DeleteUserProfileRequest {}
+/**
+ * The output of {@link DeleteUserProfileCommand}.
+ */
 export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteUserDefinedFunctionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteUserDefinedFunctionCommand}.
+ */
 export interface DeleteUserDefinedFunctionCommandInput extends DeleteUserDefinedFunctionRequest {}
+/**
+ * The output of {@link DeleteUserDefinedFunctionCommand}.
+ */
 export interface DeleteUserDefinedFunctionCommandOutput extends DeleteUserDefinedFunctionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ConfirmProductInstanceCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ConfirmProductInstanceCommand}.
+ */
 export interface ConfirmProductInstanceCommandInput extends ConfirmProductInstanceRequest {}
+/**
+ * The output of {@link ConfirmProductInstanceCommand}.
+ */
 export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInstanceResult, __MetadataBearer {}
 
 /**

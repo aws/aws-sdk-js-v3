@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetUploadStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetUploadStatusCommand}.
+ */
 export interface GetUploadStatusCommandInput extends GetUploadStatusRequest {}
+/**
+ * The output of {@link GetUploadStatusCommand}.
+ */
 export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, __MetadataBearer {}
 
 /**

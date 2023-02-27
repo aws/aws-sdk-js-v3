@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteClassifierCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteClassifierCommand}.
+ */
 export interface DeleteClassifierCommandInput extends DeleteClassifierRequest {}
+/**
+ * The output of {@link DeleteClassifierCommand}.
+ */
 export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse, __MetadataBearer {}
 
 /**

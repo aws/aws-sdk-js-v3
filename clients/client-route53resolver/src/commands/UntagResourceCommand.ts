@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * The input for {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandInput extends UntagResourceRequest {}
+/**
+ * The output of {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**

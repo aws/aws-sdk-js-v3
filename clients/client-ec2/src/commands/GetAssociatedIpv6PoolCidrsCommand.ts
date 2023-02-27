@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetAssociatedIpv6PoolCidrsCommand}.
+ */
 export interface GetAssociatedIpv6PoolCidrsCommandInput extends GetAssociatedIpv6PoolCidrsRequest {}
+/**
+ * The output of {@link GetAssociatedIpv6PoolCidrsCommand}.
+ */
 export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIpv6PoolCidrsResult, __MetadataBearer {}
 
 /**

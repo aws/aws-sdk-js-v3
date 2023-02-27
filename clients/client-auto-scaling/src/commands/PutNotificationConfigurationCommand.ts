@@ -23,7 +23,13 @@ import {
   serializeAws_queryPutNotificationConfigurationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PutNotificationConfigurationCommand}.
+ */
 export interface PutNotificationConfigurationCommandInput extends PutNotificationConfigurationType {}
+/**
+ * The output of {@link PutNotificationConfigurationCommand}.
+ */
 export interface PutNotificationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

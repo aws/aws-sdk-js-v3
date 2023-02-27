@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
+/**
+ * The input for {@link DescribeTrustedAdvisorChecksCommand}.
+ */
 export interface DescribeTrustedAdvisorChecksCommandInput extends DescribeTrustedAdvisorChecksRequest {}
+/**
+ * The output of {@link DescribeTrustedAdvisorChecksCommand}.
+ */
 export interface DescribeTrustedAdvisorChecksCommandOutput
   extends DescribeTrustedAdvisorChecksResponse,
     __MetadataBearer {}

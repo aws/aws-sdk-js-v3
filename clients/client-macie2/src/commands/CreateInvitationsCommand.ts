@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateInvitationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateInvitationsCommand}.
+ */
 export interface CreateInvitationsCommandInput extends CreateInvitationsRequest {}
+/**
+ * The output of {@link CreateInvitationsCommand}.
+ */
 export interface CreateInvitationsCommandOutput extends CreateInvitationsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link UpdateUserCommand}.
+ */
 export interface UpdateUserCommandInput extends UpdateUserRequest {}
+/**
+ * The output of {@link UpdateUserCommand}.
+ */
 export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DeregisterIdentityProviderCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeregisterIdentityProviderCommand}.
+ */
 export interface DeregisterIdentityProviderCommandInput extends DeregisterIdentityProviderRequest {}
+/**
+ * The output of {@link DeregisterIdentityProviderCommand}.
+ */
 export interface DeregisterIdentityProviderCommandOutput extends DeregisterIdentityProviderResponse, __MetadataBearer {}
 
 /**

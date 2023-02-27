@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ArchiveFindingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ArchiveFindingsCommand}.
+ */
 export interface ArchiveFindingsCommandInput extends ArchiveFindingsRequest {}
+/**
+ * The output of {@link ArchiveFindingsCommand}.
+ */
 export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, __MetadataBearer {}
 
 /**

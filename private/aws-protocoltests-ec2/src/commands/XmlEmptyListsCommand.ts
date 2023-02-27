@@ -16,7 +16,13 @@ import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import { XmlListsOutput, XmlListsOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_ec2XmlEmptyListsCommand, serializeAws_ec2XmlEmptyListsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link XmlEmptyListsCommand}.
+ */
 export interface XmlEmptyListsCommandInput {}
+/**
+ * The output of {@link XmlEmptyListsCommand}.
+ */
 export interface XmlEmptyListsCommandOutput extends XmlListsOutput, __MetadataBearer {}
 
 export class XmlEmptyListsCommand extends $Command<

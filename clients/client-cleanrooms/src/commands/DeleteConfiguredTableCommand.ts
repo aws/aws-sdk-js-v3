@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteConfiguredTableCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteConfiguredTableCommand}.
+ */
 export interface DeleteConfiguredTableCommandInput extends DeleteConfiguredTableInput {}
+/**
+ * The output of {@link DeleteConfiguredTableCommand}.
+ */
 export interface DeleteConfiguredTableCommandOutput extends DeleteConfiguredTableOutput, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * The input for {@link SyncResourceCommand}.
+ */
 export interface SyncResourceCommandInput extends SyncResourceRequest {}
+/**
+ * The output of {@link SyncResourceCommand}.
+ */
 export interface SyncResourceCommandOutput extends SyncResourceResponse, __MetadataBearer {}
 
 /**

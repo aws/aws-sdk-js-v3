@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetGrantCommand, serializeAws_json1_1GetGrantCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetGrantCommand}.
+ */
 export interface GetGrantCommandInput extends GetGrantRequest {}
+/**
+ * The output of {@link GetGrantCommand}.
+ */
 export interface GetGrantCommandOutput extends GetGrantResponse, __MetadataBearer {}
 
 /**

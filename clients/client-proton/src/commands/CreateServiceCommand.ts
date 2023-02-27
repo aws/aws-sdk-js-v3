@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * The input for {@link CreateServiceCommand}.
+ */
 export interface CreateServiceCommandInput extends CreateServiceInput {}
+/**
+ * The output of {@link CreateServiceCommand}.
+ */
 export interface CreateServiceCommandOutput extends CreateServiceOutput, __MetadataBearer {}
 
 /**

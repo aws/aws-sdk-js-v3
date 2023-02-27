@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1MoveAccountCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link MoveAccountCommand}.
+ */
 export interface MoveAccountCommandInput extends MoveAccountRequest {}
+/**
+ * The output of {@link MoveAccountCommand}.
+ */
 export interface MoveAccountCommandOutput extends __MetadataBearer {}
 
 /**

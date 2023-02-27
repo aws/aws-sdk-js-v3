@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteDocumentationVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteDocumentationVersionCommand}.
+ */
 export interface DeleteDocumentationVersionCommandInput extends DeleteDocumentationVersionRequest {}
+/**
+ * The output of {@link DeleteDocumentationVersionCommand}.
+ */
 export interface DeleteDocumentationVersionCommandOutput extends __MetadataBearer {}
 
 /**

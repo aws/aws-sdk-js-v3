@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutSchemaVersionMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutSchemaVersionMetadataCommand}.
+ */
 export interface PutSchemaVersionMetadataCommandInput extends PutSchemaVersionMetadataInput {}
+/**
+ * The output of {@link PutSchemaVersionMetadataCommand}.
+ */
 export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionMetadataResponse, __MetadataBearer {}
 
 /**

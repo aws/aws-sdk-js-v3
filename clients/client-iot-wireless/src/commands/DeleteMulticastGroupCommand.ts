@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteMulticastGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteMulticastGroupCommand}.
+ */
 export interface DeleteMulticastGroupCommandInput extends DeleteMulticastGroupRequest {}
+/**
+ * The output of {@link DeleteMulticastGroupCommand}.
+ */
 export interface DeleteMulticastGroupCommandOutput extends DeleteMulticastGroupResponse, __MetadataBearer {}
 
 /**

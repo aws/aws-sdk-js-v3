@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link BatchDisableStandardsCommand}.
+ */
 export interface BatchDisableStandardsCommandInput extends BatchDisableStandardsRequest {}
+/**
+ * The output of {@link BatchDisableStandardsCommand}.
+ */
 export interface BatchDisableStandardsCommandOutput extends BatchDisableStandardsResponse, __MetadataBearer {}
 
 /**

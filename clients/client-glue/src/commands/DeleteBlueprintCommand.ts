@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteBlueprintCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteBlueprintCommand}.
+ */
 export interface DeleteBlueprintCommandInput extends DeleteBlueprintRequest {}
+/**
+ * The output of {@link DeleteBlueprintCommand}.
+ */
 export interface DeleteBlueprintCommandOutput extends DeleteBlueprintResponse, __MetadataBearer {}
 
 /**

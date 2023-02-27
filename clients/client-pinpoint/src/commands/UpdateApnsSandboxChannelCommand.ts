@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateApnsSandboxChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateApnsSandboxChannelCommand}.
+ */
 export interface UpdateApnsSandboxChannelCommandInput extends UpdateApnsSandboxChannelRequest {}
+/**
+ * The output of {@link UpdateApnsSandboxChannelCommand}.
+ */
 export interface UpdateApnsSandboxChannelCommandOutput extends UpdateApnsSandboxChannelResponse, __MetadataBearer {}
 
 /**

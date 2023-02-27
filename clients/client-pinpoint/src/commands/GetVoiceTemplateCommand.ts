@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetVoiceTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetVoiceTemplateCommand}.
+ */
 export interface GetVoiceTemplateCommandInput extends GetVoiceTemplateRequest {}
+/**
+ * The output of {@link GetVoiceTemplateCommand}.
+ */
 export interface GetVoiceTemplateCommandOutput extends GetVoiceTemplateResponse, __MetadataBearer {}
 
 /**

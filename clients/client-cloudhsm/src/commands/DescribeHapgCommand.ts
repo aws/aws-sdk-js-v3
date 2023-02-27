@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeHapgCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeHapgCommand}.
+ */
 export interface DescribeHapgCommandInput extends DescribeHapgRequest {}
+/**
+ * The output of {@link DescribeHapgCommand}.
+ */
 export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __MetadataBearer {}
 
 /**

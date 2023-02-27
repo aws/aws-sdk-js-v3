@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribePortalCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribePortalCommand}.
+ */
 export interface DescribePortalCommandInput extends DescribePortalRequest {}
+/**
+ * The output of {@link DescribePortalCommand}.
+ */
 export interface DescribePortalCommandOutput extends DescribePortalResponse, __MetadataBearer {}
 
 /**

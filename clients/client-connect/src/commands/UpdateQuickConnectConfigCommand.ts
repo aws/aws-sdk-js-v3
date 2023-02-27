@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateQuickConnectConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateQuickConnectConfigCommand}.
+ */
 export interface UpdateQuickConnectConfigCommandInput extends UpdateQuickConnectConfigRequest {}
+/**
+ * The output of {@link UpdateQuickConnectConfigCommand}.
+ */
 export interface UpdateQuickConnectConfigCommandOutput extends __MetadataBearer {}
 
 /**

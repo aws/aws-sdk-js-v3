@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * The input for {@link ListResolverRulesCommand}.
+ */
 export interface ListResolverRulesCommandInput extends ListResolverRulesRequest {}
+/**
+ * The output of {@link ListResolverRulesCommand}.
+ */
 export interface ListResolverRulesCommandOutput extends ListResolverRulesResponse, __MetadataBearer {}
 
 /**

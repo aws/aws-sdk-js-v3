@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ExtendLicenseConsumptionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ExtendLicenseConsumptionCommand}.
+ */
 export interface ExtendLicenseConsumptionCommandInput extends ExtendLicenseConsumptionRequest {}
+/**
+ * The output of {@link ExtendLicenseConsumptionCommand}.
+ */
 export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseConsumptionResponse, __MetadataBearer {}
 
 /**

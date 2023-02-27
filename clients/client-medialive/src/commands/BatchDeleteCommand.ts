@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchDeleteCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchDeleteCommand}.
+ */
 export interface BatchDeleteCommandInput extends BatchDeleteRequest {}
+/**
+ * The output of {@link BatchDeleteCommand}.
+ */
 export interface BatchDeleteCommandOutput extends BatchDeleteResponse, __MetadataBearer {}
 
 /**

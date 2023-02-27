@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteExtensionAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteExtensionAssociationCommand}.
+ */
 export interface DeleteExtensionAssociationCommandInput extends DeleteExtensionAssociationRequest {}
+/**
+ * The output of {@link DeleteExtensionAssociationCommand}.
+ */
 export interface DeleteExtensionAssociationCommandOutput extends __MetadataBearer {}
 
 /**

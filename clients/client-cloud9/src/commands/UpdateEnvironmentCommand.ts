@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateEnvironmentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateEnvironmentCommand}.
+ */
 export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentRequest {}
+/**
+ * The output of {@link UpdateEnvironmentCommand}.
+ */
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResult, __MetadataBearer {}
 
 /**

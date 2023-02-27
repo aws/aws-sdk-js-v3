@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DisassociateElasticIpCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateElasticIpCommand}.
+ */
 export interface DisassociateElasticIpCommandInput extends DisassociateElasticIpRequest {}
+/**
+ * The output of {@link DisassociateElasticIpCommand}.
+ */
 export interface DisassociateElasticIpCommandOutput extends __MetadataBearer {}
 
 /**

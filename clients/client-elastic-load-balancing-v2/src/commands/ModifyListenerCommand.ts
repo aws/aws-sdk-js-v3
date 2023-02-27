@@ -29,7 +29,13 @@ import {
   serializeAws_queryModifyListenerCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyListenerCommand}.
+ */
 export interface ModifyListenerCommandInput extends ModifyListenerInput {}
+/**
+ * The output of {@link ModifyListenerCommand}.
+ */
 export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __MetadataBearer {}
 
 /**

@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminUpdateUserAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminUpdateUserAttributesCommand}.
+ */
 export interface AdminUpdateUserAttributesCommandInput extends AdminUpdateUserAttributesRequest {}
+/**
+ * The output of {@link AdminUpdateUserAttributesCommand}.
+ */
 export interface AdminUpdateUserAttributesCommandOutput extends AdminUpdateUserAttributesResponse, __MetadataBearer {}
 
 /**

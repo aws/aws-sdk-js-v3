@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlCreateStreamingDistributionWithTagsCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link CreateStreamingDistributionWithTagsCommand}.
+ */
 export interface CreateStreamingDistributionWithTagsCommandInput extends CreateStreamingDistributionWithTagsRequest {}
+/**
+ * The output of {@link CreateStreamingDistributionWithTagsCommand}.
+ */
 export interface CreateStreamingDistributionWithTagsCommandOutput
   extends CreateStreamingDistributionWithTagsResult,
     __MetadataBearer {}

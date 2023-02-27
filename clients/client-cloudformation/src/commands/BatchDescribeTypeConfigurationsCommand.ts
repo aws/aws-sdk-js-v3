@@ -25,7 +25,13 @@ import {
   serializeAws_queryBatchDescribeTypeConfigurationsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link BatchDescribeTypeConfigurationsCommand}.
+ */
 export interface BatchDescribeTypeConfigurationsCommandInput extends BatchDescribeTypeConfigurationsInput {}
+/**
+ * The output of {@link BatchDescribeTypeConfigurationsCommand}.
+ */
 export interface BatchDescribeTypeConfigurationsCommandOutput
   extends BatchDescribeTypeConfigurationsOutput,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeSnapshotAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeSnapshotAttributeCommand}.
+ */
 export interface DescribeSnapshotAttributeCommandInput extends DescribeSnapshotAttributeRequest {}
+/**
+ * The output of {@link DescribeSnapshotAttributeCommand}.
+ */
 export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshotAttributeResult, __MetadataBearer {}
 
 /**

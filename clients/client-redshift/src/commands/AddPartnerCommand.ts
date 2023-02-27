@@ -22,7 +22,13 @@ import {
 import { deserializeAws_queryAddPartnerCommand, serializeAws_queryAddPartnerCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link AddPartnerCommand}.
+ */
 export interface AddPartnerCommandInput extends PartnerIntegrationInputMessage {}
+/**
+ * The output of {@link AddPartnerCommand}.
+ */
 export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage, __MetadataBearer {}
 
 /**

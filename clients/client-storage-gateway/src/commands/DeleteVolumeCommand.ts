@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link DeleteVolumeCommand}.
+ */
 export interface DeleteVolumeCommandInput extends DeleteVolumeInput {}
+/**
+ * The output of {@link DeleteVolumeCommand}.
+ */
 export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateConnectPeerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateConnectPeerCommand}.
+ */
 export interface AssociateConnectPeerCommandInput extends AssociateConnectPeerRequest {}
+/**
+ * The output of {@link AssociateConnectPeerCommand}.
+ */
 export interface AssociateConnectPeerCommandOutput extends AssociateConnectPeerResponse, __MetadataBearer {}
 
 /**

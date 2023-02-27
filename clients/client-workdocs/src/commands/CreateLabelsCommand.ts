@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link CreateLabelsCommand}.
+ */
 export interface CreateLabelsCommandInput extends CreateLabelsRequest {}
+/**
+ * The output of {@link CreateLabelsCommand}.
+ */
 export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __MetadataBearer {}
 
 /**

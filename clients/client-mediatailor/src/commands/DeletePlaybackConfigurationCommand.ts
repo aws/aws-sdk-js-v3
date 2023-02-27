@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeletePlaybackConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePlaybackConfigurationCommand}.
+ */
 export interface DeletePlaybackConfigurationCommandInput extends DeletePlaybackConfigurationRequest {}
+/**
+ * The output of {@link DeletePlaybackConfigurationCommand}.
+ */
 export interface DeletePlaybackConfigurationCommandOutput
   extends DeletePlaybackConfigurationResponse,
     __MetadataBearer {}

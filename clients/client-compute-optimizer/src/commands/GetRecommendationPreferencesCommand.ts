@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetRecommendationPreferencesCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetRecommendationPreferencesCommand}.
+ */
 export interface GetRecommendationPreferencesCommandInput extends GetRecommendationPreferencesRequest {}
+/**
+ * The output of {@link GetRecommendationPreferencesCommand}.
+ */
 export interface GetRecommendationPreferencesCommandOutput
   extends GetRecommendationPreferencesResponse,
     __MetadataBearer {}

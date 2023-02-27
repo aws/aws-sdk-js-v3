@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateElasticIpCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateElasticIpCommand}.
+ */
 export interface UpdateElasticIpCommandInput extends UpdateElasticIpRequest {}
+/**
+ * The output of {@link UpdateElasticIpCommand}.
+ */
 export interface UpdateElasticIpCommandOutput extends __MetadataBearer {}
 
 /**

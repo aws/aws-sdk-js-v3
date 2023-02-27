@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateFilterCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateFilterCommand}.
+ */
 export interface UpdateFilterCommandInput extends UpdateFilterRequest {}
+/**
+ * The output of {@link UpdateFilterCommand}.
+ */
 export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __MetadataBearer {}
 
 /**

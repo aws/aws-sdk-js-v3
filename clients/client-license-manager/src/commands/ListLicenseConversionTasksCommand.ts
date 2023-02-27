@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListLicenseConversionTasksCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListLicenseConversionTasksCommand}.
+ */
 export interface ListLicenseConversionTasksCommandInput extends ListLicenseConversionTasksRequest {}
+/**
+ * The output of {@link ListLicenseConversionTasksCommand}.
+ */
 export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConversionTasksResponse, __MetadataBearer {}
 
 /**

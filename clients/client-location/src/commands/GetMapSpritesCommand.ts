@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetMapSpritesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetMapSpritesCommand}.
+ */
 export interface GetMapSpritesCommandInput extends GetMapSpritesRequest {}
+/**
+ * The output of {@link GetMapSpritesCommand}.
+ */
 export interface GetMapSpritesCommandOutput extends GetMapSpritesResponse, __MetadataBearer {}
 
 /**

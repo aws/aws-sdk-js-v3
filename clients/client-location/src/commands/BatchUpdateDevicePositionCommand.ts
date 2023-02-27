@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchUpdateDevicePositionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchUpdateDevicePositionCommand}.
+ */
 export interface BatchUpdateDevicePositionCommandInput extends BatchUpdateDevicePositionRequest {}
+/**
+ * The output of {@link BatchUpdateDevicePositionCommand}.
+ */
 export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevicePositionResponse, __MetadataBearer {}
 
 /**

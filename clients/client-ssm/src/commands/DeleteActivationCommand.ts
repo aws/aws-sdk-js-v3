@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link DeleteActivationCommand}.
+ */
 export interface DeleteActivationCommandInput extends DeleteActivationRequest {}
+/**
+ * The output of {@link DeleteActivationCommand}.
+ */
 export interface DeleteActivationCommandOutput extends DeleteActivationResult, __MetadataBearer {}
 
 /**

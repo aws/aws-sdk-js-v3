@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ResetDistributionCacheCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ResetDistributionCacheCommand}.
+ */
 export interface ResetDistributionCacheCommandInput extends ResetDistributionCacheRequest {}
+/**
+ * The output of {@link ResetDistributionCacheCommand}.
+ */
 export interface ResetDistributionCacheCommandOutput extends ResetDistributionCacheResult, __MetadataBearer {}
 
 /**

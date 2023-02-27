@@ -25,7 +25,13 @@ import {
   serializeAws_queryRestoreDBClusterFromSnapshotCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RestoreDBClusterFromSnapshotCommand}.
+ */
 export interface RestoreDBClusterFromSnapshotCommandInput extends RestoreDBClusterFromSnapshotMessage {}
+/**
+ * The output of {@link RestoreDBClusterFromSnapshotCommand}.
+ */
 export interface RestoreDBClusterFromSnapshotCommandOutput
   extends RestoreDBClusterFromSnapshotResult,
     __MetadataBearer {}

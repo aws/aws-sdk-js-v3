@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetBotChannelAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBotChannelAssociationCommand}.
+ */
 export interface GetBotChannelAssociationCommandInput extends GetBotChannelAssociationRequest {}
+/**
+ * The output of {@link GetBotChannelAssociationCommand}.
+ */
 export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAssociationResponse, __MetadataBearer {}
 
 /**

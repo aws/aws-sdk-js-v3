@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0GetAccountSettingsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetAccountSettingsCommand}.
+ */
 export interface GetAccountSettingsCommandInput extends GetAccountSettingsRequest {}
+/**
+ * The output of {@link GetAccountSettingsCommand}.
+ */
 export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResponse, __MetadataBearer {}
 
 /**

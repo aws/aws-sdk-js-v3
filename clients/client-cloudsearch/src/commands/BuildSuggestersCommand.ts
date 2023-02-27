@@ -25,7 +25,13 @@ import {
   serializeAws_queryBuildSuggestersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link BuildSuggestersCommand}.
+ */
 export interface BuildSuggestersCommandInput extends BuildSuggestersRequest {}
+/**
+ * The output of {@link BuildSuggestersCommand}.
+ */
 export interface BuildSuggestersCommandOutput extends BuildSuggestersResponse, __MetadataBearer {}
 
 /**

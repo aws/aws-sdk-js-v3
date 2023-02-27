@@ -22,7 +22,13 @@ import {
 } from "../models/models_2";
 import { deserializeAws_ec2DeleteCoipPoolCommand, serializeAws_ec2DeleteCoipPoolCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteCoipPoolCommand}.
+ */
 export interface DeleteCoipPoolCommandInput extends DeleteCoipPoolRequest {}
+/**
+ * The output of {@link DeleteCoipPoolCommand}.
+ */
 export interface DeleteCoipPoolCommandOutput extends DeleteCoipPoolResult, __MetadataBearer {}
 
 /**

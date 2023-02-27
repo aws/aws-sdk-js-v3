@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1OpenTunnelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link OpenTunnelCommand}.
+ */
 export interface OpenTunnelCommandInput extends OpenTunnelRequest {}
+/**
+ * The output of {@link OpenTunnelCommand}.
+ */
 export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataBearer {}
 
 /**

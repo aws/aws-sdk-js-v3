@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListLicenseManagerReportGeneratorsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListLicenseManagerReportGeneratorsCommand}.
+ */
 export interface ListLicenseManagerReportGeneratorsCommandInput extends ListLicenseManagerReportGeneratorsRequest {}
+/**
+ * The output of {@link ListLicenseManagerReportGeneratorsCommand}.
+ */
 export interface ListLicenseManagerReportGeneratorsCommandOutput
   extends ListLicenseManagerReportGeneratorsResponse,
     __MetadataBearer {}

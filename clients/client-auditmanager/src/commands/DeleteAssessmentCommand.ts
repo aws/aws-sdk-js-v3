@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteAssessmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAssessmentCommand}.
+ */
 export interface DeleteAssessmentCommandInput extends DeleteAssessmentRequest {}
+/**
+ * The output of {@link DeleteAssessmentCommand}.
+ */
 export interface DeleteAssessmentCommandOutput extends DeleteAssessmentResponse, __MetadataBearer {}
 
 /**

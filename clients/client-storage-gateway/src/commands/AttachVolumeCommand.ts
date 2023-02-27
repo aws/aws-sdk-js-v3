@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link AttachVolumeCommand}.
+ */
 export interface AttachVolumeCommandInput extends AttachVolumeInput {}
+/**
+ * The output of {@link AttachVolumeCommand}.
+ */
 export interface AttachVolumeCommandOutput extends AttachVolumeOutput, __MetadataBearer {}
 
 /**

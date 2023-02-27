@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0ListPoolOriginationIdentitiesCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListPoolOriginationIdentitiesCommand}.
+ */
 export interface ListPoolOriginationIdentitiesCommandInput extends ListPoolOriginationIdentitiesRequest {}
+/**
+ * The output of {@link ListPoolOriginationIdentitiesCommand}.
+ */
 export interface ListPoolOriginationIdentitiesCommandOutput
   extends ListPoolOriginationIdentitiesResult,
     __MetadataBearer {}

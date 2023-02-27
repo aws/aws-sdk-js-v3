@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ImportBackendStorageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ImportBackendStorageCommand}.
+ */
 export interface ImportBackendStorageCommandInput extends ImportBackendStorageRequest {}
+/**
+ * The output of {@link ImportBackendStorageCommand}.
+ */
 export interface ImportBackendStorageCommandOutput extends ImportBackendStorageResponse, __MetadataBearer {}
 
 /**

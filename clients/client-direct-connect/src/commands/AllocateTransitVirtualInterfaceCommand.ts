@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AllocateTransitVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AllocateTransitVirtualInterfaceCommand}.
+ */
 export interface AllocateTransitVirtualInterfaceCommandInput extends AllocateTransitVirtualInterfaceRequest {}
+/**
+ * The output of {@link AllocateTransitVirtualInterfaceCommand}.
+ */
 export interface AllocateTransitVirtualInterfaceCommandOutput
   extends AllocateTransitVirtualInterfaceResult,
     __MetadataBearer {}

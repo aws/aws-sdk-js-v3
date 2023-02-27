@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DescribeCustomerMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeCustomerMetadataCommand}.
+ */
 export interface DescribeCustomerMetadataCommandInput {}
+/**
+ * The output of {@link DescribeCustomerMetadataCommand}.
+ */
 export interface DescribeCustomerMetadataCommandOutput extends DescribeCustomerMetadataResponse, __MetadataBearer {}
 
 /**

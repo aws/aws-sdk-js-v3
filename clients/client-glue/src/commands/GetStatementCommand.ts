@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetStatementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetStatementCommand}.
+ */
 export interface GetStatementCommandInput extends GetStatementRequest {}
+/**
+ * The output of {@link GetStatementCommand}.
+ */
 export interface GetStatementCommandOutput extends GetStatementResponse, __MetadataBearer {}
 
 /**

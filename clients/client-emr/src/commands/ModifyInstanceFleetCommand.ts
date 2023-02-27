@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1ModifyInstanceFleetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ModifyInstanceFleetCommand}.
+ */
 export interface ModifyInstanceFleetCommandInput extends ModifyInstanceFleetInput {}
+/**
+ * The output of {@link ModifyInstanceFleetCommand}.
+ */
 export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
 
 /**

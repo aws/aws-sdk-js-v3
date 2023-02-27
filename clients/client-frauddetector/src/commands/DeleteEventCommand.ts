@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteEventCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteEventCommand}.
+ */
 export interface DeleteEventCommandInput extends DeleteEventRequest {}
+/**
+ * The output of {@link DeleteEventCommand}.
+ */
 export interface DeleteEventCommandOutput extends DeleteEventResult, __MetadataBearer {}
 
 /**

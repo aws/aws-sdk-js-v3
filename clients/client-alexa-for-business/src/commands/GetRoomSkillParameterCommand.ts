@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetRoomSkillParameterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRoomSkillParameterCommand}.
+ */
 export interface GetRoomSkillParameterCommandInput extends GetRoomSkillParameterRequest {}
+/**
+ * The output of {@link GetRoomSkillParameterCommand}.
+ */
 export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParameterResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetBackupSelectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBackupSelectionCommand}.
+ */
 export interface GetBackupSelectionCommandInput extends GetBackupSelectionInput {}
+/**
+ * The output of {@link GetBackupSelectionCommand}.
+ */
 export interface GetBackupSelectionCommandOutput extends GetBackupSelectionOutput, __MetadataBearer {}
 
 /**

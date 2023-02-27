@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link ListVerifiedEmailAddressesCommand}.
+ */
 export interface ListVerifiedEmailAddressesCommandInput {}
+/**
+ * The output of {@link ListVerifiedEmailAddressesCommand}.
+ */
 export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEmailAddressesResponse, __MetadataBearer {}
 
 /**

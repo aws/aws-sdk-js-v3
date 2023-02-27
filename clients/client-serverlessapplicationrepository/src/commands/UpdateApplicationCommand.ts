@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
 
+/**
+ * The input for {@link UpdateApplicationCommand}.
+ */
 export interface UpdateApplicationCommandInput extends UpdateApplicationRequest {}
+/**
+ * The output of {@link UpdateApplicationCommand}.
+ */
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**

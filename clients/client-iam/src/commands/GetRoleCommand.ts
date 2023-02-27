@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryGetRoleCommand, serializeAws_queryGetRoleCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetRoleCommand}.
+ */
 export interface GetRoleCommandInput extends GetRoleRequest {}
+/**
+ * The output of {@link GetRoleCommand}.
+ */
 export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer {}
 
 /**

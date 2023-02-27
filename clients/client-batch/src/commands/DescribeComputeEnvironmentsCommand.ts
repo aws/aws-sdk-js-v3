@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeComputeEnvironmentsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeComputeEnvironmentsCommand}.
+ */
 export interface DescribeComputeEnvironmentsCommandInput extends DescribeComputeEnvironmentsRequest {}
+/**
+ * The output of {@link DescribeComputeEnvironmentsCommand}.
+ */
 export interface DescribeComputeEnvironmentsCommandOutput
   extends DescribeComputeEnvironmentsResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetFunctionUrlConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetFunctionUrlConfigCommand}.
+ */
 export interface GetFunctionUrlConfigCommandInput extends GetFunctionUrlConfigRequest {}
+/**
+ * The output of {@link GetFunctionUrlConfigCommand}.
+ */
 export interface GetFunctionUrlConfigCommandOutput extends GetFunctionUrlConfigResponse, __MetadataBearer {}
 
 /**

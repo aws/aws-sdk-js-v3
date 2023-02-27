@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * The input for {@link CreateByteMatchSetCommand}.
+ */
 export interface CreateByteMatchSetCommandInput extends CreateByteMatchSetRequest {}
+/**
+ * The output of {@link CreateByteMatchSetCommand}.
+ */
 export interface CreateByteMatchSetCommandOutput extends CreateByteMatchSetResponse, __MetadataBearer {}
 
 /**

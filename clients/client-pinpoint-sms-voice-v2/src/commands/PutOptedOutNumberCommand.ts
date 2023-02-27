@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0PutOptedOutNumberCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link PutOptedOutNumberCommand}.
+ */
 export interface PutOptedOutNumberCommandInput extends PutOptedOutNumberRequest {}
+/**
+ * The output of {@link PutOptedOutNumberCommand}.
+ */
 export interface PutOptedOutNumberCommandOutput extends PutOptedOutNumberResult, __MetadataBearer {}
 
 /**

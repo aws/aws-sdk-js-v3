@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteAccountSettingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteAccountSettingCommand}.
+ */
 export interface DeleteAccountSettingCommandInput extends DeleteAccountSettingRequest {}
+/**
+ * The output of {@link DeleteAccountSettingCommand}.
+ */
 export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingResponse, __MetadataBearer {}
 
 /**

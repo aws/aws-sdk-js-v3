@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateServiceRoleToAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateServiceRoleToAccountCommand}.
+ */
 export interface AssociateServiceRoleToAccountCommandInput extends AssociateServiceRoleToAccountRequest {}
+/**
+ * The output of {@link AssociateServiceRoleToAccountCommand}.
+ */
 export interface AssociateServiceRoleToAccountCommandOutput
   extends AssociateServiceRoleToAccountResponse,
     __MetadataBearer {}

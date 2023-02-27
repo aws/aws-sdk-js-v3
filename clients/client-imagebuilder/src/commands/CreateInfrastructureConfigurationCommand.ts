@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateInfrastructureConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateInfrastructureConfigurationCommand}.
+ */
 export interface CreateInfrastructureConfigurationCommandInput extends CreateInfrastructureConfigurationRequest {}
+/**
+ * The output of {@link CreateInfrastructureConfigurationCommand}.
+ */
 export interface CreateInfrastructureConfigurationCommandOutput
   extends CreateInfrastructureConfigurationResponse,
     __MetadataBearer {}

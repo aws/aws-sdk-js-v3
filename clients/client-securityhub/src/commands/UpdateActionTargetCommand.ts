@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link UpdateActionTargetCommand}.
+ */
 export interface UpdateActionTargetCommandInput extends UpdateActionTargetRequest {}
+/**
+ * The output of {@link UpdateActionTargetCommand}.
+ */
 export interface UpdateActionTargetCommandOutput extends UpdateActionTargetResponse, __MetadataBearer {}
 
 /**

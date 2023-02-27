@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1ListJobsCommand, serializeAws_json1_1ListJobsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListJobsCommand}.
+ */
 export interface ListJobsCommandInput extends ListJobsRequest {}
+/**
+ * The output of {@link ListJobsCommand}.
+ */
 export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer {}
 
 /**

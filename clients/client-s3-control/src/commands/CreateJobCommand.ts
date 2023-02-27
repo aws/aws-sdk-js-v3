@@ -23,7 +23,13 @@ import {
 import { deserializeAws_restXmlCreateJobCommand, serializeAws_restXmlCreateJobCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link CreateJobCommand}.
+ */
 export interface CreateJobCommandInput extends CreateJobRequest {}
+/**
+ * The output of {@link CreateJobCommand}.
+ */
 export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBearer {}
 
 /**

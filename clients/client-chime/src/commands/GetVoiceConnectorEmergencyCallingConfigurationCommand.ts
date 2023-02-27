@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetVoiceConnectorEmergencyCallingConfigurationCommand}.
+ */
 export interface GetVoiceConnectorEmergencyCallingConfigurationCommandInput
   extends GetVoiceConnectorEmergencyCallingConfigurationRequest {}
+/**
+ * The output of {@link GetVoiceConnectorEmergencyCallingConfigurationCommand}.
+ */
 export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
   extends GetVoiceConnectorEmergencyCallingConfigurationResponse,
     __MetadataBearer {}

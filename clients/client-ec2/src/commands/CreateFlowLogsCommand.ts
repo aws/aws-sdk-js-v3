@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_ec2CreateFlowLogsCommand, serializeAws_ec2CreateFlowLogsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateFlowLogsCommand}.
+ */
 export interface CreateFlowLogsCommandInput extends CreateFlowLogsRequest {}
+/**
+ * The output of {@link CreateFlowLogsCommand}.
+ */
 export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __MetadataBearer {}
 
 /**

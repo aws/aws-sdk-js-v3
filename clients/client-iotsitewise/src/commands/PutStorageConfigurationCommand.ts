@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutStorageConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutStorageConfigurationCommand}.
+ */
 export interface PutStorageConfigurationCommandInput extends PutStorageConfigurationRequest {}
+/**
+ * The output of {@link PutStorageConfigurationCommand}.
+ */
 export interface PutStorageConfigurationCommandOutput extends PutStorageConfigurationResponse, __MetadataBearer {}
 
 /**

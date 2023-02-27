@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetReportsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetReportsCommand}.
+ */
 export interface BatchGetReportsCommandInput extends BatchGetReportsInput {}
+/**
+ * The output of {@link BatchGetReportsCommand}.
+ */
 export interface BatchGetReportsCommandOutput extends BatchGetReportsOutput, __MetadataBearer {}
 
 /**

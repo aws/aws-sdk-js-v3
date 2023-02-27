@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1TagProjectCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link TagProjectCommand}.
+ */
 export interface TagProjectCommandInput extends TagProjectRequest {}
+/**
+ * The output of {@link TagProjectCommand}.
+ */
 export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBearer {}
 
 /**

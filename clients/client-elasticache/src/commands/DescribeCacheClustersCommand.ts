@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeCacheClustersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeCacheClustersCommand}.
+ */
 export interface DescribeCacheClustersCommandInput extends DescribeCacheClustersMessage {}
+/**
+ * The output of {@link DescribeCacheClustersCommand}.
+ */
 export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage, __MetadataBearer {}
 
 /**

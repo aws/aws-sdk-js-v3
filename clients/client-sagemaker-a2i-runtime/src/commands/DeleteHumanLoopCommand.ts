@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../SageMakerA2IRuntimeClient";
 
+/**
+ * The input for {@link DeleteHumanLoopCommand}.
+ */
 export interface DeleteHumanLoopCommandInput extends DeleteHumanLoopRequest {}
+/**
+ * The output of {@link DeleteHumanLoopCommand}.
+ */
 export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, __MetadataBearer {}
 
 /**

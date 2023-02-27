@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetBlacklistReportsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBlacklistReportsCommand}.
+ */
 export interface GetBlacklistReportsCommandInput extends GetBlacklistReportsRequest {}
+/**
+ * The output of {@link GetBlacklistReportsCommand}.
+ */
 export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsResponse, __MetadataBearer {}
 
 /**

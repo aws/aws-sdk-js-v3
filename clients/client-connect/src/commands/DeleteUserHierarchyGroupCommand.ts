@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteUserHierarchyGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteUserHierarchyGroupCommand}.
+ */
 export interface DeleteUserHierarchyGroupCommandInput extends DeleteUserHierarchyGroupRequest {}
+/**
+ * The output of {@link DeleteUserHierarchyGroupCommand}.
+ */
 export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer {}
 
 /**

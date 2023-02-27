@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeOrganizationHealthCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeOrganizationHealthCommand}.
+ */
 export interface DescribeOrganizationHealthCommandInput extends DescribeOrganizationHealthRequest {}
+/**
+ * The output of {@link DescribeOrganizationHealthCommand}.
+ */
 export interface DescribeOrganizationHealthCommandOutput extends DescribeOrganizationHealthResponse, __MetadataBearer {}
 
 /**

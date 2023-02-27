@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1CreateACLCommand, serializeAws_json1_1CreateACLCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateACLCommand}.
+ */
 export interface CreateACLCommandInput extends CreateACLRequest {}
+/**
+ * The output of {@link CreateACLCommand}.
+ */
 export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBearer {}
 
 /**

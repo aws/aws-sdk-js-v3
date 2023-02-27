@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteOutpostCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteOutpostCommand}.
+ */
 export interface DeleteOutpostCommandInput extends DeleteOutpostInput {}
+/**
+ * The output of {@link DeleteOutpostCommand}.
+ */
 export interface DeleteOutpostCommandOutput extends DeleteOutpostOutput, __MetadataBearer {}
 
 /**

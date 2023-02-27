@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link ListObjectsV2Command}.
+ */
 export interface ListObjectsV2CommandInput extends ListObjectsV2Request {}
+/**
+ * The output of {@link ListObjectsV2Command}.
+ */
 export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __MetadataBearer {}
 
 /**

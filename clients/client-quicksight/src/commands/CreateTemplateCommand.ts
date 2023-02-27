@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link CreateTemplateCommand}.
+ */
 export interface CreateTemplateCommandInput extends CreateTemplateRequest {}
+/**
+ * The output of {@link CreateTemplateCommand}.
+ */
 export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __MetadataBearer {}
 
 /**

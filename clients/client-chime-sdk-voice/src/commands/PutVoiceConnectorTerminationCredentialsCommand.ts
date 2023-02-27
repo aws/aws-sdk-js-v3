@@ -23,8 +23,14 @@ import {
   serializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutVoiceConnectorTerminationCredentialsCommand}.
+ */
 export interface PutVoiceConnectorTerminationCredentialsCommandInput
   extends PutVoiceConnectorTerminationCredentialsRequest {}
+/**
+ * The output of {@link PutVoiceConnectorTerminationCredentialsCommand}.
+ */
 export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __MetadataBearer {}
 
 export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<

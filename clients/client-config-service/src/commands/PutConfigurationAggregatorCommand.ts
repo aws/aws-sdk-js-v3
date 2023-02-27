@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutConfigurationAggregatorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutConfigurationAggregatorCommand}.
+ */
 export interface PutConfigurationAggregatorCommandInput extends PutConfigurationAggregatorRequest {}
+/**
+ * The output of {@link PutConfigurationAggregatorCommand}.
+ */
 export interface PutConfigurationAggregatorCommandOutput extends PutConfigurationAggregatorResponse, __MetadataBearer {}
 
 /**

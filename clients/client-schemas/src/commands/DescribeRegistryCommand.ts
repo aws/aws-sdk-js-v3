@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * The input for {@link DescribeRegistryCommand}.
+ */
 export interface DescribeRegistryCommandInput extends DescribeRegistryRequest {}
+/**
+ * The output of {@link DescribeRegistryCommand}.
+ */
 export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse, __MetadataBearer {}
 
 /**

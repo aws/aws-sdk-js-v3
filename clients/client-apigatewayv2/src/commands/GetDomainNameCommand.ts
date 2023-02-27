@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDomainNameCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDomainNameCommand}.
+ */
 export interface GetDomainNameCommandInput extends GetDomainNameRequest {}
+/**
+ * The output of {@link GetDomainNameCommand}.
+ */
 export interface GetDomainNameCommandOutput extends GetDomainNameResponse, __MetadataBearer {}
 
 /**

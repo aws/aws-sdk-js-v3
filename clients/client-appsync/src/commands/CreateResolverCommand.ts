@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateResolverCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateResolverCommand}.
+ */
 export interface CreateResolverCommandInput extends CreateResolverRequest {}
+/**
+ * The output of {@link CreateResolverCommand}.
+ */
 export interface CreateResolverCommandOutput extends CreateResolverResponse, __MetadataBearer {}
 
 /**

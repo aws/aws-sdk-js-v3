@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartMLEvaluationTaskRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartMLEvaluationTaskRunCommand}.
+ */
 export interface StartMLEvaluationTaskRunCommandInput extends StartMLEvaluationTaskRunRequest {}
+/**
+ * The output of {@link StartMLEvaluationTaskRunCommand}.
+ */
 export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluationTaskRunResponse, __MetadataBearer {}
 
 /**

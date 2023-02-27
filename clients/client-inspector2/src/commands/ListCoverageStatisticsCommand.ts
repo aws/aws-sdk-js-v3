@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListCoverageStatisticsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListCoverageStatisticsCommand}.
+ */
 export interface ListCoverageStatisticsCommandInput extends ListCoverageStatisticsRequest {}
+/**
+ * The output of {@link ListCoverageStatisticsCommand}.
+ */
 export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatisticsResponse, __MetadataBearer {}
 
 /**

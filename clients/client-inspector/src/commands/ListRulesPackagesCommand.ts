@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListRulesPackagesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListRulesPackagesCommand}.
+ */
 export interface ListRulesPackagesCommandInput extends ListRulesPackagesRequest {}
+/**
+ * The output of {@link ListRulesPackagesCommand}.
+ */
 export interface ListRulesPackagesCommandOutput extends ListRulesPackagesResponse, __MetadataBearer {}
 
 /**

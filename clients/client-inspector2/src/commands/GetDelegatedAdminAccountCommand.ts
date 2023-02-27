@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDelegatedAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDelegatedAdminAccountCommand}.
+ */
 export interface GetDelegatedAdminAccountCommandInput extends GetDelegatedAdminAccountRequest {}
+/**
+ * The output of {@link GetDelegatedAdminAccountCommand}.
+ */
 export interface GetDelegatedAdminAccountCommandOutput extends GetDelegatedAdminAccountResponse, __MetadataBearer {}
 
 /**

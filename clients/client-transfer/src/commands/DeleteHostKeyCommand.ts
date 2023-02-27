@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link DeleteHostKeyCommand}.
+ */
 export interface DeleteHostKeyCommandInput extends DeleteHostKeyRequest {}
+/**
+ * The output of {@link DeleteHostKeyCommand}.
+ */
 export interface DeleteHostKeyCommandOutput extends __MetadataBearer {}
 
 /**

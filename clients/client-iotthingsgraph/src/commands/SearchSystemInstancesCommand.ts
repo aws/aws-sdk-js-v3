@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SearchSystemInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SearchSystemInstancesCommand}.
+ */
 export interface SearchSystemInstancesCommandInput extends SearchSystemInstancesRequest {}
+/**
+ * The output of {@link SearchSystemInstancesCommand}.
+ */
 export interface SearchSystemInstancesCommandOutput extends SearchSystemInstancesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
+/**
+ * The input for {@link BatchExecuteStatementCommand}.
+ */
 export interface BatchExecuteStatementCommandInput extends BatchExecuteStatementRequest {}
+/**
+ * The output of {@link BatchExecuteStatementCommand}.
+ */
 export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementResponse, __MetadataBearer {}
 
 /**

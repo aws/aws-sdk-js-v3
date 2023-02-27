@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateCacheParameterGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateCacheParameterGroupCommand}.
+ */
 export interface CreateCacheParameterGroupCommandInput extends CreateCacheParameterGroupMessage {}
+/**
+ * The output of {@link CreateCacheParameterGroupCommand}.
+ */
 export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParameterGroupResult, __MetadataBearer {}
 
 /**

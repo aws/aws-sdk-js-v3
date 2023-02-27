@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeProfilingGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeProfilingGroupCommand}.
+ */
 export interface DescribeProfilingGroupCommandInput extends DescribeProfilingGroupRequest {}
+/**
+ * The output of {@link DescribeProfilingGroupCommand}.
+ */
 export interface DescribeProfilingGroupCommandOutput extends DescribeProfilingGroupResponse, __MetadataBearer {}
 
 /**

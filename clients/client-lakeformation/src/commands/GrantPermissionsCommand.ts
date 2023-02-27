@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GrantPermissionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GrantPermissionsCommand}.
+ */
 export interface GrantPermissionsCommandInput extends GrantPermissionsRequest {}
+/**
+ * The output of {@link GrantPermissionsCommand}.
+ */
 export interface GrantPermissionsCommandOutput extends GrantPermissionsResponse, __MetadataBearer {}
 
 /**

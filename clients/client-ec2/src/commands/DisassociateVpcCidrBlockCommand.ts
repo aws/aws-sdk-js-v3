@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DisassociateVpcCidrBlockCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisassociateVpcCidrBlockCommand}.
+ */
 export interface DisassociateVpcCidrBlockCommandInput extends DisassociateVpcCidrBlockRequest {}
+/**
+ * The output of {@link DisassociateVpcCidrBlockCommand}.
+ */
 export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCidrBlockResult, __MetadataBearer {}
 
 /**

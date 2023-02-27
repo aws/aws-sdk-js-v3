@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteDeploymentConfigCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteDeploymentConfigCommand}.
+ */
 export interface DeleteDeploymentConfigCommandInput extends DeleteDeploymentConfigInput {}
+/**
+ * The output of {@link DeleteDeploymentConfigCommand}.
+ */
 export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
 
 /**

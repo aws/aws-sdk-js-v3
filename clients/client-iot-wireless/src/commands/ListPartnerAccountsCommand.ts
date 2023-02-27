@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListPartnerAccountsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPartnerAccountsCommand}.
+ */
 export interface ListPartnerAccountsCommandInput extends ListPartnerAccountsRequest {}
+/**
+ * The output of {@link ListPartnerAccountsCommand}.
+ */
 export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsResponse, __MetadataBearer {}
 
 /**

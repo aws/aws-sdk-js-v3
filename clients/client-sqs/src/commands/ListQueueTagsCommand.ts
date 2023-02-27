@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link ListQueueTagsCommand}.
+ */
 export interface ListQueueTagsCommandInput extends ListQueueTagsRequest {}
+/**
+ * The output of {@link ListQueueTagsCommand}.
+ */
 export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __MetadataBearer {}
 
 /**

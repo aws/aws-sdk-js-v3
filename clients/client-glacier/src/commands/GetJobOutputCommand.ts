@@ -28,7 +28,13 @@ import {
   serializeAws_restJson1GetJobOutputCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetJobOutputCommand}.
+ */
 export interface GetJobOutputCommandInput extends GetJobOutputInput {}
+/**
+ * The output of {@link GetJobOutputCommand}.
+ */
 export interface GetJobOutputCommandOutput extends __WithSdkStreamMixin<GetJobOutputOutput, "body">, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateSkillGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateSkillGroupCommand}.
+ */
 export interface UpdateSkillGroupCommandInput extends UpdateSkillGroupRequest {}
+/**
+ * The output of {@link UpdateSkillGroupCommand}.
+ */
 export interface UpdateSkillGroupCommandOutput extends UpdateSkillGroupResponse, __MetadataBearer {}
 
 /**

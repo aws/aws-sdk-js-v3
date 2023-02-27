@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteAlertCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAlertCommand}.
+ */
 export interface DeleteAlertCommandInput extends DeleteAlertRequest {}
+/**
+ * The output of {@link DeleteAlertCommand}.
+ */
 export interface DeleteAlertCommandOutput extends DeleteAlertResponse, __MetadataBearer {}
 
 /**

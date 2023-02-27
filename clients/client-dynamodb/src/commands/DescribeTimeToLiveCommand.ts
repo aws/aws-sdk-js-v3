@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DescribeTimeToLiveCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeTimeToLiveCommand}.
+ */
 export interface DescribeTimeToLiveCommandInput extends DescribeTimeToLiveInput {}
+/**
+ * The output of {@link DescribeTimeToLiveCommand}.
+ */
 export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutput, __MetadataBearer {}
 
 /**

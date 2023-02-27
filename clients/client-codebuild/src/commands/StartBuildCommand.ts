@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartBuildCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartBuildCommand}.
+ */
 export interface StartBuildCommandInput extends StartBuildInput {}
+/**
+ * The output of {@link StartBuildCommand}.
+ */
 export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBearer {}
 
 /**

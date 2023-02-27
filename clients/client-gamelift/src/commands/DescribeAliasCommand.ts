@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeAliasCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeAliasCommand}.
+ */
 export interface DescribeAliasCommandInput extends DescribeAliasInput {}
+/**
+ * The output of {@link DescribeAliasCommand}.
+ */
 export interface DescribeAliasCommandOutput extends DescribeAliasOutput, __MetadataBearer {}
 
 /**

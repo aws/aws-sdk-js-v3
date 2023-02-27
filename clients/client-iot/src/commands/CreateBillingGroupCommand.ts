@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateBillingGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateBillingGroupCommand}.
+ */
 export interface CreateBillingGroupCommandInput extends CreateBillingGroupRequest {}
+/**
+ * The output of {@link CreateBillingGroupCommand}.
+ */
 export interface CreateBillingGroupCommandOutput extends CreateBillingGroupResponse, __MetadataBearer {}
 
 /**

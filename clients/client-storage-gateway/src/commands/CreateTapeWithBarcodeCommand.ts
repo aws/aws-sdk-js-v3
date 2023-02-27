@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link CreateTapeWithBarcodeCommand}.
+ */
 export interface CreateTapeWithBarcodeCommandInput extends CreateTapeWithBarcodeInput {}
+/**
+ * The output of {@link CreateTapeWithBarcodeCommand}.
+ */
 export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcodeOutput, __MetadataBearer {}
 
 /**

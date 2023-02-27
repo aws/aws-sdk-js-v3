@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
+/**
+ * The input for {@link CommitTransactionCommand}.
+ */
 export interface CommitTransactionCommandInput extends CommitTransactionRequest {}
+/**
+ * The output of {@link CommitTransactionCommand}.
+ */
 export interface CommitTransactionCommandOutput extends CommitTransactionResponse, __MetadataBearer {}
 
 /**

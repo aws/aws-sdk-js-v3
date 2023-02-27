@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1UpdateChannelReadMarkerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateChannelReadMarkerCommand}.
+ */
 export interface UpdateChannelReadMarkerCommandInput extends UpdateChannelReadMarkerRequest {}
+/**
+ * The output of {@link UpdateChannelReadMarkerCommand}.
+ */
 export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadMarkerResponse, __MetadataBearer {}
 
 /**

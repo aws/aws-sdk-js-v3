@@ -24,7 +24,13 @@ import {
   serializeAws_restJson1DeleteIntentVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteIntentVersionCommand}.
+ */
 export interface DeleteIntentVersionCommandInput extends DeleteIntentVersionRequest {}
+/**
+ * The output of {@link DeleteIntentVersionCommand}.
+ */
 export interface DeleteIntentVersionCommandOutput extends __MetadataBearer {}
 
 /**

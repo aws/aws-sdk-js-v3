@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link DisassociateTagOptionFromResourceCommand}.
+ */
 export interface DisassociateTagOptionFromResourceCommandInput extends DisassociateTagOptionFromResourceInput {}
+/**
+ * The output of {@link DisassociateTagOptionFromResourceCommand}.
+ */
 export interface DisassociateTagOptionFromResourceCommandOutput
   extends DisassociateTagOptionFromResourceOutput,
     __MetadataBearer {}

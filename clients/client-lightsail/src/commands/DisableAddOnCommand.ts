@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisableAddOnCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisableAddOnCommand}.
+ */
 export interface DisableAddOnCommandInput extends DisableAddOnRequest {}
+/**
+ * The output of {@link DisableAddOnCommand}.
+ */
 export interface DisableAddOnCommandOutput extends DisableAddOnResult, __MetadataBearer {}
 
 /**

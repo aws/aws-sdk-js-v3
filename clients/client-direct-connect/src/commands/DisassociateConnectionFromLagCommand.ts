@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateConnectionFromLagCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateConnectionFromLagCommand}.
+ */
 export interface DisassociateConnectionFromLagCommandInput extends DisassociateConnectionFromLagRequest {}
+/**
+ * The output of {@link DisassociateConnectionFromLagCommand}.
+ */
 export interface DisassociateConnectionFromLagCommandOutput extends Connection, __MetadataBearer {}
 
 /**

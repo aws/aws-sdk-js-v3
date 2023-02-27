@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link CreateSpaceCommand}.
+ */
 export interface CreateSpaceCommandInput extends CreateSpaceRequest {}
+/**
+ * The output of {@link CreateSpaceCommand}.
+ */
 export interface CreateSpaceCommandOutput extends CreateSpaceResponse, __MetadataBearer {}
 
 /**

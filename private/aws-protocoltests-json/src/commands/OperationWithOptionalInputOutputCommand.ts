@@ -24,7 +24,13 @@ import {
   serializeAws_json1_1OperationWithOptionalInputOutputCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link OperationWithOptionalInputOutputCommand}.
+ */
 export interface OperationWithOptionalInputOutputCommandInput extends OperationWithOptionalInputOutputInput {}
+/**
+ * The output of {@link OperationWithOptionalInputOutputCommand}.
+ */
 export interface OperationWithOptionalInputOutputCommandOutput
   extends OperationWithOptionalInputOutputOutput,
     __MetadataBearer {}

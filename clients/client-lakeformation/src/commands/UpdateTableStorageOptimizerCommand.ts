@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateTableStorageOptimizerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateTableStorageOptimizerCommand}.
+ */
 export interface UpdateTableStorageOptimizerCommandInput extends UpdateTableStorageOptimizerRequest {}
+/**
+ * The output of {@link UpdateTableStorageOptimizerCommand}.
+ */
 export interface UpdateTableStorageOptimizerCommandOutput
   extends UpdateTableStorageOptimizerResponse,
     __MetadataBearer {}

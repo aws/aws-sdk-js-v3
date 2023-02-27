@@ -25,7 +25,13 @@ import {
   serializeAws_ec2WithdrawByoipCidrCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link WithdrawByoipCidrCommand}.
+ */
 export interface WithdrawByoipCidrCommandInput extends WithdrawByoipCidrRequest {}
+/**
+ * The output of {@link WithdrawByoipCidrCommand}.
+ */
 export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult, __MetadataBearer {}
 
 /**

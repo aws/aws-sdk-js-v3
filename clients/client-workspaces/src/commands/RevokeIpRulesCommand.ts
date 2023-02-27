@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link RevokeIpRulesCommand}.
+ */
 export interface RevokeIpRulesCommandInput extends RevokeIpRulesRequest {}
+/**
+ * The output of {@link RevokeIpRulesCommand}.
+ */
 export interface RevokeIpRulesCommandOutput extends RevokeIpRulesResult, __MetadataBearer {}
 
 /**

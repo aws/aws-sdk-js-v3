@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListLayerVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListLayerVersionsCommand}.
+ */
 export interface ListLayerVersionsCommandInput extends ListLayerVersionsRequest {}
+/**
+ * The output of {@link ListLayerVersionsCommand}.
+ */
 export interface ListLayerVersionsCommandOutput extends ListLayerVersionsResponse, __MetadataBearer {}
 
 /**

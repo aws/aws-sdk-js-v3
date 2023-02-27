@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
+/**
+ * The input for {@link CreateResiliencyPolicyCommand}.
+ */
 export interface CreateResiliencyPolicyCommandInput extends CreateResiliencyPolicyRequest {}
+/**
+ * The output of {@link CreateResiliencyPolicyCommand}.
+ */
 export interface CreateResiliencyPolicyCommandOutput extends CreateResiliencyPolicyResponse, __MetadataBearer {}
 
 /**

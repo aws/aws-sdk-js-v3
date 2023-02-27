@@ -203,3 +203,182 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CreateCampaign
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/createcampaigncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/createcampaigncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/createcampaigncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteCampaign
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/deletecampaigncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/deletecampaigncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/deletecampaigncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteConnectInstanceConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/deleteconnectinstanceconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/deleteconnectinstanceconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/deleteconnectinstanceconfigcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteInstanceOnboardingJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/deleteinstanceonboardingjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/deleteinstanceonboardingjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/deleteinstanceonboardingjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeCampaign
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/describecampaigncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/describecampaigncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/describecampaigncommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetCampaignState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/getcampaignstatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/getcampaignstatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/getcampaignstatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetCampaignStateBatch
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/getcampaignstatebatchcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/getcampaignstatebatchcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/getcampaignstatebatchcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetConnectInstanceConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/getconnectinstanceconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/getconnectinstanceconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/getconnectinstanceconfigcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetInstanceOnboardingJobStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/getinstanceonboardingjobstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/getinstanceonboardingjobstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/getinstanceonboardingjobstatuscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListCampaigns
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/listcampaignscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/listcampaignscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/listcampaignscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+PauseCampaign
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/pausecampaigncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/pausecampaigncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/pausecampaigncommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutDialRequestBatch
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/putdialrequestbatchcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/putdialrequestbatchcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/putdialrequestbatchcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ResumeCampaign
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/resumecampaigncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/resumecampaigncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/resumecampaigncommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartCampaign
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/startcampaigncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/startcampaigncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/startcampaigncommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartInstanceOnboardingJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/startinstanceonboardingjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/startinstanceonboardingjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/startinstanceonboardingjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopCampaign
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/stopcampaigncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/stopcampaigncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/stopcampaigncommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateCampaignDialerConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/updatecampaigndialerconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/updatecampaigndialerconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/updatecampaigndialerconfigcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateCampaignName
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/updatecampaignnamecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/updatecampaignnamecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/updatecampaignnamecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateCampaignOutboundCallConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/classes/updatecampaignoutboundcallconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/updatecampaignoutboundcallconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connectcampaigns/interfaces/updatecampaignoutboundcallconfigcommandoutput.html)
+
+</details>

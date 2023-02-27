@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopCalculationExecutionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopCalculationExecutionCommand}.
+ */
 export interface StopCalculationExecutionCommandInput extends StopCalculationExecutionRequest {}
+/**
+ * The output of {@link StopCalculationExecutionCommand}.
+ */
 export interface StopCalculationExecutionCommandOutput extends StopCalculationExecutionResponse, __MetadataBearer {}
 
 /**

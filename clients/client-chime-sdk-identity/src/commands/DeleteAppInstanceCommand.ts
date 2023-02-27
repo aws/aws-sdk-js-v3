@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteAppInstanceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAppInstanceCommand}.
+ */
 export interface DeleteAppInstanceCommandInput extends DeleteAppInstanceRequest {}
+/**
+ * The output of {@link DeleteAppInstanceCommand}.
+ */
 export interface DeleteAppInstanceCommandOutput extends __MetadataBearer {}
 
 /**

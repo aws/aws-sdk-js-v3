@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateAdditionalAssignmentsForHITCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateAdditionalAssignmentsForHITCommand}.
+ */
 export interface CreateAdditionalAssignmentsForHITCommandInput extends CreateAdditionalAssignmentsForHITRequest {}
+/**
+ * The output of {@link CreateAdditionalAssignmentsForHITCommand}.
+ */
 export interface CreateAdditionalAssignmentsForHITCommandOutput
   extends CreateAdditionalAssignmentsForHITResponse,
     __MetadataBearer {}

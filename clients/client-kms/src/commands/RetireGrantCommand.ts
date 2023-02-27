@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1RetireGrantCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RetireGrantCommand}.
+ */
 export interface RetireGrantCommandInput extends RetireGrantRequest {}
+/**
+ * The output of {@link RetireGrantCommand}.
+ */
 export interface RetireGrantCommandOutput extends __MetadataBearer {}
 
 /**

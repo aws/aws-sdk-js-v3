@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1FilterLogEventsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link FilterLogEventsCommand}.
+ */
 export interface FilterLogEventsCommandInput extends FilterLogEventsRequest {}
+/**
+ * The output of {@link FilterLogEventsCommand}.
+ */
 export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, __MetadataBearer {}
 
 /**

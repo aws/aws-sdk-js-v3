@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListWorkflowStepsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListWorkflowStepsCommand}.
+ */
 export interface ListWorkflowStepsCommandInput extends ListWorkflowStepsRequest {}
+/**
+ * The output of {@link ListWorkflowStepsCommand}.
+ */
 export interface ListWorkflowStepsCommandOutput extends ListWorkflowStepsResponse, __MetadataBearer {}
 
 /**

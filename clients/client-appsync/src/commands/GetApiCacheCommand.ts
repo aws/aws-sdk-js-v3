@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetApiCacheCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetApiCacheCommand}.
+ */
 export interface GetApiCacheCommandInput extends GetApiCacheRequest {}
+/**
+ * The output of {@link GetApiCacheCommand}.
+ */
 export interface GetApiCacheCommandOutput extends GetApiCacheResponse, __MetadataBearer {}
 
 /**

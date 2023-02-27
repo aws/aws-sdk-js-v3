@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListActionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListActionsCommand}.
+ */
 export interface ListActionsCommandInput extends ListActionsRequest {}
+/**
+ * The output of {@link ListActionsCommand}.
+ */
 export interface ListActionsCommandOutput extends ListActionsResponse, __MetadataBearer {}
 
 /**

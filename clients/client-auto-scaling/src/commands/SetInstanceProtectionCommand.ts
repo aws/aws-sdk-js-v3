@@ -25,7 +25,13 @@ import {
   serializeAws_querySetInstanceProtectionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SetInstanceProtectionCommand}.
+ */
 export interface SetInstanceProtectionCommandInput extends SetInstanceProtectionQuery {}
+/**
+ * The output of {@link SetInstanceProtectionCommand}.
+ */
 export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectionAnswer, __MetadataBearer {}
 
 /**

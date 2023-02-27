@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateStudioCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateStudioCommand}.
+ */
 export interface CreateStudioCommandInput extends CreateStudioInput {}
+/**
+ * The output of {@link CreateStudioCommand}.
+ */
 export interface CreateStudioCommandOutput extends CreateStudioOutput, __MetadataBearer {}
 
 /**

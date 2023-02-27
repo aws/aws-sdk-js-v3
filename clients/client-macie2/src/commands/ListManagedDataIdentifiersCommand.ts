@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListManagedDataIdentifiersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListManagedDataIdentifiersCommand}.
+ */
 export interface ListManagedDataIdentifiersCommandInput extends ListManagedDataIdentifiersRequest {}
+/**
+ * The output of {@link ListManagedDataIdentifiersCommand}.
+ */
 export interface ListManagedDataIdentifiersCommandOutput extends ListManagedDataIdentifiersResponse, __MetadataBearer {}
 
 /**

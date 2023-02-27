@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateSipRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateSipRuleCommand}.
+ */
 export interface CreateSipRuleCommandInput extends CreateSipRuleRequest {}
+/**
+ * The output of {@link CreateSipRuleCommand}.
+ */
 export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __MetadataBearer {}
 
 /**

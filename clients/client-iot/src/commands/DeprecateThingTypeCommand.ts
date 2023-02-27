@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeprecateThingTypeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeprecateThingTypeCommand}.
+ */
 export interface DeprecateThingTypeCommandInput extends DeprecateThingTypeRequest {}
+/**
+ * The output of {@link DeprecateThingTypeCommand}.
+ */
 export interface DeprecateThingTypeCommandOutput extends DeprecateThingTypeResponse, __MetadataBearer {}
 
 /**

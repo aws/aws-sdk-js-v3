@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetConnectAttachmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetConnectAttachmentCommand}.
+ */
 export interface GetConnectAttachmentCommandInput extends GetConnectAttachmentRequest {}
+/**
+ * The output of {@link GetConnectAttachmentCommand}.
+ */
 export interface GetConnectAttachmentCommandOutput extends GetConnectAttachmentResponse, __MetadataBearer {}
 
 /**

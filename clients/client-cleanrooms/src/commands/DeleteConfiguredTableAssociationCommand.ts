@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteConfiguredTableAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteConfiguredTableAssociationCommand}.
+ */
 export interface DeleteConfiguredTableAssociationCommandInput extends DeleteConfiguredTableAssociationInput {}
+/**
+ * The output of {@link DeleteConfiguredTableAssociationCommand}.
+ */
 export interface DeleteConfiguredTableAssociationCommandOutput
   extends DeleteConfiguredTableAssociationOutput,
     __MetadataBearer {}

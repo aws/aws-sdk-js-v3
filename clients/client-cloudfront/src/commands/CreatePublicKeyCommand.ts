@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlCreatePublicKeyCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link CreatePublicKeyCommand}.
+ */
 export interface CreatePublicKeyCommandInput extends CreatePublicKeyRequest {}
+/**
+ * The output of {@link CreatePublicKeyCommand}.
+ */
 export interface CreatePublicKeyCommandOutput extends CreatePublicKeyResult, __MetadataBearer {}
 
 /**

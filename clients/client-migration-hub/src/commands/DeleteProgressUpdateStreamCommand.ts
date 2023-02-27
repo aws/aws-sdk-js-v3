@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteProgressUpdateStreamCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteProgressUpdateStreamCommand}.
+ */
 export interface DeleteProgressUpdateStreamCommandInput extends DeleteProgressUpdateStreamRequest {}
+/**
+ * The output of {@link DeleteProgressUpdateStreamCommand}.
+ */
 export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressUpdateStreamResult, __MetadataBearer {}
 
 /**

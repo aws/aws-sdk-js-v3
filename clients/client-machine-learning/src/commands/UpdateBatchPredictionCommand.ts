@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateBatchPredictionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateBatchPredictionCommand}.
+ */
 export interface UpdateBatchPredictionCommandInput extends UpdateBatchPredictionInput {}
+/**
+ * The output of {@link UpdateBatchPredictionCommand}.
+ */
 export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictionOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteGroupMembershipCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteGroupMembershipCommand}.
+ */
 export interface DeleteGroupMembershipCommandInput extends DeleteGroupMembershipRequest {}
+/**
+ * The output of {@link DeleteGroupMembershipCommand}.
+ */
 export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershipResponse, __MetadataBearer {}
 
 /**

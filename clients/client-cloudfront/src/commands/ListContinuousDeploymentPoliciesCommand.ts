@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlListContinuousDeploymentPoliciesCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link ListContinuousDeploymentPoliciesCommand}.
+ */
 export interface ListContinuousDeploymentPoliciesCommandInput extends ListContinuousDeploymentPoliciesRequest {}
+/**
+ * The output of {@link ListContinuousDeploymentPoliciesCommand}.
+ */
 export interface ListContinuousDeploymentPoliciesCommandOutput
   extends ListContinuousDeploymentPoliciesResult,
     __MetadataBearer {}

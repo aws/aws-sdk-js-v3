@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociateRoleFromGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateRoleFromGroupCommand}.
+ */
 export interface DisassociateRoleFromGroupCommandInput extends DisassociateRoleFromGroupRequest {}
+/**
+ * The output of {@link DisassociateRoleFromGroupCommand}.
+ */
 export interface DisassociateRoleFromGroupCommandOutput extends DisassociateRoleFromGroupResponse, __MetadataBearer {}
 
 /**

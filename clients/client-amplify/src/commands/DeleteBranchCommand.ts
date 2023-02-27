@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteBranchCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteBranchCommand}.
+ */
 export interface DeleteBranchCommandInput extends DeleteBranchRequest {}
+/**
+ * The output of {@link DeleteBranchCommand}.
+ */
 export interface DeleteBranchCommandOutput extends DeleteBranchResult, __MetadataBearer {}
 
 /**

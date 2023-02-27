@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
+/**
+ * The input for {@link StartSigningJobCommand}.
+ */
 export interface StartSigningJobCommandInput extends StartSigningJobRequest {}
+/**
+ * The output of {@link StartSigningJobCommand}.
+ */
 export interface StartSigningJobCommandOutput extends StartSigningJobResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAuditFindingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAuditFindingsCommand}.
+ */
 export interface ListAuditFindingsCommandInput extends ListAuditFindingsRequest {}
+/**
+ * The output of {@link ListAuditFindingsCommand}.
+ */
 export interface ListAuditFindingsCommandOutput extends ListAuditFindingsResponse, __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1GetWebACLCommand, serializeAws_json1_1GetWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * The input for {@link GetWebACLCommand}.
+ */
 export interface GetWebACLCommandInput extends GetWebACLRequest {}
+/**
+ * The output of {@link GetWebACLCommand}.
+ */
 export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBearer {}
 
 /**

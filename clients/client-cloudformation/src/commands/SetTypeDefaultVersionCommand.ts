@@ -25,7 +25,13 @@ import {
   serializeAws_querySetTypeDefaultVersionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SetTypeDefaultVersionCommand}.
+ */
 export interface SetTypeDefaultVersionCommandInput extends SetTypeDefaultVersionInput {}
+/**
+ * The output of {@link SetTypeDefaultVersionCommand}.
+ */
 export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersionOutput, __MetadataBearer {}
 
 /**

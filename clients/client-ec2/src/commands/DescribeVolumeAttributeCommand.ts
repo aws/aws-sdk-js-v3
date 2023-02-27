@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeVolumeAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeVolumeAttributeCommand}.
+ */
 export interface DescribeVolumeAttributeCommandInput extends DescribeVolumeAttributeRequest {}
+/**
+ * The output of {@link DescribeVolumeAttributeCommand}.
+ */
 export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttributeResult, __MetadataBearer {}
 
 /**

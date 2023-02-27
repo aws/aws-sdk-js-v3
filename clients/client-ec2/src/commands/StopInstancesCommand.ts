@@ -22,7 +22,13 @@ import {
 } from "../models/models_6";
 import { deserializeAws_ec2StopInstancesCommand, serializeAws_ec2StopInstancesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link StopInstancesCommand}.
+ */
 export interface StopInstancesCommandInput extends StopInstancesRequest {}
+/**
+ * The output of {@link StopInstancesCommand}.
+ */
 export interface StopInstancesCommandOutput extends StopInstancesResult, __MetadataBearer {}
 
 /**

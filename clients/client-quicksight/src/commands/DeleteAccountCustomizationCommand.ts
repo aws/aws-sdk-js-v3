@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link DeleteAccountCustomizationCommand}.
+ */
 export interface DeleteAccountCustomizationCommandInput extends DeleteAccountCustomizationRequest {}
+/**
+ * The output of {@link DeleteAccountCustomizationCommand}.
+ */
 export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCustomizationResponse, __MetadataBearer {}
 
 /**

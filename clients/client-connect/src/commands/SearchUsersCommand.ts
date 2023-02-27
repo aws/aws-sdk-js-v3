@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SearchUsersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SearchUsersCommand}.
+ */
 export interface SearchUsersCommandInput extends SearchUsersRequest {}
+/**
+ * The output of {@link SearchUsersCommand}.
+ */
 export interface SearchUsersCommandOutput extends SearchUsersResponse, __MetadataBearer {}
 
 /**

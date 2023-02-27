@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1DescribeReplicationConfigurationTemplatesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeReplicationConfigurationTemplatesCommand}.
+ */
 export interface DescribeReplicationConfigurationTemplatesCommandInput
   extends DescribeReplicationConfigurationTemplatesRequest {}
+/**
+ * The output of {@link DescribeReplicationConfigurationTemplatesCommand}.
+ */
 export interface DescribeReplicationConfigurationTemplatesCommandOutput
   extends DescribeReplicationConfigurationTemplatesResponse,
     __MetadataBearer {}

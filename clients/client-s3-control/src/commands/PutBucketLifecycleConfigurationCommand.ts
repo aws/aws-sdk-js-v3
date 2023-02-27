@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link PutBucketLifecycleConfigurationCommand}.
+ */
 export interface PutBucketLifecycleConfigurationCommandInput extends PutBucketLifecycleConfigurationRequest {}
+/**
+ * The output of {@link PutBucketLifecycleConfigurationCommand}.
+ */
 export interface PutBucketLifecycleConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteLFTagCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteLFTagCommand}.
+ */
 export interface DeleteLFTagCommandInput extends DeleteLFTagRequest {}
+/**
+ * The output of {@link DeleteLFTagCommand}.
+ */
 export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __MetadataBearer {}
 
 /**

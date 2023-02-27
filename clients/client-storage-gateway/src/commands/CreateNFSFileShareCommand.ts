@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link CreateNFSFileShareCommand}.
+ */
 export interface CreateNFSFileShareCommandInput extends CreateNFSFileShareInput {}
+/**
+ * The output of {@link CreateNFSFileShareCommand}.
+ */
 export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutput, __MetadataBearer {}
 
 /**

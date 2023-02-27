@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteCoreDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteCoreDeviceCommand}.
+ */
 export interface DeleteCoreDeviceCommandInput extends DeleteCoreDeviceRequest {}
+/**
+ * The output of {@link DeleteCoreDeviceCommand}.
+ */
 export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
 
 /**

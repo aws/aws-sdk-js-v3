@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
+/**
+ * The input for {@link RevokeSigningProfileCommand}.
+ */
 export interface RevokeSigningProfileCommandInput extends RevokeSigningProfileRequest {}
+/**
+ * The output of {@link RevokeSigningProfileCommand}.
+ */
 export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
 
 /**

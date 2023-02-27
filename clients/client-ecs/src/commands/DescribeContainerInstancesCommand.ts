@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeContainerInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeContainerInstancesCommand}.
+ */
 export interface DescribeContainerInstancesCommandInput extends DescribeContainerInstancesRequest {}
+/**
+ * The output of {@link DescribeContainerInstancesCommand}.
+ */
 export interface DescribeContainerInstancesCommandOutput extends DescribeContainerInstancesResponse, __MetadataBearer {}
 
 /**

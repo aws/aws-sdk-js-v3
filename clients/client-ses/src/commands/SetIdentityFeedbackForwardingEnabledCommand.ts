@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link SetIdentityFeedbackForwardingEnabledCommand}.
+ */
 export interface SetIdentityFeedbackForwardingEnabledCommandInput extends SetIdentityFeedbackForwardingEnabledRequest {}
+/**
+ * The output of {@link SetIdentityFeedbackForwardingEnabledCommand}.
+ */
 export interface SetIdentityFeedbackForwardingEnabledCommandOutput
   extends SetIdentityFeedbackForwardingEnabledResponse,
     __MetadataBearer {}

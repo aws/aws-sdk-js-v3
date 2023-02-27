@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteMonitorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteMonitorCommand}.
+ */
 export interface DeleteMonitorCommandInput extends DeleteMonitorInput {}
+/**
+ * The output of {@link DeleteMonitorCommand}.
+ */
 export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateSegmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateSegmentCommand}.
+ */
 export interface UpdateSegmentCommandInput extends UpdateSegmentRequest {}
+/**
+ * The output of {@link UpdateSegmentCommand}.
+ */
 export interface UpdateSegmentCommandOutput extends UpdateSegmentResponse, __MetadataBearer {}
 
 /**

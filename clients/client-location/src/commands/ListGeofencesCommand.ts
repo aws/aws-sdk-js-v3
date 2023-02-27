@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListGeofencesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListGeofencesCommand}.
+ */
 export interface ListGeofencesCommandInput extends ListGeofencesRequest {}
+/**
+ * The output of {@link ListGeofencesCommand}.
+ */
 export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __MetadataBearer {}
 
 /**

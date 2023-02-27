@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link ListResourceComplianceSummariesCommand}.
+ */
 export interface ListResourceComplianceSummariesCommandInput extends ListResourceComplianceSummariesRequest {}
+/**
+ * The output of {@link ListResourceComplianceSummariesCommand}.
+ */
 export interface ListResourceComplianceSummariesCommandOutput
   extends ListResourceComplianceSummariesResult,
     __MetadataBearer {}

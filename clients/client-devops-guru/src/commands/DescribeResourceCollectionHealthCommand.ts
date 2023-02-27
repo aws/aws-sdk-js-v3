@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeResourceCollectionHealthCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeResourceCollectionHealthCommand}.
+ */
 export interface DescribeResourceCollectionHealthCommandInput extends DescribeResourceCollectionHealthRequest {}
+/**
+ * The output of {@link DescribeResourceCollectionHealthCommand}.
+ */
 export interface DescribeResourceCollectionHealthCommandOutput
   extends DescribeResourceCollectionHealthResponse,
     __MetadataBearer {}

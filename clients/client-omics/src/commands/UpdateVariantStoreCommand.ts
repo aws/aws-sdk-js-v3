@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateVariantStoreCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateVariantStoreCommand}.
+ */
 export interface UpdateVariantStoreCommandInput extends UpdateVariantStoreRequest {}
+/**
+ * The output of {@link UpdateVariantStoreCommand}.
+ */
 export interface UpdateVariantStoreCommandOutput extends UpdateVariantStoreResponse, __MetadataBearer {}
 
 /**

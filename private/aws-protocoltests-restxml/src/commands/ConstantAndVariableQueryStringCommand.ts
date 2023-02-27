@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link ConstantAndVariableQueryStringCommand}.
+ */
 export interface ConstantAndVariableQueryStringCommandInput extends ConstantAndVariableQueryStringInput {}
+/**
+ * The output of {@link ConstantAndVariableQueryStringCommand}.
+ */
 export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataBearer {}
 
 /**

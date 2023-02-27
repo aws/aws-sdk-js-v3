@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * The input for {@link AssociateResolverEndpointIpAddressCommand}.
+ */
 export interface AssociateResolverEndpointIpAddressCommandInput extends AssociateResolverEndpointIpAddressRequest {}
+/**
+ * The output of {@link AssociateResolverEndpointIpAddressCommand}.
+ */
 export interface AssociateResolverEndpointIpAddressCommandOutput
   extends AssociateResolverEndpointIpAddressResponse,
     __MetadataBearer {}

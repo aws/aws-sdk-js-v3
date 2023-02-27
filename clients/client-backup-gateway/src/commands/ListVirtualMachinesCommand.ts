@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListVirtualMachinesCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListVirtualMachinesCommand}.
+ */
 export interface ListVirtualMachinesCommandInput extends ListVirtualMachinesInput {}
+/**
+ * The output of {@link ListVirtualMachinesCommand}.
+ */
 export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOutput, __MetadataBearer {}
 
 /**

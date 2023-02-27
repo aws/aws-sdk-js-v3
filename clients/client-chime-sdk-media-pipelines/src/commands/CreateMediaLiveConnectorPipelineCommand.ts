@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CreateMediaLiveConnectorPipelineCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateMediaLiveConnectorPipelineCommand}.
+ */
 export interface CreateMediaLiveConnectorPipelineCommandInput extends CreateMediaLiveConnectorPipelineRequest {}
+/**
+ * The output of {@link CreateMediaLiveConnectorPipelineCommand}.
+ */
 export interface CreateMediaLiveConnectorPipelineCommandOutput
   extends CreateMediaLiveConnectorPipelineResponse,
     __MetadataBearer {}

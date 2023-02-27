@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetInstanceUefiDataCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetInstanceUefiDataCommand}.
+ */
 export interface GetInstanceUefiDataCommandInput extends GetInstanceUefiDataRequest {}
+/**
+ * The output of {@link GetInstanceUefiDataCommand}.
+ */
 export interface GetInstanceUefiDataCommandOutput extends GetInstanceUefiDataResult, __MetadataBearer {}
 
 /**

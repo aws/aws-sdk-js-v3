@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateProjectCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateProjectCommand}.
+ */
 export interface UpdateProjectCommandInput extends UpdateProjectInput {}
+/**
+ * The output of {@link UpdateProjectCommand}.
+ */
 export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __MetadataBearer {}
 
 /**

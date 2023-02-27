@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopModelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopModelCommand}.
+ */
 export interface StopModelCommandInput extends StopModelRequest {}
+/**
+ * The output of {@link StopModelCommand}.
+ */
 export interface StopModelCommandOutput extends StopModelResponse, __MetadataBearer {}
 
 /**

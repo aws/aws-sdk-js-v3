@@ -26,8 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link GetAccessPointPolicyStatusForObjectLambdaCommand}.
+ */
 export interface GetAccessPointPolicyStatusForObjectLambdaCommandInput
   extends GetAccessPointPolicyStatusForObjectLambdaRequest {}
+/**
+ * The output of {@link GetAccessPointPolicyStatusForObjectLambdaCommand}.
+ */
 export interface GetAccessPointPolicyStatusForObjectLambdaCommandOutput
   extends GetAccessPointPolicyStatusForObjectLambdaResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateQuerySuggestionsBlockListCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateQuerySuggestionsBlockListCommand}.
+ */
 export interface CreateQuerySuggestionsBlockListCommandInput extends CreateQuerySuggestionsBlockListRequest {}
+/**
+ * The output of {@link CreateQuerySuggestionsBlockListCommand}.
+ */
 export interface CreateQuerySuggestionsBlockListCommandOutput
   extends CreateQuerySuggestionsBlockListResponse,
     __MetadataBearer {}

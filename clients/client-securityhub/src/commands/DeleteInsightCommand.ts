@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link DeleteInsightCommand}.
+ */
 export interface DeleteInsightCommandInput extends DeleteInsightRequest {}
+/**
+ * The output of {@link DeleteInsightCommand}.
+ */
 export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteLunaClientCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteLunaClientCommand}.
+ */
 export interface DeleteLunaClientCommandInput extends DeleteLunaClientRequest {}
+/**
+ * The output of {@link DeleteLunaClientCommand}.
+ */
 export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse, __MetadataBearer {}
 
 /**

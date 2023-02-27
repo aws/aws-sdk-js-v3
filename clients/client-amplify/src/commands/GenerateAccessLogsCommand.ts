@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GenerateAccessLogsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GenerateAccessLogsCommand}.
+ */
 export interface GenerateAccessLogsCommandInput extends GenerateAccessLogsRequest {}
+/**
+ * The output of {@link GenerateAccessLogsCommand}.
+ */
 export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResult, __MetadataBearer {}
 
 /**

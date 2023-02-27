@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1MergeShardsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link MergeShardsCommand}.
+ */
 export interface MergeShardsCommandInput extends MergeShardsInput {}
+/**
+ * The output of {@link MergeShardsCommand}.
+ */
 export interface MergeShardsCommandOutput extends __MetadataBearer {}
 
 /**

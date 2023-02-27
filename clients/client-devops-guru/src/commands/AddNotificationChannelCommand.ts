@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AddNotificationChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AddNotificationChannelCommand}.
+ */
 export interface AddNotificationChannelCommandInput extends AddNotificationChannelRequest {}
+/**
+ * The output of {@link AddNotificationChannelCommand}.
+ */
 export interface AddNotificationChannelCommandOutput extends AddNotificationChannelResponse, __MetadataBearer {}
 
 /**

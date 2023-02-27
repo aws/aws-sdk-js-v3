@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteUploadCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteUploadCommand}.
+ */
 export interface DeleteUploadCommandInput extends DeleteUploadRequest {}
+/**
+ * The output of {@link DeleteUploadCommand}.
+ */
 export interface DeleteUploadCommandOutput extends DeleteUploadResult, __MetadataBearer {}
 
 /**

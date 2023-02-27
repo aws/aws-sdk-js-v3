@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
+/**
+ * The input for {@link ListSolNetworkOperationsCommand}.
+ */
 export interface ListSolNetworkOperationsCommandInput extends ListSolNetworkOperationsInput {}
+/**
+ * The output of {@link ListSolNetworkOperationsCommand}.
+ */
 export interface ListSolNetworkOperationsCommandOutput extends ListSolNetworkOperationsOutput, __MetadataBearer {}
 
 /**

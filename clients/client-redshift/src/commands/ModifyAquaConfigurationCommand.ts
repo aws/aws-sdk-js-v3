@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link ModifyAquaConfigurationCommand}.
+ */
 export interface ModifyAquaConfigurationCommandInput extends ModifyAquaInputMessage {}
+/**
+ * The output of {@link ModifyAquaConfigurationCommand}.
+ */
 export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMessage, __MetadataBearer {}
 
 /**

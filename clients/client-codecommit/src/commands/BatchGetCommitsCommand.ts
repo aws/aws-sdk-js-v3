@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetCommitsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetCommitsCommand}.
+ */
 export interface BatchGetCommitsCommandInput extends BatchGetCommitsInput {}
+/**
+ * The output of {@link BatchGetCommitsCommand}.
+ */
 export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListQueryExecutionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListQueryExecutionsCommand}.
+ */
 export interface ListQueryExecutionsCommandInput extends ListQueryExecutionsInput {}
+/**
+ * The output of {@link ListQueryExecutionsCommand}.
+ */
 export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOutput, __MetadataBearer {}
 
 /**

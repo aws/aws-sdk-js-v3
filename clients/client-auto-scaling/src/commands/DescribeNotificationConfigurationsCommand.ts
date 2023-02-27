@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeNotificationConfigurationsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeNotificationConfigurationsCommand}.
+ */
 export interface DescribeNotificationConfigurationsCommandInput extends DescribeNotificationConfigurationsType {}
+/**
+ * The output of {@link DescribeNotificationConfigurationsCommand}.
+ */
 export interface DescribeNotificationConfigurationsCommandOutput
   extends DescribeNotificationConfigurationsAnswer,
     __MetadataBearer {}

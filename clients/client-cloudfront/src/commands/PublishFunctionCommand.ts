@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlPublishFunctionCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link PublishFunctionCommand}.
+ */
 export interface PublishFunctionCommandInput extends PublishFunctionRequest {}
+/**
+ * The output of {@link PublishFunctionCommand}.
+ */
 export interface PublishFunctionCommandOutput extends PublishFunctionResult, __MetadataBearer {}
 
 /**

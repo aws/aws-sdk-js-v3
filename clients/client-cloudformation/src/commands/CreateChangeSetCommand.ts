@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateChangeSetCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateChangeSetCommand}.
+ */
 export interface CreateChangeSetCommandInput extends CreateChangeSetInput {}
+/**
+ * The output of {@link CreateChangeSetCommand}.
+ */
 export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __MetadataBearer {}
 
 /**

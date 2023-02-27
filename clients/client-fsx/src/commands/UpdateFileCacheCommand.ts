@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateFileCacheCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateFileCacheCommand}.
+ */
 export interface UpdateFileCacheCommandInput extends UpdateFileCacheRequest {}
+/**
+ * The output of {@link UpdateFileCacheCommand}.
+ */
 export interface UpdateFileCacheCommandOutput extends UpdateFileCacheResponse, __MetadataBearer {}
 
 /**

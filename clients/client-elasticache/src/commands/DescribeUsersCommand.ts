@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeUsersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeUsersCommand}.
+ */
 export interface DescribeUsersCommandInput extends DescribeUsersMessage {}
+/**
+ * The output of {@link DescribeUsersCommand}.
+ */
 export interface DescribeUsersCommandOutput extends DescribeUsersResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListQualificationRequestsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListQualificationRequestsCommand}.
+ */
 export interface ListQualificationRequestsCommandInput extends ListQualificationRequestsRequest {}
+/**
+ * The output of {@link ListQualificationRequestsCommand}.
+ */
 export interface ListQualificationRequestsCommandOutput extends ListQualificationRequestsResponse, __MetadataBearer {}
 
 /**

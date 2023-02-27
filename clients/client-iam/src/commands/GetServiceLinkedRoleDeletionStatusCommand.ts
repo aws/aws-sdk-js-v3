@@ -25,7 +25,13 @@ import {
   serializeAws_queryGetServiceLinkedRoleDeletionStatusCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetServiceLinkedRoleDeletionStatusCommand}.
+ */
 export interface GetServiceLinkedRoleDeletionStatusCommandInput extends GetServiceLinkedRoleDeletionStatusRequest {}
+/**
+ * The output of {@link GetServiceLinkedRoleDeletionStatusCommand}.
+ */
 export interface GetServiceLinkedRoleDeletionStatusCommandOutput
   extends GetServiceLinkedRoleDeletionStatusResponse,
     __MetadataBearer {}

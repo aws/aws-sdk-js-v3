@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateControlCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateControlCommand}.
+ */
 export interface CreateControlCommandInput extends CreateControlRequest {}
+/**
+ * The output of {@link CreateControlCommand}.
+ */
 export interface CreateControlCommandOutput extends CreateControlResponse, __MetadataBearer {}
 
 /**

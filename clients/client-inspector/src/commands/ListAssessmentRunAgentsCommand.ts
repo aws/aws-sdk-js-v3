@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListAssessmentRunAgentsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAssessmentRunAgentsCommand}.
+ */
 export interface ListAssessmentRunAgentsCommandInput extends ListAssessmentRunAgentsRequest {}
+/**
+ * The output of {@link ListAssessmentRunAgentsCommand}.
+ */
 export interface ListAssessmentRunAgentsCommandOutput extends ListAssessmentRunAgentsResponse, __MetadataBearer {}
 
 /**

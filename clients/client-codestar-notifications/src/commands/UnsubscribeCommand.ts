@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1UnsubscribeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UnsubscribeCommand}.
+ */
 export interface UnsubscribeCommandInput extends UnsubscribeRequest {}
+/**
+ * The output of {@link UnsubscribeCommand}.
+ */
 export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataBearer {}
 
 /**

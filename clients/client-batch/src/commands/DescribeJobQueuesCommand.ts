@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeJobQueuesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeJobQueuesCommand}.
+ */
 export interface DescribeJobQueuesCommandInput extends DescribeJobQueuesRequest {}
+/**
+ * The output of {@link DescribeJobQueuesCommand}.
+ */
 export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesResponse, __MetadataBearer {}
 
 /**

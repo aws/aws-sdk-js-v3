@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
+/**
+ * The input for {@link StopAppCommand}.
+ */
 export interface StopAppCommandInput extends StopAppInput {}
+/**
+ * The output of {@link StopAppCommand}.
+ */
 export interface StopAppCommandOutput extends StopAppOutput, __MetadataBearer {}
 
 /**

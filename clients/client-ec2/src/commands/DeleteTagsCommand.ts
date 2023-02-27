@@ -17,7 +17,13 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { DeleteTagsRequest, DeleteTagsRequestFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_ec2DeleteTagsCommand, serializeAws_ec2DeleteTagsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteTagsCommand}.
+ */
 export interface DeleteTagsCommandInput extends DeleteTagsRequest {}
+/**
+ * The output of {@link DeleteTagsCommand}.
+ */
 export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**

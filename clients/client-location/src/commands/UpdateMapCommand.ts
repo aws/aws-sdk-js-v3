@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateMapCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateMapCommand}.
+ */
 export interface UpdateMapCommandInput extends UpdateMapRequest {}
+/**
+ * The output of {@link UpdateMapCommand}.
+ */
 export interface UpdateMapCommandOutput extends UpdateMapResponse, __MetadataBearer {}
 
 /**

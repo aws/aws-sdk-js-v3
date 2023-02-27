@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteUserPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteUserPolicyCommand}.
+ */
 export interface DeleteUserPolicyCommandInput extends DeleteUserPolicyRequest {}
+/**
+ * The output of {@link DeleteUserPolicyCommand}.
+ */
 export interface DeleteUserPolicyCommandOutput extends __MetadataBearer {}
 
 /**

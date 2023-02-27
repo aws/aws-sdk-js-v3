@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateBudgetActionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateBudgetActionCommand}.
+ */
 export interface UpdateBudgetActionCommandInput extends UpdateBudgetActionRequest {}
+/**
+ * The output of {@link UpdateBudgetActionCommand}.
+ */
 export interface UpdateBudgetActionCommandOutput extends UpdateBudgetActionResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteCustomActionTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteCustomActionTypeCommand}.
+ */
 export interface DeleteCustomActionTypeCommandInput extends DeleteCustomActionTypeInput {}
+/**
+ * The output of {@link DeleteCustomActionTypeCommand}.
+ */
 export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
 
 /**

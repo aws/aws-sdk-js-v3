@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * The input for {@link DisassociateResolverEndpointIpAddressCommand}.
+ */
 export interface DisassociateResolverEndpointIpAddressCommandInput
   extends DisassociateResolverEndpointIpAddressRequest {}
+/**
+ * The output of {@link DisassociateResolverEndpointIpAddressCommand}.
+ */
 export interface DisassociateResolverEndpointIpAddressCommandOutput
   extends DisassociateResolverEndpointIpAddressResponse,
     __MetadataBearer {}

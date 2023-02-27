@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * The input for {@link DescribeDomainCommand}.
+ */
 export interface DescribeDomainCommandInput extends DescribeDomainRequest {}
+/**
+ * The output of {@link DescribeDomainCommand}.
+ */
 export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __MetadataBearer {}
 
 /**

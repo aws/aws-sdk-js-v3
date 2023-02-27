@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeLocationS3Command,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLocationS3Command}.
+ */
 export interface DescribeLocationS3CommandInput extends DescribeLocationS3Request {}
+/**
+ * The output of {@link DescribeLocationS3Command}.
+ */
 export interface DescribeLocationS3CommandOutput extends DescribeLocationS3Response, __MetadataBearer {}
 
 /**

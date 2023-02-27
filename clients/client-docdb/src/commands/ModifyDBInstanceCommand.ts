@@ -25,7 +25,13 @@ import {
   serializeAws_queryModifyDBInstanceCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyDBInstanceCommand}.
+ */
 export interface ModifyDBInstanceCommandInput extends ModifyDBInstanceMessage {}
+/**
+ * The output of {@link ModifyDBInstanceCommand}.
+ */
 export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeAvailabilityZonesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeAvailabilityZonesCommand}.
+ */
 export interface DescribeAvailabilityZonesCommandInput extends DescribeAvailabilityZonesRequest {}
+/**
+ * The output of {@link DescribeAvailabilityZonesCommand}.
+ */
 export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabilityZonesResult, __MetadataBearer {}
 
 /**

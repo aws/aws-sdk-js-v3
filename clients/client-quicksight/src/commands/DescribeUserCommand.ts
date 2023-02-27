@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link DescribeUserCommand}.
+ */
 export interface DescribeUserCommandInput extends DescribeUserRequest {}
+/**
+ * The output of {@link DescribeUserCommand}.
+ */
 export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
 
 /**

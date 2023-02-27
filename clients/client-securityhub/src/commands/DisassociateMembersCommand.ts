@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link DisassociateMembersCommand}.
+ */
 export interface DisassociateMembersCommandInput extends DisassociateMembersRequest {}
+/**
+ * The output of {@link DisassociateMembersCommand}.
+ */
 export interface DisassociateMembersCommandOutput extends DisassociateMembersResponse, __MetadataBearer {}
 
 /**

@@ -204,3 +204,270 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CreateDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/createdatasetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createdatasetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createdatasetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateInferenceScheduler
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/createinferenceschedulercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createinferenceschedulercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createinferenceschedulercommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateLabel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/createlabelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createlabelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createlabelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateLabelGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/createlabelgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createlabelgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createlabelgroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateModel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/createmodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createmodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createmodelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/deletedatasetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletedatasetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletedatasetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteInferenceScheduler
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/deleteinferenceschedulercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deleteinferenceschedulercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deleteinferenceschedulercommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteLabel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/deletelabelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletelabelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletelabelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteLabelGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/deletelabelgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletelabelgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletelabelgroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteModel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/deletemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletemodelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeDataIngestionJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/describedataingestionjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describedataingestionjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describedataingestionjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/describedatasetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describedatasetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describedatasetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeInferenceScheduler
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/describeinferenceschedulercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describeinferenceschedulercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describeinferenceschedulercommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeLabel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/describelabelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describelabelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describelabelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeLabelGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/describelabelgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describelabelgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describelabelgroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeModel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/describemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describemodelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListDataIngestionJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listdataingestionjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listdataingestionjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listdataingestionjobscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListDatasets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listdatasetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listdatasetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listdatasetscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListInferenceEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listinferenceeventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listinferenceeventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listinferenceeventscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListInferenceExecutions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listinferenceexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listinferenceexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listinferenceexecutionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListInferenceSchedulers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listinferenceschedulerscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listinferenceschedulerscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listinferenceschedulerscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListLabelGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listlabelgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listlabelgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listlabelgroupscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListLabels
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listlabelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listlabelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listlabelscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListModels
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listmodelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listmodelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listmodelscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSensorStatistics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listsensorstatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listsensorstatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listsensorstatisticscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartDataIngestionJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/startdataingestionjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/startdataingestionjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/startdataingestionjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartInferenceScheduler
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/startinferenceschedulercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/startinferenceschedulercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/startinferenceschedulercommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopInferenceScheduler
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/stopinferenceschedulercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/stopinferenceschedulercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/stopinferenceschedulercommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateInferenceScheduler
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/updateinferenceschedulercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/updateinferenceschedulercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/updateinferenceschedulercommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateLabelGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/updatelabelgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/updatelabelgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/updatelabelgroupcommandoutput.html)
+
+</details>

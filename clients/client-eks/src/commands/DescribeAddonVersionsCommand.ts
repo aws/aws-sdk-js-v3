@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeAddonVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeAddonVersionsCommand}.
+ */
 export interface DescribeAddonVersionsCommandInput extends DescribeAddonVersionsRequest {}
+/**
+ * The output of {@link DescribeAddonVersionsCommand}.
+ */
 export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersionsResponse, __MetadataBearer {}
 
 /**

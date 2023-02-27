@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeServiceIntegrationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeServiceIntegrationCommand}.
+ */
 export interface DescribeServiceIntegrationCommandInput extends DescribeServiceIntegrationRequest {}
+/**
+ * The output of {@link DescribeServiceIntegrationCommand}.
+ */
 export interface DescribeServiceIntegrationCommandOutput extends DescribeServiceIntegrationResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateCaseCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateCaseCommand}.
+ */
 export interface UpdateCaseCommandInput extends UpdateCaseRequest {}
+/**
+ * The output of {@link UpdateCaseCommand}.
+ */
 export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataBearer {}
 
 /**

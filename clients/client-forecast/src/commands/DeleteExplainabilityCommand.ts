@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteExplainabilityCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteExplainabilityCommand}.
+ */
 export interface DeleteExplainabilityCommandInput extends DeleteExplainabilityRequest {}
+/**
+ * The output of {@link DeleteExplainabilityCommand}.
+ */
 export interface DeleteExplainabilityCommandOutput extends __MetadataBearer {}
 
 /**

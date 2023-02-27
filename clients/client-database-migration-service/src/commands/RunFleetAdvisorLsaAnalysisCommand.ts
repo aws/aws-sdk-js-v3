@@ -27,7 +27,13 @@ import {
   serializeAws_json1_1RunFleetAdvisorLsaAnalysisCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RunFleetAdvisorLsaAnalysisCommand}.
+ */
 export interface RunFleetAdvisorLsaAnalysisCommandInput {}
+/**
+ * The output of {@link RunFleetAdvisorLsaAnalysisCommand}.
+ */
 export interface RunFleetAdvisorLsaAnalysisCommandOutput extends RunFleetAdvisorLsaAnalysisResponse, __MetadataBearer {}
 
 /**

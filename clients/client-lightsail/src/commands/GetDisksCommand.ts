@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetDisksCommand, serializeAws_json1_1GetDisksCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDisksCommand}.
+ */
 export interface GetDisksCommandInput extends GetDisksRequest {}
+/**
+ * The output of {@link GetDisksCommand}.
+ */
 export interface GetDisksCommandOutput extends GetDisksResult, __MetadataBearer {}
 
 /**

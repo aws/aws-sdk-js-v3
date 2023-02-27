@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteAssetModelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAssetModelCommand}.
+ */
 export interface DeleteAssetModelCommandInput extends DeleteAssetModelRequest {}
+/**
+ * The output of {@link DeleteAssetModelCommand}.
+ */
 export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse, __MetadataBearer {}
 
 /**

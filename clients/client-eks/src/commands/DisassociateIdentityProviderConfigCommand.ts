@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociateIdentityProviderConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateIdentityProviderConfigCommand}.
+ */
 export interface DisassociateIdentityProviderConfigCommandInput extends DisassociateIdentityProviderConfigRequest {}
+/**
+ * The output of {@link DisassociateIdentityProviderConfigCommand}.
+ */
 export interface DisassociateIdentityProviderConfigCommandOutput
   extends DisassociateIdentityProviderConfigResponse,
     __MetadataBearer {}

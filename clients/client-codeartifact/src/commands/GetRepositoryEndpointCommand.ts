@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetRepositoryEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetRepositoryEndpointCommand}.
+ */
 export interface GetRepositoryEndpointCommandInput extends GetRepositoryEndpointRequest {}
+/**
+ * The output of {@link GetRepositoryEndpointCommand}.
+ */
 export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpointResult, __MetadataBearer {}
 
 /**

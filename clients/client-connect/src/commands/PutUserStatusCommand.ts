@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutUserStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutUserStatusCommand}.
+ */
 export interface PutUserStatusCommandInput extends PutUserStatusRequest {}
+/**
+ * The output of {@link PutUserStatusCommand}.
+ */
 export interface PutUserStatusCommandOutput extends PutUserStatusResponse, __MetadataBearer {}
 
 /**

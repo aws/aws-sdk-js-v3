@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetServiceProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetServiceProfileCommand}.
+ */
 export interface GetServiceProfileCommandInput extends GetServiceProfileRequest {}
+/**
+ * The output of {@link GetServiceProfileCommand}.
+ */
 export interface GetServiceProfileCommandOutput extends GetServiceProfileResponse, __MetadataBearer {}
 
 /**

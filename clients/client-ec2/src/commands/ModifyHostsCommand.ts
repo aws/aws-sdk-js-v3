@@ -22,7 +22,13 @@ import {
 } from "../models/models_6";
 import { deserializeAws_ec2ModifyHostsCommand, serializeAws_ec2ModifyHostsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyHostsCommand}.
+ */
 export interface ModifyHostsCommandInput extends ModifyHostsRequest {}
+/**
+ * The output of {@link ModifyHostsCommand}.
+ */
 export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteDetectorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteDetectorCommand}.
+ */
 export interface DeleteDetectorCommandInput extends DeleteDetectorRequest {}
+/**
+ * The output of {@link DeleteDetectorCommand}.
+ */
 export interface DeleteDetectorCommandOutput extends DeleteDetectorResponse, __MetadataBearer {}
 
 /**

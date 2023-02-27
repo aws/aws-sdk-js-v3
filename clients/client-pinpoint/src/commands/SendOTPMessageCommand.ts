@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SendOTPMessageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SendOTPMessageCommand}.
+ */
 export interface SendOTPMessageCommandInput extends SendOTPMessageRequest {}
+/**
+ * The output of {@link SendOTPMessageCommand}.
+ */
 export interface SendOTPMessageCommandOutput extends SendOTPMessageResponse, __MetadataBearer {}
 
 /**

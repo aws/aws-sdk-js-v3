@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateInternetGatewayCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateInternetGatewayCommand}.
+ */
 export interface CreateInternetGatewayCommandInput extends CreateInternetGatewayRequest {}
+/**
+ * The output of {@link CreateInternetGatewayCommand}.
+ */
 export interface CreateInternetGatewayCommandOutput extends CreateInternetGatewayResult, __MetadataBearer {}
 
 /**

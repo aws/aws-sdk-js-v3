@@ -25,8 +25,14 @@ import {
   serializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ImportClientVpnClientCertificateRevocationListCommand}.
+ */
 export interface ImportClientVpnClientCertificateRevocationListCommandInput
   extends ImportClientVpnClientCertificateRevocationListRequest {}
+/**
+ * The output of {@link ImportClientVpnClientCertificateRevocationListCommand}.
+ */
 export interface ImportClientVpnClientCertificateRevocationListCommandOutput
   extends ImportClientVpnClientCertificateRevocationListResult,
     __MetadataBearer {}

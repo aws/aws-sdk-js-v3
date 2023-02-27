@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociatePhoneNumbersFromVoiceConnectorCommand}.
+ */
 export interface DisassociatePhoneNumbersFromVoiceConnectorCommandInput
   extends DisassociatePhoneNumbersFromVoiceConnectorRequest {}
+/**
+ * The output of {@link DisassociatePhoneNumbersFromVoiceConnectorCommand}.
+ */
 export interface DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
   extends DisassociatePhoneNumbersFromVoiceConnectorResponse,
     __MetadataBearer {}

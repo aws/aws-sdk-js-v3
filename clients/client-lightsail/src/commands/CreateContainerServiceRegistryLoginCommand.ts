@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateContainerServiceRegistryLoginCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateContainerServiceRegistryLoginCommand}.
+ */
 export interface CreateContainerServiceRegistryLoginCommandInput extends CreateContainerServiceRegistryLoginRequest {}
+/**
+ * The output of {@link CreateContainerServiceRegistryLoginCommand}.
+ */
 export interface CreateContainerServiceRegistryLoginCommandOutput
   extends CreateContainerServiceRegistryLoginResult,
     __MetadataBearer {}

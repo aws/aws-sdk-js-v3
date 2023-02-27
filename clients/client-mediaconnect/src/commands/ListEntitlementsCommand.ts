@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListEntitlementsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListEntitlementsCommand}.
+ */
 export interface ListEntitlementsCommandInput extends ListEntitlementsRequest {}
+/**
+ * The output of {@link ListEntitlementsCommand}.
+ */
 export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse, __MetadataBearer {}
 
 /**

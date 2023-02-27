@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartSavingsPlansPurchaseRecommendationGenerationCommand}.
+ */
 export interface StartSavingsPlansPurchaseRecommendationGenerationCommandInput
   extends StartSavingsPlansPurchaseRecommendationGenerationRequest {}
+/**
+ * The output of {@link StartSavingsPlansPurchaseRecommendationGenerationCommand}.
+ */
 export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
   extends StartSavingsPlansPurchaseRecommendationGenerationResponse,
     __MetadataBearer {}

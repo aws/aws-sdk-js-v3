@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListBuildsForProjectCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListBuildsForProjectCommand}.
+ */
 export interface ListBuildsForProjectCommandInput extends ListBuildsForProjectInput {}
+/**
+ * The output of {@link ListBuildsForProjectCommand}.
+ */
 export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectOutput, __MetadataBearer {}
 
 /**

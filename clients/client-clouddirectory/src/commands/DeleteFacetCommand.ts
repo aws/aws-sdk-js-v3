@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteFacetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteFacetCommand}.
+ */
 export interface DeleteFacetCommandInput extends DeleteFacetRequest {}
+/**
+ * The output of {@link DeleteFacetCommand}.
+ */
 export interface DeleteFacetCommandOutput extends DeleteFacetResponse, __MetadataBearer {}
 
 /**

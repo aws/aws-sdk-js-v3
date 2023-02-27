@@ -22,7 +22,13 @@ import {
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { deserializeAws_json1_1ListRootsCommand, serializeAws_json1_1ListRootsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListRootsCommand}.
+ */
 export interface ListRootsCommandInput extends ListRootsRequest {}
+/**
+ * The output of {@link ListRootsCommand}.
+ */
 export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBearer {}
 
 /**

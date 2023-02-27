@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchDeletePartitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchDeletePartitionCommand}.
+ */
 export interface BatchDeletePartitionCommandInput extends BatchDeletePartitionRequest {}
+/**
+ * The output of {@link BatchDeletePartitionCommand}.
+ */
 export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionResponse, __MetadataBearer {}
 
 /**

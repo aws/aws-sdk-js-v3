@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link RejectPortfolioShareCommand}.
+ */
 export interface RejectPortfolioShareCommandInput extends RejectPortfolioShareInput {}
+/**
+ * The output of {@link RejectPortfolioShareCommand}.
+ */
 export interface RejectPortfolioShareCommandOutput extends RejectPortfolioShareOutput, __MetadataBearer {}
 
 /**

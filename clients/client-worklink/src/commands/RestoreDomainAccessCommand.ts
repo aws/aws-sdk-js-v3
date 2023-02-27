@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * The input for {@link RestoreDomainAccessCommand}.
+ */
 export interface RestoreDomainAccessCommandInput extends RestoreDomainAccessRequest {}
+/**
+ * The output of {@link RestoreDomainAccessCommand}.
+ */
 export interface RestoreDomainAccessCommandOutput extends RestoreDomainAccessResponse, __MetadataBearer {}
 
 /**

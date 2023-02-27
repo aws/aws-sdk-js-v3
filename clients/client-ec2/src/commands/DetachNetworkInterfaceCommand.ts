@@ -20,7 +20,13 @@ import {
   serializeAws_ec2DetachNetworkInterfaceCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DetachNetworkInterfaceCommand}.
+ */
 export interface DetachNetworkInterfaceCommandInput extends DetachNetworkInterfaceRequest {}
+/**
+ * The output of {@link DetachNetworkInterfaceCommand}.
+ */
 export interface DetachNetworkInterfaceCommandOutput extends __MetadataBearer {}
 
 /**

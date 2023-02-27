@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutMetricPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutMetricPolicyCommand}.
+ */
 export interface PutMetricPolicyCommandInput extends PutMetricPolicyInput {}
+/**
+ * The output of {@link PutMetricPolicyCommand}.
+ */
 export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __MetadataBearer {}
 
 /**

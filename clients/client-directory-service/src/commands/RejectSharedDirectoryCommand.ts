@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RejectSharedDirectoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RejectSharedDirectoryCommand}.
+ */
 export interface RejectSharedDirectoryCommandInput extends RejectSharedDirectoryRequest {}
+/**
+ * The output of {@link RejectSharedDirectoryCommand}.
+ */
 export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirectoryResult, __MetadataBearer {}
 
 /**

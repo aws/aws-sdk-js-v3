@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * The input for {@link DeleteSubscriptionNotificationConfigurationCommand}.
+ */
 export interface DeleteSubscriptionNotificationConfigurationCommandInput
   extends DeleteSubscriptionNotificationConfigurationRequest {}
+/**
+ * The output of {@link DeleteSubscriptionNotificationConfigurationCommand}.
+ */
 export interface DeleteSubscriptionNotificationConfigurationCommandOutput
   extends DeleteSubscriptionNotificationConfigurationResponse,
     __MetadataBearer {}

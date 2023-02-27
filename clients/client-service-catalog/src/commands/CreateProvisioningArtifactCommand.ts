@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link CreateProvisioningArtifactCommand}.
+ */
 export interface CreateProvisioningArtifactCommandInput extends CreateProvisioningArtifactInput {}
+/**
+ * The output of {@link CreateProvisioningArtifactCommand}.
+ */
 export interface CreateProvisioningArtifactCommandOutput extends CreateProvisioningArtifactOutput, __MetadataBearer {}
 
 /**

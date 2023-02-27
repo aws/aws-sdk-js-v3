@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListInstalledComponentsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListInstalledComponentsCommand}.
+ */
 export interface ListInstalledComponentsCommandInput extends ListInstalledComponentsRequest {}
+/**
+ * The output of {@link ListInstalledComponentsCommand}.
+ */
 export interface ListInstalledComponentsCommandOutput extends ListInstalledComponentsResponse, __MetadataBearer {}
 
 /**

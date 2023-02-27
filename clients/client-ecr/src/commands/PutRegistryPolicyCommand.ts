@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutRegistryPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutRegistryPolicyCommand}.
+ */
 export interface PutRegistryPolicyCommandInput extends PutRegistryPolicyRequest {}
+/**
+ * The output of {@link PutRegistryPolicyCommand}.
+ */
 export interface PutRegistryPolicyCommandOutput extends PutRegistryPolicyResponse, __MetadataBearer {}
 
 /**

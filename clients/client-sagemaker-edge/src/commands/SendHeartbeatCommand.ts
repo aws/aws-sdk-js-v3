@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SagemakerEdgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SagemakerEdgeClient";
 
+/**
+ * The input for {@link SendHeartbeatCommand}.
+ */
 export interface SendHeartbeatCommandInput extends SendHeartbeatRequest {}
+/**
+ * The output of {@link SendHeartbeatCommand}.
+ */
 export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteAnomalyMonitorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteAnomalyMonitorCommand}.
+ */
 export interface DeleteAnomalyMonitorCommandInput extends DeleteAnomalyMonitorRequest {}
+/**
+ * The output of {@link DeleteAnomalyMonitorCommand}.
+ */
 export interface DeleteAnomalyMonitorCommandOutput extends DeleteAnomalyMonitorResponse, __MetadataBearer {}
 
 /**

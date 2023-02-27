@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link DeleteTagsCommand}.
+ */
 export interface DeleteTagsCommandInput extends DeleteTagsRequest {}
+/**
+ * The output of {@link DeleteTagsCommand}.
+ */
 export interface DeleteTagsCommandOutput extends DeleteTagsResult, __MetadataBearer {}
 
 /**

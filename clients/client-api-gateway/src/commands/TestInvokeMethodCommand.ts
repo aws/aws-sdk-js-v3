@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1TestInvokeMethodCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link TestInvokeMethodCommand}.
+ */
 export interface TestInvokeMethodCommandInput extends TestInvokeMethodRequest {}
+/**
+ * The output of {@link TestInvokeMethodCommand}.
+ */
 export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse, __MetadataBearer {}
 
 /**

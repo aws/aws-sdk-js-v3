@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteWebhookCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteWebhookCommand}.
+ */
 export interface DeleteWebhookCommandInput extends DeleteWebhookRequest {}
+/**
+ * The output of {@link DeleteWebhookCommand}.
+ */
 export interface DeleteWebhookCommandOutput extends DeleteWebhookResult, __MetadataBearer {}
 
 /**

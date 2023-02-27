@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * The input for {@link UpdateGlobalSettingsCommand}.
+ */
 export interface UpdateGlobalSettingsCommandInput extends UpdateGlobalSettingsInput {}
+/**
+ * The output of {@link UpdateGlobalSettingsCommand}.
+ */
 export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 
 /**

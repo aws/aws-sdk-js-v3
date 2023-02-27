@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListLexBotsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListLexBotsCommand}.
+ */
 export interface ListLexBotsCommandInput extends ListLexBotsRequest {}
+/**
+ * The output of {@link ListLexBotsCommand}.
+ */
 export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __MetadataBearer {}
 
 /**

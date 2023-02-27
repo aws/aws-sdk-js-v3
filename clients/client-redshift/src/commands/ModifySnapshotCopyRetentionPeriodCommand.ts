@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link ModifySnapshotCopyRetentionPeriodCommand}.
+ */
 export interface ModifySnapshotCopyRetentionPeriodCommandInput extends ModifySnapshotCopyRetentionPeriodMessage {}
+/**
+ * The output of {@link ModifySnapshotCopyRetentionPeriodCommand}.
+ */
 export interface ModifySnapshotCopyRetentionPeriodCommandOutput
   extends ModifySnapshotCopyRetentionPeriodResult,
     __MetadataBearer {}

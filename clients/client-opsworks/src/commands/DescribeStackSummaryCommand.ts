@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeStackSummaryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeStackSummaryCommand}.
+ */
 export interface DescribeStackSummaryCommandInput extends DescribeStackSummaryRequest {}
+/**
+ * The output of {@link DescribeStackSummaryCommand}.
+ */
 export interface DescribeStackSummaryCommandOutput extends DescribeStackSummaryResult, __MetadataBearer {}
 
 /**

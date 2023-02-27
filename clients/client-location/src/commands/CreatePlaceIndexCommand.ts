@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreatePlaceIndexCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreatePlaceIndexCommand}.
+ */
 export interface CreatePlaceIndexCommandInput extends CreatePlaceIndexRequest {}
+/**
+ * The output of {@link CreatePlaceIndexCommand}.
+ */
 export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse, __MetadataBearer {}
 
 /**

@@ -27,7 +27,13 @@ import {
   serializeAws_json1_1DeleteCustomRoutingAcceleratorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteCustomRoutingAcceleratorCommand}.
+ */
 export interface DeleteCustomRoutingAcceleratorCommandInput extends DeleteCustomRoutingAcceleratorRequest {}
+/**
+ * The output of {@link DeleteCustomRoutingAcceleratorCommand}.
+ */
 export interface DeleteCustomRoutingAcceleratorCommandOutput extends __MetadataBearer {}
 
 /**

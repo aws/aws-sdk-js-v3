@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListIndicesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListIndicesCommand}.
+ */
 export interface ListIndicesCommandInput extends ListIndicesRequest {}
+/**
+ * The output of {@link ListIndicesCommand}.
+ */
 export interface ListIndicesCommandOutput extends ListIndicesResponse, __MetadataBearer {}
 
 /**

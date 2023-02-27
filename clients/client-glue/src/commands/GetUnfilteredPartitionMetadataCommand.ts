@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetUnfilteredPartitionMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetUnfilteredPartitionMetadataCommand}.
+ */
 export interface GetUnfilteredPartitionMetadataCommandInput extends GetUnfilteredPartitionMetadataRequest {}
+/**
+ * The output of {@link GetUnfilteredPartitionMetadataCommand}.
+ */
 export interface GetUnfilteredPartitionMetadataCommandOutput
   extends GetUnfilteredPartitionMetadataResponse,
     __MetadataBearer {}

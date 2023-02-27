@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteInstanceEventWindowCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteInstanceEventWindowCommand}.
+ */
 export interface DeleteInstanceEventWindowCommandInput extends DeleteInstanceEventWindowRequest {}
+/**
+ * The output of {@link DeleteInstanceEventWindowCommand}.
+ */
 export interface DeleteInstanceEventWindowCommandOutput extends DeleteInstanceEventWindowResult, __MetadataBearer {}
 
 /**

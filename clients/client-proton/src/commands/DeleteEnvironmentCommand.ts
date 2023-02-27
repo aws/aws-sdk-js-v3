@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * The input for {@link DeleteEnvironmentCommand}.
+ */
 export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentInput {}
+/**
+ * The output of {@link DeleteEnvironmentCommand}.
+ */
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput, __MetadataBearer {}
 
 /**

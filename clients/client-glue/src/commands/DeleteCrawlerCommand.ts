@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteCrawlerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteCrawlerCommand}.
+ */
 export interface DeleteCrawlerCommandInput extends DeleteCrawlerRequest {}
+/**
+ * The output of {@link DeleteCrawlerCommand}.
+ */
 export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __MetadataBearer {}
 
 /**

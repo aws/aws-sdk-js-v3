@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeUpdateActionsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeUpdateActionsCommand}.
+ */
 export interface DescribeUpdateActionsCommandInput extends DescribeUpdateActionsMessage {}
+/**
+ * The output of {@link DescribeUpdateActionsCommand}.
+ */
 export interface DescribeUpdateActionsCommandOutput extends UpdateActionsMessage, __MetadataBearer {}
 
 /**

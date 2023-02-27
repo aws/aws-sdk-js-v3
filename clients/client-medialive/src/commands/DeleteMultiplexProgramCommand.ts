@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteMultiplexProgramCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteMultiplexProgramCommand}.
+ */
 export interface DeleteMultiplexProgramCommandInput extends DeleteMultiplexProgramRequest {}
+/**
+ * The output of {@link DeleteMultiplexProgramCommand}.
+ */
 export interface DeleteMultiplexProgramCommandOutput extends DeleteMultiplexProgramResponse, __MetadataBearer {}
 
 /**

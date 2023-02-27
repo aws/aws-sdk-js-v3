@@ -25,7 +25,13 @@ import {
   serializeAws_queryGetInsightRuleReportCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetInsightRuleReportCommand}.
+ */
 export interface GetInsightRuleReportCommandInput extends GetInsightRuleReportInput {}
+/**
+ * The output of {@link GetInsightRuleReportCommand}.
+ */
 export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportOutput, __MetadataBearer {}
 
 /**

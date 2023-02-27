@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteReservationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteReservationCommand}.
+ */
 export interface DeleteReservationCommandInput extends DeleteReservationRequest {}
+/**
+ * The output of {@link DeleteReservationCommand}.
+ */
 export interface DeleteReservationCommandOutput extends DeleteReservationResponse, __MetadataBearer {}
 
 /**

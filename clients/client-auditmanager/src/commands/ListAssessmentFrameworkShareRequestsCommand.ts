@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAssessmentFrameworkShareRequestsCommand}.
+ */
 export interface ListAssessmentFrameworkShareRequestsCommandInput extends ListAssessmentFrameworkShareRequestsRequest {}
+/**
+ * The output of {@link ListAssessmentFrameworkShareRequestsCommand}.
+ */
 export interface ListAssessmentFrameworkShareRequestsCommandOutput
   extends ListAssessmentFrameworkShareRequestsResponse,
     __MetadataBearer {}

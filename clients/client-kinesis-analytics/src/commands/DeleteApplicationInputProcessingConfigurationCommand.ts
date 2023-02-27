@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteApplicationInputProcessingConfigurationCommand}.
+ */
 export interface DeleteApplicationInputProcessingConfigurationCommandInput
   extends DeleteApplicationInputProcessingConfigurationRequest {}
+/**
+ * The output of {@link DeleteApplicationInputProcessingConfigurationCommand}.
+ */
 export interface DeleteApplicationInputProcessingConfigurationCommandOutput
   extends DeleteApplicationInputProcessingConfigurationResponse,
     __MetadataBearer {}

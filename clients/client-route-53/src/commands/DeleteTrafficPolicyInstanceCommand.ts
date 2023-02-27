@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link DeleteTrafficPolicyInstanceCommand}.
+ */
 export interface DeleteTrafficPolicyInstanceCommandInput extends DeleteTrafficPolicyInstanceRequest {}
+/**
+ * The output of {@link DeleteTrafficPolicyInstanceCommand}.
+ */
 export interface DeleteTrafficPolicyInstanceCommandOutput
   extends DeleteTrafficPolicyInstanceResponse,
     __MetadataBearer {}

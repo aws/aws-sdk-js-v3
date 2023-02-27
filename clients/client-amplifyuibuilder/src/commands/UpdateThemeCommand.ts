@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateThemeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateThemeCommand}.
+ */
 export interface UpdateThemeCommandInput extends UpdateThemeRequest {}
+/**
+ * The output of {@link UpdateThemeCommand}.
+ */
 export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __MetadataBearer {}
 
 /**

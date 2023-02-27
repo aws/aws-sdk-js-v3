@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAccountIntegrationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAccountIntegrationsCommand}.
+ */
 export interface ListAccountIntegrationsCommandInput extends ListAccountIntegrationsRequest {}
+/**
+ * The output of {@link ListAccountIntegrationsCommand}.
+ */
 export interface ListAccountIntegrationsCommandOutput extends ListAccountIntegrationsResponse, __MetadataBearer {}
 
 /**

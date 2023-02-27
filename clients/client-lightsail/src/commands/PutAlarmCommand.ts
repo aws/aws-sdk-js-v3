@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_json1_1PutAlarmCommand, serializeAws_json1_1PutAlarmCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutAlarmCommand}.
+ */
 export interface PutAlarmCommandInput extends PutAlarmRequest {}
+/**
+ * The output of {@link PutAlarmCommand}.
+ */
 export interface PutAlarmCommandOutput extends PutAlarmResult, __MetadataBearer {}
 
 /**

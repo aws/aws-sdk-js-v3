@@ -20,7 +20,13 @@ import {
   serializeAws_queryUpdateAutoScalingGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateAutoScalingGroupCommand}.
+ */
 export interface UpdateAutoScalingGroupCommandInput extends UpdateAutoScalingGroupType {}
+/**
+ * The output of {@link UpdateAutoScalingGroupCommand}.
+ */
 export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
 
 /**

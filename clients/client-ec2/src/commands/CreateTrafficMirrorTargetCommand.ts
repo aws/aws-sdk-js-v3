@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateTrafficMirrorTargetCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateTrafficMirrorTargetCommand}.
+ */
 export interface CreateTrafficMirrorTargetCommandInput extends CreateTrafficMirrorTargetRequest {}
+/**
+ * The output of {@link CreateTrafficMirrorTargetCommand}.
+ */
 export interface CreateTrafficMirrorTargetCommandOutput extends CreateTrafficMirrorTargetResult, __MetadataBearer {}
 
 /**

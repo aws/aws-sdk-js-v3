@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteDirectConnectGatewayAssociationProposalCommand}.
+ */
 export interface DeleteDirectConnectGatewayAssociationProposalCommandInput
   extends DeleteDirectConnectGatewayAssociationProposalRequest {}
+/**
+ * The output of {@link DeleteDirectConnectGatewayAssociationProposalCommand}.
+ */
 export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
   extends DeleteDirectConnectGatewayAssociationProposalResult,
     __MetadataBearer {}

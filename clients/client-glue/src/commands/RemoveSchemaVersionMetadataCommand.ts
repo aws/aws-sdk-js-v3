@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RemoveSchemaVersionMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RemoveSchemaVersionMetadataCommand}.
+ */
 export interface RemoveSchemaVersionMetadataCommandInput extends RemoveSchemaVersionMetadataInput {}
+/**
+ * The output of {@link RemoveSchemaVersionMetadataCommand}.
+ */
 export interface RemoveSchemaVersionMetadataCommandOutput
   extends RemoveSchemaVersionMetadataResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteImageRecipeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteImageRecipeCommand}.
+ */
 export interface DeleteImageRecipeCommandInput extends DeleteImageRecipeRequest {}
+/**
+ * The output of {@link DeleteImageRecipeCommand}.
+ */
 export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeResponse, __MetadataBearer {}
 
 /**

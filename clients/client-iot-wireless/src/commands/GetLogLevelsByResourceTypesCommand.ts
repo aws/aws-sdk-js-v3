@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetLogLevelsByResourceTypesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetLogLevelsByResourceTypesCommand}.
+ */
 export interface GetLogLevelsByResourceTypesCommandInput extends GetLogLevelsByResourceTypesRequest {}
+/**
+ * The output of {@link GetLogLevelsByResourceTypesCommand}.
+ */
 export interface GetLogLevelsByResourceTypesCommandOutput
   extends GetLogLevelsByResourceTypesResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListFunctionDefinitionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListFunctionDefinitionsCommand}.
+ */
 export interface ListFunctionDefinitionsCommandInput extends ListFunctionDefinitionsRequest {}
+/**
+ * The output of {@link ListFunctionDefinitionsCommand}.
+ */
 export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefinitionsResponse, __MetadataBearer {}
 
 /**

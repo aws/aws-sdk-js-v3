@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchResetAlarmCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchResetAlarmCommand}.
+ */
 export interface BatchResetAlarmCommandInput extends BatchResetAlarmRequest {}
+/**
+ * The output of {@link BatchResetAlarmCommand}.
+ */
 export interface BatchResetAlarmCommandOutput extends BatchResetAlarmResponse, __MetadataBearer {}
 
 /**

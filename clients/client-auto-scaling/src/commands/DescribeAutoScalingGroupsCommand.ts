@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeAutoScalingGroupsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeAutoScalingGroupsCommand}.
+ */
 export interface DescribeAutoScalingGroupsCommandInput extends AutoScalingGroupNamesType {}
+/**
+ * The output of {@link DescribeAutoScalingGroupsCommand}.
+ */
 export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroupsType, __MetadataBearer {}
 
 /**

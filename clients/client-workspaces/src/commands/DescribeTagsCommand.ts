@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link DescribeTagsCommand}.
+ */
 export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
+/**
+ * The output of {@link DescribeTagsCommand}.
+ */
 export interface DescribeTagsCommandOutput extends DescribeTagsResult, __MetadataBearer {}
 
 /**

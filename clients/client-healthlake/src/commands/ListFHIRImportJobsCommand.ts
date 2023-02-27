@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListFHIRImportJobsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListFHIRImportJobsCommand}.
+ */
 export interface ListFHIRImportJobsCommandInput extends ListFHIRImportJobsRequest {}
+/**
+ * The output of {@link ListFHIRImportJobsCommand}.
+ */
 export interface ListFHIRImportJobsCommandOutput extends ListFHIRImportJobsResponse, __MetadataBearer {}
 
 /**

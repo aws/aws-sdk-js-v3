@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AllocateHostedConnectionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AllocateHostedConnectionCommand}.
+ */
 export interface AllocateHostedConnectionCommandInput extends AllocateHostedConnectionRequest {}
+/**
+ * The output of {@link AllocateHostedConnectionCommand}.
+ */
 export interface AllocateHostedConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**

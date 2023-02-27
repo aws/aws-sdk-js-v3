@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteAnomalyDetectorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAnomalyDetectorCommand}.
+ */
 export interface DeleteAnomalyDetectorCommandInput extends DeleteAnomalyDetectorRequest {}
+/**
+ * The output of {@link DeleteAnomalyDetectorCommand}.
+ */
 export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetectorResponse, __MetadataBearer {}
 
 /**

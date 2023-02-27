@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * The input for {@link GetRecommendationsCommand}.
+ */
 export interface GetRecommendationsCommandInput extends GetRecommendationsRequest {}
+/**
+ * The output of {@link GetRecommendationsCommand}.
+ */
 export interface GetRecommendationsCommandOutput extends GetRecommendationsResponse, __MetadataBearer {}
 
 /**

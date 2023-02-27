@@ -20,7 +20,13 @@ import {
   serializeAws_ec2DeletePlacementGroupCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeletePlacementGroupCommand}.
+ */
 export interface DeletePlacementGroupCommandInput extends DeletePlacementGroupRequest {}
+/**
+ * The output of {@link DeletePlacementGroupCommand}.
+ */
 export interface DeletePlacementGroupCommandOutput extends __MetadataBearer {}
 
 /**

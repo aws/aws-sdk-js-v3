@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetPackageVersionReadmeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPackageVersionReadmeCommand}.
+ */
 export interface GetPackageVersionReadmeCommandInput extends GetPackageVersionReadmeRequest {}
+/**
+ * The output of {@link GetPackageVersionReadmeCommand}.
+ */
 export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionReadmeResult, __MetadataBearer {}
 
 /**

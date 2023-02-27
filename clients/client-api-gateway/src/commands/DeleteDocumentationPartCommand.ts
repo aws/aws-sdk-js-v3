@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteDocumentationPartCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteDocumentationPartCommand}.
+ */
 export interface DeleteDocumentationPartCommandInput extends DeleteDocumentationPartRequest {}
+/**
+ * The output of {@link DeleteDocumentationPartCommand}.
+ */
 export interface DeleteDocumentationPartCommandOutput extends __MetadataBearer {}
 
 /**

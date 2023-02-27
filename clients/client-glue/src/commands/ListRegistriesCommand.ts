@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListRegistriesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListRegistriesCommand}.
+ */
 export interface ListRegistriesCommandInput extends ListRegistriesInput {}
+/**
+ * The output of {@link ListRegistriesCommand}.
+ */
 export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateChannelClassCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateChannelClassCommand}.
+ */
 export interface UpdateChannelClassCommandInput extends UpdateChannelClassRequest {}
+/**
+ * The output of {@link UpdateChannelClassCommand}.
+ */
 export interface UpdateChannelClassCommandOutput extends UpdateChannelClassResponse, __MetadataBearer {}
 
 /**

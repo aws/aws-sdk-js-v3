@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
+/**
+ * The input for {@link GetAccessKeyInfoCommand}.
+ */
 export interface GetAccessKeyInfoCommandInput extends GetAccessKeyInfoRequest {}
+/**
+ * The output of {@link GetAccessKeyInfoCommand}.
+ */
 export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse, __MetadataBearer {}
 
 /**

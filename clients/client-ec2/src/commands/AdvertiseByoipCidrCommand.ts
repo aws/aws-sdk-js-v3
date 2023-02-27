@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AdvertiseByoipCidrCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AdvertiseByoipCidrCommand}.
+ */
 export interface AdvertiseByoipCidrCommandInput extends AdvertiseByoipCidrRequest {}
+/**
+ * The output of {@link AdvertiseByoipCidrCommand}.
+ */
 export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResult, __MetadataBearer {}
 
 /**

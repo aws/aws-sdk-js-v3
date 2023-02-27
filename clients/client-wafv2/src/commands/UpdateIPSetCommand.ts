@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * The input for {@link UpdateIPSetCommand}.
+ */
 export interface UpdateIPSetCommandInput extends UpdateIPSetRequest {}
+/**
+ * The output of {@link UpdateIPSetCommand}.
+ */
 export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __MetadataBearer {}
 
 /**

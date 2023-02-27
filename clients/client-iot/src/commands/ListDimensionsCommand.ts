@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListDimensionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDimensionsCommand}.
+ */
 export interface ListDimensionsCommandInput extends ListDimensionsRequest {}
+/**
+ * The output of {@link ListDimensionsCommand}.
+ */
 export interface ListDimensionsCommandOutput extends ListDimensionsResponse, __MetadataBearer {}
 
 /**

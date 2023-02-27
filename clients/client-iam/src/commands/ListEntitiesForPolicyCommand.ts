@@ -25,7 +25,13 @@ import {
   serializeAws_queryListEntitiesForPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListEntitiesForPolicyCommand}.
+ */
 export interface ListEntitiesForPolicyCommandInput extends ListEntitiesForPolicyRequest {}
+/**
+ * The output of {@link ListEntitiesForPolicyCommand}.
+ */
 export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolicyResponse, __MetadataBearer {}
 
 /**

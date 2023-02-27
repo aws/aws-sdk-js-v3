@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link MalformedBooleanCommand}.
+ */
 export interface MalformedBooleanCommandInput extends MalformedBooleanInput {}
+/**
+ * The output of {@link MalformedBooleanCommand}.
+ */
 export interface MalformedBooleanCommandOutput extends __MetadataBearer {}
 
 export class MalformedBooleanCommand extends $Command<

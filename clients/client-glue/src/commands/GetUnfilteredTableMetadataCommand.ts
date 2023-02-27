@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetUnfilteredTableMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetUnfilteredTableMetadataCommand}.
+ */
 export interface GetUnfilteredTableMetadataCommandInput extends GetUnfilteredTableMetadataRequest {}
+/**
+ * The output of {@link GetUnfilteredTableMetadataCommand}.
+ */
 export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTableMetadataResponse, __MetadataBearer {}
 
 /**

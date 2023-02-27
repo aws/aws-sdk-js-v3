@@ -25,7 +25,13 @@ import {
   serializeAws_queryUntagResourceCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandInput extends UntagResourceInput {}
+/**
+ * The output of {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateMeshCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateMeshCommand}.
+ */
 export interface CreateMeshCommandInput extends CreateMeshInput {}
+/**
+ * The output of {@link CreateMeshCommand}.
+ */
 export interface CreateMeshCommandOutput extends CreateMeshOutput, __MetadataBearer {}
 
 /**

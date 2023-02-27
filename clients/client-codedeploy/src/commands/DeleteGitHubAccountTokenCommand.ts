@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteGitHubAccountTokenCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteGitHubAccountTokenCommand}.
+ */
 export interface DeleteGitHubAccountTokenCommandInput extends DeleteGitHubAccountTokenInput {}
+/**
+ * The output of {@link DeleteGitHubAccountTokenCommand}.
+ */
 export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccountTokenOutput, __MetadataBearer {}
 
 /**

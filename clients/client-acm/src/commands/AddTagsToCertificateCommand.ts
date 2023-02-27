@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1AddTagsToCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddTagsToCertificateCommand}.
+ */
 export interface AddTagsToCertificateCommandInput extends AddTagsToCertificateRequest {}
+/**
+ * The output of {@link AddTagsToCertificateCommand}.
+ */
 export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
 
 /**

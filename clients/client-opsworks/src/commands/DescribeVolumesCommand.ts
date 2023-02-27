@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeVolumesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeVolumesCommand}.
+ */
 export interface DescribeVolumesCommandInput extends DescribeVolumesRequest {}
+/**
+ * The output of {@link DescribeVolumesCommand}.
+ */
 export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __MetadataBearer {}
 
 /**

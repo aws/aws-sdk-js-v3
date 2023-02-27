@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link PutObjectAclCommand}.
+ */
 export interface PutObjectAclCommandInput extends PutObjectAclRequest {}
+/**
+ * The output of {@link PutObjectAclCommand}.
+ */
 export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_queryCreateStorageLocationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateStorageLocationCommand}.
+ */
 export interface CreateStorageLocationCommandInput {}
+/**
+ * The output of {@link CreateStorageLocationCommand}.
+ */
 export interface CreateStorageLocationCommandOutput extends CreateStorageLocationResultMessage, __MetadataBearer {}
 
 /**

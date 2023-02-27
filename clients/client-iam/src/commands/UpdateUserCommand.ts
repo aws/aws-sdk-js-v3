@@ -17,7 +17,13 @@ import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { UpdateUserRequest, UpdateUserRequestFilterSensitiveLog } from "../models/models_1";
 import { deserializeAws_queryUpdateUserCommand, serializeAws_queryUpdateUserCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateUserCommand}.
+ */
 export interface UpdateUserCommandInput extends UpdateUserRequest {}
+/**
+ * The output of {@link UpdateUserCommand}.
+ */
 export interface UpdateUserCommandOutput extends __MetadataBearer {}
 
 /**

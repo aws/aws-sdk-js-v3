@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateQueueStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateQueueStatusCommand}.
+ */
 export interface UpdateQueueStatusCommandInput extends UpdateQueueStatusRequest {}
+/**
+ * The output of {@link UpdateQueueStatusCommand}.
+ */
 export interface UpdateQueueStatusCommandOutput extends __MetadataBearer {}
 
 /**

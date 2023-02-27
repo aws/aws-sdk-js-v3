@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateConnectAttachmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateConnectAttachmentCommand}.
+ */
 export interface CreateConnectAttachmentCommandInput extends CreateConnectAttachmentRequest {}
+/**
+ * The output of {@link CreateConnectAttachmentCommand}.
+ */
 export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttachmentResponse, __MetadataBearer {}
 
 /**

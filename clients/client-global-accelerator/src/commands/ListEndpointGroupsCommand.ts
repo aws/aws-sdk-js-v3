@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListEndpointGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListEndpointGroupsCommand}.
+ */
 export interface ListEndpointGroupsCommandInput extends ListEndpointGroupsRequest {}
+/**
+ * The output of {@link ListEndpointGroupsCommand}.
+ */
 export interface ListEndpointGroupsCommandOutput extends ListEndpointGroupsResponse, __MetadataBearer {}
 
 /**

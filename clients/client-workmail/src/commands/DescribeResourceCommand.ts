@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link DescribeResourceCommand}.
+ */
 export interface DescribeResourceCommandInput extends DescribeResourceRequest {}
+/**
+ * The output of {@link DescribeResourceCommand}.
+ */
 export interface DescribeResourceCommandOutput extends DescribeResourceResponse, __MetadataBearer {}
 
 /**

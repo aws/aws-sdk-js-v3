@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DisassociateOriginationIdentityCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DisassociateOriginationIdentityCommand}.
+ */
 export interface DisassociateOriginationIdentityCommandInput extends DisassociateOriginationIdentityRequest {}
+/**
+ * The output of {@link DisassociateOriginationIdentityCommand}.
+ */
 export interface DisassociateOriginationIdentityCommandOutput
   extends DisassociateOriginationIdentityResult,
     __MetadataBearer {}

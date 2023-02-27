@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateApplicationToEntitlementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateApplicationToEntitlementCommand}.
+ */
 export interface AssociateApplicationToEntitlementCommandInput extends AssociateApplicationToEntitlementRequest {}
+/**
+ * The output of {@link AssociateApplicationToEntitlementCommand}.
+ */
 export interface AssociateApplicationToEntitlementCommandOutput
   extends AssociateApplicationToEntitlementResult,
     __MetadataBearer {}

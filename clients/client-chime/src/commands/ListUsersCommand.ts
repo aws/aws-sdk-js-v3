@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListUsersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListUsersCommand}.
+ */
 export interface ListUsersCommandInput extends ListUsersRequest {}
+/**
+ * The output of {@link ListUsersCommand}.
+ */
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**

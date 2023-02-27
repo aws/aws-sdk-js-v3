@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1StartSupportDataExportCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartSupportDataExportCommand}.
+ */
 export interface StartSupportDataExportCommandInput extends StartSupportDataExportRequest {}
+/**
+ * The output of {@link StartSupportDataExportCommand}.
+ */
 export interface StartSupportDataExportCommandOutput extends StartSupportDataExportResult, __MetadataBearer {}
 
 /**

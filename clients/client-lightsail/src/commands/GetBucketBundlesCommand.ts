@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetBucketBundlesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetBucketBundlesCommand}.
+ */
 export interface GetBucketBundlesCommandInput extends GetBucketBundlesRequest {}
+/**
+ * The output of {@link GetBucketBundlesCommand}.
+ */
 export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, __MetadataBearer {}
 
 /**

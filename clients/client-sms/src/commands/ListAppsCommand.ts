@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1ListAppsCommand, serializeAws_json1_1ListAppsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link ListAppsCommand}.
+ */
 export interface ListAppsCommandInput extends ListAppsRequest {}
+/**
+ * The output of {@link ListAppsCommand}.
+ */
 export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBearer {}
 
 /**

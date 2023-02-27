@@ -210,3 +210,38 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+GetServiceSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/classes/getservicesettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/getservicesettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/getservicesettingscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListLinuxSubscriptionInstances
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/classes/listlinuxsubscriptioninstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/listlinuxsubscriptioninstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/listlinuxsubscriptioninstancescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListLinuxSubscriptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/classes/listlinuxsubscriptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/listlinuxsubscriptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/listlinuxsubscriptionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateServiceSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/classes/updateservicesettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/updateservicesettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/updateservicesettingscommandoutput.html)
+
+</details>

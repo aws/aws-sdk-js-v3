@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DetachPrincipalPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DetachPrincipalPolicyCommand}.
+ */
 export interface DetachPrincipalPolicyCommandInput extends DetachPrincipalPolicyRequest {}
+/**
+ * The output of {@link DetachPrincipalPolicyCommand}.
+ */
 export interface DetachPrincipalPolicyCommandOutput extends __MetadataBearer {}
 
 /**

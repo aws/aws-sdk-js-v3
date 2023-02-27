@@ -28,7 +28,13 @@ import {
   serializeAws_restJson1GetSnapshotBlockCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSnapshotBlockCommand}.
+ */
 export interface GetSnapshotBlockCommandInput extends GetSnapshotBlockRequest {}
+/**
+ * The output of {@link GetSnapshotBlockCommand}.
+ */
 export interface GetSnapshotBlockCommandOutput
   extends __WithSdkStreamMixin<GetSnapshotBlockResponse, "BlockData">,
     __MetadataBearer {}

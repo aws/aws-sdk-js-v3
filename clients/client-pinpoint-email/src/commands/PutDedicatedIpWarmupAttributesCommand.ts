@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutDedicatedIpWarmupAttributesCommand}.
+ */
 export interface PutDedicatedIpWarmupAttributesCommandInput extends PutDedicatedIpWarmupAttributesRequest {}
+/**
+ * The output of {@link PutDedicatedIpWarmupAttributesCommand}.
+ */
 export interface PutDedicatedIpWarmupAttributesCommandOutput
   extends PutDedicatedIpWarmupAttributesResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutFunctionCodeSigningConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutFunctionCodeSigningConfigCommand}.
+ */
 export interface PutFunctionCodeSigningConfigCommandInput extends PutFunctionCodeSigningConfigRequest {}
+/**
+ * The output of {@link PutFunctionCodeSigningConfigCommand}.
+ */
 export interface PutFunctionCodeSigningConfigCommandOutput
   extends PutFunctionCodeSigningConfigResponse,
     __MetadataBearer {}

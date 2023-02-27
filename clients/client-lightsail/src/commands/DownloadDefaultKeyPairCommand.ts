@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DownloadDefaultKeyPairCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DownloadDefaultKeyPairCommand}.
+ */
 export interface DownloadDefaultKeyPairCommandInput extends DownloadDefaultKeyPairRequest {}
+/**
+ * The output of {@link DownloadDefaultKeyPairCommand}.
+ */
 export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyPairResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyTrafficMirrorFilterRuleCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyTrafficMirrorFilterRuleCommand}.
+ */
 export interface ModifyTrafficMirrorFilterRuleCommandInput extends ModifyTrafficMirrorFilterRuleRequest {}
+/**
+ * The output of {@link ModifyTrafficMirrorFilterRuleCommand}.
+ */
 export interface ModifyTrafficMirrorFilterRuleCommandOutput
   extends ModifyTrafficMirrorFilterRuleResult,
     __MetadataBearer {}

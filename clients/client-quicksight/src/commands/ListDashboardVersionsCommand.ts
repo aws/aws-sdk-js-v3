@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link ListDashboardVersionsCommand}.
+ */
 export interface ListDashboardVersionsCommandInput extends ListDashboardVersionsRequest {}
+/**
+ * The output of {@link ListDashboardVersionsCommand}.
+ */
 export interface ListDashboardVersionsCommandOutput extends ListDashboardVersionsResponse, __MetadataBearer {}
 
 /**

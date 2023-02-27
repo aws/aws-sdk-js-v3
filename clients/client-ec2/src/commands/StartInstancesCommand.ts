@@ -22,7 +22,13 @@ import {
 } from "../models/models_6";
 import { deserializeAws_ec2StartInstancesCommand, serializeAws_ec2StartInstancesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link StartInstancesCommand}.
+ */
 export interface StartInstancesCommandInput extends StartInstancesRequest {}
+/**
+ * The output of {@link StartInstancesCommand}.
+ */
 export interface StartInstancesCommandOutput extends StartInstancesResult, __MetadataBearer {}
 
 /**

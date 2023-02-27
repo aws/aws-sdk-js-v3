@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1ResumeResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ResumeResourceCommand}.
+ */
 export interface ResumeResourceCommandInput extends ResumeResourceRequest {}
+/**
+ * The output of {@link ResumeResourceCommand}.
+ */
 export interface ResumeResourceCommandOutput extends __MetadataBearer {}
 
 /**

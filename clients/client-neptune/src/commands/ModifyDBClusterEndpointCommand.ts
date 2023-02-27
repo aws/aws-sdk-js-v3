@@ -25,7 +25,13 @@ import {
   serializeAws_queryModifyDBClusterEndpointCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyDBClusterEndpointCommand}.
+ */
 export interface ModifyDBClusterEndpointCommandInput extends ModifyDBClusterEndpointMessage {}
+/**
+ * The output of {@link ModifyDBClusterEndpointCommand}.
+ */
 export interface ModifyDBClusterEndpointCommandOutput extends ModifyDBClusterEndpointOutput, __MetadataBearer {}
 
 /**

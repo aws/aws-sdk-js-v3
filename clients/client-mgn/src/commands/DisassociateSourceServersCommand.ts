@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociateSourceServersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateSourceServersCommand}.
+ */
 export interface DisassociateSourceServersCommandInput extends DisassociateSourceServersRequest {}
+/**
+ * The output of {@link DisassociateSourceServersCommand}.
+ */
 export interface DisassociateSourceServersCommandOutput extends DisassociateSourceServersResponse, __MetadataBearer {}
 
 /**

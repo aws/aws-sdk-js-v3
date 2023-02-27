@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0PutKeywordCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link PutKeywordCommand}.
+ */
 export interface PutKeywordCommandInput extends PutKeywordRequest {}
+/**
+ * The output of {@link PutKeywordCommand}.
+ */
 export interface PutKeywordCommandOutput extends PutKeywordResult, __MetadataBearer {}
 
 /**

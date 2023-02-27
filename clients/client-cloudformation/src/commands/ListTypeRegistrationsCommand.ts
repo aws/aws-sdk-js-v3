@@ -25,7 +25,13 @@ import {
   serializeAws_queryListTypeRegistrationsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListTypeRegistrationsCommand}.
+ */
 export interface ListTypeRegistrationsCommandInput extends ListTypeRegistrationsInput {}
+/**
+ * The output of {@link ListTypeRegistrationsCommand}.
+ */
 export interface ListTypeRegistrationsCommandOutput extends ListTypeRegistrationsOutput, __MetadataBearer {}
 
 /**

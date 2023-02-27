@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteResourcePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteResourcePolicyCommand}.
+ */
 export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyInput {}
+/**
+ * The output of {@link DeleteResourcePolicyCommand}.
+ */
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyOutput, __MetadataBearer {}
 
 /**

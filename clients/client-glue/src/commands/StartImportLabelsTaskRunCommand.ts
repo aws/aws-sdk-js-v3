@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartImportLabelsTaskRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartImportLabelsTaskRunCommand}.
+ */
 export interface StartImportLabelsTaskRunCommandInput extends StartImportLabelsTaskRunRequest {}
+/**
+ * The output of {@link StartImportLabelsTaskRunCommand}.
+ */
 export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabelsTaskRunResponse, __MetadataBearer {}
 
 /**

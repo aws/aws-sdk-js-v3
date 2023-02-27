@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1StopConfigurationRecorderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopConfigurationRecorderCommand}.
+ */
 export interface StopConfigurationRecorderCommandInput extends StopConfigurationRecorderRequest {}
+/**
+ * The output of {@link StopConfigurationRecorderCommand}.
+ */
 export interface StopConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**

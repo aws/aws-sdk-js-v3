@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DeleteConnectionCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteConnectionCommand}.
+ */
 export interface DeleteConnectionCommandInput extends DeleteConnectionInput {}
+/**
+ * The output of {@link DeleteConnectionCommand}.
+ */
 export interface DeleteConnectionCommandOutput extends DeleteConnectionOutput, __MetadataBearer {}
 
 /**

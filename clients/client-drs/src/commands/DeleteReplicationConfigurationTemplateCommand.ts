@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1DeleteReplicationConfigurationTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteReplicationConfigurationTemplateCommand}.
+ */
 export interface DeleteReplicationConfigurationTemplateCommandInput
   extends DeleteReplicationConfigurationTemplateRequest {}
+/**
+ * The output of {@link DeleteReplicationConfigurationTemplateCommand}.
+ */
 export interface DeleteReplicationConfigurationTemplateCommandOutput
   extends DeleteReplicationConfigurationTemplateResponse,
     __MetadataBearer {}

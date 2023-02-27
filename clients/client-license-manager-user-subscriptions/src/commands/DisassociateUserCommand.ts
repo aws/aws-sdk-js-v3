@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DisassociateUserCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateUserCommand}.
+ */
 export interface DisassociateUserCommandInput extends DisassociateUserRequest {}
+/**
+ * The output of {@link DisassociateUserCommand}.
+ */
 export interface DisassociateUserCommandOutput extends DisassociateUserResponse, __MetadataBearer {}
 
 /**

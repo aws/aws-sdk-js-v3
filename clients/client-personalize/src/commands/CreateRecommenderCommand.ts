@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateRecommenderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateRecommenderCommand}.
+ */
 export interface CreateRecommenderCommandInput extends CreateRecommenderRequest {}
+/**
+ * The output of {@link CreateRecommenderCommand}.
+ */
 export interface CreateRecommenderCommandOutput extends CreateRecommenderResponse, __MetadataBearer {}
 
 /**

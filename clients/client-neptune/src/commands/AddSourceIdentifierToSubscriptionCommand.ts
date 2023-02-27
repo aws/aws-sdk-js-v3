@@ -25,7 +25,13 @@ import {
   serializeAws_queryAddSourceIdentifierToSubscriptionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link AddSourceIdentifierToSubscriptionCommand}.
+ */
 export interface AddSourceIdentifierToSubscriptionCommandInput extends AddSourceIdentifierToSubscriptionMessage {}
+/**
+ * The output of {@link AddSourceIdentifierToSubscriptionCommand}.
+ */
 export interface AddSourceIdentifierToSubscriptionCommandOutput
   extends AddSourceIdentifierToSubscriptionResult,
     __MetadataBearer {}

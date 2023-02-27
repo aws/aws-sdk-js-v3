@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateNamedQueryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateNamedQueryCommand}.
+ */
 export interface CreateNamedQueryCommandInput extends CreateNamedQueryInput {}
+/**
+ * The output of {@link CreateNamedQueryCommand}.
+ */
 export interface CreateNamedQueryCommandOutput extends CreateNamedQueryOutput, __MetadataBearer {}
 
 /**

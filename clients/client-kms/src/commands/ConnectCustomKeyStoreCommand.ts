@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ConnectCustomKeyStoreCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ConnectCustomKeyStoreCommand}.
+ */
 export interface ConnectCustomKeyStoreCommandInput extends ConnectCustomKeyStoreRequest {}
+/**
+ * The output of {@link ConnectCustomKeyStoreCommand}.
+ */
 export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStoreResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeServiceErrorsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeServiceErrorsCommand}.
+ */
 export interface DescribeServiceErrorsCommandInput extends DescribeServiceErrorsRequest {}
+/**
+ * The output of {@link DescribeServiceErrorsCommand}.
+ */
 export interface DescribeServiceErrorsCommandOutput extends DescribeServiceErrorsResult, __MetadataBearer {}
 
 /**

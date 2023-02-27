@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchCheckLayerAvailabilityCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchCheckLayerAvailabilityCommand}.
+ */
 export interface BatchCheckLayerAvailabilityCommandInput extends BatchCheckLayerAvailabilityRequest {}
+/**
+ * The output of {@link BatchCheckLayerAvailabilityCommand}.
+ */
 export interface BatchCheckLayerAvailabilityCommandOutput
   extends BatchCheckLayerAvailabilityResponse,
     __MetadataBearer {}

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0GetPoliciesStatsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetPoliciesStatsCommand}.
+ */
 export interface GetPoliciesStatsCommandInput extends GetPoliciesStatsRequest {}
+/**
+ * The output of {@link GetPoliciesStatsCommand}.
+ */
 export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse, __MetadataBearer {}
 
 /**

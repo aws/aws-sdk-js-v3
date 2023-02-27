@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1UpdateCampaignDialerConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateCampaignDialerConfigCommand}.
+ */
 export interface UpdateCampaignDialerConfigCommandInput extends UpdateCampaignDialerConfigRequest {}
+/**
+ * The output of {@link UpdateCampaignDialerConfigCommand}.
+ */
 export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBearer {}
 
 /**

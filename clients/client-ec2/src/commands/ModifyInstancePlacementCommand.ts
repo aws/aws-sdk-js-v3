@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyInstancePlacementCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyInstancePlacementCommand}.
+ */
 export interface ModifyInstancePlacementCommandInput extends ModifyInstancePlacementRequest {}
+/**
+ * The output of {@link ModifyInstancePlacementCommand}.
+ */
 export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlacementResult, __MetadataBearer {}
 
 /**

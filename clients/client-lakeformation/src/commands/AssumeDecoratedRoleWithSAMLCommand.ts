@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssumeDecoratedRoleWithSAMLCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssumeDecoratedRoleWithSAMLCommand}.
+ */
 export interface AssumeDecoratedRoleWithSAMLCommandInput extends AssumeDecoratedRoleWithSAMLRequest {}
+/**
+ * The output of {@link AssumeDecoratedRoleWithSAMLCommand}.
+ */
 export interface AssumeDecoratedRoleWithSAMLCommandOutput
   extends AssumeDecoratedRoleWithSAMLResponse,
     __MetadataBearer {}

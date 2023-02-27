@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteCampaignCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteCampaignCommand}.
+ */
 export interface DeleteCampaignCommandInput extends DeleteCampaignRequest {}
+/**
+ * The output of {@link DeleteCampaignCommand}.
+ */
 export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
 
 /**

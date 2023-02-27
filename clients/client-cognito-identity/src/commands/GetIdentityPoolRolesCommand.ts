@@ -26,7 +26,13 @@ import {
   serializeAws_json1_1GetIdentityPoolRolesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetIdentityPoolRolesCommand}.
+ */
 export interface GetIdentityPoolRolesCommandInput extends GetIdentityPoolRolesInput {}
+/**
+ * The output of {@link GetIdentityPoolRolesCommand}.
+ */
 export interface GetIdentityPoolRolesCommandOutput extends GetIdentityPoolRolesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateCapacityReservationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateCapacityReservationCommand}.
+ */
 export interface CreateCapacityReservationCommandInput extends CreateCapacityReservationRequest {}
+/**
+ * The output of {@link CreateCapacityReservationCommand}.
+ */
 export interface CreateCapacityReservationCommandOutput extends CreateCapacityReservationResult, __MetadataBearer {}
 
 /**

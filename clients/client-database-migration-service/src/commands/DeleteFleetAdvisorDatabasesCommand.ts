@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DeleteFleetAdvisorDatabasesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteFleetAdvisorDatabasesCommand}.
+ */
 export interface DeleteFleetAdvisorDatabasesCommandInput extends DeleteFleetAdvisorDatabasesRequest {}
+/**
+ * The output of {@link DeleteFleetAdvisorDatabasesCommand}.
+ */
 export interface DeleteFleetAdvisorDatabasesCommandOutput
   extends DeleteFleetAdvisorDatabasesResponse,
     __MetadataBearer {}

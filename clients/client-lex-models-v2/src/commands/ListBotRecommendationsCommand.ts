@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListBotRecommendationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListBotRecommendationsCommand}.
+ */
 export interface ListBotRecommendationsCommandInput extends ListBotRecommendationsRequest {}
+/**
+ * The output of {@link ListBotRecommendationsCommand}.
+ */
 export interface ListBotRecommendationsCommandOutput extends ListBotRecommendationsResponse, __MetadataBearer {}
 
 /**

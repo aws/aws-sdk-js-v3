@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1IssueCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link IssueCertificateCommand}.
+ */
 export interface IssueCertificateCommandInput extends IssueCertificateRequest {}
+/**
+ * The output of {@link IssueCertificateCommand}.
+ */
 export interface IssueCertificateCommandOutput extends IssueCertificateResponse, __MetadataBearer {}
 
 /**

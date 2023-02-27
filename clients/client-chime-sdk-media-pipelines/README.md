@@ -210,3 +210,102 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CreateMediaCapturePipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/classes/createmediacapturepipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/createmediacapturepipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/createmediacapturepipelinecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateMediaConcatenationPipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/classes/createmediaconcatenationpipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/createmediaconcatenationpipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/createmediaconcatenationpipelinecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateMediaLiveConnectorPipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/classes/createmedialiveconnectorpipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/createmedialiveconnectorpipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/createmedialiveconnectorpipelinecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteMediaCapturePipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/classes/deletemediacapturepipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/deletemediacapturepipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/deletemediacapturepipelinecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteMediaPipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/classes/deletemediapipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/deletemediapipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/deletemediapipelinecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetMediaCapturePipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/classes/getmediacapturepipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/getmediacapturepipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/getmediacapturepipelinecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetMediaPipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/classes/getmediapipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/getmediapipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/getmediapipelinecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListMediaCapturePipelines
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/classes/listmediacapturepipelinescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/listmediacapturepipelinescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/listmediacapturepipelinescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListMediaPipelines
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/classes/listmediapipelinescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/listmediapipelinescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/listmediapipelinescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk media pipelines/interfaces/untagresourcecommandoutput.html)
+
+</details>

@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
 
+/**
+ * The input for {@link DescribeRoutingControlCommand}.
+ */
 export interface DescribeRoutingControlCommandInput extends DescribeRoutingControlRequest {}
+/**
+ * The output of {@link DescribeRoutingControlCommand}.
+ */
 export interface DescribeRoutingControlCommandOutput extends DescribeRoutingControlResponse, __MetadataBearer {}
 
 /**

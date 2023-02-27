@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * The input for {@link DeleteRepositoryCommand}.
+ */
 export interface DeleteRepositoryCommandInput extends DeleteRepositoryInput {}
+/**
+ * The output of {@link DeleteRepositoryCommand}.
+ */
 export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, __MetadataBearer {}
 
 /**

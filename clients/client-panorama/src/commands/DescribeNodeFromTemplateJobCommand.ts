@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeNodeFromTemplateJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeNodeFromTemplateJobCommand}.
+ */
 export interface DescribeNodeFromTemplateJobCommandInput extends DescribeNodeFromTemplateJobRequest {}
+/**
+ * The output of {@link DescribeNodeFromTemplateJobCommand}.
+ */
 export interface DescribeNodeFromTemplateJobCommandOutput
   extends DescribeNodeFromTemplateJobResponse,
     __MetadataBearer {}

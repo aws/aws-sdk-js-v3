@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * The input for {@link GetRandomPasswordCommand}.
+ */
 export interface GetRandomPasswordCommandInput extends GetRandomPasswordRequest {}
+/**
+ * The output of {@link GetRandomPasswordCommand}.
+ */
 export interface GetRandomPasswordCommandOutput extends GetRandomPasswordResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2SearchTransitGatewayMulticastGroupsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link SearchTransitGatewayMulticastGroupsCommand}.
+ */
 export interface SearchTransitGatewayMulticastGroupsCommandInput extends SearchTransitGatewayMulticastGroupsRequest {}
+/**
+ * The output of {@link SearchTransitGatewayMulticastGroupsCommand}.
+ */
 export interface SearchTransitGatewayMulticastGroupsCommandOutput
   extends SearchTransitGatewayMulticastGroupsResult,
     __MetadataBearer {}

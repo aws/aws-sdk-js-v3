@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ModifyEndpointCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ModifyEndpointCommand}.
+ */
 export interface ModifyEndpointCommandInput extends ModifyEndpointMessage {}
+/**
+ * The output of {@link ModifyEndpointCommand}.
+ */
 export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __MetadataBearer {}
 
 /**

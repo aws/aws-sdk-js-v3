@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link CreateStandbyWorkspacesCommand}.
+ */
 export interface CreateStandbyWorkspacesCommandInput extends CreateStandbyWorkspacesRequest {}
+/**
+ * The output of {@link CreateStandbyWorkspacesCommand}.
+ */
 export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorkspacesResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RegisterContainerImageCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterContainerImageCommand}.
+ */
 export interface RegisterContainerImageCommandInput extends RegisterContainerImageRequest {}
+/**
+ * The output of {@link RegisterContainerImageCommand}.
+ */
 export interface RegisterContainerImageCommandOutput extends RegisterContainerImageResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link DeleteProvisionedProductPlanCommand}.
+ */
 export interface DeleteProvisionedProductPlanCommandInput extends DeleteProvisionedProductPlanInput {}
+/**
+ * The output of {@link DeleteProvisionedProductPlanCommand}.
+ */
 export interface DeleteProvisionedProductPlanCommandOutput
   extends DeleteProvisionedProductPlanOutput,
     __MetadataBearer {}

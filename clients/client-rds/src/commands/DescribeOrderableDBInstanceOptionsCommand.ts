@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DescribeOrderableDBInstanceOptionsCommand}.
+ */
 export interface DescribeOrderableDBInstanceOptionsCommandInput extends DescribeOrderableDBInstanceOptionsMessage {}
+/**
+ * The output of {@link DescribeOrderableDBInstanceOptionsCommand}.
+ */
 export interface DescribeOrderableDBInstanceOptionsCommandOutput
   extends OrderableDBInstanceOptionsMessage,
     __MetadataBearer {}

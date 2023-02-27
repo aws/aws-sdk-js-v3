@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DisassociateGatewayFromServerCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DisassociateGatewayFromServerCommand}.
+ */
 export interface DisassociateGatewayFromServerCommandInput extends DisassociateGatewayFromServerInput {}
+/**
+ * The output of {@link DisassociateGatewayFromServerCommand}.
+ */
 export interface DisassociateGatewayFromServerCommandOutput
   extends DisassociateGatewayFromServerOutput,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link ListRateBasedRulesCommand}.
+ */
 export interface ListRateBasedRulesCommandInput extends ListRateBasedRulesRequest {}
+/**
+ * The output of {@link ListRateBasedRulesCommand}.
+ */
 export interface ListRateBasedRulesCommandOutput extends ListRateBasedRulesResponse, __MetadataBearer {}
 
 /**

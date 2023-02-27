@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutInsightSelectorsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutInsightSelectorsCommand}.
+ */
 export interface PutInsightSelectorsCommandInput extends PutInsightSelectorsRequest {}
+/**
+ * The output of {@link PutInsightSelectorsCommand}.
+ */
 export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsResponse, __MetadataBearer {}
 
 /**

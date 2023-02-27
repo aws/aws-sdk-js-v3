@@ -21,7 +21,13 @@ import {
   serializeAws_json1_1UnlinkDeveloperIdentityCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UnlinkDeveloperIdentityCommand}.
+ */
 export interface UnlinkDeveloperIdentityCommandInput extends UnlinkDeveloperIdentityInput {}
+/**
+ * The output of {@link UnlinkDeveloperIdentityCommand}.
+ */
 export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {}
 
 /**

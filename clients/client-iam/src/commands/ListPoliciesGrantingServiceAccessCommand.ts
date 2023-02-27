@@ -25,7 +25,13 @@ import {
   serializeAws_queryListPoliciesGrantingServiceAccessCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListPoliciesGrantingServiceAccessCommand}.
+ */
 export interface ListPoliciesGrantingServiceAccessCommandInput extends ListPoliciesGrantingServiceAccessRequest {}
+/**
+ * The output of {@link ListPoliciesGrantingServiceAccessCommand}.
+ */
 export interface ListPoliciesGrantingServiceAccessCommandOutput
   extends ListPoliciesGrantingServiceAccessResponse,
     __MetadataBearer {}

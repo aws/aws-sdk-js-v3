@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteEventActionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteEventActionCommand}.
+ */
 export interface DeleteEventActionCommandInput extends DeleteEventActionRequest {}
+/**
+ * The output of {@link DeleteEventActionCommand}.
+ */
 export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetNetworkSiteCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetNetworkSiteCommand}.
+ */
 export interface GetNetworkSiteCommandInput extends GetNetworkSiteRequest {}
+/**
+ * The output of {@link GetNetworkSiteCommand}.
+ */
 export interface GetNetworkSiteCommandOutput extends GetNetworkSiteResponse, __MetadataBearer {}
 
 /**

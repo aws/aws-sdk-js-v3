@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeScalingActivitiesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeScalingActivitiesCommand}.
+ */
 export interface DescribeScalingActivitiesCommandInput extends DescribeScalingActivitiesRequest {}
+/**
+ * The output of {@link DescribeScalingActivitiesCommand}.
+ */
 export interface DescribeScalingActivitiesCommandOutput extends DescribeScalingActivitiesResponse, __MetadataBearer {}
 
 /**

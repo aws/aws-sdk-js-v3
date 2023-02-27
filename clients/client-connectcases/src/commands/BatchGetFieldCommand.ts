@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchGetFieldCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchGetFieldCommand}.
+ */
 export interface BatchGetFieldCommandInput extends BatchGetFieldRequest {}
+/**
+ * The output of {@link BatchGetFieldCommand}.
+ */
 export interface BatchGetFieldCommandOutput extends BatchGetFieldResponse, __MetadataBearer {}
 
 /**

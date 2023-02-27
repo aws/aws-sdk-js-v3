@@ -17,7 +17,13 @@ import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import { DeleteLagRequest, DeleteLagRequestFilterSensitiveLog, Lag, LagFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_json1_1DeleteLagCommand, serializeAws_json1_1DeleteLagCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteLagCommand}.
+ */
 export interface DeleteLagCommandInput extends DeleteLagRequest {}
+/**
+ * The output of {@link DeleteLagCommand}.
+ */
 export interface DeleteLagCommandOutput extends Lag, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1RevokeCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RevokeCertificateCommand}.
+ */
 export interface RevokeCertificateCommandInput extends RevokeCertificateRequest {}
+/**
+ * The output of {@link RevokeCertificateCommand}.
+ */
 export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
 
 /**

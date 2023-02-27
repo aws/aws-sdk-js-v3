@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteBrokerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteBrokerCommand}.
+ */
 export interface DeleteBrokerCommandInput extends DeleteBrokerRequest {}
+/**
+ * The output of {@link DeleteBrokerCommand}.
+ */
 export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __MetadataBearer {}
 
 /**

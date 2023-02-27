@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link DeregisterMailDomainCommand}.
+ */
 export interface DeregisterMailDomainCommandInput extends DeregisterMailDomainRequest {}
+/**
+ * The output of {@link DeregisterMailDomainCommand}.
+ */
 export interface DeregisterMailDomainCommandOutput extends DeregisterMailDomainResponse, __MetadataBearer {}
 
 /**

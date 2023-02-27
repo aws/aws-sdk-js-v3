@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteAttributesCommand}.
+ */
 export interface DeleteAttributesCommandInput extends DeleteAttributesRequest {}
+/**
+ * The output of {@link DeleteAttributesCommand}.
+ */
 export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse, __MetadataBearer {}
 
 /**

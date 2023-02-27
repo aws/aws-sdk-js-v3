@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetMergeOptionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetMergeOptionsCommand}.
+ */
 export interface GetMergeOptionsCommandInput extends GetMergeOptionsInput {}
+/**
+ * The output of {@link GetMergeOptionsCommand}.
+ */
 export interface GetMergeOptionsCommandOutput extends GetMergeOptionsOutput, __MetadataBearer {}
 
 /**

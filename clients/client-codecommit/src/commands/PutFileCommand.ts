@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_json1_1PutFileCommand, serializeAws_json1_1PutFileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutFileCommand}.
+ */
 export interface PutFileCommandInput extends PutFileInput {}
+/**
+ * The output of {@link PutFileCommand}.
+ */
 export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
 
 /**

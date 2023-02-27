@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1VerifyMacCommand, serializeAws_json1_1VerifyMacCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link VerifyMacCommand}.
+ */
 export interface VerifyMacCommandInput extends VerifyMacRequest {}
+/**
+ * The output of {@link VerifyMacCommand}.
+ */
 export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBearer {}
 
 /**

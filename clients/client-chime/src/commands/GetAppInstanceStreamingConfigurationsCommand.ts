@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1GetAppInstanceStreamingConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAppInstanceStreamingConfigurationsCommand}.
+ */
 export interface GetAppInstanceStreamingConfigurationsCommandInput
   extends GetAppInstanceStreamingConfigurationsRequest {}
+/**
+ * The output of {@link GetAppInstanceStreamingConfigurationsCommand}.
+ */
 export interface GetAppInstanceStreamingConfigurationsCommandOutput
   extends GetAppInstanceStreamingConfigurationsResponse,
     __MetadataBearer {}

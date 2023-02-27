@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetVirtualMachineCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetVirtualMachineCommand}.
+ */
 export interface GetVirtualMachineCommandInput extends GetVirtualMachineInput {}
+/**
+ * The output of {@link GetVirtualMachineCommand}.
+ */
 export interface GetVirtualMachineCommandOutput extends GetVirtualMachineOutput, __MetadataBearer {}
 
 /**

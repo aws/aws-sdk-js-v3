@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetRelationalDatabaseMetricDataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRelationalDatabaseMetricDataCommand}.
+ */
 export interface GetRelationalDatabaseMetricDataCommandInput extends GetRelationalDatabaseMetricDataRequest {}
+/**
+ * The output of {@link GetRelationalDatabaseMetricDataCommand}.
+ */
 export interface GetRelationalDatabaseMetricDataCommandOutput
   extends GetRelationalDatabaseMetricDataResult,
     __MetadataBearer {}

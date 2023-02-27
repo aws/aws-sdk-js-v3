@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteGameServerGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteGameServerGroupCommand}.
+ */
 export interface DeleteGameServerGroupCommandInput extends DeleteGameServerGroupInput {}
+/**
+ * The output of {@link DeleteGameServerGroupCommand}.
+ */
 export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGroupOutput, __MetadataBearer {}
 
 /**

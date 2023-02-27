@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetTestGridSessionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetTestGridSessionCommand}.
+ */
 export interface GetTestGridSessionCommandInput extends GetTestGridSessionRequest {}
+/**
+ * The output of {@link GetTestGridSessionCommand}.
+ */
 export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResult, __MetadataBearer {}
 
 /**

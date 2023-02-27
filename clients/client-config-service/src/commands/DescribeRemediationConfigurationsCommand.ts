@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeRemediationConfigurationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeRemediationConfigurationsCommand}.
+ */
 export interface DescribeRemediationConfigurationsCommandInput extends DescribeRemediationConfigurationsRequest {}
+/**
+ * The output of {@link DescribeRemediationConfigurationsCommand}.
+ */
 export interface DescribeRemediationConfigurationsCommandOutput
   extends DescribeRemediationConfigurationsResponse,
     __MetadataBearer {}

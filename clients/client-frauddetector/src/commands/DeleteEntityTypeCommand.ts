@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteEntityTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteEntityTypeCommand}.
+ */
 export interface DeleteEntityTypeCommandInput extends DeleteEntityTypeRequest {}
+/**
+ * The output of {@link DeleteEntityTypeCommand}.
+ */
 export interface DeleteEntityTypeCommandOutput extends DeleteEntityTypeResult, __MetadataBearer {}
 
 /**

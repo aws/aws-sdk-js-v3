@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeOutboundConnectionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeOutboundConnectionsCommand}.
+ */
 export interface DescribeOutboundConnectionsCommandInput extends DescribeOutboundConnectionsRequest {}
+/**
+ * The output of {@link DescribeOutboundConnectionsCommand}.
+ */
 export interface DescribeOutboundConnectionsCommandOutput
   extends DescribeOutboundConnectionsResponse,
     __MetadataBearer {}

@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1ListAvailableVoiceConnectorRegionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAvailableVoiceConnectorRegionsCommand}.
+ */
 export interface ListAvailableVoiceConnectorRegionsCommandInput {}
+/**
+ * The output of {@link ListAvailableVoiceConnectorRegionsCommand}.
+ */
 export interface ListAvailableVoiceConnectorRegionsCommandOutput
   extends ListAvailableVoiceConnectorRegionsResponse,
     __MetadataBearer {}

@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteModelQualityJobDefinitionCommand}.
+ */
 export interface DeleteModelQualityJobDefinitionCommandInput extends DeleteModelQualityJobDefinitionRequest {}
+/**
+ * The output of {@link DeleteModelQualityJobDefinitionCommand}.
+ */
 export interface DeleteModelQualityJobDefinitionCommandOutput extends __MetadataBearer {}
 
 /**

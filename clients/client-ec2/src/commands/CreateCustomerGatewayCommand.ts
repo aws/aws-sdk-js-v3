@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateCustomerGatewayCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateCustomerGatewayCommand}.
+ */
 export interface CreateCustomerGatewayCommandInput extends CreateCustomerGatewayRequest {}
+/**
+ * The output of {@link CreateCustomerGatewayCommand}.
+ */
 export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewayResult, __MetadataBearer {}
 
 /**

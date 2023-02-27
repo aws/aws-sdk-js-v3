@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAnomaliesForInsightCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAnomaliesForInsightCommand}.
+ */
 export interface ListAnomaliesForInsightCommandInput extends ListAnomaliesForInsightRequest {}
+/**
+ * The output of {@link ListAnomaliesForInsightCommand}.
+ */
 export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForInsightResponse, __MetadataBearer {}
 
 /**

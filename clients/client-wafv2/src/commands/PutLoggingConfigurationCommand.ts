@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * The input for {@link PutLoggingConfigurationCommand}.
+ */
 export interface PutLoggingConfigurationCommandInput extends PutLoggingConfigurationRequest {}
+/**
+ * The output of {@link PutLoggingConfigurationCommand}.
+ */
 export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigurationResponse, __MetadataBearer {}
 
 /**

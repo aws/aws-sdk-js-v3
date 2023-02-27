@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeReservedCacheNodesOfferingsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeReservedCacheNodesOfferingsCommand}.
+ */
 export interface DescribeReservedCacheNodesOfferingsCommandInput extends DescribeReservedCacheNodesOfferingsMessage {}
+/**
+ * The output of {@link DescribeReservedCacheNodesOfferingsCommand}.
+ */
 export interface DescribeReservedCacheNodesOfferingsCommandOutput
   extends ReservedCacheNodesOfferingMessage,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateFileSystemCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateFileSystemCommand}.
+ */
 export interface UpdateFileSystemCommandInput extends UpdateFileSystemRequest {}
+/**
+ * The output of {@link UpdateFileSystemCommand}.
+ */
 export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __MetadataBearer {}
 
 /**

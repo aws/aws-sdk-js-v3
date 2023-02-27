@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * The input for {@link ExportSchemaCommand}.
+ */
 export interface ExportSchemaCommandInput extends ExportSchemaRequest {}
+/**
+ * The output of {@link ExportSchemaCommand}.
+ */
 export interface ExportSchemaCommandOutput extends ExportSchemaResponse, __MetadataBearer {}
 
 export class ExportSchemaCommand extends $Command<

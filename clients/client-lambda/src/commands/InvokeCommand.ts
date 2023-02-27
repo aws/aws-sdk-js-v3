@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_restJson1InvokeCommand, serializeAws_restJson1InvokeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link InvokeCommand}.
+ */
 export interface InvokeCommandInput extends InvocationRequest {}
+/**
+ * The output of {@link InvokeCommand}.
+ */
 export interface InvokeCommandOutput extends InvocationResponse, __MetadataBearer {}
 
 /**

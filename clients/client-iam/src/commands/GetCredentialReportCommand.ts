@@ -20,7 +20,13 @@ import {
   serializeAws_queryGetCredentialReportCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetCredentialReportCommand}.
+ */
 export interface GetCredentialReportCommandInput {}
+/**
+ * The output of {@link GetCredentialReportCommand}.
+ */
 export interface GetCredentialReportCommandOutput extends GetCredentialReportResponse, __MetadataBearer {}
 
 /**

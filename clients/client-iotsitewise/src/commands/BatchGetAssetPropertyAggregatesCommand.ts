@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchGetAssetPropertyAggregatesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchGetAssetPropertyAggregatesCommand}.
+ */
 export interface BatchGetAssetPropertyAggregatesCommandInput extends BatchGetAssetPropertyAggregatesRequest {}
+/**
+ * The output of {@link BatchGetAssetPropertyAggregatesCommand}.
+ */
 export interface BatchGetAssetPropertyAggregatesCommandOutput
   extends BatchGetAssetPropertyAggregatesResponse,
     __MetadataBearer {}

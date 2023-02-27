@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1CreateResourceServerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateResourceServerCommand}.
+ */
 export interface CreateResourceServerCommandInput extends CreateResourceServerRequest {}
+/**
+ * The output of {@link CreateResourceServerCommand}.
+ */
 export interface CreateResourceServerCommandOutput extends CreateResourceServerResponse, __MetadataBearer {}
 
 /**

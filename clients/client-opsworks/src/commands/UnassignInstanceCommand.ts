@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UnassignInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UnassignInstanceCommand}.
+ */
 export interface UnassignInstanceCommandInput extends UnassignInstanceRequest {}
+/**
+ * The output of {@link UnassignInstanceCommand}.
+ */
 export interface UnassignInstanceCommandOutput extends __MetadataBearer {}
 
 /**

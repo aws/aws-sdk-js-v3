@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteResourcesByExternalIdCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteResourcesByExternalIdCommand}.
+ */
 export interface DeleteResourcesByExternalIdCommandInput extends DeleteResourcesByExternalIdInput {}
+/**
+ * The output of {@link DeleteResourcesByExternalIdCommand}.
+ */
 export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResourcesByExternalIdOutput, __MetadataBearer {}
 
 /**

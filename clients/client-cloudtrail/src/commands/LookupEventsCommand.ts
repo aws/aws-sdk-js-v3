@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1LookupEventsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link LookupEventsCommand}.
+ */
 export interface LookupEventsCommandInput extends LookupEventsRequest {}
+/**
+ * The output of {@link LookupEventsCommand}.
+ */
 export interface LookupEventsCommandOutput extends LookupEventsResponse, __MetadataBearer {}
 
 /**

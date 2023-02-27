@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateLayoutCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateLayoutCommand}.
+ */
 export interface UpdateLayoutCommandInput extends UpdateLayoutRequest {}
+/**
+ * The output of {@link UpdateLayoutCommand}.
+ */
 export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __MetadataBearer {}
 
 /**

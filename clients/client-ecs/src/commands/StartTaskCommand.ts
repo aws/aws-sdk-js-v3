@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1StartTaskCommand, serializeAws_json1_1StartTaskCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartTaskCommand}.
+ */
 export interface StartTaskCommandInput extends StartTaskRequest {}
+/**
+ * The output of {@link StartTaskCommand}.
+ */
 export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBearer {}
 
 /**

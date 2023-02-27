@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeletePolicyVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePolicyVersionCommand}.
+ */
 export interface DeletePolicyVersionCommandInput extends DeletePolicyVersionRequest {}
+/**
+ * The output of {@link DeletePolicyVersionCommand}.
+ */
 export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**

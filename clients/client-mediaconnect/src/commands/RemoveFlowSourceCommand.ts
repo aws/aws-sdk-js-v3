@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RemoveFlowSourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RemoveFlowSourceCommand}.
+ */
 export interface RemoveFlowSourceCommandInput extends RemoveFlowSourceRequest {}
+/**
+ * The output of {@link RemoveFlowSourceCommand}.
+ */
 export interface RemoveFlowSourceCommandOutput extends RemoveFlowSourceResponse, __MetadataBearer {}
 
 /**

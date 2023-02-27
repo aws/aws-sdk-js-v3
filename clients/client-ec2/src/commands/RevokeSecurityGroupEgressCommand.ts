@@ -25,7 +25,13 @@ import {
   serializeAws_ec2RevokeSecurityGroupEgressCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RevokeSecurityGroupEgressCommand}.
+ */
 export interface RevokeSecurityGroupEgressCommandInput extends RevokeSecurityGroupEgressRequest {}
+/**
+ * The output of {@link RevokeSecurityGroupEgressCommand}.
+ */
 export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGroupEgressResult, __MetadataBearer {}
 
 /**

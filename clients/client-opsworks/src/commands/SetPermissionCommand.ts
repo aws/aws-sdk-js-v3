@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1SetPermissionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SetPermissionCommand}.
+ */
 export interface SetPermissionCommandInput extends SetPermissionRequest {}
+/**
+ * The output of {@link SetPermissionCommand}.
+ */
 export interface SetPermissionCommandOutput extends __MetadataBearer {}
 
 /**

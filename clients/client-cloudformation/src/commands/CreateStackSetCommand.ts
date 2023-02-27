@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateStackSetCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateStackSetCommand}.
+ */
 export interface CreateStackSetCommandInput extends CreateStackSetInput {}
+/**
+ * The output of {@link CreateStackSetCommand}.
+ */
 export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __MetadataBearer {}
 
 /**

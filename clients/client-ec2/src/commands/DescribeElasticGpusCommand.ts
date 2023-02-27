@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeElasticGpusCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeElasticGpusCommand}.
+ */
 export interface DescribeElasticGpusCommandInput extends DescribeElasticGpusRequest {}
+/**
+ * The output of {@link DescribeElasticGpusCommand}.
+ */
 export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusResult, __MetadataBearer {}
 
 /**

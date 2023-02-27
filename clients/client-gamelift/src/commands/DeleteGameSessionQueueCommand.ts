@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteGameSessionQueueCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteGameSessionQueueCommand}.
+ */
 export interface DeleteGameSessionQueueCommandInput extends DeleteGameSessionQueueInput {}
+/**
+ * The output of {@link DeleteGameSessionQueueCommand}.
+ */
 export interface DeleteGameSessionQueueCommandOutput extends DeleteGameSessionQueueOutput, __MetadataBearer {}
 
 /**

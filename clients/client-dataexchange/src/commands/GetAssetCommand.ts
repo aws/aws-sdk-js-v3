@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAssetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAssetCommand}.
+ */
 export interface GetAssetCommandInput extends GetAssetRequest {}
+/**
+ * The output of {@link GetAssetCommand}.
+ */
 export interface GetAssetCommandOutput extends GetAssetResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteKeyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteKeyCommand}.
+ */
 export interface DeleteKeyCommandInput extends DeleteKeyRequest {}
+/**
+ * The output of {@link DeleteKeyCommand}.
+ */
 export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBearer {}
 
 /**

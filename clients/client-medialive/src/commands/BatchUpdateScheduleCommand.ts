@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchUpdateScheduleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchUpdateScheduleCommand}.
+ */
 export interface BatchUpdateScheduleCommandInput extends BatchUpdateScheduleRequest {}
+/**
+ * The output of {@link BatchUpdateScheduleCommand}.
+ */
 export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleResponse, __MetadataBearer {}
 
 /**

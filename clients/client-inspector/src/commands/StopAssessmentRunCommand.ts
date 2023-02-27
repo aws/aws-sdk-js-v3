@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1StopAssessmentRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopAssessmentRunCommand}.
+ */
 export interface StopAssessmentRunCommandInput extends StopAssessmentRunRequest {}
+/**
+ * The output of {@link StopAssessmentRunCommand}.
+ */
 export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
 
 /**

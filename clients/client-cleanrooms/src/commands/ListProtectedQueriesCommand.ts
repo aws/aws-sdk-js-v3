@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListProtectedQueriesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListProtectedQueriesCommand}.
+ */
 export interface ListProtectedQueriesCommandInput extends ListProtectedQueriesInput {}
+/**
+ * The output of {@link ListProtectedQueriesCommand}.
+ */
 export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesOutput, __MetadataBearer {}
 
 /**

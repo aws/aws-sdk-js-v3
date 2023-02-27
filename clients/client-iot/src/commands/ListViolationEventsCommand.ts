@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListViolationEventsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListViolationEventsCommand}.
+ */
 export interface ListViolationEventsCommandInput extends ListViolationEventsRequest {}
+/**
+ * The output of {@link ListViolationEventsCommand}.
+ */
 export interface ListViolationEventsCommandOutput extends ListViolationEventsResponse, __MetadataBearer {}
 
 /**

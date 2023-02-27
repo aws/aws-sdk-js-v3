@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommand}.
+ */
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput
   extends ListAssociatedApprovalRuleTemplatesForRepositoryInput {}
+/**
+ * The output of {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommand}.
+ */
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
   extends ListAssociatedApprovalRuleTemplatesForRepositoryOutput,
     __MetadataBearer {}

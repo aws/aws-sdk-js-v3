@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListPlacementsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPlacementsCommand}.
+ */
 export interface ListPlacementsCommandInput extends ListPlacementsRequest {}
+/**
+ * The output of {@link ListPlacementsCommand}.
+ */
 export interface ListPlacementsCommandOutput extends ListPlacementsResponse, __MetadataBearer {}
 
 /**

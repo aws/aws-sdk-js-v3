@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeGameSessionDetailsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeGameSessionDetailsCommand}.
+ */
 export interface DescribeGameSessionDetailsCommandInput extends DescribeGameSessionDetailsInput {}
+/**
+ * The output of {@link DescribeGameSessionDetailsCommand}.
+ */
 export interface DescribeGameSessionDetailsCommandOutput extends DescribeGameSessionDetailsOutput, __MetadataBearer {}
 
 /**

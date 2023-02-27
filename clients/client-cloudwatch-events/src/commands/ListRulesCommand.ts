@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1ListRulesCommand, serializeAws_json1_1ListRulesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListRulesCommand}.
+ */
 export interface ListRulesCommandInput extends ListRulesRequest {}
+/**
+ * The output of {@link ListRulesCommand}.
+ */
 export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * The input for {@link GetContentSummaryCommand}.
+ */
 export interface GetContentSummaryCommandInput extends GetContentSummaryRequest {}
+/**
+ * The output of {@link GetContentSummaryCommand}.
+ */
 export interface GetContentSummaryCommandOutput extends GetContentSummaryResponse, __MetadataBearer {}
 
 /**

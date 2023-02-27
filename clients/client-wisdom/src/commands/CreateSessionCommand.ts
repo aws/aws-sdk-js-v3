@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * The input for {@link CreateSessionCommand}.
+ */
 export interface CreateSessionCommandInput extends CreateSessionRequest {}
+/**
+ * The output of {@link CreateSessionCommand}.
+ */
 export interface CreateSessionCommandOutput extends CreateSessionResponse, __MetadataBearer {}
 
 /**

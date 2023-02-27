@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link ListDocumentMetadataHistoryCommand}.
+ */
 export interface ListDocumentMetadataHistoryCommandInput extends ListDocumentMetadataHistoryRequest {}
+/**
+ * The output of {@link ListDocumentMetadataHistoryCommand}.
+ */
 export interface ListDocumentMetadataHistoryCommandOutput
   extends ListDocumentMetadataHistoryResponse,
     __MetadataBearer {}

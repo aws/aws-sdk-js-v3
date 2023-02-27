@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelImageCreationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelImageCreationCommand}.
+ */
 export interface CancelImageCreationCommandInput extends CancelImageCreationRequest {}
+/**
+ * The output of {@link CancelImageCreationCommand}.
+ */
 export interface CancelImageCreationCommandOutput extends CancelImageCreationResponse, __MetadataBearer {}
 
 /**

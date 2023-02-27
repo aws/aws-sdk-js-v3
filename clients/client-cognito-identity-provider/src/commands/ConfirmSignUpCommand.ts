@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ConfirmSignUpCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ConfirmSignUpCommand}.
+ */
 export interface ConfirmSignUpCommandInput extends ConfirmSignUpRequest {}
+/**
+ * The output of {@link ConfirmSignUpCommand}.
+ */
 export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __MetadataBearer {}
 
 /**

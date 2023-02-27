@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateGameSessionQueueCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateGameSessionQueueCommand}.
+ */
 export interface CreateGameSessionQueueCommandInput extends CreateGameSessionQueueInput {}
+/**
+ * The output of {@link CreateGameSessionQueueCommand}.
+ */
 export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQueueOutput, __MetadataBearer {}
 
 /**

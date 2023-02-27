@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeQueryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeQueryCommand}.
+ */
 export interface DescribeQueryCommandInput extends DescribeQueryRequest {}
+/**
+ * The output of {@link DescribeQueryCommand}.
+ */
 export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __MetadataBearer {}
 
 /**

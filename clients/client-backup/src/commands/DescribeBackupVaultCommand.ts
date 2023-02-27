@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeBackupVaultCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeBackupVaultCommand}.
+ */
 export interface DescribeBackupVaultCommandInput extends DescribeBackupVaultInput {}
+/**
+ * The output of {@link DescribeBackupVaultCommand}.
+ */
 export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOutput, __MetadataBearer {}
 
 /**

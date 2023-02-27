@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListSequenceStoresCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSequenceStoresCommand}.
+ */
 export interface ListSequenceStoresCommandInput extends ListSequenceStoresRequest {}
+/**
+ * The output of {@link ListSequenceStoresCommand}.
+ */
 export interface ListSequenceStoresCommandOutput extends ListSequenceStoresResponse, __MetadataBearer {}
 
 /**

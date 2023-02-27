@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteTransitGatewayPrefixListReferenceCommand}.
+ */
 export interface DeleteTransitGatewayPrefixListReferenceCommandInput
   extends DeleteTransitGatewayPrefixListReferenceRequest {}
+/**
+ * The output of {@link DeleteTransitGatewayPrefixListReferenceCommand}.
+ */
 export interface DeleteTransitGatewayPrefixListReferenceCommandOutput
   extends DeleteTransitGatewayPrefixListReferenceResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeDirectoryConfigsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeDirectoryConfigsCommand}.
+ */
 export interface DescribeDirectoryConfigsCommandInput extends DescribeDirectoryConfigsRequest {}
+/**
+ * The output of {@link DescribeDirectoryConfigsCommand}.
+ */
 export interface DescribeDirectoryConfigsCommandOutput extends DescribeDirectoryConfigsResult, __MetadataBearer {}
 
 /**

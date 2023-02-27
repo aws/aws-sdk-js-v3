@@ -25,7 +25,13 @@ import {
   serializeAws_queryModifyCacheClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyCacheClusterCommand}.
+ */
 export interface ModifyCacheClusterCommandInput extends ModifyCacheClusterMessage {}
+/**
+ * The output of {@link ModifyCacheClusterCommand}.
+ */
 export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResult, __MetadataBearer {}
 
 /**

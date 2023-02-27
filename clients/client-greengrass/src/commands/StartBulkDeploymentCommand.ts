@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartBulkDeploymentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartBulkDeploymentCommand}.
+ */
 export interface StartBulkDeploymentCommandInput extends StartBulkDeploymentRequest {}
+/**
+ * The output of {@link StartBulkDeploymentCommand}.
+ */
 export interface StartBulkDeploymentCommandOutput extends StartBulkDeploymentResponse, __MetadataBearer {}
 
 /**

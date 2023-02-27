@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DisassociateEnclaveCertificateIamRoleCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisassociateEnclaveCertificateIamRoleCommand}.
+ */
 export interface DisassociateEnclaveCertificateIamRoleCommandInput
   extends DisassociateEnclaveCertificateIamRoleRequest {}
+/**
+ * The output of {@link DisassociateEnclaveCertificateIamRoleCommand}.
+ */
 export interface DisassociateEnclaveCertificateIamRoleCommandOutput
   extends DisassociateEnclaveCertificateIamRoleResult,
     __MetadataBearer {}

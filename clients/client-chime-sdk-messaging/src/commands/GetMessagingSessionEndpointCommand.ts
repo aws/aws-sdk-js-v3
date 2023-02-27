@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetMessagingSessionEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetMessagingSessionEndpointCommand}.
+ */
 export interface GetMessagingSessionEndpointCommandInput extends GetMessagingSessionEndpointRequest {}
+/**
+ * The output of {@link GetMessagingSessionEndpointCommand}.
+ */
 export interface GetMessagingSessionEndpointCommandOutput
   extends GetMessagingSessionEndpointResponse,
     __MetadataBearer {}

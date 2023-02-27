@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DecreaseStreamRetentionPeriodCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DecreaseStreamRetentionPeriodCommand}.
+ */
 export interface DecreaseStreamRetentionPeriodCommandInput extends DecreaseStreamRetentionPeriodInput {}
+/**
+ * The output of {@link DecreaseStreamRetentionPeriodCommand}.
+ */
 export interface DecreaseStreamRetentionPeriodCommandOutput extends __MetadataBearer {}
 
 /**

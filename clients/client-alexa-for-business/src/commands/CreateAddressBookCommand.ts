@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateAddressBookCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateAddressBookCommand}.
+ */
 export interface CreateAddressBookCommandInput extends CreateAddressBookRequest {}
+/**
+ * The output of {@link CreateAddressBookCommand}.
+ */
 export interface CreateAddressBookCommandOutput extends CreateAddressBookResponse, __MetadataBearer {}
 
 /**

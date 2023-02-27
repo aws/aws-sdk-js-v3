@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminRespondToAuthChallengeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminRespondToAuthChallengeCommand}.
+ */
 export interface AdminRespondToAuthChallengeCommandInput extends AdminRespondToAuthChallengeRequest {}
+/**
+ * The output of {@link AdminRespondToAuthChallengeCommand}.
+ */
 export interface AdminRespondToAuthChallengeCommandOutput
   extends AdminRespondToAuthChallengeResponse,
     __MetadataBearer {}

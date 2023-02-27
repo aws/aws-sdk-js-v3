@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSiteCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSiteCommand}.
+ */
 export interface GetSiteCommandInput extends GetSiteRequest {}
+/**
+ * The output of {@link GetSiteCommand}.
+ */
 export interface GetSiteCommandOutput extends GetSiteResponse, __MetadataBearer {}
 
 /**

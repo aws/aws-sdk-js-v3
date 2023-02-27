@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteConnectorDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteConnectorDefinitionCommand}.
+ */
 export interface DeleteConnectorDefinitionCommandInput extends DeleteConnectorDefinitionRequest {}
+/**
+ * The output of {@link DeleteConnectorDefinitionCommand}.
+ */
 export interface DeleteConnectorDefinitionCommandOutput extends DeleteConnectorDefinitionResponse, __MetadataBearer {}
 
 /**

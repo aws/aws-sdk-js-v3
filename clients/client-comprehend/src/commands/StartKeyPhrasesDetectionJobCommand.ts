@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartKeyPhrasesDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartKeyPhrasesDetectionJobCommand}.
+ */
 export interface StartKeyPhrasesDetectionJobCommandInput extends StartKeyPhrasesDetectionJobRequest {}
+/**
+ * The output of {@link StartKeyPhrasesDetectionJobCommand}.
+ */
 export interface StartKeyPhrasesDetectionJobCommandOutput
   extends StartKeyPhrasesDetectionJobResponse,
     __MetadataBearer {}

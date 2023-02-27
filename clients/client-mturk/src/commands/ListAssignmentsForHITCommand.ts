@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListAssignmentsForHITCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAssignmentsForHITCommand}.
+ */
 export interface ListAssignmentsForHITCommandInput extends ListAssignmentsForHITRequest {}
+/**
+ * The output of {@link ListAssignmentsForHITCommand}.
+ */
 export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHITResponse, __MetadataBearer {}
 
 /**

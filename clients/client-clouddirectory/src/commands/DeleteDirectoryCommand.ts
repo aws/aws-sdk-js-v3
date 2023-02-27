@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteDirectoryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteDirectoryCommand}.
+ */
 export interface DeleteDirectoryCommandInput extends DeleteDirectoryRequest {}
+/**
+ * The output of {@link DeleteDirectoryCommand}.
+ */
 export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, __MetadataBearer {}
 
 /**

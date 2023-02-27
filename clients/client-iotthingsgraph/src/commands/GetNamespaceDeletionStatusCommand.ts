@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetNamespaceDeletionStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetNamespaceDeletionStatusCommand}.
+ */
 export interface GetNamespaceDeletionStatusCommandInput extends GetNamespaceDeletionStatusRequest {}
+/**
+ * The output of {@link GetNamespaceDeletionStatusCommand}.
+ */
 export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDeletionStatusResponse, __MetadataBearer {}
 
 /**

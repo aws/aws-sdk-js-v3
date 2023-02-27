@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateIPSetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateIPSetCommand}.
+ */
 export interface UpdateIPSetCommandInput extends UpdateIPSetRequest {}
+/**
+ * The output of {@link UpdateIPSetCommand}.
+ */
 export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __MetadataBearer {}
 
 /**

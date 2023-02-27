@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateVirtualNodeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateVirtualNodeCommand}.
+ */
 export interface UpdateVirtualNodeCommandInput extends UpdateVirtualNodeInput {}
+/**
+ * The output of {@link UpdateVirtualNodeCommand}.
+ */
 export interface UpdateVirtualNodeCommandOutput extends UpdateVirtualNodeOutput, __MetadataBearer {}
 
 /**

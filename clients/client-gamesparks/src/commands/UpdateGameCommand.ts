@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateGameCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateGameCommand}.
+ */
 export interface UpdateGameCommandInput extends UpdateGameRequest {}
+/**
+ * The output of {@link UpdateGameCommand}.
+ */
 export interface UpdateGameCommandOutput extends UpdateGameResult, __MetadataBearer {}
 
 /**

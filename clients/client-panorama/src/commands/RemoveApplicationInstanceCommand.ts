@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RemoveApplicationInstanceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RemoveApplicationInstanceCommand}.
+ */
 export interface RemoveApplicationInstanceCommandInput extends RemoveApplicationInstanceRequest {}
+/**
+ * The output of {@link RemoveApplicationInstanceCommand}.
+ */
 export interface RemoveApplicationInstanceCommandOutput extends RemoveApplicationInstanceResponse, __MetadataBearer {}
 
 /**

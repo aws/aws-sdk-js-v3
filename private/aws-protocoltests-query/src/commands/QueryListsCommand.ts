@@ -16,7 +16,13 @@ import { QueryListsInput, QueryListsInputFilterSensitiveLog } from "../models/mo
 import { deserializeAws_queryQueryListsCommand, serializeAws_queryQueryListsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link QueryListsCommand}.
+ */
 export interface QueryListsCommandInput extends QueryListsInput {}
+/**
+ * The output of {@link QueryListsCommand}.
+ */
 export interface QueryListsCommandOutput extends __MetadataBearer {}
 
 /**

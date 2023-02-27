@@ -23,7 +23,13 @@ import {
   serializeAws_queryDescribeTerminationPolicyTypesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeTerminationPolicyTypesCommand}.
+ */
 export interface DescribeTerminationPolicyTypesCommandInput {}
+/**
+ * The output of {@link DescribeTerminationPolicyTypesCommand}.
+ */
 export interface DescribeTerminationPolicyTypesCommandOutput
   extends DescribeTerminationPolicyTypesAnswer,
     __MetadataBearer {}

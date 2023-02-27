@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListSpacesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSpacesCommand}.
+ */
 export interface ListSpacesCommandInput extends ListSpacesRequest {}
+/**
+ * The output of {@link ListSpacesCommand}.
+ */
 export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataBearer {}
 
 /**

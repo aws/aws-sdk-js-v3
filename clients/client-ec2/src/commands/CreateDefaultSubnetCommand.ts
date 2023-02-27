@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateDefaultSubnetCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateDefaultSubnetCommand}.
+ */
 export interface CreateDefaultSubnetCommandInput extends CreateDefaultSubnetRequest {}
+/**
+ * The output of {@link CreateDefaultSubnetCommand}.
+ */
 export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetResult, __MetadataBearer {}
 
 /**

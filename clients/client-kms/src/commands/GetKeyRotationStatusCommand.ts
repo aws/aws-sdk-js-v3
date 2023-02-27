@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetKeyRotationStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetKeyRotationStatusCommand}.
+ */
 export interface GetKeyRotationStatusCommandInput extends GetKeyRotationStatusRequest {}
+/**
+ * The output of {@link GetKeyRotationStatusCommand}.
+ */
 export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DisassociateInstanceEventWindowCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisassociateInstanceEventWindowCommand}.
+ */
 export interface DisassociateInstanceEventWindowCommandInput extends DisassociateInstanceEventWindowRequest {}
+/**
+ * The output of {@link DisassociateInstanceEventWindowCommand}.
+ */
 export interface DisassociateInstanceEventWindowCommandOutput
   extends DisassociateInstanceEventWindowResult,
     __MetadataBearer {}

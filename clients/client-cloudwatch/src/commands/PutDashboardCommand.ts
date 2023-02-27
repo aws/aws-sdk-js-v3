@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryPutDashboardCommand, serializeAws_queryPutDashboardCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PutDashboardCommand}.
+ */
 export interface PutDashboardCommandInput extends PutDashboardInput {}
+/**
+ * The output of {@link PutDashboardCommand}.
+ */
 export interface PutDashboardCommandOutput extends PutDashboardOutput, __MetadataBearer {}
 
 /**

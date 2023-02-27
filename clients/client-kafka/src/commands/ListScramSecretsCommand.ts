@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListScramSecretsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListScramSecretsCommand}.
+ */
 export interface ListScramSecretsCommandInput extends ListScramSecretsRequest {}
+/**
+ * The output of {@link ListScramSecretsCommand}.
+ */
 export interface ListScramSecretsCommandOutput extends ListScramSecretsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteSystemInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteSystemInstanceCommand}.
+ */
 export interface DeleteSystemInstanceCommandInput extends DeleteSystemInstanceRequest {}
+/**
+ * The output of {@link DeleteSystemInstanceCommand}.
+ */
 export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceResponse, __MetadataBearer {}
 
 /**

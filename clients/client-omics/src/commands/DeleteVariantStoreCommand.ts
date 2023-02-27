@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteVariantStoreCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteVariantStoreCommand}.
+ */
 export interface DeleteVariantStoreCommandInput extends DeleteVariantStoreRequest {}
+/**
+ * The output of {@link DeleteVariantStoreCommand}.
+ */
 export interface DeleteVariantStoreCommandOutput extends DeleteVariantStoreResponse, __MetadataBearer {}
 
 /**

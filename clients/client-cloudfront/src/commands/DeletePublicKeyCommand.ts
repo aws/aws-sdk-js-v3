@@ -20,7 +20,13 @@ import {
   serializeAws_restXmlDeletePublicKeyCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link DeletePublicKeyCommand}.
+ */
 export interface DeletePublicKeyCommandInput extends DeletePublicKeyRequest {}
+/**
+ * The output of {@link DeletePublicKeyCommand}.
+ */
 export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
 
 /**

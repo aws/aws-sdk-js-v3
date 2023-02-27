@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListComplianceStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListComplianceStatusCommand}.
+ */
 export interface ListComplianceStatusCommandInput extends ListComplianceStatusRequest {}
+/**
+ * The output of {@link ListComplianceStatusCommand}.
+ */
 export interface ListComplianceStatusCommandOutput extends ListComplianceStatusResponse, __MetadataBearer {}
 
 /**

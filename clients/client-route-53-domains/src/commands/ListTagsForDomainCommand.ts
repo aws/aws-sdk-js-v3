@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link ListTagsForDomainCommand}.
+ */
 export interface ListTagsForDomainCommandInput extends ListTagsForDomainRequest {}
+/**
+ * The output of {@link ListTagsForDomainCommand}.
+ */
 export interface ListTagsForDomainCommandOutput extends ListTagsForDomainResponse, __MetadataBearer {}
 
 /**

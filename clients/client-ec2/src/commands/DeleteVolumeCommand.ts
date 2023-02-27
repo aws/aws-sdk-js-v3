@@ -17,7 +17,13 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { DeleteVolumeRequest, DeleteVolumeRequestFilterSensitiveLog } from "../models/models_3";
 import { deserializeAws_ec2DeleteVolumeCommand, serializeAws_ec2DeleteVolumeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteVolumeCommand}.
+ */
 export interface DeleteVolumeCommandInput extends DeleteVolumeRequest {}
+/**
+ * The output of {@link DeleteVolumeCommand}.
+ */
 export interface DeleteVolumeCommandOutput extends __MetadataBearer {}
 
 /**

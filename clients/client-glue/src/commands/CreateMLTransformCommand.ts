@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateMLTransformCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateMLTransformCommand}.
+ */
 export interface CreateMLTransformCommandInput extends CreateMLTransformRequest {}
+/**
+ * The output of {@link CreateMLTransformCommand}.
+ */
 export interface CreateMLTransformCommandOutput extends CreateMLTransformResponse, __MetadataBearer {}
 
 /**

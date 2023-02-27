@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateVodSourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateVodSourceCommand}.
+ */
 export interface UpdateVodSourceCommandInput extends UpdateVodSourceRequest {}
+/**
+ * The output of {@link UpdateVodSourceCommand}.
+ */
 export interface UpdateVodSourceCommandOutput extends UpdateVodSourceResponse, __MetadataBearer {}
 
 /**

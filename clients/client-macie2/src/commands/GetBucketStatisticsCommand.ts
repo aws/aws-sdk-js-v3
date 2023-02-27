@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetBucketStatisticsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBucketStatisticsCommand}.
+ */
 export interface GetBucketStatisticsCommandInput extends GetBucketStatisticsRequest {}
+/**
+ * The output of {@link GetBucketStatisticsCommand}.
+ */
 export interface GetBucketStatisticsCommandOutput extends GetBucketStatisticsResponse, __MetadataBearer {}
 
 /**

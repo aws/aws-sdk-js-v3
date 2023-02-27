@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1CreateHubCommand, serializeAws_json1_1CreateHubCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link CreateHubCommand}.
+ */
 export interface CreateHubCommandInput extends CreateHubRequest {}
+/**
+ * The output of {@link CreateHubCommand}.
+ */
 export interface CreateHubCommandOutput extends CreateHubResponse, __MetadataBearer {}
 
 /**

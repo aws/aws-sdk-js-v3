@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1VoteOnProposalCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link VoteOnProposalCommand}.
+ */
 export interface VoteOnProposalCommandInput extends VoteOnProposalInput {}
+/**
+ * The output of {@link VoteOnProposalCommand}.
+ */
 export interface VoteOnProposalCommandOutput extends VoteOnProposalOutput, __MetadataBearer {}
 
 /**

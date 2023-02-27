@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateMountTargetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateMountTargetCommand}.
+ */
 export interface CreateMountTargetCommandInput extends CreateMountTargetRequest {}
+/**
+ * The output of {@link CreateMountTargetCommand}.
+ */
 export interface CreateMountTargetCommandOutput extends MountTargetDescription, __MetadataBearer {}
 
 /**

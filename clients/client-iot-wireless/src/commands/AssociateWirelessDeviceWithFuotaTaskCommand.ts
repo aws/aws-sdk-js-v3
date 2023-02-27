@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateWirelessDeviceWithFuotaTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateWirelessDeviceWithFuotaTaskCommand}.
+ */
 export interface AssociateWirelessDeviceWithFuotaTaskCommandInput extends AssociateWirelessDeviceWithFuotaTaskRequest {}
+/**
+ * The output of {@link AssociateWirelessDeviceWithFuotaTaskCommand}.
+ */
 export interface AssociateWirelessDeviceWithFuotaTaskCommandOutput
   extends AssociateWirelessDeviceWithFuotaTaskResponse,
     __MetadataBearer {}

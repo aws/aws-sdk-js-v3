@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1FinalizeDeviceClaimCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link FinalizeDeviceClaimCommand}.
+ */
 export interface FinalizeDeviceClaimCommandInput extends FinalizeDeviceClaimRequest {}
+/**
+ * The output of {@link FinalizeDeviceClaimCommand}.
+ */
 export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimResponse, __MetadataBearer {}
 
 /**

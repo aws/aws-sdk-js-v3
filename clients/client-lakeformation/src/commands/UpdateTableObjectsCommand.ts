@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateTableObjectsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateTableObjectsCommand}.
+ */
 export interface UpdateTableObjectsCommandInput extends UpdateTableObjectsRequest {}
+/**
+ * The output of {@link UpdateTableObjectsCommand}.
+ */
 export interface UpdateTableObjectsCommandOutput extends UpdateTableObjectsResponse, __MetadataBearer {}
 
 /**

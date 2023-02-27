@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDatasetGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDatasetGroupCommand}.
+ */
 export interface CreateDatasetGroupCommandInput extends CreateDatasetGroupRequest {}
+/**
+ * The output of {@link CreateDatasetGroupCommand}.
+ */
 export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupResponse, __MetadataBearer {}
 
 /**

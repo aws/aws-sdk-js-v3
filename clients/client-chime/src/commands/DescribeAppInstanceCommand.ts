@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeAppInstanceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeAppInstanceCommand}.
+ */
 export interface DescribeAppInstanceCommandInput extends DescribeAppInstanceRequest {}
+/**
+ * The output of {@link DescribeAppInstanceCommand}.
+ */
 export interface DescribeAppInstanceCommandOutput extends DescribeAppInstanceResponse, __MetadataBearer {}
 
 /**

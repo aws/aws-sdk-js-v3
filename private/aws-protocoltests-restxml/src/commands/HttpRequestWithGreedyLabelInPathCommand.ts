@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link HttpRequestWithGreedyLabelInPathCommand}.
+ */
 export interface HttpRequestWithGreedyLabelInPathCommandInput extends HttpRequestWithGreedyLabelInPathInput {}
+/**
+ * The output of {@link HttpRequestWithGreedyLabelInPathCommand}.
+ */
 export interface HttpRequestWithGreedyLabelInPathCommandOutput extends __MetadataBearer {}
 
 export class HttpRequestWithGreedyLabelInPathCommand extends $Command<

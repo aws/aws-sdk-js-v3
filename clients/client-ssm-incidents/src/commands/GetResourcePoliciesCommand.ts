@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
+/**
+ * The input for {@link GetResourcePoliciesCommand}.
+ */
 export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesInput {}
+/**
+ * The output of {@link GetResourcePoliciesCommand}.
+ */
 export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesOutput, __MetadataBearer {}
 
 /**

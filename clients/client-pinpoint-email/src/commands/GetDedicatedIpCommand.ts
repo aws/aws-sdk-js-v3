@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDedicatedIpCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDedicatedIpCommand}.
+ */
 export interface GetDedicatedIpCommandInput extends GetDedicatedIpRequest {}
+/**
+ * The output of {@link GetDedicatedIpCommand}.
+ */
 export interface GetDedicatedIpCommandOutput extends GetDedicatedIpResponse, __MetadataBearer {}
 
 /**

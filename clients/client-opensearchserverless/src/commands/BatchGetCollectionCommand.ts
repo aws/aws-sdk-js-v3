@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0BatchGetCollectionCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link BatchGetCollectionCommand}.
+ */
 export interface BatchGetCollectionCommandInput extends BatchGetCollectionRequest {}
+/**
+ * The output of {@link BatchGetCollectionCommand}.
+ */
 export interface BatchGetCollectionCommandOutput extends BatchGetCollectionResponse, __MetadataBearer {}
 
 /**

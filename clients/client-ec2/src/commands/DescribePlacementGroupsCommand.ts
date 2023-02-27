@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribePlacementGroupsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribePlacementGroupsCommand}.
+ */
 export interface DescribePlacementGroupsCommandInput extends DescribePlacementGroupsRequest {}
+/**
+ * The output of {@link DescribePlacementGroupsCommand}.
+ */
 export interface DescribePlacementGroupsCommandOutput extends DescribePlacementGroupsResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteCostCategoryDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteCostCategoryDefinitionCommand}.
+ */
 export interface DeleteCostCategoryDefinitionCommandInput extends DeleteCostCategoryDefinitionRequest {}
+/**
+ * The output of {@link DeleteCostCategoryDefinitionCommand}.
+ */
 export interface DeleteCostCategoryDefinitionCommandOutput
   extends DeleteCostCategoryDefinitionResponse,
     __MetadataBearer {}

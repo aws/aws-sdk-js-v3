@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeNamespaceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeNamespaceCommand}.
+ */
 export interface DescribeNamespaceCommandInput extends DescribeNamespaceRequest {}
+/**
+ * The output of {@link DescribeNamespaceCommand}.
+ */
 export interface DescribeNamespaceCommandOutput extends DescribeNamespaceResponse, __MetadataBearer {}
 
 /**

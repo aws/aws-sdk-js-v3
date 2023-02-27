@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link DescribeWorkflowCommand}.
+ */
 export interface DescribeWorkflowCommandInput extends DescribeWorkflowRequest {}
+/**
+ * The output of {@link DescribeWorkflowCommand}.
+ */
 export interface DescribeWorkflowCommandOutput extends DescribeWorkflowResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetServerStrategiesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetServerStrategiesCommand}.
+ */
 export interface GetServerStrategiesCommandInput extends GetServerStrategiesRequest {}
+/**
+ * The output of {@link GetServerStrategiesCommand}.
+ */
 export interface GetServerStrategiesCommandOutput extends GetServerStrategiesResponse, __MetadataBearer {}
 
 /**

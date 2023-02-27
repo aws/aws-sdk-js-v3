@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
+/**
+ * The input for {@link UpdateApplicationSettingsCommand}.
+ */
 export interface UpdateApplicationSettingsCommandInput extends UpdateApplicationSettingsInput {}
+/**
+ * The output of {@link UpdateApplicationSettingsCommand}.
+ */
 export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicationSettingsOutput, __MetadataBearer {}
 
 /**

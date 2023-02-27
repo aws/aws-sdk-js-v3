@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutResourceLogLevelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutResourceLogLevelCommand}.
+ */
 export interface PutResourceLogLevelCommandInput extends PutResourceLogLevelRequest {}
+/**
+ * The output of {@link PutResourceLogLevelCommand}.
+ */
 export interface PutResourceLogLevelCommandOutput extends PutResourceLogLevelResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateFeatureCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateFeatureCommand}.
+ */
 export interface CreateFeatureCommandInput extends CreateFeatureRequest {}
+/**
+ * The output of {@link CreateFeatureCommand}.
+ */
 export interface CreateFeatureCommandOutput extends CreateFeatureResponse, __MetadataBearer {}
 
 /**

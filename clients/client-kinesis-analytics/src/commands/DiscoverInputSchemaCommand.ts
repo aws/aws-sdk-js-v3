@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DiscoverInputSchemaCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DiscoverInputSchemaCommand}.
+ */
 export interface DiscoverInputSchemaCommandInput extends DiscoverInputSchemaRequest {}
+/**
+ * The output of {@link DiscoverInputSchemaCommand}.
+ */
 export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaResponse, __MetadataBearer {}
 
 /**

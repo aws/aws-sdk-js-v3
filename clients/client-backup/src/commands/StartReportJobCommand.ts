@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartReportJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartReportJobCommand}.
+ */
 export interface StartReportJobCommandInput extends StartReportJobInput {}
+/**
+ * The output of {@link StartReportJobCommand}.
+ */
 export interface StartReportJobCommandOutput extends StartReportJobOutput, __MetadataBearer {}
 
 /**

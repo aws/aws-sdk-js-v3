@@ -25,6 +25,9 @@ import {
   serializeAws_restJson1InvokeAsyncCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link InvokeAsyncCommand}.
+ */
 type InvokeAsyncCommandInputType = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
   /**
    * For *`InvokeAsyncRequest["InvokeArgs"]`*, see {@link InvokeAsyncRequest.InvokeArgs}.
@@ -35,6 +38,9 @@ type InvokeAsyncCommandInputType = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
  * This interface extends from `InvokeAsyncRequest` interface. There are more parameters than `InvokeArgs` defined in {@link InvokeAsyncRequest}
  */
 export interface InvokeAsyncCommandInput extends InvokeAsyncCommandInputType {}
+/**
+ * The output of {@link InvokeAsyncCommand}.
+ */
 export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __MetadataBearer {}
 
 /**

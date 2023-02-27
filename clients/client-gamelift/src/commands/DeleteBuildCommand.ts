@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteBuildCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteBuildCommand}.
+ */
 export interface DeleteBuildCommandInput extends DeleteBuildInput {}
+/**
+ * The output of {@link DeleteBuildCommand}.
+ */
 export interface DeleteBuildCommandOutput extends __MetadataBearer {}
 
 /**

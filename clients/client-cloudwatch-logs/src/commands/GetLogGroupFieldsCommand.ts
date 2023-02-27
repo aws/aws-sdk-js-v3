@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetLogGroupFieldsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetLogGroupFieldsCommand}.
+ */
 export interface GetLogGroupFieldsCommandInput extends GetLogGroupFieldsRequest {}
+/**
+ * The output of {@link GetLogGroupFieldsCommand}.
+ */
 export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsResponse, __MetadataBearer {}
 
 /**

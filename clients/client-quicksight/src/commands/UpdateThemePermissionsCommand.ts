@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link UpdateThemePermissionsCommand}.
+ */
 export interface UpdateThemePermissionsCommandInput extends UpdateThemePermissionsRequest {}
+/**
+ * The output of {@link UpdateThemePermissionsCommand}.
+ */
 export interface UpdateThemePermissionsCommandOutput extends UpdateThemePermissionsResponse, __MetadataBearer {}
 
 /**

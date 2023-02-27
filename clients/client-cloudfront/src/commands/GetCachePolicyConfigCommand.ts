@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlGetCachePolicyConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link GetCachePolicyConfigCommand}.
+ */
 export interface GetCachePolicyConfigCommandInput extends GetCachePolicyConfigRequest {}
+/**
+ * The output of {@link GetCachePolicyConfigCommand}.
+ */
 export interface GetCachePolicyConfigCommandOutput extends GetCachePolicyConfigResult, __MetadataBearer {}
 
 /**

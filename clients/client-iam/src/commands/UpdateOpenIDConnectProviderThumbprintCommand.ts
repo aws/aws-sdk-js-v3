@@ -23,8 +23,14 @@ import {
   serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateOpenIDConnectProviderThumbprintCommand}.
+ */
 export interface UpdateOpenIDConnectProviderThumbprintCommandInput
   extends UpdateOpenIDConnectProviderThumbprintRequest {}
+/**
+ * The output of {@link UpdateOpenIDConnectProviderThumbprintCommand}.
+ */
 export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __MetadataBearer {}
 
 /**

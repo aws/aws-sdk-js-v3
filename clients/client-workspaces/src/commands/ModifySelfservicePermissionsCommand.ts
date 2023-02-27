@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link ModifySelfservicePermissionsCommand}.
+ */
 export interface ModifySelfservicePermissionsCommandInput extends ModifySelfservicePermissionsRequest {}
+/**
+ * The output of {@link ModifySelfservicePermissionsCommand}.
+ */
 export interface ModifySelfservicePermissionsCommandOutput
   extends ModifySelfservicePermissionsResult,
     __MetadataBearer {}

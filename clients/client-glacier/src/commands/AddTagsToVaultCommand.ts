@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1AddTagsToVaultCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AddTagsToVaultCommand}.
+ */
 export interface AddTagsToVaultCommandInput extends AddTagsToVaultInput {}
+/**
+ * The output of {@link AddTagsToVaultCommand}.
+ */
 export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
 
 /**

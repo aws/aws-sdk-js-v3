@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeReleaseLabelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeReleaseLabelCommand}.
+ */
 export interface DescribeReleaseLabelCommandInput extends DescribeReleaseLabelInput {}
+/**
+ * The output of {@link DescribeReleaseLabelCommand}.
+ */
 export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelOutput, __MetadataBearer {}
 
 /**

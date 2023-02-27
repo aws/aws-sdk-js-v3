@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutFindingsPublicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutFindingsPublicationConfigurationCommand}.
+ */
 export interface PutFindingsPublicationConfigurationCommandInput extends PutFindingsPublicationConfigurationRequest {}
+/**
+ * The output of {@link PutFindingsPublicationConfigurationCommand}.
+ */
 export interface PutFindingsPublicationConfigurationCommandOutput
   extends PutFindingsPublicationConfigurationResponse,
     __MetadataBearer {}

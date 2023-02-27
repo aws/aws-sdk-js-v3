@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RotateChannelCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RotateChannelCredentialsCommand}.
+ */
 export interface RotateChannelCredentialsCommandInput extends RotateChannelCredentialsRequest {}
+/**
+ * The output of {@link RotateChannelCredentialsCommand}.
+ */
 export interface RotateChannelCredentialsCommandOutput extends RotateChannelCredentialsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link CancelIngestionCommand}.
+ */
 export interface CancelIngestionCommandInput extends CancelIngestionRequest {}
+/**
+ * The output of {@link CancelIngestionCommand}.
+ */
 export interface CancelIngestionCommandOutput extends CancelIngestionResponse, __MetadataBearer {}
 
 /**

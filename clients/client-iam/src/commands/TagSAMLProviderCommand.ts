@@ -20,7 +20,13 @@ import {
   serializeAws_queryTagSAMLProviderCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link TagSAMLProviderCommand}.
+ */
 export interface TagSAMLProviderCommandInput extends TagSAMLProviderRequest {}
+/**
+ * The output of {@link TagSAMLProviderCommand}.
+ */
 export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
 
 /**

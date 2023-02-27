@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchDeleteDevicePositionHistoryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchDeleteDevicePositionHistoryCommand}.
+ */
 export interface BatchDeleteDevicePositionHistoryCommandInput extends BatchDeleteDevicePositionHistoryRequest {}
+/**
+ * The output of {@link BatchDeleteDevicePositionHistoryCommand}.
+ */
 export interface BatchDeleteDevicePositionHistoryCommandOutput
   extends BatchDeleteDevicePositionHistoryResponse,
     __MetadataBearer {}

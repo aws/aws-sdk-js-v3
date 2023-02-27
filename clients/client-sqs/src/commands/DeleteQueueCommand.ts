@@ -17,7 +17,13 @@ import { DeleteQueueRequest, DeleteQueueRequestFilterSensitiveLog } from "../mod
 import { deserializeAws_queryDeleteQueueCommand, serializeAws_queryDeleteQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link DeleteQueueCommand}.
+ */
 export interface DeleteQueueCommandInput extends DeleteQueueRequest {}
+/**
+ * The output of {@link DeleteQueueCommand}.
+ */
 export interface DeleteQueueCommandOutput extends __MetadataBearer {}
 
 /**

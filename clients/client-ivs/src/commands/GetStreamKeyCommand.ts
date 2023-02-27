@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetStreamKeyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetStreamKeyCommand}.
+ */
 export interface GetStreamKeyCommandInput extends GetStreamKeyRequest {}
+/**
+ * The output of {@link GetStreamKeyCommand}.
+ */
 export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __MetadataBearer {}
 
 /**

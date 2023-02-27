@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteTaskTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteTaskTemplateCommand}.
+ */
 export interface DeleteTaskTemplateCommandInput extends DeleteTaskTemplateRequest {}
+/**
+ * The output of {@link DeleteTaskTemplateCommand}.
+ */
 export interface DeleteTaskTemplateCommandOutput extends DeleteTaskTemplateResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
+/**
+ * The input for {@link DeleteSlackWorkspaceConfigurationCommand}.
+ */
 export interface DeleteSlackWorkspaceConfigurationCommandInput extends DeleteSlackWorkspaceConfigurationRequest {}
+/**
+ * The output of {@link DeleteSlackWorkspaceConfigurationCommand}.
+ */
 export interface DeleteSlackWorkspaceConfigurationCommandOutput
   extends DeleteSlackWorkspaceConfigurationResult,
     __MetadataBearer {}

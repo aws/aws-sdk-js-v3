@@ -25,7 +25,13 @@ import {
   serializeAws_queryRemoveFromGlobalClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RemoveFromGlobalClusterCommand}.
+ */
 export interface RemoveFromGlobalClusterCommandInput extends RemoveFromGlobalClusterMessage {}
+/**
+ * The output of {@link RemoveFromGlobalClusterCommand}.
+ */
 export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalClusterResult, __MetadataBearer {}
 
 /**

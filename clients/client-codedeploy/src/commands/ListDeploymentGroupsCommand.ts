@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListDeploymentGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListDeploymentGroupsCommand}.
+ */
 export interface ListDeploymentGroupsCommandInput extends ListDeploymentGroupsInput {}
+/**
+ * The output of {@link ListDeploymentGroupsCommand}.
+ */
 export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsOutput, __MetadataBearer {}
 
 /**

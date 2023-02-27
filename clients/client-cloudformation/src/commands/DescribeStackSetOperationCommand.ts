@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeStackSetOperationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeStackSetOperationCommand}.
+ */
 export interface DescribeStackSetOperationCommandInput extends DescribeStackSetOperationInput {}
+/**
+ * The output of {@link DescribeStackSetOperationCommand}.
+ */
 export interface DescribeStackSetOperationCommandOutput extends DescribeStackSetOperationOutput, __MetadataBearer {}
 
 /**

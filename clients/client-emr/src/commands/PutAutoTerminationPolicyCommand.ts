@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutAutoTerminationPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutAutoTerminationPolicyCommand}.
+ */
 export interface PutAutoTerminationPolicyCommandInput extends PutAutoTerminationPolicyInput {}
+/**
+ * The output of {@link PutAutoTerminationPolicyCommand}.
+ */
 export interface PutAutoTerminationPolicyCommandOutput extends PutAutoTerminationPolicyOutput, __MetadataBearer {}
 
 /**

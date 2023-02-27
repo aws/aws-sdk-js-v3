@@ -25,8 +25,14 @@ import {
   serializeAws_queryDescribeEngineDefaultClusterParametersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeEngineDefaultClusterParametersCommand}.
+ */
 export interface DescribeEngineDefaultClusterParametersCommandInput
   extends DescribeEngineDefaultClusterParametersMessage {}
+/**
+ * The output of {@link DescribeEngineDefaultClusterParametersCommand}.
+ */
 export interface DescribeEngineDefaultClusterParametersCommandOutput
   extends DescribeEngineDefaultClusterParametersResult,
     __MetadataBearer {}

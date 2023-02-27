@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RestoreClusterFromSnapshotCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RestoreClusterFromSnapshotCommand}.
+ */
 export interface RestoreClusterFromSnapshotCommandInput extends RestoreClusterFromSnapshotInput {}
+/**
+ * The output of {@link RestoreClusterFromSnapshotCommand}.
+ */
 export interface RestoreClusterFromSnapshotCommandOutput extends RestoreClusterFromSnapshotOutput, __MetadataBearer {}
 
 /**

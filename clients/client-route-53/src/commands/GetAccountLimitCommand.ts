@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link GetAccountLimitCommand}.
+ */
 export interface GetAccountLimitCommandInput extends GetAccountLimitRequest {}
+/**
+ * The output of {@link GetAccountLimitCommand}.
+ */
 export interface GetAccountLimitCommandOutput extends GetAccountLimitResponse, __MetadataBearer {}
 
 /**

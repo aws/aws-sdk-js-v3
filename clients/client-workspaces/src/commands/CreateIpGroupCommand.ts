@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link CreateIpGroupCommand}.
+ */
 export interface CreateIpGroupCommandInput extends CreateIpGroupRequest {}
+/**
+ * The output of {@link CreateIpGroupCommand}.
+ */
 export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __MetadataBearer {}
 
 /**

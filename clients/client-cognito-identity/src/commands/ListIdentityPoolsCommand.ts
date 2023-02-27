@@ -26,7 +26,13 @@ import {
   serializeAws_json1_1ListIdentityPoolsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListIdentityPoolsCommand}.
+ */
 export interface ListIdentityPoolsCommandInput extends ListIdentityPoolsInput {}
+/**
+ * The output of {@link ListIdentityPoolsCommand}.
+ */
 export interface ListIdentityPoolsCommandOutput extends ListIdentityPoolsResponse, __MetadataBearer {}
 
 /**

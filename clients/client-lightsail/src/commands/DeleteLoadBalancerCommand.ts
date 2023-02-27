@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteLoadBalancerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteLoadBalancerCommand}.
+ */
 export interface DeleteLoadBalancerCommandInput extends DeleteLoadBalancerRequest {}
+/**
+ * The output of {@link DeleteLoadBalancerCommand}.
+ */
 export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerResult, __MetadataBearer {}
 
 /**

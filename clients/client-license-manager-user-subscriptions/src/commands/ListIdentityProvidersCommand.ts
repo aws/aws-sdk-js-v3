@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListIdentityProvidersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListIdentityProvidersCommand}.
+ */
 export interface ListIdentityProvidersCommandInput extends ListIdentityProvidersRequest {}
+/**
+ * The output of {@link ListIdentityProvidersCommand}.
+ */
 export interface ListIdentityProvidersCommandOutput extends ListIdentityProvidersResponse, __MetadataBearer {}
 
 /**

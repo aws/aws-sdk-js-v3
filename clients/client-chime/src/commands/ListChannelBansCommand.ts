@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListChannelBansCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListChannelBansCommand}.
+ */
 export interface ListChannelBansCommandInput extends ListChannelBansRequest {}
+/**
+ * The output of {@link ListChannelBansCommand}.
+ */
 export interface ListChannelBansCommandOutput extends ListChannelBansResponse, __MetadataBearer {}
 
 /**

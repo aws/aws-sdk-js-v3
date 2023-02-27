@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link DescribeWorkspaceImagePermissionsCommand}.
+ */
 export interface DescribeWorkspaceImagePermissionsCommandInput extends DescribeWorkspaceImagePermissionsRequest {}
+/**
+ * The output of {@link DescribeWorkspaceImagePermissionsCommand}.
+ */
 export interface DescribeWorkspaceImagePermissionsCommandOutput
   extends DescribeWorkspaceImagePermissionsResult,
     __MetadataBearer {}

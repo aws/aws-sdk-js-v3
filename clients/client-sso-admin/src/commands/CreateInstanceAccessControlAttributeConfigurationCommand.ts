@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
+/**
+ * The input for {@link CreateInstanceAccessControlAttributeConfigurationCommand}.
+ */
 export interface CreateInstanceAccessControlAttributeConfigurationCommandInput
   extends CreateInstanceAccessControlAttributeConfigurationRequest {}
+/**
+ * The output of {@link CreateInstanceAccessControlAttributeConfigurationCommand}.
+ */
 export interface CreateInstanceAccessControlAttributeConfigurationCommandOutput
   extends CreateInstanceAccessControlAttributeConfigurationResponse,
     __MetadataBearer {}

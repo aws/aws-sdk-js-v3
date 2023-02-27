@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListRecoveryPointsByBackupVaultCommand}.
+ */
 export interface ListRecoveryPointsByBackupVaultCommandInput extends ListRecoveryPointsByBackupVaultInput {}
+/**
+ * The output of {@link ListRecoveryPointsByBackupVaultCommand}.
+ */
 export interface ListRecoveryPointsByBackupVaultCommandOutput
   extends ListRecoveryPointsByBackupVaultOutput,
     __MetadataBearer {}

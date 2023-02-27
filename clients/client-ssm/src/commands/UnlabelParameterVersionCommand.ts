@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link UnlabelParameterVersionCommand}.
+ */
 export interface UnlabelParameterVersionCommandInput extends UnlabelParameterVersionRequest {}
+/**
+ * The output of {@link UnlabelParameterVersionCommand}.
+ */
 export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVersionResult, __MetadataBearer {}
 
 /**

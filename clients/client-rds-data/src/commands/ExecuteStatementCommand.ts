@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
+/**
+ * The input for {@link ExecuteStatementCommand}.
+ */
 export interface ExecuteStatementCommandInput extends ExecuteStatementRequest {}
+/**
+ * The output of {@link ExecuteStatementCommand}.
+ */
 export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse, __MetadataBearer {}
 
 /**

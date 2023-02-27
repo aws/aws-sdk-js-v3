@@ -24,7 +24,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link ModifyCustomDBEngineVersionCommand}.
+ */
 export interface ModifyCustomDBEngineVersionCommandInput extends ModifyCustomDBEngineVersionMessage {}
+/**
+ * The output of {@link ModifyCustomDBEngineVersionCommand}.
+ */
 export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersion, __MetadataBearer {}
 
 /**

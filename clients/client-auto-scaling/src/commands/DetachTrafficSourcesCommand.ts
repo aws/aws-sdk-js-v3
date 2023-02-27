@@ -25,7 +25,13 @@ import {
   serializeAws_queryDetachTrafficSourcesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DetachTrafficSourcesCommand}.
+ */
 export interface DetachTrafficSourcesCommandInput extends DetachTrafficSourcesType {}
+/**
+ * The output of {@link DetachTrafficSourcesCommand}.
+ */
 export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesResultType, __MetadataBearer {}
 
 /**

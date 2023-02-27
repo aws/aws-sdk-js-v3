@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1AddApplicationOutputCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddApplicationOutputCommand}.
+ */
 export interface AddApplicationOutputCommandInput extends AddApplicationOutputRequest {}
+/**
+ * The output of {@link AddApplicationOutputCommand}.
+ */
 export interface AddApplicationOutputCommandOutput extends AddApplicationOutputResponse, __MetadataBearer {}
 
 /**

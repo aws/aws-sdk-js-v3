@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
+/**
+ * The input for {@link DeleteAppMonitorCommand}.
+ */
 export interface DeleteAppMonitorCommandInput extends DeleteAppMonitorRequest {}
+/**
+ * The output of {@link DeleteAppMonitorCommand}.
+ */
 export interface DeleteAppMonitorCommandOutput extends DeleteAppMonitorResponse, __MetadataBearer {}
 
 /**

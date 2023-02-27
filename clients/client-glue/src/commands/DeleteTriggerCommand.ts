@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteTriggerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteTriggerCommand}.
+ */
 export interface DeleteTriggerCommandInput extends DeleteTriggerRequest {}
+/**
+ * The output of {@link DeleteTriggerCommand}.
+ */
 export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __MetadataBearer {}
 
 /**

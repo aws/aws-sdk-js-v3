@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteProxySessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteProxySessionCommand}.
+ */
 export interface DeleteProxySessionCommandInput extends DeleteProxySessionRequest {}
+/**
+ * The output of {@link DeleteProxySessionCommand}.
+ */
 export interface DeleteProxySessionCommandOutput extends __MetadataBearer {}
 
 export class DeleteProxySessionCommand extends $Command<

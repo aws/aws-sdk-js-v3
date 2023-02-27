@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartBatchJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartBatchJobCommand}.
+ */
 export interface StartBatchJobCommandInput extends StartBatchJobRequest {}
+/**
+ * The output of {@link StartBatchJobCommand}.
+ */
 export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __MetadataBearer {}
 
 /**

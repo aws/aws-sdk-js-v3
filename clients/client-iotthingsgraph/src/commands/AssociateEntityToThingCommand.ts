@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateEntityToThingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateEntityToThingCommand}.
+ */
 export interface AssociateEntityToThingCommandInput extends AssociateEntityToThingRequest {}
+/**
+ * The output of {@link AssociateEntityToThingCommand}.
+ */
 export interface AssociateEntityToThingCommandOutput extends AssociateEntityToThingResponse, __MetadataBearer {}
 
 /**

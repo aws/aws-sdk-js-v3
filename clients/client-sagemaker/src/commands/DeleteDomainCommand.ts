@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteDomainCommand}.
+ */
 export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
+/**
+ * The output of {@link DeleteDomainCommand}.
+ */
 export interface DeleteDomainCommandOutput extends __MetadataBearer {}
 
 /**

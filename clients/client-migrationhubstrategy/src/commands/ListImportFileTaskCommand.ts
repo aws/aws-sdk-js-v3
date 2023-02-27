@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListImportFileTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListImportFileTaskCommand}.
+ */
 export interface ListImportFileTaskCommandInput extends ListImportFileTaskRequest {}
+/**
+ * The output of {@link ListImportFileTaskCommand}.
+ */
 export interface ListImportFileTaskCommandOutput extends ListImportFileTaskResponse, __MetadataBearer {}
 
 /**

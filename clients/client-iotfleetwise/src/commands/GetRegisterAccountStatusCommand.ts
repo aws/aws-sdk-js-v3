@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetRegisterAccountStatusCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetRegisterAccountStatusCommand}.
+ */
 export interface GetRegisterAccountStatusCommandInput extends GetRegisterAccountStatusRequest {}
+/**
+ * The output of {@link GetRegisterAccountStatusCommand}.
+ */
 export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccountStatusResponse, __MetadataBearer {}
 
 /**

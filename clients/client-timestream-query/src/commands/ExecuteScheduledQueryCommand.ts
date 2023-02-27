@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
+/**
+ * The input for {@link ExecuteScheduledQueryCommand}.
+ */
 export interface ExecuteScheduledQueryCommandInput extends ExecuteScheduledQueryRequest {}
+/**
+ * The output of {@link ExecuteScheduledQueryCommand}.
+ */
 export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
 
 /**

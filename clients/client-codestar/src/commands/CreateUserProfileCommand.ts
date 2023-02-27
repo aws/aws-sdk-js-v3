@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateUserProfileCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateUserProfileCommand}.
+ */
 export interface CreateUserProfileCommandInput extends CreateUserProfileRequest {}
+/**
+ * The output of {@link CreateUserProfileCommand}.
+ */
 export interface CreateUserProfileCommandOutput extends CreateUserProfileResult, __MetadataBearer {}
 
 /**

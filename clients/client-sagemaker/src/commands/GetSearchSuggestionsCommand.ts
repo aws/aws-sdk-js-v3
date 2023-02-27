@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link GetSearchSuggestionsCommand}.
+ */
 export interface GetSearchSuggestionsCommandInput extends GetSearchSuggestionsRequest {}
+/**
+ * The output of {@link GetSearchSuggestionsCommand}.
+ */
 export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsResponse, __MetadataBearer {}
 
 /**

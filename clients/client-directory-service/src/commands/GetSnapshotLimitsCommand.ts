@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetSnapshotLimitsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetSnapshotLimitsCommand}.
+ */
 export interface GetSnapshotLimitsCommandInput extends GetSnapshotLimitsRequest {}
+/**
+ * The output of {@link GetSnapshotLimitsCommand}.
+ */
 export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetClientCertificateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetClientCertificateCommand}.
+ */
 export interface GetClientCertificateCommandInput extends GetClientCertificateRequest {}
+/**
+ * The output of {@link GetClientCertificateCommand}.
+ */
 export interface GetClientCertificateCommandOutput extends ClientCertificate, __MetadataBearer {}
 
 /**

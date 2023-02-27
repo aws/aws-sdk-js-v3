@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpgradeDomainCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpgradeDomainCommand}.
+ */
 export interface UpgradeDomainCommandInput extends UpgradeDomainRequest {}
+/**
+ * The output of {@link UpgradeDomainCommand}.
+ */
 export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __MetadataBearer {}
 
 /**

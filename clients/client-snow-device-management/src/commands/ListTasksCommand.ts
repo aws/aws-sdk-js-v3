@@ -29,7 +29,13 @@ import {
   SnowDeviceManagementClientResolvedConfig,
 } from "../SnowDeviceManagementClient";
 
+/**
+ * The input for {@link ListTasksCommand}.
+ */
 export interface ListTasksCommandInput extends ListTasksInput {}
+/**
+ * The output of {@link ListTasksCommand}.
+ */
 export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBearer {}
 
 /**

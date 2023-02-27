@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateDBParameterGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateDBParameterGroupCommand}.
+ */
 export interface CreateDBParameterGroupCommandInput extends CreateDBParameterGroupMessage {}
+/**
+ * The output of {@link CreateDBParameterGroupCommand}.
+ */
 export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGroupResult, __MetadataBearer {}
 
 /**

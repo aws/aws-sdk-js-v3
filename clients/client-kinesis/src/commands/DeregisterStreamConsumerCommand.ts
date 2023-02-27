@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeregisterStreamConsumerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterStreamConsumerCommand}.
+ */
 export interface DeregisterStreamConsumerCommandInput extends DeregisterStreamConsumerInput {}
+/**
+ * The output of {@link DeregisterStreamConsumerCommand}.
+ */
 export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer {}
 
 /**

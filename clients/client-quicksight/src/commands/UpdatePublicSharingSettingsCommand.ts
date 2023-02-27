@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link UpdatePublicSharingSettingsCommand}.
+ */
 export interface UpdatePublicSharingSettingsCommandInput extends UpdatePublicSharingSettingsRequest {}
+/**
+ * The output of {@link UpdatePublicSharingSettingsCommand}.
+ */
 export interface UpdatePublicSharingSettingsCommandOutput
   extends UpdatePublicSharingSettingsResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDirectoryLimitsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDirectoryLimitsCommand}.
+ */
 export interface GetDirectoryLimitsCommandInput extends GetDirectoryLimitsRequest {}
+/**
+ * The output of {@link GetDirectoryLimitsCommand}.
+ */
 export interface GetDirectoryLimitsCommandOutput extends GetDirectoryLimitsResult, __MetadataBearer {}
 
 /**

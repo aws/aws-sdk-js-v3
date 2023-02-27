@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetEmailChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetEmailChannelCommand}.
+ */
 export interface GetEmailChannelCommandInput extends GetEmailChannelRequest {}
+/**
+ * The output of {@link GetEmailChannelCommand}.
+ */
 export interface GetEmailChannelCommandOutput extends GetEmailChannelResponse, __MetadataBearer {}
 
 /**

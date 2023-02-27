@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RedactRoomMessageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RedactRoomMessageCommand}.
+ */
 export interface RedactRoomMessageCommandInput extends RedactRoomMessageRequest {}
+/**
+ * The output of {@link RedactRoomMessageCommand}.
+ */
 export interface RedactRoomMessageCommandOutput extends RedactRoomMessageResponse, __MetadataBearer {}
 
 /**

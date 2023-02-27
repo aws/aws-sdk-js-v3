@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link ListDeliverabilityTestReportsCommand}.
+ */
 export interface ListDeliverabilityTestReportsCommandInput extends ListDeliverabilityTestReportsRequest {}
+/**
+ * The output of {@link ListDeliverabilityTestReportsCommand}.
+ */
 export interface ListDeliverabilityTestReportsCommandOutput
   extends ListDeliverabilityTestReportsResponse,
     __MetadataBearer {}

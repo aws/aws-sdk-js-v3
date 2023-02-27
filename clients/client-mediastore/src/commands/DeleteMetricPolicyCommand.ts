@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteMetricPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteMetricPolicyCommand}.
+ */
 export interface DeleteMetricPolicyCommandInput extends DeleteMetricPolicyInput {}
+/**
+ * The output of {@link DeleteMetricPolicyCommand}.
+ */
 export interface DeleteMetricPolicyCommandOutput extends DeleteMetricPolicyOutput, __MetadataBearer {}
 
 /**

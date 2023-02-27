@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetWorkingLocationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetWorkingLocationCommand}.
+ */
 export interface GetWorkingLocationCommandInput extends GetWorkingLocationRequest {}
+/**
+ * The output of {@link GetWorkingLocationCommand}.
+ */
 export interface GetWorkingLocationCommandOutput extends GetWorkingLocationResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteSystemTemplateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteSystemTemplateCommand}.
+ */
 export interface DeleteSystemTemplateCommandInput extends DeleteSystemTemplateRequest {}
+/**
+ * The output of {@link DeleteSystemTemplateCommand}.
+ */
 export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateResponse, __MetadataBearer {}
 
 /**

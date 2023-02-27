@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link DeleteIdentityPolicyCommand}.
+ */
 export interface DeleteIdentityPolicyCommandInput extends DeleteIdentityPolicyRequest {}
+/**
+ * The output of {@link DeleteIdentityPolicyCommand}.
+ */
 export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListNetworkSitesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListNetworkSitesCommand}.
+ */
 export interface ListNetworkSitesCommandInput extends ListNetworkSitesRequest {}
+/**
+ * The output of {@link ListNetworkSitesCommand}.
+ */
 export interface ListNetworkSitesCommandOutput extends ListNetworkSitesResponse, __MetadataBearer {}
 
 /**

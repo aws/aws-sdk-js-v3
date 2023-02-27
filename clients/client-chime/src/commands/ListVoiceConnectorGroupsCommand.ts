@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListVoiceConnectorGroupsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListVoiceConnectorGroupsCommand}.
+ */
 export interface ListVoiceConnectorGroupsCommandInput extends ListVoiceConnectorGroupsRequest {}
+/**
+ * The output of {@link ListVoiceConnectorGroupsCommand}.
+ */
 export interface ListVoiceConnectorGroupsCommandOutput extends ListVoiceConnectorGroupsResponse, __MetadataBearer {}
 
 /**

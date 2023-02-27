@@ -16,7 +16,13 @@ import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { JsonEnumsInputOutput, JsonEnumsInputOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_json1_1JsonEnumsCommand, serializeAws_json1_1JsonEnumsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link JsonEnumsCommand}.
+ */
 export interface JsonEnumsCommandInput extends JsonEnumsInputOutput {}
+/**
+ * The output of {@link JsonEnumsCommand}.
+ */
 export interface JsonEnumsCommandOutput extends JsonEnumsInputOutput, __MetadataBearer {}
 
 /**

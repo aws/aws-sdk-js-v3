@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link DeleteFolderContentsCommand}.
+ */
 export interface DeleteFolderContentsCommandInput extends DeleteFolderContentsRequest {}
+/**
+ * The output of {@link DeleteFolderContentsCommand}.
+ */
 export interface DeleteFolderContentsCommandOutput extends __MetadataBearer {}
 
 /**

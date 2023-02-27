@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1NotifyMigrationTaskStateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link NotifyMigrationTaskStateCommand}.
+ */
 export interface NotifyMigrationTaskStateCommandInput extends NotifyMigrationTaskStateRequest {}
+/**
+ * The output of {@link NotifyMigrationTaskStateCommand}.
+ */
 export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTaskStateResult, __MetadataBearer {}
 
 /**

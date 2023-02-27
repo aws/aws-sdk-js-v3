@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ValidateE911AddressCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ValidateE911AddressCommand}.
+ */
 export interface ValidateE911AddressCommandInput extends ValidateE911AddressRequest {}
+/**
+ * The output of {@link ValidateE911AddressCommand}.
+ */
 export interface ValidateE911AddressCommandOutput extends ValidateE911AddressResponse, __MetadataBearer {}
 
 export class ValidateE911AddressCommand extends $Command<

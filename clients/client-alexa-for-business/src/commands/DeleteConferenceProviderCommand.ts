@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteConferenceProviderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteConferenceProviderCommand}.
+ */
 export interface DeleteConferenceProviderCommandInput extends DeleteConferenceProviderRequest {}
+/**
+ * The output of {@link DeleteConferenceProviderCommand}.
+ */
 export interface DeleteConferenceProviderCommandOutput extends DeleteConferenceProviderResponse, __MetadataBearer {}
 
 /**

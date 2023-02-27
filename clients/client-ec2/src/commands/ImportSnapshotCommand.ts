@@ -22,7 +22,13 @@ import {
 } from "../models/models_5";
 import { deserializeAws_ec2ImportSnapshotCommand, serializeAws_ec2ImportSnapshotCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ImportSnapshotCommand}.
+ */
 export interface ImportSnapshotCommandInput extends ImportSnapshotRequest {}
+/**
+ * The output of {@link ImportSnapshotCommand}.
+ */
 export interface ImportSnapshotCommandOutput extends ImportSnapshotResult, __MetadataBearer {}
 
 /**

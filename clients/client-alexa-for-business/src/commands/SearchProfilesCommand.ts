@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SearchProfilesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SearchProfilesCommand}.
+ */
 export interface SearchProfilesCommandInput extends SearchProfilesRequest {}
+/**
+ * The output of {@link SearchProfilesCommand}.
+ */
 export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __MetadataBearer {}
 
 /**

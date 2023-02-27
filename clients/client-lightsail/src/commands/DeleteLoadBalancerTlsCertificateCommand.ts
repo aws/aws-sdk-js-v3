@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteLoadBalancerTlsCertificateCommand}.
+ */
 export interface DeleteLoadBalancerTlsCertificateCommandInput extends DeleteLoadBalancerTlsCertificateRequest {}
+/**
+ * The output of {@link DeleteLoadBalancerTlsCertificateCommand}.
+ */
 export interface DeleteLoadBalancerTlsCertificateCommandOutput
   extends DeleteLoadBalancerTlsCertificateResult,
     __MetadataBearer {}

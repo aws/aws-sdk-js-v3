@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link UpdateUserProfileCommand}.
+ */
 export interface UpdateUserProfileCommandInput extends UpdateUserProfileRequest {}
+/**
+ * The output of {@link UpdateUserProfileCommand}.
+ */
 export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResponse, __MetadataBearer {}
 
 /**

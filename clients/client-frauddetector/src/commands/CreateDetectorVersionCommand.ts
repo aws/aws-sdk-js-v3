@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDetectorVersionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDetectorVersionCommand}.
+ */
 export interface CreateDetectorVersionCommandInput extends CreateDetectorVersionRequest {}
+/**
+ * The output of {@link CreateDetectorVersionCommand}.
+ */
 export interface CreateDetectorVersionCommandOutput extends CreateDetectorVersionResult, __MetadataBearer {}
 
 /**

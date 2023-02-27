@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * The input for {@link DeleteFirewallManagerRuleGroupsCommand}.
+ */
 export interface DeleteFirewallManagerRuleGroupsCommandInput extends DeleteFirewallManagerRuleGroupsRequest {}
+/**
+ * The output of {@link DeleteFirewallManagerRuleGroupsCommand}.
+ */
 export interface DeleteFirewallManagerRuleGroupsCommandOutput
   extends DeleteFirewallManagerRuleGroupsResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteKnownHostKeysCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteKnownHostKeysCommand}.
+ */
 export interface DeleteKnownHostKeysCommandInput extends DeleteKnownHostKeysRequest {}
+/**
+ * The output of {@link DeleteKnownHostKeysCommand}.
+ */
 export interface DeleteKnownHostKeysCommandOutput extends DeleteKnownHostKeysResult, __MetadataBearer {}
 
 /**

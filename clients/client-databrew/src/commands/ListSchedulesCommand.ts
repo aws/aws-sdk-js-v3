@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListSchedulesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSchedulesCommand}.
+ */
 export interface ListSchedulesCommandInput extends ListSchedulesRequest {}
+/**
+ * The output of {@link ListSchedulesCommand}.
+ */
 export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __MetadataBearer {}
 
 /**

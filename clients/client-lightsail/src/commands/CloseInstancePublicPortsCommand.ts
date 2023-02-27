@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CloseInstancePublicPortsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CloseInstancePublicPortsCommand}.
+ */
 export interface CloseInstancePublicPortsCommandInput extends CloseInstancePublicPortsRequest {}
+/**
+ * The output of {@link CloseInstancePublicPortsCommand}.
+ */
 export interface CloseInstancePublicPortsCommandOutput extends CloseInstancePublicPortsResult, __MetadataBearer {}
 
 /**

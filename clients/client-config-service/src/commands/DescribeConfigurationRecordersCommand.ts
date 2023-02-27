@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeConfigurationRecordersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeConfigurationRecordersCommand}.
+ */
 export interface DescribeConfigurationRecordersCommandInput extends DescribeConfigurationRecordersRequest {}
+/**
+ * The output of {@link DescribeConfigurationRecordersCommand}.
+ */
 export interface DescribeConfigurationRecordersCommandOutput
   extends DescribeConfigurationRecordersResponse,
     __MetadataBearer {}

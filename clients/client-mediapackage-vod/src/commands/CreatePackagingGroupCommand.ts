@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreatePackagingGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreatePackagingGroupCommand}.
+ */
 export interface CreatePackagingGroupCommandInput extends CreatePackagingGroupRequest {}
+/**
+ * The output of {@link CreatePackagingGroupCommand}.
+ */
 export interface CreatePackagingGroupCommandOutput extends CreatePackagingGroupResponse, __MetadataBearer {}
 
 /**

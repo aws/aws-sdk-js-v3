@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link GetSessionEmbedUrlCommand}.
+ */
 export interface GetSessionEmbedUrlCommandInput extends GetSessionEmbedUrlRequest {}
+/**
+ * The output of {@link GetSessionEmbedUrlCommand}.
+ */
 export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlResponse, __MetadataBearer {}
 
 /**

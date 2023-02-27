@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ReadJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ReadJobCommand}.
+ */
 export interface ReadJobCommandInput extends ReadJobRequest {}
+/**
+ * The output of {@link ReadJobCommand}.
+ */
 export interface ReadJobCommandOutput extends ReadJobResponse, __MetadataBearer {}
 
 /**

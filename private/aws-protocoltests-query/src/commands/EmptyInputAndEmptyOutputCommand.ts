@@ -24,7 +24,13 @@ import {
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link EmptyInputAndEmptyOutputCommand}.
+ */
 export interface EmptyInputAndEmptyOutputCommandInput extends EmptyInputAndEmptyOutputInput {}
+/**
+ * The output of {@link EmptyInputAndEmptyOutputCommand}.
+ */
 export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmptyOutputOutput, __MetadataBearer {}
 
 /**

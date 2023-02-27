@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link CreateWorkteamCommand}.
+ */
 export interface CreateWorkteamCommandInput extends CreateWorkteamRequest {}
+/**
+ * The output of {@link CreateWorkteamCommand}.
+ */
 export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateTriggerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateTriggerCommand}.
+ */
 export interface UpdateTriggerCommandInput extends UpdateTriggerRequest {}
+/**
+ * The output of {@link UpdateTriggerCommand}.
+ */
 export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __MetadataBearer {}
 
 /**

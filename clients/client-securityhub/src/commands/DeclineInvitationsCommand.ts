@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link DeclineInvitationsCommand}.
+ */
 export interface DeclineInvitationsCommandInput extends DeclineInvitationsRequest {}
+/**
+ * The output of {@link DeclineInvitationsCommand}.
+ */
 export interface DeclineInvitationsCommandOutput extends DeclineInvitationsResponse, __MetadataBearer {}
 
 /**

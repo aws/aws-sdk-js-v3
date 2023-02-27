@@ -28,7 +28,13 @@ import {
   serializeAws_restJson1GetPackageVersionAssetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPackageVersionAssetCommand}.
+ */
 export interface GetPackageVersionAssetCommandInput extends GetPackageVersionAssetRequest {}
+/**
+ * The output of {@link GetPackageVersionAssetCommand}.
+ */
 export interface GetPackageVersionAssetCommandOutput
   extends __WithSdkStreamMixin<GetPackageVersionAssetResult, "asset">,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyVpcPeeringConnectionOptionsCommand}.
+ */
 export interface ModifyVpcPeeringConnectionOptionsCommandInput extends ModifyVpcPeeringConnectionOptionsRequest {}
+/**
+ * The output of {@link ModifyVpcPeeringConnectionOptionsCommand}.
+ */
 export interface ModifyVpcPeeringConnectionOptionsCommandOutput
   extends ModifyVpcPeeringConnectionOptionsResult,
     __MetadataBearer {}

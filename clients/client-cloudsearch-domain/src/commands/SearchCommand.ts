@@ -26,7 +26,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_restJson1SearchCommand, serializeAws_restJson1SearchCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SearchCommand}.
+ */
 export interface SearchCommandInput extends SearchRequest {}
+/**
+ * The output of {@link SearchCommand}.
+ */
 export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
 
 /**

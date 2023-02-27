@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link DeleteWorkspaceBundleCommand}.
+ */
 export interface DeleteWorkspaceBundleCommandInput extends DeleteWorkspaceBundleRequest {}
+/**
+ * The output of {@link DeleteWorkspaceBundleCommand}.
+ */
 export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundleResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDataSetDetailsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDataSetDetailsCommand}.
+ */
 export interface GetDataSetDetailsCommandInput extends GetDataSetDetailsRequest {}
+/**
+ * The output of {@link GetDataSetDetailsCommand}.
+ */
 export interface GetDataSetDetailsCommandOutput extends GetDataSetDetailsResponse, __MetadataBearer {}
 
 /**

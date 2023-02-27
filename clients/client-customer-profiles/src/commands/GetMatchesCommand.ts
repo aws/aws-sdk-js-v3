@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetMatchesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetMatchesCommand}.
+ */
 export interface GetMatchesCommandInput extends GetMatchesRequest {}
+/**
+ * The output of {@link GetMatchesCommand}.
+ */
 export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataBearer {}
 
 /**

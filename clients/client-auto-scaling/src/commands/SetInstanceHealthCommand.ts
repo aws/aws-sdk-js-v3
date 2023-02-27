@@ -20,7 +20,13 @@ import {
   serializeAws_querySetInstanceHealthCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SetInstanceHealthCommand}.
+ */
 export interface SetInstanceHealthCommandInput extends SetInstanceHealthQuery {}
+/**
+ * The output of {@link SetInstanceHealthCommand}.
+ */
 export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
 
 /**

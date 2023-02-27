@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1PutAccountConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutAccountConfigurationCommand}.
+ */
 export interface PutAccountConfigurationCommandInput extends PutAccountConfigurationRequest {}
+/**
+ * The output of {@link PutAccountConfigurationCommand}.
+ */
 export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

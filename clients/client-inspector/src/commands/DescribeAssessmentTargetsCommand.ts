@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeAssessmentTargetsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeAssessmentTargetsCommand}.
+ */
 export interface DescribeAssessmentTargetsCommandInput extends DescribeAssessmentTargetsRequest {}
+/**
+ * The output of {@link DescribeAssessmentTargetsCommand}.
+ */
 export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessmentTargetsResponse, __MetadataBearer {}
 
 /**

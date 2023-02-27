@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link UpdateTemplatePermissionsCommand}.
+ */
 export interface UpdateTemplatePermissionsCommandInput extends UpdateTemplatePermissionsRequest {}
+/**
+ * The output of {@link UpdateTemplatePermissionsCommand}.
+ */
 export interface UpdateTemplatePermissionsCommandOutput extends UpdateTemplatePermissionsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeTransitGatewayAttachmentsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeTransitGatewayAttachmentsCommand}.
+ */
 export interface DescribeTransitGatewayAttachmentsCommandInput extends DescribeTransitGatewayAttachmentsRequest {}
+/**
+ * The output of {@link DescribeTransitGatewayAttachmentsCommand}.
+ */
 export interface DescribeTransitGatewayAttachmentsCommandOutput
   extends DescribeTransitGatewayAttachmentsResult,
     __MetadataBearer {}

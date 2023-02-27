@@ -25,7 +25,13 @@ import {
   serializeAws_queryUpdateTerminationProtectionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateTerminationProtectionCommand}.
+ */
 export interface UpdateTerminationProtectionCommandInput extends UpdateTerminationProtectionInput {}
+/**
+ * The output of {@link UpdateTerminationProtectionCommand}.
+ */
 export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminationProtectionOutput, __MetadataBearer {}
 
 /**

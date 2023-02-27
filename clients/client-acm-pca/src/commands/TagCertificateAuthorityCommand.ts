@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1TagCertificateAuthorityCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link TagCertificateAuthorityCommand}.
+ */
 export interface TagCertificateAuthorityCommandInput extends TagCertificateAuthorityRequest {}
+/**
+ * The output of {@link TagCertificateAuthorityCommand}.
+ */
 export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**

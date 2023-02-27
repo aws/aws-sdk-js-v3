@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListProfileTimesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListProfileTimesCommand}.
+ */
 export interface ListProfileTimesCommandInput extends ListProfileTimesRequest {}
+/**
+ * The output of {@link ListProfileTimesCommand}.
+ */
 export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse, __MetadataBearer {}
 
 /**

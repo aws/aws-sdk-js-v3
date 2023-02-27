@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
+/**
+ * The input for {@link ListTerminologiesCommand}.
+ */
 export interface ListTerminologiesCommandInput extends ListTerminologiesRequest {}
+/**
+ * The output of {@link ListTerminologiesCommand}.
+ */
 export interface ListTerminologiesCommandOutput extends ListTerminologiesResponse, __MetadataBearer {}
 
 /**

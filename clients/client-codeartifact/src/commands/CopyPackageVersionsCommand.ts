@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CopyPackageVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CopyPackageVersionsCommand}.
+ */
 export interface CopyPackageVersionsCommandInput extends CopyPackageVersionsRequest {}
+/**
+ * The output of {@link CopyPackageVersionsCommand}.
+ */
 export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsResult, __MetadataBearer {}
 
 /**

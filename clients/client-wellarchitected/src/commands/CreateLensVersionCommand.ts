@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * The input for {@link CreateLensVersionCommand}.
+ */
 export interface CreateLensVersionCommandInput extends CreateLensVersionInput {}
+/**
+ * The output of {@link CreateLensVersionCommand}.
+ */
 export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput, __MetadataBearer {}
 
 /**

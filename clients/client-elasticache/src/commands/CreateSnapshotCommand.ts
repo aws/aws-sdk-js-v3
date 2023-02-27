@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateSnapshotCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateSnapshotCommand}.
+ */
 export interface CreateSnapshotCommandInput extends CreateSnapshotMessage {}
+/**
+ * The output of {@link CreateSnapshotCommand}.
+ */
 export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __MetadataBearer {}
 
 /**

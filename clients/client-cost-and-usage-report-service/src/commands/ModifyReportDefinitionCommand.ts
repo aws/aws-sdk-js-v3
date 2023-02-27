@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ModifyReportDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ModifyReportDefinitionCommand}.
+ */
 export interface ModifyReportDefinitionCommandInput extends ModifyReportDefinitionRequest {}
+/**
+ * The output of {@link ModifyReportDefinitionCommand}.
+ */
 export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinitionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateContactFlowNameCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateContactFlowNameCommand}.
+ */
 export interface UpdateContactFlowNameCommandInput extends UpdateContactFlowNameRequest {}
+/**
+ * The output of {@link UpdateContactFlowNameCommand}.
+ */
 export interface UpdateContactFlowNameCommandOutput extends UpdateContactFlowNameResponse, __MetadataBearer {}
 
 /**

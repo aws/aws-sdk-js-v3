@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
+/**
+ * The input for {@link DeleteAppCommand}.
+ */
 export interface DeleteAppCommandInput extends DeleteAppInput {}
+/**
+ * The output of {@link DeleteAppCommand}.
+ */
 export interface DeleteAppCommandOutput extends DeleteAppOutput, __MetadataBearer {}
 
 /**

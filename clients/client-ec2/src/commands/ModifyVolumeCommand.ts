@@ -22,7 +22,13 @@ import {
 } from "../models/models_6";
 import { deserializeAws_ec2ModifyVolumeCommand, serializeAws_ec2ModifyVolumeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyVolumeCommand}.
+ */
 export interface ModifyVolumeCommandInput extends ModifyVolumeRequest {}
+/**
+ * The output of {@link ModifyVolumeCommand}.
+ */
 export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __MetadataBearer {}
 
 /**

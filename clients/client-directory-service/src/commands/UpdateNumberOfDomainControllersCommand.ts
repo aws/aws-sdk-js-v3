@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateNumberOfDomainControllersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateNumberOfDomainControllersCommand}.
+ */
 export interface UpdateNumberOfDomainControllersCommandInput extends UpdateNumberOfDomainControllersRequest {}
+/**
+ * The output of {@link UpdateNumberOfDomainControllersCommand}.
+ */
 export interface UpdateNumberOfDomainControllersCommandOutput
   extends UpdateNumberOfDomainControllersResult,
     __MetadataBearer {}

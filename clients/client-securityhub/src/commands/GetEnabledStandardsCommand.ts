@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link GetEnabledStandardsCommand}.
+ */
 export interface GetEnabledStandardsCommandInput extends GetEnabledStandardsRequest {}
+/**
+ * The output of {@link GetEnabledStandardsCommand}.
+ */
 export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsResponse, __MetadataBearer {}
 
 /**

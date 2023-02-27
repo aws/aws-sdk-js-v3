@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * The input for {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandInput extends UntagResourceInput {}
+/**
+ * The output of {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**

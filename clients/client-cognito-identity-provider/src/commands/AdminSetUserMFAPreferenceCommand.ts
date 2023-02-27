@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminSetUserMFAPreferenceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminSetUserMFAPreferenceCommand}.
+ */
 export interface AdminSetUserMFAPreferenceCommandInput extends AdminSetUserMFAPreferenceRequest {}
+/**
+ * The output of {@link AdminSetUserMFAPreferenceCommand}.
+ */
 export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAPreferenceResponse, __MetadataBearer {}
 
 /**

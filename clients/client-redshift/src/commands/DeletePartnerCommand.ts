@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DeletePartnerCommand}.
+ */
 export interface DeletePartnerCommandInput extends PartnerIntegrationInputMessage {}
+/**
+ * The output of {@link DeletePartnerCommand}.
+ */
 export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMessage, __MetadataBearer {}
 
 /**

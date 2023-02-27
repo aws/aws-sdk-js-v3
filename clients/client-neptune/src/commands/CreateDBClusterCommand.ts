@@ -26,7 +26,13 @@ import {
   serializeAws_queryCreateDBClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateDBClusterCommand}.
+ */
 export interface CreateDBClusterCommandInput extends CreateDBClusterMessage {}
+/**
+ * The output of {@link CreateDBClusterCommand}.
+ */
 export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __MetadataBearer {}
 
 /**

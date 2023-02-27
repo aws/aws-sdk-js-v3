@@ -24,7 +24,13 @@ import {
   ServiceOutputTypes,
 } from "../SageMakerFeatureStoreRuntimeClient";
 
+/**
+ * The input for {@link PutRecordCommand}.
+ */
 export interface PutRecordCommandInput extends PutRecordRequest {}
+/**
+ * The output of {@link PutRecordCommand}.
+ */
 export interface PutRecordCommandOutput extends __MetadataBearer {}
 
 /**

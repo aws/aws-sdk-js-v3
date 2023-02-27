@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteMetricFilterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteMetricFilterCommand}.
+ */
 export interface DeleteMetricFilterCommandInput extends DeleteMetricFilterRequest {}
+/**
+ * The output of {@link DeleteMetricFilterCommand}.
+ */
 export interface DeleteMetricFilterCommandOutput extends __MetadataBearer {}
 
 /**

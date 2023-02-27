@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAssetPropertyValueHistoryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAssetPropertyValueHistoryCommand}.
+ */
 export interface GetAssetPropertyValueHistoryCommandInput extends GetAssetPropertyValueHistoryRequest {}
+/**
+ * The output of {@link GetAssetPropertyValueHistoryCommand}.
+ */
 export interface GetAssetPropertyValueHistoryCommandOutput
   extends GetAssetPropertyValueHistoryResponse,
     __MetadataBearer {}

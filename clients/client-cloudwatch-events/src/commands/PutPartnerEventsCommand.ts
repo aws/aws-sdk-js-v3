@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutPartnerEventsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutPartnerEventsCommand}.
+ */
 export interface PutPartnerEventsCommandInput extends PutPartnerEventsRequest {}
+/**
+ * The output of {@link PutPartnerEventsCommand}.
+ */
 export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse, __MetadataBearer {}
 
 /**

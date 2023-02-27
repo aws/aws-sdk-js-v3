@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDimensionKeyDetailsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDimensionKeyDetailsCommand}.
+ */
 export interface GetDimensionKeyDetailsCommandInput extends GetDimensionKeyDetailsRequest {}
+/**
+ * The output of {@link GetDimensionKeyDetailsCommand}.
+ */
 export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDetailsResponse, __MetadataBearer {}
 
 /**

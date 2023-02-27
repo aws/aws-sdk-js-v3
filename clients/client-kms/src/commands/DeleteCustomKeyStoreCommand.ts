@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteCustomKeyStoreCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteCustomKeyStoreCommand}.
+ */
 export interface DeleteCustomKeyStoreCommandInput extends DeleteCustomKeyStoreRequest {}
+/**
+ * The output of {@link DeleteCustomKeyStoreCommand}.
+ */
 export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreResponse, __MetadataBearer {}
 
 /**

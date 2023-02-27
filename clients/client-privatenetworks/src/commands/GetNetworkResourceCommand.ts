@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetNetworkResourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetNetworkResourceCommand}.
+ */
 export interface GetNetworkResourceCommandInput extends GetNetworkResourceRequest {}
+/**
+ * The output of {@link GetNetworkResourceCommand}.
+ */
 export interface GetNetworkResourceCommandOutput extends GetNetworkResourceResponse, __MetadataBearer {}
 
 /**

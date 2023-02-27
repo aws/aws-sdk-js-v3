@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateExclusionsPreviewCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateExclusionsPreviewCommand}.
+ */
 export interface CreateExclusionsPreviewCommandInput extends CreateExclusionsPreviewRequest {}
+/**
+ * The output of {@link CreateExclusionsPreviewCommand}.
+ */
 export interface CreateExclusionsPreviewCommandOutput extends CreateExclusionsPreviewResponse, __MetadataBearer {}
 
 /**

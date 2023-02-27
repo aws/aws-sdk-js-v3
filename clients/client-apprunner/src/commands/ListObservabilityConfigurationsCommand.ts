@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListObservabilityConfigurationsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListObservabilityConfigurationsCommand}.
+ */
 export interface ListObservabilityConfigurationsCommandInput extends ListObservabilityConfigurationsRequest {}
+/**
+ * The output of {@link ListObservabilityConfigurationsCommand}.
+ */
 export interface ListObservabilityConfigurationsCommandOutput
   extends ListObservabilityConfigurationsResponse,
     __MetadataBearer {}

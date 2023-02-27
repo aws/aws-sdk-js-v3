@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteDiskCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteDiskCommand}.
+ */
 export interface DeleteDiskCommandInput extends DeleteDiskRequest {}
+/**
+ * The output of {@link DeleteDiskCommand}.
+ */
 export interface DeleteDiskCommandOutput extends DeleteDiskResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteCustomMetricCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteCustomMetricCommand}.
+ */
 export interface DeleteCustomMetricCommandInput extends DeleteCustomMetricRequest {}
+/**
+ * The output of {@link DeleteCustomMetricCommand}.
+ */
 export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricResponse, __MetadataBearer {}
 
 /**

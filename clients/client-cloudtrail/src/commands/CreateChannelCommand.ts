@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateChannelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateChannelCommand}.
+ */
 export interface CreateChannelCommandInput extends CreateChannelRequest {}
+/**
+ * The output of {@link CreateChannelCommand}.
+ */
 export interface CreateChannelCommandOutput extends CreateChannelResponse, __MetadataBearer {}
 
 /**

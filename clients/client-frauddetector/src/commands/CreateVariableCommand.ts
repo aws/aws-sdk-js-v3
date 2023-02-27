@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateVariableCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateVariableCommand}.
+ */
 export interface CreateVariableCommandInput extends CreateVariableRequest {}
+/**
+ * The output of {@link CreateVariableCommand}.
+ */
 export interface CreateVariableCommandOutput extends CreateVariableResult, __MetadataBearer {}
 
 /**

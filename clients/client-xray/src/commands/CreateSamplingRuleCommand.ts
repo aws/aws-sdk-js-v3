@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * The input for {@link CreateSamplingRuleCommand}.
+ */
 export interface CreateSamplingRuleCommandInput extends CreateSamplingRuleRequest {}
+/**
+ * The output of {@link CreateSamplingRuleCommand}.
+ */
 export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResult, __MetadataBearer {}
 
 /**

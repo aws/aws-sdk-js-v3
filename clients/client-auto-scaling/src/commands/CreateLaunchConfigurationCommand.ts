@@ -20,7 +20,13 @@ import {
   serializeAws_queryCreateLaunchConfigurationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateLaunchConfigurationCommand}.
+ */
 export interface CreateLaunchConfigurationCommandInput extends CreateLaunchConfigurationType {}
+/**
+ * The output of {@link CreateLaunchConfigurationCommand}.
+ */
 export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

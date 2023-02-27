@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlListPublicKeysCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link ListPublicKeysCommand}.
+ */
 export interface ListPublicKeysCommandInput extends ListPublicKeysRequest {}
+/**
+ * The output of {@link ListPublicKeysCommand}.
+ */
 export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __MetadataBearer {}
 
 /**

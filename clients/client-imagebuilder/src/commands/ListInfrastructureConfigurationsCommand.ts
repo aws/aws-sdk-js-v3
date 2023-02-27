@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListInfrastructureConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListInfrastructureConfigurationsCommand}.
+ */
 export interface ListInfrastructureConfigurationsCommandInput extends ListInfrastructureConfigurationsRequest {}
+/**
+ * The output of {@link ListInfrastructureConfigurationsCommand}.
+ */
 export interface ListInfrastructureConfigurationsCommandOutput
   extends ListInfrastructureConfigurationsResponse,
     __MetadataBearer {}

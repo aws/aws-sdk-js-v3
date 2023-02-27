@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1UpdateJobCommand, serializeAws_json1_1UpdateJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * The input for {@link UpdateJobCommand}.
+ */
 export interface UpdateJobCommandInput extends UpdateJobRequest {}
+/**
+ * The output of {@link UpdateJobCommand}.
+ */
 export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBearer {}
 
 /**

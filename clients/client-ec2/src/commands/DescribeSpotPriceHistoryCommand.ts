@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeSpotPriceHistoryCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeSpotPriceHistoryCommand}.
+ */
 export interface DescribeSpotPriceHistoryCommandInput extends DescribeSpotPriceHistoryRequest {}
+/**
+ * The output of {@link DescribeSpotPriceHistoryCommand}.
+ */
 export interface DescribeSpotPriceHistoryCommandOutput extends DescribeSpotPriceHistoryResult, __MetadataBearer {}
 
 /**

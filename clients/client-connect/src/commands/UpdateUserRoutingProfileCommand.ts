@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateUserRoutingProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateUserRoutingProfileCommand}.
+ */
 export interface UpdateUserRoutingProfileCommandInput extends UpdateUserRoutingProfileRequest {}
+/**
+ * The output of {@link UpdateUserRoutingProfileCommand}.
+ */
 export interface UpdateUserRoutingProfileCommandOutput extends __MetadataBearer {}
 
 /**

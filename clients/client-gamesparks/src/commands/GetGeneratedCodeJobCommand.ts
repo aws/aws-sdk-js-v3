@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetGeneratedCodeJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetGeneratedCodeJobCommand}.
+ */
 export interface GetGeneratedCodeJobCommandInput extends GetGeneratedCodeJobRequest {}
+/**
+ * The output of {@link GetGeneratedCodeJobCommand}.
+ */
 export interface GetGeneratedCodeJobCommandOutput extends GetGeneratedCodeJobResult, __MetadataBearer {}
 
 /**

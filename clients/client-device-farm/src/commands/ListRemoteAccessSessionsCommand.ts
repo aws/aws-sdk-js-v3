@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListRemoteAccessSessionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListRemoteAccessSessionsCommand}.
+ */
 export interface ListRemoteAccessSessionsCommandInput extends ListRemoteAccessSessionsRequest {}
+/**
+ * The output of {@link ListRemoteAccessSessionsCommand}.
+ */
 export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessSessionsResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0PutBandwidthRateLimitScheduleCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link PutBandwidthRateLimitScheduleCommand}.
+ */
 export interface PutBandwidthRateLimitScheduleCommandInput extends PutBandwidthRateLimitScheduleInput {}
+/**
+ * The output of {@link PutBandwidthRateLimitScheduleCommand}.
+ */
 export interface PutBandwidthRateLimitScheduleCommandOutput
   extends PutBandwidthRateLimitScheduleOutput,
     __MetadataBearer {}

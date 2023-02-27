@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
+/**
+ * The input for {@link DeleteCallAnalyticsCategoryCommand}.
+ */
 export interface DeleteCallAnalyticsCategoryCommandInput extends DeleteCallAnalyticsCategoryRequest {}
+/**
+ * The output of {@link DeleteCallAnalyticsCategoryCommand}.
+ */
 export interface DeleteCallAnalyticsCategoryCommandOutput
   extends DeleteCallAnalyticsCategoryResponse,
     __MetadataBearer {}

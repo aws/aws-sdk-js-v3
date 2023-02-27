@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link PutBucketVersioningCommand}.
+ */
 export interface PutBucketVersioningCommandInput extends PutBucketVersioningRequest {}
+/**
+ * The output of {@link PutBucketVersioningCommand}.
+ */
 export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
 
 /**

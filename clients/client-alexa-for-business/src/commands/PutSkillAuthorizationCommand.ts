@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutSkillAuthorizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutSkillAuthorizationCommand}.
+ */
 export interface PutSkillAuthorizationCommandInput extends PutSkillAuthorizationRequest {}
+/**
+ * The output of {@link PutSkillAuthorizationCommand}.
+ */
 export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizationResponse, __MetadataBearer {}
 
 /**

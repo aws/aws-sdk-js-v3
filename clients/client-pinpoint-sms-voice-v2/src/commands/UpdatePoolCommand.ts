@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0UpdatePoolCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdatePoolCommand}.
+ */
 export interface UpdatePoolCommandInput extends UpdatePoolRequest {}
+/**
+ * The output of {@link UpdatePoolCommand}.
+ */
 export interface UpdatePoolCommandOutput extends UpdatePoolResult, __MetadataBearer {}
 
 /**

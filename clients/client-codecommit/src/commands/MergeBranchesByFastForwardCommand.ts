@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1MergeBranchesByFastForwardCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link MergeBranchesByFastForwardCommand}.
+ */
 export interface MergeBranchesByFastForwardCommandInput extends MergeBranchesByFastForwardInput {}
+/**
+ * The output of {@link MergeBranchesByFastForwardCommand}.
+ */
 export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesByFastForwardOutput, __MetadataBearer {}
 
 /**

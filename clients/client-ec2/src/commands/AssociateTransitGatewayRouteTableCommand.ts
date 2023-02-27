@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AssociateTransitGatewayRouteTableCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AssociateTransitGatewayRouteTableCommand}.
+ */
 export interface AssociateTransitGatewayRouteTableCommandInput extends AssociateTransitGatewayRouteTableRequest {}
+/**
+ * The output of {@link AssociateTransitGatewayRouteTableCommand}.
+ */
 export interface AssociateTransitGatewayRouteTableCommandOutput
   extends AssociateTransitGatewayRouteTableResult,
     __MetadataBearer {}

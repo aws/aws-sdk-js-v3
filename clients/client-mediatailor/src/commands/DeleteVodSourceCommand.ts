@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteVodSourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteVodSourceCommand}.
+ */
 export interface DeleteVodSourceCommandInput extends DeleteVodSourceRequest {}
+/**
+ * The output of {@link DeleteVodSourceCommand}.
+ */
 export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, __MetadataBearer {}
 
 /**

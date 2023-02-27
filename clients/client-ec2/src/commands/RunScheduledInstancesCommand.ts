@@ -25,7 +25,13 @@ import {
   serializeAws_ec2RunScheduledInstancesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RunScheduledInstancesCommand}.
+ */
 export interface RunScheduledInstancesCommandInput extends RunScheduledInstancesRequest {}
+/**
+ * The output of {@link RunScheduledInstancesCommand}.
+ */
 export interface RunScheduledInstancesCommandOutput extends RunScheduledInstancesResult, __MetadataBearer {}
 
 /**

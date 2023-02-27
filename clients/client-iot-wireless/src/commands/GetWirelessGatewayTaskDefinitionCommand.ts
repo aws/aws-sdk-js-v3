@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetWirelessGatewayTaskDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetWirelessGatewayTaskDefinitionCommand}.
+ */
 export interface GetWirelessGatewayTaskDefinitionCommandInput extends GetWirelessGatewayTaskDefinitionRequest {}
+/**
+ * The output of {@link GetWirelessGatewayTaskDefinitionCommand}.
+ */
 export interface GetWirelessGatewayTaskDefinitionCommandOutput
   extends GetWirelessGatewayTaskDefinitionResponse,
     __MetadataBearer {}

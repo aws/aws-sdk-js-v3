@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListIdentityPoolUsageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListIdentityPoolUsageCommand}.
+ */
 export interface ListIdentityPoolUsageCommandInput extends ListIdentityPoolUsageRequest {}
+/**
+ * The output of {@link ListIdentityPoolUsageCommand}.
+ */
 export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsageResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * The input for {@link CreatePrivateDnsNamespaceCommand}.
+ */
 export interface CreatePrivateDnsNamespaceCommandInput extends CreatePrivateDnsNamespaceRequest {}
+/**
+ * The output of {@link CreatePrivateDnsNamespaceCommand}.
+ */
 export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDnsNamespaceResponse, __MetadataBearer {}
 
 /**

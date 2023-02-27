@@ -23,7 +23,13 @@ import {
   serializeAws_restXmlDeleteContinuousDeploymentPolicyCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link DeleteContinuousDeploymentPolicyCommand}.
+ */
 export interface DeleteContinuousDeploymentPolicyCommandInput extends DeleteContinuousDeploymentPolicyRequest {}
+/**
+ * The output of {@link DeleteContinuousDeploymentPolicyCommand}.
+ */
 export interface DeleteContinuousDeploymentPolicyCommandOutput extends __MetadataBearer {}
 
 /**

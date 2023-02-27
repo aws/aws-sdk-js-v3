@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetParametersForImportCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetParametersForImportCommand}.
+ */
 export interface GetParametersForImportCommandInput extends GetParametersForImportRequest {}
+/**
+ * The output of {@link GetParametersForImportCommand}.
+ */
 export interface GetParametersForImportCommandOutput extends GetParametersForImportResponse, __MetadataBearer {}
 
 /**

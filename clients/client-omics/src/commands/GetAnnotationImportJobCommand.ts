@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAnnotationImportJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAnnotationImportJobCommand}.
+ */
 export interface GetAnnotationImportJobCommandInput extends GetAnnotationImportRequest {}
+/**
+ * The output of {@link GetAnnotationImportJobCommand}.
+ */
 export interface GetAnnotationImportJobCommandOutput extends GetAnnotationImportResponse, __MetadataBearer {}
 
 /**

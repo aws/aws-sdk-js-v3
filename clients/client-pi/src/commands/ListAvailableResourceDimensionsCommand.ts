@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListAvailableResourceDimensionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAvailableResourceDimensionsCommand}.
+ */
 export interface ListAvailableResourceDimensionsCommandInput extends ListAvailableResourceDimensionsRequest {}
+/**
+ * The output of {@link ListAvailableResourceDimensionsCommand}.
+ */
 export interface ListAvailableResourceDimensionsCommandOutput
   extends ListAvailableResourceDimensionsResponse,
     __MetadataBearer {}

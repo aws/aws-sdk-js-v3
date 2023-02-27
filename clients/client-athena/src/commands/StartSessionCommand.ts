@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartSessionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartSessionCommand}.
+ */
 export interface StartSessionCommandInput extends StartSessionRequest {}
+/**
+ * The output of {@link StartSessionCommand}.
+ */
 export interface StartSessionCommandOutput extends StartSessionResponse, __MetadataBearer {}
 
 /**

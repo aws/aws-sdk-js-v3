@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1StopNotebookExecutionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopNotebookExecutionCommand}.
+ */
 export interface StopNotebookExecutionCommandInput extends StopNotebookExecutionInput {}
+/**
+ * The output of {@link StopNotebookExecutionCommand}.
+ */
 export interface StopNotebookExecutionCommandOutput extends __MetadataBearer {}
 
 /**

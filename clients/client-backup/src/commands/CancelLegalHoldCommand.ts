@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelLegalHoldCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelLegalHoldCommand}.
+ */
 export interface CancelLegalHoldCommandInput extends CancelLegalHoldInput {}
+/**
+ * The output of {@link CancelLegalHoldCommand}.
+ */
 export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __MetadataBearer {}
 
 /**

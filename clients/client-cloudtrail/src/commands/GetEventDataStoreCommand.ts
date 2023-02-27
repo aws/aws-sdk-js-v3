@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetEventDataStoreCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetEventDataStoreCommand}.
+ */
 export interface GetEventDataStoreCommandInput extends GetEventDataStoreRequest {}
+/**
+ * The output of {@link GetEventDataStoreCommand}.
+ */
 export interface GetEventDataStoreCommandOutput extends GetEventDataStoreResponse, __MetadataBearer {}
 
 /**

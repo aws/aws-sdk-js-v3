@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListAliasesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAliasesCommand}.
+ */
 export interface ListAliasesCommandInput extends ListAliasesInput {}
+/**
+ * The output of {@link ListAliasesCommand}.
+ */
 export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataBearer {}
 
 /**

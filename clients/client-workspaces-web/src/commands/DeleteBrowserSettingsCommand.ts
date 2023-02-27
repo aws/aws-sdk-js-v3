@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link DeleteBrowserSettingsCommand}.
+ */
 export interface DeleteBrowserSettingsCommandInput extends DeleteBrowserSettingsRequest {}
+/**
+ * The output of {@link DeleteBrowserSettingsCommand}.
+ */
 export interface DeleteBrowserSettingsCommandOutput extends DeleteBrowserSettingsResponse, __MetadataBearer {}
 
 /**

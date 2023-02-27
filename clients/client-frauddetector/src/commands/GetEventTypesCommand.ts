@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetEventTypesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetEventTypesCommand}.
+ */
 export interface GetEventTypesCommandInput extends GetEventTypesRequest {}
+/**
+ * The output of {@link GetEventTypesCommand}.
+ */
 export interface GetEventTypesCommandOutput extends GetEventTypesResult, __MetadataBearer {}
 
 /**

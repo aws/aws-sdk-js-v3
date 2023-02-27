@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AssociateSoftwareTokenCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateSoftwareTokenCommand}.
+ */
 export interface AssociateSoftwareTokenCommandInput extends AssociateSoftwareTokenRequest {}
+/**
+ * The output of {@link AssociateSoftwareTokenCommand}.
+ */
 export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTokenResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateVpcPeeringConnectionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateVpcPeeringConnectionCommand}.
+ */
 export interface CreateVpcPeeringConnectionCommandInput extends CreateVpcPeeringConnectionInput {}
+/**
+ * The output of {@link CreateVpcPeeringConnectionCommand}.
+ */
 export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeeringConnectionOutput, __MetadataBearer {}
 
 /**

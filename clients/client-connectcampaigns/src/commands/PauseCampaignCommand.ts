@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1PauseCampaignCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PauseCampaignCommand}.
+ */
 export interface PauseCampaignCommandInput extends PauseCampaignRequest {}
+/**
+ * The output of {@link PauseCampaignCommand}.
+ */
 export interface PauseCampaignCommandOutput extends __MetadataBearer {}
 
 /**

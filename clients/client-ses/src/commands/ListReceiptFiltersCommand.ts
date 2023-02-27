@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link ListReceiptFiltersCommand}.
+ */
 export interface ListReceiptFiltersCommandInput extends ListReceiptFiltersRequest {}
+/**
+ * The output of {@link ListReceiptFiltersCommand}.
+ */
 export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersResponse, __MetadataBearer {}
 
 /**

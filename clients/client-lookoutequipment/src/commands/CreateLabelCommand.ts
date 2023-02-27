@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0CreateLabelCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateLabelCommand}.
+ */
 export interface CreateLabelCommandInput extends CreateLabelRequest {}
+/**
+ * The output of {@link CreateLabelCommand}.
+ */
 export interface CreateLabelCommandOutput extends CreateLabelResponse, __MetadataBearer {}
 
 /**

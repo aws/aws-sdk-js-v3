@@ -17,7 +17,13 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { RebootInstancesRequest, RebootInstancesRequestFilterSensitiveLog } from "../models/models_6";
 import { deserializeAws_ec2RebootInstancesCommand, serializeAws_ec2RebootInstancesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RebootInstancesCommand}.
+ */
 export interface RebootInstancesCommandInput extends RebootInstancesRequest {}
+/**
+ * The output of {@link RebootInstancesCommand}.
+ */
 export interface RebootInstancesCommandOutput extends __MetadataBearer {}
 
 /**

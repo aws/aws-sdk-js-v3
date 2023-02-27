@@ -25,7 +25,13 @@ import {
   serializeAws_queryUpdateStackSetCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateStackSetCommand}.
+ */
 export interface UpdateStackSetCommandInput extends UpdateStackSetInput {}
+/**
+ * The output of {@link UpdateStackSetCommand}.
+ */
 export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __MetadataBearer {}
 
 /**

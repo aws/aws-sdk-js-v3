@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetHealthEventCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetHealthEventCommand}.
+ */
 export interface GetHealthEventCommandInput extends GetHealthEventInput {}
+/**
+ * The output of {@link GetHealthEventCommand}.
+ */
 export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __MetadataBearer {}
 
 /**

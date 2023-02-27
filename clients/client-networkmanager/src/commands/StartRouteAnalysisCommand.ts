@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartRouteAnalysisCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartRouteAnalysisCommand}.
+ */
 export interface StartRouteAnalysisCommandInput extends StartRouteAnalysisRequest {}
+/**
+ * The output of {@link StartRouteAnalysisCommand}.
+ */
 export interface StartRouteAnalysisCommandOutput extends StartRouteAnalysisResponse, __MetadataBearer {}
 
 /**

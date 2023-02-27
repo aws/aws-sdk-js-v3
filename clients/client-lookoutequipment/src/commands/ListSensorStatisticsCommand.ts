@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListSensorStatisticsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListSensorStatisticsCommand}.
+ */
 export interface ListSensorStatisticsCommandInput extends ListSensorStatisticsRequest {}
+/**
+ * The output of {@link ListSensorStatisticsCommand}.
+ */
 export interface ListSensorStatisticsCommandOutput extends ListSensorStatisticsResponse, __MetadataBearer {}
 
 /**

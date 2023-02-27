@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetKeyPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetKeyPolicyCommand}.
+ */
 export interface GetKeyPolicyCommandInput extends GetKeyPolicyRequest {}
+/**
+ * The output of {@link GetKeyPolicyCommand}.
+ */
 export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DeleteProjectCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteProjectCommand}.
+ */
 export interface DeleteProjectCommandInput extends DeleteProjectRequest {}
+/**
+ * The output of {@link DeleteProjectCommand}.
+ */
 export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __MetadataBearer {}
 
 /**

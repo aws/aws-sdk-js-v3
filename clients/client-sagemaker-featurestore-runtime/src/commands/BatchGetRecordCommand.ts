@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../SageMakerFeatureStoreRuntimeClient";
 
+/**
+ * The input for {@link BatchGetRecordCommand}.
+ */
 export interface BatchGetRecordCommandInput extends BatchGetRecordRequest {}
+/**
+ * The output of {@link BatchGetRecordCommand}.
+ */
 export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __MetadataBearer {}
 
 /**

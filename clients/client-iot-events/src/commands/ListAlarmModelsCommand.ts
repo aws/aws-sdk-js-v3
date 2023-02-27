@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAlarmModelsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAlarmModelsCommand}.
+ */
 export interface ListAlarmModelsCommandInput extends ListAlarmModelsRequest {}
+/**
+ * The output of {@link ListAlarmModelsCommand}.
+ */
 export interface ListAlarmModelsCommandOutput extends ListAlarmModelsResponse, __MetadataBearer {}
 
 /**

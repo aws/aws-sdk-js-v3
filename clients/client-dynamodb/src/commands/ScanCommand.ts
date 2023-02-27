@@ -17,7 +17,13 @@ import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import { ScanInput, ScanInputFilterSensitiveLog, ScanOutput, ScanOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_json1_0ScanCommand, serializeAws_json1_0ScanCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ScanCommand}.
+ */
 export interface ScanCommandInput extends ScanInput {}
+/**
+ * The output of {@link ScanCommand}.
+ */
 export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
 
 /**

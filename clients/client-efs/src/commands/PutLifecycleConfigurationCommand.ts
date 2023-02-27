@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutLifecycleConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutLifecycleConfigurationCommand}.
+ */
 export interface PutLifecycleConfigurationCommandInput extends PutLifecycleConfigurationRequest {}
+/**
+ * The output of {@link PutLifecycleConfigurationCommand}.
+ */
 export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigurationDescription, __MetadataBearer {}
 
 /**

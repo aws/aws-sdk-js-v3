@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeLocalGatewayVirtualInterfaceGroupsCommand}.
+ */
 export interface DescribeLocalGatewayVirtualInterfaceGroupsCommandInput
   extends DescribeLocalGatewayVirtualInterfaceGroupsRequest {}
+/**
+ * The output of {@link DescribeLocalGatewayVirtualInterfaceGroupsCommand}.
+ */
 export interface DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
   extends DescribeLocalGatewayVirtualInterfaceGroupsResult,
     __MetadataBearer {}

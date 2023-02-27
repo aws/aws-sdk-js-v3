@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteWorkteamCommand}.
+ */
 export interface DeleteWorkteamCommandInput extends DeleteWorkteamRequest {}
+/**
+ * The output of {@link DeleteWorkteamCommand}.
+ */
 export interface DeleteWorkteamCommandOutput extends DeleteWorkteamResponse, __MetadataBearer {}
 
 /**

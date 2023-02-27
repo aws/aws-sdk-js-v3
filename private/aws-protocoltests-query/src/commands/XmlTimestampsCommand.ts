@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link XmlTimestampsCommand}.
+ */
 export interface XmlTimestampsCommandInput {}
+/**
+ * The output of {@link XmlTimestampsCommand}.
+ */
 export interface XmlTimestampsCommandOutput extends XmlTimestampsOutput, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1RemoveTagsFromResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RemoveTagsFromResourceCommand}.
+ */
 export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResourceMessage {}
+/**
+ * The output of {@link RemoveTagsFromResourceCommand}.
+ */
 export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResourceResponse, __MetadataBearer {}
 
 /**

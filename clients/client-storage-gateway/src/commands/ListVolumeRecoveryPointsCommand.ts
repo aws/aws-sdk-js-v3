@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link ListVolumeRecoveryPointsCommand}.
+ */
 export interface ListVolumeRecoveryPointsCommandInput extends ListVolumeRecoveryPointsInput {}
+/**
+ * The output of {@link ListVolumeRecoveryPointsCommand}.
+ */
 export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecoveryPointsOutput, __MetadataBearer {}
 
 /**

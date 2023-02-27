@@ -25,7 +25,13 @@ import {
   serializeAws_queryGetStackPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetStackPolicyCommand}.
+ */
 export interface GetStackPolicyCommandInput extends GetStackPolicyInput {}
+/**
+ * The output of {@link GetStackPolicyCommand}.
+ */
 export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __MetadataBearer {}
 
 /**

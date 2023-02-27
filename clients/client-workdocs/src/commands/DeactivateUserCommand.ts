@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link DeactivateUserCommand}.
+ */
 export interface DeactivateUserCommandInput extends DeactivateUserRequest {}
+/**
+ * The output of {@link DeactivateUserCommand}.
+ */
 export interface DeactivateUserCommandOutput extends __MetadataBearer {}
 
 /**

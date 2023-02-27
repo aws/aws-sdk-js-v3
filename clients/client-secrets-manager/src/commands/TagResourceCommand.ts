@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * The input for {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandInput extends TagResourceRequest {}
+/**
+ * The output of {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**

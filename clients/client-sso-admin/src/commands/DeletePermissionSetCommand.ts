@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
+/**
+ * The input for {@link DeletePermissionSetCommand}.
+ */
 export interface DeletePermissionSetCommandInput extends DeletePermissionSetRequest {}
+/**
+ * The output of {@link DeletePermissionSetCommand}.
+ */
 export interface DeletePermissionSetCommandOutput extends DeletePermissionSetResponse, __MetadataBearer {}
 
 /**

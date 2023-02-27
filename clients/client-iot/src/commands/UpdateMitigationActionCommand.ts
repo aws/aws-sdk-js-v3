@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateMitigationActionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateMitigationActionCommand}.
+ */
 export interface UpdateMitigationActionCommandInput extends UpdateMitigationActionRequest {}
+/**
+ * The output of {@link UpdateMitigationActionCommand}.
+ */
 export interface UpdateMitigationActionCommandOutput extends UpdateMitigationActionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * The input for {@link GetResourcesSummaryCommand}.
+ */
 export interface GetResourcesSummaryCommandInput extends GetResourcesSummaryInput {}
+/**
+ * The output of {@link GetResourcesSummaryCommand}.
+ */
 export interface GetResourcesSummaryCommandOutput extends GetResourcesSummaryOutput, __MetadataBearer {}
 
 /**

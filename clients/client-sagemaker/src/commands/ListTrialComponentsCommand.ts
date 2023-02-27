@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link ListTrialComponentsCommand}.
+ */
 export interface ListTrialComponentsCommandInput extends ListTrialComponentsRequest {}
+/**
+ * The output of {@link ListTrialComponentsCommand}.
+ */
 export interface ListTrialComponentsCommandOutput extends ListTrialComponentsResponse, __MetadataBearer {}
 
 /**

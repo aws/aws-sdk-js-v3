@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutSchemaFromJsonCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutSchemaFromJsonCommand}.
+ */
 export interface PutSchemaFromJsonCommandInput extends PutSchemaFromJsonRequest {}
+/**
+ * The output of {@link PutSchemaFromJsonCommand}.
+ */
 export interface PutSchemaFromJsonCommandOutput extends PutSchemaFromJsonResponse, __MetadataBearer {}
 
 /**

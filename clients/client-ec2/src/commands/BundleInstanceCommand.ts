@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_ec2BundleInstanceCommand, serializeAws_ec2BundleInstanceCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link BundleInstanceCommand}.
+ */
 export interface BundleInstanceCommandInput extends BundleInstanceRequest {}
+/**
+ * The output of {@link BundleInstanceCommand}.
+ */
 export interface BundleInstanceCommandOutput extends BundleInstanceResult, __MetadataBearer {}
 
 /**

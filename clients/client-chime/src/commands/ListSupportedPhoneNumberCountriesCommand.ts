@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListSupportedPhoneNumberCountriesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSupportedPhoneNumberCountriesCommand}.
+ */
 export interface ListSupportedPhoneNumberCountriesCommandInput extends ListSupportedPhoneNumberCountriesRequest {}
+/**
+ * The output of {@link ListSupportedPhoneNumberCountriesCommand}.
+ */
 export interface ListSupportedPhoneNumberCountriesCommandOutput
   extends ListSupportedPhoneNumberCountriesResponse,
     __MetadataBearer {}

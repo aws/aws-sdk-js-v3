@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link DeleteAccessControlRuleCommand}.
+ */
 export interface DeleteAccessControlRuleCommandInput extends DeleteAccessControlRuleRequest {}
+/**
+ * The output of {@link DeleteAccessControlRuleCommand}.
+ */
 export interface DeleteAccessControlRuleCommandOutput extends DeleteAccessControlRuleResponse, __MetadataBearer {}
 
 /**

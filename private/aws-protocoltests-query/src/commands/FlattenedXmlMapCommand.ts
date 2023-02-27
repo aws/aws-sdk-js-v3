@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link FlattenedXmlMapCommand}.
+ */
 export interface FlattenedXmlMapCommandInput {}
+/**
+ * The output of {@link FlattenedXmlMapCommand}.
+ */
 export interface FlattenedXmlMapCommandOutput extends FlattenedXmlMapOutput, __MetadataBearer {}
 
 /**

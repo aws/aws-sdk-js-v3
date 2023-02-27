@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutDialRequestBatchCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutDialRequestBatchCommand}.
+ */
 export interface PutDialRequestBatchCommandInput extends PutDialRequestBatchRequest {}
+/**
+ * The output of {@link PutDialRequestBatchCommand}.
+ */
 export interface PutDialRequestBatchCommandOutput extends PutDialRequestBatchResponse, __MetadataBearer {}
 
 /**

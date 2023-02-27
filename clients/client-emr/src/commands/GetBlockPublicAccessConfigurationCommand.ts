@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetBlockPublicAccessConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetBlockPublicAccessConfigurationCommand}.
+ */
 export interface GetBlockPublicAccessConfigurationCommandInput extends GetBlockPublicAccessConfigurationInput {}
+/**
+ * The output of {@link GetBlockPublicAccessConfigurationCommand}.
+ */
 export interface GetBlockPublicAccessConfigurationCommandOutput
   extends GetBlockPublicAccessConfigurationOutput,
     __MetadataBearer {}

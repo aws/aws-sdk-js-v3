@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateConferenceProviderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateConferenceProviderCommand}.
+ */
 export interface CreateConferenceProviderCommandInput extends CreateConferenceProviderRequest {}
+/**
+ * The output of {@link CreateConferenceProviderCommand}.
+ */
 export interface CreateConferenceProviderCommandOutput extends CreateConferenceProviderResponse, __MetadataBearer {}
 
 /**

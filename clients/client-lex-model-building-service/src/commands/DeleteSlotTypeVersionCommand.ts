@@ -24,7 +24,13 @@ import {
   serializeAws_restJson1DeleteSlotTypeVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteSlotTypeVersionCommand}.
+ */
 export interface DeleteSlotTypeVersionCommandInput extends DeleteSlotTypeVersionRequest {}
+/**
+ * The output of {@link DeleteSlotTypeVersionCommand}.
+ */
 export interface DeleteSlotTypeVersionCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSceneCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSceneCommand}.
+ */
 export interface GetSceneCommandInput extends GetSceneRequest {}
+/**
+ * The output of {@link GetSceneCommand}.
+ */
 export interface GetSceneCommandOutput extends GetSceneResponse, __MetadataBearer {}
 
 /**

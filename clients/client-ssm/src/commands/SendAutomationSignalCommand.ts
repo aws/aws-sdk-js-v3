@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link SendAutomationSignalCommand}.
+ */
 export interface SendAutomationSignalCommandInput extends SendAutomationSignalRequest {}
+/**
+ * The output of {@link SendAutomationSignalCommand}.
+ */
 export interface SendAutomationSignalCommandOutput extends SendAutomationSignalResult, __MetadataBearer {}
 
 /**

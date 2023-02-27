@@ -22,7 +22,13 @@ import {
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { deserializeAws_restJson1GetAppCommand, serializeAws_restJson1GetAppCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAppCommand}.
+ */
 export interface GetAppCommandInput extends GetAppRequest {}
+/**
+ * The output of {@link GetAppCommand}.
+ */
 export interface GetAppCommandOutput extends GetAppResponse, __MetadataBearer {}
 
 /**

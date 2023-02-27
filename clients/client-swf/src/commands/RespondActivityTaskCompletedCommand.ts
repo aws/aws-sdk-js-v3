@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link RespondActivityTaskCompletedCommand}.
+ */
 export interface RespondActivityTaskCompletedCommandInput extends RespondActivityTaskCompletedInput {}
+/**
+ * The output of {@link RespondActivityTaskCompletedCommand}.
+ */
 export interface RespondActivityTaskCompletedCommandOutput extends __MetadataBearer {}
 
 /**

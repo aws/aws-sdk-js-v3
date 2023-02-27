@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1ActivateEventSourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ActivateEventSourceCommand}.
+ */
 export interface ActivateEventSourceCommandInput extends ActivateEventSourceRequest {}
+/**
+ * The output of {@link ActivateEventSourceCommand}.
+ */
 export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
 
 /**

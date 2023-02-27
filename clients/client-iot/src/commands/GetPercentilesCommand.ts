@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetPercentilesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPercentilesCommand}.
+ */
 export interface GetPercentilesCommandInput extends GetPercentilesRequest {}
+/**
+ * The output of {@link GetPercentilesCommand}.
+ */
 export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __MetadataBearer {}
 
 /**

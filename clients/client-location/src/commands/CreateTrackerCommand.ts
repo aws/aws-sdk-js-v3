@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateTrackerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateTrackerCommand}.
+ */
 export interface CreateTrackerCommandInput extends CreateTrackerRequest {}
+/**
+ * The output of {@link CreateTrackerCommand}.
+ */
 export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __MetadataBearer {}
 
 /**

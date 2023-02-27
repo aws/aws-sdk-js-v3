@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0UpdateVehicleCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateVehicleCommand}.
+ */
 export interface UpdateVehicleCommandInput extends UpdateVehicleRequest {}
+/**
+ * The output of {@link UpdateVehicleCommand}.
+ */
 export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __MetadataBearer {}
 
 /**

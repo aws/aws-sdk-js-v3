@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListKeyPhrasesDetectionJobsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListKeyPhrasesDetectionJobsCommand}.
+ */
 export interface ListKeyPhrasesDetectionJobsCommandInput extends ListKeyPhrasesDetectionJobsRequest {}
+/**
+ * The output of {@link ListKeyPhrasesDetectionJobsCommand}.
+ */
 export interface ListKeyPhrasesDetectionJobsCommandOutput
   extends ListKeyPhrasesDetectionJobsResponse,
     __MetadataBearer {}

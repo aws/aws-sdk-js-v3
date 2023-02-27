@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListQueuedMessagesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListQueuedMessagesCommand}.
+ */
 export interface ListQueuedMessagesCommandInput extends ListQueuedMessagesRequest {}
+/**
+ * The output of {@link ListQueuedMessagesCommand}.
+ */
 export interface ListQueuedMessagesCommandOutput extends ListQueuedMessagesResponse, __MetadataBearer {}
 
 /**

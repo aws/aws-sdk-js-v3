@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCommentsForComparedCommitCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCommentsForComparedCommitCommand}.
+ */
 export interface GetCommentsForComparedCommitCommandInput extends GetCommentsForComparedCommitInput {}
+/**
+ * The output of {@link GetCommentsForComparedCommitCommand}.
+ */
 export interface GetCommentsForComparedCommitCommandOutput
   extends GetCommentsForComparedCommitOutput,
     __MetadataBearer {}

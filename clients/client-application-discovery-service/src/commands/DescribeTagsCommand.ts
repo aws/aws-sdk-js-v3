@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeTagsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeTagsCommand}.
+ */
 export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
+/**
+ * The output of {@link DescribeTagsCommand}.
+ */
 export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __MetadataBearer {}
 
 /**

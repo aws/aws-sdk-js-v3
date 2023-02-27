@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateLFTagCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateLFTagCommand}.
+ */
 export interface CreateLFTagCommandInput extends CreateLFTagRequest {}
+/**
+ * The output of {@link CreateLFTagCommand}.
+ */
 export interface CreateLFTagCommandOutput extends CreateLFTagResponse, __MetadataBearer {}
 
 /**

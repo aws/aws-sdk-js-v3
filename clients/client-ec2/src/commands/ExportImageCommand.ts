@@ -22,7 +22,13 @@ import {
 } from "../models/models_5";
 import { deserializeAws_ec2ExportImageCommand, serializeAws_ec2ExportImageCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ExportImageCommand}.
+ */
 export interface ExportImageCommandInput extends ExportImageRequest {}
+/**
+ * The output of {@link ExportImageCommand}.
+ */
 export interface ExportImageCommandOutput extends ExportImageResult, __MetadataBearer {}
 
 /**

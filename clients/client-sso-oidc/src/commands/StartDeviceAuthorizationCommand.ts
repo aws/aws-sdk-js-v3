@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
+/**
+ * The input for {@link StartDeviceAuthorizationCommand}.
+ */
 export interface StartDeviceAuthorizationCommandInput extends StartDeviceAuthorizationRequest {}
+/**
+ * The output of {@link StartDeviceAuthorizationCommand}.
+ */
 export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthorizationResponse, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DisassociateApprovedOriginCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateApprovedOriginCommand}.
+ */
 export interface DisassociateApprovedOriginCommandInput extends DisassociateApprovedOriginRequest {}
+/**
+ * The output of {@link DisassociateApprovedOriginCommand}.
+ */
 export interface DisassociateApprovedOriginCommandOutput extends __MetadataBearer {}
 
 /**

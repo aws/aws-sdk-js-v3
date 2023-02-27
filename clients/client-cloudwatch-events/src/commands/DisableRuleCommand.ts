@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DisableRuleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisableRuleCommand}.
+ */
 export interface DisableRuleCommandInput extends DisableRuleRequest {}
+/**
+ * The output of {@link DisableRuleCommand}.
+ */
 export interface DisableRuleCommandOutput extends __MetadataBearer {}
 
 /**

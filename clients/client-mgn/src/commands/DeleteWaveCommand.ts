@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteWaveCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteWaveCommand}.
+ */
 export interface DeleteWaveCommandInput extends DeleteWaveRequest {}
+/**
+ * The output of {@link DeleteWaveCommand}.
+ */
 export interface DeleteWaveCommandOutput extends DeleteWaveResponse, __MetadataBearer {}
 
 /**

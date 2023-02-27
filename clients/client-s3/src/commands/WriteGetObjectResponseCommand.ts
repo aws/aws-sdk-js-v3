@@ -20,6 +20,9 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link WriteGetObjectResponseCommand}.
+ */
 type WriteGetObjectResponseCommandInputType = Omit<WriteGetObjectResponseRequest, "Body"> & {
   /**
    * For *`WriteGetObjectResponseRequest["Body"]`*, see {@link WriteGetObjectResponseRequest.Body}.
@@ -30,6 +33,9 @@ type WriteGetObjectResponseCommandInputType = Omit<WriteGetObjectResponseRequest
  * This interface extends from `WriteGetObjectResponseRequest` interface. There are more parameters than `Body` defined in {@link WriteGetObjectResponseRequest}
  */
 export interface WriteGetObjectResponseCommandInput extends WriteGetObjectResponseCommandInputType {}
+/**
+ * The output of {@link WriteGetObjectResponseCommand}.
+ */
 export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1CreateLicenseConversionTaskForResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateLicenseConversionTaskForResourceCommand}.
+ */
 export interface CreateLicenseConversionTaskForResourceCommandInput
   extends CreateLicenseConversionTaskForResourceRequest {}
+/**
+ * The output of {@link CreateLicenseConversionTaskForResourceCommand}.
+ */
 export interface CreateLicenseConversionTaskForResourceCommandOutput
   extends CreateLicenseConversionTaskForResourceResponse,
     __MetadataBearer {}

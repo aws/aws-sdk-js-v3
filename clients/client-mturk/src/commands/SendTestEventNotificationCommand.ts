@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SendTestEventNotificationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SendTestEventNotificationCommand}.
+ */
 export interface SendTestEventNotificationCommandInput extends SendTestEventNotificationRequest {}
+/**
+ * The output of {@link SendTestEventNotificationCommand}.
+ */
 export interface SendTestEventNotificationCommandOutput extends SendTestEventNotificationResponse, __MetadataBearer {}
 
 /**

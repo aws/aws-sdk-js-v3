@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeFlowExecutionRecordsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeFlowExecutionRecordsCommand}.
+ */
 export interface DescribeFlowExecutionRecordsCommandInput extends DescribeFlowExecutionRecordsRequest {}
+/**
+ * The output of {@link DescribeFlowExecutionRecordsCommand}.
+ */
 export interface DescribeFlowExecutionRecordsCommandOutput
   extends DescribeFlowExecutionRecordsResponse,
     __MetadataBearer {}

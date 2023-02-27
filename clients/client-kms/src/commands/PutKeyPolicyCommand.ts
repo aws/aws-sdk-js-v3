@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1PutKeyPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutKeyPolicyCommand}.
+ */
 export interface PutKeyPolicyCommandInput extends PutKeyPolicyRequest {}
+/**
+ * The output of {@link PutKeyPolicyCommand}.
+ */
 export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
 
 /**

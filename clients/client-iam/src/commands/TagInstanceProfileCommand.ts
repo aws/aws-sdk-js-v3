@@ -20,7 +20,13 @@ import {
   serializeAws_queryTagInstanceProfileCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link TagInstanceProfileCommand}.
+ */
 export interface TagInstanceProfileCommandInput extends TagInstanceProfileRequest {}
+/**
+ * The output of {@link TagInstanceProfileCommand}.
+ */
 export interface TagInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**

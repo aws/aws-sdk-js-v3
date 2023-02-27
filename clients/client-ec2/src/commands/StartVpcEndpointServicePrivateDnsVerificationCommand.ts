@@ -25,8 +25,14 @@ import {
   serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link StartVpcEndpointServicePrivateDnsVerificationCommand}.
+ */
 export interface StartVpcEndpointServicePrivateDnsVerificationCommandInput
   extends StartVpcEndpointServicePrivateDnsVerificationRequest {}
+/**
+ * The output of {@link StartVpcEndpointServicePrivateDnsVerificationCommand}.
+ */
 export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
   extends StartVpcEndpointServicePrivateDnsVerificationResult,
     __MetadataBearer {}

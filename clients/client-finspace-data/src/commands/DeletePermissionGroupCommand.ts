@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeletePermissionGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePermissionGroupCommand}.
+ */
 export interface DeletePermissionGroupCommandInput extends DeletePermissionGroupRequest {}
+/**
+ * The output of {@link DeletePermissionGroupCommand}.
+ */
 export interface DeletePermissionGroupCommandOutput extends DeletePermissionGroupResponse, __MetadataBearer {}
 
 /**

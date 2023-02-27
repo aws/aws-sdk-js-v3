@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_ec2CreateCoipPoolCommand, serializeAws_ec2CreateCoipPoolCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateCoipPoolCommand}.
+ */
 export interface CreateCoipPoolCommandInput extends CreateCoipPoolRequest {}
+/**
+ * The output of {@link CreateCoipPoolCommand}.
+ */
 export interface CreateCoipPoolCommandOutput extends CreateCoipPoolResult, __MetadataBearer {}
 
 /**

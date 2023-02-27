@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1EncryptCommand, serializeAws_json1_1EncryptCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EncryptCommand}.
+ */
 export interface EncryptCommandInput extends EncryptRequest {}
+/**
+ * The output of {@link EncryptCommand}.
+ */
 export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer {}
 
 /**

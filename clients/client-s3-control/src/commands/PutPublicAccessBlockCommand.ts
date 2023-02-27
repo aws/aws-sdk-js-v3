@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link PutPublicAccessBlockCommand}.
+ */
 export interface PutPublicAccessBlockCommandInput extends PutPublicAccessBlockRequest {}
+/**
+ * The output of {@link PutPublicAccessBlockCommand}.
+ */
 export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
 
 /**

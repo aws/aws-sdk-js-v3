@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListApplicationSnapshotsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListApplicationSnapshotsCommand}.
+ */
 export interface ListApplicationSnapshotsCommandInput extends ListApplicationSnapshotsRequest {}
+/**
+ * The output of {@link ListApplicationSnapshotsCommand}.
+ */
 export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSnapshotsResponse, __MetadataBearer {}
 
 /**

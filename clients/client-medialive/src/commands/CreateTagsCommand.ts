@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1CreateTagsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateTagsCommand}.
+ */
 export interface CreateTagsCommandInput extends CreateTagsRequest {}
+/**
+ * The output of {@link CreateTagsCommand}.
+ */
 export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**

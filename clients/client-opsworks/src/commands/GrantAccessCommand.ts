@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GrantAccessCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GrantAccessCommand}.
+ */
 export interface GrantAccessCommandInput extends GrantAccessRequest {}
+/**
+ * The output of {@link GrantAccessCommand}.
+ */
 export interface GrantAccessCommandOutput extends GrantAccessResult, __MetadataBearer {}
 
 /**

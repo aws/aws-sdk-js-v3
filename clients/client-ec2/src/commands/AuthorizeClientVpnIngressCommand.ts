@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AuthorizeClientVpnIngressCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AuthorizeClientVpnIngressCommand}.
+ */
 export interface AuthorizeClientVpnIngressCommandInput extends AuthorizeClientVpnIngressRequest {}
+/**
+ * The output of {@link AuthorizeClientVpnIngressCommand}.
+ */
 export interface AuthorizeClientVpnIngressCommandOutput extends AuthorizeClientVpnIngressResult, __MetadataBearer {}
 
 /**

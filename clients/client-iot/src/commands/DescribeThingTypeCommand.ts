@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeThingTypeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeThingTypeCommand}.
+ */
 export interface DescribeThingTypeCommandInput extends DescribeThingTypeRequest {}
+/**
+ * The output of {@link DescribeThingTypeCommand}.
+ */
 export interface DescribeThingTypeCommandOutput extends DescribeThingTypeResponse, __MetadataBearer {}
 
 /**

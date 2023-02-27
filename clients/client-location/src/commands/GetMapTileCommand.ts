@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetMapTileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetMapTileCommand}.
+ */
 export interface GetMapTileCommandInput extends GetMapTileRequest {}
+/**
+ * The output of {@link GetMapTileCommand}.
+ */
 export interface GetMapTileCommandOutput extends GetMapTileResponse, __MetadataBearer {}
 
 /**

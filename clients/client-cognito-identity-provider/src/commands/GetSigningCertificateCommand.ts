@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1GetSigningCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetSigningCertificateCommand}.
+ */
 export interface GetSigningCertificateCommandInput extends GetSigningCertificateRequest {}
+/**
+ * The output of {@link GetSigningCertificateCommand}.
+ */
 export interface GetSigningCertificateCommandOutput extends GetSigningCertificateResponse, __MetadataBearer {}
 
 /**

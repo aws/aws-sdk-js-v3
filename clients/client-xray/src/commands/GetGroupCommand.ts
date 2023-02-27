@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * The input for {@link GetGroupCommand}.
+ */
 export interface GetGroupCommandInput extends GetGroupRequest {}
+/**
+ * The output of {@link GetGroupCommand}.
+ */
 export interface GetGroupCommandOutput extends GetGroupResult, __MetadataBearer {}
 
 /**

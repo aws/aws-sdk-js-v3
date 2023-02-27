@@ -25,7 +25,13 @@ import {
   serializeAws_queryFailoverGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link FailoverGlobalReplicationGroupCommand}.
+ */
 export interface FailoverGlobalReplicationGroupCommandInput extends FailoverGlobalReplicationGroupMessage {}
+/**
+ * The output of {@link FailoverGlobalReplicationGroupCommand}.
+ */
 export interface FailoverGlobalReplicationGroupCommandOutput
   extends FailoverGlobalReplicationGroupResult,
     __MetadataBearer {}

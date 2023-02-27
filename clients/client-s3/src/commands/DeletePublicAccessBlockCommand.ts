@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link DeletePublicAccessBlockCommand}.
+ */
 export interface DeletePublicAccessBlockCommandInput extends DeletePublicAccessBlockRequest {}
+/**
+ * The output of {@link DeletePublicAccessBlockCommand}.
+ */
 export interface DeletePublicAccessBlockCommandOutput extends __MetadataBearer {}
 
 /**

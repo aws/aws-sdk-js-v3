@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteVoiceConnectorGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteVoiceConnectorGroupCommand}.
+ */
 export interface DeleteVoiceConnectorGroupCommandInput extends DeleteVoiceConnectorGroupRequest {}
+/**
+ * The output of {@link DeleteVoiceConnectorGroupCommand}.
+ */
 export interface DeleteVoiceConnectorGroupCommandOutput extends __MetadataBearer {}
 
 export class DeleteVoiceConnectorGroupCommand extends $Command<

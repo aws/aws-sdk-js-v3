@@ -18,7 +18,13 @@ import { CreateJobResponse, CreateJobResponseFilterSensitiveLog } from "../model
 import { CreateJobRequest, CreateJobRequestFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_json1_1CreateJobCommand, serializeAws_json1_1CreateJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateJobCommand}.
+ */
 export interface CreateJobCommandInput extends CreateJobRequest {}
+/**
+ * The output of {@link CreateJobCommand}.
+ */
 export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBearer {}
 
 /**

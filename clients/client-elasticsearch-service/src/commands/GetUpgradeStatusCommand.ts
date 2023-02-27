@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetUpgradeStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetUpgradeStatusCommand}.
+ */
 export interface GetUpgradeStatusCommandInput extends GetUpgradeStatusRequest {}
+/**
+ * The output of {@link GetUpgradeStatusCommand}.
+ */
 export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse, __MetadataBearer {}
 
 /**

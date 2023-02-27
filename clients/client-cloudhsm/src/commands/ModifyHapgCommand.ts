@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ModifyHapgCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ModifyHapgCommand}.
+ */
 export interface ModifyHapgCommandInput extends ModifyHapgRequest {}
+/**
+ * The output of {@link ModifyHapgCommand}.
+ */
 export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataBearer {}
 
 /**

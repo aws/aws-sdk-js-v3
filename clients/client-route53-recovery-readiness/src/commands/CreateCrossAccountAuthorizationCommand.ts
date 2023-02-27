@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * The input for {@link CreateCrossAccountAuthorizationCommand}.
+ */
 export interface CreateCrossAccountAuthorizationCommandInput extends CreateCrossAccountAuthorizationRequest {}
+/**
+ * The output of {@link CreateCrossAccountAuthorizationCommand}.
+ */
 export interface CreateCrossAccountAuthorizationCommandOutput
   extends CreateCrossAccountAuthorizationResponse,
     __MetadataBearer {}

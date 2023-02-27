@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1VerifySessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link VerifySessionCommand}.
+ */
 export interface VerifySessionCommandInput {}
+/**
+ * The output of {@link VerifySessionCommand}.
+ */
 export interface VerifySessionCommandOutput extends VerifySessionResponse, __MetadataBearer {}
 
 /**

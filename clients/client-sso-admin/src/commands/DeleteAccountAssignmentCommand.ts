@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
+/**
+ * The input for {@link DeleteAccountAssignmentCommand}.
+ */
 export interface DeleteAccountAssignmentCommandInput extends DeleteAccountAssignmentRequest {}
+/**
+ * The output of {@link DeleteAccountAssignmentCommand}.
+ */
 export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssignmentResponse, __MetadataBearer {}
 
 /**

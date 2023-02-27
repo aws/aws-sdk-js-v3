@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteConfigurationSetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteConfigurationSetCommand}.
+ */
 export interface DeleteConfigurationSetCommandInput extends DeleteConfigurationSetRequest {}
+/**
+ * The output of {@link DeleteConfigurationSetCommand}.
+ */
 export interface DeleteConfigurationSetCommandOutput extends DeleteConfigurationSetResponse, __MetadataBearer {}
 
 /**

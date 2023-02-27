@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DescribeDBSecurityGroupsCommand}.
+ */
 export interface DescribeDBSecurityGroupsCommandInput extends DescribeDBSecurityGroupsMessage {}
+/**
+ * The output of {@link DescribeDBSecurityGroupsCommand}.
+ */
 export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMessage, __MetadataBearer {}
 
 /**

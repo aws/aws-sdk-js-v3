@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateCoreNetworkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateCoreNetworkCommand}.
+ */
 export interface CreateCoreNetworkCommandInput extends CreateCoreNetworkRequest {}
+/**
+ * The output of {@link CreateCoreNetworkCommand}.
+ */
 export interface CreateCoreNetworkCommandOutput extends CreateCoreNetworkResponse, __MetadataBearer {}
 
 /**

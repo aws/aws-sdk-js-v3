@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteHostedConfigurationVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteHostedConfigurationVersionCommand}.
+ */
 export interface DeleteHostedConfigurationVersionCommandInput extends DeleteHostedConfigurationVersionRequest {}
+/**
+ * The output of {@link DeleteHostedConfigurationVersionCommand}.
+ */
 export interface DeleteHostedConfigurationVersionCommandOutput extends __MetadataBearer {}
 
 /**

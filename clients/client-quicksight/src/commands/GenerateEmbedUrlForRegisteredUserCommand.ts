@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link GenerateEmbedUrlForRegisteredUserCommand}.
+ */
 export interface GenerateEmbedUrlForRegisteredUserCommandInput extends GenerateEmbedUrlForRegisteredUserRequest {}
+/**
+ * The output of {@link GenerateEmbedUrlForRegisteredUserCommand}.
+ */
 export interface GenerateEmbedUrlForRegisteredUserCommandOutput
   extends GenerateEmbedUrlForRegisteredUserResponse,
     __MetadataBearer {}

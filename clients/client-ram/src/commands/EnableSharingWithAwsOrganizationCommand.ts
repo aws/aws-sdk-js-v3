@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * The input for {@link EnableSharingWithAwsOrganizationCommand}.
+ */
 export interface EnableSharingWithAwsOrganizationCommandInput extends EnableSharingWithAwsOrganizationRequest {}
+/**
+ * The output of {@link EnableSharingWithAwsOrganizationCommand}.
+ */
 export interface EnableSharingWithAwsOrganizationCommandOutput
   extends EnableSharingWithAwsOrganizationResponse,
     __MetadataBearer {}

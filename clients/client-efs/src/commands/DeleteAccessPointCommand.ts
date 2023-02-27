@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteAccessPointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAccessPointCommand}.
+ */
 export interface DeleteAccessPointCommandInput extends DeleteAccessPointRequest {}
+/**
+ * The output of {@link DeleteAccessPointCommand}.
+ */
 export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
 
 /**

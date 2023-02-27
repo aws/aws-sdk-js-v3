@@ -26,7 +26,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_0GetHostCommand, serializeAws_json1_0GetHostCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetHostCommand}.
+ */
 export interface GetHostCommandInput extends GetHostInput {}
+/**
+ * The output of {@link GetHostCommand}.
+ */
 export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
 
 /**

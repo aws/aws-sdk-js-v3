@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateStudioCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateStudioCommand}.
+ */
 export interface UpdateStudioCommandInput extends UpdateStudioInput {}
+/**
+ * The output of {@link UpdateStudioCommand}.
+ */
 export interface UpdateStudioCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ValidateAssessmentReportIntegrityCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ValidateAssessmentReportIntegrityCommand}.
+ */
 export interface ValidateAssessmentReportIntegrityCommandInput extends ValidateAssessmentReportIntegrityRequest {}
+/**
+ * The output of {@link ValidateAssessmentReportIntegrityCommand}.
+ */
 export interface ValidateAssessmentReportIntegrityCommandOutput
   extends ValidateAssessmentReportIntegrityResponse,
     __MetadataBearer {}

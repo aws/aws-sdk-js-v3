@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminUserGlobalSignOutCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminUserGlobalSignOutCommand}.
+ */
 export interface AdminUserGlobalSignOutCommandInput extends AdminUserGlobalSignOutRequest {}
+/**
+ * The output of {@link AdminUserGlobalSignOutCommand}.
+ */
 export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSignOutResponse, __MetadataBearer {}
 
 /**

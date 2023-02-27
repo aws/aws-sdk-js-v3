@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1ListTagsCommand, serializeAws_json1_1ListTagsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link ListTagsCommand}.
+ */
 export interface ListTagsCommandInput extends ListTagsInput {}
+/**
+ * The output of {@link ListTagsCommand}.
+ */
 export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer {}
 
 /**

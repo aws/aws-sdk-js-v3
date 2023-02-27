@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AllocatePrivateVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AllocatePrivateVirtualInterfaceCommand}.
+ */
 export interface AllocatePrivateVirtualInterfaceCommandInput extends AllocatePrivateVirtualInterfaceRequest {}
+/**
+ * The output of {@link AllocatePrivateVirtualInterfaceCommand}.
+ */
 export interface AllocatePrivateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**

@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
+/**
+ * The input for {@link GetAssociationForServiceQuotaTemplateCommand}.
+ */
 export interface GetAssociationForServiceQuotaTemplateCommandInput
   extends GetAssociationForServiceQuotaTemplateRequest {}
+/**
+ * The output of {@link GetAssociationForServiceQuotaTemplateCommand}.
+ */
 export interface GetAssociationForServiceQuotaTemplateCommandOutput
   extends GetAssociationForServiceQuotaTemplateResponse,
     __MetadataBearer {}

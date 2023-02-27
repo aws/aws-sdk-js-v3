@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeInstanceTypesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeInstanceTypesCommand}.
+ */
 export interface DescribeInstanceTypesCommandInput extends DescribeInstanceTypesRequest {}
+/**
+ * The output of {@link DescribeInstanceTypesCommand}.
+ */
 export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceTypesResult, __MetadataBearer {}
 
 /**

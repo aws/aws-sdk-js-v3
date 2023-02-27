@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListRoutingProfileQueuesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListRoutingProfileQueuesCommand}.
+ */
 export interface ListRoutingProfileQueuesCommandInput extends ListRoutingProfileQueuesRequest {}
+/**
+ * The output of {@link ListRoutingProfileQueuesCommand}.
+ */
 export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfileQueuesResponse, __MetadataBearer {}
 
 /**

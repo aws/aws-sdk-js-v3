@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_ec2AllocateAddressCommand, serializeAws_ec2AllocateAddressCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AllocateAddressCommand}.
+ */
 export interface AllocateAddressCommandInput extends AllocateAddressRequest {}
+/**
+ * The output of {@link AllocateAddressCommand}.
+ */
 export interface AllocateAddressCommandOutput extends AllocateAddressResult, __MetadataBearer {}
 
 /**

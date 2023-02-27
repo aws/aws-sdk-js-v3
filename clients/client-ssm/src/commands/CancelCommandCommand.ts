@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link CancelCommandCommand}.
+ */
 export interface CancelCommandCommandInput extends CancelCommandRequest {}
+/**
+ * The output of {@link CancelCommandCommand}.
+ */
 export interface CancelCommandCommandOutput extends CancelCommandResult, __MetadataBearer {}
 
 /**

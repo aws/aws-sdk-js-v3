@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeDomainControllersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeDomainControllersCommand}.
+ */
 export interface DescribeDomainControllersCommandInput extends DescribeDomainControllersRequest {}
+/**
+ * The output of {@link DescribeDomainControllersCommand}.
+ */
 export interface DescribeDomainControllersCommandOutput extends DescribeDomainControllersResult, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1StartStreamEncryptionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartStreamEncryptionCommand}.
+ */
 export interface StartStreamEncryptionCommandInput extends StartStreamEncryptionInput {}
+/**
+ * The output of {@link StartStreamEncryptionCommand}.
+ */
 export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
 
 /**

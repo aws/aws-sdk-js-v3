@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link AssociateNetworkSettingsCommand}.
+ */
 export interface AssociateNetworkSettingsCommandInput extends AssociateNetworkSettingsRequest {}
+/**
+ * The output of {@link AssociateNetworkSettingsCommand}.
+ */
 export interface AssociateNetworkSettingsCommandOutput extends AssociateNetworkSettingsResponse, __MetadataBearer {}
 
 /**

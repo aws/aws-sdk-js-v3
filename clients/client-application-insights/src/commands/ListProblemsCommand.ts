@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListProblemsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListProblemsCommand}.
+ */
 export interface ListProblemsCommandInput extends ListProblemsRequest {}
+/**
+ * The output of {@link ListProblemsCommand}.
+ */
 export interface ListProblemsCommandOutput extends ListProblemsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0AssociateVehicleFleetCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link AssociateVehicleFleetCommand}.
+ */
 export interface AssociateVehicleFleetCommandInput extends AssociateVehicleFleetRequest {}
+/**
+ * The output of {@link AssociateVehicleFleetCommand}.
+ */
 export interface AssociateVehicleFleetCommandOutput extends AssociateVehicleFleetResponse, __MetadataBearer {}
 
 /**

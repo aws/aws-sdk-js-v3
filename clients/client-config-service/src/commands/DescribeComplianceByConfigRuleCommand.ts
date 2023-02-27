@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeComplianceByConfigRuleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeComplianceByConfigRuleCommand}.
+ */
 export interface DescribeComplianceByConfigRuleCommandInput extends DescribeComplianceByConfigRuleRequest {}
+/**
+ * The output of {@link DescribeComplianceByConfigRuleCommand}.
+ */
 export interface DescribeComplianceByConfigRuleCommandOutput
   extends DescribeComplianceByConfigRuleResponse,
     __MetadataBearer {}

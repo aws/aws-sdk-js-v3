@@ -20,7 +20,13 @@ import {
   serializeAws_ec2AttachInternetGatewayCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AttachInternetGatewayCommand}.
+ */
 export interface AttachInternetGatewayCommandInput extends AttachInternetGatewayRequest {}
+/**
+ * The output of {@link AttachInternetGatewayCommand}.
+ */
 export interface AttachInternetGatewayCommandOutput extends __MetadataBearer {}
 
 /**

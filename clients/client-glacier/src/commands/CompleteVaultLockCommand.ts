@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1CompleteVaultLockCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CompleteVaultLockCommand}.
+ */
 export interface CompleteVaultLockCommandInput extends CompleteVaultLockInput {}
+/**
+ * The output of {@link CompleteVaultLockCommand}.
+ */
 export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RunStatementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RunStatementCommand}.
+ */
 export interface RunStatementCommandInput extends RunStatementRequest {}
+/**
+ * The output of {@link RunStatementCommand}.
+ */
 export interface RunStatementCommandOutput extends RunStatementResponse, __MetadataBearer {}
 
 /**

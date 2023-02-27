@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1AttachPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AttachPolicyCommand}.
+ */
 export interface AttachPolicyCommandInput extends AttachPolicyRequest {}
+/**
+ * The output of {@link AttachPolicyCommand}.
+ */
 export interface AttachPolicyCommandOutput extends __MetadataBearer {}
 
 /**

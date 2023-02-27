@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteAssociationCommand}.
+ */
 export interface DeleteAssociationCommandInput extends DeleteAssociationRequest {}
+/**
+ * The output of {@link DeleteAssociationCommand}.
+ */
 export interface DeleteAssociationCommandOutput extends DeleteAssociationResponse, __MetadataBearer {}
 
 /**

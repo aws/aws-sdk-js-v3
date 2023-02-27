@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AllocateConnectionOnInterconnectCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AllocateConnectionOnInterconnectCommand}.
+ */
 export interface AllocateConnectionOnInterconnectCommandInput extends AllocateConnectionOnInterconnectRequest {}
+/**
+ * The output of {@link AllocateConnectionOnInterconnectCommand}.
+ */
 export interface AllocateConnectionOnInterconnectCommandOutput extends Connection, __MetadataBearer {}
 
 /**

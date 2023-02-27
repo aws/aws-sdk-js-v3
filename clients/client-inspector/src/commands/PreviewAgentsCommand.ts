@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PreviewAgentsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PreviewAgentsCommand}.
+ */
 export interface PreviewAgentsCommandInput extends PreviewAgentsRequest {}
+/**
+ * The output of {@link PreviewAgentsCommand}.
+ */
 export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __MetadataBearer {}
 
 /**

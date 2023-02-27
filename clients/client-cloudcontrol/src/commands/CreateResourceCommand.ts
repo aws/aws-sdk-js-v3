@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0CreateResourceCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateResourceCommand}.
+ */
 export interface CreateResourceCommandInput extends CreateResourceInput {}
+/**
+ * The output of {@link CreateResourceCommand}.
+ */
 export interface CreateResourceCommandOutput extends CreateResourceOutput, __MetadataBearer {}
 
 /**

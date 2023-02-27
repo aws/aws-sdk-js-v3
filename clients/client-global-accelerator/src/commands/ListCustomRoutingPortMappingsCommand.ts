@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListCustomRoutingPortMappingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListCustomRoutingPortMappingsCommand}.
+ */
 export interface ListCustomRoutingPortMappingsCommandInput extends ListCustomRoutingPortMappingsRequest {}
+/**
+ * The output of {@link ListCustomRoutingPortMappingsCommand}.
+ */
 export interface ListCustomRoutingPortMappingsCommandOutput
   extends ListCustomRoutingPortMappingsResponse,
     __MetadataBearer {}

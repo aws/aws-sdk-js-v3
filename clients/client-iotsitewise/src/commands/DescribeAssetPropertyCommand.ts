@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeAssetPropertyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeAssetPropertyCommand}.
+ */
 export interface DescribeAssetPropertyCommandInput extends DescribeAssetPropertyRequest {}
+/**
+ * The output of {@link DescribeAssetPropertyCommand}.
+ */
 export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropertyResponse, __MetadataBearer {}
 
 /**

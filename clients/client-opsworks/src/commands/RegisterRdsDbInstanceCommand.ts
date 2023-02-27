@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1RegisterRdsDbInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterRdsDbInstanceCommand}.
+ */
 export interface RegisterRdsDbInstanceCommandInput extends RegisterRdsDbInstanceRequest {}
+/**
+ * The output of {@link RegisterRdsDbInstanceCommand}.
+ */
 export interface RegisterRdsDbInstanceCommandOutput extends __MetadataBearer {}
 
 /**

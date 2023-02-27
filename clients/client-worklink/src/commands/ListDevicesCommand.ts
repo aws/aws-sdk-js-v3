@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * The input for {@link ListDevicesCommand}.
+ */
 export interface ListDevicesCommandInput extends ListDevicesRequest {}
+/**
+ * The output of {@link ListDevicesCommand}.
+ */
 export interface ListDevicesCommandOutput extends ListDevicesResponse, __MetadataBearer {}
 
 /**

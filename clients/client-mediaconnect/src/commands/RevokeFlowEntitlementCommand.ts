@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RevokeFlowEntitlementCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RevokeFlowEntitlementCommand}.
+ */
 export interface RevokeFlowEntitlementCommandInput extends RevokeFlowEntitlementRequest {}
+/**
+ * The output of {@link RevokeFlowEntitlementCommand}.
+ */
 export interface RevokeFlowEntitlementCommandOutput extends RevokeFlowEntitlementResponse, __MetadataBearer {}
 
 /**

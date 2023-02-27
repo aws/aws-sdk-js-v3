@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateProfilingGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateProfilingGroupCommand}.
+ */
 export interface UpdateProfilingGroupCommandInput extends UpdateProfilingGroupRequest {}
+/**
+ * The output of {@link UpdateProfilingGroupCommand}.
+ */
 export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupResponse, __MetadataBearer {}
 
 /**

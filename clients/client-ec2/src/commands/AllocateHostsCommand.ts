@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_ec2AllocateHostsCommand, serializeAws_ec2AllocateHostsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AllocateHostsCommand}.
+ */
 export interface AllocateHostsCommandInput extends AllocateHostsRequest {}
+/**
+ * The output of {@link AllocateHostsCommand}.
+ */
 export interface AllocateHostsCommandOutput extends AllocateHostsResult, __MetadataBearer {}
 
 /**

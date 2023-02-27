@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdatePlaceIndexCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdatePlaceIndexCommand}.
+ */
 export interface UpdatePlaceIndexCommandInput extends UpdatePlaceIndexRequest {}
+/**
+ * The output of {@link UpdatePlaceIndexCommand}.
+ */
 export interface UpdatePlaceIndexCommandOutput extends UpdatePlaceIndexResponse, __MetadataBearer {}
 
 /**

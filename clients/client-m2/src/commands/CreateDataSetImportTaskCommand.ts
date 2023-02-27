@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateDataSetImportTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateDataSetImportTaskCommand}.
+ */
 export interface CreateDataSetImportTaskCommandInput extends CreateDataSetImportTaskRequest {}
+/**
+ * The output of {@link CreateDataSetImportTaskCommand}.
+ */
 export interface CreateDataSetImportTaskCommandOutput extends CreateDataSetImportTaskResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetConformancePackComplianceDetailsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetConformancePackComplianceDetailsCommand}.
+ */
 export interface GetConformancePackComplianceDetailsCommandInput extends GetConformancePackComplianceDetailsRequest {}
+/**
+ * The output of {@link GetConformancePackComplianceDetailsCommand}.
+ */
 export interface GetConformancePackComplianceDetailsCommandOutput
   extends GetConformancePackComplianceDetailsResponse,
     __MetadataBearer {}

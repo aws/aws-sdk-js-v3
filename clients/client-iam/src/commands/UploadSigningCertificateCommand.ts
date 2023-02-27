@@ -25,7 +25,13 @@ import {
   serializeAws_queryUploadSigningCertificateCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UploadSigningCertificateCommand}.
+ */
 export interface UploadSigningCertificateCommandInput extends UploadSigningCertificateRequest {}
+/**
+ * The output of {@link UploadSigningCertificateCommand}.
+ */
 export interface UploadSigningCertificateCommandOutput extends UploadSigningCertificateResponse, __MetadataBearer {}
 
 /**

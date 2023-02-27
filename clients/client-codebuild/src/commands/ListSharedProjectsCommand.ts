@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListSharedProjectsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListSharedProjectsCommand}.
+ */
 export interface ListSharedProjectsCommandInput extends ListSharedProjectsInput {}
+/**
+ * The output of {@link ListSharedProjectsCommand}.
+ */
 export interface ListSharedProjectsCommandOutput extends ListSharedProjectsOutput, __MetadataBearer {}
 
 /**

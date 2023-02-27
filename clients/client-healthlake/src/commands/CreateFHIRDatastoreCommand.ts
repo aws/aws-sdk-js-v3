@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0CreateFHIRDatastoreCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateFHIRDatastoreCommand}.
+ */
 export interface CreateFHIRDatastoreCommandInput extends CreateFHIRDatastoreRequest {}
+/**
+ * The output of {@link CreateFHIRDatastoreCommand}.
+ */
 export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreResponse, __MetadataBearer {}
 
 /**

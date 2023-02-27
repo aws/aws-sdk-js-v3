@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DeleteNotificationRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteNotificationRuleCommand}.
+ */
 export interface DeleteNotificationRuleCommandInput extends DeleteNotificationRuleRequest {}
+/**
+ * The output of {@link DeleteNotificationRuleCommand}.
+ */
 export interface DeleteNotificationRuleCommandOutput extends DeleteNotificationRuleResult, __MetadataBearer {}
 
 /**

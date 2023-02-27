@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDiscoveredResourceCountsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDiscoveredResourceCountsCommand}.
+ */
 export interface GetDiscoveredResourceCountsCommandInput extends GetDiscoveredResourceCountsRequest {}
+/**
+ * The output of {@link GetDiscoveredResourceCountsCommand}.
+ */
 export interface GetDiscoveredResourceCountsCommandOutput
   extends GetDiscoveredResourceCountsResponse,
     __MetadataBearer {}

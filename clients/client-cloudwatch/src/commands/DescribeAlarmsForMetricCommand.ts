@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeAlarmsForMetricCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeAlarmsForMetricCommand}.
+ */
 export interface DescribeAlarmsForMetricCommandInput extends DescribeAlarmsForMetricInput {}
+/**
+ * The output of {@link DescribeAlarmsForMetricCommand}.
+ */
 export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForMetricOutput, __MetadataBearer {}
 
 /**

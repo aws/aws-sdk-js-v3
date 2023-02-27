@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteClusterSnapshotCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteClusterSnapshotCommand}.
+ */
 export interface DeleteClusterSnapshotCommandInput extends DeleteClusterSnapshotInput {}
+/**
+ * The output of {@link DeleteClusterSnapshotCommand}.
+ */
 export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapshotOutput, __MetadataBearer {}
 
 /**

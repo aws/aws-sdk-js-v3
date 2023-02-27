@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListNotebookMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListNotebookMetadataCommand}.
+ */
 export interface ListNotebookMetadataCommandInput extends ListNotebookMetadataInput {}
+/**
+ * The output of {@link ListNotebookMetadataCommand}.
+ */
 export interface ListNotebookMetadataCommandOutput extends ListNotebookMetadataOutput, __MetadataBearer {}
 
 /**

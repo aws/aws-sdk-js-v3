@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopBuildBatchCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopBuildBatchCommand}.
+ */
 export interface StopBuildBatchCommandInput extends StopBuildBatchInput {}
+/**
+ * The output of {@link StopBuildBatchCommand}.
+ */
 export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __MetadataBearer {}
 
 /**

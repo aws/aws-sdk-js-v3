@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeEntitiesDetectionV2JobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeEntitiesDetectionV2JobCommand}.
+ */
 export interface DescribeEntitiesDetectionV2JobCommandInput extends DescribeEntitiesDetectionV2JobRequest {}
+/**
+ * The output of {@link DescribeEntitiesDetectionV2JobCommand}.
+ */
 export interface DescribeEntitiesDetectionV2JobCommandOutput
   extends DescribeEntitiesDetectionV2JobResponse,
     __MetadataBearer {}

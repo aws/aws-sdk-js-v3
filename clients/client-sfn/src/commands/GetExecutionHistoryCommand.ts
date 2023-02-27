@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * The input for {@link GetExecutionHistoryCommand}.
+ */
 export interface GetExecutionHistoryCommandInput extends GetExecutionHistoryInput {}
+/**
+ * The output of {@link GetExecutionHistoryCommand}.
+ */
 export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateEntitlementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateEntitlementCommand}.
+ */
 export interface CreateEntitlementCommandInput extends CreateEntitlementRequest {}
+/**
+ * The output of {@link CreateEntitlementCommand}.
+ */
 export interface CreateEntitlementCommandOutput extends CreateEntitlementResult, __MetadataBearer {}
 
 /**

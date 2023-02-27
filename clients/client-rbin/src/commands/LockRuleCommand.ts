@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
+/**
+ * The input for {@link LockRuleCommand}.
+ */
 export interface LockRuleCommandInput extends LockRuleRequest {}
+/**
+ * The output of {@link LockRuleCommand}.
+ */
 export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBearer {}
 
 /**

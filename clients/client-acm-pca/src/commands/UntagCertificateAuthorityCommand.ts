@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1UntagCertificateAuthorityCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UntagCertificateAuthorityCommand}.
+ */
 export interface UntagCertificateAuthorityCommandInput extends UntagCertificateAuthorityRequest {}
+/**
+ * The output of {@link UntagCertificateAuthorityCommand}.
+ */
 export interface UntagCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**

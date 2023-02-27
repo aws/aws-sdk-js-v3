@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link DeleteFacesCommand}.
+ */
 export interface DeleteFacesCommandInput extends DeleteFacesRequest {}
+/**
+ * The output of {@link DeleteFacesCommand}.
+ */
 export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __MetadataBearer {}
 
 /**

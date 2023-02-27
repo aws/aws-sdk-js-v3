@@ -25,7 +25,13 @@ import {
   serializeAws_ec2PurchaseHostReservationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link PurchaseHostReservationCommand}.
+ */
 export interface PurchaseHostReservationCommandInput extends PurchaseHostReservationRequest {}
+/**
+ * The output of {@link PurchaseHostReservationCommand}.
+ */
 export interface PurchaseHostReservationCommandOutput extends PurchaseHostReservationResult, __MetadataBearer {}
 
 /**

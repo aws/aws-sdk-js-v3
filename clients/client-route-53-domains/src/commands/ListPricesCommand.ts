@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link ListPricesCommand}.
+ */
 export interface ListPricesCommandInput extends ListPricesRequest {}
+/**
+ * The output of {@link ListPricesCommand}.
+ */
 export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataBearer {}
 
 /**

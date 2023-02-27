@@ -18,7 +18,13 @@ import { Reservation, ReservationFilterSensitiveLog } from "../models/models_4";
 import { RunInstancesRequest, RunInstancesRequestFilterSensitiveLog } from "../models/models_6";
 import { deserializeAws_ec2RunInstancesCommand, serializeAws_ec2RunInstancesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RunInstancesCommand}.
+ */
 export interface RunInstancesCommandInput extends RunInstancesRequest {}
+/**
+ * The output of {@link RunInstancesCommand}.
+ */
 export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer {}
 
 /**

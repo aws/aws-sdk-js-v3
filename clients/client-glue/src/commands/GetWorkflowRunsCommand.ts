@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetWorkflowRunsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetWorkflowRunsCommand}.
+ */
 export interface GetWorkflowRunsCommandInput extends GetWorkflowRunsRequest {}
+/**
+ * The output of {@link GetWorkflowRunsCommand}.
+ */
 export interface GetWorkflowRunsCommandOutput extends GetWorkflowRunsResponse, __MetadataBearer {}
 
 /**

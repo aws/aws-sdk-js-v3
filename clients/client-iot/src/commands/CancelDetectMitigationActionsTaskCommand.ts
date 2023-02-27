@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelDetectMitigationActionsTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelDetectMitigationActionsTaskCommand}.
+ */
 export interface CancelDetectMitigationActionsTaskCommandInput extends CancelDetectMitigationActionsTaskRequest {}
+/**
+ * The output of {@link CancelDetectMitigationActionsTaskCommand}.
+ */
 export interface CancelDetectMitigationActionsTaskCommandOutput
   extends CancelDetectMitigationActionsTaskResponse,
     __MetadataBearer {}

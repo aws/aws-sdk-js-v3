@@ -18,7 +18,13 @@ import { PauseClusterResult, PauseClusterResultFilterSensitiveLog } from "../mod
 import { deserializeAws_queryPauseClusterCommand, serializeAws_queryPauseClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link PauseClusterCommand}.
+ */
 export interface PauseClusterCommandInput extends PauseClusterMessage {}
+/**
+ * The output of {@link PauseClusterCommand}.
+ */
 export interface PauseClusterCommandOutput extends PauseClusterResult, __MetadataBearer {}
 
 /**

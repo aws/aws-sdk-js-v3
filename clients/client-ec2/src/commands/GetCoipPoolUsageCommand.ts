@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetCoipPoolUsageCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetCoipPoolUsageCommand}.
+ */
 export interface GetCoipPoolUsageCommandInput extends GetCoipPoolUsageRequest {}
+/**
+ * The output of {@link GetCoipPoolUsageCommand}.
+ */
 export interface GetCoipPoolUsageCommandOutput extends GetCoipPoolUsageResult, __MetadataBearer {}
 
 /**

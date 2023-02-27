@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link DeleteHealthCheckCommand}.
+ */
 export interface DeleteHealthCheckCommandInput extends DeleteHealthCheckRequest {}
+/**
+ * The output of {@link DeleteHealthCheckCommand}.
+ */
 export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckResponse, __MetadataBearer {}
 
 /**

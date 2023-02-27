@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * The input for {@link GetInstancesHealthStatusCommand}.
+ */
 export interface GetInstancesHealthStatusCommandInput extends GetInstancesHealthStatusRequest {}
+/**
+ * The output of {@link GetInstancesHealthStatusCommand}.
+ */
 export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealthStatusResponse, __MetadataBearer {}
 
 /**

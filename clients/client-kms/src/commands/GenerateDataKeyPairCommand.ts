@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GenerateDataKeyPairCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GenerateDataKeyPairCommand}.
+ */
 export interface GenerateDataKeyPairCommandInput extends GenerateDataKeyPairRequest {}
+/**
+ * The output of {@link GenerateDataKeyPairCommand}.
+ */
 export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairResponse, __MetadataBearer {}
 
 /**

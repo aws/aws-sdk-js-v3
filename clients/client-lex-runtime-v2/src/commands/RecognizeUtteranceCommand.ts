@@ -28,6 +28,9 @@ import {
   serializeAws_restJson1RecognizeUtteranceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RecognizeUtteranceCommand}.
+ */
 type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest, "inputStream"> & {
   /**
    * For *`RecognizeUtteranceRequest["inputStream"]`*, see {@link RecognizeUtteranceRequest.inputStream}.
@@ -38,6 +41,9 @@ type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest, "input
  * This interface extends from `RecognizeUtteranceRequest` interface. There are more parameters than `inputStream` defined in {@link RecognizeUtteranceRequest}
  */
 export interface RecognizeUtteranceCommandInput extends RecognizeUtteranceCommandInputType {}
+/**
+ * The output of {@link RecognizeUtteranceCommand}.
+ */
 export interface RecognizeUtteranceCommandOutput
   extends __WithSdkStreamMixin<RecognizeUtteranceResponse, "audioStream">,
     __MetadataBearer {}

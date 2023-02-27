@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DescribeEventsCommand}.
+ */
 export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
+/**
+ * The output of {@link DescribeEventsCommand}.
+ */
 export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBearer {}
 
 /**

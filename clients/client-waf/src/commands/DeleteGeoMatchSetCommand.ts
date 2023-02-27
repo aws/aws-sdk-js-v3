@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * The input for {@link DeleteGeoMatchSetCommand}.
+ */
 export interface DeleteGeoMatchSetCommandInput extends DeleteGeoMatchSetRequest {}
+/**
+ * The output of {@link DeleteGeoMatchSetCommand}.
+ */
 export interface DeleteGeoMatchSetCommandOutput extends DeleteGeoMatchSetResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartNetworkResourceUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartNetworkResourceUpdateCommand}.
+ */
 export interface StartNetworkResourceUpdateCommandInput extends StartNetworkResourceUpdateRequest {}
+/**
+ * The output of {@link StartNetworkResourceUpdateCommand}.
+ */
 export interface StartNetworkResourceUpdateCommandOutput extends StartNetworkResourceUpdateResponse, __MetadataBearer {}
 
 /**

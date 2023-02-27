@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetECSServiceRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetECSServiceRecommendationsCommand}.
+ */
 export interface GetECSServiceRecommendationsCommandInput extends GetECSServiceRecommendationsRequest {}
+/**
+ * The output of {@link GetECSServiceRecommendationsCommand}.
+ */
 export interface GetECSServiceRecommendationsCommandOutput
   extends GetECSServiceRecommendationsResponse,
     __MetadataBearer {}

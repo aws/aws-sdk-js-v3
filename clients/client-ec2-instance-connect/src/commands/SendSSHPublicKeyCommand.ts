@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1SendSSHPublicKeyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SendSSHPublicKeyCommand}.
+ */
 export interface SendSSHPublicKeyCommandInput extends SendSSHPublicKeyRequest {}
+/**
+ * The output of {@link SendSSHPublicKeyCommand}.
+ */
 export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse, __MetadataBearer {}
 
 /**

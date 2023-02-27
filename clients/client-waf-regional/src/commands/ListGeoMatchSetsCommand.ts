@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link ListGeoMatchSetsCommand}.
+ */
 export interface ListGeoMatchSetsCommandInput extends ListGeoMatchSetsRequest {}
+/**
+ * The output of {@link ListGeoMatchSetsCommand}.
+ */
 export interface ListGeoMatchSetsCommandOutput extends ListGeoMatchSetsResponse, __MetadataBearer {}
 
 /**

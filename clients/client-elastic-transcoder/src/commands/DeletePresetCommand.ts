@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DeletePresetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePresetCommand}.
+ */
 export interface DeletePresetCommandInput extends DeletePresetRequest {}
+/**
+ * The output of {@link DeletePresetCommand}.
+ */
 export interface DeletePresetCommandOutput extends DeletePresetResponse, __MetadataBearer {}
 
 /**

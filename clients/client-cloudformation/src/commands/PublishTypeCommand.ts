@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryPublishTypeCommand, serializeAws_queryPublishTypeCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PublishTypeCommand}.
+ */
 export interface PublishTypeCommandInput extends PublishTypeInput {}
+/**
+ * The output of {@link PublishTypeCommand}.
+ */
 export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataBearer {}
 
 /**

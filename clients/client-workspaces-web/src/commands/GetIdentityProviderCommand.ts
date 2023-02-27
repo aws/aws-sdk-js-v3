@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link GetIdentityProviderCommand}.
+ */
 export interface GetIdentityProviderCommandInput extends GetIdentityProviderRequest {}
+/**
+ * The output of {@link GetIdentityProviderCommand}.
+ */
 export interface GetIdentityProviderCommandOutput extends GetIdentityProviderResponse, __MetadataBearer {}
 
 /**

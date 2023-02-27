@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link ListDeadLetterSourceQueuesCommand}.
+ */
 export interface ListDeadLetterSourceQueuesCommandInput extends ListDeadLetterSourceQueuesRequest {}
+/**
+ * The output of {@link ListDeadLetterSourceQueuesCommand}.
+ */
 export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterSourceQueuesResult, __MetadataBearer {}
 
 /**

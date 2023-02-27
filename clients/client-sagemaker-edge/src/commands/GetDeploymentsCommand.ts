@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SagemakerEdgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SagemakerEdgeClient";
 
+/**
+ * The input for {@link GetDeploymentsCommand}.
+ */
 export interface GetDeploymentsCommandInput extends GetDeploymentsRequest {}
+/**
+ * The output of {@link GetDeploymentsCommand}.
+ */
 export interface GetDeploymentsCommandOutput extends GetDeploymentsResult, __MetadataBearer {}
 
 /**

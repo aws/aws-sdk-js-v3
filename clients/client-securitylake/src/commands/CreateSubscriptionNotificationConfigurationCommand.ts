@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * The input for {@link CreateSubscriptionNotificationConfigurationCommand}.
+ */
 export interface CreateSubscriptionNotificationConfigurationCommandInput
   extends CreateSubscriptionNotificationConfigurationRequest {}
+/**
+ * The output of {@link CreateSubscriptionNotificationConfigurationCommand}.
+ */
 export interface CreateSubscriptionNotificationConfigurationCommandOutput
   extends CreateSubscriptionNotificationConfigurationResponse,
     __MetadataBearer {}

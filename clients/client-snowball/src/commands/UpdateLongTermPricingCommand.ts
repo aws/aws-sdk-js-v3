@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * The input for {@link UpdateLongTermPricingCommand}.
+ */
 export interface UpdateLongTermPricingCommandInput extends UpdateLongTermPricingRequest {}
+/**
+ * The output of {@link UpdateLongTermPricingCommand}.
+ */
 export interface UpdateLongTermPricingCommandOutput extends UpdateLongTermPricingResult, __MetadataBearer {}
 
 /**

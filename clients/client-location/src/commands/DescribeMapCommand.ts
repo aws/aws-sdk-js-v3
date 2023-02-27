@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeMapCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeMapCommand}.
+ */
 export interface DescribeMapCommandInput extends DescribeMapRequest {}
+/**
+ * The output of {@link DescribeMapCommand}.
+ */
 export interface DescribeMapCommandOutput extends DescribeMapResponse, __MetadataBearer {}
 
 /**

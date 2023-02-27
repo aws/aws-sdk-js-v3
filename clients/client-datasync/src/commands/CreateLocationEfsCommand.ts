@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateLocationEfsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateLocationEfsCommand}.
+ */
 export interface CreateLocationEfsCommandInput extends CreateLocationEfsRequest {}
+/**
+ * The output of {@link CreateLocationEfsCommand}.
+ */
 export interface CreateLocationEfsCommandOutput extends CreateLocationEfsResponse, __MetadataBearer {}
 
 /**

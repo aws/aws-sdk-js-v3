@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link UpdateTagOptionCommand}.
+ */
 export interface UpdateTagOptionCommandInput extends UpdateTagOptionInput {}
+/**
+ * The output of {@link UpdateTagOptionCommand}.
+ */
 export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __MetadataBearer {}
 
 /**

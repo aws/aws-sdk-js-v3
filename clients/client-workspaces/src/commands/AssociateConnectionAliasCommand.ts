@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link AssociateConnectionAliasCommand}.
+ */
 export interface AssociateConnectionAliasCommandInput extends AssociateConnectionAliasRequest {}
+/**
+ * The output of {@link AssociateConnectionAliasCommand}.
+ */
 export interface AssociateConnectionAliasCommandOutput extends AssociateConnectionAliasResult, __MetadataBearer {}
 
 /**

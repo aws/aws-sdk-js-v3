@@ -25,7 +25,13 @@ import {
   serializeAws_queryListVirtualMFADevicesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListVirtualMFADevicesCommand}.
+ */
 export interface ListVirtualMFADevicesCommandInput extends ListVirtualMFADevicesRequest {}
+/**
+ * The output of {@link ListVirtualMFADevicesCommand}.
+ */
 export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevicesResponse, __MetadataBearer {}
 
 /**

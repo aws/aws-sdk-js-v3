@@ -25,7 +25,13 @@ import {
   serializeAws_queryPutLifecycleHookCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PutLifecycleHookCommand}.
+ */
 export interface PutLifecycleHookCommandInput extends PutLifecycleHookType {}
+/**
+ * The output of {@link PutLifecycleHookCommand}.
+ */
 export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, __MetadataBearer {}
 
 /**

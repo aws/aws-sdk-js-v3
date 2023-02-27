@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * The input for {@link DisassociateResourceCommand}.
+ */
 export interface DisassociateResourceCommandInput extends DisassociateResourceRequest {}
+/**
+ * The output of {@link DisassociateResourceCommand}.
+ */
 export interface DisassociateResourceCommandOutput extends DisassociateResourceResponse, __MetadataBearer {}
 
 /**

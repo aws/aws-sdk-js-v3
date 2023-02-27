@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListAvailableResourceMetricsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAvailableResourceMetricsCommand}.
+ */
 export interface ListAvailableResourceMetricsCommandInput extends ListAvailableResourceMetricsRequest {}
+/**
+ * The output of {@link ListAvailableResourceMetricsCommand}.
+ */
 export interface ListAvailableResourceMetricsCommandOutput
   extends ListAvailableResourceMetricsResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDirectoryConfigCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDirectoryConfigCommand}.
+ */
 export interface CreateDirectoryConfigCommandInput extends CreateDirectoryConfigRequest {}
+/**
+ * The output of {@link CreateDirectoryConfigCommand}.
+ */
 export interface CreateDirectoryConfigCommandOutput extends CreateDirectoryConfigResult, __MetadataBearer {}
 
 /**

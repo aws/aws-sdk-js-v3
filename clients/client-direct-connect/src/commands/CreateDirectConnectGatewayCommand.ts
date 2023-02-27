@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDirectConnectGatewayCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDirectConnectGatewayCommand}.
+ */
 export interface CreateDirectConnectGatewayCommandInput extends CreateDirectConnectGatewayRequest {}
+/**
+ * The output of {@link CreateDirectConnectGatewayCommand}.
+ */
 export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectConnectGatewayResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeDatastoreCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeDatastoreCommand}.
+ */
 export interface DescribeDatastoreCommandInput extends DescribeDatastoreRequest {}
+/**
+ * The output of {@link DescribeDatastoreCommand}.
+ */
 export interface DescribeDatastoreCommandOutput extends DescribeDatastoreResponse, __MetadataBearer {}
 
 /**

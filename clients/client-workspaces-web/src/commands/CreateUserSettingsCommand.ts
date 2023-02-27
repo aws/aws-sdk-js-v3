@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link CreateUserSettingsCommand}.
+ */
 export interface CreateUserSettingsCommandInput extends CreateUserSettingsRequest {}
+/**
+ * The output of {@link CreateUserSettingsCommand}.
+ */
 export interface CreateUserSettingsCommandOutput extends CreateUserSettingsResponse, __MetadataBearer {}
 
 /**

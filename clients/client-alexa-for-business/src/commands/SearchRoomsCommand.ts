@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SearchRoomsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SearchRoomsCommand}.
+ */
 export interface SearchRoomsCommandInput extends SearchRoomsRequest {}
+/**
+ * The output of {@link SearchRoomsCommand}.
+ */
 export interface SearchRoomsCommandOutput extends SearchRoomsResponse, __MetadataBearer {}
 
 /**

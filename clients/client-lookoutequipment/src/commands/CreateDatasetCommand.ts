@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0CreateDatasetCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateDatasetCommand}.
+ */
 export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
+/**
+ * The output of {@link CreateDatasetCommand}.
+ */
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**

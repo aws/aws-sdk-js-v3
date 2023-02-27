@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
+/**
+ * The input for {@link OptOutSpeakerCommand}.
+ */
 export interface OptOutSpeakerCommandInput extends OptOutSpeakerRequest {}
+/**
+ * The output of {@link OptOutSpeakerCommand}.
+ */
 export interface OptOutSpeakerCommandOutput extends OptOutSpeakerResponse, __MetadataBearer {}
 
 /**

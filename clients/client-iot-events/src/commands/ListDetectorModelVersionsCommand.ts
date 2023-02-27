@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListDetectorModelVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDetectorModelVersionsCommand}.
+ */
 export interface ListDetectorModelVersionsCommandInput extends ListDetectorModelVersionsRequest {}
+/**
+ * The output of {@link ListDetectorModelVersionsCommand}.
+ */
 export interface ListDetectorModelVersionsCommandOutput extends ListDetectorModelVersionsResponse, __MetadataBearer {}
 
 /**

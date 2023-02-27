@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetBootstrapBrokersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBootstrapBrokersCommand}.
+ */
 export interface GetBootstrapBrokersCommandInput extends GetBootstrapBrokersRequest {}
+/**
+ * The output of {@link GetBootstrapBrokersCommand}.
+ */
 export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersResponse, __MetadataBearer {}
 
 /**

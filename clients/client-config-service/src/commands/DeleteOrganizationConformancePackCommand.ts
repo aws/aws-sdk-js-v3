@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DeleteOrganizationConformancePackCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteOrganizationConformancePackCommand}.
+ */
 export interface DeleteOrganizationConformancePackCommandInput extends DeleteOrganizationConformancePackRequest {}
+/**
+ * The output of {@link DeleteOrganizationConformancePackCommand}.
+ */
 export interface DeleteOrganizationConformancePackCommandOutput extends __MetadataBearer {}
 
 /**

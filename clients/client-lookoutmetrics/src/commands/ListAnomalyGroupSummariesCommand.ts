@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAnomalyGroupSummariesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAnomalyGroupSummariesCommand}.
+ */
 export interface ListAnomalyGroupSummariesCommandInput extends ListAnomalyGroupSummariesRequest {}
+/**
+ * The output of {@link ListAnomalyGroupSummariesCommand}.
+ */
 export interface ListAnomalyGroupSummariesCommandOutput extends ListAnomalyGroupSummariesResponse, __MetadataBearer {}
 
 /**

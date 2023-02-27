@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * The input for {@link DeleteViewCommand}.
+ */
 export interface DeleteViewCommandInput extends DeleteViewInput {}
+/**
+ * The output of {@link DeleteViewCommand}.
+ */
 export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBearer {}
 
 /**

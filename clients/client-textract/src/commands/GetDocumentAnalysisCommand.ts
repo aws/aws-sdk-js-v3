@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
+/**
+ * The input for {@link GetDocumentAnalysisCommand}.
+ */
 export interface GetDocumentAnalysisCommandInput extends GetDocumentAnalysisRequest {}
+/**
+ * The output of {@link GetDocumentAnalysisCommand}.
+ */
 export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlGetPublicKeyCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link GetPublicKeyCommand}.
+ */
 export interface GetPublicKeyCommandInput extends GetPublicKeyRequest {}
+/**
+ * The output of {@link GetPublicKeyCommand}.
+ */
 export interface GetPublicKeyCommandOutput extends GetPublicKeyResult, __MetadataBearer {}
 
 /**

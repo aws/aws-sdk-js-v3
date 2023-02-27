@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ConnectDirectoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ConnectDirectoryCommand}.
+ */
 export interface ConnectDirectoryCommandInput extends ConnectDirectoryRequest {}
+/**
+ * The output of {@link ConnectDirectoryCommand}.
+ */
 export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, __MetadataBearer {}
 
 /**

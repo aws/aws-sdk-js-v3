@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link PutConfigurationSetSendingOptionsCommand}.
+ */
 export interface PutConfigurationSetSendingOptionsCommandInput extends PutConfigurationSetSendingOptionsRequest {}
+/**
+ * The output of {@link PutConfigurationSetSendingOptionsCommand}.
+ */
 export interface PutConfigurationSetSendingOptionsCommandOutput
   extends PutConfigurationSetSendingOptionsResponse,
     __MetadataBearer {}

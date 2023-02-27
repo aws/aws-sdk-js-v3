@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link DeleteFindingAggregatorCommand}.
+ */
 export interface DeleteFindingAggregatorCommandInput extends DeleteFindingAggregatorRequest {}
+/**
+ * The output of {@link DeleteFindingAggregatorCommand}.
+ */
 export interface DeleteFindingAggregatorCommandOutput extends DeleteFindingAggregatorResponse, __MetadataBearer {}
 
 /**

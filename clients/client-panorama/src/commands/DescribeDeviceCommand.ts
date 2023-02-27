@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeDeviceCommand}.
+ */
 export interface DescribeDeviceCommandInput extends DescribeDeviceRequest {}
+/**
+ * The output of {@link DescribeDeviceCommand}.
+ */
 export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __MetadataBearer {}
 
 /**

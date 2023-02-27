@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteTrafficDistributionGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteTrafficDistributionGroupCommand}.
+ */
 export interface DeleteTrafficDistributionGroupCommandInput extends DeleteTrafficDistributionGroupRequest {}
+/**
+ * The output of {@link DeleteTrafficDistributionGroupCommand}.
+ */
 export interface DeleteTrafficDistributionGroupCommandOutput
   extends DeleteTrafficDistributionGroupResponse,
     __MetadataBearer {}

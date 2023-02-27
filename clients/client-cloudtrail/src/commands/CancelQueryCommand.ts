@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CancelQueryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CancelQueryCommand}.
+ */
 export interface CancelQueryCommandInput extends CancelQueryRequest {}
+/**
+ * The output of {@link CancelQueryCommand}.
+ */
 export interface CancelQueryCommandOutput extends CancelQueryResponse, __MetadataBearer {}
 
 /**

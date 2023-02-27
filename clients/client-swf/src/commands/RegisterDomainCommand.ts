@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link RegisterDomainCommand}.
+ */
 export interface RegisterDomainCommandInput extends RegisterDomainInput {}
+/**
+ * The output of {@link RegisterDomainCommand}.
+ */
 export interface RegisterDomainCommandOutput extends __MetadataBearer {}
 
 /**

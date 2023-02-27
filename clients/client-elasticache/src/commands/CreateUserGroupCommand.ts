@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateUserGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateUserGroupCommand}.
+ */
 export interface CreateUserGroupCommandInput extends CreateUserGroupMessage {}
+/**
+ * The output of {@link CreateUserGroupCommand}.
+ */
 export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**

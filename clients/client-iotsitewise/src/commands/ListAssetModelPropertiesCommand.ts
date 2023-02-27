@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAssetModelPropertiesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAssetModelPropertiesCommand}.
+ */
 export interface ListAssetModelPropertiesCommandInput extends ListAssetModelPropertiesRequest {}
+/**
+ * The output of {@link ListAssetModelPropertiesCommand}.
+ */
 export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPropertiesResponse, __MetadataBearer {}
 
 /**

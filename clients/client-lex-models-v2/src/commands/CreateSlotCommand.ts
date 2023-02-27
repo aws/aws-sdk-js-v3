@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateSlotCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateSlotCommand}.
+ */
 export interface CreateSlotCommandInput extends CreateSlotRequest {}
+/**
+ * The output of {@link CreateSlotCommand}.
+ */
 export interface CreateSlotCommandOutput extends CreateSlotResponse, __MetadataBearer {}
 
 /**

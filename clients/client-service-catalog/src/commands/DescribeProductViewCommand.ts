@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link DescribeProductViewCommand}.
+ */
 export interface DescribeProductViewCommandInput extends DescribeProductViewInput {}
+/**
+ * The output of {@link DescribeProductViewCommand}.
+ */
 export interface DescribeProductViewCommandOutput extends DescribeProductViewOutput, __MetadataBearer {}
 
 /**

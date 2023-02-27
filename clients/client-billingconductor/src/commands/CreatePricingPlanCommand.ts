@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreatePricingPlanCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreatePricingPlanCommand}.
+ */
 export interface CreatePricingPlanCommandInput extends CreatePricingPlanInput {}
+/**
+ * The output of {@link CreatePricingPlanCommand}.
+ */
 export interface CreatePricingPlanCommandOutput extends CreatePricingPlanOutput, __MetadataBearer {}
 
 /**

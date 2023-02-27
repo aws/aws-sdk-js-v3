@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateHostedConnectionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateHostedConnectionCommand}.
+ */
 export interface AssociateHostedConnectionCommandInput extends AssociateHostedConnectionRequest {}
+/**
+ * The output of {@link AssociateHostedConnectionCommand}.
+ */
 export interface AssociateHostedConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**

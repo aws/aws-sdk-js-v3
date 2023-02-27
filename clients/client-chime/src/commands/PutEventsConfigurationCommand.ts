@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutEventsConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutEventsConfigurationCommand}.
+ */
 export interface PutEventsConfigurationCommandInput extends PutEventsConfigurationRequest {}
+/**
+ * The output of {@link PutEventsConfigurationCommand}.
+ */
 export interface PutEventsConfigurationCommandOutput extends PutEventsConfigurationResponse, __MetadataBearer {}
 
 /**

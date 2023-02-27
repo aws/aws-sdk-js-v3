@@ -18,7 +18,13 @@ import {
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link EndpointOperationCommand}.
+ */
 export interface EndpointOperationCommandInput {}
+/**
+ * The output of {@link EndpointOperationCommand}.
+ */
 export interface EndpointOperationCommandOutput extends __MetadataBearer {}
 
 export class EndpointOperationCommand extends $Command<

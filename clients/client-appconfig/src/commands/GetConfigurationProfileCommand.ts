@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetConfigurationProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetConfigurationProfileCommand}.
+ */
 export interface GetConfigurationProfileCommandInput extends GetConfigurationProfileRequest {}
+/**
+ * The output of {@link GetConfigurationProfileCommand}.
+ */
 export interface GetConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**

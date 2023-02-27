@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link UpdateAppImageConfigCommand}.
+ */
 export interface UpdateAppImageConfigCommandInput extends UpdateAppImageConfigRequest {}
+/**
+ * The output of {@link UpdateAppImageConfigCommand}.
+ */
 export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigResponse, __MetadataBearer {}
 
 /**

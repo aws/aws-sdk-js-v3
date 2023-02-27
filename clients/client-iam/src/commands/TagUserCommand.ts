@@ -17,7 +17,13 @@ import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { TagUserRequest, TagUserRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryTagUserCommand, serializeAws_queryTagUserCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link TagUserCommand}.
+ */
 export interface TagUserCommandInput extends TagUserRequest {}
+/**
+ * The output of {@link TagUserCommand}.
+ */
 export interface TagUserCommandOutput extends __MetadataBearer {}
 
 /**

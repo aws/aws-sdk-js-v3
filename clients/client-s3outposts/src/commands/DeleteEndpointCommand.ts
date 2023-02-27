@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
 
+/**
+ * The input for {@link DeleteEndpointCommand}.
+ */
 export interface DeleteEndpointCommandInput extends DeleteEndpointRequest {}
+/**
+ * The output of {@link DeleteEndpointCommand}.
+ */
 export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
 
 /**

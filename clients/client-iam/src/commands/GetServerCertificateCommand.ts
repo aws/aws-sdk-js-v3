@@ -25,7 +25,13 @@ import {
   serializeAws_queryGetServerCertificateCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetServerCertificateCommand}.
+ */
 export interface GetServerCertificateCommandInput extends GetServerCertificateRequest {}
+/**
+ * The output of {@link GetServerCertificateCommand}.
+ */
 export interface GetServerCertificateCommandOutput extends GetServerCertificateResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetClassifiersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetClassifiersCommand}.
+ */
 export interface GetClassifiersCommandInput extends GetClassifiersRequest {}
+/**
+ * The output of {@link GetClassifiersCommand}.
+ */
 export interface GetClassifiersCommandOutput extends GetClassifiersResponse, __MetadataBearer {}
 
 /**

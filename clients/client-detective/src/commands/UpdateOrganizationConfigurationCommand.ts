@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1UpdateOrganizationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateOrganizationConfigurationCommand}.
+ */
 export interface UpdateOrganizationConfigurationCommandInput extends UpdateOrganizationConfigurationRequest {}
+/**
+ * The output of {@link UpdateOrganizationConfigurationCommand}.
+ */
 export interface UpdateOrganizationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

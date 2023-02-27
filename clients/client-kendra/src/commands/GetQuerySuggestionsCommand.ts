@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetQuerySuggestionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetQuerySuggestionsCommand}.
+ */
 export interface GetQuerySuggestionsCommandInput extends GetQuerySuggestionsRequest {}
+/**
+ * The output of {@link GetQuerySuggestionsCommand}.
+ */
 export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsResponse, __MetadataBearer {}
 
 /**

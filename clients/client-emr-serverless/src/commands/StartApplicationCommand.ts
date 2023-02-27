@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartApplicationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartApplicationCommand}.
+ */
 export interface StartApplicationCommandInput extends StartApplicationRequest {}
+/**
+ * The output of {@link StartApplicationCommand}.
+ */
 export interface StartApplicationCommandOutput extends StartApplicationResponse, __MetadataBearer {}
 
 /**

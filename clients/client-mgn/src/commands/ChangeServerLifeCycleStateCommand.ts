@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ChangeServerLifeCycleStateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ChangeServerLifeCycleStateCommand}.
+ */
 export interface ChangeServerLifeCycleStateCommandInput extends ChangeServerLifeCycleStateRequest {}
+/**
+ * The output of {@link ChangeServerLifeCycleStateCommand}.
+ */
 export interface ChangeServerLifeCycleStateCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**

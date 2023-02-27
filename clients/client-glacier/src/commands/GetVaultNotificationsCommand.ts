@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetVaultNotificationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetVaultNotificationsCommand}.
+ */
 export interface GetVaultNotificationsCommandInput extends GetVaultNotificationsInput {}
+/**
+ * The output of {@link GetVaultNotificationsCommand}.
+ */
 export interface GetVaultNotificationsCommandOutput extends GetVaultNotificationsOutput, __MetadataBearer {}
 
 /**

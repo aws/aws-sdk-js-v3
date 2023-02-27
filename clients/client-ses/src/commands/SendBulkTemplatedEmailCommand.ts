@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link SendBulkTemplatedEmailCommand}.
+ */
 export interface SendBulkTemplatedEmailCommandInput extends SendBulkTemplatedEmailRequest {}
+/**
+ * The output of {@link SendBulkTemplatedEmailCommand}.
+ */
 export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEmailResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AcceptInvitationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AcceptInvitationCommand}.
+ */
 export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
+/**
+ * The output of {@link AcceptInvitationCommand}.
+ */
 export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse, __MetadataBearer {}
 
 /**

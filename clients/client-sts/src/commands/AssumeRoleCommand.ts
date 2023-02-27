@@ -23,7 +23,13 @@ import {
 import { deserializeAws_queryAssumeRoleCommand, serializeAws_queryAssumeRoleCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
+/**
+ * The input for {@link AssumeRoleCommand}.
+ */
 export interface AssumeRoleCommandInput extends AssumeRoleRequest {}
+/**
+ * The output of {@link AssumeRoleCommand}.
+ */
 export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataBearer {}
 
 /**

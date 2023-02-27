@@ -29,7 +29,13 @@ import {
   serializeAws_queryDeleteListenerCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteListenerCommand}.
+ */
 export interface DeleteListenerCommandInput extends DeleteListenerInput {}
+/**
+ * The output of {@link DeleteListenerCommand}.
+ */
 export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * The input for {@link AssociateDRTLogBucketCommand}.
+ */
 export interface AssociateDRTLogBucketCommandInput extends AssociateDRTLogBucketRequest {}
+/**
+ * The output of {@link AssociateDRTLogBucketCommand}.
+ */
 export interface AssociateDRTLogBucketCommandOutput extends AssociateDRTLogBucketResponse, __MetadataBearer {}
 
 /**

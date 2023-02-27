@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1StopRunCommand, serializeAws_json1_1StopRunCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopRunCommand}.
+ */
 export interface StopRunCommandInput extends StopRunRequest {}
+/**
+ * The output of {@link StopRunCommand}.
+ */
 export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
 
 /**

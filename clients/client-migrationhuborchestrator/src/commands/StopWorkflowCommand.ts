@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1StopWorkflowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopWorkflowCommand}.
+ */
 export interface StopWorkflowCommandInput extends StopMigrationWorkflowRequest {}
+/**
+ * The output of {@link StopWorkflowCommand}.
+ */
 export interface StopWorkflowCommandOutput extends StopMigrationWorkflowResponse, __MetadataBearer {}
 
 /**

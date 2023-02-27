@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
+/**
+ * The input for {@link CreateLanguageModelCommand}.
+ */
 export interface CreateLanguageModelCommandInput extends CreateLanguageModelRequest {}
+/**
+ * The output of {@link CreateLanguageModelCommand}.
+ */
 export interface CreateLanguageModelCommandOutput extends CreateLanguageModelResponse, __MetadataBearer {}
 
 /**

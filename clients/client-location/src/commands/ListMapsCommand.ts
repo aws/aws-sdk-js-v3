@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListMapsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListMapsCommand}.
+ */
 export interface ListMapsCommandInput extends ListMapsRequest {}
+/**
+ * The output of {@link ListMapsCommand}.
+ */
 export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBearer {}
 
 /**

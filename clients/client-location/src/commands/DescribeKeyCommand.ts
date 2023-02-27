@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeKeyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeKeyCommand}.
+ */
 export interface DescribeKeyCommandInput extends DescribeKeyRequest {}
+/**
+ * The output of {@link DescribeKeyCommand}.
+ */
 export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateAlarmModelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateAlarmModelCommand}.
+ */
 export interface CreateAlarmModelCommandInput extends CreateAlarmModelRequest {}
+/**
+ * The output of {@link CreateAlarmModelCommand}.
+ */
 export interface CreateAlarmModelCommandOutput extends CreateAlarmModelResponse, __MetadataBearer {}
 
 /**

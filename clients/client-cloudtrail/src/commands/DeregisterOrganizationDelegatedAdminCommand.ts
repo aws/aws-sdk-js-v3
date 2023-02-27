@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeregisterOrganizationDelegatedAdminCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterOrganizationDelegatedAdminCommand}.
+ */
 export interface DeregisterOrganizationDelegatedAdminCommandInput extends DeregisterOrganizationDelegatedAdminRequest {}
+/**
+ * The output of {@link DeregisterOrganizationDelegatedAdminCommand}.
+ */
 export interface DeregisterOrganizationDelegatedAdminCommandOutput
   extends DeregisterOrganizationDelegatedAdminResponse,
     __MetadataBearer {}

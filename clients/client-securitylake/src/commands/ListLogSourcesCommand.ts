@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * The input for {@link ListLogSourcesCommand}.
+ */
 export interface ListLogSourcesCommandInput extends ListLogSourcesRequest {}
+/**
+ * The output of {@link ListLogSourcesCommand}.
+ */
 export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __MetadataBearer {}
 
 /**

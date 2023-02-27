@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteGraphCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteGraphCommand}.
+ */
 export interface DeleteGraphCommandInput extends DeleteGraphRequest {}
+/**
+ * The output of {@link DeleteGraphCommand}.
+ */
 export interface DeleteGraphCommandOutput extends __MetadataBearer {}
 
 /**

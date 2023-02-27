@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutImageTagMutabilityCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutImageTagMutabilityCommand}.
+ */
 export interface PutImageTagMutabilityCommandInput extends PutImageTagMutabilityRequest {}
+/**
+ * The output of {@link PutImageTagMutabilityCommand}.
+ */
 export interface PutImageTagMutabilityCommandOutput extends PutImageTagMutabilityResponse, __MetadataBearer {}
 
 /**

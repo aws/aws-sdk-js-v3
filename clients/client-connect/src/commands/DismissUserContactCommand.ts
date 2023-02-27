@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DismissUserContactCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DismissUserContactCommand}.
+ */
 export interface DismissUserContactCommandInput extends DismissUserContactRequest {}
+/**
+ * The output of {@link DismissUserContactCommand}.
+ */
 export interface DismissUserContactCommandOutput extends DismissUserContactResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlUpdateFunctionCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link UpdateFunctionCommand}.
+ */
 export interface UpdateFunctionCommandInput extends UpdateFunctionRequest {}
+/**
+ * The output of {@link UpdateFunctionCommand}.
+ */
 export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1InitializeClusterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link InitializeClusterCommand}.
+ */
 export interface InitializeClusterCommandInput extends InitializeClusterRequest {}
+/**
+ * The output of {@link InitializeClusterCommand}.
+ */
 export interface InitializeClusterCommandOutput extends InitializeClusterResponse, __MetadataBearer {}
 
 /**

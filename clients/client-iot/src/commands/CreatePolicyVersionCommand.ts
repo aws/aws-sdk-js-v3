@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreatePolicyVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreatePolicyVersionCommand}.
+ */
 export interface CreatePolicyVersionCommandInput extends CreatePolicyVersionRequest {}
+/**
+ * The output of {@link CreatePolicyVersionCommand}.
+ */
 export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionResponse, __MetadataBearer {}
 
 /**

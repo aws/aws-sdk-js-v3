@@ -27,7 +27,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link DeleteMultiRegionAccessPointCommand}.
+ */
 export interface DeleteMultiRegionAccessPointCommandInput extends DeleteMultiRegionAccessPointRequest {}
+/**
+ * The output of {@link DeleteMultiRegionAccessPointCommand}.
+ */
 export interface DeleteMultiRegionAccessPointCommandOutput
   extends DeleteMultiRegionAccessPointResult,
     __MetadataBearer {}

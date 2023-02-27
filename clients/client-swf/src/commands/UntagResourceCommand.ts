@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandInput extends UntagResourceInput {}
+/**
+ * The output of {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**

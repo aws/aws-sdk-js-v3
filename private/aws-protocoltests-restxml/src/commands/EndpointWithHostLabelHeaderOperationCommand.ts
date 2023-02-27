@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link EndpointWithHostLabelHeaderOperationCommand}.
+ */
 export interface EndpointWithHostLabelHeaderOperationCommandInput extends HostLabelHeaderInput {}
+/**
+ * The output of {@link EndpointWithHostLabelHeaderOperationCommand}.
+ */
 export interface EndpointWithHostLabelHeaderOperationCommandOutput extends __MetadataBearer {}
 
 export class EndpointWithHostLabelHeaderOperationCommand extends $Command<

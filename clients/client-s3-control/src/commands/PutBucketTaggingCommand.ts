@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link PutBucketTaggingCommand}.
+ */
 export interface PutBucketTaggingCommandInput extends PutBucketTaggingRequest {}
+/**
+ * The output of {@link PutBucketTaggingCommand}.
+ */
 export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**

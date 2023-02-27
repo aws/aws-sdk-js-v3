@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0AssociateFirewallPolicyCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link AssociateFirewallPolicyCommand}.
+ */
 export interface AssociateFirewallPolicyCommandInput extends AssociateFirewallPolicyRequest {}
+/**
+ * The output of {@link AssociateFirewallPolicyCommand}.
+ */
 export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallPolicyResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartMLLabelingSetGenerationTaskRunCommand}.
+ */
 export interface StartMLLabelingSetGenerationTaskRunCommandInput extends StartMLLabelingSetGenerationTaskRunRequest {}
+/**
+ * The output of {@link StartMLLabelingSetGenerationTaskRunCommand}.
+ */
 export interface StartMLLabelingSetGenerationTaskRunCommandOutput
   extends StartMLLabelingSetGenerationTaskRunResponse,
     __MetadataBearer {}

@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link GetReservedNodeExchangeConfigurationOptionsCommand}.
+ */
 export interface GetReservedNodeExchangeConfigurationOptionsCommandInput
   extends GetReservedNodeExchangeConfigurationOptionsInputMessage {}
+/**
+ * The output of {@link GetReservedNodeExchangeConfigurationOptionsCommand}.
+ */
 export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
   extends GetReservedNodeExchangeConfigurationOptionsOutputMessage,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchDeleteImageCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchDeleteImageCommand}.
+ */
 export interface BatchDeleteImageCommandInput extends BatchDeleteImageRequest {}
+/**
+ * The output of {@link BatchDeleteImageCommand}.
+ */
 export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse, __MetadataBearer {}
 
 /**

@@ -24,7 +24,13 @@ import {
   serializeAws_restJson1JoinStorageSessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link JoinStorageSessionCommand}.
+ */
 export interface JoinStorageSessionCommandInput extends JoinStorageSessionInput {}
+/**
+ * The output of {@link JoinStorageSessionCommand}.
+ */
 export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
 
 /**

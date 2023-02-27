@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link CreateAccountSubscriptionCommand}.
+ */
 export interface CreateAccountSubscriptionCommandInput extends CreateAccountSubscriptionRequest {}
+/**
+ * The output of {@link CreateAccountSubscriptionCommand}.
+ */
 export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSubscriptionResponse, __MetadataBearer {}
 
 /**

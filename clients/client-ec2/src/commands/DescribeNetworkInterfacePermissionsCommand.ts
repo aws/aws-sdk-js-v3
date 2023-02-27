@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeNetworkInterfacePermissionsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeNetworkInterfacePermissionsCommand}.
+ */
 export interface DescribeNetworkInterfacePermissionsCommandInput extends DescribeNetworkInterfacePermissionsRequest {}
+/**
+ * The output of {@link DescribeNetworkInterfacePermissionsCommand}.
+ */
 export interface DescribeNetworkInterfacePermissionsCommandOutput
   extends DescribeNetworkInterfacePermissionsResult,
     __MetadataBearer {}

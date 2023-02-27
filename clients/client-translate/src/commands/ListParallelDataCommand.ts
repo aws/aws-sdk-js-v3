@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
+/**
+ * The input for {@link ListParallelDataCommand}.
+ */
 export interface ListParallelDataCommandInput extends ListParallelDataRequest {}
+/**
+ * The output of {@link ListParallelDataCommand}.
+ */
 export interface ListParallelDataCommandOutput extends ListParallelDataResponse, __MetadataBearer {}
 
 /**

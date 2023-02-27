@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListPricingPlansCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPricingPlansCommand}.
+ */
 export interface ListPricingPlansCommandInput extends ListPricingPlansInput {}
+/**
+ * The output of {@link ListPricingPlansCommand}.
+ */
 export interface ListPricingPlansCommandOutput extends ListPricingPlansOutput, __MetadataBearer {}
 
 /**

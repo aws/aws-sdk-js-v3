@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DisconnectRecoveryInstanceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisconnectRecoveryInstanceCommand}.
+ */
 export interface DisconnectRecoveryInstanceCommandInput extends DisconnectRecoveryInstanceRequest {}
+/**
+ * The output of {@link DisconnectRecoveryInstanceCommand}.
+ */
 export interface DisconnectRecoveryInstanceCommandOutput extends __MetadataBearer {}
 
 /**

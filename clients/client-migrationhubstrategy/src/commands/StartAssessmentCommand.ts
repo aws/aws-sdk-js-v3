@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1StartAssessmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartAssessmentCommand}.
+ */
 export interface StartAssessmentCommandInput extends StartAssessmentRequest {}
+/**
+ * The output of {@link StartAssessmentCommand}.
+ */
 export interface StartAssessmentCommandOutput extends StartAssessmentResponse, __MetadataBearer {}
 
 /**

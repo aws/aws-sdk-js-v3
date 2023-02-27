@@ -26,7 +26,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryModifyRuleCommand, serializeAws_queryModifyRuleCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyRuleCommand}.
+ */
 export interface ModifyRuleCommandInput extends ModifyRuleInput {}
+/**
+ * The output of {@link ModifyRuleCommand}.
+ */
 export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_queryUpdateLoginProfileCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateLoginProfileCommand}.
+ */
 export interface UpdateLoginProfileCommandInput extends UpdateLoginProfileRequest {}
+/**
+ * The output of {@link UpdateLoginProfileCommand}.
+ */
 export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**

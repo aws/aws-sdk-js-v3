@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDataflowGraphCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDataflowGraphCommand}.
+ */
 export interface GetDataflowGraphCommandInput extends GetDataflowGraphRequest {}
+/**
+ * The output of {@link GetDataflowGraphCommand}.
+ */
 export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse, __MetadataBearer {}
 
 /**

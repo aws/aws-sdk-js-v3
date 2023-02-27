@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DeleteOrganizationConfigRuleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteOrganizationConfigRuleCommand}.
+ */
 export interface DeleteOrganizationConfigRuleCommandInput extends DeleteOrganizationConfigRuleRequest {}
+/**
+ * The output of {@link DeleteOrganizationConfigRuleCommand}.
+ */
 export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeClientVpnAuthorizationRulesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeClientVpnAuthorizationRulesCommand}.
+ */
 export interface DescribeClientVpnAuthorizationRulesCommandInput extends DescribeClientVpnAuthorizationRulesRequest {}
+/**
+ * The output of {@link DescribeClientVpnAuthorizationRulesCommand}.
+ */
 export interface DescribeClientVpnAuthorizationRulesCommandOutput
   extends DescribeClientVpnAuthorizationRulesResult,
     __MetadataBearer {}

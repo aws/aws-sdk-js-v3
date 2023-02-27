@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AddLFTagsToResourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AddLFTagsToResourceCommand}.
+ */
 export interface AddLFTagsToResourceCommandInput extends AddLFTagsToResourceRequest {}
+/**
+ * The output of {@link AddLFTagsToResourceCommand}.
+ */
 export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceResponse, __MetadataBearer {}
 
 /**

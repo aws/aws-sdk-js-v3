@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListPositionConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPositionConfigurationsCommand}.
+ */
 export interface ListPositionConfigurationsCommandInput extends ListPositionConfigurationsRequest {}
+/**
+ * The output of {@link ListPositionConfigurationsCommand}.
+ */
 export interface ListPositionConfigurationsCommandOutput extends ListPositionConfigurationsResponse, __MetadataBearer {}
 
 /**

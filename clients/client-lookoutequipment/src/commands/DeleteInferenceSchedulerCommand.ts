@@ -20,7 +20,13 @@ import {
   serializeAws_json1_0DeleteInferenceSchedulerCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteInferenceSchedulerCommand}.
+ */
 export interface DeleteInferenceSchedulerCommandInput extends DeleteInferenceSchedulerRequest {}
+/**
+ * The output of {@link DeleteInferenceSchedulerCommand}.
+ */
 export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer {}
 
 /**

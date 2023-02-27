@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteNetworkInsightsAnalysisCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteNetworkInsightsAnalysisCommand}.
+ */
 export interface DeleteNetworkInsightsAnalysisCommandInput extends DeleteNetworkInsightsAnalysisRequest {}
+/**
+ * The output of {@link DeleteNetworkInsightsAnalysisCommand}.
+ */
 export interface DeleteNetworkInsightsAnalysisCommandOutput
   extends DeleteNetworkInsightsAnalysisResult,
     __MetadataBearer {}

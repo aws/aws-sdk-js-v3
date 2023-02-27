@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteAllowListCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAllowListCommand}.
+ */
 export interface DeleteAllowListCommandInput extends DeleteAllowListRequest {}
+/**
+ * The output of {@link DeleteAllowListCommand}.
+ */
 export interface DeleteAllowListCommandOutput extends DeleteAllowListResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetComponentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetComponentCommand}.
+ */
 export interface GetComponentCommandInput extends GetComponentRequest {}
+/**
+ * The output of {@link GetComponentCommand}.
+ */
 export interface GetComponentCommandOutput extends GetComponentResponse, __MetadataBearer {}
 
 /**

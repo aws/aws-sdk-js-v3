@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1GenerateDataSetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GenerateDataSetCommand}.
+ */
 export interface GenerateDataSetCommandInput extends GenerateDataSetRequest {}
+/**
+ * The output of {@link GenerateDataSetCommand}.
+ */
 export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __MetadataBearer {}
 
 /**

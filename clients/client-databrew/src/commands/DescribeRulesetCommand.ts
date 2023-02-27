@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeRulesetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeRulesetCommand}.
+ */
 export interface DescribeRulesetCommandInput extends DescribeRulesetRequest {}
+/**
+ * The output of {@link DescribeRulesetCommand}.
+ */
 export interface DescribeRulesetCommandOutput extends DescribeRulesetResponse, __MetadataBearer {}
 
 /**

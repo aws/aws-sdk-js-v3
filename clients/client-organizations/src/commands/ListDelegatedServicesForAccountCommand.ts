@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListDelegatedServicesForAccountCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListDelegatedServicesForAccountCommand}.
+ */
 export interface ListDelegatedServicesForAccountCommandInput extends ListDelegatedServicesForAccountRequest {}
+/**
+ * The output of {@link ListDelegatedServicesForAccountCommand}.
+ */
 export interface ListDelegatedServicesForAccountCommandOutput
   extends ListDelegatedServicesForAccountResponse,
     __MetadataBearer {}

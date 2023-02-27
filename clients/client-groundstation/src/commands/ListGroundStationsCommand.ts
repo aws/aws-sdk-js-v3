@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListGroundStationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListGroundStationsCommand}.
+ */
 export interface ListGroundStationsCommandInput extends ListGroundStationsRequest {}
+/**
+ * The output of {@link ListGroundStationsCommand}.
+ */
 export interface ListGroundStationsCommandOutput extends ListGroundStationsResponse, __MetadataBearer {}
 
 /**

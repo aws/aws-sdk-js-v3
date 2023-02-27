@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetSuiteCommand, serializeAws_json1_1GetSuiteCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetSuiteCommand}.
+ */
 export interface GetSuiteCommandInput extends GetSuiteRequest {}
+/**
+ * The output of {@link GetSuiteCommand}.
+ */
 export interface GetSuiteCommandOutput extends GetSuiteResult, __MetadataBearer {}
 
 /**

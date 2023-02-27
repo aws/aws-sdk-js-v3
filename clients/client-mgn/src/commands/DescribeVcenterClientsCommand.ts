@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeVcenterClientsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeVcenterClientsCommand}.
+ */
 export interface DescribeVcenterClientsCommandInput extends DescribeVcenterClientsRequest {}
+/**
+ * The output of {@link DescribeVcenterClientsCommand}.
+ */
 export interface DescribeVcenterClientsCommandOutput extends DescribeVcenterClientsResponse, __MetadataBearer {}
 
 /**

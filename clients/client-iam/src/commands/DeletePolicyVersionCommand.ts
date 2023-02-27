@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeletePolicyVersionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeletePolicyVersionCommand}.
+ */
 export interface DeletePolicyVersionCommandInput extends DeletePolicyVersionRequest {}
+/**
+ * The output of {@link DeletePolicyVersionCommand}.
+ */
 export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**

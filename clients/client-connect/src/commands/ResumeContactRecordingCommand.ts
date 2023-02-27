@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ResumeContactRecordingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ResumeContactRecordingCommand}.
+ */
 export interface ResumeContactRecordingCommandInput extends ResumeContactRecordingRequest {}
+/**
+ * The output of {@link ResumeContactRecordingCommand}.
+ */
 export interface ResumeContactRecordingCommandOutput extends ResumeContactRecordingResponse, __MetadataBearer {}
 
 /**

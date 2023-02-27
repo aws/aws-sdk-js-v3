@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateSolutionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateSolutionCommand}.
+ */
 export interface CreateSolutionCommandInput extends CreateSolutionRequest {}
+/**
+ * The output of {@link CreateSolutionCommand}.
+ */
 export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __MetadataBearer {}
 
 /**

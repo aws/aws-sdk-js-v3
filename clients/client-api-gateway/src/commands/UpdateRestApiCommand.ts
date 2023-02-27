@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateRestApiCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateRestApiCommand}.
+ */
 export interface UpdateRestApiCommandInput extends UpdateRestApiRequest {}
+/**
+ * The output of {@link UpdateRestApiCommand}.
+ */
 export interface UpdateRestApiCommandOutput extends RestApi, __MetadataBearer {}
 
 /**

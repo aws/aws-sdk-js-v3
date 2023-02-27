@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link SimpleInputParamsCommand}.
+ */
 export interface SimpleInputParamsCommandInput extends SimpleInputParamsInput {}
+/**
+ * The output of {@link SimpleInputParamsCommand}.
+ */
 export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
 
 /**

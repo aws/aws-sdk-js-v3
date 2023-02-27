@@ -16,7 +16,13 @@ import { XmlMapsOutput, XmlMapsOutputFilterSensitiveLog } from "../models/models
 import { deserializeAws_queryXmlMapsCommand, serializeAws_queryXmlMapsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link XmlMapsCommand}.
+ */
 export interface XmlMapsCommandInput {}
+/**
+ * The output of {@link XmlMapsCommand}.
+ */
 export interface XmlMapsCommandOutput extends XmlMapsOutput, __MetadataBearer {}
 
 /**

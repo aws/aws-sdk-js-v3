@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlListDistributionsByKeyGroupCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link ListDistributionsByKeyGroupCommand}.
+ */
 export interface ListDistributionsByKeyGroupCommandInput extends ListDistributionsByKeyGroupRequest {}
+/**
+ * The output of {@link ListDistributionsByKeyGroupCommand}.
+ */
 export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributionsByKeyGroupResult, __MetadataBearer {}
 
 /**

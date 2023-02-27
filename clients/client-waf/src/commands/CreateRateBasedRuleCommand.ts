@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * The input for {@link CreateRateBasedRuleCommand}.
+ */
 export interface CreateRateBasedRuleCommandInput extends CreateRateBasedRuleRequest {}
+/**
+ * The output of {@link CreateRateBasedRuleCommand}.
+ */
 export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleResponse, __MetadataBearer {}
 
 /**

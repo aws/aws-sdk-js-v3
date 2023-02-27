@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateDetectorVersionStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateDetectorVersionStatusCommand}.
+ */
 export interface UpdateDetectorVersionStatusCommandInput extends UpdateDetectorVersionStatusRequest {}
+/**
+ * The output of {@link UpdateDetectorVersionStatusCommand}.
+ */
 export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetectorVersionStatusResult, __MetadataBearer {}
 
 /**

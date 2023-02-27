@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetLifecyclePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetLifecyclePolicyCommand}.
+ */
 export interface GetLifecyclePolicyCommandInput extends GetLifecyclePolicyInput {}
+/**
+ * The output of {@link GetLifecyclePolicyCommand}.
+ */
 export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyOutput, __MetadataBearer {}
 
 /**

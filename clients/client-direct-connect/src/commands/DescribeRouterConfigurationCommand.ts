@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeRouterConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeRouterConfigurationCommand}.
+ */
 export interface DescribeRouterConfigurationCommandInput extends DescribeRouterConfigurationRequest {}
+/**
+ * The output of {@link DescribeRouterConfigurationCommand}.
+ */
 export interface DescribeRouterConfigurationCommandOutput
   extends DescribeRouterConfigurationResponse,
     __MetadataBearer {}

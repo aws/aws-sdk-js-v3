@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetBatchPredictionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetBatchPredictionCommand}.
+ */
 export interface GetBatchPredictionCommandInput extends GetBatchPredictionInput {}
+/**
+ * The output of {@link GetBatchPredictionCommand}.
+ */
 export interface GetBatchPredictionCommandOutput extends GetBatchPredictionOutput, __MetadataBearer {}
 
 /**

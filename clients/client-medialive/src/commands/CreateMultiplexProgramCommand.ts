@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateMultiplexProgramCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateMultiplexProgramCommand}.
+ */
 export interface CreateMultiplexProgramCommandInput extends CreateMultiplexProgramRequest {}
+/**
+ * The output of {@link CreateMultiplexProgramCommand}.
+ */
 export interface CreateMultiplexProgramCommandOutput extends CreateMultiplexProgramResponse, __MetadataBearer {}
 
 /**

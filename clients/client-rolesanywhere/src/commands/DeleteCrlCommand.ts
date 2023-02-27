@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * The input for {@link DeleteCrlCommand}.
+ */
 export interface DeleteCrlCommandInput extends ScalarCrlRequest {}
+/**
+ * The output of {@link DeleteCrlCommand}.
+ */
 export interface DeleteCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteElasticsearchServiceRoleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteElasticsearchServiceRoleCommand}.
+ */
 export interface DeleteElasticsearchServiceRoleCommandInput {}
+/**
+ * The output of {@link DeleteElasticsearchServiceRoleCommand}.
+ */
 export interface DeleteElasticsearchServiceRoleCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListDataIngestionJobsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListDataIngestionJobsCommand}.
+ */
 export interface ListDataIngestionJobsCommandInput extends ListDataIngestionJobsRequest {}
+/**
+ * The output of {@link ListDataIngestionJobsCommand}.
+ */
 export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJobsResponse, __MetadataBearer {}
 
 /**

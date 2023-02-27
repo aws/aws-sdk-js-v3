@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DescribeFHIRExportJobCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeFHIRExportJobCommand}.
+ */
 export interface DescribeFHIRExportJobCommandInput extends DescribeFHIRExportJobRequest {}
+/**
+ * The output of {@link DescribeFHIRExportJobCommand}.
+ */
 export interface DescribeFHIRExportJobCommandOutput extends DescribeFHIRExportJobResponse, __MetadataBearer {}
 
 /**

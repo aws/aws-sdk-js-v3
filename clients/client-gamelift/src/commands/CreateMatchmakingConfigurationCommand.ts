@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateMatchmakingConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateMatchmakingConfigurationCommand}.
+ */
 export interface CreateMatchmakingConfigurationCommandInput extends CreateMatchmakingConfigurationInput {}
+/**
+ * The output of {@link CreateMatchmakingConfigurationCommand}.
+ */
 export interface CreateMatchmakingConfigurationCommandOutput
   extends CreateMatchmakingConfigurationOutput,
     __MetadataBearer {}

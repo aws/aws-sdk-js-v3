@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RestoreVolumeFromSnapshotCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RestoreVolumeFromSnapshotCommand}.
+ */
 export interface RestoreVolumeFromSnapshotCommandInput extends RestoreVolumeFromSnapshotRequest {}
+/**
+ * The output of {@link RestoreVolumeFromSnapshotCommand}.
+ */
 export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFromSnapshotResponse, __MetadataBearer {}
 
 /**

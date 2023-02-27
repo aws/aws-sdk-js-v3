@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListLaunchesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListLaunchesCommand}.
+ */
 export interface ListLaunchesCommandInput extends ListLaunchesRequest {}
+/**
+ * The output of {@link ListLaunchesCommand}.
+ */
 export interface ListLaunchesCommandOutput extends ListLaunchesResponse, __MetadataBearer {}
 
 /**

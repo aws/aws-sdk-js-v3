@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutStoredQueryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutStoredQueryCommand}.
+ */
 export interface PutStoredQueryCommandInput extends PutStoredQueryRequest {}
+/**
+ * The output of {@link PutStoredQueryCommand}.
+ */
 export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __MetadataBearer {}
 
 /**

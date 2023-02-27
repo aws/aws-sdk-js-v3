@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateLoggerDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateLoggerDefinitionCommand}.
+ */
 export interface CreateLoggerDefinitionCommandInput extends CreateLoggerDefinitionRequest {}
+/**
+ * The output of {@link CreateLoggerDefinitionCommand}.
+ */
 export interface CreateLoggerDefinitionCommandOutput extends CreateLoggerDefinitionResponse, __MetadataBearer {}
 
 /**

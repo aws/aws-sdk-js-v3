@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListPermissionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListPermissionsCommand}.
+ */
 export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
+/**
+ * The output of {@link ListPermissionsCommand}.
+ */
 export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
 
 /**

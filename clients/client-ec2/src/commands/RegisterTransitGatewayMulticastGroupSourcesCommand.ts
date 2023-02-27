@@ -25,8 +25,14 @@ import {
   serializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RegisterTransitGatewayMulticastGroupSourcesCommand}.
+ */
 export interface RegisterTransitGatewayMulticastGroupSourcesCommandInput
   extends RegisterTransitGatewayMulticastGroupSourcesRequest {}
+/**
+ * The output of {@link RegisterTransitGatewayMulticastGroupSourcesCommand}.
+ */
 export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput
   extends RegisterTransitGatewayMulticastGroupSourcesResult,
     __MetadataBearer {}

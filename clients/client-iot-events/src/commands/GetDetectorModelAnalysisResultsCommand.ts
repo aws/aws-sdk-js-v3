@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDetectorModelAnalysisResultsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDetectorModelAnalysisResultsCommand}.
+ */
 export interface GetDetectorModelAnalysisResultsCommandInput extends GetDetectorModelAnalysisResultsRequest {}
+/**
+ * The output of {@link GetDetectorModelAnalysisResultsCommand}.
+ */
 export interface GetDetectorModelAnalysisResultsCommandOutput
   extends GetDetectorModelAnalysisResultsResponse,
     __MetadataBearer {}

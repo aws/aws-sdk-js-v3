@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link DeleteIpGroupCommand}.
+ */
 export interface DeleteIpGroupCommandInput extends DeleteIpGroupRequest {}
+/**
+ * The output of {@link DeleteIpGroupCommand}.
+ */
 export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __MetadataBearer {}
 
 /**

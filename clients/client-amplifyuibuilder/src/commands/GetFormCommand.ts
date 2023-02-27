@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetFormCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetFormCommand}.
+ */
 export interface GetFormCommandInput extends GetFormRequest {}
+/**
+ * The output of {@link GetFormCommand}.
+ */
 export interface GetFormCommandOutput extends GetFormResponse, __MetadataBearer {}
 
 /**

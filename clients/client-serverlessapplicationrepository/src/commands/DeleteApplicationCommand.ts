@@ -24,7 +24,13 @@ import {
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
 
+/**
+ * The input for {@link DeleteApplicationCommand}.
+ */
 export interface DeleteApplicationCommandInput extends DeleteApplicationRequest {}
+/**
+ * The output of {@link DeleteApplicationCommand}.
+ */
 export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
 
 /**

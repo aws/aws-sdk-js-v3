@@ -25,7 +25,13 @@ import {
   serializeAws_querySetTypeConfigurationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SetTypeConfigurationCommand}.
+ */
 export interface SetTypeConfigurationCommandInput extends SetTypeConfigurationInput {}
+/**
+ * The output of {@link SetTypeConfigurationCommand}.
+ */
 export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationOutput, __MetadataBearer {}
 
 /**

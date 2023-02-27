@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeregisterResourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeregisterResourceCommand}.
+ */
 export interface DeregisterResourceCommandInput extends DeregisterResourceRequest {}
+/**
+ * The output of {@link DeregisterResourceCommand}.
+ */
 export interface DeregisterResourceCommandOutput extends DeregisterResourceResponse, __MetadataBearer {}
 
 /**

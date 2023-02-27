@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DescribeElasticsearchDomainsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeElasticsearchDomainsCommand}.
+ */
 export interface DescribeElasticsearchDomainsCommandInput extends DescribeElasticsearchDomainsRequest {}
+/**
+ * The output of {@link DescribeElasticsearchDomainsCommand}.
+ */
 export interface DescribeElasticsearchDomainsCommandOutput
   extends DescribeElasticsearchDomainsResponse,
     __MetadataBearer {}

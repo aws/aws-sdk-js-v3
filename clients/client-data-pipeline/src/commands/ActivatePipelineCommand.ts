@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ActivatePipelineCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ActivatePipelineCommand}.
+ */
 export interface ActivatePipelineCommandInput extends ActivatePipelineInput {}
+/**
+ * The output of {@link ActivatePipelineCommand}.
+ */
 export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, __MetadataBearer {}
 
 /**

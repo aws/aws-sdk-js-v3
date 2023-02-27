@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListEulaAcceptancesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListEulaAcceptancesCommand}.
+ */
 export interface ListEulaAcceptancesCommandInput extends ListEulaAcceptancesRequest {}
+/**
+ * The output of {@link ListEulaAcceptancesCommand}.
+ */
 export interface ListEulaAcceptancesCommandOutput extends ListEulaAcceptancesResponse, __MetadataBearer {}
 
 /**

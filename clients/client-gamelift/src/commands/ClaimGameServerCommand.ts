@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ClaimGameServerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ClaimGameServerCommand}.
+ */
 export interface ClaimGameServerCommandInput extends ClaimGameServerInput {}
+/**
+ * The output of {@link ClaimGameServerCommand}.
+ */
 export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __MetadataBearer {}
 
 /**

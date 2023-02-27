@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteDataSourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteDataSourceCommand}.
+ */
 export interface DeleteDataSourceCommandInput extends DeleteDataSourceInput {}
+/**
+ * The output of {@link DeleteDataSourceCommand}.
+ */
 export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, __MetadataBearer {}
 
 /**

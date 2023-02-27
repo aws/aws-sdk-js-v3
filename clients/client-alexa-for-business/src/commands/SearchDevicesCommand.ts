@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SearchDevicesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SearchDevicesCommand}.
+ */
 export interface SearchDevicesCommandInput extends SearchDevicesRequest {}
+/**
+ * The output of {@link SearchDevicesCommand}.
+ */
 export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __MetadataBearer {}
 
 /**

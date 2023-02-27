@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link ListAccessControlRulesCommand}.
+ */
 export interface ListAccessControlRulesCommandInput extends ListAccessControlRulesRequest {}
+/**
+ * The output of {@link ListAccessControlRulesCommand}.
+ */
 export interface ListAccessControlRulesCommandOutput extends ListAccessControlRulesResponse, __MetadataBearer {}
 
 /**

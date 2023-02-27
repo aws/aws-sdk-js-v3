@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAnomalousLogGroupsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAnomalousLogGroupsCommand}.
+ */
 export interface ListAnomalousLogGroupsCommandInput extends ListAnomalousLogGroupsRequest {}
+/**
+ * The output of {@link ListAnomalousLogGroupsCommand}.
+ */
 export interface ListAnomalousLogGroupsCommandOutput extends ListAnomalousLogGroupsResponse, __MetadataBearer {}
 
 /**

@@ -17,7 +17,13 @@ import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { DeleteRoleRequest, DeleteRoleRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryDeleteRoleCommand, serializeAws_queryDeleteRoleCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteRoleCommand}.
+ */
 export interface DeleteRoleCommandInput extends DeleteRoleRequest {}
+/**
+ * The output of {@link DeleteRoleCommand}.
+ */
 export interface DeleteRoleCommandOutput extends __MetadataBearer {}
 
 /**

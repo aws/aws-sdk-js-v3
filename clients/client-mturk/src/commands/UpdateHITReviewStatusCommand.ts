@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateHITReviewStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateHITReviewStatusCommand}.
+ */
 export interface UpdateHITReviewStatusCommandInput extends UpdateHITReviewStatusRequest {}
+/**
+ * The output of {@link UpdateHITReviewStatusCommand}.
+ */
 export interface UpdateHITReviewStatusCommandOutput extends UpdateHITReviewStatusResponse, __MetadataBearer {}
 
 /**

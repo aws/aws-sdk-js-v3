@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeIpamScopesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeIpamScopesCommand}.
+ */
 export interface DescribeIpamScopesCommandInput extends DescribeIpamScopesRequest {}
+/**
+ * The output of {@link DescribeIpamScopesCommand}.
+ */
 export interface DescribeIpamScopesCommandOutput extends DescribeIpamScopesResult, __MetadataBearer {}
 
 /**

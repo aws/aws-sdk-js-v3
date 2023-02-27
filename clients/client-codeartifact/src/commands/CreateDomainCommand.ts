@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateDomainCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateDomainCommand}.
+ */
 export interface CreateDomainCommandInput extends CreateDomainRequest {}
+/**
+ * The output of {@link CreateDomainCommand}.
+ */
 export interface CreateDomainCommandOutput extends CreateDomainResult, __MetadataBearer {}
 
 /**

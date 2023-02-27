@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteTestGridProjectCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteTestGridProjectCommand}.
+ */
 export interface DeleteTestGridProjectCommandInput extends DeleteTestGridProjectRequest {}
+/**
+ * The output of {@link DeleteTestGridProjectCommand}.
+ */
 export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjectResult, __MetadataBearer {}
 
 /**

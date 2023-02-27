@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
+/**
+ * The input for {@link DescribeServicesCommand}.
+ */
 export interface DescribeServicesCommandInput extends DescribeServicesRequest {}
+/**
+ * The output of {@link DescribeServicesCommand}.
+ */
 export interface DescribeServicesCommandOutput extends DescribeServicesResponse, __MetadataBearer {}
 
 /**

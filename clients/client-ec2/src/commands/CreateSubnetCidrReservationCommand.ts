@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateSubnetCidrReservationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateSubnetCidrReservationCommand}.
+ */
 export interface CreateSubnetCidrReservationCommandInput extends CreateSubnetCidrReservationRequest {}
+/**
+ * The output of {@link CreateSubnetCidrReservationCommand}.
+ */
 export interface CreateSubnetCidrReservationCommandOutput extends CreateSubnetCidrReservationResult, __MetadataBearer {}
 
 /**

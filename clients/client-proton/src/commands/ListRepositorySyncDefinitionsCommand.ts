@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * The input for {@link ListRepositorySyncDefinitionsCommand}.
+ */
 export interface ListRepositorySyncDefinitionsCommandInput extends ListRepositorySyncDefinitionsInput {}
+/**
+ * The output of {@link ListRepositorySyncDefinitionsCommand}.
+ */
 export interface ListRepositorySyncDefinitionsCommandOutput
   extends ListRepositorySyncDefinitionsOutput,
     __MetadataBearer {}

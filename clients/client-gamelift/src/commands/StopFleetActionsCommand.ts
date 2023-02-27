@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopFleetActionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopFleetActionsCommand}.
+ */
 export interface StopFleetActionsCommandInput extends StopFleetActionsInput {}
+/**
+ * The output of {@link StopFleetActionsCommand}.
+ */
 export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, __MetadataBearer {}
 
 /**

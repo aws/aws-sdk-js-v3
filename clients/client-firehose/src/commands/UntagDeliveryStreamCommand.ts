@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UntagDeliveryStreamCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UntagDeliveryStreamCommand}.
+ */
 export interface UntagDeliveryStreamCommandInput extends UntagDeliveryStreamInput {}
+/**
+ * The output of {@link UntagDeliveryStreamCommand}.
+ */
 export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOutput, __MetadataBearer {}
 
 /**

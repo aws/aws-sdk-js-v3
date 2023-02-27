@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateWaveCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateWaveCommand}.
+ */
 export interface CreateWaveCommandInput extends CreateWaveRequest {}
+/**
+ * The output of {@link CreateWaveCommand}.
+ */
 export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetTableObjectsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetTableObjectsCommand}.
+ */
 export interface GetTableObjectsCommandInput extends GetTableObjectsRequest {}
+/**
+ * The output of {@link GetTableObjectsCommand}.
+ */
 export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, __MetadataBearer {}
 
 /**

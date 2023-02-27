@@ -398,3 +398,318 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+AcknowledgeJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/acknowledgejobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/acknowledgejobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/acknowledgejobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+AcknowledgeThirdPartyJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/acknowledgethirdpartyjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/acknowledgethirdpartyjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/acknowledgethirdpartyjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateCustomActionType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/createcustomactiontypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/createcustomactiontypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/createcustomactiontypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreatePipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/createpipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/createpipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/createpipelinecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteCustomActionType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/deletecustomactiontypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/deletecustomactiontypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/deletecustomactiontypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeletePipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/deletepipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/deletepipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/deletepipelinecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteWebhook
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/deletewebhookcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/deletewebhookcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/deletewebhookcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeregisterWebhookWithThirdParty
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/deregisterwebhookwiththirdpartycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/deregisterwebhookwiththirdpartycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/deregisterwebhookwiththirdpartycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DisableStageTransition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/disablestagetransitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/disablestagetransitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/disablestagetransitioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+EnableStageTransition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/enablestagetransitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/enablestagetransitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/enablestagetransitioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetActionType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/getactiontypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/getactiontypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/getactiontypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetJobDetails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/getjobdetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/getjobdetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/getjobdetailscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetPipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/getpipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/getpipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/getpipelinecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetPipelineExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/getpipelineexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/getpipelineexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/getpipelineexecutioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetPipelineState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/getpipelinestatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/getpipelinestatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/getpipelinestatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetThirdPartyJobDetails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/getthirdpartyjobdetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/getthirdpartyjobdetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/getthirdpartyjobdetailscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListActionExecutions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/listactionexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/listactionexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/listactionexecutionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListActionTypes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/listactiontypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/listactiontypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/listactiontypescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListPipelineExecutions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/listpipelineexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/listpipelineexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/listpipelineexecutionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListPipelines
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/listpipelinescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/listpipelinescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/listpipelinescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListWebhooks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/listwebhookscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/listwebhookscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/listwebhookscommandoutput.html)
+
+</details>
+<details>
+<summary>
+PollForJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/pollforjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/pollforjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/pollforjobscommandoutput.html)
+
+</details>
+<details>
+<summary>
+PollForThirdPartyJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/pollforthirdpartyjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/pollforthirdpartyjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/pollforthirdpartyjobscommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutActionRevision
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/putactionrevisioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/putactionrevisioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/putactionrevisioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutApprovalResult
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/putapprovalresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/putapprovalresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/putapprovalresultcommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutJobFailureResult
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/putjobfailureresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/putjobfailureresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/putjobfailureresultcommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutJobSuccessResult
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/putjobsuccessresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/putjobsuccessresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/putjobsuccessresultcommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutThirdPartyJobFailureResult
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/putthirdpartyjobfailureresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/putthirdpartyjobfailureresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/putthirdpartyjobfailureresultcommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutThirdPartyJobSuccessResult
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/putthirdpartyjobsuccessresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/putthirdpartyjobsuccessresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/putthirdpartyjobsuccessresultcommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutWebhook
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/putwebhookcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/putwebhookcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/putwebhookcommandoutput.html)
+
+</details>
+<details>
+<summary>
+RegisterWebhookWithThirdParty
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/registerwebhookwiththirdpartycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/registerwebhookwiththirdpartycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/registerwebhookwiththirdpartycommandoutput.html)
+
+</details>
+<details>
+<summary>
+RetryStageExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/retrystageexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/retrystageexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/retrystageexecutioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartPipelineExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/startpipelineexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/startpipelineexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/startpipelineexecutioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopPipelineExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/stoppipelineexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/stoppipelineexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/stoppipelineexecutioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateActionType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/updateactiontypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/updateactiontypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/updateactiontypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdatePipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/classes/updatepipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/updatepipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codepipeline/interfaces/updatepipelinecommandoutput.html)
+
+</details>

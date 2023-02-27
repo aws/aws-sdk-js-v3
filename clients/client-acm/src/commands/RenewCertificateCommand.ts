@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1RenewCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RenewCertificateCommand}.
+ */
 export interface RenewCertificateCommandInput extends RenewCertificateRequest {}
+/**
+ * The output of {@link RenewCertificateCommand}.
+ */
 export interface RenewCertificateCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchCreateAttendeeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchCreateAttendeeCommand}.
+ */
 export interface BatchCreateAttendeeCommandInput extends BatchCreateAttendeeRequest {}
+/**
+ * The output of {@link BatchCreateAttendeeCommand}.
+ */
 export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeResponse, __MetadataBearer {}
 
 /**

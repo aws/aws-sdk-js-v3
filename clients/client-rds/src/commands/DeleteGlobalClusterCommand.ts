@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DeleteGlobalClusterCommand}.
+ */
 export interface DeleteGlobalClusterCommandInput extends DeleteGlobalClusterMessage {}
+/**
+ * The output of {@link DeleteGlobalClusterCommand}.
+ */
 export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterResult, __MetadataBearer {}
 
 /**

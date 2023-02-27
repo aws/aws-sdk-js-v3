@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSubscriptionDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSubscriptionDefinitionCommand}.
+ */
 export interface GetSubscriptionDefinitionCommandInput extends GetSubscriptionDefinitionRequest {}
+/**
+ * The output of {@link GetSubscriptionDefinitionCommand}.
+ */
 export interface GetSubscriptionDefinitionCommandOutput extends GetSubscriptionDefinitionResponse, __MetadataBearer {}
 
 /**

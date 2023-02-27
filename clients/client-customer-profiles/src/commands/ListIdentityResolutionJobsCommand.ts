@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListIdentityResolutionJobsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListIdentityResolutionJobsCommand}.
+ */
 export interface ListIdentityResolutionJobsCommandInput extends ListIdentityResolutionJobsRequest {}
+/**
+ * The output of {@link ListIdentityResolutionJobsCommand}.
+ */
 export interface ListIdentityResolutionJobsCommandOutput extends ListIdentityResolutionJobsResponse, __MetadataBearer {}
 
 /**

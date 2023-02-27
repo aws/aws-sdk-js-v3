@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteMediaCapturePipelineCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteMediaCapturePipelineCommand}.
+ */
 export interface DeleteMediaCapturePipelineCommandInput extends DeleteMediaCapturePipelineRequest {}
+/**
+ * The output of {@link DeleteMediaCapturePipelineCommand}.
+ */
 export interface DeleteMediaCapturePipelineCommandOutput extends __MetadataBearer {}
 
 /**

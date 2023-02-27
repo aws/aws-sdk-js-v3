@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateConnectorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateConnectorCommand}.
+ */
 export interface CreateConnectorCommandInput extends CreateConnectorRequest {}
+/**
+ * The output of {@link CreateConnectorCommand}.
+ */
 export interface CreateConnectorCommandOutput extends CreateConnectorResponse, __MetadataBearer {}
 
 /**

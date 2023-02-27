@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteScriptCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteScriptCommand}.
+ */
 export interface DeleteScriptCommandInput extends DeleteScriptInput {}
+/**
+ * The output of {@link DeleteScriptCommand}.
+ */
 export interface DeleteScriptCommandOutput extends __MetadataBearer {}
 
 /**

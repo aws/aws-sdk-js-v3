@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteClientVpnEndpointCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteClientVpnEndpointCommand}.
+ */
 export interface DeleteClientVpnEndpointCommandInput extends DeleteClientVpnEndpointRequest {}
+/**
+ * The output of {@link DeleteClientVpnEndpointCommand}.
+ */
 export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEndpointResult, __MetadataBearer {}
 
 /**

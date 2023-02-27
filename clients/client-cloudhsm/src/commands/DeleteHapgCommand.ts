@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteHapgCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteHapgCommand}.
+ */
 export interface DeleteHapgCommandInput extends DeleteHapgRequest {}
+/**
+ * The output of {@link DeleteHapgCommand}.
+ */
 export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataBearer {}
 
 /**

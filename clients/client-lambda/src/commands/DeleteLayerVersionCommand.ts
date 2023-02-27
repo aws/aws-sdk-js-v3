@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteLayerVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteLayerVersionCommand}.
+ */
 export interface DeleteLayerVersionCommandInput extends DeleteLayerVersionRequest {}
+/**
+ * The output of {@link DeleteLayerVersionCommand}.
+ */
 export interface DeleteLayerVersionCommandOutput extends __MetadataBearer {}
 
 /**

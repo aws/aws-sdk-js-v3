@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteApiDestinationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteApiDestinationCommand}.
+ */
 export interface DeleteApiDestinationCommandInput extends DeleteApiDestinationRequest {}
+/**
+ * The output of {@link DeleteApiDestinationCommand}.
+ */
 export interface DeleteApiDestinationCommandOutput extends DeleteApiDestinationResponse, __MetadataBearer {}
 
 /**

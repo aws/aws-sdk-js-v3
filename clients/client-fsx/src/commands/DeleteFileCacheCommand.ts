@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteFileCacheCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteFileCacheCommand}.
+ */
 export interface DeleteFileCacheCommandInput extends DeleteFileCacheRequest {}
+/**
+ * The output of {@link DeleteFileCacheCommand}.
+ */
 export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, __MetadataBearer {}
 
 /**

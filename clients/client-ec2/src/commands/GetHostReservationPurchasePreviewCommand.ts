@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetHostReservationPurchasePreviewCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetHostReservationPurchasePreviewCommand}.
+ */
 export interface GetHostReservationPurchasePreviewCommandInput extends GetHostReservationPurchasePreviewRequest {}
+/**
+ * The output of {@link GetHostReservationPurchasePreviewCommand}.
+ */
 export interface GetHostReservationPurchasePreviewCommandOutput
   extends GetHostReservationPurchasePreviewResult,
     __MetadataBearer {}

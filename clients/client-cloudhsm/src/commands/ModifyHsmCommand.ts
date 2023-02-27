@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1ModifyHsmCommand, serializeAws_json1_1ModifyHsmCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ModifyHsmCommand}.
+ */
 export interface ModifyHsmCommandInput extends ModifyHsmRequest {}
+/**
+ * The output of {@link ModifyHsmCommand}.
+ */
 export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBearer {}
 
 /**

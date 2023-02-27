@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ProvisionByoipCidrCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ProvisionByoipCidrCommand}.
+ */
 export interface ProvisionByoipCidrCommandInput extends ProvisionByoipCidrRequest {}
+/**
+ * The output of {@link ProvisionByoipCidrCommand}.
+ */
 export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResponse, __MetadataBearer {}
 
 /**

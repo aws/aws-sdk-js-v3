@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociateTrackerConsumerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateTrackerConsumerCommand}.
+ */
 export interface DisassociateTrackerConsumerCommandInput extends DisassociateTrackerConsumerRequest {}
+/**
+ * The output of {@link DisassociateTrackerConsumerCommand}.
+ */
 export interface DisassociateTrackerConsumerCommandOutput
   extends DisassociateTrackerConsumerResponse,
     __MetadataBearer {}

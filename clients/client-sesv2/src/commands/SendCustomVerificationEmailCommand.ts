@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link SendCustomVerificationEmailCommand}.
+ */
 export interface SendCustomVerificationEmailCommandInput extends SendCustomVerificationEmailRequest {}
+/**
+ * The output of {@link SendCustomVerificationEmailCommand}.
+ */
 export interface SendCustomVerificationEmailCommandOutput
   extends SendCustomVerificationEmailResponse,
     __MetadataBearer {}

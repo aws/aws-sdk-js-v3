@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListPortalsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPortalsCommand}.
+ */
 export interface ListPortalsCommandInput extends ListPortalsRequest {}
+/**
+ * The output of {@link ListPortalsCommand}.
+ */
 export interface ListPortalsCommandOutput extends ListPortalsResponse, __MetadataBearer {}
 
 /**

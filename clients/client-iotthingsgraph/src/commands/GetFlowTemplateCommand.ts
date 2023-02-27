@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetFlowTemplateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetFlowTemplateCommand}.
+ */
 export interface GetFlowTemplateCommandInput extends GetFlowTemplateRequest {}
+/**
+ * The output of {@link GetFlowTemplateCommand}.
+ */
 export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, __MetadataBearer {}
 
 /**

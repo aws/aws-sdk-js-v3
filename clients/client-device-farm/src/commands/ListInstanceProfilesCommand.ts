@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListInstanceProfilesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListInstanceProfilesCommand}.
+ */
 export interface ListInstanceProfilesCommandInput extends ListInstanceProfilesRequest {}
+/**
+ * The output of {@link ListInstanceProfilesCommand}.
+ */
 export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesResult, __MetadataBearer {}
 
 /**

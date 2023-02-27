@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link UpdateSMBFileShareVisibilityCommand}.
+ */
 export interface UpdateSMBFileShareVisibilityCommandInput extends UpdateSMBFileShareVisibilityInput {}
+/**
+ * The output of {@link UpdateSMBFileShareVisibilityCommand}.
+ */
 export interface UpdateSMBFileShareVisibilityCommandOutput
   extends UpdateSMBFileShareVisibilityOutput,
     __MetadataBearer {}

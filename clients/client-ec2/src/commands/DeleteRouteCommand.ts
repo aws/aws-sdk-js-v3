@@ -17,7 +17,13 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { DeleteRouteRequest, DeleteRouteRequestFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_ec2DeleteRouteCommand, serializeAws_ec2DeleteRouteCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteRouteCommand}.
+ */
 export interface DeleteRouteCommandInput extends DeleteRouteRequest {}
+/**
+ * The output of {@link DeleteRouteCommand}.
+ */
 export interface DeleteRouteCommandOutput extends __MetadataBearer {}
 
 /**

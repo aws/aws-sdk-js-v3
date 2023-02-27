@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetPublicAccessBlockCommand}.
+ */
 export interface GetPublicAccessBlockCommandInput extends GetPublicAccessBlockRequest {}
+/**
+ * The output of {@link GetPublicAccessBlockCommand}.
+ */
 export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockOutput, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DeleteClusterSubnetGroupCommand}.
+ */
 export interface DeleteClusterSubnetGroupCommandInput extends DeleteClusterSubnetGroupMessage {}
+/**
+ * The output of {@link DeleteClusterSubnetGroupCommand}.
+ */
 export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListDeviceDefinitionVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDeviceDefinitionVersionsCommand}.
+ */
 export interface ListDeviceDefinitionVersionsCommandInput extends ListDeviceDefinitionVersionsRequest {}
+/**
+ * The output of {@link ListDeviceDefinitionVersionsCommand}.
+ */
 export interface ListDeviceDefinitionVersionsCommandOutput
   extends ListDeviceDefinitionVersionsResponse,
     __MetadataBearer {}

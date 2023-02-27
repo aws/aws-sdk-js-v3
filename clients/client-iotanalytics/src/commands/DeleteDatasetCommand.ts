@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteDatasetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteDatasetCommand}.
+ */
 export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
+/**
+ * The output of {@link DeleteDatasetCommand}.
+ */
 export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
 
 /**

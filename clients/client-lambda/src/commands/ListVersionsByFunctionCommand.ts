@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListVersionsByFunctionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListVersionsByFunctionCommand}.
+ */
 export interface ListVersionsByFunctionCommandInput extends ListVersionsByFunctionRequest {}
+/**
+ * The output of {@link ListVersionsByFunctionCommand}.
+ */
 export interface ListVersionsByFunctionCommandOutput extends ListVersionsByFunctionResponse, __MetadataBearer {}
 
 /**

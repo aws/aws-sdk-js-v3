@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartNotebookExecutionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartNotebookExecutionCommand}.
+ */
 export interface StartNotebookExecutionCommandInput extends StartNotebookExecutionInput {}
+/**
+ * The output of {@link StartNotebookExecutionCommand}.
+ */
 export interface StartNotebookExecutionCommandOutput extends StartNotebookExecutionOutput, __MetadataBearer {}
 
 /**

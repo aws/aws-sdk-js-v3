@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteDimensionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteDimensionCommand}.
+ */
 export interface DeleteDimensionCommandInput extends DeleteDimensionRequest {}
+/**
+ * The output of {@link DeleteDimensionCommand}.
+ */
 export interface DeleteDimensionCommandOutput extends DeleteDimensionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetIndexingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetIndexingConfigurationCommand}.
+ */
 export interface GetIndexingConfigurationCommandInput extends GetIndexingConfigurationRequest {}
+/**
+ * The output of {@link GetIndexingConfigurationCommand}.
+ */
 export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfigurationResponse, __MetadataBearer {}
 
 /**

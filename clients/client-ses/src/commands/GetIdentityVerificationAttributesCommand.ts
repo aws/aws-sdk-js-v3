@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link GetIdentityVerificationAttributesCommand}.
+ */
 export interface GetIdentityVerificationAttributesCommandInput extends GetIdentityVerificationAttributesRequest {}
+/**
+ * The output of {@link GetIdentityVerificationAttributesCommand}.
+ */
 export interface GetIdentityVerificationAttributesCommandOutput
   extends GetIdentityVerificationAttributesResponse,
     __MetadataBearer {}

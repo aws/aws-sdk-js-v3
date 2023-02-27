@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetDeploymentGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetDeploymentGroupsCommand}.
+ */
 export interface BatchGetDeploymentGroupsCommandInput extends BatchGetDeploymentGroupsInput {}
+/**
+ * The output of {@link BatchGetDeploymentGroupsCommand}.
+ */
 export interface BatchGetDeploymentGroupsCommandOutput extends BatchGetDeploymentGroupsOutput, __MetadataBearer {}
 
 /**

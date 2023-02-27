@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1StartPHIDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartPHIDetectionJobCommand}.
+ */
 export interface StartPHIDetectionJobCommandInput extends StartPHIDetectionJobRequest {}
+/**
+ * The output of {@link StartPHIDetectionJobCommand}.
+ */
 export interface StartPHIDetectionJobCommandOutput extends StartPHIDetectionJobResponse, __MetadataBearer {}
 
 /**

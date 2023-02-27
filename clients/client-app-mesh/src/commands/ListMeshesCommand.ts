@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListMeshesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListMeshesCommand}.
+ */
 export interface ListMeshesCommandInput extends ListMeshesInput {}
+/**
+ * The output of {@link ListMeshesCommand}.
+ */
 export interface ListMeshesCommandOutput extends ListMeshesOutput, __MetadataBearer {}
 
 /**

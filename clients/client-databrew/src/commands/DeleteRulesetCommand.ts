@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteRulesetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteRulesetCommand}.
+ */
 export interface DeleteRulesetCommandInput extends DeleteRulesetRequest {}
+/**
+ * The output of {@link DeleteRulesetCommand}.
+ */
 export interface DeleteRulesetCommandOutput extends DeleteRulesetResponse, __MetadataBearer {}
 
 /**

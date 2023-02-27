@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartProjectSessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartProjectSessionCommand}.
+ */
 export interface StartProjectSessionCommandInput extends StartProjectSessionRequest {}
+/**
+ * The output of {@link StartProjectSessionCommand}.
+ */
 export interface StartProjectSessionCommandOutput extends StartProjectSessionResponse, __MetadataBearer {}
 
 /**

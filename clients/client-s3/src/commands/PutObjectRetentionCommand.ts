@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link PutObjectRetentionCommand}.
+ */
 export interface PutObjectRetentionCommandInput extends PutObjectRetentionRequest {}
+/**
+ * The output of {@link PutObjectRetentionCommand}.
+ */
 export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetLinkAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetLinkAssociationsCommand}.
+ */
 export interface GetLinkAssociationsCommandInput extends GetLinkAssociationsRequest {}
+/**
+ * The output of {@link GetLinkAssociationsCommand}.
+ */
 export interface GetLinkAssociationsCommandOutput extends GetLinkAssociationsResponse, __MetadataBearer {}
 
 /**

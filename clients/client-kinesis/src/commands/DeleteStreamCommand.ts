@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteStreamCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteStreamCommand}.
+ */
 export interface DeleteStreamCommandInput extends DeleteStreamInput {}
+/**
+ * The output of {@link DeleteStreamCommand}.
+ */
 export interface DeleteStreamCommandOutput extends __MetadataBearer {}
 
 /**

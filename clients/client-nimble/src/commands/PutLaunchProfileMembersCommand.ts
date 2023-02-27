@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutLaunchProfileMembersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutLaunchProfileMembersCommand}.
+ */
 export interface PutLaunchProfileMembersCommandInput extends PutLaunchProfileMembersRequest {}
+/**
+ * The output of {@link PutLaunchProfileMembersCommand}.
+ */
 export interface PutLaunchProfileMembersCommandOutput extends PutLaunchProfileMembersResponse, __MetadataBearer {}
 
 /**

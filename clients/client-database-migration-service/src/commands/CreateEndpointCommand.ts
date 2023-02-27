@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1CreateEndpointCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateEndpointCommand}.
+ */
 export interface CreateEndpointCommandInput extends CreateEndpointMessage {}
+/**
+ * The output of {@link CreateEndpointCommand}.
+ */
 export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __MetadataBearer {}
 
 /**

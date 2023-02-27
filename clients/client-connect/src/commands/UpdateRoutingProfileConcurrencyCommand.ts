@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1UpdateRoutingProfileConcurrencyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateRoutingProfileConcurrencyCommand}.
+ */
 export interface UpdateRoutingProfileConcurrencyCommandInput extends UpdateRoutingProfileConcurrencyRequest {}
+/**
+ * The output of {@link UpdateRoutingProfileConcurrencyCommand}.
+ */
 export interface UpdateRoutingProfileConcurrencyCommandOutput extends __MetadataBearer {}
 
 /**

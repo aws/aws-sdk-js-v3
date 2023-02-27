@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateChangesetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateChangesetCommand}.
+ */
 export interface CreateChangesetCommandInput extends CreateChangesetRequest {}
+/**
+ * The output of {@link CreateChangesetCommand}.
+ */
 export interface CreateChangesetCommandOutput extends CreateChangesetResponse, __MetadataBearer {}
 
 /**

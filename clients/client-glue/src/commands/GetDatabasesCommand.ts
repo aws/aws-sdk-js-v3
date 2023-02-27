@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDatabasesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDatabasesCommand}.
+ */
 export interface GetDatabasesCommandInput extends GetDatabasesRequest {}
+/**
+ * The output of {@link GetDatabasesCommand}.
+ */
 export interface GetDatabasesCommandOutput extends GetDatabasesResponse, __MetadataBearer {}
 
 /**

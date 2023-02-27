@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeLocationFsxLustreCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLocationFsxLustreCommand}.
+ */
 export interface DescribeLocationFsxLustreCommandInput extends DescribeLocationFsxLustreRequest {}
+/**
+ * The output of {@link DescribeLocationFsxLustreCommand}.
+ */
 export interface DescribeLocationFsxLustreCommandOutput extends DescribeLocationFsxLustreResponse, __MetadataBearer {}
 
 /**

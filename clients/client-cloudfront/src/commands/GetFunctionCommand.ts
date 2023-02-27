@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlGetFunctionCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link GetFunctionCommand}.
+ */
 export interface GetFunctionCommandInput extends GetFunctionRequest {}
+/**
+ * The output of {@link GetFunctionCommand}.
+ */
 export interface GetFunctionCommandOutput extends GetFunctionResult, __MetadataBearer {}
 
 /**

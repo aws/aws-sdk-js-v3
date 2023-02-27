@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateVoiceConnectorGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateVoiceConnectorGroupCommand}.
+ */
 export interface UpdateVoiceConnectorGroupCommandInput extends UpdateVoiceConnectorGroupRequest {}
+/**
+ * The output of {@link UpdateVoiceConnectorGroupCommand}.
+ */
 export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**

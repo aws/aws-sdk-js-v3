@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateDynamicThingGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateDynamicThingGroupCommand}.
+ */
 export interface UpdateDynamicThingGroupCommandInput extends UpdateDynamicThingGroupRequest {}
+/**
+ * The output of {@link UpdateDynamicThingGroupCommand}.
+ */
 export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThingGroupResponse, __MetadataBearer {}
 
 /**

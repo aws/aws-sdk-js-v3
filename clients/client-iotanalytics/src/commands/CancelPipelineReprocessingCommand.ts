@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelPipelineReprocessingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelPipelineReprocessingCommand}.
+ */
 export interface CancelPipelineReprocessingCommandInput extends CancelPipelineReprocessingRequest {}
+/**
+ * The output of {@link CancelPipelineReprocessingCommand}.
+ */
 export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineReprocessingResponse, __MetadataBearer {}
 
 /**

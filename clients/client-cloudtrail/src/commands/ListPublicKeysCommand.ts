@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListPublicKeysCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListPublicKeysCommand}.
+ */
 export interface ListPublicKeysCommandInput extends ListPublicKeysRequest {}
+/**
+ * The output of {@link ListPublicKeysCommand}.
+ */
 export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __MetadataBearer {}
 
 /**

@@ -28,7 +28,13 @@ import {
   serializeAws_restJson1GetWorkUnitResultsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetWorkUnitResultsCommand}.
+ */
 export interface GetWorkUnitResultsCommandInput extends GetWorkUnitResultsRequest {}
+/**
+ * The output of {@link GetWorkUnitResultsCommand}.
+ */
 export interface GetWorkUnitResultsCommandOutput
   extends __WithSdkStreamMixin<GetWorkUnitResultsResponse, "ResultStream">,
     __MetadataBearer {}

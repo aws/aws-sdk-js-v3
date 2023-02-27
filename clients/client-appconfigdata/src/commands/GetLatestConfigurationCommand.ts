@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetLatestConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetLatestConfigurationCommand}.
+ */
 export interface GetLatestConfigurationCommandInput extends GetLatestConfigurationRequest {}
+/**
+ * The output of {@link GetLatestConfigurationCommand}.
+ */
 export interface GetLatestConfigurationCommandOutput extends GetLatestConfigurationResponse, __MetadataBearer {}
 
 /**

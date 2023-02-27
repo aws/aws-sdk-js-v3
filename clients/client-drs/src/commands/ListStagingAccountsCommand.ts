@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListStagingAccountsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListStagingAccountsCommand}.
+ */
 export interface ListStagingAccountsCommandInput extends ListStagingAccountsRequest {}
+/**
+ * The output of {@link ListStagingAccountsCommand}.
+ */
 export interface ListStagingAccountsCommandOutput extends ListStagingAccountsResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteInstanceProfileCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteInstanceProfileCommand}.
+ */
 export interface DeleteInstanceProfileCommandInput extends DeleteInstanceProfileRequest {}
+/**
+ * The output of {@link DeleteInstanceProfileCommand}.
+ */
 export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**

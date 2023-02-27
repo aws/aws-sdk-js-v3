@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link DeleteWorkflowCommand}.
+ */
 export interface DeleteWorkflowCommandInput extends DeleteWorkflowRequest {}
+/**
+ * The output of {@link DeleteWorkflowCommand}.
+ */
 export interface DeleteWorkflowCommandOutput extends __MetadataBearer {}
 
 /**

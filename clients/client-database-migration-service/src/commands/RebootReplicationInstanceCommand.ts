@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1RebootReplicationInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RebootReplicationInstanceCommand}.
+ */
 export interface RebootReplicationInstanceCommandInput extends RebootReplicationInstanceMessage {}
+/**
+ * The output of {@link RebootReplicationInstanceCommand}.
+ */
 export interface RebootReplicationInstanceCommandOutput extends RebootReplicationInstanceResponse, __MetadataBearer {}
 
 /**

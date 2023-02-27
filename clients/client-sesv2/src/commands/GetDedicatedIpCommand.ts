@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link GetDedicatedIpCommand}.
+ */
 export interface GetDedicatedIpCommandInput extends GetDedicatedIpRequest {}
+/**
+ * The output of {@link GetDedicatedIpCommand}.
+ */
 export interface GetDedicatedIpCommandOutput extends GetDedicatedIpResponse, __MetadataBearer {}
 
 /**

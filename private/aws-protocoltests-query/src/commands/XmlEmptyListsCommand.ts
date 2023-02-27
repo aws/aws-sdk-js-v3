@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link XmlEmptyListsCommand}.
+ */
 export interface XmlEmptyListsCommandInput {}
+/**
+ * The output of {@link XmlEmptyListsCommand}.
+ */
 export interface XmlEmptyListsCommandOutput extends XmlListsOutput, __MetadataBearer {}
 
 export class XmlEmptyListsCommand extends $Command<

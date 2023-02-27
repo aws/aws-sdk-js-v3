@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyInstanceEventWindowCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyInstanceEventWindowCommand}.
+ */
 export interface ModifyInstanceEventWindowCommandInput extends ModifyInstanceEventWindowRequest {}
+/**
+ * The output of {@link ModifyInstanceEventWindowCommand}.
+ */
 export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEventWindowResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteSkillAuthorizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteSkillAuthorizationCommand}.
+ */
 export interface DeleteSkillAuthorizationCommandInput extends DeleteSkillAuthorizationRequest {}
+/**
+ * The output of {@link DeleteSkillAuthorizationCommand}.
+ */
 export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthorizationResponse, __MetadataBearer {}
 
 /**

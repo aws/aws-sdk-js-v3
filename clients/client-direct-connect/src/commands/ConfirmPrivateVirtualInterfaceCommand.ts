@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ConfirmPrivateVirtualInterfaceCommand}.
+ */
 export interface ConfirmPrivateVirtualInterfaceCommandInput extends ConfirmPrivateVirtualInterfaceRequest {}
+/**
+ * The output of {@link ConfirmPrivateVirtualInterfaceCommand}.
+ */
 export interface ConfirmPrivateVirtualInterfaceCommandOutput
   extends ConfirmPrivateVirtualInterfaceResponse,
     __MetadataBearer {}

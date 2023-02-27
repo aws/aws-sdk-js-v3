@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * The input for {@link UpdateDevicePolicyConfigurationCommand}.
+ */
 export interface UpdateDevicePolicyConfigurationCommandInput extends UpdateDevicePolicyConfigurationRequest {}
+/**
+ * The output of {@link UpdateDevicePolicyConfigurationCommand}.
+ */
 export interface UpdateDevicePolicyConfigurationCommandOutput
   extends UpdateDevicePolicyConfigurationResponse,
     __MetadataBearer {}

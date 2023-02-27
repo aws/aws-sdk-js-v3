@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListEntityRecognizersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListEntityRecognizersCommand}.
+ */
 export interface ListEntityRecognizersCommandInput extends ListEntityRecognizersRequest {}
+/**
+ * The output of {@link ListEntityRecognizersCommand}.
+ */
 export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizersResponse, __MetadataBearer {}
 
 /**

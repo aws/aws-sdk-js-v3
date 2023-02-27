@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RegisterThingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RegisterThingCommand}.
+ */
 export interface RegisterThingCommandInput extends RegisterThingRequest {}
+/**
+ * The output of {@link RegisterThingCommand}.
+ */
 export interface RegisterThingCommandOutput extends RegisterThingResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDocumentationPartCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDocumentationPartCommand}.
+ */
 export interface GetDocumentationPartCommandInput extends GetDocumentationPartRequest {}
+/**
+ * The output of {@link GetDocumentationPartCommand}.
+ */
 export interface GetDocumentationPartCommandOutput extends DocumentationPart, __MetadataBearer {}
 
 /**

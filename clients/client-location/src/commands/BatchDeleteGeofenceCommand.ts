@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchDeleteGeofenceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchDeleteGeofenceCommand}.
+ */
 export interface BatchDeleteGeofenceCommandInput extends BatchDeleteGeofenceRequest {}
+/**
+ * The output of {@link BatchDeleteGeofenceCommand}.
+ */
 export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceResponse, __MetadataBearer {}
 
 /**

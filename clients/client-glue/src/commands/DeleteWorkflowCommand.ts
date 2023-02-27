@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteWorkflowCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteWorkflowCommand}.
+ */
 export interface DeleteWorkflowCommandInput extends DeleteWorkflowRequest {}
+/**
+ * The output of {@link DeleteWorkflowCommand}.
+ */
 export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __MetadataBearer {}
 
 /**

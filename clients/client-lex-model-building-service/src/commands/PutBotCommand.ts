@@ -26,7 +26,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_restJson1PutBotCommand, serializeAws_restJson1PutBotCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutBotCommand}.
+ */
 export interface PutBotCommandInput extends PutBotRequest {}
+/**
+ * The output of {@link PutBotCommand}.
+ */
 export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
 
 /**

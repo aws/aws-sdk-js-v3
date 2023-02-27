@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeletePreparedStatementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeletePreparedStatementCommand}.
+ */
 export interface DeletePreparedStatementCommandInput extends DeletePreparedStatementInput {}
+/**
+ * The output of {@link DeletePreparedStatementCommand}.
+ */
 export interface DeletePreparedStatementCommandOutput extends DeletePreparedStatementOutput, __MetadataBearer {}
 
 /**

@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1GetSipMediaApplicationAlexaSkillConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSipMediaApplicationAlexaSkillConfigurationCommand}.
+ */
 export interface GetSipMediaApplicationAlexaSkillConfigurationCommandInput
   extends GetSipMediaApplicationAlexaSkillConfigurationRequest {}
+/**
+ * The output of {@link GetSipMediaApplicationAlexaSkillConfigurationCommand}.
+ */
 export interface GetSipMediaApplicationAlexaSkillConfigurationCommandOutput
   extends GetSipMediaApplicationAlexaSkillConfigurationResponse,
     __MetadataBearer {}
