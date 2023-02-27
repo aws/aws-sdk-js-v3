@@ -1251,7 +1251,7 @@ export interface CloudFormationCollection {
  *    		tagging, so you can assign the same tag to resources from different services to indicate
  *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
  *    		table resource that you assign to an Lambda function. For more information about
- *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+ *    		using tags, see the <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html">Tagging
  *    			best practices</a> whitepaper. </p>
  *          <p>Each Amazon Web Services tag has two parts. </p>
  *          <ul>
@@ -1331,7 +1331,7 @@ export interface ResourceCollection {
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
    *    		table resource that you assign to an Lambda function. For more information about
-   *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+   *    		using tags, see the <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html">Tagging
    *    			best practices</a> whitepaper. </p>
    *          <p>Each Amazon Web Services tag has two parts. </p>
    *          <ul>
@@ -1447,6 +1447,13 @@ export interface ProactiveAnomaly {
    * <p>Information about a resource in which DevOps Guru detected anomalous behavior.</p>
    */
   AnomalyResources?: AnomalyResource[];
+
+  /**
+   * <p>
+   * 			A description of the proactive anomaly.
+   * 		</p>
+   */
+  Description?: string;
 }
 
 /**
@@ -2080,7 +2087,7 @@ export interface DescribeOrganizationResourceCollectionHealthResponse {
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
    *    		table resource that you assign to an Lambda function. For more information about
-   *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+   *    		using tags, see the <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html">Tagging
    *    			best practices</a> whitepaper. </p>
    *          <p>Each Amazon Web Services tag has two parts. </p>
    *          <ul>
@@ -2161,7 +2168,7 @@ export interface DescribeResourceCollectionHealthResponse {
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
    *    		table resource that you assign to an Lambda function. For more information about
-   *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+   *    		using tags, see the <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html">Tagging
    *    			best practices</a> whitepaper. </p>
    *          <p>Each Amazon Web Services tag has two parts. </p>
    *          <ul>
@@ -2382,7 +2389,7 @@ export interface CostEstimationResourceCollectionFilter {
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
    *    		table resource that you assign to an Lambda function. For more information about
-   *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+   *    		using tags, see the <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html">Tagging
    *    			best practices</a> whitepaper. </p>
    *          <p>Each Amazon Web Services tag has two parts. </p>
    *          <ul>
@@ -2555,7 +2562,7 @@ export interface ResourceCollectionFilter {
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
    *    		table resource that you assign to an Lambda function. For more information about
-   *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+   *    		using tags, see the <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html">Tagging
    *    			best practices</a> whitepaper. </p>
    *          <p>Each Amazon Web Services tag has two parts. </p>
    *          <ul>
@@ -2763,6 +2770,13 @@ export interface ProactiveAnomalySummary {
    * <p>Information about a resource in which DevOps Guru detected anomalous behavior.</p>
    */
   AnomalyResources?: AnomalyResource[];
+
+  /**
+   * <p>
+   * 			A description of the proactive anomaly.
+   * 		</p>
+   */
+  Description?: string;
 }
 
 /**
@@ -3919,8 +3933,10 @@ export interface RemoveNotificationChannelRequest {
 export interface RemoveNotificationChannelResponse {}
 
 /**
- * <p> Specifies one or more severity values and one or more status values that are used to
- * 			search for insights. </p>
+ * <p>Specifies values used to filter responses when searching for insights.
+ * 			You can use a <code>ResourceCollection</code>, <code>ServiceCollection</code>, array of severities, and an array of status values.
+ * 			Each filter type contains one or more values to search for. If you specify multiple filter types,
+ * 			the filter types are joined with an <code>AND</code>, and the request returns only results that match all of the specified filters.</p>
  */
 export interface SearchInsightsFilters {
   /**
@@ -4174,7 +4190,7 @@ export interface UpdateResourceCollectionFilter {
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
    *    		table resource that you assign to an Lambda function. For more information about
-   *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+   *    		using tags, see the <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html">Tagging
    *    			best practices</a> whitepaper. </p>
    *          <p>Each Amazon Web Services tag has two parts. </p>
    *          <ul>

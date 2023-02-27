@@ -4231,6 +4231,7 @@ const deserializeAws_restJson1ProactiveAnomaly = (output: any, context: __SerdeC
         ? deserializeAws_restJson1AnomalyTimeRange(output.AnomalyTimeRange, context)
         : undefined,
     AssociatedInsightId: __expectString(output.AssociatedInsightId),
+    Description: __expectString(output.Description),
     Id: __expectString(output.Id),
     Limit: __limitedParseDouble(output.Limit),
     PredictionTimeRange:
@@ -4274,6 +4275,7 @@ const deserializeAws_restJson1ProactiveAnomalySummary = (
         ? deserializeAws_restJson1AnomalyTimeRange(output.AnomalyTimeRange, context)
         : undefined,
     AssociatedInsightId: __expectString(output.AssociatedInsightId),
+    Description: __expectString(output.Description),
     Id: __expectString(output.Id),
     Limit: __limitedParseDouble(output.Limit),
     PredictionTimeRange:
