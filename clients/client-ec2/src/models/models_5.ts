@@ -1611,7 +1611,8 @@ export interface DisableFastLaunchResult {
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse;
 
   /**
-   * <p>The maximum number of parallel instances to launch for creating resources.</p>
+   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to
+   * 			create pre-provisioned snapshots for Windows faster launching.</p>
    */
   MaxParallelLaunches?: number;
 
@@ -2477,7 +2478,9 @@ export interface EnableFastLaunchRequest {
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationRequest;
 
   /**
-   * <p>The maximum number of parallel instances to launch for creating resources. Value must be <code>6</code> or greater. </p>
+   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
+   * 			pre-provisioned snapshots for Windows faster launching. Value must be
+   * 			<code>6</code> or greater.</p>
    */
   MaxParallelLaunches?: number;
 
@@ -2501,8 +2504,8 @@ export interface EnableFastLaunchResult {
   ResourceType?: FastLaunchResourceType | string;
 
   /**
-   * <p>The configuration settings that were defined for creating and managing the pre-provisioned snapshots
-   * 			for faster launching of the Windows AMI. This property is returned when the associated
+   * <p>Settings to create and manage the pre-provisioned snapshots that Amazon EC2 uses for faster
+   * 			launches from the Windows AMI. This property is returned when the associated
    * 			<code>resourceType</code> is <code>snapshot</code>.</p>
    */
   SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse;
@@ -2513,7 +2516,8 @@ export interface EnableFastLaunchResult {
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse;
 
   /**
-   * <p>The maximum number of parallel instances to launch for creating resources.</p>
+   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to
+   * 			create pre-provisioned snapshots for Windows faster launching.</p>
    */
   MaxParallelLaunches?: number;
 
@@ -3939,14 +3943,14 @@ export interface GetInstanceTypesFromInstanceRequirementsRequest {
   InstanceRequirements: InstanceRequirementsRequest | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 1 and
-   *          1000. The default value is 1000. To retrieve the remaining results, make another call with
-   *          the returned <code>NextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -3968,7 +3972,8 @@ export interface GetInstanceTypesFromInstanceRequirementsResult {
   InstanceTypes?: InstanceTypeInfoFromInstanceRequirements[];
 
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -5101,14 +5106,14 @@ export interface GetSpotPlacementScoresRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 1 and
-   *       1000. The default value is 1000. To retrieve the remaining results, make another call with
-   *       the returned <code>NextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -5160,7 +5165,8 @@ export interface GetSpotPlacementScoresResult {
   SpotPlacementScores?: SpotPlacementScore[];
 
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -6648,17 +6654,14 @@ export interface ListImagesInRecycleBinRequest {
   ImageIds?: string[];
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *          <p>If you do not specify a value for <i>MaxResults</i>, the request
-   *       returns 1,000 items per page by default. For more information, see
-   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">
-   *         Pagination</a>.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
@@ -6707,7 +6710,8 @@ export interface ListImagesInRecycleBinResult {
   Images?: ImageRecycleBinInfo[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 }

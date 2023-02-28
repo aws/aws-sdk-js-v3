@@ -51236,6 +51236,13 @@ const serializeAws_ec2ModifyImageAttributeRequest = (
       entries[loc] = value;
     });
   }
+  if (input.ImdsSupport != null) {
+    const memberEntries = serializeAws_ec2AttributeValue(input.ImdsSupport, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ImdsSupport.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 

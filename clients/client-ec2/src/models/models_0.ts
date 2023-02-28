@@ -2343,10 +2343,8 @@ export interface AllocateHostsRequest {
 
   /**
    * <p>Indicates whether to enable or disable host maintenance for the Dedicated Host. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html"> Host
+   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html">Host
    *                 maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>Default: <code>on</code>
-   *          </p>
    */
   HostMaintenance?: HostMaintenance | string;
 }
@@ -5419,10 +5417,9 @@ export interface CancelReservedInstancesListingResult {
  */
 export interface CancelSpotFleetRequestsRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
@@ -5432,8 +5429,10 @@ export interface CancelSpotFleetRequestsRequest {
   SpotFleetRequestIds: string[] | undefined;
 
   /**
-   * <p>Indicates whether to terminate instances for a Spot Fleet request if it is canceled
-   *             successfully.</p>
+   * <p>Indicates whether to terminate the associated instances when the Spot Fleet request is canceled.
+   *         The default is to terminate the instances.</p>
+   *          <p>To let the instances continue to run after the Spot Fleet request is canceled, specify
+   *           <code>no-terminate-instances</code>.</p>
    */
   TerminateInstances: boolean | undefined;
 }

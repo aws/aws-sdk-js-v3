@@ -4691,9 +4691,9 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Cancels the specified Spot Fleet requests.</p>
-   *          <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new Spot Instances.
-   *             You must specify whether the Spot Fleet should also terminate its Spot Instances. If you
-   *             terminate the instances, the Spot Fleet request enters the
+   *          <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new instances.</p>
+   *          <p>You must also specify whether a canceled Spot Fleet request should terminate its instances. If you
+   *             choose to terminate the instances, the Spot Fleet request enters the
    *                 <code>cancelled_terminating</code> state. Otherwise, the Spot Fleet request enters
    *             the <code>cancelled_running</code> state and the instances continue to run until they
    *             are interrupted or you terminate them manually.</p>
@@ -8265,9 +8265,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes the specified EC2 Fleet.</p>
+   * <p>Deletes the specified EC2 Fleets.</p>
    *          <p>After you delete an EC2 Fleet, it launches no new instances.</p>
-   *          <p>You must specify whether a deleted EC2 Fleet should also terminate its instances. If you
+   *          <p>You must also specify whether a deleted EC2 Fleet should terminate its instances. If you
    *          choose to terminate the instances, the EC2 Fleet enters the <code>deleted_terminating</code>
    *          state. Otherwise, the EC2 Fleet enters the <code>deleted_running</code> state, and the instances
    *          continue to run until they are interrupted or you terminate them manually.</p>
@@ -14318,12 +14318,12 @@ export class EC2 extends EC2Client {
    *             with a filter to look for instances where the instance lifecycle is
    *             <code>spot</code>.</p>
    *          <p>We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to
-   *             limit the number of results returned. This paginates the output, which makes the list
-   *             more manageable and returns the results faster. If the list of results exceeds your
-   *                 <code>MaxResults</code> value, then that number of results is returned along with a
+   *             limit the number of items returned. This paginates the output, which makes the list
+   *             more manageable and returns the items faster. If the list of items exceeds your
+   *                 <code>MaxResults</code> value, then that number of items is returned along with a
    *                 <code>NextToken</code> value that can be passed to a subsequent
    *                 <code>DescribeSpotInstanceRequests</code> request to retrieve the remaining
-   *             results.</p>
+   *             items.</p>
    *          <p>Spot Instance requests are deleted four hours after they are canceled and their instances are
    *             terminated.</p>
    */
@@ -19047,7 +19047,14 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).</p>
+   * <note>
+   *             <p>To import your virtual machines (VMs) with a console-based experience, you can use the
+   *     <i>Import virtual machine images to Amazon Web Services</i> template in the <a href="https://console.aws.amazon.com/migrationhub/orchestrator">Migration Hub Orchestrator console</a>. For more
+   *     information, see the <a href="https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/import-vm-images.html">
+   *                   <i>Migration Hub Orchestrator User Guide</i>
+   *                </a>.</p>
+   *          </note>
+   *          <p>Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).</p>
    *          <important>
    *             <p>Amazon Web Services VM Import/Export strongly recommends specifying a value for either the
    *      <code>--license-type</code> or <code>--usage-operation</code> parameter when you create a new
@@ -19767,9 +19774,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.
-   *        You can use the <code>Attribute</code> parameter to specify the attribute or one of the following parameters:
-   *        <code>Description</code> or <code>LaunchPermission</code>.</p>
+   * <p>Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.</p>
+   *          <p>To specify the attribute, you can use the <code>Attribute</code> parameter, or one of the following parameters:
+   *        <code>Description</code>, <code>ImdsSupport</code>, or <code>LaunchPermission</code>.</p>
    *          <p>Images with an Amazon Web Services Marketplace product code cannot be made public.</p>
    *          <p>To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport on an instance
    *        and create an AMI from the instance.</p>
@@ -21445,15 +21452,16 @@ export class EC2 extends EC2Client {
    *                     addresses when queried from instances in the peer VPC.</p>
    *             </li>
    *          </ul>
-   *          <p>If the peered VPCs are in the same Amazon Web Services account, you can enable DNS resolution
-   *         for queries from the local VPC. This ensures that queries from the local VPC resolve to private IP
-   *         addresses in the peer VPC. This option is not available if the peered VPCs are in different
-   *         different Amazon Web Services accounts or different Regions. For peered VPCs in different
-   *         Amazon Web Services accounts, each Amazon Web Services account owner must initiate a separate request
-   *         to modify the peering connection options. For inter-region peering connections, you must use the
-   *         Region for the requester VPC to modify the requester VPC peering options and the Region for the
-   *         accepter VPC to modify the accepter VPC peering options. To verify which VPCs are the accepter and
-   *         the requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a> command.</p>
+   *          <p>If the peered VPCs are in the same Amazon Web Services account, you can enable DNS
+   *             resolution for queries from the local VPC. This ensures that queries from the local VPC
+   *             resolve to private IP addresses in the peer VPC. This option is not available if the
+   *             peered VPCs are in different Amazon Web Services accounts or different Regions. For
+   *             peered VPCs in different Amazon Web Services accounts, each Amazon Web Services account
+   *             owner must initiate a separate request to modify the peering connection options. For
+   *             inter-region peering connections, you must use the Region for the requester VPC to
+   *             modify the requester VPC peering options and the Region for the accepter VPC to modify
+   *             the accepter VPC peering options. To verify which VPCs are the accepter and the
+   *             requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a> command.</p>
    */
   public modifyVpcPeeringConnectionOptions(
     args: ModifyVpcPeeringConnectionOptionsCommandInput,
