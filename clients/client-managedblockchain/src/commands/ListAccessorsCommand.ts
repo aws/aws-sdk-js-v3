@@ -39,12 +39,7 @@ export interface ListAccessorsCommandInput extends ListAccessorsInput {}
 export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
- *         subject to change. We recommend that you use this feature only with
- *         test scenarios, and not in production environments.</p>
- *          </important>
- *          <p>Returns a list of the accessors and their properties. Accessor objects are containers that have the
+ * <p>Returns a list of the accessors and their properties. Accessor objects are containers that have the
  *          information required for token based access to your Ethereum nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

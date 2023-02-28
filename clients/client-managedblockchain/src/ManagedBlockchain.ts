@@ -97,17 +97,12 @@ import { ManagedBlockchainClient } from "./ManagedBlockchainClient";
 /**
  * <p></p>
  *          <p>Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks using open-source frameworks. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority.</p>
- *         <p>Managed Blockchain supports the Hyperledger Fabric and Ethereum open-source frameworks. Because of fundamental differences between the frameworks, some API actions or data types may only apply in the context of one framework and not the other. For example, actions related to Hyperledger Fabric network members such as <code>CreateMember</code> and <code>DeleteMember</code> don't apply to Ethereum.</p>
- *         <p>The description for each action indicates the framework or frameworks to which it applies. Data types and properties that apply only in the context of a particular framework are similarly indicated.</p>
+ *          <p>Managed Blockchain supports the Hyperledger Fabric and Ethereum open-source frameworks. Because of fundamental differences between the frameworks, some API actions or data types may only apply in the context of one framework and not the other. For example, actions related to Hyperledger Fabric network members such as <code>CreateMember</code> and <code>DeleteMember</code> don't apply to Ethereum.</p>
+ *          <p>The description for each action indicates the framework or frameworks to which it applies. Data types and properties that apply only in the context of a particular framework are similarly indicated.</p>
  */
 export class ManagedBlockchain extends ManagedBlockchainClient {
   /**
-   * <important>
-   *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
-   *         subject to change. We recommend that you use this feature only with
-   *         test scenarios, and not in production environments.</p>
-   *          </important>
-   *          <p>Creates a new accessor for use with Managed Blockchain Ethereum nodes. An accessor object is a container that has the information
+   * <p>Creates a new accessor for use with Managed Blockchain Ethereum nodes. An accessor contains information
    *          required for token based access to your Ethereum nodes.</p>
    */
   public createAccessor(
@@ -263,12 +258,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <important>
-   *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
-   *         subject to change. We recommend that you use this feature only with
-   *         test scenarios, and not in production environments.</p>
-   *          </important>
-   *          <p>Deletes an accessor that your Amazon Web Services account owns. An accessor object is a container that has the
+   * <p>Deletes an accessor that your Amazon Web Services account owns. An accessor object is a container that has the
    *          information required for token based access to your Ethereum nodes including, the
    *          <code>BILLING_TOKEN</code>. After an accessor is deleted, the status of the accessor changes
    *          from <code>AVAILABLE</code> to <code>PENDING_DELETION</code>. An accessor in the
@@ -363,12 +353,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <important>
-   *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
-   *         subject to change. We recommend that you use this feature only with
-   *         test scenarios, and not in production environments.</p>
-   *          </important>
-   *          <p>Returns detailed information about an accessor. An accessor object is a container that has the
+   * <p>Returns detailed information about an accessor. An accessor object is a container that has the
    *          information required for token based access to your Ethereum nodes.</p>
    */
   public getAccessor(args: GetAccessorCommandInput, options?: __HttpHandlerOptions): Promise<GetAccessorCommandOutput>;
@@ -503,12 +488,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <important>
-   *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
-   *         subject to change. We recommend that you use this feature only with
-   *         test scenarios, and not in production environments.</p>
-   *          </important>
-   *          <p>Returns a list of the accessors and their properties. Accessor objects are containers that have the
+   * <p>Returns a list of the accessors and their properties. Accessor objects are containers that have the
    *          information required for token based access to your Ethereum nodes.</p>
    */
   public listAccessors(

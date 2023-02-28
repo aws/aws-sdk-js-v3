@@ -114,6 +114,7 @@ export const serializeAws_restJson1CreateAccessorCommand = async (
   body = JSON.stringify({
     ...(input.AccessorType != null && { AccessorType: input.AccessorType }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -865,6 +866,9 @@ const deserializeAws_restJson1CreateAccessorCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.managedblockchain#TooManyTagsException":
+      throw await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2640,6 +2644,7 @@ const deserializeAws_restJson1Accessor = (output: any, context: __SerdeContext):
       output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
     Id: __expectString(output.Id),
     Status: __expectString(output.Status),
+    Tags: output.Tags != null ? deserializeAws_restJson1OutputTagMap(output.Tags, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };

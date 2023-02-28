@@ -39,12 +39,7 @@ export interface DeleteAccessorCommandInput extends DeleteAccessorInput {}
 export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
- *         subject to change. We recommend that you use this feature only with
- *         test scenarios, and not in production environments.</p>
- *          </important>
- *          <p>Deletes an accessor that your Amazon Web Services account owns. An accessor object is a container that has the
+ * <p>Deletes an accessor that your Amazon Web Services account owns. An accessor object is a container that has the
  *          information required for token based access to your Ethereum nodes including, the
  *          <code>BILLING_TOKEN</code>. After an accessor is deleted, the status of the accessor changes
  *          from <code>AVAILABLE</code> to <code>PENDING_DELETION</code>. An accessor in the
