@@ -19,7 +19,7 @@ import {
   StopTrainingEntityRecognizerRequestFilterSensitiveLog,
   StopTrainingEntityRecognizerResponse,
   StopTrainingEntityRecognizerResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1StopTrainingEntityRecognizerCommand,
   serializeAws_json1_1StopTrainingEntityRecognizerCommand,

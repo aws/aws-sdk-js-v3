@@ -15,49 +15,47 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
-  StartDocumentClassificationJobRequest,
-  StartDocumentClassificationJobRequestFilterSensitiveLog,
-  StartDocumentClassificationJobResponse,
-  StartDocumentClassificationJobResponseFilterSensitiveLog,
+  DescribeFlywheelIterationRequest,
+  DescribeFlywheelIterationRequestFilterSensitiveLog,
+  DescribeFlywheelIterationResponse,
+  DescribeFlywheelIterationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1StartDocumentClassificationJobCommand,
-  serializeAws_json1_1StartDocumentClassificationJobCommand,
+  deserializeAws_json1_1DescribeFlywheelIterationCommand,
+  serializeAws_json1_1DescribeFlywheelIterationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
- * The input for {@link StartDocumentClassificationJobCommand}.
+ * The input for {@link DescribeFlywheelIterationCommand}.
  */
-export interface StartDocumentClassificationJobCommandInput extends StartDocumentClassificationJobRequest {}
+export interface DescribeFlywheelIterationCommandInput extends DescribeFlywheelIterationRequest {}
 /**
- * The output of {@link StartDocumentClassificationJobCommand}.
+ * The output of {@link DescribeFlywheelIterationCommand}.
  */
-export interface StartDocumentClassificationJobCommandOutput
-  extends StartDocumentClassificationJobResponse,
-    __MetadataBearer {}
+export interface DescribeFlywheelIterationCommandOutput extends DescribeFlywheelIterationResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous document classification job. Use the
- *       <code>DescribeDocumentClassificationJob</code>
- *           operation to track the progress of the job.</p>
+ * <p>Retrieve the configuration properties of a flywheel iteration.
+ *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
+ *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, StartDocumentClassificationJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, StartDocumentClassificationJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, DescribeFlywheelIterationCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, DescribeFlywheelIterationCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const command = new StartDocumentClassificationJobCommand(input);
+ * const command = new DescribeFlywheelIterationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link StartDocumentClassificationJobCommandInput} for command's `input` shape.
- * @see {@link StartDocumentClassificationJobCommandOutput} for command's `response` shape.
+ * @see {@link DescribeFlywheelIterationCommandInput} for command's `input` shape.
+ * @see {@link DescribeFlywheelIterationCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
-export class StartDocumentClassificationJobCommand extends $Command<
-  StartDocumentClassificationJobCommandInput,
-  StartDocumentClassificationJobCommandOutput,
+export class DescribeFlywheelIterationCommand extends $Command<
+  DescribeFlywheelIterationCommandInput,
+  DescribeFlywheelIterationCommandOutput,
   ComprehendClientResolvedConfig
 > {
   // Start section: command_properties
@@ -72,7 +70,7 @@ export class StartDocumentClassificationJobCommand extends $Command<
     };
   }
 
-  constructor(readonly input: StartDocumentClassificationJobCommandInput) {
+  constructor(readonly input: DescribeFlywheelIterationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -85,23 +83,23 @@ export class StartDocumentClassificationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartDocumentClassificationJobCommandInput, StartDocumentClassificationJobCommandOutput> {
+  ): Handler<DescribeFlywheelIterationCommandInput, DescribeFlywheelIterationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartDocumentClassificationJobCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeFlywheelIterationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ComprehendClient";
-    const commandName = "StartDocumentClassificationJobCommand";
+    const commandName = "DescribeFlywheelIterationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDocumentClassificationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDocumentClassificationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFlywheelIterationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFlywheelIterationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +109,15 @@ export class StartDocumentClassificationJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartDocumentClassificationJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDocumentClassificationJobCommand(input, context);
+  private serialize(input: DescribeFlywheelIterationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeFlywheelIterationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<StartDocumentClassificationJobCommandOutput> {
-    return deserializeAws_json1_1StartDocumentClassificationJobCommand(output, context);
+  ): Promise<DescribeFlywheelIterationCommandOutput> {
+    return deserializeAws_json1_1DescribeFlywheelIterationCommand(output, context);
   }
 
   // Start section: command_body_extra

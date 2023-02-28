@@ -37,7 +37,7 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
 /**
  * <p>Creates an entity recognizer using submitted files. After your
  *         <code>CreateEntityRecognizer</code> request is submitted, you can check job status using the
- *          API. </p>
+ *         <code>DescribeEntityRecognizer</code> API. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

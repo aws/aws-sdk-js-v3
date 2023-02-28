@@ -19,7 +19,7 @@ import {
   StopTargetedSentimentDetectionJobRequestFilterSensitiveLog,
   StopTargetedSentimentDetectionJobResponse,
   StopTargetedSentimentDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1StopTargetedSentimentDetectionJobCommand,
   serializeAws_json1_1StopTargetedSentimentDetectionJobCommand,

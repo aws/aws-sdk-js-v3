@@ -38,7 +38,7 @@ export interface StartTargetedSentimentDetectionJobCommandOutput
 
 /**
  * <p>Starts an asynchronous targeted sentiment detection job for a collection of documents. Use the
- *        operation to track the status of a
+ *       <code>DescribeTargetedSentimentDetectionJob</code> operation to track the status of a
  *       job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

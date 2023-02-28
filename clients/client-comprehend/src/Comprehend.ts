@@ -42,6 +42,11 @@ import {
   ContainsPiiEntitiesCommandOutput,
 } from "./commands/ContainsPiiEntitiesCommand";
 import {
+  CreateDatasetCommand,
+  CreateDatasetCommandInput,
+  CreateDatasetCommandOutput,
+} from "./commands/CreateDatasetCommand";
+import {
   CreateDocumentClassifierCommand,
   CreateDocumentClassifierCommandInput,
   CreateDocumentClassifierCommandOutput,
@@ -56,6 +61,11 @@ import {
   CreateEntityRecognizerCommandInput,
   CreateEntityRecognizerCommandOutput,
 } from "./commands/CreateEntityRecognizerCommand";
+import {
+  CreateFlywheelCommand,
+  CreateFlywheelCommandInput,
+  CreateFlywheelCommandOutput,
+} from "./commands/CreateFlywheelCommand";
 import {
   DeleteDocumentClassifierCommand,
   DeleteDocumentClassifierCommandInput,
@@ -72,10 +82,20 @@ import {
   DeleteEntityRecognizerCommandOutput,
 } from "./commands/DeleteEntityRecognizerCommand";
 import {
+  DeleteFlywheelCommand,
+  DeleteFlywheelCommandInput,
+  DeleteFlywheelCommandOutput,
+} from "./commands/DeleteFlywheelCommand";
+import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
+import {
+  DescribeDatasetCommand,
+  DescribeDatasetCommandInput,
+  DescribeDatasetCommandOutput,
+} from "./commands/DescribeDatasetCommand";
 import {
   DescribeDocumentClassificationJobCommand,
   DescribeDocumentClassificationJobCommandInput,
@@ -111,6 +131,16 @@ import {
   DescribeEventsDetectionJobCommandInput,
   DescribeEventsDetectionJobCommandOutput,
 } from "./commands/DescribeEventsDetectionJobCommand";
+import {
+  DescribeFlywheelCommand,
+  DescribeFlywheelCommandInput,
+  DescribeFlywheelCommandOutput,
+} from "./commands/DescribeFlywheelCommand";
+import {
+  DescribeFlywheelIterationCommand,
+  DescribeFlywheelIterationCommandInput,
+  DescribeFlywheelIterationCommandOutput,
+} from "./commands/DescribeFlywheelIterationCommand";
 import {
   DescribeKeyPhrasesDetectionJobCommand,
   DescribeKeyPhrasesDetectionJobCommandInput,
@@ -178,6 +208,11 @@ import {
 } from "./commands/DetectTargetedSentimentCommand";
 import { ImportModelCommand, ImportModelCommandInput, ImportModelCommandOutput } from "./commands/ImportModelCommand";
 import {
+  ListDatasetsCommand,
+  ListDatasetsCommandInput,
+  ListDatasetsCommandOutput,
+} from "./commands/ListDatasetsCommand";
+import {
   ListDocumentClassificationJobsCommand,
   ListDocumentClassificationJobsCommandInput,
   ListDocumentClassificationJobsCommandOutput,
@@ -222,6 +257,16 @@ import {
   ListEventsDetectionJobsCommandInput,
   ListEventsDetectionJobsCommandOutput,
 } from "./commands/ListEventsDetectionJobsCommand";
+import {
+  ListFlywheelIterationHistoryCommand,
+  ListFlywheelIterationHistoryCommandInput,
+  ListFlywheelIterationHistoryCommandOutput,
+} from "./commands/ListFlywheelIterationHistoryCommand";
+import {
+  ListFlywheelsCommand,
+  ListFlywheelsCommandInput,
+  ListFlywheelsCommandOutput,
+} from "./commands/ListFlywheelsCommand";
 import {
   ListKeyPhrasesDetectionJobsCommand,
   ListKeyPhrasesDetectionJobsCommandInput,
@@ -277,6 +322,11 @@ import {
   StartEventsDetectionJobCommandInput,
   StartEventsDetectionJobCommandOutput,
 } from "./commands/StartEventsDetectionJobCommand";
+import {
+  StartFlywheelIterationCommand,
+  StartFlywheelIterationCommandInput,
+  StartFlywheelIterationCommandOutput,
+} from "./commands/StartFlywheelIterationCommand";
 import {
   StartKeyPhrasesDetectionJobCommand,
   StartKeyPhrasesDetectionJobCommandInput,
@@ -358,6 +408,11 @@ import {
   UpdateEndpointCommandInput,
   UpdateEndpointCommandOutput,
 } from "./commands/UpdateEndpointCommand";
+import {
+  UpdateFlywheelCommand,
+  UpdateFlywheelCommandInput,
+  UpdateFlywheelCommandOutput,
+} from "./commands/UpdateFlywheelCommand";
 import { ComprehendClient } from "./ComprehendClient";
 
 /**
@@ -648,6 +703,40 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>Creates a dataset to upload training or test data for a model associated with a flywheel.
+   *       For more information about datasets, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
+   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   */
+  public createDataset(
+    args: CreateDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDatasetCommandOutput>;
+  public createDataset(
+    args: CreateDatasetCommandInput,
+    cb: (err: any, data?: CreateDatasetCommandOutput) => void
+  ): void;
+  public createDataset(
+    args: CreateDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDatasetCommandOutput) => void
+  ): void;
+  public createDataset(
+    args: CreateDatasetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatasetCommandOutput) => void),
+    cb?: (err: any, data?: CreateDatasetCommandOutput) => void
+  ): Promise<CreateDatasetCommandOutput> | void {
+    const command = new CreateDatasetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a new document classifier that you can use to categorize documents. To create a
    *       classifier, you provide a set of training documents that labeled with the categories that you
    *       want to use. After the classifier is trained you can use it to categorize a set of labeled
@@ -721,7 +810,7 @@ export class Comprehend extends ComprehendClient {
   /**
    * <p>Creates an entity recognizer using submitted files. After your
    *         <code>CreateEntityRecognizer</code> request is submitted, you can check job status using the
-   *          API. </p>
+   *         <code>DescribeEntityRecognizer</code> API. </p>
    */
   public createEntityRecognizer(
     args: CreateEntityRecognizerCommandInput,
@@ -742,6 +831,48 @@ export class Comprehend extends ComprehendClient {
     cb?: (err: any, data?: CreateEntityRecognizerCommandOutput) => void
   ): Promise<CreateEntityRecognizerCommandOutput> | void {
     const command = new CreateEntityRecognizerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>A flywheel is an AWS resource that orchestrates the ongoing training of a model for custom classification
+   *       or custom entity recognition. You can create a flywheel to start with an existing trained model, or
+   *       Comprehend can create and train a new model.</p>
+   *          <p>When you create the flywheel, Comprehend creates a data lake in your account. The data lake holds the training
+   *       data and test data for all versions of the model.</p>
+   *          <p>To use a flywheel with an existing trained model, you specify the active model version. Comprehend copies the model's
+   *       training data and test data into the flywheel's data lake.</p>
+   *          <p>To use the flywheel with a new model, you need to provide a dataset for training data (and optional test data)
+   *       when you create the flywheel.</p>
+   *          <p>For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
+   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   */
+  public createFlywheel(
+    args: CreateFlywheelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFlywheelCommandOutput>;
+  public createFlywheel(
+    args: CreateFlywheelCommandInput,
+    cb: (err: any, data?: CreateFlywheelCommandOutput) => void
+  ): void;
+  public createFlywheel(
+    args: CreateFlywheelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFlywheelCommandOutput) => void
+  ): void;
+  public createFlywheel(
+    args: CreateFlywheelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFlywheelCommandOutput) => void),
+    cb?: (err: any, data?: CreateFlywheelCommandOutput) => void
+  ): Promise<CreateFlywheelCommandOutput> | void {
+    const command = new CreateFlywheelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -863,6 +994,41 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>Deletes a flywheel. When you delete the flywheel, Amazon Comprehend
+   *       does not delete the data lake or the model associated with the flywheel.</p>
+   *          <p>For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
+   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   */
+  public deleteFlywheel(
+    args: DeleteFlywheelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFlywheelCommandOutput>;
+  public deleteFlywheel(
+    args: DeleteFlywheelCommandInput,
+    cb: (err: any, data?: DeleteFlywheelCommandOutput) => void
+  ): void;
+  public deleteFlywheel(
+    args: DeleteFlywheelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFlywheelCommandOutput) => void
+  ): void;
+  public deleteFlywheel(
+    args: DeleteFlywheelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFlywheelCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFlywheelCommandOutput) => void
+  ): Promise<DeleteFlywheelCommandOutput> | void {
+    const command = new DeleteFlywheelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a resource-based policy that is attached to a custom model.</p>
    */
   public deleteResourcePolicy(
@@ -884,6 +1050,40 @@ export class Comprehend extends ComprehendClient {
     cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): Promise<DeleteResourcePolicyCommandOutput> | void {
     const command = new DeleteResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about the dataset that you specify.
+   *       For more information about datasets, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
+   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   */
+  public describeDataset(
+    args: DescribeDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDatasetCommandOutput>;
+  public describeDataset(
+    args: DescribeDatasetCommandInput,
+    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): void;
+  public describeDataset(
+    args: DescribeDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): void;
+  public describeDataset(
+    args: DescribeDatasetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDatasetCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): Promise<DescribeDatasetCommandOutput> | void {
+    const command = new DescribeDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1114,6 +1314,73 @@ export class Comprehend extends ComprehendClient {
     cb?: (err: any, data?: DescribeEventsDetectionJobCommandOutput) => void
   ): Promise<DescribeEventsDetectionJobCommandOutput> | void {
     const command = new DescribeEventsDetectionJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides configuration information about the flywheel. For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
+   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   */
+  public describeFlywheel(
+    args: DescribeFlywheelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFlywheelCommandOutput>;
+  public describeFlywheel(
+    args: DescribeFlywheelCommandInput,
+    cb: (err: any, data?: DescribeFlywheelCommandOutput) => void
+  ): void;
+  public describeFlywheel(
+    args: DescribeFlywheelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFlywheelCommandOutput) => void
+  ): void;
+  public describeFlywheel(
+    args: DescribeFlywheelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFlywheelCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFlywheelCommandOutput) => void
+  ): Promise<DescribeFlywheelCommandOutput> | void {
+    const command = new DescribeFlywheelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieve the configuration properties of a flywheel iteration.
+   *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
+   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   */
+  public describeFlywheelIteration(
+    args: DescribeFlywheelIterationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFlywheelIterationCommandOutput>;
+  public describeFlywheelIteration(
+    args: DescribeFlywheelIterationCommandInput,
+    cb: (err: any, data?: DescribeFlywheelIterationCommandOutput) => void
+  ): void;
+  public describeFlywheelIteration(
+    args: DescribeFlywheelIterationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFlywheelIterationCommandOutput) => void
+  ): void;
+  public describeFlywheelIteration(
+    args: DescribeFlywheelIterationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFlywheelIterationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFlywheelIterationCommandOutput) => void
+  ): Promise<DescribeFlywheelIterationCommandOutput> | void {
+    const command = new DescribeFlywheelIterationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1599,6 +1866,36 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>List the datasets that you have configured in this region. For more information about datasets, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
+   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   */
+  public listDatasets(
+    args: ListDatasetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasetsCommandOutput>;
+  public listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
+  public listDatasets(
+    args: ListDatasetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): void;
+  public listDatasets(
+    args: ListDatasetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasetsCommandOutput) => void),
+    cb?: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): Promise<ListDatasetsCommandOutput> | void {
+    const command = new ListDatasetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of the documentation classification jobs that you have submitted.</p>
    */
   public listDocumentClassificationJobs(
@@ -1893,6 +2190,72 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>Information about the history of a flywheel iteration.
+   *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
+   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   */
+  public listFlywheelIterationHistory(
+    args: ListFlywheelIterationHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlywheelIterationHistoryCommandOutput>;
+  public listFlywheelIterationHistory(
+    args: ListFlywheelIterationHistoryCommandInput,
+    cb: (err: any, data?: ListFlywheelIterationHistoryCommandOutput) => void
+  ): void;
+  public listFlywheelIterationHistory(
+    args: ListFlywheelIterationHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFlywheelIterationHistoryCommandOutput) => void
+  ): void;
+  public listFlywheelIterationHistory(
+    args: ListFlywheelIterationHistoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFlywheelIterationHistoryCommandOutput) => void),
+    cb?: (err: any, data?: ListFlywheelIterationHistoryCommandOutput) => void
+  ): Promise<ListFlywheelIterationHistoryCommandOutput> | void {
+    const command = new ListFlywheelIterationHistoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of the flywheels that you have created.</p>
+   */
+  public listFlywheels(
+    args: ListFlywheelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlywheelsCommandOutput>;
+  public listFlywheels(
+    args: ListFlywheelsCommandInput,
+    cb: (err: any, data?: ListFlywheelsCommandOutput) => void
+  ): void;
+  public listFlywheels(
+    args: ListFlywheelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFlywheelsCommandOutput) => void
+  ): void;
+  public listFlywheels(
+    args: ListFlywheelsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFlywheelsCommandOutput) => void),
+    cb?: (err: any, data?: ListFlywheelsCommandOutput) => void
+  ): Promise<ListFlywheelsCommandOutput> | void {
+    const command = new ListFlywheelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Get a list of key phrase detection jobs that you have submitted.</p>
    */
   public listKeyPhrasesDetectionJobs(
@@ -2119,8 +2482,9 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   * <p>Starts an asynchronous document classification job. Use the  operation to track the progress of the
-   *       job.</p>
+   * <p>Starts an asynchronous document classification job. Use the
+   *       <code>DescribeDocumentClassificationJob</code>
+   *           operation to track the progress of the job.</p>
    */
   public startDocumentClassificationJob(
     args: StartDocumentClassificationJobCommandInput,
@@ -2254,6 +2618,40 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>Start the flywheel iteration.This operation uses any new datasets to train a new model version.
+   *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
+   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   */
+  public startFlywheelIteration(
+    args: StartFlywheelIterationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartFlywheelIterationCommandOutput>;
+  public startFlywheelIteration(
+    args: StartFlywheelIterationCommandInput,
+    cb: (err: any, data?: StartFlywheelIterationCommandOutput) => void
+  ): void;
+  public startFlywheelIteration(
+    args: StartFlywheelIterationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartFlywheelIterationCommandOutput) => void
+  ): void;
+  public startFlywheelIteration(
+    args: StartFlywheelIterationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartFlywheelIterationCommandOutput) => void),
+    cb?: (err: any, data?: StartFlywheelIterationCommandOutput) => void
+  ): Promise<StartFlywheelIterationCommandOutput> | void {
+    const command = new StartFlywheelIterationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts an asynchronous key phrase detection job for a collection of documents. Use the
    *          operation to track the status of a
    *       job.</p>
@@ -2355,7 +2753,7 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Starts an asynchronous targeted sentiment detection job for a collection of documents. Use the
-   *        operation to track the status of a
+   *       <code>DescribeTargetedSentimentDetectionJob</code> operation to track the status of a
    *       job.</p>
    */
   public startTargetedSentimentDetectionJob(
@@ -2847,6 +3245,38 @@ export class Comprehend extends ComprehendClient {
     cb?: (err: any, data?: UpdateEndpointCommandOutput) => void
   ): Promise<UpdateEndpointCommandOutput> | void {
     const command = new UpdateEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update the configuration information for an existing flywheel.</p>
+   */
+  public updateFlywheel(
+    args: UpdateFlywheelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFlywheelCommandOutput>;
+  public updateFlywheel(
+    args: UpdateFlywheelCommandInput,
+    cb: (err: any, data?: UpdateFlywheelCommandOutput) => void
+  ): void;
+  public updateFlywheel(
+    args: UpdateFlywheelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFlywheelCommandOutput) => void
+  ): void;
+  public updateFlywheel(
+    args: UpdateFlywheelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFlywheelCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFlywheelCommandOutput) => void
+  ): Promise<UpdateFlywheelCommandOutput> | void {
+    const command = new UpdateFlywheelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

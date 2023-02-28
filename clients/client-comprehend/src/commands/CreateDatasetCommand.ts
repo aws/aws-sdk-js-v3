@@ -15,49 +15,47 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
-  StartDocumentClassificationJobRequest,
-  StartDocumentClassificationJobRequestFilterSensitiveLog,
-  StartDocumentClassificationJobResponse,
-  StartDocumentClassificationJobResponseFilterSensitiveLog,
+  CreateDatasetRequest,
+  CreateDatasetRequestFilterSensitiveLog,
+  CreateDatasetResponse,
+  CreateDatasetResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1StartDocumentClassificationJobCommand,
-  serializeAws_json1_1StartDocumentClassificationJobCommand,
+  deserializeAws_json1_1CreateDatasetCommand,
+  serializeAws_json1_1CreateDatasetCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
- * The input for {@link StartDocumentClassificationJobCommand}.
+ * The input for {@link CreateDatasetCommand}.
  */
-export interface StartDocumentClassificationJobCommandInput extends StartDocumentClassificationJobRequest {}
+export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 /**
- * The output of {@link StartDocumentClassificationJobCommand}.
+ * The output of {@link CreateDatasetCommand}.
  */
-export interface StartDocumentClassificationJobCommandOutput
-  extends StartDocumentClassificationJobResponse,
-    __MetadataBearer {}
+export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous document classification job. Use the
- *       <code>DescribeDocumentClassificationJob</code>
- *           operation to track the progress of the job.</p>
+ * <p>Creates a dataset to upload training or test data for a model associated with a flywheel.
+ *       For more information about datasets, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
+ *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, StartDocumentClassificationJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, StartDocumentClassificationJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, CreateDatasetCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, CreateDatasetCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const command = new StartDocumentClassificationJobCommand(input);
+ * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link StartDocumentClassificationJobCommandInput} for command's `input` shape.
- * @see {@link StartDocumentClassificationJobCommandOutput} for command's `response` shape.
+ * @see {@link CreateDatasetCommandInput} for command's `input` shape.
+ * @see {@link CreateDatasetCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
-export class StartDocumentClassificationJobCommand extends $Command<
-  StartDocumentClassificationJobCommandInput,
-  StartDocumentClassificationJobCommandOutput,
+export class CreateDatasetCommand extends $Command<
+  CreateDatasetCommandInput,
+  CreateDatasetCommandOutput,
   ComprehendClientResolvedConfig
 > {
   // Start section: command_properties
@@ -72,7 +70,7 @@ export class StartDocumentClassificationJobCommand extends $Command<
     };
   }
 
-  constructor(readonly input: StartDocumentClassificationJobCommandInput) {
+  constructor(readonly input: CreateDatasetCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -85,23 +83,21 @@ export class StartDocumentClassificationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartDocumentClassificationJobCommandInput, StartDocumentClassificationJobCommandOutput> {
+  ): Handler<CreateDatasetCommandInput, CreateDatasetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartDocumentClassificationJobCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateDatasetCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ComprehendClient";
-    const commandName = "StartDocumentClassificationJobCommand";
+    const commandName = "CreateDatasetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDocumentClassificationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDocumentClassificationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: CreateDatasetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDatasetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +107,12 @@ export class StartDocumentClassificationJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartDocumentClassificationJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDocumentClassificationJobCommand(input, context);
+  private serialize(input: CreateDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1CreateDatasetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartDocumentClassificationJobCommandOutput> {
-    return deserializeAws_json1_1StartDocumentClassificationJobCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetCommandOutput> {
+    return deserializeAws_json1_1CreateDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra
