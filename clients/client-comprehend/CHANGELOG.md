@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.281.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.280.0...v3.281.0) (2023-02-28)
+
+
+### Features
+
+* **client-comprehend:** Amazon Comprehend now supports flywheels to help you train and manage new model versions for custom models. ([af22194](https://github.com/aws/aws-sdk-js-v3/commit/af2219431139f6229b591484602e643ea0f92be7))
+
+
+
+
+
 # [3.279.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.278.0...v3.279.0) (2023-02-24)
 
 **Note:** Version bump only for package @aws-sdk/client-comprehend

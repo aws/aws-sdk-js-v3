@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.281.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.280.0...v3.281.0) (2023-02-28)
+
+
+### Features
+
+* **client-comprehend:** Amazon Comprehend now supports flywheels to help you train and manage new model versions for custom models. ([af22194](https://github.com/aws/aws-sdk-js-v3/commit/af2219431139f6229b591484602e643ea0f92be7))
+* **client-ec2:** This release allows IMDS support to be set to v2-only on an existing AMI, so that all future instances launched from that AMI will use IMDSv2 by default. ([b623f24](https://github.com/aws/aws-sdk-js-v3/commit/b623f244863585e9dc752a707a276f475568ae40))
+* **client-lightsail:** This release adds Lightsail for Research feature support, such as GUI session access, cost estimates, stop instance on idle, and disk auto mount. ([f86feb5](https://github.com/aws/aws-sdk-js-v3/commit/f86feb54ea3dbccbc91577d060e8488cab79e50e))
+* **client-managedblockchain:** This release adds support for tagging to the accessor resource in Amazon Managed Blockchain ([82de475](https://github.com/aws/aws-sdk-js-v3/commit/82de475e95f0b3a2be5431f3298dff10e99f2c3a))
+* **client-omics:** Minor model changes to accomodate batch imports feature ([386065a](https://github.com/aws/aws-sdk-js-v3/commit/386065a1bcd3761bf641e973073fb90a3922b57a))
+* **clients:** update client endpoints as of 2023-02-28 ([387a8e7](https://github.com/aws/aws-sdk-js-v3/commit/387a8e7744005655d731c40559d41e27b4f3d01f))
+
+
+
+
+
 # [3.280.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.279.0...v3.280.0) (2023-02-27)
 
 
