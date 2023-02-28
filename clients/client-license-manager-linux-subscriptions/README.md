@@ -218,7 +218,7 @@ see LICENSE for more information.
 GetServiceSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/classes/getservicesettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/getservicesettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/getservicesettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-linux-subscriptions/classes/getservicesettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-linux-subscriptions/interfaces/getservicesettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-linux-subscriptions/interfaces/getservicesettingscommandoutput.html)
 
 </details>
 <details>
@@ -226,7 +226,7 @@ GetServiceSettings
 ListLinuxSubscriptionInstances
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/classes/listlinuxsubscriptioninstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/listlinuxsubscriptioninstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/listlinuxsubscriptioninstancescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-linux-subscriptions/classes/listlinuxsubscriptioninstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-linux-subscriptions/interfaces/listlinuxsubscriptioninstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-linux-subscriptions/interfaces/listlinuxsubscriptioninstancescommandoutput.html)
 
 </details>
 <details>
@@ -234,7 +234,7 @@ ListLinuxSubscriptionInstances
 ListLinuxSubscriptions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/classes/listlinuxsubscriptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/listlinuxsubscriptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/listlinuxsubscriptionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-linux-subscriptions/classes/listlinuxsubscriptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-linux-subscriptions/interfaces/listlinuxsubscriptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-linux-subscriptions/interfaces/listlinuxsubscriptionscommandoutput.html)
 
 </details>
 <details>
@@ -242,6 +242,6 @@ ListLinuxSubscriptions
 UpdateServiceSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/classes/updateservicesettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/updateservicesettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license manager linux subscriptions/interfaces/updateservicesettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-linux-subscriptions/classes/updateservicesettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-linux-subscriptions/interfaces/updateservicesettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-linux-subscriptions/interfaces/updateservicesettingscommandoutput.html)
 
 </details>

@@ -221,7 +221,7 @@ see LICENSE for more information.
 AssociateAwsAccountWithPartnerAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/associateawsaccountwithpartneraccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/associateawsaccountwithpartneraccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/associateawsaccountwithpartneraccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/associateawsaccountwithpartneraccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/associateawsaccountwithpartneraccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/associateawsaccountwithpartneraccountcommandoutput.html)
 
 </details>
 <details>
@@ -229,7 +229,7 @@ AssociateAwsAccountWithPartnerAccount
 AssociateMulticastGroupWithFuotaTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/associatemulticastgroupwithfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/associatemulticastgroupwithfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/associatemulticastgroupwithfuotataskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/associatemulticastgroupwithfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/associatemulticastgroupwithfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/associatemulticastgroupwithfuotataskcommandoutput.html)
 
 </details>
 <details>
@@ -237,7 +237,7 @@ AssociateMulticastGroupWithFuotaTask
 AssociateWirelessDeviceWithFuotaTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/associatewirelessdevicewithfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/associatewirelessdevicewithfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/associatewirelessdevicewithfuotataskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/associatewirelessdevicewithfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/associatewirelessdevicewithfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/associatewirelessdevicewithfuotataskcommandoutput.html)
 
 </details>
 <details>
@@ -245,7 +245,7 @@ AssociateWirelessDeviceWithFuotaTask
 AssociateWirelessDeviceWithMulticastGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/associatewirelessdevicewithmulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/associatewirelessdevicewithmulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/associatewirelessdevicewithmulticastgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/associatewirelessdevicewithmulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/associatewirelessdevicewithmulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/associatewirelessdevicewithmulticastgroupcommandoutput.html)
 
 </details>
 <details>
@@ -253,7 +253,7 @@ AssociateWirelessDeviceWithMulticastGroup
 AssociateWirelessDeviceWithThing
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/associatewirelessdevicewiththingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/associatewirelessdevicewiththingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/associatewirelessdevicewiththingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/associatewirelessdevicewiththingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/associatewirelessdevicewiththingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/associatewirelessdevicewiththingcommandoutput.html)
 
 </details>
 <details>
@@ -261,7 +261,7 @@ AssociateWirelessDeviceWithThing
 AssociateWirelessGatewayWithCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/associatewirelessgatewaywithcertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/associatewirelessgatewaywithcertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/associatewirelessgatewaywithcertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/associatewirelessgatewaywithcertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/associatewirelessgatewaywithcertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/associatewirelessgatewaywithcertificatecommandoutput.html)
 
 </details>
 <details>
@@ -269,7 +269,7 @@ AssociateWirelessGatewayWithCertificate
 AssociateWirelessGatewayWithThing
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/associatewirelessgatewaywiththingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/associatewirelessgatewaywiththingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/associatewirelessgatewaywiththingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/associatewirelessgatewaywiththingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/associatewirelessgatewaywiththingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/associatewirelessgatewaywiththingcommandoutput.html)
 
 </details>
 <details>
@@ -277,7 +277,7 @@ AssociateWirelessGatewayWithThing
 CancelMulticastGroupSession
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/cancelmulticastgroupsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/cancelmulticastgroupsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/cancelmulticastgroupsessioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/cancelmulticastgroupsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/cancelmulticastgroupsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/cancelmulticastgroupsessioncommandoutput.html)
 
 </details>
 <details>
@@ -285,7 +285,7 @@ CancelMulticastGroupSession
 CreateDestination
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/createdestinationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createdestinationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createdestinationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/createdestinationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createdestinationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createdestinationcommandoutput.html)
 
 </details>
 <details>
@@ -293,7 +293,7 @@ CreateDestination
 CreateDeviceProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/createdeviceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createdeviceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createdeviceprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/createdeviceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createdeviceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createdeviceprofilecommandoutput.html)
 
 </details>
 <details>
@@ -301,7 +301,7 @@ CreateDeviceProfile
 CreateFuotaTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/createfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createfuotataskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/createfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createfuotataskcommandoutput.html)
 
 </details>
 <details>
@@ -309,7 +309,7 @@ CreateFuotaTask
 CreateMulticastGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/createmulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createmulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createmulticastgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/createmulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createmulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createmulticastgroupcommandoutput.html)
 
 </details>
 <details>
@@ -317,7 +317,7 @@ CreateMulticastGroup
 CreateNetworkAnalyzerConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/createnetworkanalyzerconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createnetworkanalyzerconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createnetworkanalyzerconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/createnetworkanalyzerconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createnetworkanalyzerconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createnetworkanalyzerconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -325,7 +325,7 @@ CreateNetworkAnalyzerConfiguration
 CreateServiceProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/createserviceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createserviceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createserviceprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/createserviceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createserviceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createserviceprofilecommandoutput.html)
 
 </details>
 <details>
@@ -333,7 +333,7 @@ CreateServiceProfile
 CreateWirelessDevice
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/createwirelessdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createwirelessdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createwirelessdevicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/createwirelessdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createwirelessdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createwirelessdevicecommandoutput.html)
 
 </details>
 <details>
@@ -341,7 +341,7 @@ CreateWirelessDevice
 CreateWirelessGateway
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/createwirelessgatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createwirelessgatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createwirelessgatewaycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/createwirelessgatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createwirelessgatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createwirelessgatewaycommandoutput.html)
 
 </details>
 <details>
@@ -349,7 +349,7 @@ CreateWirelessGateway
 CreateWirelessGatewayTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/createwirelessgatewaytaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createwirelessgatewaytaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createwirelessgatewaytaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/createwirelessgatewaytaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createwirelessgatewaytaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createwirelessgatewaytaskcommandoutput.html)
 
 </details>
 <details>
@@ -357,7 +357,7 @@ CreateWirelessGatewayTask
 CreateWirelessGatewayTaskDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/createwirelessgatewaytaskdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createwirelessgatewaytaskdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/createwirelessgatewaytaskdefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/createwirelessgatewaytaskdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createwirelessgatewaytaskdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/createwirelessgatewaytaskdefinitioncommandoutput.html)
 
 </details>
 <details>
@@ -365,7 +365,7 @@ CreateWirelessGatewayTaskDefinition
 DeleteDestination
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/deletedestinationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletedestinationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletedestinationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/deletedestinationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletedestinationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletedestinationcommandoutput.html)
 
 </details>
 <details>
@@ -373,7 +373,7 @@ DeleteDestination
 DeleteDeviceProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/deletedeviceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletedeviceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletedeviceprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/deletedeviceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletedeviceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletedeviceprofilecommandoutput.html)
 
 </details>
 <details>
@@ -381,7 +381,7 @@ DeleteDeviceProfile
 DeleteFuotaTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/deletefuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletefuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletefuotataskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/deletefuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletefuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletefuotataskcommandoutput.html)
 
 </details>
 <details>
@@ -389,7 +389,7 @@ DeleteFuotaTask
 DeleteMulticastGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/deletemulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletemulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletemulticastgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/deletemulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletemulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletemulticastgroupcommandoutput.html)
 
 </details>
 <details>
@@ -397,7 +397,7 @@ DeleteMulticastGroup
 DeleteNetworkAnalyzerConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/deletenetworkanalyzerconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletenetworkanalyzerconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletenetworkanalyzerconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/deletenetworkanalyzerconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletenetworkanalyzerconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletenetworkanalyzerconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -405,7 +405,7 @@ DeleteNetworkAnalyzerConfiguration
 DeleteQueuedMessages
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/deletequeuedmessagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletequeuedmessagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletequeuedmessagescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/deletequeuedmessagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletequeuedmessagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletequeuedmessagescommandoutput.html)
 
 </details>
 <details>
@@ -413,7 +413,7 @@ DeleteQueuedMessages
 DeleteServiceProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/deleteserviceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deleteserviceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deleteserviceprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/deleteserviceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deleteserviceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deleteserviceprofilecommandoutput.html)
 
 </details>
 <details>
@@ -421,7 +421,7 @@ DeleteServiceProfile
 DeleteWirelessDevice
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/deletewirelessdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletewirelessdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletewirelessdevicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/deletewirelessdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletewirelessdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletewirelessdevicecommandoutput.html)
 
 </details>
 <details>
@@ -429,7 +429,7 @@ DeleteWirelessDevice
 DeleteWirelessGateway
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/deletewirelessgatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletewirelessgatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletewirelessgatewaycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/deletewirelessgatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletewirelessgatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletewirelessgatewaycommandoutput.html)
 
 </details>
 <details>
@@ -437,7 +437,7 @@ DeleteWirelessGateway
 DeleteWirelessGatewayTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/deletewirelessgatewaytaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletewirelessgatewaytaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletewirelessgatewaytaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/deletewirelessgatewaytaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletewirelessgatewaytaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletewirelessgatewaytaskcommandoutput.html)
 
 </details>
 <details>
@@ -445,7 +445,7 @@ DeleteWirelessGatewayTask
 DeleteWirelessGatewayTaskDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/deletewirelessgatewaytaskdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletewirelessgatewaytaskdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/deletewirelessgatewaytaskdefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/deletewirelessgatewaytaskdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletewirelessgatewaytaskdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletewirelessgatewaytaskdefinitioncommandoutput.html)
 
 </details>
 <details>
@@ -453,7 +453,7 @@ DeleteWirelessGatewayTaskDefinition
 DisassociateAwsAccountFromPartnerAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/disassociateawsaccountfrompartneraccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/disassociateawsaccountfrompartneraccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/disassociateawsaccountfrompartneraccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/disassociateawsaccountfrompartneraccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/disassociateawsaccountfrompartneraccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/disassociateawsaccountfrompartneraccountcommandoutput.html)
 
 </details>
 <details>
@@ -461,7 +461,7 @@ DisassociateAwsAccountFromPartnerAccount
 DisassociateMulticastGroupFromFuotaTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/disassociatemulticastgroupfromfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/disassociatemulticastgroupfromfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/disassociatemulticastgroupfromfuotataskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/disassociatemulticastgroupfromfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/disassociatemulticastgroupfromfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/disassociatemulticastgroupfromfuotataskcommandoutput.html)
 
 </details>
 <details>
@@ -469,7 +469,7 @@ DisassociateMulticastGroupFromFuotaTask
 DisassociateWirelessDeviceFromFuotaTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/disassociatewirelessdevicefromfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/disassociatewirelessdevicefromfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/disassociatewirelessdevicefromfuotataskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/disassociatewirelessdevicefromfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/disassociatewirelessdevicefromfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/disassociatewirelessdevicefromfuotataskcommandoutput.html)
 
 </details>
 <details>
@@ -477,7 +477,7 @@ DisassociateWirelessDeviceFromFuotaTask
 DisassociateWirelessDeviceFromMulticastGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/disassociatewirelessdevicefrommulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/disassociatewirelessdevicefrommulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/disassociatewirelessdevicefrommulticastgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/disassociatewirelessdevicefrommulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/disassociatewirelessdevicefrommulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/disassociatewirelessdevicefrommulticastgroupcommandoutput.html)
 
 </details>
 <details>
@@ -485,7 +485,7 @@ DisassociateWirelessDeviceFromMulticastGroup
 DisassociateWirelessDeviceFromThing
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/disassociatewirelessdevicefromthingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/disassociatewirelessdevicefromthingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/disassociatewirelessdevicefromthingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/disassociatewirelessdevicefromthingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/disassociatewirelessdevicefromthingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/disassociatewirelessdevicefromthingcommandoutput.html)
 
 </details>
 <details>
@@ -493,7 +493,7 @@ DisassociateWirelessDeviceFromThing
 DisassociateWirelessGatewayFromCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/disassociatewirelessgatewayfromcertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/disassociatewirelessgatewayfromcertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/disassociatewirelessgatewayfromcertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/disassociatewirelessgatewayfromcertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/disassociatewirelessgatewayfromcertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/disassociatewirelessgatewayfromcertificatecommandoutput.html)
 
 </details>
 <details>
@@ -501,7 +501,7 @@ DisassociateWirelessGatewayFromCertificate
 DisassociateWirelessGatewayFromThing
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/disassociatewirelessgatewayfromthingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/disassociatewirelessgatewayfromthingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/disassociatewirelessgatewayfromthingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/disassociatewirelessgatewayfromthingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/disassociatewirelessgatewayfromthingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/disassociatewirelessgatewayfromthingcommandoutput.html)
 
 </details>
 <details>
@@ -509,7 +509,7 @@ DisassociateWirelessGatewayFromThing
 GetDestination
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getdestinationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getdestinationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getdestinationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getdestinationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getdestinationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getdestinationcommandoutput.html)
 
 </details>
 <details>
@@ -517,7 +517,7 @@ GetDestination
 GetDeviceProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getdeviceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getdeviceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getdeviceprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getdeviceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getdeviceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getdeviceprofilecommandoutput.html)
 
 </details>
 <details>
@@ -525,7 +525,7 @@ GetDeviceProfile
 GetEventConfigurationByResourceTypes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/geteventconfigurationbyresourcetypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/geteventconfigurationbyresourcetypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/geteventconfigurationbyresourcetypescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/geteventconfigurationbyresourcetypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/geteventconfigurationbyresourcetypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/geteventconfigurationbyresourcetypescommandoutput.html)
 
 </details>
 <details>
@@ -533,7 +533,7 @@ GetEventConfigurationByResourceTypes
 GetFuotaTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getfuotataskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getfuotataskcommandoutput.html)
 
 </details>
 <details>
@@ -541,7 +541,7 @@ GetFuotaTask
 GetLogLevelsByResourceTypes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getloglevelsbyresourcetypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getloglevelsbyresourcetypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getloglevelsbyresourcetypescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getloglevelsbyresourcetypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getloglevelsbyresourcetypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getloglevelsbyresourcetypescommandoutput.html)
 
 </details>
 <details>
@@ -549,7 +549,7 @@ GetLogLevelsByResourceTypes
 GetMulticastGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getmulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getmulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getmulticastgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getmulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getmulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getmulticastgroupcommandoutput.html)
 
 </details>
 <details>
@@ -557,7 +557,7 @@ GetMulticastGroup
 GetMulticastGroupSession
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getmulticastgroupsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getmulticastgroupsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getmulticastgroupsessioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getmulticastgroupsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getmulticastgroupsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getmulticastgroupsessioncommandoutput.html)
 
 </details>
 <details>
@@ -565,7 +565,7 @@ GetMulticastGroupSession
 GetNetworkAnalyzerConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getnetworkanalyzerconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getnetworkanalyzerconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getnetworkanalyzerconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getnetworkanalyzerconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getnetworkanalyzerconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getnetworkanalyzerconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -573,7 +573,7 @@ GetNetworkAnalyzerConfiguration
 GetPartnerAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getpartneraccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getpartneraccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getpartneraccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getpartneraccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getpartneraccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getpartneraccountcommandoutput.html)
 
 </details>
 <details>
@@ -581,7 +581,7 @@ GetPartnerAccount
 GetPosition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getpositioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getpositioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getpositioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getpositioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getpositioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getpositioncommandoutput.html)
 
 </details>
 <details>
@@ -589,7 +589,7 @@ GetPosition
 GetPositionConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getpositionconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getpositionconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getpositionconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getpositionconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getpositionconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getpositionconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -597,7 +597,7 @@ GetPositionConfiguration
 GetPositionEstimate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getpositionestimatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getpositionestimatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getpositionestimatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getpositionestimatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getpositionestimatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getpositionestimatecommandoutput.html)
 
 </details>
 <details>
@@ -605,7 +605,7 @@ GetPositionEstimate
 GetResourceEventConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getresourceeventconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getresourceeventconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getresourceeventconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getresourceeventconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getresourceeventconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getresourceeventconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -613,7 +613,7 @@ GetResourceEventConfiguration
 GetResourceLogLevel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getresourceloglevelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getresourceloglevelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getresourceloglevelcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getresourceloglevelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getresourceloglevelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getresourceloglevelcommandoutput.html)
 
 </details>
 <details>
@@ -621,7 +621,7 @@ GetResourceLogLevel
 GetResourcePosition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getresourcepositioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getresourcepositioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getresourcepositioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getresourcepositioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getresourcepositioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getresourcepositioncommandoutput.html)
 
 </details>
 <details>
@@ -629,7 +629,7 @@ GetResourcePosition
 GetServiceEndpoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getserviceendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getserviceendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getserviceendpointcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getserviceendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getserviceendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getserviceendpointcommandoutput.html)
 
 </details>
 <details>
@@ -637,7 +637,7 @@ GetServiceEndpoint
 GetServiceProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getserviceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getserviceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getserviceprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getserviceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getserviceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getserviceprofilecommandoutput.html)
 
 </details>
 <details>
@@ -645,7 +645,7 @@ GetServiceProfile
 GetWirelessDevice
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getwirelessdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessdevicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getwirelessdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessdevicecommandoutput.html)
 
 </details>
 <details>
@@ -653,7 +653,7 @@ GetWirelessDevice
 GetWirelessDeviceStatistics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getwirelessdevicestatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessdevicestatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessdevicestatisticscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getwirelessdevicestatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessdevicestatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessdevicestatisticscommandoutput.html)
 
 </details>
 <details>
@@ -661,7 +661,7 @@ GetWirelessDeviceStatistics
 GetWirelessGateway
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getwirelessgatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessgatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessgatewaycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getwirelessgatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessgatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessgatewaycommandoutput.html)
 
 </details>
 <details>
@@ -669,7 +669,7 @@ GetWirelessGateway
 GetWirelessGatewayCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getwirelessgatewaycertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessgatewaycertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessgatewaycertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getwirelessgatewaycertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessgatewaycertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessgatewaycertificatecommandoutput.html)
 
 </details>
 <details>
@@ -677,7 +677,7 @@ GetWirelessGatewayCertificate
 GetWirelessGatewayFirmwareInformation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getwirelessgatewayfirmwareinformationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessgatewayfirmwareinformationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessgatewayfirmwareinformationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getwirelessgatewayfirmwareinformationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessgatewayfirmwareinformationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessgatewayfirmwareinformationcommandoutput.html)
 
 </details>
 <details>
@@ -685,7 +685,7 @@ GetWirelessGatewayFirmwareInformation
 GetWirelessGatewayStatistics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getwirelessgatewaystatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessgatewaystatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessgatewaystatisticscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getwirelessgatewaystatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessgatewaystatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessgatewaystatisticscommandoutput.html)
 
 </details>
 <details>
@@ -693,7 +693,7 @@ GetWirelessGatewayStatistics
 GetWirelessGatewayTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getwirelessgatewaytaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessgatewaytaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessgatewaytaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getwirelessgatewaytaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessgatewaytaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessgatewaytaskcommandoutput.html)
 
 </details>
 <details>
@@ -701,7 +701,7 @@ GetWirelessGatewayTask
 GetWirelessGatewayTaskDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/getwirelessgatewaytaskdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessgatewaytaskdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/getwirelessgatewaytaskdefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getwirelessgatewaytaskdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessgatewaytaskdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessgatewaytaskdefinitioncommandoutput.html)
 
 </details>
 <details>
@@ -709,7 +709,7 @@ GetWirelessGatewayTaskDefinition
 ListDestinations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/listdestinationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listdestinationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listdestinationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listdestinationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listdestinationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listdestinationscommandoutput.html)
 
 </details>
 <details>
@@ -717,7 +717,7 @@ ListDestinations
 ListDeviceProfiles
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/listdeviceprofilescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listdeviceprofilescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listdeviceprofilescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listdeviceprofilescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listdeviceprofilescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listdeviceprofilescommandoutput.html)
 
 </details>
 <details>
@@ -725,7 +725,7 @@ ListDeviceProfiles
 ListEventConfigurations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/listeventconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listeventconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listeventconfigurationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listeventconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listeventconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listeventconfigurationscommandoutput.html)
 
 </details>
 <details>
@@ -733,7 +733,7 @@ ListEventConfigurations
 ListFuotaTasks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/listfuotataskscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listfuotataskscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listfuotataskscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listfuotataskscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listfuotataskscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listfuotataskscommandoutput.html)
 
 </details>
 <details>
@@ -741,7 +741,7 @@ ListFuotaTasks
 ListMulticastGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/listmulticastgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listmulticastgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listmulticastgroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listmulticastgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listmulticastgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listmulticastgroupscommandoutput.html)
 
 </details>
 <details>
@@ -749,7 +749,7 @@ ListMulticastGroups
 ListMulticastGroupsByFuotaTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/listmulticastgroupsbyfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listmulticastgroupsbyfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listmulticastgroupsbyfuotataskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listmulticastgroupsbyfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listmulticastgroupsbyfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listmulticastgroupsbyfuotataskcommandoutput.html)
 
 </details>
 <details>
@@ -757,7 +757,7 @@ ListMulticastGroupsByFuotaTask
 ListNetworkAnalyzerConfigurations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/listnetworkanalyzerconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listnetworkanalyzerconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listnetworkanalyzerconfigurationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listnetworkanalyzerconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listnetworkanalyzerconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listnetworkanalyzerconfigurationscommandoutput.html)
 
 </details>
 <details>
@@ -765,7 +765,7 @@ ListNetworkAnalyzerConfigurations
 ListPartnerAccounts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/listpartneraccountscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listpartneraccountscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listpartneraccountscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listpartneraccountscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listpartneraccountscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listpartneraccountscommandoutput.html)
 
 </details>
 <details>
@@ -773,7 +773,7 @@ ListPartnerAccounts
 ListPositionConfigurations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/listpositionconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listpositionconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listpositionconfigurationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listpositionconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listpositionconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listpositionconfigurationscommandoutput.html)
 
 </details>
 <details>
@@ -781,7 +781,7 @@ ListPositionConfigurations
 ListQueuedMessages
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/listqueuedmessagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listqueuedmessagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listqueuedmessagescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listqueuedmessagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listqueuedmessagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listqueuedmessagescommandoutput.html)
 
 </details>
 <details>
@@ -789,7 +789,7 @@ ListQueuedMessages
 ListServiceProfiles
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/listserviceprofilescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listserviceprofilescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listserviceprofilescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listserviceprofilescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listserviceprofilescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listserviceprofilescommandoutput.html)
 
 </details>
 <details>
@@ -797,7 +797,7 @@ ListServiceProfiles
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listtagsforresourcecommandoutput.html)
 
 </details>
 <details>
@@ -805,7 +805,7 @@ ListTagsForResource
 ListWirelessDevices
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/listwirelessdevicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listwirelessdevicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listwirelessdevicescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listwirelessdevicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listwirelessdevicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listwirelessdevicescommandoutput.html)
 
 </details>
 <details>
@@ -813,7 +813,7 @@ ListWirelessDevices
 ListWirelessGateways
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/listwirelessgatewayscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listwirelessgatewayscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listwirelessgatewayscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listwirelessgatewayscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listwirelessgatewayscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listwirelessgatewayscommandoutput.html)
 
 </details>
 <details>
@@ -821,7 +821,7 @@ ListWirelessGateways
 ListWirelessGatewayTaskDefinitions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/listwirelessgatewaytaskdefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listwirelessgatewaytaskdefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/listwirelessgatewaytaskdefinitionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listwirelessgatewaytaskdefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listwirelessgatewaytaskdefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listwirelessgatewaytaskdefinitionscommandoutput.html)
 
 </details>
 <details>
@@ -829,7 +829,7 @@ ListWirelessGatewayTaskDefinitions
 PutPositionConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/putpositionconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/putpositionconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/putpositionconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/putpositionconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/putpositionconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/putpositionconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -837,7 +837,7 @@ PutPositionConfiguration
 PutResourceLogLevel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/putresourceloglevelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/putresourceloglevelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/putresourceloglevelcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/putresourceloglevelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/putresourceloglevelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/putresourceloglevelcommandoutput.html)
 
 </details>
 <details>
@@ -845,7 +845,7 @@ PutResourceLogLevel
 ResetAllResourceLogLevels
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/resetallresourceloglevelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/resetallresourceloglevelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/resetallresourceloglevelscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/resetallresourceloglevelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/resetallresourceloglevelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/resetallresourceloglevelscommandoutput.html)
 
 </details>
 <details>
@@ -853,7 +853,7 @@ ResetAllResourceLogLevels
 ResetResourceLogLevel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/resetresourceloglevelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/resetresourceloglevelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/resetresourceloglevelcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/resetresourceloglevelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/resetresourceloglevelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/resetresourceloglevelcommandoutput.html)
 
 </details>
 <details>
@@ -861,7 +861,7 @@ ResetResourceLogLevel
 SendDataToMulticastGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/senddatatomulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/senddatatomulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/senddatatomulticastgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/senddatatomulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/senddatatomulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/senddatatomulticastgroupcommandoutput.html)
 
 </details>
 <details>
@@ -869,7 +869,7 @@ SendDataToMulticastGroup
 SendDataToWirelessDevice
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/senddatatowirelessdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/senddatatowirelessdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/senddatatowirelessdevicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/senddatatowirelessdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/senddatatowirelessdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/senddatatowirelessdevicecommandoutput.html)
 
 </details>
 <details>
@@ -877,7 +877,7 @@ SendDataToWirelessDevice
 StartBulkAssociateWirelessDeviceWithMulticastGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/startbulkassociatewirelessdevicewithmulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/startbulkassociatewirelessdevicewithmulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/startbulkassociatewirelessdevicewithmulticastgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/startbulkassociatewirelessdevicewithmulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/startbulkassociatewirelessdevicewithmulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/startbulkassociatewirelessdevicewithmulticastgroupcommandoutput.html)
 
 </details>
 <details>
@@ -885,7 +885,7 @@ StartBulkAssociateWirelessDeviceWithMulticastGroup
 StartBulkDisassociateWirelessDeviceFromMulticastGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/startbulkdisassociatewirelessdevicefrommulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/startbulkdisassociatewirelessdevicefrommulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/startbulkdisassociatewirelessdevicefrommulticastgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/startbulkdisassociatewirelessdevicefrommulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/startbulkdisassociatewirelessdevicefrommulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/startbulkdisassociatewirelessdevicefrommulticastgroupcommandoutput.html)
 
 </details>
 <details>
@@ -893,7 +893,7 @@ StartBulkDisassociateWirelessDeviceFromMulticastGroup
 StartFuotaTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/startfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/startfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/startfuotataskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/startfuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/startfuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/startfuotataskcommandoutput.html)
 
 </details>
 <details>
@@ -901,7 +901,7 @@ StartFuotaTask
 StartMulticastGroupSession
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/startmulticastgroupsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/startmulticastgroupsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/startmulticastgroupsessioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/startmulticastgroupsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/startmulticastgroupsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/startmulticastgroupsessioncommandoutput.html)
 
 </details>
 <details>
@@ -909,7 +909,7 @@ StartMulticastGroupSession
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/tagresourcecommandoutput.html)
 
 </details>
 <details>
@@ -917,7 +917,7 @@ TagResource
 TestWirelessDevice
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/testwirelessdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/testwirelessdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/testwirelessdevicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/testwirelessdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/testwirelessdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/testwirelessdevicecommandoutput.html)
 
 </details>
 <details>
@@ -925,7 +925,7 @@ TestWirelessDevice
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/untagresourcecommandoutput.html)
 
 </details>
 <details>
@@ -933,7 +933,7 @@ UntagResource
 UpdateDestination
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/updatedestinationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatedestinationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatedestinationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/updatedestinationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatedestinationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatedestinationcommandoutput.html)
 
 </details>
 <details>
@@ -941,7 +941,7 @@ UpdateDestination
 UpdateEventConfigurationByResourceTypes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/updateeventconfigurationbyresourcetypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updateeventconfigurationbyresourcetypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updateeventconfigurationbyresourcetypescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/updateeventconfigurationbyresourcetypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updateeventconfigurationbyresourcetypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updateeventconfigurationbyresourcetypescommandoutput.html)
 
 </details>
 <details>
@@ -949,7 +949,7 @@ UpdateEventConfigurationByResourceTypes
 UpdateFuotaTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/updatefuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatefuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatefuotataskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/updatefuotataskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatefuotataskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatefuotataskcommandoutput.html)
 
 </details>
 <details>
@@ -957,7 +957,7 @@ UpdateFuotaTask
 UpdateLogLevelsByResourceTypes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/updateloglevelsbyresourcetypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updateloglevelsbyresourcetypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updateloglevelsbyresourcetypescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/updateloglevelsbyresourcetypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updateloglevelsbyresourcetypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updateloglevelsbyresourcetypescommandoutput.html)
 
 </details>
 <details>
@@ -965,7 +965,7 @@ UpdateLogLevelsByResourceTypes
 UpdateMulticastGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/updatemulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatemulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatemulticastgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/updatemulticastgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatemulticastgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatemulticastgroupcommandoutput.html)
 
 </details>
 <details>
@@ -973,7 +973,7 @@ UpdateMulticastGroup
 UpdateNetworkAnalyzerConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/updatenetworkanalyzerconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatenetworkanalyzerconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatenetworkanalyzerconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/updatenetworkanalyzerconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatenetworkanalyzerconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatenetworkanalyzerconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -981,7 +981,7 @@ UpdateNetworkAnalyzerConfiguration
 UpdatePartnerAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/updatepartneraccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatepartneraccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatepartneraccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/updatepartneraccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatepartneraccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatepartneraccountcommandoutput.html)
 
 </details>
 <details>
@@ -989,7 +989,7 @@ UpdatePartnerAccount
 UpdatePosition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/updatepositioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatepositioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatepositioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/updatepositioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatepositioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatepositioncommandoutput.html)
 
 </details>
 <details>
@@ -997,7 +997,7 @@ UpdatePosition
 UpdateResourceEventConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/updateresourceeventconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updateresourceeventconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updateresourceeventconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/updateresourceeventconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updateresourceeventconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updateresourceeventconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -1005,7 +1005,7 @@ UpdateResourceEventConfiguration
 UpdateResourcePosition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/updateresourcepositioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updateresourcepositioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updateresourcepositioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/updateresourcepositioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updateresourcepositioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updateresourcepositioncommandoutput.html)
 
 </details>
 <details>
@@ -1013,7 +1013,7 @@ UpdateResourcePosition
 UpdateWirelessDevice
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/updatewirelessdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatewirelessdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatewirelessdevicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/updatewirelessdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatewirelessdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatewirelessdevicecommandoutput.html)
 
 </details>
 <details>
@@ -1021,6 +1021,6 @@ UpdateWirelessDevice
 UpdateWirelessGateway
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/classes/updatewirelessgatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatewirelessgatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot wireless/interfaces/updatewirelessgatewaycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/updatewirelessgatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatewirelessgatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatewirelessgatewaycommandoutput.html)
 
 </details>

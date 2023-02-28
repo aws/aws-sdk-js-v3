@@ -128,7 +128,7 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             String commandNameLowercase = operationShape.getId().getName().toLowerCase();
             String serviceId = settings.getService(model).getTrait(ServiceTrait.class)
                     .orElseThrow(() -> new RuntimeException("Missing Service Trait during README doc generation."))
-                    .getSdkId().toLowerCase();
+                    .getSdkId().toLowerCase().replaceAll(" ", "-");
 
             String commandUrl = "https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-"
                     + serviceId + "/classes/" + commandNameLowercase + "command.html";

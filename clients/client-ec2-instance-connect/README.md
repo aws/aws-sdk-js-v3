@@ -216,7 +216,7 @@ see LICENSE for more information.
 SendSerialConsoleSSHPublicKey
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2 instance connect/classes/sendserialconsolesshpublickeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2 instance connect/interfaces/sendserialconsolesshpublickeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2 instance connect/interfaces/sendserialconsolesshpublickeycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/classes/sendserialconsolesshpublickeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendserialconsolesshpublickeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendserialconsolesshpublickeycommandoutput.html)
 
 </details>
 <details>
@@ -224,6 +224,6 @@ SendSerialConsoleSSHPublicKey
 SendSSHPublicKey
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2 instance connect/classes/sendsshpublickeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2 instance connect/interfaces/sendsshpublickeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2 instance connect/interfaces/sendsshpublickeycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/classes/sendsshpublickeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendsshpublickeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendsshpublickeycommandoutput.html)
 
 </details>

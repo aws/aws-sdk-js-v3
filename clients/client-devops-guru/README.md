@@ -222,7 +222,7 @@ see LICENSE for more information.
 AddNotificationChannel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/addnotificationchannelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/addnotificationchannelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/addnotificationchannelcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/addnotificationchannelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/addnotificationchannelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/addnotificationchannelcommandoutput.html)
 
 </details>
 <details>
@@ -230,7 +230,7 @@ AddNotificationChannel
 DeleteInsight
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/deleteinsightcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/deleteinsightcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/deleteinsightcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/deleteinsightcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/deleteinsightcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/deleteinsightcommandoutput.html)
 
 </details>
 <details>
@@ -238,7 +238,7 @@ DeleteInsight
 DescribeAccountHealth
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/describeaccounthealthcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeaccounthealthcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeaccounthealthcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/describeaccounthealthcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeaccounthealthcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeaccounthealthcommandoutput.html)
 
 </details>
 <details>
@@ -246,7 +246,7 @@ DescribeAccountHealth
 DescribeAccountOverview
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/describeaccountoverviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeaccountoverviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeaccountoverviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/describeaccountoverviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeaccountoverviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeaccountoverviewcommandoutput.html)
 
 </details>
 <details>
@@ -254,7 +254,7 @@ DescribeAccountOverview
 DescribeAnomaly
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/describeanomalycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeanomalycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeanomalycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/describeanomalycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeanomalycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeanomalycommandoutput.html)
 
 </details>
 <details>
@@ -262,7 +262,7 @@ DescribeAnomaly
 DescribeEventSourcesConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/describeeventsourcesconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeeventsourcesconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeeventsourcesconfigcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/describeeventsourcesconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeeventsourcesconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeeventsourcesconfigcommandoutput.html)
 
 </details>
 <details>
@@ -270,7 +270,7 @@ DescribeEventSourcesConfig
 DescribeFeedback
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/describefeedbackcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describefeedbackcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describefeedbackcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/describefeedbackcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describefeedbackcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describefeedbackcommandoutput.html)
 
 </details>
 <details>
@@ -278,7 +278,7 @@ DescribeFeedback
 DescribeInsight
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/describeinsightcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeinsightcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeinsightcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/describeinsightcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeinsightcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeinsightcommandoutput.html)
 
 </details>
 <details>
@@ -286,7 +286,7 @@ DescribeInsight
 DescribeOrganizationHealth
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/describeorganizationhealthcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeorganizationhealthcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeorganizationhealthcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/describeorganizationhealthcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeorganizationhealthcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeorganizationhealthcommandoutput.html)
 
 </details>
 <details>
@@ -294,7 +294,7 @@ DescribeOrganizationHealth
 DescribeOrganizationOverview
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/describeorganizationoverviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeorganizationoverviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeorganizationoverviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/describeorganizationoverviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeorganizationoverviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeorganizationoverviewcommandoutput.html)
 
 </details>
 <details>
@@ -302,7 +302,7 @@ DescribeOrganizationOverview
 DescribeOrganizationResourceCollectionHealth
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/describeorganizationresourcecollectionhealthcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeorganizationresourcecollectionhealthcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeorganizationresourcecollectionhealthcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/describeorganizationresourcecollectionhealthcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeorganizationresourcecollectionhealthcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeorganizationresourcecollectionhealthcommandoutput.html)
 
 </details>
 <details>
@@ -310,7 +310,7 @@ DescribeOrganizationResourceCollectionHealth
 DescribeResourceCollectionHealth
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/describeresourcecollectionhealthcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeresourcecollectionhealthcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeresourcecollectionhealthcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/describeresourcecollectionhealthcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeresourcecollectionhealthcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeresourcecollectionhealthcommandoutput.html)
 
 </details>
 <details>
@@ -318,7 +318,7 @@ DescribeResourceCollectionHealth
 DescribeServiceIntegration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/describeserviceintegrationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeserviceintegrationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/describeserviceintegrationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/describeserviceintegrationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeserviceintegrationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/describeserviceintegrationcommandoutput.html)
 
 </details>
 <details>
@@ -326,7 +326,7 @@ DescribeServiceIntegration
 GetCostEstimation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/getcostestimationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/getcostestimationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/getcostestimationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/getcostestimationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/getcostestimationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/getcostestimationcommandoutput.html)
 
 </details>
 <details>
@@ -334,7 +334,7 @@ GetCostEstimation
 GetResourceCollection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/getresourcecollectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/getresourcecollectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/getresourcecollectioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/getresourcecollectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/getresourcecollectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/getresourcecollectioncommandoutput.html)
 
 </details>
 <details>
@@ -342,7 +342,7 @@ GetResourceCollection
 ListAnomaliesForInsight
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/listanomaliesforinsightcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listanomaliesforinsightcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listanomaliesforinsightcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/listanomaliesforinsightcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listanomaliesforinsightcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listanomaliesforinsightcommandoutput.html)
 
 </details>
 <details>
@@ -350,7 +350,7 @@ ListAnomaliesForInsight
 ListAnomalousLogGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/listanomalousloggroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listanomalousloggroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listanomalousloggroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/listanomalousloggroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listanomalousloggroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listanomalousloggroupscommandoutput.html)
 
 </details>
 <details>
@@ -358,7 +358,7 @@ ListAnomalousLogGroups
 ListEvents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/listeventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listeventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listeventscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/listeventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listeventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listeventscommandoutput.html)
 
 </details>
 <details>
@@ -366,7 +366,7 @@ ListEvents
 ListInsights
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/listinsightscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listinsightscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listinsightscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/listinsightscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listinsightscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listinsightscommandoutput.html)
 
 </details>
 <details>
@@ -374,7 +374,7 @@ ListInsights
 ListMonitoredResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/listmonitoredresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listmonitoredresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listmonitoredresourcescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/listmonitoredresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listmonitoredresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listmonitoredresourcescommandoutput.html)
 
 </details>
 <details>
@@ -382,7 +382,7 @@ ListMonitoredResources
 ListNotificationChannels
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/listnotificationchannelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listnotificationchannelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listnotificationchannelscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/listnotificationchannelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listnotificationchannelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listnotificationchannelscommandoutput.html)
 
 </details>
 <details>
@@ -390,7 +390,7 @@ ListNotificationChannels
 ListOrganizationInsights
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/listorganizationinsightscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listorganizationinsightscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listorganizationinsightscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/listorganizationinsightscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listorganizationinsightscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listorganizationinsightscommandoutput.html)
 
 </details>
 <details>
@@ -398,7 +398,7 @@ ListOrganizationInsights
 ListRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/listrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/listrecommendationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/listrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/listrecommendationscommandoutput.html)
 
 </details>
 <details>
@@ -406,7 +406,7 @@ ListRecommendations
 PutFeedback
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/putfeedbackcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/putfeedbackcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/putfeedbackcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/putfeedbackcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/putfeedbackcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/putfeedbackcommandoutput.html)
 
 </details>
 <details>
@@ -414,7 +414,7 @@ PutFeedback
 RemoveNotificationChannel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/removenotificationchannelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/removenotificationchannelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/removenotificationchannelcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/removenotificationchannelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/removenotificationchannelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/removenotificationchannelcommandoutput.html)
 
 </details>
 <details>
@@ -422,7 +422,7 @@ RemoveNotificationChannel
 SearchInsights
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/searchinsightscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/searchinsightscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/searchinsightscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/searchinsightscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/searchinsightscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/searchinsightscommandoutput.html)
 
 </details>
 <details>
@@ -430,7 +430,7 @@ SearchInsights
 SearchOrganizationInsights
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/searchorganizationinsightscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/searchorganizationinsightscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/searchorganizationinsightscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/searchorganizationinsightscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/searchorganizationinsightscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/searchorganizationinsightscommandoutput.html)
 
 </details>
 <details>
@@ -438,7 +438,7 @@ SearchOrganizationInsights
 StartCostEstimation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/startcostestimationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/startcostestimationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/startcostestimationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/startcostestimationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/startcostestimationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/startcostestimationcommandoutput.html)
 
 </details>
 <details>
@@ -446,7 +446,7 @@ StartCostEstimation
 UpdateEventSourcesConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/updateeventsourcesconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/updateeventsourcesconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/updateeventsourcesconfigcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/updateeventsourcesconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/updateeventsourcesconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/updateeventsourcesconfigcommandoutput.html)
 
 </details>
 <details>
@@ -454,7 +454,7 @@ UpdateEventSourcesConfig
 UpdateResourceCollection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/updateresourcecollectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/updateresourcecollectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/updateresourcecollectioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/updateresourcecollectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/updateresourcecollectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/updateresourcecollectioncommandoutput.html)
 
 </details>
 <details>
@@ -462,6 +462,6 @@ UpdateResourceCollection
 UpdateServiceIntegration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/classes/updateserviceintegrationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/updateserviceintegrationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops guru/interfaces/updateserviceintegrationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/classes/updateserviceintegrationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/updateserviceintegrationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-devops-guru/interfaces/updateserviceintegrationcommandoutput.html)
 
 </details>
