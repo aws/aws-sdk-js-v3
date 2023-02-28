@@ -35,7 +35,7 @@ export interface StartReadSetExportJobCommandInput extends StartReadSetExportJob
 export interface StartReadSetExportJobCommandOutput extends StartReadSetExportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a read set export job.</p>
+ * <p>Exports a read set to Amazon S3.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

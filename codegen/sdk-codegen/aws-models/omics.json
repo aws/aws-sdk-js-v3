@@ -195,8 +195,7 @@
       },
       "traits": {
         "smithy.api#length": {
-          "min": 1,
-          "max": 1
+          "min": 1
         }
       }
     },
@@ -872,7 +871,7 @@
         "reference": {
           "target": "com.amazonaws.omics#ReferenceItem",
           "traits": {
-            "smithy.api#documentation": "<p>The store's genome reference.</p>"
+            "smithy.api#documentation": "<p>The store's genome reference. Required for all stores except TSV format with generic annotations.</p>"
           }
         },
         "storeFormat": {
@@ -1118,7 +1117,7 @@
         "maxDuration": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>A max duration for the group.</p>",
+            "smithy.api#documentation": "<p>A maximum run time for the group in minutes.</p>",
             "smithy.api#range": {
               "min": 1,
               "max": 100000
@@ -1134,7 +1133,7 @@
         "requestId": {
           "target": "com.amazonaws.omics#RunGroupRequestId",
           "traits": {
-            "smithy.api#documentation": "<p>A request ID for the group.</p>",
+            "smithy.api#documentation": "<p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>",
             "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
           }
@@ -1492,6 +1491,7 @@
         "definitionZip": {
           "target": "smithy.api#Blob",
           "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
             "smithy.api#documentation": "<p>A ZIP archive for the workflow.</p>"
           }
         },
@@ -1516,7 +1516,7 @@
         "storageCapacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>A storage capacity for the workflow.</p>",
+            "smithy.api#documentation": "<p>A storage capacity for the workflow in gigabytes.</p>",
             "smithy.api#range": {
               "min": 0,
               "max": 100000
@@ -1532,7 +1532,7 @@
         "requestId": {
           "target": "com.amazonaws.omics#WorkflowRequestId",
           "traits": {
-            "smithy.api#documentation": "<p>A request ID for the workflow.</p>",
+            "smithy.api#documentation": "<p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>",
             "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
           }
@@ -3132,7 +3132,7 @@
         "sources": {
           "target": "com.amazonaws.omics#ActivateReadSetSourceList",
           "traits": {
-            "smithy.api#documentation": "<p>The job's sources.</p>"
+            "smithy.api#documentation": "<p>The job's source files.</p>"
           }
         }
       },
@@ -3544,7 +3544,7 @@
         "sources": {
           "target": "com.amazonaws.omics#ImportReadSetSourceList",
           "traits": {
-            "smithy.api#documentation": "<p>The job's sources.</p>",
+            "smithy.api#documentation": "<p>The job's source files.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4012,7 +4012,7 @@
         "sources": {
           "target": "com.amazonaws.omics#ImportReferenceSourceList",
           "traits": {
-            "smithy.api#documentation": "<p>The job's sources.</p>",
+            "smithy.api#documentation": "<p>The job's source files.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4614,7 +4614,7 @@
         "maxDuration": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The group's maximum run duration.</p>",
+            "smithy.api#documentation": "<p>The group's maximum run time in minutes.</p>",
             "smithy.api#range": {
               "min": 1,
               "max": 100000
@@ -4749,7 +4749,7 @@
         "storageCapacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The run's storage capacity.</p>",
+            "smithy.api#documentation": "<p>The run's storage capacity in gigabytes.</p>",
             "smithy.api#range": {
               "min": 0,
               "max": 100000
@@ -5045,7 +5045,7 @@
         "memory": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The task's memory setting.</p>",
+            "smithy.api#documentation": "<p>The task's memory use in gigabytes.</p>",
             "smithy.api#range": {
               "min": 1
             }
@@ -5784,6 +5784,7 @@
         "definition": {
           "target": "com.amazonaws.omics#WorkflowDefinition",
           "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
             "smithy.api#documentation": "<p>The workflow's definition.</p>"
           }
         },
@@ -5796,6 +5797,7 @@
         "digest": {
           "target": "com.amazonaws.omics#WorkflowDigest",
           "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
             "smithy.api#documentation": "<p>The workflow's digest.</p>"
           }
         },
@@ -5808,7 +5810,7 @@
         "storageCapacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The workflow's storage capacity.</p>",
+            "smithy.api#documentation": "<p>The workflow's storage capacity in gigabytes.</p>",
             "smithy.api#range": {
               "min": 0,
               "max": 100000
@@ -5824,6 +5826,7 @@
         "statusMessage": {
           "target": "com.amazonaws.omics#WorkflowStatusMessage",
           "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
             "smithy.api#documentation": "<p>The workflow's status message.</p>"
           }
         },
@@ -6211,6 +6214,11 @@
             "value": "FAILED",
             "name": "FAILED",
             "documentation": "The Job failed"
+          },
+          {
+            "value": "COMPLETED_WITH_FAILURES",
+            "name": "COMPLETED_WITH_FAILURES",
+            "documentation": "The Job completed with failed runs"
           }
         ]
       }
@@ -8189,7 +8197,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": true,
+              "required": false,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -8218,13 +8226,12 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
               "type": "tree",
@@ -8232,23 +8239,20 @@
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
                   "type": "tree",
                   "rules": [
                     {
@@ -8257,19 +8261,201 @@
                           "fn": "booleanEquals",
                           "argv": [
                             {
-                              "ref": "UseFIPS"
+                              "ref": "UseDualStack"
                             },
                             true
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
                       "type": "error"
                     },
                     {
                       "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
                       "type": "tree",
                       "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://omics-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://omics-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
                         {
                           "conditions": [
                             {
@@ -8282,212 +8468,75 @@
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                          "type": "error"
-                        },
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://omics.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
                             }
                           ]
                         },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://omics-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
+                          "type": "tree",
+                          "rules": [
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://omics.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
                             }
                           ]
                         }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://omics-fips.{Region}.{PartitionResult#dnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
                       ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://omics.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
                     }
                   ]
                 },
                 {
                   "conditions": [],
-                  "endpoint": {
-                    "url": "https://omics.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
                 }
               ]
             }
@@ -8503,9 +8552,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "us-gov-east-1"
+                "Region": "us-gov-east-1",
+                "UseDualStack": true
               }
             },
             {
@@ -8516,9 +8565,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "us-gov-east-1"
+                "Region": "us-gov-east-1",
+                "UseDualStack": false
               }
             },
             {
@@ -8529,9 +8578,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "us-gov-east-1"
+                "Region": "us-gov-east-1",
+                "UseDualStack": true
               }
             },
             {
@@ -8542,9 +8591,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "us-gov-east-1"
+                "Region": "us-gov-east-1",
+                "UseDualStack": false
               }
             },
             {
@@ -8555,9 +8604,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "cn-north-1"
+                "Region": "cn-north-1",
+                "UseDualStack": true
               }
             },
             {
@@ -8568,9 +8617,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "cn-north-1"
+                "Region": "cn-north-1",
+                "UseDualStack": false
               }
             },
             {
@@ -8581,9 +8630,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "cn-north-1"
+                "Region": "cn-north-1",
+                "UseDualStack": true
               }
             },
             {
@@ -8594,9 +8643,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "cn-north-1"
+                "Region": "cn-north-1",
+                "UseDualStack": false
               }
             },
             {
@@ -8605,9 +8654,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "us-iso-east-1"
+                "Region": "us-iso-east-1",
+                "UseDualStack": true
               }
             },
             {
@@ -8618,9 +8667,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "us-iso-east-1"
+                "Region": "us-iso-east-1",
+                "UseDualStack": false
               }
             },
             {
@@ -8629,9 +8678,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "us-iso-east-1"
+                "Region": "us-iso-east-1",
+                "UseDualStack": true
               }
             },
             {
@@ -8642,9 +8691,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "us-iso-east-1"
+                "Region": "us-iso-east-1",
+                "UseDualStack": false
               }
             },
             {
@@ -8655,9 +8704,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "us-east-1"
+                "Region": "us-east-1",
+                "UseDualStack": true
               }
             },
             {
@@ -8668,9 +8717,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "us-east-1"
+                "Region": "us-east-1",
+                "UseDualStack": false
               }
             },
             {
@@ -8681,9 +8730,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "us-east-1"
+                "Region": "us-east-1",
+                "UseDualStack": true
               }
             },
             {
@@ -8694,9 +8743,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "us-east-1"
+                "Region": "us-east-1",
+                "UseDualStack": false
               }
             },
             {
@@ -8705,9 +8754,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": true,
-                "Region": "us-isob-east-1"
+                "Region": "us-isob-east-1",
+                "UseDualStack": true
               }
             },
             {
@@ -8718,9 +8767,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": true,
-                "Region": "us-isob-east-1"
+                "Region": "us-isob-east-1",
+                "UseDualStack": false
               }
             },
             {
@@ -8729,9 +8778,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": false,
-                "Region": "us-isob-east-1"
+                "Region": "us-isob-east-1",
+                "UseDualStack": true
               }
             },
             {
@@ -8742,9 +8791,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
-                "Region": "us-isob-east-1"
+                "Region": "us-isob-east-1",
+                "UseDualStack": false
               }
             },
             {
@@ -8755,9 +8804,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
                 "Region": "us-east-1",
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -8767,9 +8816,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": true,
                 "Region": "us-east-1",
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -8779,9 +8828,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": false,
                 "Region": "us-east-1",
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
               }
             }
@@ -9363,6 +9412,9 @@
         "aws.api#arn": {
           "template": "sequenceStore/{sequenceStoreId}/readSet/{readSetId}"
         },
+        "aws.cloudformation#cfnResource": {
+          "name": "ReadSet"
+        },
         "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
@@ -9688,6 +9740,9 @@
         "aws.api#arn": {
           "template": "referenceStore/{referenceStoreId}/reference/{referenceId}"
         },
+        "aws.cloudformation#cfnResource": {
+          "name": "Reference"
+        },
         "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
@@ -9875,6 +9930,9 @@
         "aws.api#arn": {
           "template": "referenceStore/{referenceStoreId}"
         },
+        "aws.cloudformation#cfnResource": {
+          "name": "ReferenceStore"
+        },
         "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
@@ -10052,7 +10110,7 @@
         "maxDuration": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The group's maximum duration setting.</p>",
+            "smithy.api#documentation": "<p>The group's maximum duration setting in minutes.</p>",
             "smithy.api#range": {
               "min": 1,
               "max": 100000
@@ -10125,6 +10183,9 @@
       "traits": {
         "aws.api#arn": {
           "template": "runGroup/{id}"
+        },
+        "aws.cloudformation#cfnResource": {
+          "name": "RunGroup"
         },
         "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
@@ -10481,7 +10542,10 @@
     "com.amazonaws.omics#SchemaItem": {
       "type": "map",
       "key": {
-        "target": "smithy.api#String"
+        "target": "smithy.api#String",
+        "traits": {
+          "smithy.api#pattern": "^[a-z0-9_]{1,255}$"
+        }
       },
       "value": {
         "target": "com.amazonaws.omics#SchemaValueType"
@@ -10750,6 +10814,9 @@
         "aws.api#arn": {
           "template": "sequenceStore/{sequenceStoreId}"
         },
+        "aws.cloudformation#cfnResource": {
+          "name": "SequenceStore"
+        },
         "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
@@ -10949,7 +11016,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Starts a read set activation job.</p>",
+        "smithy.api#documentation": "<p>Activates an archived read set. To reduce storage charges, Amazon Omics archives unused read\n       sets after 30 days.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
         },
@@ -10979,7 +11046,7 @@
         "sources": {
           "target": "com.amazonaws.omics#StartReadSetActivationJobSourceList",
           "traits": {
-            "smithy.api#documentation": "<p>The job's sources.</p>",
+            "smithy.api#documentation": "<p>The job's source files.</p>",
             "smithy.api#length": {
               "min": 1,
               "max": 20
@@ -11082,7 +11149,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Starts a read set export job.</p>",
+        "smithy.api#documentation": "<p>Exports a read set to Amazon S3.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
         },
@@ -11126,7 +11193,7 @@
         "sources": {
           "target": "com.amazonaws.omics#ExportReadSetList",
           "traits": {
-            "smithy.api#documentation": "<p>Sources for the job.</p>",
+            "smithy.api#documentation": "<p>The job's source files.</p>",
             "smithy.api#length": {
               "min": 1,
               "max": 100
@@ -11252,7 +11319,7 @@
         "sources": {
           "target": "com.amazonaws.omics#StartReadSetImportJobSourceList",
           "traits": {
-            "smithy.api#documentation": "<p>Source files to import.</p>",
+            "smithy.api#documentation": "<p>The job's source files.</p>",
             "smithy.api#length": {
               "min": 1,
               "max": 100
@@ -11451,7 +11518,7 @@
         "sources": {
           "target": "com.amazonaws.omics#StartReferenceImportJobSourceList",
           "traits": {
-            "smithy.api#documentation": "<p>Sources for the job.</p>",
+            "smithy.api#documentation": "<p>The job's source files.</p>",
             "smithy.api#length": {
               "min": 1,
               "max": 100
@@ -11653,7 +11720,7 @@
         "storageCapacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>A storage capacity for the run.</p>",
+            "smithy.api#documentation": "<p>A storage capacity for the run in gigabytes.</p>",
             "smithy.api#range": {
               "min": 0,
               "max": 100000
@@ -11681,7 +11748,7 @@
         "requestId": {
           "target": "com.amazonaws.omics#RunRequestId",
           "traits": {
-            "smithy.api#documentation": "<p>A request ID for the run.</p>",
+            "smithy.api#documentation": "<p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>",
             "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
           }
@@ -12123,7 +12190,7 @@
         "memory": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The task's memory.</p>",
+            "smithy.api#documentation": "<p>The task's memory use in gigabyes.</p>",
             "smithy.api#range": {
               "min": 1
             }
@@ -12603,7 +12670,7 @@
         "maxDuration": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum amount of time to run.</p>",
+            "smithy.api#documentation": "<p>A maximum run time for the group in minutes.</p>",
             "smithy.api#range": {
               "min": 1,
               "max": 100000
@@ -12843,6 +12910,12 @@
             "smithy.api#documentation": "<p>The item's job status.</p>",
             "smithy.api#required": {}
           }
+        },
+        "statusMessage": {
+          "target": "com.amazonaws.omics#JobStatusMsg",
+          "traits": {
+            "smithy.api#documentation": "<p> A message that provides additional context about a job </p>"
+          }
         }
       },
       "traits": {
@@ -12856,8 +12929,7 @@
       },
       "traits": {
         "smithy.api#length": {
-          "min": 1,
-          "max": 1
+          "min": 1
         }
       }
     },
@@ -12883,8 +12955,7 @@
       },
       "traits": {
         "smithy.api#length": {
-          "min": 1,
-          "max": 1
+          "min": 1
         }
       }
     },
@@ -13383,6 +13454,9 @@
         "aws.api#arn": {
           "template": "workflow/{id}"
         },
+        "aws.cloudformation#cfnResource": {
+          "name": "Workflow"
+        },
         "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
@@ -13413,6 +13487,10 @@
           {
             "name": "FAILED",
             "value": "FAILED"
+          },
+          {
+            "name": "INACTIVE",
+            "value": "INACTIVE"
           }
         ],
         "smithy.api#length": {
@@ -13440,6 +13518,10 @@
           {
             "name": "PRIVATE",
             "value": "PRIVATE"
+          },
+          {
+            "name": "SERVICE",
+            "value": "SERVICE"
           }
         ],
         "smithy.api#length": {

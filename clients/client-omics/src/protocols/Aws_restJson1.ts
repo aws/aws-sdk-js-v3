@@ -8281,6 +8281,7 @@ const deserializeAws_restJson1VariantImportItemDetail = (
   return {
     jobStatus: __expectString(output.jobStatus),
     source: __expectString(output.source),
+    statusMessage: __expectString(output.statusMessage),
   } as any;
 };
 

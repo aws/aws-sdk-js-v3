@@ -35,7 +35,8 @@ export interface StartReadSetActivationJobCommandInput extends StartReadSetActiv
 export interface StartReadSetActivationJobCommandOutput extends StartReadSetActivationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a read set activation job.</p>
+ * <p>Activates an archived read set. To reduce storage charges, Amazon Omics archives unused read
+ *        sets after 30 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

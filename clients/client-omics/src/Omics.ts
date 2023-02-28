@@ -1970,7 +1970,8 @@ export class Omics extends OmicsClient {
   }
 
   /**
-   * <p>Starts a read set activation job.</p>
+   * <p>Activates an archived read set. To reduce storage charges, Amazon Omics archives unused read
+   *        sets after 30 days.</p>
    */
   public startReadSetActivationJob(
     args: StartReadSetActivationJobCommandInput,
@@ -2002,7 +2003,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
-   * <p>Starts a read set export job.</p>
+   * <p>Exports a read set to Amazon S3.</p>
    */
   public startReadSetExportJob(
     args: StartReadSetExportJobCommandInput,
