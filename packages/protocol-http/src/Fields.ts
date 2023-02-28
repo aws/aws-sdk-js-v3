@@ -22,7 +22,7 @@ export class Fields {
    * @param field The {@link Field} to set.
    */
   public setField(field: Field): void {
-    this.entries[field.name] = field;
+    this.entries[field.name.toLowerCase()] = field;
   }
 
   /**
@@ -33,7 +33,7 @@ export class Fields {
    * @returns The {@link Field} if it exists.
    */
   public getField(name: string): Field | undefined {
-    return this.entries[name];
+    return this.entries[name.toLowerCase()];
   }
 
   /**
@@ -42,7 +42,7 @@ export class Fields {
    * @param name Name of the entry to delete.
    */ 
   public removeField(name: string): void {
-    delete this.entries[name];
+    delete this.entries[name.toLowerCase()];
   }
 
   /**
