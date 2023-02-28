@@ -221,7 +221,7 @@ see LICENSE for more information.
 DescribeJobExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot jobs data plane/classes/describejobexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot jobs data plane/interfaces/describejobexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot jobs data plane/interfaces/describejobexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/classes/describejobexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/describejobexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/describejobexecutioncommandoutput.html)
 
 </details>
 <details>
@@ -229,7 +229,7 @@ DescribeJobExecution
 GetPendingJobExecutions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot jobs data plane/classes/getpendingjobexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot jobs data plane/interfaces/getpendingjobexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot jobs data plane/interfaces/getpendingjobexecutionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/classes/getpendingjobexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/getpendingjobexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/getpendingjobexecutionscommandoutput.html)
 
 </details>
 <details>
@@ -237,7 +237,7 @@ GetPendingJobExecutions
 StartNextPendingJobExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot jobs data plane/classes/startnextpendingjobexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot jobs data plane/interfaces/startnextpendingjobexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot jobs data plane/interfaces/startnextpendingjobexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/classes/startnextpendingjobexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/startnextpendingjobexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/startnextpendingjobexecutioncommandoutput.html)
 
 </details>
 <details>
@@ -245,6 +245,6 @@ StartNextPendingJobExecution
 UpdateJobExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot jobs data plane/classes/updatejobexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot jobs data plane/interfaces/updatejobexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot jobs data plane/interfaces/updatejobexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/classes/updatejobexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/updatejobexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/updatejobexecutioncommandoutput.html)
 
 </details>

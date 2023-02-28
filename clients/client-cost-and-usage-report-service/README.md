@@ -234,7 +234,7 @@ see LICENSE for more information.
 DeleteReportDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost and usage report service/classes/deletereportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost and usage report service/interfaces/deletereportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost and usage report service/interfaces/deletereportdefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/classes/deletereportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/deletereportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/deletereportdefinitioncommandoutput.html)
 
 </details>
 <details>
@@ -242,7 +242,7 @@ DeleteReportDefinition
 DescribeReportDefinitions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost and usage report service/classes/describereportdefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost and usage report service/interfaces/describereportdefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost and usage report service/interfaces/describereportdefinitionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/classes/describereportdefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/describereportdefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/describereportdefinitionscommandoutput.html)
 
 </details>
 <details>
@@ -250,7 +250,7 @@ DescribeReportDefinitions
 ModifyReportDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost and usage report service/classes/modifyreportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost and usage report service/interfaces/modifyreportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost and usage report service/interfaces/modifyreportdefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/classes/modifyreportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/modifyreportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/modifyreportdefinitioncommandoutput.html)
 
 </details>
 <details>
@@ -258,6 +258,6 @@ ModifyReportDefinition
 PutReportDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost and usage report service/classes/putreportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost and usage report service/interfaces/putreportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost and usage report service/interfaces/putreportdefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/classes/putreportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/putreportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/putreportdefinitioncommandoutput.html)
 
 </details>

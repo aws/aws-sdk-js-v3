@@ -235,7 +235,7 @@ see LICENSE for more information.
 AttachCustomerManagedPolicyReferenceToPermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/attachcustomermanagedpolicyreferencetopermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/attachcustomermanagedpolicyreferencetopermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/attachcustomermanagedpolicyreferencetopermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/attachcustomermanagedpolicyreferencetopermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/attachcustomermanagedpolicyreferencetopermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/attachcustomermanagedpolicyreferencetopermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -243,7 +243,7 @@ AttachCustomerManagedPolicyReferenceToPermissionSet
 AttachManagedPolicyToPermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/attachmanagedpolicytopermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/attachmanagedpolicytopermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/attachmanagedpolicytopermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/attachmanagedpolicytopermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/attachmanagedpolicytopermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/attachmanagedpolicytopermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -251,7 +251,7 @@ AttachManagedPolicyToPermissionSet
 CreateAccountAssignment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/createaccountassignmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/createaccountassignmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/createaccountassignmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/createaccountassignmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/createaccountassignmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/createaccountassignmentcommandoutput.html)
 
 </details>
 <details>
@@ -259,7 +259,7 @@ CreateAccountAssignment
 CreateInstanceAccessControlAttributeConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/createinstanceaccesscontrolattributeconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/createinstanceaccesscontrolattributeconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/createinstanceaccesscontrolattributeconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/createinstanceaccesscontrolattributeconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/createinstanceaccesscontrolattributeconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/createinstanceaccesscontrolattributeconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -267,7 +267,7 @@ CreateInstanceAccessControlAttributeConfiguration
 CreatePermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/createpermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/createpermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/createpermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/createpermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/createpermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/createpermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -275,7 +275,7 @@ CreatePermissionSet
 DeleteAccountAssignment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/deleteaccountassignmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/deleteaccountassignmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/deleteaccountassignmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/deleteaccountassignmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/deleteaccountassignmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/deleteaccountassignmentcommandoutput.html)
 
 </details>
 <details>
@@ -283,7 +283,7 @@ DeleteAccountAssignment
 DeleteInlinePolicyFromPermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/deleteinlinepolicyfrompermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/deleteinlinepolicyfrompermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/deleteinlinepolicyfrompermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/deleteinlinepolicyfrompermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/deleteinlinepolicyfrompermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/deleteinlinepolicyfrompermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -291,7 +291,7 @@ DeleteInlinePolicyFromPermissionSet
 DeleteInstanceAccessControlAttributeConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/deleteinstanceaccesscontrolattributeconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/deleteinstanceaccesscontrolattributeconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/deleteinstanceaccesscontrolattributeconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/deleteinstanceaccesscontrolattributeconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/deleteinstanceaccesscontrolattributeconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/deleteinstanceaccesscontrolattributeconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -299,7 +299,7 @@ DeleteInstanceAccessControlAttributeConfiguration
 DeletePermissionsBoundaryFromPermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/deletepermissionsboundaryfrompermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/deletepermissionsboundaryfrompermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/deletepermissionsboundaryfrompermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/deletepermissionsboundaryfrompermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/deletepermissionsboundaryfrompermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/deletepermissionsboundaryfrompermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -307,7 +307,7 @@ DeletePermissionsBoundaryFromPermissionSet
 DeletePermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/deletepermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/deletepermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/deletepermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/deletepermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/deletepermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/deletepermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -315,7 +315,7 @@ DeletePermissionSet
 DescribeAccountAssignmentCreationStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/describeaccountassignmentcreationstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/describeaccountassignmentcreationstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/describeaccountassignmentcreationstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/describeaccountassignmentcreationstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/describeaccountassignmentcreationstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/describeaccountassignmentcreationstatuscommandoutput.html)
 
 </details>
 <details>
@@ -323,7 +323,7 @@ DescribeAccountAssignmentCreationStatus
 DescribeAccountAssignmentDeletionStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/describeaccountassignmentdeletionstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/describeaccountassignmentdeletionstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/describeaccountassignmentdeletionstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/describeaccountassignmentdeletionstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/describeaccountassignmentdeletionstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/describeaccountassignmentdeletionstatuscommandoutput.html)
 
 </details>
 <details>
@@ -331,7 +331,7 @@ DescribeAccountAssignmentDeletionStatus
 DescribeInstanceAccessControlAttributeConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/describeinstanceaccesscontrolattributeconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/describeinstanceaccesscontrolattributeconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/describeinstanceaccesscontrolattributeconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/describeinstanceaccesscontrolattributeconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/describeinstanceaccesscontrolattributeconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/describeinstanceaccesscontrolattributeconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -339,7 +339,7 @@ DescribeInstanceAccessControlAttributeConfiguration
 DescribePermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/describepermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/describepermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/describepermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/describepermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/describepermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/describepermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -347,7 +347,7 @@ DescribePermissionSet
 DescribePermissionSetProvisioningStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/describepermissionsetprovisioningstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/describepermissionsetprovisioningstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/describepermissionsetprovisioningstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/describepermissionsetprovisioningstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/describepermissionsetprovisioningstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/describepermissionsetprovisioningstatuscommandoutput.html)
 
 </details>
 <details>
@@ -355,7 +355,7 @@ DescribePermissionSetProvisioningStatus
 DetachCustomerManagedPolicyReferenceFromPermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/detachcustomermanagedpolicyreferencefrompermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/detachcustomermanagedpolicyreferencefrompermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/detachcustomermanagedpolicyreferencefrompermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/detachcustomermanagedpolicyreferencefrompermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/detachcustomermanagedpolicyreferencefrompermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/detachcustomermanagedpolicyreferencefrompermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -363,7 +363,7 @@ DetachCustomerManagedPolicyReferenceFromPermissionSet
 DetachManagedPolicyFromPermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/detachmanagedpolicyfrompermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/detachmanagedpolicyfrompermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/detachmanagedpolicyfrompermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/detachmanagedpolicyfrompermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/detachmanagedpolicyfrompermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/detachmanagedpolicyfrompermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -371,7 +371,7 @@ DetachManagedPolicyFromPermissionSet
 GetInlinePolicyForPermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/getinlinepolicyforpermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/getinlinepolicyforpermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/getinlinepolicyforpermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/getinlinepolicyforpermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/getinlinepolicyforpermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/getinlinepolicyforpermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -379,7 +379,7 @@ GetInlinePolicyForPermissionSet
 GetPermissionsBoundaryForPermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/getpermissionsboundaryforpermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/getpermissionsboundaryforpermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/getpermissionsboundaryforpermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/getpermissionsboundaryforpermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/getpermissionsboundaryforpermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/getpermissionsboundaryforpermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -387,7 +387,7 @@ GetPermissionsBoundaryForPermissionSet
 ListAccountAssignmentCreationStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/listaccountassignmentcreationstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listaccountassignmentcreationstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listaccountassignmentcreationstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/listaccountassignmentcreationstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listaccountassignmentcreationstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listaccountassignmentcreationstatuscommandoutput.html)
 
 </details>
 <details>
@@ -395,7 +395,7 @@ ListAccountAssignmentCreationStatus
 ListAccountAssignmentDeletionStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/listaccountassignmentdeletionstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listaccountassignmentdeletionstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listaccountassignmentdeletionstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/listaccountassignmentdeletionstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listaccountassignmentdeletionstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listaccountassignmentdeletionstatuscommandoutput.html)
 
 </details>
 <details>
@@ -403,7 +403,7 @@ ListAccountAssignmentDeletionStatus
 ListAccountAssignments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/listaccountassignmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listaccountassignmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listaccountassignmentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/listaccountassignmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listaccountassignmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listaccountassignmentscommandoutput.html)
 
 </details>
 <details>
@@ -411,7 +411,7 @@ ListAccountAssignments
 ListAccountsForProvisionedPermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/listaccountsforprovisionedpermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listaccountsforprovisionedpermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listaccountsforprovisionedpermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/listaccountsforprovisionedpermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listaccountsforprovisionedpermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listaccountsforprovisionedpermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -419,7 +419,7 @@ ListAccountsForProvisionedPermissionSet
 ListCustomerManagedPolicyReferencesInPermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/listcustomermanagedpolicyreferencesinpermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listcustomermanagedpolicyreferencesinpermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listcustomermanagedpolicyreferencesinpermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/listcustomermanagedpolicyreferencesinpermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listcustomermanagedpolicyreferencesinpermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listcustomermanagedpolicyreferencesinpermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -427,7 +427,7 @@ ListCustomerManagedPolicyReferencesInPermissionSet
 ListInstances
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/listinstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listinstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listinstancescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/listinstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listinstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listinstancescommandoutput.html)
 
 </details>
 <details>
@@ -435,7 +435,7 @@ ListInstances
 ListManagedPoliciesInPermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/listmanagedpoliciesinpermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listmanagedpoliciesinpermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listmanagedpoliciesinpermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/listmanagedpoliciesinpermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listmanagedpoliciesinpermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listmanagedpoliciesinpermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -443,7 +443,7 @@ ListManagedPoliciesInPermissionSet
 ListPermissionSetProvisioningStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/listpermissionsetprovisioningstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listpermissionsetprovisioningstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listpermissionsetprovisioningstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/listpermissionsetprovisioningstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listpermissionsetprovisioningstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listpermissionsetprovisioningstatuscommandoutput.html)
 
 </details>
 <details>
@@ -451,7 +451,7 @@ ListPermissionSetProvisioningStatus
 ListPermissionSets
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/listpermissionsetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listpermissionsetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listpermissionsetscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/listpermissionsetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listpermissionsetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listpermissionsetscommandoutput.html)
 
 </details>
 <details>
@@ -459,7 +459,7 @@ ListPermissionSets
 ListPermissionSetsProvisionedToAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/listpermissionsetsprovisionedtoaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listpermissionsetsprovisionedtoaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listpermissionsetsprovisionedtoaccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/listpermissionsetsprovisionedtoaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listpermissionsetsprovisionedtoaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listpermissionsetsprovisionedtoaccountcommandoutput.html)
 
 </details>
 <details>
@@ -467,7 +467,7 @@ ListPermissionSetsProvisionedToAccount
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/listtagsforresourcecommandoutput.html)
 
 </details>
 <details>
@@ -475,7 +475,7 @@ ListTagsForResource
 ProvisionPermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/provisionpermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/provisionpermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/provisionpermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/provisionpermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/provisionpermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/provisionpermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -483,7 +483,7 @@ ProvisionPermissionSet
 PutInlinePolicyToPermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/putinlinepolicytopermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/putinlinepolicytopermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/putinlinepolicytopermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/putinlinepolicytopermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/putinlinepolicytopermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/putinlinepolicytopermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -491,7 +491,7 @@ PutInlinePolicyToPermissionSet
 PutPermissionsBoundaryToPermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/putpermissionsboundarytopermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/putpermissionsboundarytopermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/putpermissionsboundarytopermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/putpermissionsboundarytopermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/putpermissionsboundarytopermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/putpermissionsboundarytopermissionsetcommandoutput.html)
 
 </details>
 <details>
@@ -499,7 +499,7 @@ PutPermissionsBoundaryToPermissionSet
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/tagresourcecommandoutput.html)
 
 </details>
 <details>
@@ -507,7 +507,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/untagresourcecommandoutput.html)
 
 </details>
 <details>
@@ -515,7 +515,7 @@ UntagResource
 UpdateInstanceAccessControlAttributeConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/updateinstanceaccesscontrolattributeconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/updateinstanceaccesscontrolattributeconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/updateinstanceaccesscontrolattributeconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/updateinstanceaccesscontrolattributeconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/updateinstanceaccesscontrolattributeconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/updateinstanceaccesscontrolattributeconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -523,6 +523,6 @@ UpdateInstanceAccessControlAttributeConfiguration
 UpdatePermissionSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/classes/updatepermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/updatepermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso admin/interfaces/updatepermissionsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/classes/updatepermissionsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/updatepermissionsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sso-admin/interfaces/updatepermissionsetcommandoutput.html)
 
 </details>

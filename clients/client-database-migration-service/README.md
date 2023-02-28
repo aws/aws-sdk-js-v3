@@ -224,7 +224,7 @@ see LICENSE for more information.
 AddTagsToResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/addtagstoresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/addtagstoresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/addtagstoresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/addtagstoresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/addtagstoresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/addtagstoresourcecommandoutput.html)
 
 </details>
 <details>
@@ -232,7 +232,7 @@ AddTagsToResource
 ApplyPendingMaintenanceAction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/applypendingmaintenanceactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/applypendingmaintenanceactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/applypendingmaintenanceactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/applypendingmaintenanceactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/applypendingmaintenanceactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/applypendingmaintenanceactioncommandoutput.html)
 
 </details>
 <details>
@@ -240,7 +240,7 @@ ApplyPendingMaintenanceAction
 CancelReplicationTaskAssessmentRun
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/cancelreplicationtaskassessmentruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/cancelreplicationtaskassessmentruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/cancelreplicationtaskassessmentruncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/cancelreplicationtaskassessmentruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/cancelreplicationtaskassessmentruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/cancelreplicationtaskassessmentruncommandoutput.html)
 
 </details>
 <details>
@@ -248,7 +248,7 @@ CancelReplicationTaskAssessmentRun
 CreateEndpoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/createendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/createendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/createendpointcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/createendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/createendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/createendpointcommandoutput.html)
 
 </details>
 <details>
@@ -256,7 +256,7 @@ CreateEndpoint
 CreateEventSubscription
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/createeventsubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/createeventsubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/createeventsubscriptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/createeventsubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/createeventsubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/createeventsubscriptioncommandoutput.html)
 
 </details>
 <details>
@@ -264,7 +264,7 @@ CreateEventSubscription
 CreateFleetAdvisorCollector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/createfleetadvisorcollectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/createfleetadvisorcollectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/createfleetadvisorcollectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/createfleetadvisorcollectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/createfleetadvisorcollectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/createfleetadvisorcollectorcommandoutput.html)
 
 </details>
 <details>
@@ -272,7 +272,7 @@ CreateFleetAdvisorCollector
 CreateReplicationInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/createreplicationinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/createreplicationinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/createreplicationinstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/createreplicationinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/createreplicationinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/createreplicationinstancecommandoutput.html)
 
 </details>
 <details>
@@ -280,7 +280,7 @@ CreateReplicationInstance
 CreateReplicationSubnetGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/createreplicationsubnetgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/createreplicationsubnetgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/createreplicationsubnetgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/createreplicationsubnetgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/createreplicationsubnetgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/createreplicationsubnetgroupcommandoutput.html)
 
 </details>
 <details>
@@ -288,7 +288,7 @@ CreateReplicationSubnetGroup
 CreateReplicationTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/createreplicationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/createreplicationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/createreplicationtaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/createreplicationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/createreplicationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/createreplicationtaskcommandoutput.html)
 
 </details>
 <details>
@@ -296,7 +296,7 @@ CreateReplicationTask
 DeleteCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/deletecertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deletecertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deletecertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/deletecertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deletecertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deletecertificatecommandoutput.html)
 
 </details>
 <details>
@@ -304,7 +304,7 @@ DeleteCertificate
 DeleteConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/deleteconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deleteconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deleteconnectioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/deleteconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deleteconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deleteconnectioncommandoutput.html)
 
 </details>
 <details>
@@ -312,7 +312,7 @@ DeleteConnection
 DeleteEndpoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/deleteendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deleteendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deleteendpointcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/deleteendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deleteendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deleteendpointcommandoutput.html)
 
 </details>
 <details>
@@ -320,7 +320,7 @@ DeleteEndpoint
 DeleteEventSubscription
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/deleteeventsubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deleteeventsubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deleteeventsubscriptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/deleteeventsubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deleteeventsubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deleteeventsubscriptioncommandoutput.html)
 
 </details>
 <details>
@@ -328,7 +328,7 @@ DeleteEventSubscription
 DeleteFleetAdvisorCollector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/deletefleetadvisorcollectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deletefleetadvisorcollectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deletefleetadvisorcollectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/deletefleetadvisorcollectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deletefleetadvisorcollectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deletefleetadvisorcollectorcommandoutput.html)
 
 </details>
 <details>
@@ -336,7 +336,7 @@ DeleteFleetAdvisorCollector
 DeleteFleetAdvisorDatabases
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/deletefleetadvisordatabasescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deletefleetadvisordatabasescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deletefleetadvisordatabasescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/deletefleetadvisordatabasescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deletefleetadvisordatabasescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deletefleetadvisordatabasescommandoutput.html)
 
 </details>
 <details>
@@ -344,7 +344,7 @@ DeleteFleetAdvisorDatabases
 DeleteReplicationInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/deletereplicationinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deletereplicationinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deletereplicationinstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/deletereplicationinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deletereplicationinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deletereplicationinstancecommandoutput.html)
 
 </details>
 <details>
@@ -352,7 +352,7 @@ DeleteReplicationInstance
 DeleteReplicationSubnetGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/deletereplicationsubnetgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deletereplicationsubnetgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deletereplicationsubnetgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/deletereplicationsubnetgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deletereplicationsubnetgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deletereplicationsubnetgroupcommandoutput.html)
 
 </details>
 <details>
@@ -360,7 +360,7 @@ DeleteReplicationSubnetGroup
 DeleteReplicationTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/deletereplicationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deletereplicationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deletereplicationtaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/deletereplicationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deletereplicationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deletereplicationtaskcommandoutput.html)
 
 </details>
 <details>
@@ -368,7 +368,7 @@ DeleteReplicationTask
 DeleteReplicationTaskAssessmentRun
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/deletereplicationtaskassessmentruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deletereplicationtaskassessmentruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/deletereplicationtaskassessmentruncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/deletereplicationtaskassessmentruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deletereplicationtaskassessmentruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/deletereplicationtaskassessmentruncommandoutput.html)
 
 </details>
 <details>
@@ -376,7 +376,7 @@ DeleteReplicationTaskAssessmentRun
 DescribeAccountAttributes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describeaccountattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeaccountattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeaccountattributescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describeaccountattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeaccountattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeaccountattributescommandoutput.html)
 
 </details>
 <details>
@@ -384,7 +384,7 @@ DescribeAccountAttributes
 DescribeApplicableIndividualAssessments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describeapplicableindividualassessmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeapplicableindividualassessmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeapplicableindividualassessmentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describeapplicableindividualassessmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeapplicableindividualassessmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeapplicableindividualassessmentscommandoutput.html)
 
 </details>
 <details>
@@ -392,7 +392,7 @@ DescribeApplicableIndividualAssessments
 DescribeCertificates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describecertificatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describecertificatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describecertificatescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describecertificatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describecertificatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describecertificatescommandoutput.html)
 
 </details>
 <details>
@@ -400,7 +400,7 @@ DescribeCertificates
 DescribeConnections
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describeconnectionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeconnectionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeconnectionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describeconnectionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeconnectionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeconnectionscommandoutput.html)
 
 </details>
 <details>
@@ -408,7 +408,7 @@ DescribeConnections
 DescribeEndpoints
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describeendpointscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeendpointscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeendpointscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describeendpointscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeendpointscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeendpointscommandoutput.html)
 
 </details>
 <details>
@@ -416,7 +416,7 @@ DescribeEndpoints
 DescribeEndpointSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describeendpointsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeendpointsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeendpointsettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describeendpointsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeendpointsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeendpointsettingscommandoutput.html)
 
 </details>
 <details>
@@ -424,7 +424,7 @@ DescribeEndpointSettings
 DescribeEndpointTypes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describeendpointtypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeendpointtypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeendpointtypescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describeendpointtypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeendpointtypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeendpointtypescommandoutput.html)
 
 </details>
 <details>
@@ -432,7 +432,7 @@ DescribeEndpointTypes
 DescribeEventCategories
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describeeventcategoriescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeeventcategoriescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeeventcategoriescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describeeventcategoriescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeeventcategoriescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeeventcategoriescommandoutput.html)
 
 </details>
 <details>
@@ -440,7 +440,7 @@ DescribeEventCategories
 DescribeEvents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describeeventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeeventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeeventscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describeeventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeeventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeeventscommandoutput.html)
 
 </details>
 <details>
@@ -448,7 +448,7 @@ DescribeEvents
 DescribeEventSubscriptions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describeeventsubscriptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeeventsubscriptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeeventsubscriptionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describeeventsubscriptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeeventsubscriptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeeventsubscriptionscommandoutput.html)
 
 </details>
 <details>
@@ -456,7 +456,7 @@ DescribeEventSubscriptions
 DescribeFleetAdvisorCollectors
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describefleetadvisorcollectorscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describefleetadvisorcollectorscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describefleetadvisorcollectorscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describefleetadvisorcollectorscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describefleetadvisorcollectorscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describefleetadvisorcollectorscommandoutput.html)
 
 </details>
 <details>
@@ -464,7 +464,7 @@ DescribeFleetAdvisorCollectors
 DescribeFleetAdvisorDatabases
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describefleetadvisordatabasescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describefleetadvisordatabasescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describefleetadvisordatabasescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describefleetadvisordatabasescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describefleetadvisordatabasescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describefleetadvisordatabasescommandoutput.html)
 
 </details>
 <details>
@@ -472,7 +472,7 @@ DescribeFleetAdvisorDatabases
 DescribeFleetAdvisorLsaAnalysis
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describefleetadvisorlsaanalysiscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describefleetadvisorlsaanalysiscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describefleetadvisorlsaanalysiscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describefleetadvisorlsaanalysiscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describefleetadvisorlsaanalysiscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describefleetadvisorlsaanalysiscommandoutput.html)
 
 </details>
 <details>
@@ -480,7 +480,7 @@ DescribeFleetAdvisorLsaAnalysis
 DescribeFleetAdvisorSchemaObjectSummary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describefleetadvisorschemaobjectsummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describefleetadvisorschemaobjectsummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describefleetadvisorschemaobjectsummarycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describefleetadvisorschemaobjectsummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describefleetadvisorschemaobjectsummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describefleetadvisorschemaobjectsummarycommandoutput.html)
 
 </details>
 <details>
@@ -488,7 +488,7 @@ DescribeFleetAdvisorSchemaObjectSummary
 DescribeFleetAdvisorSchemas
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describefleetadvisorschemascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describefleetadvisorschemascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describefleetadvisorschemascommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describefleetadvisorschemascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describefleetadvisorschemascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describefleetadvisorschemascommandoutput.html)
 
 </details>
 <details>
@@ -496,7 +496,7 @@ DescribeFleetAdvisorSchemas
 DescribeOrderableReplicationInstances
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describeorderablereplicationinstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeorderablereplicationinstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeorderablereplicationinstancescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describeorderablereplicationinstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeorderablereplicationinstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeorderablereplicationinstancescommandoutput.html)
 
 </details>
 <details>
@@ -504,7 +504,7 @@ DescribeOrderableReplicationInstances
 DescribePendingMaintenanceActions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describependingmaintenanceactionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describependingmaintenanceactionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describependingmaintenanceactionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describependingmaintenanceactionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describependingmaintenanceactionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describependingmaintenanceactionscommandoutput.html)
 
 </details>
 <details>
@@ -512,7 +512,7 @@ DescribePendingMaintenanceActions
 DescribeRefreshSchemasStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describerefreshschemasstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describerefreshschemasstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describerefreshschemasstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describerefreshschemasstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describerefreshschemasstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describerefreshschemasstatuscommandoutput.html)
 
 </details>
 <details>
@@ -520,7 +520,7 @@ DescribeRefreshSchemasStatus
 DescribeReplicationInstances
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describereplicationinstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describereplicationinstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describereplicationinstancescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describereplicationinstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describereplicationinstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describereplicationinstancescommandoutput.html)
 
 </details>
 <details>
@@ -528,7 +528,7 @@ DescribeReplicationInstances
 DescribeReplicationInstanceTaskLogs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describereplicationinstancetasklogscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describereplicationinstancetasklogscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describereplicationinstancetasklogscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describereplicationinstancetasklogscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describereplicationinstancetasklogscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describereplicationinstancetasklogscommandoutput.html)
 
 </details>
 <details>
@@ -536,7 +536,7 @@ DescribeReplicationInstanceTaskLogs
 DescribeReplicationSubnetGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describereplicationsubnetgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describereplicationsubnetgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describereplicationsubnetgroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describereplicationsubnetgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describereplicationsubnetgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describereplicationsubnetgroupscommandoutput.html)
 
 </details>
 <details>
@@ -544,7 +544,7 @@ DescribeReplicationSubnetGroups
 DescribeReplicationTaskAssessmentResults
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describereplicationtaskassessmentresultscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describereplicationtaskassessmentresultscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describereplicationtaskassessmentresultscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describereplicationtaskassessmentresultscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describereplicationtaskassessmentresultscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describereplicationtaskassessmentresultscommandoutput.html)
 
 </details>
 <details>
@@ -552,7 +552,7 @@ DescribeReplicationTaskAssessmentResults
 DescribeReplicationTaskAssessmentRuns
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describereplicationtaskassessmentrunscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describereplicationtaskassessmentrunscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describereplicationtaskassessmentrunscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describereplicationtaskassessmentrunscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describereplicationtaskassessmentrunscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describereplicationtaskassessmentrunscommandoutput.html)
 
 </details>
 <details>
@@ -560,7 +560,7 @@ DescribeReplicationTaskAssessmentRuns
 DescribeReplicationTaskIndividualAssessments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describereplicationtaskindividualassessmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describereplicationtaskindividualassessmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describereplicationtaskindividualassessmentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describereplicationtaskindividualassessmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describereplicationtaskindividualassessmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describereplicationtaskindividualassessmentscommandoutput.html)
 
 </details>
 <details>
@@ -568,7 +568,7 @@ DescribeReplicationTaskIndividualAssessments
 DescribeReplicationTasks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describereplicationtaskscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describereplicationtaskscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describereplicationtaskscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describereplicationtaskscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describereplicationtaskscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describereplicationtaskscommandoutput.html)
 
 </details>
 <details>
@@ -576,7 +576,7 @@ DescribeReplicationTasks
 DescribeSchemas
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describeschemascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeschemascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describeschemascommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describeschemascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeschemascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeschemascommandoutput.html)
 
 </details>
 <details>
@@ -584,7 +584,7 @@ DescribeSchemas
 DescribeTableStatistics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/describetablestatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describetablestatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/describetablestatisticscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describetablestatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describetablestatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describetablestatisticscommandoutput.html)
 
 </details>
 <details>
@@ -592,7 +592,7 @@ DescribeTableStatistics
 ImportCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/importcertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/importcertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/importcertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/importcertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/importcertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/importcertificatecommandoutput.html)
 
 </details>
 <details>
@@ -600,7 +600,7 @@ ImportCertificate
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/listtagsforresourcecommandoutput.html)
 
 </details>
 <details>
@@ -608,7 +608,7 @@ ListTagsForResource
 ModifyEndpoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/modifyendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/modifyendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/modifyendpointcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/modifyendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/modifyendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/modifyendpointcommandoutput.html)
 
 </details>
 <details>
@@ -616,7 +616,7 @@ ModifyEndpoint
 ModifyEventSubscription
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/modifyeventsubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/modifyeventsubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/modifyeventsubscriptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/modifyeventsubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/modifyeventsubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/modifyeventsubscriptioncommandoutput.html)
 
 </details>
 <details>
@@ -624,7 +624,7 @@ ModifyEventSubscription
 ModifyReplicationInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/modifyreplicationinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/modifyreplicationinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/modifyreplicationinstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/modifyreplicationinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/modifyreplicationinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/modifyreplicationinstancecommandoutput.html)
 
 </details>
 <details>
@@ -632,7 +632,7 @@ ModifyReplicationInstance
 ModifyReplicationSubnetGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/modifyreplicationsubnetgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/modifyreplicationsubnetgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/modifyreplicationsubnetgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/modifyreplicationsubnetgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/modifyreplicationsubnetgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/modifyreplicationsubnetgroupcommandoutput.html)
 
 </details>
 <details>
@@ -640,7 +640,7 @@ ModifyReplicationSubnetGroup
 ModifyReplicationTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/modifyreplicationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/modifyreplicationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/modifyreplicationtaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/modifyreplicationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/modifyreplicationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/modifyreplicationtaskcommandoutput.html)
 
 </details>
 <details>
@@ -648,7 +648,7 @@ ModifyReplicationTask
 MoveReplicationTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/movereplicationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/movereplicationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/movereplicationtaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/movereplicationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/movereplicationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/movereplicationtaskcommandoutput.html)
 
 </details>
 <details>
@@ -656,7 +656,7 @@ MoveReplicationTask
 RebootReplicationInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/rebootreplicationinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/rebootreplicationinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/rebootreplicationinstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/rebootreplicationinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/rebootreplicationinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/rebootreplicationinstancecommandoutput.html)
 
 </details>
 <details>
@@ -664,7 +664,7 @@ RebootReplicationInstance
 RefreshSchemas
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/refreshschemascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/refreshschemascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/refreshschemascommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/refreshschemascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/refreshschemascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/refreshschemascommandoutput.html)
 
 </details>
 <details>
@@ -672,7 +672,7 @@ RefreshSchemas
 ReloadTables
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/reloadtablescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/reloadtablescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/reloadtablescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/reloadtablescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/reloadtablescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/reloadtablescommandoutput.html)
 
 </details>
 <details>
@@ -680,7 +680,7 @@ ReloadTables
 RemoveTagsFromResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/removetagsfromresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/removetagsfromresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/removetagsfromresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/removetagsfromresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/removetagsfromresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/removetagsfromresourcecommandoutput.html)
 
 </details>
 <details>
@@ -688,7 +688,7 @@ RemoveTagsFromResource
 RunFleetAdvisorLsaAnalysis
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/runfleetadvisorlsaanalysiscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/runfleetadvisorlsaanalysiscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/runfleetadvisorlsaanalysiscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/runfleetadvisorlsaanalysiscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/runfleetadvisorlsaanalysiscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/runfleetadvisorlsaanalysiscommandoutput.html)
 
 </details>
 <details>
@@ -696,7 +696,7 @@ RunFleetAdvisorLsaAnalysis
 StartReplicationTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/startreplicationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/startreplicationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/startreplicationtaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/startreplicationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/startreplicationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/startreplicationtaskcommandoutput.html)
 
 </details>
 <details>
@@ -704,7 +704,7 @@ StartReplicationTask
 StartReplicationTaskAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/startreplicationtaskassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/startreplicationtaskassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/startreplicationtaskassessmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/startreplicationtaskassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/startreplicationtaskassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/startreplicationtaskassessmentcommandoutput.html)
 
 </details>
 <details>
@@ -712,7 +712,7 @@ StartReplicationTaskAssessment
 StartReplicationTaskAssessmentRun
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/startreplicationtaskassessmentruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/startreplicationtaskassessmentruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/startreplicationtaskassessmentruncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/startreplicationtaskassessmentruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/startreplicationtaskassessmentruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/startreplicationtaskassessmentruncommandoutput.html)
 
 </details>
 <details>
@@ -720,7 +720,7 @@ StartReplicationTaskAssessmentRun
 StopReplicationTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/stopreplicationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/stopreplicationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/stopreplicationtaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/stopreplicationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/stopreplicationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/stopreplicationtaskcommandoutput.html)
 
 </details>
 <details>
@@ -728,7 +728,7 @@ StopReplicationTask
 TestConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/testconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/testconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/testconnectioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/testconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/testconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/testconnectioncommandoutput.html)
 
 </details>
 <details>
@@ -736,6 +736,6 @@ TestConnection
 UpdateSubscriptionsToEventBridge
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/classes/updatesubscriptionstoeventbridgecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/updatesubscriptionstoeventbridgecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database migration service/interfaces/updatesubscriptionstoeventbridgecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/updatesubscriptionstoeventbridgecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/updatesubscriptionstoeventbridgecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/updatesubscriptionstoeventbridgecommandoutput.html)
 
 </details>

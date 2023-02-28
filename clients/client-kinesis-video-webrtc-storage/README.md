@@ -218,6 +218,6 @@ see LICENSE for more information.
 JoinStorageSession
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video webrtc storage/classes/joinstoragesessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video webrtc storage/interfaces/joinstoragesessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video webrtc storage/interfaces/joinstoragesessioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis-video-webrtc-storage/classes/joinstoragesessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis-video-webrtc-storage/interfaces/joinstoragesessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis-video-webrtc-storage/interfaces/joinstoragesessioncommandoutput.html)
 
 </details>

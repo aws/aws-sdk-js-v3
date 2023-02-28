@@ -223,6 +223,6 @@ see LICENSE for more information.
 ListRealtimeContactAnalysisSegments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect contact lens/classes/listrealtimecontactanalysissegmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect contact lens/interfaces/listrealtimecontactanalysissegmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect contact lens/interfaces/listrealtimecontactanalysissegmentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect-contact-lens/classes/listrealtimecontactanalysissegmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect-contact-lens/interfaces/listrealtimecontactanalysissegmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect-contact-lens/interfaces/listrealtimecontactanalysissegmentscommandoutput.html)
 
 </details>
