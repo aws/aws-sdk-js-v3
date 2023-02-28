@@ -41,11 +41,9 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *       perform asymmetric cryptography and implement digital signatures outside of KMS. The bytes
  *       in the keys are random; they not related to the caller or to the KMS key that is used to
  *       encrypt the private key. </p>
- *
  *          <p>You can use the public key that <code>GenerateDataKeyPair</code> returns to encrypt data
  *       or verify a signature outside of KMS. Then, store the encrypted private key with the data.
  *       When you are ready to decrypt data or sign a message, you can use the <a>Decrypt</a> operation to decrypt the encrypted private key.</p>
- *
  *          <p>To generate a data key pair, you must specify a symmetric encryption KMS key to encrypt
  *       the private key in a data key pair. You cannot use an asymmetric KMS key or a KMS key in a
  *       custom key store. To get the type and origin of your KMS key, use the <a>DescribeKey</a> operation. </p>
@@ -53,7 +51,6 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *       key pair. In China Regions, you can also choose an SM2 data key pair. KMS recommends that you use
  *       ECC key pairs for signing, and use RSA and SM2 key pairs for either encryption or signing, but not both.
  *       However, KMS cannot enforce any restrictions on the use of data key pairs outside of KMS.</p>
- *
  *          <p>If you are using the data key pair to encrypt data, or for any operation where you don't
  *       immediately need a private key, consider using the <a>GenerateDataKeyPairWithoutPlaintext</a> operation.
  *         <code>GenerateDataKeyPairWithoutPlaintext</code> returns a plaintext public key and an
@@ -61,14 +58,12 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *       ciphertext or sign a message. Later, when you need to decrypt the data or sign a message, use
  *       the <a>Decrypt</a> operation to decrypt the encrypted private key in the data key
  *       pair.</p>
- *
  *          <p>
  *             <code>GenerateDataKeyPair</code> returns a unique data key pair for each request. The
  *       bytes in the keys are random; they are not related to the caller or the KMS key that is used
  *       to encrypt the private key. The public key is a DER-encoded X.509 SubjectPublicKeyInfo, as
  *       specified in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. The private
  *       key is a DER-encoded PKCS8 PrivateKeyInfo, as specified in <a href="https://tools.ietf.org/html/rfc5958">RFC 5958</a>.</p>
- *
  *          <p>You can use an optional encryption context to add additional security to the encryption
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
@@ -79,7 +74,6 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateDataKeyPair</a> (key policy)</p>
  *          <p>

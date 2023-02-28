@@ -64,7 +64,6 @@ export class AlreadyExistsException extends __BaseException {
 export interface CancelKeyDeletionRequest {
   /**
    * <p>Identifies the KMS key whose deletion is being canceled.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -230,7 +229,6 @@ export class CloudHsmClusterInUseException extends __BaseException {
 /**
  * <p>The request was rejected because the associated CloudHSM cluster did not meet the
  *       configuration requirements for an CloudHSM key store.</p>
- *
  *          <ul>
  *             <li>
  *                <p>The CloudHSM cluster must be configured with private subnets in at least two different
@@ -478,7 +476,6 @@ export interface CreateAliasRequest {
    *         ARN</a> in the <i>
    *                <i>Key Management Service Developer Guide</i>
    *             </i>.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -1039,7 +1036,6 @@ export interface CreateGrantRequest {
   /**
    * <p>Identifies the KMS key for the grant. The grant gives principals permission to use this
    *       KMS key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
    * different Amazon Web Services account, you must use the key ARN.</p>
    *          <p>For example:</p>
@@ -1059,12 +1055,12 @@ export interface CreateGrantRequest {
 
   /**
    * <p>The identity that gets the permissions specified in the grant.</p>
-   *          <p>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an
-   *       Amazon Web Services principal. Valid Amazon Web Services principals include Amazon Web Services accounts (root), IAM users, IAM roles,
-   *       federated users, and assumed role users. For examples of the ARN syntax to use for specifying
-   *       a principal, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">Amazon Web Services Identity and Access
-   *         Management (IAM)</a> in the Example ARNs section of the <i>Amazon Web Services General
-   *         Reference</i>.</p>
+   *          <p>To specify the grantee principal, use the Amazon Resource Name (ARN) of an
+   *       Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
+   *       federated users, and assumed role users. For help with the ARN syntax for a principal, see
+   *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
+   *                <i>Identity and Access Management User Guide</i>
+   *             </i>.</p>
    */
   GranteePrincipal: string | undefined;
 
@@ -1072,11 +1068,11 @@ export interface CreateGrantRequest {
    * <p>The principal that has permission to use the <a>RetireGrant</a> operation to
    *       retire the grant. </p>
    *          <p>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an
-   *       Amazon Web Services principal. Valid Amazon Web Services principals include Amazon Web Services accounts (root), IAM users, federated
-   *       users, and assumed role users. For examples of the ARN syntax to use for specifying a
-   *       principal, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">Amazon Web Services Identity and Access
-   *         Management (IAM)</a> in the Example ARNs section of the <i>Amazon Web Services General
-   *         Reference</i>.</p>
+   *       Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
+   *       federated users, and assumed role users. For help with the ARN syntax for a principal, see
+   *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
+   *                <i>Identity and Access Management User Guide</i>
+   *             </i>.</p>
    *          <p>The grant determines the retiring principal. Other principals might have permission to
    *       retire the grant or revoke the grant. For details, see <a>RevokeGrant</a> and
    *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and
@@ -1265,25 +1261,22 @@ export interface CreateKeyRequest {
    *          <p>If you provide a key policy, it must meet the following criteria:</p>
    *          <ul>
    *             <li>
-   *                <p>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to true, the key policy
-   *           must allow the principal that is making the <code>CreateKey</code> request to make a
-   *           subsequent <a>PutKeyPolicy</a> request on the KMS key. This reduces the risk
-   *           that the KMS key becomes unmanageable. For more information, refer to the scenario in the
-   *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section of the <i>
-   *                      <i>Key Management Service Developer Guide</i>
-   *                   </i>.</p>
+   *                <p>The key policy must allow the calling principal to make a
+   *           subsequent <code>PutKeyPolicy</code> request on the KMS key.  This reduces the risk that
+   *           the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit
+   *           this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p>
    *             </li>
    *             <li>
    *                <p>Each statement in the key policy must contain one or more principals. The principals
    *           in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services
-   *           principal (for example, an IAM user or role), you might need to enforce a delay before
-   *           including the new principal in a key policy because the new principal might not be
-   *           immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
+   *           principal, you might need to enforce a delay before including the new principal in a key
+   *           policy because the new principal might not be immediately visible to KMS. For more
+   *           information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
    *             Identity and Access Management User Guide</i>.</p>
    *             </li>
    *          </ul>
    *          <p>If you do not provide a key policy, KMS attaches a default key policy to the KMS key.
-   *       For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default Key Policy</a> in the
+   *       For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key policy</a> in the
    *       <i>Key Management Service Developer Guide</i>. </p>
    *          <p>The key policy size quota is 32 kilobytes (32768 bytes).</p>
    *          <p>For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
@@ -1493,17 +1486,14 @@ export interface CreateKeyRequest {
   CustomKeyStoreId?: string;
 
   /**
-   * <p>A flag to indicate whether to bypass the key policy lockout safety check.</p>
+   * <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p>
    *          <important>
    *             <p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do
    *         not set this value to true indiscriminately.</p>
-   *             <p>For more information, refer to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section in the <i>
-   *                   <i>Key Management Service Developer Guide</i>
-   *                </i>.</p>
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </important>
-   *          <p>Use this parameter only when you include a policy in the request and you intend to prevent
-   *       the principal that is making the request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</p>
-   *          <p>The default value is false.</p>
+   *          <p>Use this parameter only when you intend to prevent the principal that is making the
+   *       request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</p>
    */
   BypassPolicyLockoutSafetyCheck?: boolean;
 
@@ -2148,7 +2138,6 @@ export interface CustomKeyStoresListEntry {
    *           connecting the custom key store to its backing key store.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>
    *             <b>CloudHSM key stores:</b>
    *          </p>
@@ -2217,7 +2206,6 @@ export interface CustomKeyStoresListEntry {
    *           then update the key store password value for the custom key store.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>
    *             <b>External key stores:</b>
    *          </p>
@@ -2276,9 +2264,7 @@ export interface CustomKeyStoresListEntry {
    *                   <code>XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION</code> — The Amazon VPC
    *           endpoint service configuration doesn't conform to the requirements for an KMS external
    *           key store.</p>
-   *
-   *
-   * 	              <ul>
+   *                <ul>
    *                   <li>
    *                      <p>The VPC endpoint service must be an endpoint service for interface endpoints in the caller's Amazon Web Services account.</p>
    *                   </li>
@@ -2382,16 +2368,13 @@ export interface DecryptRequest {
 
   /**
    * <p>Specifies the KMS key that KMS uses to decrypt the ciphertext.</p>
-   *
    *          <p>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify a
    *       different KMS key, the <code>Decrypt</code> operation throws an
    *         <code>IncorrectKeyException</code>.</p>
-   *
    *          <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS
    *       key. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that
    *       it adds to the symmetric ciphertext blob. However, it is always recommended as a best
    *       practice. This practice ensures that you use the KMS key that you intend.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2568,7 +2551,6 @@ export interface DeleteImportedKeyMaterialRequest {
   /**
    * <p>Identifies the KMS key from which you are deleting imported key material. The
    *         <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2668,7 +2650,6 @@ export interface DescribeKeyRequest {
    *          <p>If you specify a predefined Amazon Web Services alias (an Amazon Web Services alias with no key ID), KMS associates
    *       the alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html##aws-managed-cmk">Amazon Web Services managed key</a> and returns its
    *         <code>KeyId</code> and <code>Arn</code> in the response.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2711,7 +2692,6 @@ export interface DescribeKeyResponse {
 export interface DisableKeyRequest {
   /**
    * <p>Identifies the KMS key to disable.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2735,7 +2715,6 @@ export interface DisableKeyRotationRequest {
    *       of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC
    *         KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a
    *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2765,7 +2744,6 @@ export interface DisconnectCustomKeyStoreResponse {}
 export interface EnableKeyRequest {
   /**
    * <p>Identifies the KMS key to enable.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2786,7 +2764,6 @@ export interface EnableKeyRequest {
 export interface EnableKeyRotationRequest {
   /**
    * <p>Identifies a symmetric encryption KMS key. You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2809,7 +2786,6 @@ export interface EncryptRequest {
    * <p>Identifies the KMS key to use in the encryption operation. The KMS key must have a
    *         <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code> of
    *       a KMS key, use the <a>DescribeKey</a> operation.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2910,7 +2886,6 @@ export interface GenerateDataKeyRequest {
    * <p>Specifies the symmetric encryption KMS key that encrypts the data key. You cannot specify
    *       an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your
    *       KMS key, use the <a>DescribeKey</a> operation.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3004,7 +2979,6 @@ export interface GenerateDataKeyPairRequest {
    * <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key
    *       pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the
    *       type and origin of your KMS key, use the <a>DescribeKey</a> operation.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3086,7 +3060,6 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
    * <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key
    *       pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the
    *       type and origin of your KMS key, use the <a>DescribeKey</a> operation. </p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3152,7 +3125,6 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
    * <p>Specifies the symmetric encryption KMS key that encrypts the data key. You cannot specify
    *       an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your
    *       KMS key, use the <a>DescribeKey</a> operation.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3299,7 +3271,6 @@ export interface GenerateRandomResponse {
 export interface GetKeyPolicyRequest {
   /**
    * <p>Gets the key policy for the specified KMS key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3333,7 +3304,6 @@ export interface GetKeyPolicyResponse {
 export interface GetKeyRotationStatusRequest {
   /**
    * <p>Gets the rotation status for the specified KMS key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
    * different Amazon Web Services account, you must use the key ARN.</p>
    *          <p>For example:</p>
@@ -3367,7 +3337,6 @@ export interface GetParametersForImportRequest {
   /**
    * <p>The identifier of the symmetric encryption KMS key into which you will import key
    *       material. The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3385,8 +3354,14 @@ export interface GetParametersForImportRequest {
   KeyId: string | undefined;
 
   /**
-   * <p>The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt the Key Material</a>
-   *       in the <i>Key Management Service Developer Guide</i>.</p>
+   * <p>The algorithm you will use to encrypt the key material before using the <a>ImportKeyMaterial</a> operation to import it. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt the
+   *         key material</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *          <important>
+   *             <p>The <code>RSAES_PKCS1_V1_5</code> wrapping algorithm is deprecated. We recommend that
+   *         you begin using a different wrapping algorithm immediately. KMS will end support for
+   *           <code>RSAES_PKCS1_V1_5</code> by October 1, 2023 pursuant to <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-131Ar2.pdf">cryptographic key management guidance</a> from the National Institute of Standards
+   *         and Technology (NIST).</p>
+   *          </important>
    */
   WrappingAlgorithm: AlgorithmSpec | string | undefined;
 
@@ -3426,7 +3401,6 @@ export interface GetParametersForImportResponse {
 export interface GetPublicKeyRequest {
   /**
    * <p>Identifies the asymmetric KMS key that includes the public key.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3579,7 +3553,6 @@ export interface ImportKeyMaterialRequest {
    *       KMS key must be <code>EXTERNAL</code>. You cannot perform this operation on an asymmetric KMS
    *       key, an HMAC KMS key, a KMS key in a custom key store, or on a KMS key in a different
    *       Amazon Web Services account</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3760,7 +3733,6 @@ export interface ListAliasesRequest {
    *       Amazon Web Services account. </p>
    *          <p>This parameter is optional. If you omit it, <code>ListAliases</code> returns all aliases
    *       in the account and Region.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3834,7 +3806,6 @@ export interface ListGrantsRequest {
 
   /**
    * <p>Returns only grants for the specified KMS key. This parameter is required.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
    * different Amazon Web Services account, you must use the key ARN.</p>
    *          <p>For example:</p>
@@ -3889,7 +3860,6 @@ export interface ListGrantsResponse {
 export interface ListKeyPoliciesRequest {
   /**
    * <p>Gets the names of key policies for the specified KMS key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3987,7 +3957,6 @@ export interface ListKeysResponse {
 export interface ListResourceTagsRequest {
   /**
    * <p>Gets tags on the specified KMS key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4069,10 +4038,11 @@ export interface ListRetirableGrantsRequest {
    * <p>The retiring principal for which to list grants. Enter a principal in your
    *       Amazon Web Services account.</p>
    *          <p>To specify the retiring principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an
-   *       Amazon Web Services principal. Valid Amazon Web Services principals include Amazon Web Services accounts (root), IAM users, federated
-   *       users, and assumed role users. For examples of the ARN syntax for specifying a principal, see
-   *         <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">Amazon Web Services Identity and Access Management (IAM)</a> in the Example ARNs section of the
-   *         <i>Amazon Web Services General Reference</i>.</p>
+   *       Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
+   *       federated users, and assumed role users. For help with the ARN syntax for a principal, see
+   *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
+   *                <i>Identity and Access Management User Guide</i>
+   *             </i>.</p>
    */
   RetiringPrincipal: string | undefined;
 }
@@ -4085,7 +4055,6 @@ export enum MessageType {
 export interface PutKeyPolicyRequest {
   /**
    * <p>Sets the key policy on the specified KMS key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4112,22 +4081,20 @@ export interface PutKeyPolicyRequest {
    *          <p>The key policy must meet the following criteria:</p>
    *          <ul>
    *             <li>
-   *                <p>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to true, the key policy
-   *           must allow the principal that is making the <code>PutKeyPolicy</code> request to make a
-   *           subsequent <code>PutKeyPolicy</code> request on the KMS key. This reduces the risk that
-   *           the KMS key becomes unmanageable. For more information, refer to the scenario in the
-   *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section of the <i>Key Management Service Developer Guide</i>.</p>
+   *                <p>The key policy must allow the calling principal to make a
+   *           subsequent <code>PutKeyPolicy</code> request on the KMS key.  This reduces the risk that
+   *           the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit
+   *           this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p>
    *             </li>
    *             <li>
    *                <p>Each statement in the key policy must contain one or more principals. The principals
    *           in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services
-   *           principal (for example, an IAM user or role), you might need to enforce a delay before
-   *           including the new principal in a key policy because the new principal might not be
-   *           immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
+   *           principal, you might need to enforce a delay before including the new principal in a key
+   *           policy because the new principal might not be immediately visible to KMS. For more
+   *           information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
    *             Identity and Access Management User Guide</i>.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>A key policy document can include only the following characters:</p>
    *          <ul>
    *             <li>
@@ -4148,15 +4115,14 @@ export interface PutKeyPolicyRequest {
   Policy: string | undefined;
 
   /**
-   * <p>A flag to indicate whether to bypass the key policy lockout safety check.</p>
+   * <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p>
    *          <important>
    *             <p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do
    *         not set this value to true indiscriminately.</p>
-   *             <p>For more information, refer to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section in the <i>Key Management Service Developer Guide</i>.</p>
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </important>
    *          <p>Use this parameter only when you intend to prevent the principal that is making the
-   *       request from making a subsequent <code>PutKeyPolicy</code> request on the KMS key.</p>
-   *          <p>The default value is false.</p>
+   *       request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</p>
    */
   BypassPolicyLockoutSafetyCheck?: boolean;
 }
@@ -4188,7 +4154,6 @@ export interface ReEncryptRequest {
    *       key. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that
    *       it adds to the symmetric ciphertext blob. However, it is always recommended as a best
    *       practice. This practice ensures that you use the KMS key that you intend.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4218,7 +4183,6 @@ export interface ReEncryptRequest {
    *       symmetric encryption KMS key or an asymmetric KMS key with a <code>KeyUsage</code> value of
    *         <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code> value of a KMS key, use the
    *         <a>DescribeKey</a> operation.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4317,7 +4281,6 @@ export interface ReplicateKeyRequest {
    * <p>Identifies the multi-Region primary key that is being replicated. To determine whether a
    *       KMS key is a multi-Region primary key, use the <a>DescribeKey</a> operation to
    *       check the value of the <code>MultiRegionKeyType</code> property.</p>
-   *
    *          <p>Specify the key ID or key ARN of a multi-Region primary key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4365,25 +4328,20 @@ export interface ReplicateKeyRequest {
    *          <p>If you provide a key policy, it must meet the following criteria:</p>
    *          <ul>
    *             <li>
-   *                <p>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to true, the key policy
-   *           must give the caller <code>kms:PutKeyPolicy</code> permission on the replica key. This
-   *           reduces the risk that the KMS key becomes unmanageable. For more information, refer to the
-   *           scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section of the <i>
-   *                      <i>Key Management Service Developer Guide</i>
-   *                   </i>.</p>
+   *                <p>The key policy must allow the calling principal to make a
+   *           subsequent <code>PutKeyPolicy</code> request on the KMS key.  This reduces the risk that
+   *           the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit
+   *           this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p>
    *             </li>
    *             <li>
    *                <p>Each statement in the key policy must contain one or more principals. The principals
    *           in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services
-   *           principal (for example, an IAM user or role), you might need to enforce a delay before
-   *           including the new principal in a key policy because the new principal might not be
-   *           immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the
-   *             <i>
-   *                      <i>Identity and Access Management User Guide</i>
-   *                   </i>.</p>
+   *           principal, you might need to enforce a delay before including the new principal in a key
+   *           policy because the new principal might not be immediately visible to KMS. For more
+   *           information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
+   *             Identity and Access Management User Guide</i>.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>A key policy document can include only the following characters:</p>
    *          <ul>
    *             <li>
@@ -4404,15 +4362,14 @@ export interface ReplicateKeyRequest {
   Policy?: string;
 
   /**
-   * <p>A flag to indicate whether to bypass the key policy lockout safety check.</p>
+   * <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p>
    *          <important>
    *             <p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do
    *         not set this value to true indiscriminately.</p>
-   *             <p>For more information, refer to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section in the <i>Key Management Service Developer Guide</i>.</p>
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </important>
    *          <p>Use this parameter only when you intend to prevent the principal that is making the
-   *       request from making a subsequent <code>PutKeyPolicy</code> request on the KMS key.</p>
-   *          <p>The default value is false.</p>
+   *       request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</p>
    */
   BypassPolicyLockoutSafetyCheck?: boolean;
 
@@ -4502,7 +4459,6 @@ export interface RevokeGrantRequest {
   /**
    * <p>A unique identifier for the KMS key associated with the grant. To get the key ID and key
    *       ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
    * different Amazon Web Services account, you must use the key ARN.</p>
    *          <p>For example:</p>
@@ -4530,7 +4486,6 @@ export interface RevokeGrantRequest {
 export interface ScheduleKeyDeletionRequest {
   /**
    * <p>The unique identifier of the KMS key to delete.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4594,7 +4549,6 @@ export interface SignRequest {
    * <p>Identifies an asymmetric KMS key. KMS uses the private key in the asymmetric KMS key to
    *       sign the message. The <code>KeyUsage</code> type of the KMS key must be
    *         <code>SIGN_VERIFY</code>. To find the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4621,16 +4575,44 @@ export interface SignRequest {
 
   /**
    * <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a
-   *       larger message, provide the message digest.</p>
-   *          <p>If you provide a message, KMS generates a hash digest of the message and then signs
-   *       it.</p>
+   *       larger message, provide a message digest.</p>
+   *          <p>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code> to
+   *     prevent the digest from being hashed again while signing.</p>
    */
   Message: Uint8Array | undefined;
 
   /**
-   * <p>Tells KMS whether the value of the <code>Message</code> parameter is a message or
-   *       message digest. The default value, RAW, indicates a message. To indicate a message digest,
-   *       enter <code>DIGEST</code>.</p>
+   * <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed
+   *       as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code>
+   *       for message digests, which are already hashed.</p>
+   *          <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard
+   *       signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>, KMS skips
+   *       the hashing step in the signing algorithm.</p>
+   *          <important>
+   *             <p>Use the <code>DIGEST</code> value only when the value of the <code>Message</code>
+   *         parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed message,
+   *         the security of the signing operation can be compromised.</p>
+   *          </important>
+   *          <p>When the value of <code>MessageType</code>is <code>DIGEST</code>, the length
+   *       of the <code>Message</code> value must match the length of hashed messages for the specified signing algorithm.</p>
+   *          <p>You can submit a message digest and omit the <code>MessageType</code> or specify
+   *       <code>RAW</code> so the digest is hashed again while signing. However, this can cause verification failures when
+   *       verifying with a system that assumes a single hash.</p>
+   *          <p>The hashing algorithm in that <code>Sign</code> uses is based on the <code>SigningAlgorithm</code> value.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p>
+   *             </li>
+   *          </ul>
    */
   MessageType?: MessageType | string;
 
@@ -4644,7 +4626,8 @@ export interface SignRequest {
   /**
    * <p>Specifies the signing algorithm to use when signing the message. </p>
    *          <p>Choose an algorithm that is compatible with the type and size of the specified asymmetric
-   *       KMS key.</p>
+   *       KMS key.  When signing with RSA key pairs, RSASSA-PSS algorithms are preferred. We include
+   *       RSASSA-PKCS1-v1_5 algorithms for compatibility with existing applications.</p>
    */
   SigningAlgorithm: SigningAlgorithmSpec | string | undefined;
 }
@@ -4684,7 +4667,6 @@ export interface SignResponse {
 export interface TagResourceRequest {
   /**
    * <p>Identifies a customer managed key in the account and Region.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4715,7 +4697,6 @@ export interface TagResourceRequest {
 export interface UntagResourceRequest {
   /**
    * <p>Identifies the KMS key from which you are removing tags.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4752,7 +4733,6 @@ export interface UpdateAliasRequest {
    *          <p>The KMS key must be in the same Amazon Web Services account and Region as the alias. Also, the new
    *       target KMS key must be the same type as the current target KMS key (both symmetric or both
    *       asymmetric or both HMAC) and they must have the same key usage. </p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4766,7 +4746,6 @@ export interface UpdateAliasRequest {
    *             </li>
    *          </ul>
    *          <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-   *
    *          <p>To verify that the alias is mapped to the correct KMS key, use <a>ListAliases</a>.</p>
    */
   TargetKeyId: string | undefined;
@@ -4885,7 +4864,6 @@ export interface UpdateCustomKeyStoreResponse {}
 export interface UpdateKeyDescriptionRequest {
   /**
    * <p>Updates the description of the specified KMS key.</p>
-   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4912,7 +4890,6 @@ export interface UpdatePrimaryRegionRequest {
   /**
    * <p>Identifies the current primary key. When the operation completes, this KMS key will be a
    *       replica key.</p>
-   *
    *          <p>Specify the key ID or key ARN of a multi-Region primary key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4944,7 +4921,6 @@ export interface VerifyRequest {
    * <p>Identifies the asymmetric KMS key that will be used to verify the signature. This must be
    *       the same KMS key that was used to generate the signature. If you specify a different KMS key,
    *       the signature verification fails.</p>
-   *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4971,8 +4947,8 @@ export interface VerifyRequest {
 
   /**
    * <p>Specifies the message that was signed. You can submit a raw message of up to 4096 bytes,
-   *       or a hash digest of the message. If you submit a digest, use the <code>MessageType</code>
-   *       parameter with a value of <code>DIGEST</code>.</p>
+   *       or a hash digest of the message. If you submit a digest, use the <code>MessageType</code> parameter
+   *       with a value of <code>DIGEST</code>.</p>
    *          <p>If the message specified here is different from the message that was signed, the signature
    *       verification fails. A message and its hash digest are considered to be the same
    *       message.</p>
@@ -4980,14 +4956,37 @@ export interface VerifyRequest {
   Message: Uint8Array | undefined;
 
   /**
-   * <p>Tells KMS whether the value of the <code>Message</code> parameter is a message or
-   *       message digest. The default value, RAW, indicates a message. To indicate a message digest,
-   *       enter <code>DIGEST</code>.</p>
+   * <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed
+   *       as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code>
+   *       for message digests, which are already hashed.</p>
+   *          <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard
+   *       signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>, KMS
+   *       skips the hashing step in the signing algorithm.</p>
    *          <important>
    *             <p>Use the <code>DIGEST</code> value only when the value of the <code>Message</code>
-   *         parameter is a message digest. If you use the <code>DIGEST</code> value with a raw message,
+   *         parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed message,
    *         the security of the verification operation can be compromised.</p>
    *          </important>
+   *          <p>When the value of <code>MessageType</code>is <code>DIGEST</code>, the length
+   *     of the <code>Message</code> value must match the length of hashed messages for the specified signing algorithm.</p>
+   *          <p>You can submit a message digest and omit the <code>MessageType</code> or specify
+   *       <code>RAW</code> so the digest is hashed again while signing. However, if the signed message is hashed once
+   *       while signing, but twice while verifying, verification fails, even when the message hasn't changed.</p>
+   *          <p>The hashing algorithm in that <code>Verify</code> uses is based on the <code>SigningAlgorithm</code> value.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p>
+   *             </li>
+   *          </ul>
    */
   MessageType?: MessageType | string;
 
@@ -5044,7 +5043,6 @@ export interface VerifyMacRequest {
 
   /**
    * <p>The KMS key that will be used in the verification.</p>
-   *
    *          <p>Enter a key ID of the KMS key that was used to generate the HMAC. If you identify a
    *       different KMS key, the <code>VerifyMac</code> operation fails.</p>
    */

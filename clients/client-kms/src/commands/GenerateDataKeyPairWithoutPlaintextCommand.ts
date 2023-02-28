@@ -57,7 +57,6 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *       request. The bytes in the key are not related to the caller or KMS key that is used to encrypt
  *       the private key. The public key is a DER-encoded X.509 SubjectPublicKeyInfo, as specified in
  *         <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>.</p>
- *
  *          <p>You can use an optional encryption context to add additional security to the encryption
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
@@ -68,7 +67,6 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateDataKeyPairWithoutPlaintext</a> (key
  *       policy)</p>

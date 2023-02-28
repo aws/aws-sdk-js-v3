@@ -38,7 +38,6 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *          <p>When it succeeds, the <code>UntagResource</code> operation doesn't return any output.
  *       Also, if the specified tag key isn't found on the KMS key, it doesn't throw an exception or
  *       return a response. To confirm that the operation worked, use the <a>ListResourceTags</a> operation.</p>
- *
  *          <p>For information about using tags in KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging keys</a>. For general information about
  *       tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon
  *         Web Services General Reference</i>. </p>
@@ -46,7 +45,6 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:UntagResource</a> (key policy)</p>
  *          <p>

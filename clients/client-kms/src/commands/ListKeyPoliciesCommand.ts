@@ -40,7 +40,6 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  *       However, the only valid policy name is <code>default</code>. </p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListKeyPolicies</a> (key policy)</p>
  *          <p>

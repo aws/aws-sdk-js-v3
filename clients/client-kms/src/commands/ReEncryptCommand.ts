@@ -71,7 +71,6 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *           specify the KMS key that re-encrypts the data after it is decrypted. If the destination
  *           KMS key is an asymmetric KMS key, you must also provide the encryption algorithm. The
  *           algorithm that you choose must be compatible with the KMS key.</p>
- *
  *                <important>
  *                   <p>When you use an asymmetric KMS key to encrypt or reencrypt data, be sure to record the KMS key and encryption algorithm that you choose. You will be required to provide the same KMS key and encryption algorithm when you decrypt the data. If the KMS key and algorithm do not match the values used to encrypt the data, the decrypt operation fails.</p>
  *                   <p>You are not required to supply the key ID and encryption algorithm when you decrypt with symmetric encryption KMS keys because KMS stores this information in the ciphertext blob. KMS cannot store metadata in ciphertext generated with asymmetric keys. The standard format for asymmetric key ciphertext does not include configurable fields.</p>
@@ -85,7 +84,6 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *       destination KMS key can be in different Amazon Web Services accounts. Either or both KMS keys can be in a
  *       different account than the caller. To specify a KMS key in a different account, you must use
  *       its key ARN or alias ARN.</p>
- *
  *          <p>
  *             <b>Required permissions</b>:</p>
  *          <ul>
@@ -104,7 +102,6 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *       permission in your <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key policy</a>. This permission is
  *       automatically included in the key policy when you use the console to create a KMS key. But you
  *       must include it manually when you create a KMS key programmatically or when you use the <a>PutKeyPolicy</a> operation to set a key policy.</p>
- *
  *          <p>
  *             <b>Related operations:</b>
  *          </p>

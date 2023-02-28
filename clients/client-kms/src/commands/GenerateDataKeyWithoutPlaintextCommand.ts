@@ -55,22 +55,17 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *       plaintext data key.</p>
  *          <p>To request an asymmetric data key pair, use the <a>GenerateDataKeyPair</a> or
  *         <a>GenerateDataKeyPairWithoutPlaintext</a> operations.</p>
- *
  *          <p>To generate a data key, you must specify the symmetric encryption KMS key that is used to
  *       encrypt the data key. You cannot use an asymmetric KMS key or a key in a custom key store to generate a data key. To get the
  *       type of your KMS key, use the <a>DescribeKey</a> operation.</p>
- *
  *          <p>You must also specify the length of the data key. Use either the <code>KeySpec</code> or
  *       <code>NumberOfBytes</code> parameters (but not both). For 128-bit and 256-bit data keys, use
  *       the <code>KeySpec</code> parameter.</p>
- *
  *          <p>To generate an SM4 data key (China Regions only), specify a <code>KeySpec</code> value of
  *       <code>AES_128</code> or <code>NumberOfBytes</code> value of <code>128</code>. The symmetric
  *       encryption key used in China Regions to encrypt your data key is an SM4 encryption key.</p>
- *
  *          <p>If the operation succeeds, you will find the encrypted copy of the data key in the
  *         <code>CiphertextBlob</code> field.</p>
- *
  *          <p>You can use an optional encryption context to add additional security to the encryption
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
@@ -81,7 +76,6 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateDataKeyWithoutPlaintext</a> (key
  *       policy)</p>

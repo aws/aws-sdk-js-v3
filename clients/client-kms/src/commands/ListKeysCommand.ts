@@ -35,7 +35,6 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * <p>Gets a list of all KMS keys in the caller's Amazon Web Services account and Region.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListKeys</a> (IAM policy)</p>
  *          <p>
