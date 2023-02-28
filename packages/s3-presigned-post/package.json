@@ -21,6 +21,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/client-s3": "*",
     "@aws-sdk/middleware-endpoint": "*",
     "@aws-sdk/signature-v4": "*",
     "@aws-sdk/types": "*",
@@ -30,7 +31,6 @@
     "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "@aws-sdk/client-s3": "*",
     "@aws-sdk/hash-node": "*",
     "@aws-sdk/protocol-http": "*",
     "@tsconfig/recommended": "1.0.1",
