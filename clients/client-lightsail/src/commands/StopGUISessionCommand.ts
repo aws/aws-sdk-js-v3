@@ -15,45 +15,46 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import {
-  GetDiskSnapshotRequest,
-  GetDiskSnapshotRequestFilterSensitiveLog,
-  GetDiskSnapshotResult,
-  GetDiskSnapshotResultFilterSensitiveLog,
+  StopGUISessionRequest,
+  StopGUISessionRequestFilterSensitiveLog,
+  StopGUISessionResult,
+  StopGUISessionResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetDiskSnapshotCommand,
-  serializeAws_json1_1GetDiskSnapshotCommand,
+  deserializeAws_json1_1StopGUISessionCommand,
+  serializeAws_json1_1StopGUISessionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
- * The input for {@link GetDiskSnapshotCommand}.
+ * The input for {@link StopGUISessionCommand}.
  */
-export interface GetDiskSnapshotCommandInput extends GetDiskSnapshotRequest {}
+export interface StopGUISessionCommandInput extends StopGUISessionRequest {}
 /**
- * The output of {@link GetDiskSnapshotCommand}.
+ * The output of {@link StopGUISessionCommand}.
  */
-export interface GetDiskSnapshotCommandOutput extends GetDiskSnapshotResult, __MetadataBearer {}
+export interface StopGUISessionCommandOutput extends StopGUISessionResult, __MetadataBearer {}
 
 /**
- * <p>Returns information about a specific block storage disk snapshot.</p>
+ * <p>Terminates a web-based NICE DCV session that’s used to access a virtual computer’s
+ *       operating system or application. The session will close and any unsaved data will be lost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetDiskSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetDiskSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, StopGUISessionCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, StopGUISessionCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const command = new GetDiskSnapshotCommand(input);
+ * const command = new StopGUISessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetDiskSnapshotCommandInput} for command's `input` shape.
- * @see {@link GetDiskSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link StopGUISessionCommandInput} for command's `input` shape.
+ * @see {@link StopGUISessionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
-export class GetDiskSnapshotCommand extends $Command<
-  GetDiskSnapshotCommandInput,
-  GetDiskSnapshotCommandOutput,
+export class StopGUISessionCommand extends $Command<
+  StopGUISessionCommandInput,
+  StopGUISessionCommandOutput,
   LightsailClientResolvedConfig
 > {
   // Start section: command_properties
@@ -68,7 +69,7 @@ export class GetDiskSnapshotCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetDiskSnapshotCommandInput) {
+  constructor(readonly input: StopGUISessionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -81,23 +82,23 @@ export class GetDiskSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetDiskSnapshotCommandInput, GetDiskSnapshotCommandOutput> {
+  ): Handler<StopGUISessionCommandInput, StopGUISessionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetDiskSnapshotCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, StopGUISessionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LightsailClient";
-    const commandName = "GetDiskSnapshotCommand";
+    const commandName = "StopGUISessionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDiskSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDiskSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: StopGUISessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopGUISessionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +108,12 @@ export class GetDiskSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(input: GetDiskSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDiskSnapshotCommand(input, context);
+  private serialize(input: StopGUISessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1StopGUISessionCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDiskSnapshotCommandOutput> {
-    return deserializeAws_json1_1GetDiskSnapshotCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopGUISessionCommandOutput> {
+    return deserializeAws_json1_1StopGUISessionCommand(output, context);
   }
 
   // Start section: command_body_extra

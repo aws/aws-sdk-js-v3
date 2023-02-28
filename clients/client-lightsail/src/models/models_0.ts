@@ -352,10 +352,27 @@ export interface AddOn {
    *       after.</p>
    */
   nextSnapshotTimeOfDay?: string;
+
+  /**
+   * <p>The trigger threshold of the action.</p>
+   *          <important>
+   *             <p>This add-on only applies to Lightsail for Research resources.</p>
+   *          </important>
+   */
+  threshold?: string;
+
+  /**
+   * <p>The amount of idle time in minutes after which your virtual computer will automatically stop.</p>
+   *          <important>
+   *             <p>This add-on only applies to Lightsail for Research resources.</p>
+   *          </important>
+   */
+  duration?: string;
 }
 
 export enum AddOnType {
   AutoSnapshot = "AutoSnapshot",
+  StopInstanceOnIdle = "StopInstanceOnIdle",
 }
 
 /**
@@ -414,6 +431,24 @@ export interface AutoSnapshotAddOnRequest {
 }
 
 /**
+ * <p>Describes a request to create or edit the <code>StopInstanceOnIdle</code> add-on.</p>
+ *          <important>
+ *             <p>This add-on only applies to Lightsail for Research resources.</p>
+ *          </important>
+ */
+export interface StopInstanceOnIdleRequest {
+  /**
+   * <p>The value to compare with the duration.</p>
+   */
+  threshold?: string;
+
+  /**
+   * <p>The amount of idle time in minutes after which your virtual computer will automatically stop.</p>
+   */
+  duration?: string;
+}
+
+/**
  * <p>Describes a request to enable, modify, or disable an add-on for an Amazon Lightsail
  *       resource.</p>
  *          <note>
@@ -433,6 +468,15 @@ export interface AddOnRequest {
    *       snapshot add-on.</p>
    */
   autoSnapshotAddOnRequest?: AutoSnapshotAddOnRequest;
+
+  /**
+   * <p>An object that represents additional parameters when enabling or modifying the
+   *         <code>StopInstanceOnIdle</code> add-on.</p>
+   *          <important>
+   *             <p>This object only applies to Lightsail for Research resources.</p>
+   *          </important>
+   */
+  stopInstanceOnIdleRequest?: StopInstanceOnIdleRequest;
 }
 
 export enum ComparisonOperator {
@@ -861,8 +905,10 @@ export enum OperationType {
   SendContactMethodVerification = "SendContactMethodVerification",
   SetIpAddressType = "SetIpAddressType",
   SetResourceAccessForBucket = "SetResourceAccessForBucket",
+  StartGUISession = "StartGUISession",
   StartInstance = "StartInstance",
   StartRelationalDatabase = "StartRelationalDatabase",
+  StopGUISession = "StopGUISession",
   StopInstance = "StopInstance",
   StopRelationalDatabase = "StopRelationalDatabase",
   TestAlarm = "TestAlarm",
@@ -1092,6 +1138,10 @@ export class UnauthenticatedException extends __BaseException {
   }
 }
 
+export enum AppCategory {
+  LfR = "LfR",
+}
+
 export interface AttachCertificateToDistributionRequest {
   /**
    * <p>The name of the distribution that the certificate will be attached to.</p>
@@ -1140,6 +1190,15 @@ export interface AttachDiskRequest {
    * <p>The disk path to expose to the instance (e.g., <code>/dev/xvdf</code>).</p>
    */
   diskPath: string | undefined;
+
+  /**
+   * <p>A Boolean value used to determine the automatic mounting of a storage volume to a virtual
+   *       computer. The default value is <code>False</code>.</p>
+   *          <important>
+   *             <p>This value only applies to Lightsail for Research resources.</p>
+   *          </important>
+   */
+  autoMounting?: boolean;
 }
 
 export interface AttachDiskResult {
@@ -1249,6 +1308,13 @@ export interface AttachStaticIpResult {
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
+}
+
+export enum AutoMountStatus {
+  Failed = "Failed",
+  Mounted = "Mounted",
+  NotMounted = "NotMounted",
+  Pending = "Pending",
 }
 
 export enum AutoSnapshotStatus {
@@ -1388,6 +1454,14 @@ export interface Blueprint {
    *       blueprint.</p>
    */
   platform?: InstancePlatform | string;
+
+  /**
+   * <p>Virtual computer blueprints that are supported by Lightsail for Research.</p>
+   *          <important>
+   *             <p>This parameter only applies to Lightsail for Research resources.</p>
+   *          </important>
+   */
+  appCategory?: AppCategory | string;
 }
 
 /**
@@ -1702,6 +1776,14 @@ export interface Bundle {
    *         <code>LINUX_UNIX</code> bundle.</p>
    */
   supportedPlatforms?: (InstancePlatform | string)[];
+
+  /**
+   * <p>Virtual computer blueprints that are supported by a Lightsail for Research bundle.</p>
+   *          <important>
+   *             <p>This parameter only applies to Lightsail for Research resources.</p>
+   *          </important>
+   */
+  supportedAppCategories?: (AppCategory | string)[];
 }
 
 /**
@@ -3529,6 +3611,80 @@ export interface CopySnapshotResult {
   operations?: Operation[];
 }
 
+export enum Currency {
+  USD = "USD",
+}
+
+export enum PricingUnit {
+  Bundles = "Bundles",
+  GB = "GB",
+  GBMo = "GB-Mo",
+  Hrs = "Hrs",
+  Queries = "Queries",
+}
+
+/**
+ * <p>Sets the start date and end date for retrieving a cost estimate. The start date is inclusive, but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including <code>2017-05-01</code>.</p>
+ */
+export interface TimePeriod {
+  /**
+   * <p>The beginning of the time period. The start date is inclusive. For example, if <code>start</code> is <code>2017-01-01</code>, Lightsail for Research retrieves cost and usage data starting at <code>2017-01-01</code> up to the end date. The start date must be equal to or no later than the current date to avoid a validation error.</p>
+   */
+  start?: Date;
+
+  /**
+   * <p>The end of the time period. The end date is exclusive. For example, if <code>end</code> is <code>2017-05-01</code>, Lightsail for Research retrieves cost and usage data from the start date up to, but not including, <code>2017-05-01</code>.</p>
+   */
+  end?: Date;
+}
+
+/**
+ * <p>An estimate that's associated with a time period. </p>
+ */
+export interface EstimateByTime {
+  /**
+   * <p>The amount of cost or usage that's measured for the cost estimate.</p>
+   */
+  usageCost?: number;
+
+  /**
+   * <p>The unit of measurement that's used for the cost estimate.</p>
+   */
+  pricingUnit?: PricingUnit | string;
+
+  /**
+   * <p>The number of pricing units used to calculate the total number of hours. For example, 1
+   *       unit equals 1 hour.</p>
+   */
+  unit?: number;
+
+  /**
+   * <p>The currency of the estimate in USD.</p>
+   */
+  currency?: Currency | string;
+
+  /**
+   * <p>The period of time, in days, that an estimate covers. The period has a start date and an end date. The start date must come before the end date.</p>
+   */
+  timePeriod?: TimePeriod;
+}
+
+/**
+ * <p>Describes the estimated cost for resources in your Lightsail for Research account.</p>
+ */
+export interface CostEstimate {
+  /**
+   * <p>The types of usage that are included in the estimate, such as costs, usage, or data
+   *       transfer.</p>
+   */
+  usageType?: string;
+
+  /**
+   * <p>The cost estimate result that's associated with a time period.</p>
+   */
+  resultsByTime?: EstimateByTime[];
+}
+
 export interface CreateBucketRequest {
   /**
    * <p>The name for the bucket.</p>
@@ -4523,6 +4679,75 @@ export interface CreateDomainEntryResult {
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
+}
+
+export interface CreateGUISessionAccessDetailsRequest {
+  /**
+   * <p>The resource name.</p>
+   */
+  resourceName: string | undefined;
+}
+
+/**
+ * <p>Describes a web-based, remote graphical user interface (GUI), NICE DCV session. The session is used to access a virtual
+ *       computer’s operating system or application.</p>
+ */
+export interface Session {
+  /**
+   * <p>The session name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The session URL.</p>
+   */
+  url?: string;
+
+  /**
+   * <p>When true, this Boolean value indicates the primary session for the specified
+   *       resource.</p>
+   */
+  isPrimary?: boolean;
+}
+
+export enum Status {
+  FailedInstanceCreation = "failedInstanceCreation",
+  FailedStartingGUISession = "failedStartingGUISession",
+  FailedStoppingGUISession = "failedStoppingGUISession",
+  NotStarted = "notStarted",
+  SettingUpInstance = "settingUpInstance",
+  StartExpired = "startExpired",
+  Started = "started",
+  Starting = "starting",
+  Stopped = "stopped",
+  Stopping = "stopping",
+}
+
+export interface CreateGUISessionAccessDetailsResult {
+  /**
+   * <p>The resource name.</p>
+   */
+  resourceName?: string;
+
+  /**
+   * <p>The status of the operation.</p>
+   */
+  status?: Status | string;
+
+  /**
+   * <p>The percentage of completion for the operation.</p>
+   */
+  percentageComplete?: number;
+
+  /**
+   * <p>The reason the operation failed.</p>
+   */
+  failureReason?: string;
+
+  /**
+   * <p>Returns information about the specified NICE DCV GUI session.</p>
+   */
+  sessions?: Session[];
 }
 
 export interface CreateInstancesRequest {
@@ -5990,6 +6215,14 @@ export interface Disk {
    *          </note>
    */
   gbInUse?: number;
+
+  /**
+   * <p>The status of automatically mounting a storage disk to a virtual computer.</p>
+   *          <important>
+   *             <p>This parameter only applies to Lightsail for Research resources.</p>
+   *          </important>
+   */
+  autoMountStatus?: AutoMountStatus | string;
 }
 
 /**
@@ -6618,6 +6851,14 @@ export interface GetBlueprintsRequest {
    *       page token in a subsequent request.</p>
    */
   pageToken?: string;
+
+  /**
+   * <p>Returns a list of blueprints that are specific to Lightsail for Research.</p>
+   *          <important>
+   *             <p>You must use this parameter to view Lightsail for Research blueprints.</p>
+   *          </important>
+   */
+  appCategory?: AppCategory | string;
 }
 
 export interface GetBlueprintsResult {
@@ -6880,6 +7121,14 @@ export interface GetBundlesRequest {
    *       token in a subsequent request.</p>
    */
   pageToken?: string;
+
+  /**
+   * <p>Returns a list of bundles that are specific to Lightsail for Research.</p>
+   *          <important>
+   *             <p>You must use this parameter to view Lightsail for Research bundles.</p>
+   *          </important>
+   */
+  appCategory?: AppCategory | string;
 }
 
 export interface GetBundlesResult {
@@ -7228,118 +7477,6 @@ export interface GetContainerServicesRequest {
   serviceName?: string;
 }
 
-export interface GetDiskRequest {
-  /**
-   * <p>The name of the disk (e.g., <code>my-disk</code>).</p>
-   */
-  diskName: string | undefined;
-}
-
-export interface GetDiskResult {
-  /**
-   * <p>An object containing information about the disk.</p>
-   */
-  disk?: Disk;
-}
-
-export interface GetDisksRequest {
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>To get a page token, perform an initial <code>GetDisks</code> request. If your results are
-   *       paginated, the response will return a next page token that you can specify as the page token
-   *       in a subsequent request.</p>
-   */
-  pageToken?: string;
-}
-
-export interface GetDisksResult {
-  /**
-   * <p>An array of objects containing information about all block storage disks.</p>
-   */
-  disks?: Disk[];
-
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>A next page token is not returned if there are no more results to display.</p>
-   *          <p>To get the next page of results, perform another <code>GetDisks</code> request and specify
-   *       the next page token using the <code>pageToken</code> parameter.</p>
-   */
-  nextPageToken?: string;
-}
-
-export interface GetDiskSnapshotRequest {
-  /**
-   * <p>The name of the disk snapshot (e.g., <code>my-disk-snapshot</code>).</p>
-   */
-  diskSnapshotName: string | undefined;
-}
-
-export interface GetDiskSnapshotResult {
-  /**
-   * <p>An object containing information about the disk snapshot.</p>
-   */
-  diskSnapshot?: DiskSnapshot;
-}
-
-export interface GetDiskSnapshotsRequest {
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>To get a page token, perform an initial <code>GetDiskSnapshots</code> request. If your
-   *       results are paginated, the response will return a next page token that you can specify as the
-   *       page token in a subsequent request.</p>
-   */
-  pageToken?: string;
-}
-
-export interface GetDiskSnapshotsResult {
-  /**
-   * <p>An array of objects containing information about all block storage disk snapshots.</p>
-   */
-  diskSnapshots?: DiskSnapshot[];
-
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>A next page token is not returned if there are no more results to display.</p>
-   *          <p>To get the next page of results, perform another <code>GetDiskSnapshots</code> request and
-   *       specify the next page token using the <code>pageToken</code> parameter.</p>
-   */
-  nextPageToken?: string;
-}
-
-export interface GetDistributionBundlesRequest {}
-
-export interface GetDistributionBundlesResult {
-  /**
-   * <p>An object that describes a distribution bundle.</p>
-   */
-  bundles?: DistributionBundle[];
-}
-
-export interface GetDistributionLatestCacheResetRequest {
-  /**
-   * <p>The name of the distribution for which to return the timestamp of the last cache
-   *       reset.</p>
-   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
-   *       can specify.</p>
-   *          <p>When omitted, the response includes the latest cache reset timestamp of all your
-   *       distributions.</p>
-   */
-  distributionName?: string;
-}
-
-export interface GetDistributionLatestCacheResetResult {
-  /**
-   * <p>The status of the last cache reset.</p>
-   */
-  status?: string;
-
-  /**
-   * <p>The timestamp of the last cache reset (e.g., <code>1479734909.17</code>) in Unix time
-   *       format.</p>
-   */
-  createTime?: Date;
-}
-
 /**
  * @internal
  */
@@ -7387,6 +7524,13 @@ export const AddOnFilterSensitiveLog = (obj: AddOn): any => ({
  * @internal
  */
 export const AutoSnapshotAddOnRequestFilterSensitiveLog = (obj: AutoSnapshotAddOnRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopInstanceOnIdleRequestFilterSensitiveLog = (obj: StopInstanceOnIdleRequest): any => ({
   ...obj,
 });
 
@@ -7864,6 +8008,27 @@ export const CopySnapshotResultFilterSensitiveLog = (obj: CopySnapshotResult): a
 /**
  * @internal
  */
+export const TimePeriodFilterSensitiveLog = (obj: TimePeriod): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EstimateByTimeFilterSensitiveLog = (obj: EstimateByTime): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CostEstimateFilterSensitiveLog = (obj: CostEstimate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateBucketRequestFilterSensitiveLog = (obj: CreateBucketRequest): any => ({
   ...obj,
 });
@@ -8106,6 +8271,33 @@ export const CreateDomainEntryRequestFilterSensitiveLog = (obj: CreateDomainEntr
  */
 export const CreateDomainEntryResultFilterSensitiveLog = (obj: CreateDomainEntryResult): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGUISessionAccessDetailsRequestFilterSensitiveLog = (
+  obj: CreateGUISessionAccessDetailsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionFilterSensitiveLog = (obj: Session): any => ({
+  ...obj,
+  ...(obj.url && { url: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateGUISessionAccessDetailsResultFilterSensitiveLog = (
+  obj: CreateGUISessionAccessDetailsResult
+): any => ({
+  ...obj,
+  ...(obj.sessions && { sessions: obj.sessions.map((item) => SessionFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -9036,93 +9228,5 @@ export const GetContainerServicePowersResultFilterSensitiveLog = (obj: GetContai
  * @internal
  */
 export const GetContainerServicesRequestFilterSensitiveLog = (obj: GetContainerServicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDiskRequestFilterSensitiveLog = (obj: GetDiskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDiskResultFilterSensitiveLog = (obj: GetDiskResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDisksRequestFilterSensitiveLog = (obj: GetDisksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDisksResultFilterSensitiveLog = (obj: GetDisksResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDiskSnapshotRequestFilterSensitiveLog = (obj: GetDiskSnapshotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDiskSnapshotResultFilterSensitiveLog = (obj: GetDiskSnapshotResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDiskSnapshotsRequestFilterSensitiveLog = (obj: GetDiskSnapshotsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDiskSnapshotsResultFilterSensitiveLog = (obj: GetDiskSnapshotsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionBundlesRequestFilterSensitiveLog = (obj: GetDistributionBundlesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionBundlesResultFilterSensitiveLog = (obj: GetDistributionBundlesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionLatestCacheResetRequestFilterSensitiveLog = (
-  obj: GetDistributionLatestCacheResetRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionLatestCacheResetResultFilterSensitiveLog = (
-  obj: GetDistributionLatestCacheResetResult
-): any => ({
   ...obj,
 });

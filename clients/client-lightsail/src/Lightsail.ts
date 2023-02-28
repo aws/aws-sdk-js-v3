@@ -104,6 +104,11 @@ import {
   CreateDomainEntryCommandOutput,
 } from "./commands/CreateDomainEntryCommand";
 import {
+  CreateGUISessionAccessDetailsCommand,
+  CreateGUISessionAccessDetailsCommandInput,
+  CreateGUISessionAccessDetailsCommandOutput,
+} from "./commands/CreateGUISessionAccessDetailsCommand";
+import {
   CreateInstancesCommand,
   CreateInstancesCommandInput,
   CreateInstancesCommandOutput,
@@ -360,6 +365,11 @@ import {
   GetContainerServicesCommandInput,
   GetContainerServicesCommandOutput,
 } from "./commands/GetContainerServicesCommand";
+import {
+  GetCostEstimateCommand,
+  GetCostEstimateCommandInput,
+  GetCostEstimateCommandOutput,
+} from "./commands/GetCostEstimateCommand";
 import { GetDiskCommand, GetDiskCommandInput, GetDiskCommandOutput } from "./commands/GetDiskCommand";
 import { GetDisksCommand, GetDisksCommandInput, GetDisksCommandOutput } from "./commands/GetDisksCommand";
 import {
@@ -603,6 +613,11 @@ import {
   SetResourceAccessForBucketCommandOutput,
 } from "./commands/SetResourceAccessForBucketCommand";
 import {
+  StartGUISessionCommand,
+  StartGUISessionCommandInput,
+  StartGUISessionCommandOutput,
+} from "./commands/StartGUISessionCommand";
+import {
   StartInstanceCommand,
   StartInstanceCommandInput,
   StartInstanceCommandOutput,
@@ -612,6 +627,11 @@ import {
   StartRelationalDatabaseCommandInput,
   StartRelationalDatabaseCommandOutput,
 } from "./commands/StartRelationalDatabaseCommand";
+import {
+  StopGUISessionCommand,
+  StopGUISessionCommandInput,
+  StopGUISessionCommandOutput,
+} from "./commands/StopGUISessionCommand";
 import {
   StopInstanceCommand,
   StopInstanceCommandInput,
@@ -1518,6 +1538,40 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: CreateDomainEntryCommandOutput) => void
   ): Promise<CreateDomainEntryCommandOutput> | void {
     const command = new CreateDomainEntryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates two URLs that are used to access a virtual computer’s graphical user interface (GUI)
+   *       session. The primary URL initiates a web-based NICE DCV session to the virtual computer's application. The secondary URL initiates a web-based NICE DCV session to the virtual computer's operating session. </p>
+   *          <p>Use <code>StartGUISession</code> to open the session.</p>
+   */
+  public createGUISessionAccessDetails(
+    args: CreateGUISessionAccessDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGUISessionAccessDetailsCommandOutput>;
+  public createGUISessionAccessDetails(
+    args: CreateGUISessionAccessDetailsCommandInput,
+    cb: (err: any, data?: CreateGUISessionAccessDetailsCommandOutput) => void
+  ): void;
+  public createGUISessionAccessDetails(
+    args: CreateGUISessionAccessDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGUISessionAccessDetailsCommandOutput) => void
+  ): void;
+  public createGUISessionAccessDetails(
+    args: CreateGUISessionAccessDetailsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGUISessionAccessDetailsCommandOutput) => void),
+    cb?: (err: any, data?: CreateGUISessionAccessDetailsCommandOutput) => void
+  ): Promise<CreateGUISessionAccessDetailsCommandOutput> | void {
+    const command = new CreateGUISessionAccessDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3533,6 +3587,38 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * <p>Retrieves information about the cost estimate for a specified resource. A cost estimate will not generate for a resource that has been deleted.</p>
+   */
+  public getCostEstimate(
+    args: GetCostEstimateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCostEstimateCommandOutput>;
+  public getCostEstimate(
+    args: GetCostEstimateCommandInput,
+    cb: (err: any, data?: GetCostEstimateCommandOutput) => void
+  ): void;
+  public getCostEstimate(
+    args: GetCostEstimateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCostEstimateCommandOutput) => void
+  ): void;
+  public getCostEstimate(
+    args: GetCostEstimateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCostEstimateCommandOutput) => void),
+    cb?: (err: any, data?: GetCostEstimateCommandOutput) => void
+  ): Promise<GetCostEstimateCommandOutput> | void {
+    const command = new GetCostEstimateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about a specific block storage disk.</p>
    */
   public getDisk(args: GetDiskCommandInput, options?: __HttpHandlerOptions): Promise<GetDiskCommandOutput>;
@@ -5423,6 +5509,39 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * <p>Initiates a graphical user interface (GUI) session that’s used to access a virtual
+   *       computer’s operating system and application. The session will be active for 1 hour. Use this action to resume the session after it expires. </p>
+   */
+  public startGUISession(
+    args: StartGUISessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartGUISessionCommandOutput>;
+  public startGUISession(
+    args: StartGUISessionCommandInput,
+    cb: (err: any, data?: StartGUISessionCommandOutput) => void
+  ): void;
+  public startGUISession(
+    args: StartGUISessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartGUISessionCommandOutput) => void
+  ): void;
+  public startGUISession(
+    args: StartGUISessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartGUISessionCommandOutput) => void),
+    cb?: (err: any, data?: StartGUISessionCommandOutput) => void
+  ): Promise<StartGUISessionCommandOutput> | void {
+    const command = new StartGUISessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance,
    *       use the <code>reboot instance</code> operation.</p>
    *          <note>
@@ -5489,6 +5608,39 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: StartRelationalDatabaseCommandOutput) => void
   ): Promise<StartRelationalDatabaseCommandOutput> | void {
     const command = new StartRelationalDatabaseCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Terminates a web-based NICE DCV session that’s used to access a virtual computer’s
+   *       operating system or application. The session will close and any unsaved data will be lost.</p>
+   */
+  public stopGUISession(
+    args: StopGUISessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopGUISessionCommandOutput>;
+  public stopGUISession(
+    args: StopGUISessionCommandInput,
+    cb: (err: any, data?: StopGUISessionCommandOutput) => void
+  ): void;
+  public stopGUISession(
+    args: StopGUISessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopGUISessionCommandOutput) => void
+  ): void;
+  public stopGUISession(
+    args: StopGUISessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopGUISessionCommandOutput) => void),
+    cb?: (err: any, data?: StopGUISessionCommandOutput) => void
+  ): Promise<StopGUISessionCommandOutput> | void {
+    const command = new StopGUISessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

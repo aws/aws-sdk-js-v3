@@ -104,6 +104,10 @@ import { CreateDiskSnapshotCommandInput, CreateDiskSnapshotCommandOutput } from 
 import { CreateDistributionCommandInput, CreateDistributionCommandOutput } from "./commands/CreateDistributionCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
 import { CreateDomainEntryCommandInput, CreateDomainEntryCommandOutput } from "./commands/CreateDomainEntryCommand";
+import {
+  CreateGUISessionAccessDetailsCommandInput,
+  CreateGUISessionAccessDetailsCommandOutput,
+} from "./commands/CreateGUISessionAccessDetailsCommand";
 import { CreateInstancesCommandInput, CreateInstancesCommandOutput } from "./commands/CreateInstancesCommand";
 import {
   CreateInstancesFromSnapshotCommandInput,
@@ -239,6 +243,7 @@ import {
   GetContainerServicesCommandInput,
   GetContainerServicesCommandOutput,
 } from "./commands/GetContainerServicesCommand";
+import { GetCostEstimateCommandInput, GetCostEstimateCommandOutput } from "./commands/GetCostEstimateCommand";
 import { GetDiskCommandInput, GetDiskCommandOutput } from "./commands/GetDiskCommand";
 import { GetDisksCommandInput, GetDisksCommandOutput } from "./commands/GetDisksCommand";
 import { GetDiskSnapshotCommandInput, GetDiskSnapshotCommandOutput } from "./commands/GetDiskSnapshotCommand";
@@ -393,11 +398,13 @@ import {
   SetResourceAccessForBucketCommandInput,
   SetResourceAccessForBucketCommandOutput,
 } from "./commands/SetResourceAccessForBucketCommand";
+import { StartGUISessionCommandInput, StartGUISessionCommandOutput } from "./commands/StartGUISessionCommand";
 import { StartInstanceCommandInput, StartInstanceCommandOutput } from "./commands/StartInstanceCommand";
 import {
   StartRelationalDatabaseCommandInput,
   StartRelationalDatabaseCommandOutput,
 } from "./commands/StartRelationalDatabaseCommand";
+import { StopGUISessionCommandInput, StopGUISessionCommandOutput } from "./commands/StopGUISessionCommand";
 import { StopInstanceCommandInput, StopInstanceCommandOutput } from "./commands/StopInstanceCommand";
 import {
   StopRelationalDatabaseCommandInput,
@@ -466,6 +473,7 @@ export type ServiceInputTypes =
   | CreateDistributionCommandInput
   | CreateDomainCommandInput
   | CreateDomainEntryCommandInput
+  | CreateGUISessionAccessDetailsCommandInput
   | CreateInstanceSnapshotCommandInput
   | CreateInstancesCommandInput
   | CreateInstancesFromSnapshotCommandInput
@@ -523,6 +531,7 @@ export type ServiceInputTypes =
   | GetContainerServiceMetricDataCommandInput
   | GetContainerServicePowersCommandInput
   | GetContainerServicesCommandInput
+  | GetCostEstimateCommandInput
   | GetDiskCommandInput
   | GetDiskSnapshotCommandInput
   | GetDiskSnapshotsCommandInput
@@ -581,8 +590,10 @@ export type ServiceInputTypes =
   | SendContactMethodVerificationCommandInput
   | SetIpAddressTypeCommandInput
   | SetResourceAccessForBucketCommandInput
+  | StartGUISessionCommandInput
   | StartInstanceCommandInput
   | StartRelationalDatabaseCommandInput
+  | StopGUISessionCommandInput
   | StopInstanceCommandInput
   | StopRelationalDatabaseCommandInput
   | TagResourceCommandInput
@@ -623,6 +634,7 @@ export type ServiceOutputTypes =
   | CreateDistributionCommandOutput
   | CreateDomainCommandOutput
   | CreateDomainEntryCommandOutput
+  | CreateGUISessionAccessDetailsCommandOutput
   | CreateInstanceSnapshotCommandOutput
   | CreateInstancesCommandOutput
   | CreateInstancesFromSnapshotCommandOutput
@@ -680,6 +692,7 @@ export type ServiceOutputTypes =
   | GetContainerServiceMetricDataCommandOutput
   | GetContainerServicePowersCommandOutput
   | GetContainerServicesCommandOutput
+  | GetCostEstimateCommandOutput
   | GetDiskCommandOutput
   | GetDiskSnapshotCommandOutput
   | GetDiskSnapshotsCommandOutput
@@ -738,8 +751,10 @@ export type ServiceOutputTypes =
   | SendContactMethodVerificationCommandOutput
   | SetIpAddressTypeCommandOutput
   | SetResourceAccessForBucketCommandOutput
+  | StartGUISessionCommandOutput
   | StartInstanceCommandOutput
   | StartRelationalDatabaseCommandOutput
+  | StopGUISessionCommandOutput
   | StopInstanceCommandOutput
   | StopRelationalDatabaseCommandOutput
   | TagResourceCommandOutput

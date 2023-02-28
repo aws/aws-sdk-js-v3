@@ -76,6 +76,10 @@ import { CreateDiskSnapshotCommandInput, CreateDiskSnapshotCommandOutput } from 
 import { CreateDistributionCommandInput, CreateDistributionCommandOutput } from "../commands/CreateDistributionCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
 import { CreateDomainEntryCommandInput, CreateDomainEntryCommandOutput } from "../commands/CreateDomainEntryCommand";
+import {
+  CreateGUISessionAccessDetailsCommandInput,
+  CreateGUISessionAccessDetailsCommandOutput,
+} from "../commands/CreateGUISessionAccessDetailsCommand";
 import { CreateInstancesCommandInput, CreateInstancesCommandOutput } from "../commands/CreateInstancesCommand";
 import {
   CreateInstancesFromSnapshotCommandInput,
@@ -211,6 +215,7 @@ import {
   GetContainerServicesCommandInput,
   GetContainerServicesCommandOutput,
 } from "../commands/GetContainerServicesCommand";
+import { GetCostEstimateCommandInput, GetCostEstimateCommandOutput } from "../commands/GetCostEstimateCommand";
 import { GetDiskCommandInput, GetDiskCommandOutput } from "../commands/GetDiskCommand";
 import { GetDisksCommandInput, GetDisksCommandOutput } from "../commands/GetDisksCommand";
 import { GetDiskSnapshotCommandInput, GetDiskSnapshotCommandOutput } from "../commands/GetDiskSnapshotCommand";
@@ -365,11 +370,13 @@ import {
   SetResourceAccessForBucketCommandInput,
   SetResourceAccessForBucketCommandOutput,
 } from "../commands/SetResourceAccessForBucketCommand";
+import { StartGUISessionCommandInput, StartGUISessionCommandOutput } from "../commands/StartGUISessionCommand";
 import { StartInstanceCommandInput, StartInstanceCommandOutput } from "../commands/StartInstanceCommand";
 import {
   StartRelationalDatabaseCommandInput,
   StartRelationalDatabaseCommandOutput,
 } from "../commands/StartRelationalDatabaseCommand";
+import { StopGUISessionCommandInput, StopGUISessionCommandOutput } from "../commands/StopGUISessionCommand";
 import { StopInstanceCommandInput, StopInstanceCommandOutput } from "../commands/StopInstanceCommand";
 import {
   StopRelationalDatabaseCommandInput,
@@ -421,6 +428,7 @@ import {
   AlarmState,
   AllocateStaticIpRequest,
   AllocateStaticIpResult,
+  AppCategory,
   AttachCertificateToDistributionRequest,
   AttachCertificateToDistributionResult,
   AttachDiskRequest,
@@ -471,6 +479,7 @@ import {
   CookieObject,
   CopySnapshotRequest,
   CopySnapshotResult,
+  CostEstimate,
   CreateBucketAccessKeyRequest,
   CreateBucketAccessKeyResult,
   CreateBucketRequest,
@@ -499,6 +508,8 @@ import {
   CreateDomainEntryResult,
   CreateDomainRequest,
   CreateDomainResult,
+  CreateGUISessionAccessDetailsRequest,
+  CreateGUISessionAccessDetailsResult,
   CreateInstancesFromSnapshotRequest,
   CreateInstancesFromSnapshotResult,
   CreateInstanceSnapshotRequest,
@@ -585,6 +596,7 @@ import {
   EnableAddOnRequest,
   EnableAddOnResult,
   EndpointRequest,
+  EstimateByTime,
   ExportSnapshotRecord,
   ExportSnapshotRecordSourceInfo,
   ExportSnapshotRequest,
@@ -626,18 +638,6 @@ import {
   GetContainerServicePowersRequest,
   GetContainerServicePowersResult,
   GetContainerServicesRequest,
-  GetDiskRequest,
-  GetDiskResult,
-  GetDiskSnapshotRequest,
-  GetDiskSnapshotResult,
-  GetDiskSnapshotsRequest,
-  GetDiskSnapshotsResult,
-  GetDisksRequest,
-  GetDisksResult,
-  GetDistributionBundlesRequest,
-  GetDistributionBundlesResult,
-  GetDistributionLatestCacheResetRequest,
-  GetDistributionLatestCacheResetResult,
   HeaderEnum,
   HeaderObject,
   InputOrigin,
@@ -666,10 +666,27 @@ import {
   ResourceReceivingAccess,
   ResourceRecord,
   ServiceException,
+  Session,
+  StopInstanceOnIdleRequest,
   Tag,
+  TimePeriod,
   UnauthenticatedException,
 } from "../models/models_0";
 import {
+  GetCostEstimateRequest,
+  GetCostEstimateResult,
+  GetDiskRequest,
+  GetDiskResult,
+  GetDiskSnapshotRequest,
+  GetDiskSnapshotResult,
+  GetDiskSnapshotsRequest,
+  GetDiskSnapshotsResult,
+  GetDisksRequest,
+  GetDisksResult,
+  GetDistributionBundlesRequest,
+  GetDistributionBundlesResult,
+  GetDistributionLatestCacheResetRequest,
+  GetDistributionLatestCacheResetResult,
   GetDistributionMetricDataRequest,
   GetDistributionMetricDataResult,
   GetDistributionsRequest,
@@ -802,17 +819,22 @@ import {
   ReleaseStaticIpResult,
   ResetDistributionCacheRequest,
   ResetDistributionCacheResult,
+  ResourceBudgetEstimate,
   SendContactMethodVerificationRequest,
   SendContactMethodVerificationResult,
   SetIpAddressTypeRequest,
   SetIpAddressTypeResult,
   SetResourceAccessForBucketRequest,
   SetResourceAccessForBucketResult,
+  StartGUISessionRequest,
+  StartGUISessionResult,
   StartInstanceRequest,
   StartInstanceResult,
   StartRelationalDatabaseRequest,
   StartRelationalDatabaseResult,
   StaticIp,
+  StopGUISessionRequest,
+  StopGUISessionResult,
   StopInstanceRequest,
   StopInstanceResult,
   StopRelationalDatabaseRequest,
@@ -1130,6 +1152,19 @@ export const serializeAws_json1_1CreateDomainEntryCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDomainEntryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateGUISessionAccessDetailsCommand = async (
+  input: CreateGUISessionAccessDetailsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Lightsail_20161128.CreateGUISessionAccessDetails",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateGUISessionAccessDetailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1871,6 +1906,19 @@ export const serializeAws_json1_1GetContainerServicesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetContainerServicesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetCostEstimateCommand = async (
+  input: GetCostEstimateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Lightsail_20161128.GetCostEstimate",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetCostEstimateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2628,6 +2676,19 @@ export const serializeAws_json1_1SetResourceAccessForBucketCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StartGUISessionCommand = async (
+  input: StartGUISessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Lightsail_20161128.StartGUISession",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartGUISessionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StartInstanceCommand = async (
   input: StartInstanceCommandInput,
   context: __SerdeContext
@@ -2651,6 +2712,19 @@ export const serializeAws_json1_1StartRelationalDatabaseCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartRelationalDatabaseRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopGUISessionCommand = async (
+  input: StopGUISessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Lightsail_20161128.StopGUISession",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopGUISessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4095,6 +4169,59 @@ const deserializeAws_json1_1CreateDomainEntryCommandError = async (
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
       throw await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      throw await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateGUISessionAccessDetailsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGUISessionAccessDetailsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateGUISessionAccessDetailsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateGUISessionAccessDetailsResult(data, context);
+  const response: CreateGUISessionAccessDetailsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateGUISessionAccessDetailsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGUISessionAccessDetailsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
       throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
@@ -7302,6 +7429,59 @@ const deserializeAws_json1_1GetContainerServicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContainerServicesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      throw await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetCostEstimateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCostEstimateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetCostEstimateCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetCostEstimateResult(data, context);
+  const response: GetCostEstimateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetCostEstimateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCostEstimateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -10717,6 +10897,59 @@ const deserializeAws_json1_1SetResourceAccessForBucketCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1StartGUISessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartGUISessionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartGUISessionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartGUISessionResult(data, context);
+  const response: StartGUISessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartGUISessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartGUISessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      throw await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1StartInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -10818,6 +11051,59 @@ const deserializeAws_json1_1StartRelationalDatabaseCommandError = async (
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
       throw await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      throw await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1StopGUISessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopGUISessionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StopGUISessionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StopGUISessionResult(data, context);
+  const response: StopGUISessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopGUISessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopGUISessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
       throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
@@ -11856,6 +12142,12 @@ const serializeAws_json1_1AddOnRequest = (input: AddOnRequest, context: __SerdeC
     ...(input.autoSnapshotAddOnRequest != null && {
       autoSnapshotAddOnRequest: serializeAws_json1_1AutoSnapshotAddOnRequest(input.autoSnapshotAddOnRequest, context),
     }),
+    ...(input.stopInstanceOnIdleRequest != null && {
+      stopInstanceOnIdleRequest: serializeAws_json1_1StopInstanceOnIdleRequest(
+        input.stopInstanceOnIdleRequest,
+        context
+      ),
+    }),
   };
 };
 
@@ -11885,6 +12177,7 @@ const serializeAws_json1_1AttachCertificateToDistributionRequest = (
 
 const serializeAws_json1_1AttachDiskRequest = (input: AttachDiskRequest, context: __SerdeContext): any => {
   return {
+    ...(input.autoMounting != null && { autoMounting: input.autoMounting }),
     ...(input.diskName != null && { diskName: input.diskName }),
     ...(input.diskPath != null && { diskPath: input.diskPath }),
     ...(input.instanceName != null && { instanceName: input.instanceName }),
@@ -12285,6 +12578,15 @@ const serializeAws_json1_1CreateDomainRequest = (input: CreateDomainRequest, con
   return {
     ...(input.domainName != null && { domainName: input.domainName }),
     ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateGUISessionAccessDetailsRequest = (
+  input: CreateGUISessionAccessDetailsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.resourceName != null && { resourceName: input.resourceName }),
   };
 };
 
@@ -12768,6 +13070,7 @@ const serializeAws_json1_1GetAutoSnapshotsRequest = (input: GetAutoSnapshotsRequ
 
 const serializeAws_json1_1GetBlueprintsRequest = (input: GetBlueprintsRequest, context: __SerdeContext): any => {
   return {
+    ...(input.appCategory != null && { appCategory: input.appCategory }),
     ...(input.includeInactive != null && { includeInactive: input.includeInactive }),
     ...(input.pageToken != null && { pageToken: input.pageToken }),
   };
@@ -12813,6 +13116,7 @@ const serializeAws_json1_1GetBucketsRequest = (input: GetBucketsRequest, context
 
 const serializeAws_json1_1GetBundlesRequest = (input: GetBundlesRequest, context: __SerdeContext): any => {
   return {
+    ...(input.appCategory != null && { appCategory: input.appCategory }),
     ...(input.includeInactive != null && { includeInactive: input.includeInactive }),
     ...(input.pageToken != null && { pageToken: input.pageToken }),
   };
@@ -12909,6 +13213,14 @@ const serializeAws_json1_1GetContainerServicesRequest = (
 ): any => {
   return {
     ...(input.serviceName != null && { serviceName: input.serviceName }),
+  };
+};
+
+const serializeAws_json1_1GetCostEstimateRequest = (input: GetCostEstimateRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.resourceName != null && { resourceName: input.resourceName }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   };
 };
 
@@ -13575,6 +13887,12 @@ const serializeAws_json1_1SetResourceAccessForBucketRequest = (
   };
 };
 
+const serializeAws_json1_1StartGUISessionRequest = (input: StartGUISessionRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.resourceName != null && { resourceName: input.resourceName }),
+  };
+};
+
 const serializeAws_json1_1StartInstanceRequest = (input: StartInstanceRequest, context: __SerdeContext): any => {
   return {
     ...(input.instanceName != null && { instanceName: input.instanceName }),
@@ -13587,6 +13905,22 @@ const serializeAws_json1_1StartRelationalDatabaseRequest = (
 ): any => {
   return {
     ...(input.relationalDatabaseName != null && { relationalDatabaseName: input.relationalDatabaseName }),
+  };
+};
+
+const serializeAws_json1_1StopGUISessionRequest = (input: StopGUISessionRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.resourceName != null && { resourceName: input.resourceName }),
+  };
+};
+
+const serializeAws_json1_1StopInstanceOnIdleRequest = (
+  input: StopInstanceOnIdleRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.duration != null && { duration: input.duration }),
+    ...(input.threshold != null && { threshold: input.threshold }),
   };
 };
 
@@ -13899,10 +14233,12 @@ const deserializeAws_json1_1AccountSetupInProgressException = (
 
 const deserializeAws_json1_1AddOn = (output: any, context: __SerdeContext): AddOn => {
   return {
+    duration: __expectString(output.duration),
     name: __expectString(output.name),
     nextSnapshotTimeOfDay: __expectString(output.nextSnapshotTimeOfDay),
     snapshotTimeOfDay: __expectString(output.snapshotTimeOfDay),
     status: __expectString(output.status),
+    threshold: __expectString(output.threshold),
   } as any;
 };
 
@@ -13969,6 +14305,18 @@ const deserializeAws_json1_1AllocateStaticIpResult = (output: any, context: __Se
   return {
     operations: output.operations != null ? deserializeAws_json1_1OperationList(output.operations, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1AppCategoryList = (output: any, context: __SerdeContext): (AppCategory | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1AttachCertificateToDistributionResult = (
@@ -14075,6 +14423,7 @@ const deserializeAws_json1_1AvailabilityZoneList = (output: any, context: __Serd
 
 const deserializeAws_json1_1Blueprint = (output: any, context: __SerdeContext): Blueprint => {
   return {
+    appCategory: __expectString(output.appCategory),
     blueprintId: __expectString(output.blueprintId),
     description: __expectString(output.description),
     group: __expectString(output.group),
@@ -14195,6 +14544,10 @@ const deserializeAws_json1_1Bundle = (output: any, context: __SerdeContext): Bun
     power: __expectInt32(output.power),
     price: __limitedParseFloat32(output.price),
     ramSizeInGb: __limitedParseFloat32(output.ramSizeInGb),
+    supportedAppCategories:
+      output.supportedAppCategories != null
+        ? deserializeAws_json1_1AppCategoryList(output.supportedAppCategories, context)
+        : undefined,
     supportedPlatforms:
       output.supportedPlatforms != null
         ? deserializeAws_json1_1InstancePlatformList(output.supportedPlatforms, context)
@@ -14757,6 +15110,26 @@ const deserializeAws_json1_1CopySnapshotResult = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1CostEstimate = (output: any, context: __SerdeContext): CostEstimate => {
+  return {
+    resultsByTime:
+      output.resultsByTime != null ? deserializeAws_json1_1EstimatesByTime(output.resultsByTime, context) : undefined,
+    usageType: __expectString(output.usageType),
+  } as any;
+};
+
+const deserializeAws_json1_1CostEstimates = (output: any, context: __SerdeContext): CostEstimate[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CostEstimate(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1CreateBucketAccessKeyResult = (
   output: any,
   context: __SerdeContext
@@ -14888,6 +15261,19 @@ const deserializeAws_json1_1CreateDomainEntryResult = (
 const deserializeAws_json1_1CreateDomainResult = (output: any, context: __SerdeContext): CreateDomainResult => {
   return {
     operation: output.operation != null ? deserializeAws_json1_1Operation(output.operation, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateGUISessionAccessDetailsResult = (
+  output: any,
+  context: __SerdeContext
+): CreateGUISessionAccessDetailsResult => {
+  return {
+    failureReason: __expectString(output.failureReason),
+    percentageComplete: __expectInt32(output.percentageComplete),
+    resourceName: __expectString(output.resourceName),
+    sessions: output.sessions != null ? deserializeAws_json1_1Sessions(output.sessions, context) : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -15185,6 +15571,7 @@ const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk 
     arn: __expectString(output.arn),
     attachedTo: __expectString(output.attachedTo),
     attachmentState: __expectString(output.attachmentState),
+    autoMountStatus: __expectString(output.autoMountStatus),
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     gbInUse: __expectInt32(output.gbInUse),
@@ -15435,6 +15822,28 @@ const deserializeAws_json1_1Environment = (output: any, context: __SerdeContext)
   }, {});
 };
 
+const deserializeAws_json1_1EstimateByTime = (output: any, context: __SerdeContext): EstimateByTime => {
+  return {
+    currency: __expectString(output.currency),
+    pricingUnit: __expectString(output.pricingUnit),
+    timePeriod: output.timePeriod != null ? deserializeAws_json1_1TimePeriod(output.timePeriod, context) : undefined,
+    unit: __limitedParseDouble(output.unit),
+    usageCost: __limitedParseDouble(output.usageCost),
+  } as any;
+};
+
+const deserializeAws_json1_1EstimatesByTime = (output: any, context: __SerdeContext): EstimateByTime[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EstimateByTime(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ExportSnapshotRecord = (output: any, context: __SerdeContext): ExportSnapshotRecord => {
   return {
     arn: __expectString(output.arn),
@@ -15672,6 +16081,15 @@ const deserializeAws_json1_1GetContainerServicePowersResult = (
 ): GetContainerServicePowersResult => {
   return {
     powers: output.powers != null ? deserializeAws_json1_1ContainerServicePowerList(output.powers, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetCostEstimateResult = (output: any, context: __SerdeContext): GetCostEstimateResult => {
+  return {
+    resourcesBudgetEstimate:
+      output.resourcesBudgetEstimate != null
+        ? deserializeAws_json1_1ResourcesBudgetEstimate(output.resourcesBudgetEstimate, context)
+        : undefined,
   } as any;
 };
 
@@ -17373,6 +17791,19 @@ const deserializeAws_json1_1ResetDistributionCacheResult = (
   } as any;
 };
 
+const deserializeAws_json1_1ResourceBudgetEstimate = (output: any, context: __SerdeContext): ResourceBudgetEstimate => {
+  return {
+    costEstimates:
+      output.costEstimates != null ? deserializeAws_json1_1CostEstimates(output.costEstimates, context) : undefined,
+    endTime:
+      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
+    resourceName: __expectString(output.resourceName),
+    resourceType: __expectString(output.resourceType),
+    startTime:
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ResourceLocation = (output: any, context: __SerdeContext): ResourceLocation => {
   return {
     availabilityZone: __expectString(output.availabilityZone),
@@ -17398,6 +17829,21 @@ const deserializeAws_json1_1ResourceRecord = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_1ResourcesBudgetEstimate = (
+  output: any,
+  context: __SerdeContext
+): ResourceBudgetEstimate[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResourceBudgetEstimate(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1SendContactMethodVerificationResult = (
   output: any,
   context: __SerdeContext
@@ -17416,6 +17862,26 @@ const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_1Session = (output: any, context: __SerdeContext): Session => {
+  return {
+    isPrimary: __expectBoolean(output.isPrimary),
+    name: __expectString(output.name),
+    url: __expectString(output.url),
+  } as any;
+};
+
+const deserializeAws_json1_1Sessions = (output: any, context: __SerdeContext): Session[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Session(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1SetIpAddressTypeResult = (output: any, context: __SerdeContext): SetIpAddressTypeResult => {
   return {
     operations: output.operations != null ? deserializeAws_json1_1OperationList(output.operations, context) : undefined,
@@ -17426,6 +17892,12 @@ const deserializeAws_json1_1SetResourceAccessForBucketResult = (
   output: any,
   context: __SerdeContext
 ): SetResourceAccessForBucketResult => {
+  return {
+    operations: output.operations != null ? deserializeAws_json1_1OperationList(output.operations, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StartGUISessionResult = (output: any, context: __SerdeContext): StartGUISessionResult => {
   return {
     operations: output.operations != null ? deserializeAws_json1_1OperationList(output.operations, context) : undefined,
   } as any;
@@ -17471,6 +17943,12 @@ const deserializeAws_json1_1StaticIpList = (output: any, context: __SerdeContext
       return deserializeAws_json1_1StaticIp(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1StopGUISessionResult = (output: any, context: __SerdeContext): StopGUISessionResult => {
+  return {
+    operations: output.operations != null ? deserializeAws_json1_1OperationList(output.operations, context) : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1StopInstanceResult = (output: any, context: __SerdeContext): StopInstanceResult => {
@@ -17540,6 +18018,13 @@ const deserializeAws_json1_1TagResourceResult = (output: any, context: __SerdeCo
 const deserializeAws_json1_1TestAlarmResult = (output: any, context: __SerdeContext): TestAlarmResult => {
   return {
     operations: output.operations != null ? deserializeAws_json1_1OperationList(output.operations, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TimePeriod = (output: any, context: __SerdeContext): TimePeriod => {
+  return {
+    end: output.end != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.end))) : undefined,
+    start: output.start != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.start))) : undefined,
   } as any;
 };
 

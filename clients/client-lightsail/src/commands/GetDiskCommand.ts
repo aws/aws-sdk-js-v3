@@ -19,7 +19,7 @@ import {
   GetDiskRequestFilterSensitiveLog,
   GetDiskResult,
   GetDiskResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { deserializeAws_json1_1GetDiskCommand, serializeAws_json1_1GetDiskCommand } from "../protocols/Aws_json1_1";
 
 /**

@@ -19,7 +19,7 @@ import {
   GetDisksRequestFilterSensitiveLog,
   GetDisksResult,
   GetDisksResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { deserializeAws_json1_1GetDisksCommand, serializeAws_json1_1GetDisksCommand } from "../protocols/Aws_json1_1";
 
 /**

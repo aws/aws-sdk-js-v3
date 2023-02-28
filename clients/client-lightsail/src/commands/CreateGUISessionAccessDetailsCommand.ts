@@ -15,48 +15,49 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import {
-  GetDistributionLatestCacheResetRequest,
-  GetDistributionLatestCacheResetRequestFilterSensitiveLog,
-  GetDistributionLatestCacheResetResult,
-  GetDistributionLatestCacheResetResultFilterSensitiveLog,
-} from "../models/models_1";
+  CreateGUISessionAccessDetailsRequest,
+  CreateGUISessionAccessDetailsRequestFilterSensitiveLog,
+  CreateGUISessionAccessDetailsResult,
+  CreateGUISessionAccessDetailsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
-  deserializeAws_json1_1GetDistributionLatestCacheResetCommand,
-  serializeAws_json1_1GetDistributionLatestCacheResetCommand,
+  deserializeAws_json1_1CreateGUISessionAccessDetailsCommand,
+  serializeAws_json1_1CreateGUISessionAccessDetailsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
- * The input for {@link GetDistributionLatestCacheResetCommand}.
+ * The input for {@link CreateGUISessionAccessDetailsCommand}.
  */
-export interface GetDistributionLatestCacheResetCommandInput extends GetDistributionLatestCacheResetRequest {}
+export interface CreateGUISessionAccessDetailsCommandInput extends CreateGUISessionAccessDetailsRequest {}
 /**
- * The output of {@link GetDistributionLatestCacheResetCommand}.
+ * The output of {@link CreateGUISessionAccessDetailsCommand}.
  */
-export interface GetDistributionLatestCacheResetCommandOutput
-  extends GetDistributionLatestCacheResetResult,
+export interface CreateGUISessionAccessDetailsCommandOutput
+  extends CreateGUISessionAccessDetailsResult,
     __MetadataBearer {}
 
 /**
- * <p>Returns the timestamp and status of the last cache reset of a specific Amazon Lightsail
- *       content delivery network (CDN) distribution.</p>
+ * <p>Creates two URLs that are used to access a virtual computer’s graphical user interface (GUI)
+ *       session. The primary URL initiates a web-based NICE DCV session to the virtual computer's application. The secondary URL initiates a web-based NICE DCV session to the virtual computer's operating session. </p>
+ *          <p>Use <code>StartGUISession</code> to open the session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetDistributionLatestCacheResetCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetDistributionLatestCacheResetCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, CreateGUISessionAccessDetailsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, CreateGUISessionAccessDetailsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const command = new GetDistributionLatestCacheResetCommand(input);
+ * const command = new CreateGUISessionAccessDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetDistributionLatestCacheResetCommandInput} for command's `input` shape.
- * @see {@link GetDistributionLatestCacheResetCommandOutput} for command's `response` shape.
+ * @see {@link CreateGUISessionAccessDetailsCommandInput} for command's `input` shape.
+ * @see {@link CreateGUISessionAccessDetailsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
-export class GetDistributionLatestCacheResetCommand extends $Command<
-  GetDistributionLatestCacheResetCommandInput,
-  GetDistributionLatestCacheResetCommandOutput,
+export class CreateGUISessionAccessDetailsCommand extends $Command<
+  CreateGUISessionAccessDetailsCommandInput,
+  CreateGUISessionAccessDetailsCommandOutput,
   LightsailClientResolvedConfig
 > {
   // Start section: command_properties
@@ -71,7 +72,7 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetDistributionLatestCacheResetCommandInput) {
+  constructor(readonly input: CreateGUISessionAccessDetailsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -84,23 +85,23 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetDistributionLatestCacheResetCommandInput, GetDistributionLatestCacheResetCommandOutput> {
+  ): Handler<CreateGUISessionAccessDetailsCommandInput, CreateGUISessionAccessDetailsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetDistributionLatestCacheResetCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateGUISessionAccessDetailsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LightsailClient";
-    const commandName = "GetDistributionLatestCacheResetCommand";
+    const commandName = "CreateGUISessionAccessDetailsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDistributionLatestCacheResetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDistributionLatestCacheResetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: CreateGUISessionAccessDetailsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateGUISessionAccessDetailsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +111,15 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDistributionLatestCacheResetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDistributionLatestCacheResetCommand(input, context);
+  private serialize(input: CreateGUISessionAccessDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1CreateGUISessionAccessDetailsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<GetDistributionLatestCacheResetCommandOutput> {
-    return deserializeAws_json1_1GetDistributionLatestCacheResetCommand(output, context);
+  ): Promise<CreateGUISessionAccessDetailsCommandOutput> {
+    return deserializeAws_json1_1CreateGUISessionAccessDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

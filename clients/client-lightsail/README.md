@@ -397,6 +397,14 @@ CreateDomainEntry
 </details>
 <details>
 <summary>
+CreateGUISessionAccessDetails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createguisessionaccessdetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createguisessionaccessdetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createguisessionaccessdetailscommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateInstances
 </summary>
 
@@ -849,6 +857,14 @@ GetContainerServices
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getcontainerservicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerservicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerservicescommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetCostEstimate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getcostestimatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcostestimatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcostestimatecommandoutput.html)
 
 </details>
 <details>
@@ -1317,6 +1333,14 @@ SetResourceAccessForBucket
 </details>
 <details>
 <summary>
+StartGUISession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/startguisessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/startguisessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/startguisessioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 StartInstance
 </summary>
 
@@ -1329,6 +1353,14 @@ StartRelationalDatabase
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/startrelationaldatabasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/startrelationaldatabasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/startrelationaldatabasecommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopGUISession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/stopguisessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/stopguisessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/stopguisessioncommandoutput.html)
 
 </details>
 <details>

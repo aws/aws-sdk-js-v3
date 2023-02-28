@@ -15,45 +15,45 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import {
-  GetDiskSnapshotRequest,
-  GetDiskSnapshotRequestFilterSensitiveLog,
-  GetDiskSnapshotResult,
-  GetDiskSnapshotResultFilterSensitiveLog,
+  GetCostEstimateRequest,
+  GetCostEstimateRequestFilterSensitiveLog,
+  GetCostEstimateResult,
+  GetCostEstimateResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetDiskSnapshotCommand,
-  serializeAws_json1_1GetDiskSnapshotCommand,
+  deserializeAws_json1_1GetCostEstimateCommand,
+  serializeAws_json1_1GetCostEstimateCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
- * The input for {@link GetDiskSnapshotCommand}.
+ * The input for {@link GetCostEstimateCommand}.
  */
-export interface GetDiskSnapshotCommandInput extends GetDiskSnapshotRequest {}
+export interface GetCostEstimateCommandInput extends GetCostEstimateRequest {}
 /**
- * The output of {@link GetDiskSnapshotCommand}.
+ * The output of {@link GetCostEstimateCommand}.
  */
-export interface GetDiskSnapshotCommandOutput extends GetDiskSnapshotResult, __MetadataBearer {}
+export interface GetCostEstimateCommandOutput extends GetCostEstimateResult, __MetadataBearer {}
 
 /**
- * <p>Returns information about a specific block storage disk snapshot.</p>
+ * <p>Retrieves information about the cost estimate for a specified resource. A cost estimate will not generate for a resource that has been deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetDiskSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetDiskSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetCostEstimateCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetCostEstimateCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const command = new GetDiskSnapshotCommand(input);
+ * const command = new GetCostEstimateCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetDiskSnapshotCommandInput} for command's `input` shape.
- * @see {@link GetDiskSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link GetCostEstimateCommandInput} for command's `input` shape.
+ * @see {@link GetCostEstimateCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
-export class GetDiskSnapshotCommand extends $Command<
-  GetDiskSnapshotCommandInput,
-  GetDiskSnapshotCommandOutput,
+export class GetCostEstimateCommand extends $Command<
+  GetCostEstimateCommandInput,
+  GetCostEstimateCommandOutput,
   LightsailClientResolvedConfig
 > {
   // Start section: command_properties
@@ -68,7 +68,7 @@ export class GetDiskSnapshotCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetDiskSnapshotCommandInput) {
+  constructor(readonly input: GetCostEstimateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -81,23 +81,23 @@ export class GetDiskSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetDiskSnapshotCommandInput, GetDiskSnapshotCommandOutput> {
+  ): Handler<GetCostEstimateCommandInput, GetCostEstimateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetDiskSnapshotCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetCostEstimateCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LightsailClient";
-    const commandName = "GetDiskSnapshotCommand";
+    const commandName = "GetCostEstimateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDiskSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDiskSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: GetCostEstimateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCostEstimateResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +107,12 @@ export class GetDiskSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(input: GetDiskSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDiskSnapshotCommand(input, context);
+  private serialize(input: GetCostEstimateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1GetCostEstimateCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDiskSnapshotCommandOutput> {
-    return deserializeAws_json1_1GetDiskSnapshotCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCostEstimateCommandOutput> {
+    return deserializeAws_json1_1GetCostEstimateCommand(output, context);
   }
 
   // Start section: command_body_extra
