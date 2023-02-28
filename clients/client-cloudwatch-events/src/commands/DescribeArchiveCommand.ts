@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeArchiveCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeArchiveCommand}.
+ */
 export interface DescribeArchiveCommandInput extends DescribeArchiveRequest {}
+/**
+ * The output of {@link DescribeArchiveCommand}.
+ */
 export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, __MetadataBearer {}
 
 /**

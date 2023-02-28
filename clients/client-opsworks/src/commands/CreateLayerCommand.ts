@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateLayerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateLayerCommand}.
+ */
 export interface CreateLayerCommandInput extends CreateLayerRequest {}
+/**
+ * The output of {@link CreateLayerCommand}.
+ */
 export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataBearer {}
 
 /**

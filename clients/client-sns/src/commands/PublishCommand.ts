@@ -22,7 +22,13 @@ import {
 import { deserializeAws_queryPublishCommand, serializeAws_queryPublishCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link PublishCommand}.
+ */
 export interface PublishCommandInput extends PublishInput {}
+/**
+ * The output of {@link PublishCommand}.
+ */
 export interface PublishCommandOutput extends PublishResponse, __MetadataBearer {}
 
 /**

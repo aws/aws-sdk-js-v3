@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1StopDataCollectionByAgentIdsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopDataCollectionByAgentIdsCommand}.
+ */
 export interface StopDataCollectionByAgentIdsCommandInput extends StopDataCollectionByAgentIdsRequest {}
+/**
+ * The output of {@link StopDataCollectionByAgentIdsCommand}.
+ */
 export interface StopDataCollectionByAgentIdsCommandOutput
   extends StopDataCollectionByAgentIdsResponse,
     __MetadataBearer {}

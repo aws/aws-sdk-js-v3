@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * The input for {@link ListJournalS3ExportsForLedgerCommand}.
+ */
 export interface ListJournalS3ExportsForLedgerCommandInput extends ListJournalS3ExportsForLedgerRequest {}
+/**
+ * The output of {@link ListJournalS3ExportsForLedgerCommand}.
+ */
 export interface ListJournalS3ExportsForLedgerCommandOutput
   extends ListJournalS3ExportsForLedgerResponse,
     __MetadataBearer {}

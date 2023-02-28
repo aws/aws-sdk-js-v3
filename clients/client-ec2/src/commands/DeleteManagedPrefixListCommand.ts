@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteManagedPrefixListCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteManagedPrefixListCommand}.
+ */
 export interface DeleteManagedPrefixListCommandInput extends DeleteManagedPrefixListRequest {}
+/**
+ * The output of {@link DeleteManagedPrefixListCommand}.
+ */
 export interface DeleteManagedPrefixListCommandOutput extends DeleteManagedPrefixListResult, __MetadataBearer {}
 
 /**

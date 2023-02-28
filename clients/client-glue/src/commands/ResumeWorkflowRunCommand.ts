@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ResumeWorkflowRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ResumeWorkflowRunCommand}.
+ */
 export interface ResumeWorkflowRunCommandInput extends ResumeWorkflowRunRequest {}
+/**
+ * The output of {@link ResumeWorkflowRunCommand}.
+ */
 export interface ResumeWorkflowRunCommandOutput extends ResumeWorkflowRunResponse, __MetadataBearer {}
 
 /**

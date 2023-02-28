@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribePlatformVersionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribePlatformVersionCommand}.
+ */
 export interface DescribePlatformVersionCommandInput extends DescribePlatformVersionRequest {}
+/**
+ * The output of {@link DescribePlatformVersionCommand}.
+ */
 export interface DescribePlatformVersionCommandOutput extends DescribePlatformVersionResult, __MetadataBearer {}
 
 /**

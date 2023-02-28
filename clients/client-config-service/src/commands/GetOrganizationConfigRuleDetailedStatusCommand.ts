@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetOrganizationConfigRuleDetailedStatusCommand}.
+ */
 export interface GetOrganizationConfigRuleDetailedStatusCommandInput
   extends GetOrganizationConfigRuleDetailedStatusRequest {}
+/**
+ * The output of {@link GetOrganizationConfigRuleDetailedStatusCommand}.
+ */
 export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
   extends GetOrganizationConfigRuleDetailedStatusResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeletePeeringCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePeeringCommand}.
+ */
 export interface DeletePeeringCommandInput extends DeletePeeringRequest {}
+/**
+ * The output of {@link DeletePeeringCommand}.
+ */
 export interface DeletePeeringCommandOutput extends DeletePeeringResponse, __MetadataBearer {}
 
 /**

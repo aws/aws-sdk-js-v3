@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link HttpPayloadTraitsWithMediaTypeCommand}.
+ */
 export interface HttpPayloadTraitsWithMediaTypeCommandInput extends HttpPayloadTraitsWithMediaTypeInputOutput {}
+/**
+ * The output of {@link HttpPayloadTraitsWithMediaTypeCommand}.
+ */
 export interface HttpPayloadTraitsWithMediaTypeCommandOutput
   extends HttpPayloadTraitsWithMediaTypeInputOutput,
     __MetadataBearer {}

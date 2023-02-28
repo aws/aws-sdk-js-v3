@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * The input for {@link DisassociateResourceSharePermissionCommand}.
+ */
 export interface DisassociateResourceSharePermissionCommandInput extends DisassociateResourceSharePermissionRequest {}
+/**
+ * The output of {@link DisassociateResourceSharePermissionCommand}.
+ */
 export interface DisassociateResourceSharePermissionCommandOutput
   extends DisassociateResourceSharePermissionResponse,
     __MetadataBearer {}

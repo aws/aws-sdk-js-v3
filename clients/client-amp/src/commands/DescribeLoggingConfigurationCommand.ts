@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeLoggingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeLoggingConfigurationCommand}.
+ */
 export interface DescribeLoggingConfigurationCommandInput extends DescribeLoggingConfigurationRequest {}
+/**
+ * The output of {@link DescribeLoggingConfigurationCommand}.
+ */
 export interface DescribeLoggingConfigurationCommandOutput
   extends DescribeLoggingConfigurationResponse,
     __MetadataBearer {}

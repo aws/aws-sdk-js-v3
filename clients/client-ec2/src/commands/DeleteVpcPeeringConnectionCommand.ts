@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteVpcPeeringConnectionCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteVpcPeeringConnectionCommand}.
+ */
 export interface DeleteVpcPeeringConnectionCommandInput extends DeleteVpcPeeringConnectionRequest {}
+/**
+ * The output of {@link DeleteVpcPeeringConnectionCommand}.
+ */
 export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**

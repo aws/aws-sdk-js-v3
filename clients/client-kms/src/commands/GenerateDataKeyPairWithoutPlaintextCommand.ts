@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GenerateDataKeyPairWithoutPlaintextCommand}.
+ */
 export interface GenerateDataKeyPairWithoutPlaintextCommandInput extends GenerateDataKeyPairWithoutPlaintextRequest {}
+/**
+ * The output of {@link GenerateDataKeyPairWithoutPlaintextCommand}.
+ */
 export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
   extends GenerateDataKeyPairWithoutPlaintextResponse,
     __MetadataBearer {}

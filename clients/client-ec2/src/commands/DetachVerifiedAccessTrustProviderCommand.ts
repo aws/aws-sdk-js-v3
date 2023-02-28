@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DetachVerifiedAccessTrustProviderCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DetachVerifiedAccessTrustProviderCommand}.
+ */
 export interface DetachVerifiedAccessTrustProviderCommandInput extends DetachVerifiedAccessTrustProviderRequest {}
+/**
+ * The output of {@link DetachVerifiedAccessTrustProviderCommand}.
+ */
 export interface DetachVerifiedAccessTrustProviderCommandOutput
   extends DetachVerifiedAccessTrustProviderResult,
     __MetadataBearer {}

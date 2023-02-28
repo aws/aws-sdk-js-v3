@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
+/**
+ * The input for {@link BatchExecuteStatementCommand}.
+ */
 export interface BatchExecuteStatementCommandInput extends BatchExecuteStatementInput {}
+/**
+ * The output of {@link BatchExecuteStatementCommand}.
+ */
 export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementOutput, __MetadataBearer {}
 
 /**

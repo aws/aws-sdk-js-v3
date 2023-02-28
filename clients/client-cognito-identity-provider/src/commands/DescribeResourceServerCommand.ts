@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1DescribeResourceServerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeResourceServerCommand}.
+ */
 export interface DescribeResourceServerCommandInput extends DescribeResourceServerRequest {}
+/**
+ * The output of {@link DescribeResourceServerCommand}.
+ */
 export interface DescribeResourceServerCommandOutput extends DescribeResourceServerResponse, __MetadataBearer {}
 
 /**

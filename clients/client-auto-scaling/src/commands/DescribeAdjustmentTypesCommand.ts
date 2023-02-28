@@ -20,7 +20,13 @@ import {
   serializeAws_queryDescribeAdjustmentTypesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeAdjustmentTypesCommand}.
+ */
 export interface DescribeAdjustmentTypesCommandInput {}
+/**
+ * The output of {@link DescribeAdjustmentTypesCommand}.
+ */
 export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustmentTypesAnswer, __MetadataBearer {}
 
 /**

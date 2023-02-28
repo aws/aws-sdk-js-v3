@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateBrokerCountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateBrokerCountCommand}.
+ */
 export interface UpdateBrokerCountCommandInput extends UpdateBrokerCountRequest {}
+/**
+ * The output of {@link UpdateBrokerCountCommand}.
+ */
 export interface UpdateBrokerCountCommandOutput extends UpdateBrokerCountResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * The input for {@link DeleteNamespaceCommand}.
+ */
 export interface DeleteNamespaceCommandInput extends DeleteNamespaceRequest {}
+/**
+ * The output of {@link DeleteNamespaceCommand}.
+ */
 export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartConnectionCommand}.
+ */
 export interface StartConnectionCommandInput extends StartConnectionRequest {}
+/**
+ * The output of {@link StartConnectionCommand}.
+ */
 export interface StartConnectionCommandOutput extends StartConnectionResponse, __MetadataBearer {}
 
 /**

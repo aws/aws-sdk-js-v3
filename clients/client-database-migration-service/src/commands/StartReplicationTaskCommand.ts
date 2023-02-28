@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1StartReplicationTaskCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartReplicationTaskCommand}.
+ */
 export interface StartReplicationTaskCommandInput extends StartReplicationTaskMessage {}
+/**
+ * The output of {@link StartReplicationTaskCommand}.
+ */
 export interface StartReplicationTaskCommandOutput extends StartReplicationTaskResponse, __MetadataBearer {}
 
 /**

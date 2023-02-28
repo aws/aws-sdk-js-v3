@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1CreateComponentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateComponentCommand}.
+ */
 export interface CreateComponentCommandInput extends CreateComponentRequest {}
+/**
+ * The output of {@link CreateComponentCommand}.
+ */
 export interface CreateComponentCommandOutput extends CreateComponentResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeletePublicIpv4PoolCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeletePublicIpv4PoolCommand}.
+ */
 export interface DeletePublicIpv4PoolCommandInput extends DeletePublicIpv4PoolRequest {}
+/**
+ * The output of {@link DeletePublicIpv4PoolCommand}.
+ */
 export interface DeletePublicIpv4PoolCommandOutput extends DeletePublicIpv4PoolResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDistributionMetricDataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDistributionMetricDataCommand}.
+ */
 export interface GetDistributionMetricDataCommandInput extends GetDistributionMetricDataRequest {}
+/**
+ * The output of {@link GetDistributionMetricDataCommand}.
+ */
 export interface GetDistributionMetricDataCommandOutput extends GetDistributionMetricDataResult, __MetadataBearer {}
 
 /**

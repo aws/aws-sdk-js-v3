@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryTestFailoverCommand, serializeAws_queryTestFailoverCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link TestFailoverCommand}.
+ */
 export interface TestFailoverCommandInput extends TestFailoverMessage {}
+/**
+ * The output of {@link TestFailoverCommand}.
+ */
 export interface TestFailoverCommandOutput extends TestFailoverResult, __MetadataBearer {}
 
 /**

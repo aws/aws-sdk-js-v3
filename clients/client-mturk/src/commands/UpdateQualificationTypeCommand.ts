@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateQualificationTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateQualificationTypeCommand}.
+ */
 export interface UpdateQualificationTypeCommandInput extends UpdateQualificationTypeRequest {}
+/**
+ * The output of {@link UpdateQualificationTypeCommand}.
+ */
 export interface UpdateQualificationTypeCommandOutput extends UpdateQualificationTypeResponse, __MetadataBearer {}
 
 /**

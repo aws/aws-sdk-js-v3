@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DescribeDBClusterParameterGroupsCommand}.
+ */
 export interface DescribeDBClusterParameterGroupsCommandInput extends DescribeDBClusterParameterGroupsMessage {}
+/**
+ * The output of {@link DescribeDBClusterParameterGroupsCommand}.
+ */
 export interface DescribeDBClusterParameterGroupsCommandOutput
   extends DBClusterParameterGroupsMessage,
     __MetadataBearer {}

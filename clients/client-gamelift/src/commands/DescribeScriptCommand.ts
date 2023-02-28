@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeScriptCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeScriptCommand}.
+ */
 export interface DescribeScriptCommandInput extends DescribeScriptInput {}
+/**
+ * The output of {@link DescribeScriptCommand}.
+ */
 export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __MetadataBearer {}
 
 /**

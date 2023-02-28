@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UnsubscribeFromDatasetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UnsubscribeFromDatasetCommand}.
+ */
 export interface UnsubscribeFromDatasetCommandInput extends UnsubscribeFromDatasetRequest {}
+/**
+ * The output of {@link UnsubscribeFromDatasetCommand}.
+ */
 export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromDatasetResponse, __MetadataBearer {}
 
 /**

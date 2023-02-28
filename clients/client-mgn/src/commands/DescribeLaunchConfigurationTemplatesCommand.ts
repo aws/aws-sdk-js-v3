@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeLaunchConfigurationTemplatesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeLaunchConfigurationTemplatesCommand}.
+ */
 export interface DescribeLaunchConfigurationTemplatesCommandInput extends DescribeLaunchConfigurationTemplatesRequest {}
+/**
+ * The output of {@link DescribeLaunchConfigurationTemplatesCommand}.
+ */
 export interface DescribeLaunchConfigurationTemplatesCommandOutput
   extends DescribeLaunchConfigurationTemplatesResponse,
     __MetadataBearer {}

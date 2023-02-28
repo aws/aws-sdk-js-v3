@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1GetVoiceConnectorStreamingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetVoiceConnectorStreamingConfigurationCommand}.
+ */
 export interface GetVoiceConnectorStreamingConfigurationCommandInput
   extends GetVoiceConnectorStreamingConfigurationRequest {}
+/**
+ * The output of {@link GetVoiceConnectorStreamingConfigurationCommand}.
+ */
 export interface GetVoiceConnectorStreamingConfigurationCommandOutput
   extends GetVoiceConnectorStreamingConfigurationResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link DeleteParametersCommand}.
+ */
 export interface DeleteParametersCommandInput extends DeleteParametersRequest {}
+/**
+ * The output of {@link DeleteParametersCommand}.
+ */
 export interface DeleteParametersCommandOutput extends DeleteParametersResult, __MetadataBearer {}
 
 /**

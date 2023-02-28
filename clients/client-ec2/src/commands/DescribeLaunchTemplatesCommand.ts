@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeLaunchTemplatesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeLaunchTemplatesCommand}.
+ */
 export interface DescribeLaunchTemplatesCommandInput extends DescribeLaunchTemplatesRequest {}
+/**
+ * The output of {@link DescribeLaunchTemplatesCommand}.
+ */
 export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemplatesResult, __MetadataBearer {}
 
 /**

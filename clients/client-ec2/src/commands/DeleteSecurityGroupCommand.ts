@@ -20,7 +20,13 @@ import {
   serializeAws_ec2DeleteSecurityGroupCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteSecurityGroupCommand}.
+ */
 export interface DeleteSecurityGroupCommandInput extends DeleteSecurityGroupRequest {}
+/**
+ * The output of {@link DeleteSecurityGroupCommand}.
+ */
 export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**

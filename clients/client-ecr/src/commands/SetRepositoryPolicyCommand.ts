@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SetRepositoryPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SetRepositoryPolicyCommand}.
+ */
 export interface SetRepositoryPolicyCommandInput extends SetRepositoryPolicyRequest {}
+/**
+ * The output of {@link SetRepositoryPolicyCommand}.
+ */
 export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyResponse, __MetadataBearer {}
 
 /**

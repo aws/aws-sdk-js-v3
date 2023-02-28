@@ -29,7 +29,13 @@ import {
   serializeAws_queryModifyTargetGroupAttributesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyTargetGroupAttributesCommand}.
+ */
 export interface ModifyTargetGroupAttributesCommandInput extends ModifyTargetGroupAttributesInput {}
+/**
+ * The output of {@link ModifyTargetGroupAttributesCommand}.
+ */
 export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGroupAttributesOutput, __MetadataBearer {}
 
 /**

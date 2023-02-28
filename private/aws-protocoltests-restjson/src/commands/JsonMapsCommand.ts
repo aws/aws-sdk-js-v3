@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link JsonMapsCommand}.
+ */
 export interface JsonMapsCommandInput extends JsonMapsInputOutput {}
+/**
+ * The output of {@link JsonMapsCommand}.
+ */
 export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBearer {}
 
 /**

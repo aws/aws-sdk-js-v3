@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeEnvironmentsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeEnvironmentsCommand}.
+ */
 export interface DescribeEnvironmentsCommandInput extends DescribeEnvironmentsMessage {}
+/**
+ * The output of {@link DescribeEnvironmentsCommand}.
+ */
 export interface DescribeEnvironmentsCommandOutput extends EnvironmentDescriptionsMessage, __MetadataBearer {}
 
 /**

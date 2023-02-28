@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * The input for {@link DeleteProtectionGroupCommand}.
+ */
 export interface DeleteProtectionGroupCommandInput extends DeleteProtectionGroupRequest {}
+/**
+ * The output of {@link DeleteProtectionGroupCommand}.
+ */
 export interface DeleteProtectionGroupCommandOutput extends DeleteProtectionGroupResponse, __MetadataBearer {}
 
 /**

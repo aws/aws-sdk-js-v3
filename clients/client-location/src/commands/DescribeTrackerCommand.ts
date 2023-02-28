@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeTrackerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeTrackerCommand}.
+ */
 export interface DescribeTrackerCommandInput extends DescribeTrackerRequest {}
+/**
+ * The output of {@link DescribeTrackerCommand}.
+ */
 export interface DescribeTrackerCommandOutput extends DescribeTrackerResponse, __MetadataBearer {}
 
 /**

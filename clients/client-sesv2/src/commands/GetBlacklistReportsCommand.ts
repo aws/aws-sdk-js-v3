@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link GetBlacklistReportsCommand}.
+ */
 export interface GetBlacklistReportsCommandInput extends GetBlacklistReportsRequest {}
+/**
+ * The output of {@link GetBlacklistReportsCommand}.
+ */
 export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsResponse, __MetadataBearer {}
 
 /**

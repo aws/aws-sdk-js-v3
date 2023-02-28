@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeVolumesModificationsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeVolumesModificationsCommand}.
+ */
 export interface DescribeVolumesModificationsCommandInput extends DescribeVolumesModificationsRequest {}
+/**
+ * The output of {@link DescribeVolumesModificationsCommand}.
+ */
 export interface DescribeVolumesModificationsCommandOutput
   extends DescribeVolumesModificationsResult,
     __MetadataBearer {}

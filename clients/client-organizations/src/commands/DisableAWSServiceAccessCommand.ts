@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DisableAWSServiceAccessCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisableAWSServiceAccessCommand}.
+ */
 export interface DisableAWSServiceAccessCommandInput extends DisableAWSServiceAccessRequest {}
+/**
+ * The output of {@link DisableAWSServiceAccessCommand}.
+ */
 export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {}
 
 /**

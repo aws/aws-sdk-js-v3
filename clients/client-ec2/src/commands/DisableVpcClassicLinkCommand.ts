@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DisableVpcClassicLinkCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisableVpcClassicLinkCommand}.
+ */
 export interface DisableVpcClassicLinkCommandInput extends DisableVpcClassicLinkRequest {}
+/**
+ * The output of {@link DisableVpcClassicLinkCommand}.
+ */
 export interface DisableVpcClassicLinkCommandOutput extends DisableVpcClassicLinkResult, __MetadataBearer {}
 
 /**

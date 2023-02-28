@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link DeleteObjectsCommand}.
+ */
 export interface DeleteObjectsCommandInput extends DeleteObjectsRequest {}
+/**
+ * The output of {@link DeleteObjectsCommand}.
+ */
 export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __MetadataBearer {}
 
 /**

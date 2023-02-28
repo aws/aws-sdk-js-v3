@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetVariableCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetVariableCommand}.
+ */
 export interface BatchGetVariableCommandInput extends BatchGetVariableRequest {}
+/**
+ * The output of {@link BatchGetVariableCommand}.
+ */
 export interface BatchGetVariableCommandOutput extends BatchGetVariableResult, __MetadataBearer {}
 
 /**

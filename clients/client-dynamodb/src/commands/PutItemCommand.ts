@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_0PutItemCommand, serializeAws_json1_0PutItemCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link PutItemCommand}.
+ */
 export interface PutItemCommandInput extends PutItemInput {}
+/**
+ * The output of {@link PutItemCommand}.
+ */
 export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
 
 /**

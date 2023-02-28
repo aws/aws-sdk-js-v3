@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryTagResourceCommand, serializeAws_queryTagResourceCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandInput extends TagResourceInput {}
+/**
+ * The output of {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**

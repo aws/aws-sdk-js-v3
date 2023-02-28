@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link ListCommandInvocationsCommand}.
+ */
 export interface ListCommandInvocationsCommandInput extends ListCommandInvocationsRequest {}
+/**
+ * The output of {@link ListCommandInvocationsCommand}.
+ */
 export interface ListCommandInvocationsCommandOutput extends ListCommandInvocationsResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateBotCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateBotCommand}.
+ */
 export interface UpdateBotCommandInput extends UpdateBotRequest {}
+/**
+ * The output of {@link UpdateBotCommand}.
+ */
 export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateAccessPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateAccessPolicyCommand}.
+ */
 export interface UpdateAccessPolicyCommandInput extends UpdateAccessPolicyRequest {}
+/**
+ * The output of {@link UpdateAccessPolicyCommand}.
+ */
 export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyResponse, __MetadataBearer {}
 
 /**

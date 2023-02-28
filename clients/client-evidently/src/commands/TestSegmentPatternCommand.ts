@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1TestSegmentPatternCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link TestSegmentPatternCommand}.
+ */
 export interface TestSegmentPatternCommandInput extends TestSegmentPatternRequest {}
+/**
+ * The output of {@link TestSegmentPatternCommand}.
+ */
 export interface TestSegmentPatternCommandOutput extends TestSegmentPatternResponse, __MetadataBearer {}
 
 /**

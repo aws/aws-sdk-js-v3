@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetTelemetryMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetTelemetryMetadataCommand}.
+ */
 export interface GetTelemetryMetadataCommandInput extends GetTelemetryMetadataRequest {}
+/**
+ * The output of {@link GetTelemetryMetadataCommand}.
+ */
 export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataResponse, __MetadataBearer {}
 
 /**

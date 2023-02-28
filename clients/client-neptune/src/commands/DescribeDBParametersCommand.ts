@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeDBParametersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeDBParametersCommand}.
+ */
 export interface DescribeDBParametersCommandInput extends DescribeDBParametersMessage {}
+/**
+ * The output of {@link DescribeDBParametersCommand}.
+ */
 export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetails, __MetadataBearer {}
 
 /**

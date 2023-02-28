@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteVirtualGatewayCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteVirtualGatewayCommand}.
+ */
 export interface DeleteVirtualGatewayCommandInput extends DeleteVirtualGatewayInput {}
+/**
+ * The output of {@link DeleteVirtualGatewayCommand}.
+ */
 export interface DeleteVirtualGatewayCommandOutput extends DeleteVirtualGatewayOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteEgressOnlyInternetGatewayCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteEgressOnlyInternetGatewayCommand}.
+ */
 export interface DeleteEgressOnlyInternetGatewayCommandInput extends DeleteEgressOnlyInternetGatewayRequest {}
+/**
+ * The output of {@link DeleteEgressOnlyInternetGatewayCommand}.
+ */
 export interface DeleteEgressOnlyInternetGatewayCommandOutput
   extends DeleteEgressOnlyInternetGatewayResult,
     __MetadataBearer {}

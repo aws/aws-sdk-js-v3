@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeBackupPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeBackupPolicyCommand}.
+ */
 export interface DescribeBackupPolicyCommandInput extends DescribeBackupPolicyRequest {}
+/**
+ * The output of {@link DescribeBackupPolicyCommand}.
+ */
 export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescription, __MetadataBearer {}
 
 /**

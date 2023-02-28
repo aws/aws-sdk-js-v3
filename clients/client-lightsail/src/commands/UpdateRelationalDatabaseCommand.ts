@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateRelationalDatabaseCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateRelationalDatabaseCommand}.
+ */
 export interface UpdateRelationalDatabaseCommandInput extends UpdateRelationalDatabaseRequest {}
+/**
+ * The output of {@link UpdateRelationalDatabaseCommand}.
+ */
 export interface UpdateRelationalDatabaseCommandOutput extends UpdateRelationalDatabaseResult, __MetadataBearer {}
 
 /**

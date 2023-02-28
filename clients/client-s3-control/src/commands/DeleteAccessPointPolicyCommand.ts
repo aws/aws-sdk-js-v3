@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link DeleteAccessPointPolicyCommand}.
+ */
 export interface DeleteAccessPointPolicyCommandInput extends DeleteAccessPointPolicyRequest {}
+/**
+ * The output of {@link DeleteAccessPointPolicyCommand}.
+ */
 export interface DeleteAccessPointPolicyCommandOutput extends __MetadataBearer {}
 
 /**

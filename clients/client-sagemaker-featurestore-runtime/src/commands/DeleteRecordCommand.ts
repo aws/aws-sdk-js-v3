@@ -24,7 +24,13 @@ import {
   ServiceOutputTypes,
 } from "../SageMakerFeatureStoreRuntimeClient";
 
+/**
+ * The input for {@link DeleteRecordCommand}.
+ */
 export interface DeleteRecordCommandInput extends DeleteRecordRequest {}
+/**
+ * The output of {@link DeleteRecordCommand}.
+ */
 export interface DeleteRecordCommandOutput extends __MetadataBearer {}
 
 /**

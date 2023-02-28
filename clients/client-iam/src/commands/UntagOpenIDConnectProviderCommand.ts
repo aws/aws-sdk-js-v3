@@ -23,7 +23,13 @@ import {
   serializeAws_queryUntagOpenIDConnectProviderCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UntagOpenIDConnectProviderCommand}.
+ */
 export interface UntagOpenIDConnectProviderCommandInput extends UntagOpenIDConnectProviderRequest {}
+/**
+ * The output of {@link UntagOpenIDConnectProviderCommand}.
+ */
 export interface UntagOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**

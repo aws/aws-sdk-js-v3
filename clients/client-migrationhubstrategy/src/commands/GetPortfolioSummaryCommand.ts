@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetPortfolioSummaryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPortfolioSummaryCommand}.
+ */
 export interface GetPortfolioSummaryCommandInput extends GetPortfolioSummaryRequest {}
+/**
+ * The output of {@link GetPortfolioSummaryCommand}.
+ */
 export interface GetPortfolioSummaryCommandOutput extends GetPortfolioSummaryResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateApplicationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateApplicationCommand}.
+ */
 export interface CreateApplicationCommandInput extends CreateApplicationMessage {}
+/**
+ * The output of {@link CreateApplicationCommand}.
+ */
 export interface CreateApplicationCommandOutput extends ApplicationDescriptionMessage, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociateFromAdministratorAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateFromAdministratorAccountCommand}.
+ */
 export interface DisassociateFromAdministratorAccountCommandInput extends DisassociateFromAdministratorAccountRequest {}
+/**
+ * The output of {@link DisassociateFromAdministratorAccountCommand}.
+ */
 export interface DisassociateFromAdministratorAccountCommandOutput
   extends DisassociateFromAdministratorAccountResponse,
     __MetadataBearer {}

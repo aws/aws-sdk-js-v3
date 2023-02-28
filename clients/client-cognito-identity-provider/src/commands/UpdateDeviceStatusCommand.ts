@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1UpdateDeviceStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateDeviceStatusCommand}.
+ */
 export interface UpdateDeviceStatusCommandInput extends UpdateDeviceStatusRequest {}
+/**
+ * The output of {@link UpdateDeviceStatusCommand}.
+ */
 export interface UpdateDeviceStatusCommandOutput extends UpdateDeviceStatusResponse, __MetadataBearer {}
 
 /**

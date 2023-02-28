@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetLayerVersionByArnCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetLayerVersionByArnCommand}.
+ */
 export interface GetLayerVersionByArnCommandInput extends GetLayerVersionByArnRequest {}
+/**
+ * The output of {@link GetLayerVersionByArnCommand}.
+ */
 export interface GetLayerVersionByArnCommandOutput extends GetLayerVersionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DescribeEventCategoriesCommand}.
+ */
 export interface DescribeEventCategoriesCommandInput extends DescribeEventCategoriesMessage {}
+/**
+ * The output of {@link DescribeEventCategoriesCommand}.
+ */
 export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMessage, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link ResendOperationAuthorizationCommand}.
+ */
 export interface ResendOperationAuthorizationCommandInput extends ResendOperationAuthorizationRequest {}
+/**
+ * The output of {@link ResendOperationAuthorizationCommand}.
+ */
 export interface ResendOperationAuthorizationCommandOutput extends __MetadataBearer {}
 
 /**

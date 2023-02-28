@@ -29,8 +29,14 @@ import {
   serializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteOutboundCrossClusterSearchConnectionCommand}.
+ */
 export interface DeleteOutboundCrossClusterSearchConnectionCommandInput
   extends DeleteOutboundCrossClusterSearchConnectionRequest {}
+/**
+ * The output of {@link DeleteOutboundCrossClusterSearchConnectionCommand}.
+ */
 export interface DeleteOutboundCrossClusterSearchConnectionCommandOutput
   extends DeleteOutboundCrossClusterSearchConnectionResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeCacheSecurityGroupsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeCacheSecurityGroupsCommand}.
+ */
 export interface DescribeCacheSecurityGroupsCommandInput extends DescribeCacheSecurityGroupsMessage {}
+/**
+ * The output of {@link DescribeCacheSecurityGroupsCommand}.
+ */
 export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityGroupMessage, __MetadataBearer {}
 
 /**

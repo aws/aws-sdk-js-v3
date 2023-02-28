@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PollForJobsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PollForJobsCommand}.
+ */
 export interface PollForJobsCommandInput extends PollForJobsInput {}
+/**
+ * The output of {@link PollForJobsCommand}.
+ */
 export interface PollForJobsCommandOutput extends PollForJobsOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetBackendEnvironmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBackendEnvironmentCommand}.
+ */
 export interface GetBackendEnvironmentCommandInput extends GetBackendEnvironmentRequest {}
+/**
+ * The output of {@link GetBackendEnvironmentCommand}.
+ */
 export interface GetBackendEnvironmentCommandOutput extends GetBackendEnvironmentResult, __MetadataBearer {}
 
 /**

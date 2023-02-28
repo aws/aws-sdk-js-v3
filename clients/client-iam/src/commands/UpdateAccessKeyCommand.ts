@@ -20,7 +20,13 @@ import {
   serializeAws_queryUpdateAccessKeyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateAccessKeyCommand}.
+ */
 export interface UpdateAccessKeyCommandInput extends UpdateAccessKeyRequest {}
+/**
+ * The output of {@link UpdateAccessKeyCommand}.
+ */
 export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
 
 /**

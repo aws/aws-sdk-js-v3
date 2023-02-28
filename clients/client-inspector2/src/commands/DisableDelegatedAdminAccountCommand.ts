@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisableDelegatedAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisableDelegatedAdminAccountCommand}.
+ */
 export interface DisableDelegatedAdminAccountCommandInput extends DisableDelegatedAdminAccountRequest {}
+/**
+ * The output of {@link DisableDelegatedAdminAccountCommand}.
+ */
 export interface DisableDelegatedAdminAccountCommandOutput
   extends DisableDelegatedAdminAccountResponse,
     __MetadataBearer {}

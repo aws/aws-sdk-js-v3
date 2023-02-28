@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateVariableCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateVariableCommand}.
+ */
 export interface UpdateVariableCommandInput extends UpdateVariableRequest {}
+/**
+ * The output of {@link UpdateVariableCommand}.
+ */
 export interface UpdateVariableCommandOutput extends UpdateVariableResult, __MetadataBearer {}
 
 /**

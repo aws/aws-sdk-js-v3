@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
+/**
+ * The input for {@link CreateScheduleCommand}.
+ */
 export interface CreateScheduleCommandInput extends CreateScheduleInput {}
+/**
+ * The output of {@link CreateScheduleCommand}.
+ */
 export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __MetadataBearer {}
 
 /**

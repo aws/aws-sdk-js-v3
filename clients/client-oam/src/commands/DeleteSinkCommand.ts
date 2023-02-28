@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteSinkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteSinkCommand}.
+ */
 export interface DeleteSinkCommandInput extends DeleteSinkInput {}
+/**
+ * The output of {@link DeleteSinkCommand}.
+ */
 export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBearer {}
 
 /**

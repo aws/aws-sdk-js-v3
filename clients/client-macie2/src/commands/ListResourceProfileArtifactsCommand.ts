@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListResourceProfileArtifactsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListResourceProfileArtifactsCommand}.
+ */
 export interface ListResourceProfileArtifactsCommandInput extends ListResourceProfileArtifactsRequest {}
+/**
+ * The output of {@link ListResourceProfileArtifactsCommand}.
+ */
 export interface ListResourceProfileArtifactsCommandOutput
   extends ListResourceProfileArtifactsResponse,
     __MetadataBearer {}

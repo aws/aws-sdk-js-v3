@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetSystemTemplateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetSystemTemplateCommand}.
+ */
 export interface GetSystemTemplateCommandInput extends GetSystemTemplateRequest {}
+/**
+ * The output of {@link GetSystemTemplateCommand}.
+ */
 export interface GetSystemTemplateCommandOutput extends GetSystemTemplateResponse, __MetadataBearer {}
 
 /**

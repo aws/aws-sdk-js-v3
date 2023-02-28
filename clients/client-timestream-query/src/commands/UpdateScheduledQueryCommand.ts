@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
+/**
+ * The input for {@link UpdateScheduledQueryCommand}.
+ */
 export interface UpdateScheduledQueryCommandInput extends UpdateScheduledQueryRequest {}
+/**
+ * The output of {@link UpdateScheduledQueryCommand}.
+ */
 export interface UpdateScheduledQueryCommandOutput extends __MetadataBearer {}
 
 /**

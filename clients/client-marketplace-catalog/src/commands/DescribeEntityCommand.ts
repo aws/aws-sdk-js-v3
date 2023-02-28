@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DescribeEntityCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeEntityCommand}.
+ */
 export interface DescribeEntityCommandInput extends DescribeEntityRequest {}
+/**
+ * The output of {@link DescribeEntityCommand}.
+ */
 export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __MetadataBearer {}
 
 /**

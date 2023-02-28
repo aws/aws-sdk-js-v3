@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1ResetAuthorizersCacheCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ResetAuthorizersCacheCommand}.
+ */
 export interface ResetAuthorizersCacheCommandInput extends ResetAuthorizersCacheRequest {}
+/**
+ * The output of {@link ResetAuthorizersCacheCommand}.
+ */
 export interface ResetAuthorizersCacheCommandOutput extends __MetadataBearer {}
 
 /**

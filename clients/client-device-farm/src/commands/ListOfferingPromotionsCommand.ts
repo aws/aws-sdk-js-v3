@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListOfferingPromotionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListOfferingPromotionsCommand}.
+ */
 export interface ListOfferingPromotionsCommandInput extends ListOfferingPromotionsRequest {}
+/**
+ * The output of {@link ListOfferingPromotionsCommand}.
+ */
 export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromotionsResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateModelVersionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateModelVersionCommand}.
+ */
 export interface CreateModelVersionCommandInput extends CreateModelVersionRequest {}
+/**
+ * The output of {@link CreateModelVersionCommand}.
+ */
 export interface CreateModelVersionCommandOutput extends CreateModelVersionResult, __MetadataBearer {}
 
 /**

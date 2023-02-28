@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetDeviceMethodsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDeviceMethodsCommand}.
+ */
 export interface GetDeviceMethodsCommandInput extends GetDeviceMethodsRequest {}
+/**
+ * The output of {@link GetDeviceMethodsCommand}.
+ */
 export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse, __MetadataBearer {}
 
 /**

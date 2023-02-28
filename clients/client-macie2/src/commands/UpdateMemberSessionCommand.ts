@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateMemberSessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateMemberSessionCommand}.
+ */
 export interface UpdateMemberSessionCommandInput extends UpdateMemberSessionRequest {}
+/**
+ * The output of {@link UpdateMemberSessionCommand}.
+ */
 export interface UpdateMemberSessionCommandOutput extends UpdateMemberSessionResponse, __MetadataBearer {}
 
 /**

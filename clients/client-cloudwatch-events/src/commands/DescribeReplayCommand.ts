@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeReplayCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeReplayCommand}.
+ */
 export interface DescribeReplayCommandInput extends DescribeReplayRequest {}
+/**
+ * The output of {@link DescribeReplayCommand}.
+ */
 export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __MetadataBearer {}
 
 /**

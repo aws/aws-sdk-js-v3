@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DescribePoolsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribePoolsCommand}.
+ */
 export interface DescribePoolsCommandInput extends DescribePoolsRequest {}
+/**
+ * The output of {@link DescribePoolsCommand}.
+ */
 export interface DescribePoolsCommandOutput extends DescribePoolsResult, __MetadataBearer {}
 
 /**

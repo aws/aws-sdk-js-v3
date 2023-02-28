@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link CancelMailboxExportJobCommand}.
+ */
 export interface CancelMailboxExportJobCommandInput extends CancelMailboxExportJobRequest {}
+/**
+ * The output of {@link CancelMailboxExportJobCommand}.
+ */
 export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExportJobResponse, __MetadataBearer {}
 
 /**

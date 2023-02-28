@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyInstanceMaintenanceOptionsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyInstanceMaintenanceOptionsCommand}.
+ */
 export interface ModifyInstanceMaintenanceOptionsCommandInput extends ModifyInstanceMaintenanceOptionsRequest {}
+/**
+ * The output of {@link ModifyInstanceMaintenanceOptionsCommand}.
+ */
 export interface ModifyInstanceMaintenanceOptionsCommandOutput
   extends ModifyInstanceMaintenanceOptionsResult,
     __MetadataBearer {}

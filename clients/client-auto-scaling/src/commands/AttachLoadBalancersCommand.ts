@@ -25,7 +25,13 @@ import {
   serializeAws_queryAttachLoadBalancersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link AttachLoadBalancersCommand}.
+ */
 export interface AttachLoadBalancersCommandInput extends AttachLoadBalancersType {}
+/**
+ * The output of {@link AttachLoadBalancersCommand}.
+ */
 export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersResultType, __MetadataBearer {}
 
 /**

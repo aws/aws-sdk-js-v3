@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ConfigureLogsForChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ConfigureLogsForChannelCommand}.
+ */
 export interface ConfigureLogsForChannelCommandInput extends ConfigureLogsForChannelRequest {}
+/**
+ * The output of {@link ConfigureLogsForChannelCommand}.
+ */
 export interface ConfigureLogsForChannelCommandOutput extends ConfigureLogsForChannelResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
+/**
+ * The input for {@link CancelStatementCommand}.
+ */
 export interface CancelStatementCommandInput extends CancelStatementRequest {}
+/**
+ * The output of {@link CancelStatementCommand}.
+ */
 export interface CancelStatementCommandOutput extends CancelStatementResponse, __MetadataBearer {}
 
 /**

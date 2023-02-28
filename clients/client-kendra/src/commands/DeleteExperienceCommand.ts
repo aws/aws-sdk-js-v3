@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteExperienceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteExperienceCommand}.
+ */
 export interface DeleteExperienceCommandInput extends DeleteExperienceRequest {}
+/**
+ * The output of {@link DeleteExperienceCommand}.
+ */
 export interface DeleteExperienceCommandOutput extends DeleteExperienceResponse, __MetadataBearer {}
 
 /**

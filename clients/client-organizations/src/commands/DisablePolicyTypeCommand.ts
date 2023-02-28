@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisablePolicyTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisablePolicyTypeCommand}.
+ */
 export interface DisablePolicyTypeCommandInput extends DisablePolicyTypeRequest {}
+/**
+ * The output of {@link DisablePolicyTypeCommand}.
+ */
 export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeResponse, __MetadataBearer {}
 
 /**

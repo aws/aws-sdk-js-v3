@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link CreateSizeConstraintSetCommand}.
+ */
 export interface CreateSizeConstraintSetCommandInput extends CreateSizeConstraintSetRequest {}
+/**
+ * The output of {@link CreateSizeConstraintSetCommand}.
+ */
 export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstraintSetResponse, __MetadataBearer {}
 
 /**

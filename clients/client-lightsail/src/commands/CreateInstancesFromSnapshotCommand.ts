@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateInstancesFromSnapshotCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateInstancesFromSnapshotCommand}.
+ */
 export interface CreateInstancesFromSnapshotCommandInput extends CreateInstancesFromSnapshotRequest {}
+/**
+ * The output of {@link CreateInstancesFromSnapshotCommand}.
+ */
 export interface CreateInstancesFromSnapshotCommandOutput extends CreateInstancesFromSnapshotResult, __MetadataBearer {}
 
 /**

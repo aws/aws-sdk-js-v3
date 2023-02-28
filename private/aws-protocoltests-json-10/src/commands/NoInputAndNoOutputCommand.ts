@@ -18,7 +18,13 @@ import {
   serializeAws_json1_0NoInputAndNoOutputCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link NoInputAndNoOutputCommand}.
+ */
 export interface NoInputAndNoOutputCommandInput {}
+/**
+ * The output of {@link NoInputAndNoOutputCommand}.
+ */
 export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
 
 /**

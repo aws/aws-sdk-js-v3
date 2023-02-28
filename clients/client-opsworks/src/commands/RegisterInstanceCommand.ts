@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RegisterInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterInstanceCommand}.
+ */
 export interface RegisterInstanceCommandInput extends RegisterInstanceRequest {}
+/**
+ * The output of {@link RegisterInstanceCommand}.
+ */
 export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, __MetadataBearer {}
 
 /**

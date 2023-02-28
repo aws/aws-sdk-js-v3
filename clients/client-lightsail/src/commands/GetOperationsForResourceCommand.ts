@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetOperationsForResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetOperationsForResourceCommand}.
+ */
 export interface GetOperationsForResourceCommandInput extends GetOperationsForResourceRequest {}
+/**
+ * The output of {@link GetOperationsForResourceCommand}.
+ */
 export interface GetOperationsForResourceCommandOutput extends GetOperationsForResourceResult, __MetadataBearer {}
 
 /**

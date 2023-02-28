@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateDeviceInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateDeviceInstanceCommand}.
+ */
 export interface UpdateDeviceInstanceCommandInput extends UpdateDeviceInstanceRequest {}
+/**
+ * The output of {@link UpdateDeviceInstanceCommand}.
+ */
 export interface UpdateDeviceInstanceCommandOutput extends UpdateDeviceInstanceResult, __MetadataBearer {}
 
 /**

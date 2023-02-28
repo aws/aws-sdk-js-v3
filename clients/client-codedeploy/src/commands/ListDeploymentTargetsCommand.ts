@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListDeploymentTargetsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListDeploymentTargetsCommand}.
+ */
 export interface ListDeploymentTargetsCommandInput extends ListDeploymentTargetsInput {}
+/**
+ * The output of {@link ListDeploymentTargetsCommand}.
+ */
 export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTargetsOutput, __MetadataBearer {}
 
 /**

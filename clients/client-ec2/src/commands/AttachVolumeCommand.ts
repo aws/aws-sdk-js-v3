@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_ec2AttachVolumeCommand, serializeAws_ec2AttachVolumeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AttachVolumeCommand}.
+ */
 export interface AttachVolumeCommandInput extends AttachVolumeRequest {}
+/**
+ * The output of {@link AttachVolumeCommand}.
+ */
 export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataBearer {}
 
 /**

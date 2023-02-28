@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetEvidenceFoldersByAssessmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetEvidenceFoldersByAssessmentCommand}.
+ */
 export interface GetEvidenceFoldersByAssessmentCommandInput extends GetEvidenceFoldersByAssessmentRequest {}
+/**
+ * The output of {@link GetEvidenceFoldersByAssessmentCommand}.
+ */
 export interface GetEvidenceFoldersByAssessmentCommandOutput
   extends GetEvidenceFoldersByAssessmentResponse,
     __MetadataBearer {}

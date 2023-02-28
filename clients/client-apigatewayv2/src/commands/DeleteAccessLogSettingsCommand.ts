@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteAccessLogSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAccessLogSettingsCommand}.
+ */
 export interface DeleteAccessLogSettingsCommandInput extends DeleteAccessLogSettingsRequest {}
+/**
+ * The output of {@link DeleteAccessLogSettingsCommand}.
+ */
 export interface DeleteAccessLogSettingsCommandOutput extends __MetadataBearer {}
 
 /**

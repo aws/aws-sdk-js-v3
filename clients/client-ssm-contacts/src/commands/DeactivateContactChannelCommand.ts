@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
+/**
+ * The input for {@link DeactivateContactChannelCommand}.
+ */
 export interface DeactivateContactChannelCommandInput extends DeactivateContactChannelRequest {}
+/**
+ * The output of {@link DeactivateContactChannelCommand}.
+ */
 export interface DeactivateContactChannelCommandOutput extends DeactivateContactChannelResult, __MetadataBearer {}
 
 /**

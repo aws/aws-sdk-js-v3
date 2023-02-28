@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SearchVocabulariesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SearchVocabulariesCommand}.
+ */
 export interface SearchVocabulariesCommandInput extends SearchVocabulariesRequest {}
+/**
+ * The output of {@link SearchVocabulariesCommand}.
+ */
 export interface SearchVocabulariesCommandOutput extends SearchVocabulariesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
+/**
+ * The input for {@link CreateCaseCommand}.
+ */
 export interface CreateCaseCommandInput extends CreateCaseRequest {}
+/**
+ * The output of {@link CreateCaseCommand}.
+ */
 export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataBearer {}
 
 /**

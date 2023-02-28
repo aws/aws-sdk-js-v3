@@ -22,7 +22,13 @@ import {
 } from "../models/models_2";
 import { deserializeAws_ec2DeleteFleetsCommand, serializeAws_ec2DeleteFleetsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteFleetsCommand}.
+ */
 export interface DeleteFleetsCommandInput extends DeleteFleetsRequest {}
+/**
+ * The output of {@link DeleteFleetsCommand}.
+ */
 export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __MetadataBearer {}
 
 /**

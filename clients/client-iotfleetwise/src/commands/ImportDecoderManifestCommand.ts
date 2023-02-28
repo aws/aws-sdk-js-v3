@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ImportDecoderManifestCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ImportDecoderManifestCommand}.
+ */
 export interface ImportDecoderManifestCommandInput extends ImportDecoderManifestRequest {}
+/**
+ * The output of {@link ImportDecoderManifestCommand}.
+ */
 export interface ImportDecoderManifestCommandOutput extends ImportDecoderManifestResponse, __MetadataBearer {}
 
 /**

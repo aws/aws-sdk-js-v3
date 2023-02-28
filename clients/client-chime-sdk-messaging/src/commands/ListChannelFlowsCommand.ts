@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListChannelFlowsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListChannelFlowsCommand}.
+ */
 export interface ListChannelFlowsCommandInput extends ListChannelFlowsRequest {}
+/**
+ * The output of {@link ListChannelFlowsCommand}.
+ */
 export interface ListChannelFlowsCommandOutput extends ListChannelFlowsResponse, __MetadataBearer {}
 
 /**

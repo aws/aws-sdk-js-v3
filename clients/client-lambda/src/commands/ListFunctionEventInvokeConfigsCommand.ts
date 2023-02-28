@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListFunctionEventInvokeConfigsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListFunctionEventInvokeConfigsCommand}.
+ */
 export interface ListFunctionEventInvokeConfigsCommandInput extends ListFunctionEventInvokeConfigsRequest {}
+/**
+ * The output of {@link ListFunctionEventInvokeConfigsCommand}.
+ */
 export interface ListFunctionEventInvokeConfigsCommandOutput
   extends ListFunctionEventInvokeConfigsResponse,
     __MetadataBearer {}

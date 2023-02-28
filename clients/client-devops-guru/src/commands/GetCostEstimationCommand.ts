@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetCostEstimationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetCostEstimationCommand}.
+ */
 export interface GetCostEstimationCommandInput extends GetCostEstimationRequest {}
+/**
+ * The output of {@link GetCostEstimationCommand}.
+ */
 export interface GetCostEstimationCommandOutput extends GetCostEstimationResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetDevEndpointsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetDevEndpointsCommand}.
+ */
 export interface BatchGetDevEndpointsCommandInput extends BatchGetDevEndpointsRequest {}
+/**
+ * The output of {@link BatchGetDevEndpointsCommand}.
+ */
 export interface BatchGetDevEndpointsCommandOutput extends BatchGetDevEndpointsResponse, __MetadataBearer {}
 
 /**

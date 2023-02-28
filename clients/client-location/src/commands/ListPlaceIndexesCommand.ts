@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListPlaceIndexesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPlaceIndexesCommand}.
+ */
 export interface ListPlaceIndexesCommandInput extends ListPlaceIndexesRequest {}
+/**
+ * The output of {@link ListPlaceIndexesCommand}.
+ */
 export interface ListPlaceIndexesCommandOutput extends ListPlaceIndexesResponse, __MetadataBearer {}
 
 /**

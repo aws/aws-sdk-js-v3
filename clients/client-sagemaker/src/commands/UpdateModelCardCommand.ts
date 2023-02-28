@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link UpdateModelCardCommand}.
+ */
 export interface UpdateModelCardCommandInput extends UpdateModelCardRequest {}
+/**
+ * The output of {@link UpdateModelCardCommand}.
+ */
 export interface UpdateModelCardCommandOutput extends UpdateModelCardResponse, __MetadataBearer {}
 
 /**

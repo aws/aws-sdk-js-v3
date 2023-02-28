@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1IsVpcPeeredCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link IsVpcPeeredCommand}.
+ */
 export interface IsVpcPeeredCommandInput extends IsVpcPeeredRequest {}
+/**
+ * The output of {@link IsVpcPeeredCommand}.
+ */
 export interface IsVpcPeeredCommandOutput extends IsVpcPeeredResult, __MetadataBearer {}
 
 /**

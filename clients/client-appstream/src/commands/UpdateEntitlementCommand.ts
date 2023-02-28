@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateEntitlementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateEntitlementCommand}.
+ */
 export interface UpdateEntitlementCommandInput extends UpdateEntitlementRequest {}
+/**
+ * The output of {@link UpdateEntitlementCommand}.
+ */
 export interface UpdateEntitlementCommandOutput extends UpdateEntitlementResult, __MetadataBearer {}
 
 /**

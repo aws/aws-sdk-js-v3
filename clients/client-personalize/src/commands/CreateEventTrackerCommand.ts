@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateEventTrackerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateEventTrackerCommand}.
+ */
 export interface CreateEventTrackerCommandInput extends CreateEventTrackerRequest {}
+/**
+ * The output of {@link CreateEventTrackerCommand}.
+ */
 export interface CreateEventTrackerCommandOutput extends CreateEventTrackerResponse, __MetadataBearer {}
 
 /**

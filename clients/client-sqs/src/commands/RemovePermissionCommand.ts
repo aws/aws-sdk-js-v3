@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link RemovePermissionCommand}.
+ */
 export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
+/**
+ * The output of {@link RemovePermissionCommand}.
+ */
 export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**

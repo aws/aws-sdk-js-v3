@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
+/**
+ * The input for {@link GetSigningProfileCommand}.
+ */
 export interface GetSigningProfileCommandInput extends GetSigningProfileRequest {}
+/**
+ * The output of {@link GetSigningProfileCommand}.
+ */
 export interface GetSigningProfileCommandOutput extends GetSigningProfileResponse, __MetadataBearer {}
 
 /**

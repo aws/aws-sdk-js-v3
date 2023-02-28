@@ -25,7 +25,13 @@ import {
   serializeAws_queryFailoverGlobalClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link FailoverGlobalClusterCommand}.
+ */
 export interface FailoverGlobalClusterCommandInput extends FailoverGlobalClusterMessage {}
+/**
+ * The output of {@link FailoverGlobalClusterCommand}.
+ */
 export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalClusterResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteFileSystemCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteFileSystemCommand}.
+ */
 export interface DeleteFileSystemCommandInput extends DeleteFileSystemRequest {}
+/**
+ * The output of {@link DeleteFileSystemCommand}.
+ */
 export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse, __MetadataBearer {}
 
 /**

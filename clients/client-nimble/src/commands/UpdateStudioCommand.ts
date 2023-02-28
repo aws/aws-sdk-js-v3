@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateStudioCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateStudioCommand}.
+ */
 export interface UpdateStudioCommandInput extends UpdateStudioRequest {}
+/**
+ * The output of {@link UpdateStudioCommand}.
+ */
 export interface UpdateStudioCommandOutput extends UpdateStudioResponse, __MetadataBearer {}
 
 /**

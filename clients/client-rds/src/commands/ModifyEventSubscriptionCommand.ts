@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link ModifyEventSubscriptionCommand}.
+ */
 export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscriptionMessage {}
+/**
+ * The output of {@link ModifyEventSubscriptionCommand}.
+ */
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResult, __MetadataBearer {}
 
 /**

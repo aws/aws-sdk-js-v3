@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UnassignVolumeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UnassignVolumeCommand}.
+ */
 export interface UnassignVolumeCommandInput extends UnassignVolumeRequest {}
+/**
+ * The output of {@link UnassignVolumeCommand}.
+ */
 export interface UnassignVolumeCommandOutput extends __MetadataBearer {}
 
 /**

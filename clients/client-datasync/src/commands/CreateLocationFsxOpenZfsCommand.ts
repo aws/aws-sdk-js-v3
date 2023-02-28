@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateLocationFsxOpenZfsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateLocationFsxOpenZfsCommand}.
+ */
 export interface CreateLocationFsxOpenZfsCommandInput extends CreateLocationFsxOpenZfsRequest {}
+/**
+ * The output of {@link CreateLocationFsxOpenZfsCommand}.
+ */
 export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsxOpenZfsResponse, __MetadataBearer {}
 
 /**

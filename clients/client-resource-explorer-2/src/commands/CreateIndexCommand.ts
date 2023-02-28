@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * The input for {@link CreateIndexCommand}.
+ */
 export interface CreateIndexCommandInput extends CreateIndexInput {}
+/**
+ * The output of {@link CreateIndexCommand}.
+ */
 export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeJobCommand}.
+ */
 export interface DescribeJobCommandInput extends DescribeJobInput {}
+/**
+ * The output of {@link DescribeJobCommand}.
+ */
 export interface DescribeJobCommandOutput extends GlacierJobDescription, __MetadataBearer {}
 
 /**

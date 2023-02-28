@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link StartProjectVersionCommand}.
+ */
 export interface StartProjectVersionCommandInput extends StartProjectVersionRequest {}
+/**
+ * The output of {@link StartProjectVersionCommand}.
+ */
 export interface StartProjectVersionCommandOutput extends StartProjectVersionResponse, __MetadataBearer {}
 
 /**

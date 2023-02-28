@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1GetTransitGatewayConnectPeerAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetTransitGatewayConnectPeerAssociationsCommand}.
+ */
 export interface GetTransitGatewayConnectPeerAssociationsCommandInput
   extends GetTransitGatewayConnectPeerAssociationsRequest {}
+/**
+ * The output of {@link GetTransitGatewayConnectPeerAssociationsCommand}.
+ */
 export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
   extends GetTransitGatewayConnectPeerAssociationsResponse,
     __MetadataBearer {}

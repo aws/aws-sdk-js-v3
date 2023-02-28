@@ -29,7 +29,13 @@ import {
   serializeAws_queryDeleteTargetGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteTargetGroupCommand}.
+ */
 export interface DeleteTargetGroupCommandInput extends DeleteTargetGroupInput {}
+/**
+ * The output of {@link DeleteTargetGroupCommand}.
+ */
 export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput, __MetadataBearer {}
 
 /**

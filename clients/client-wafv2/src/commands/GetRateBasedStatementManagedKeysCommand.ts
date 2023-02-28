@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * The input for {@link GetRateBasedStatementManagedKeysCommand}.
+ */
 export interface GetRateBasedStatementManagedKeysCommandInput extends GetRateBasedStatementManagedKeysRequest {}
+/**
+ * The output of {@link GetRateBasedStatementManagedKeysCommand}.
+ */
 export interface GetRateBasedStatementManagedKeysCommandOutput
   extends GetRateBasedStatementManagedKeysResponse,
     __MetadataBearer {}

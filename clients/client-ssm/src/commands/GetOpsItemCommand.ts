@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link GetOpsItemCommand}.
+ */
 export interface GetOpsItemCommandInput extends GetOpsItemRequest {}
+/**
+ * The output of {@link GetOpsItemCommand}.
+ */
 export interface GetOpsItemCommandOutput extends GetOpsItemResponse, __MetadataBearer {}
 
 /**

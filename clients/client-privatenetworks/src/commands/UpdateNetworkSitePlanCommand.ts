@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateNetworkSitePlanCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateNetworkSitePlanCommand}.
+ */
 export interface UpdateNetworkSitePlanCommandInput extends UpdateNetworkSitePlanRequest {}
+/**
+ * The output of {@link UpdateNetworkSitePlanCommand}.
+ */
 export interface UpdateNetworkSitePlanCommandOutput extends UpdateNetworkSiteResponse, __MetadataBearer {}
 
 /**

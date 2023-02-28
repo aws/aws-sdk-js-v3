@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteSSHPublicKeyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteSSHPublicKeyCommand}.
+ */
 export interface DeleteSSHPublicKeyCommandInput extends DeleteSSHPublicKeyRequest {}
+/**
+ * The output of {@link DeleteSSHPublicKeyCommand}.
+ */
 export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListParentsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListParentsCommand}.
+ */
 export interface ListParentsCommandInput extends ListParentsRequest {}
+/**
+ * The output of {@link ListParentsCommand}.
+ */
 export interface ListParentsCommandOutput extends ListParentsResponse, __MetadataBearer {}
 
 /**

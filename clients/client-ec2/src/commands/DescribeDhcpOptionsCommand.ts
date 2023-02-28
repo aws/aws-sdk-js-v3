@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeDhcpOptionsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeDhcpOptionsCommand}.
+ */
 export interface DescribeDhcpOptionsCommandInput extends DescribeDhcpOptionsRequest {}
+/**
+ * The output of {@link DescribeDhcpOptionsCommand}.
+ */
 export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsResult, __MetadataBearer {}
 
 /**

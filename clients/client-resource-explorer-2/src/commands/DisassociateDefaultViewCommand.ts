@@ -23,7 +23,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * The input for {@link DisassociateDefaultViewCommand}.
+ */
 export interface DisassociateDefaultViewCommandInput {}
+/**
+ * The output of {@link DisassociateDefaultViewCommand}.
+ */
 export interface DisassociateDefaultViewCommandOutput extends __MetadataBearer {}
 
 /**

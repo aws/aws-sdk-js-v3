@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListTableRowsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListTableRowsCommand}.
+ */
 export interface ListTableRowsCommandInput extends ListTableRowsRequest {}
+/**
+ * The output of {@link ListTableRowsCommand}.
+ */
 export interface ListTableRowsCommandOutput extends ListTableRowsResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListThingGroupsForThingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListThingGroupsForThingCommand}.
+ */
 export interface ListThingGroupsForThingCommandInput extends ListThingGroupsForThingRequest {}
+/**
+ * The output of {@link ListThingGroupsForThingCommand}.
+ */
 export interface ListThingGroupsForThingCommandOutput extends ListThingGroupsForThingResponse, __MetadataBearer {}
 
 /**

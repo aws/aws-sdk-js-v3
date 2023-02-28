@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateNotificationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateNotificationCommand}.
+ */
 export interface UpdateNotificationCommandInput extends UpdateNotificationRequest {}
+/**
+ * The output of {@link UpdateNotificationCommand}.
+ */
 export interface UpdateNotificationCommandOutput extends UpdateNotificationResponse, __MetadataBearer {}
 
 /**

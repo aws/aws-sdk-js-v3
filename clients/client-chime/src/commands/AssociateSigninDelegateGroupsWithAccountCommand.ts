@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1AssociateSigninDelegateGroupsWithAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateSigninDelegateGroupsWithAccountCommand}.
+ */
 export interface AssociateSigninDelegateGroupsWithAccountCommandInput
   extends AssociateSigninDelegateGroupsWithAccountRequest {}
+/**
+ * The output of {@link AssociateSigninDelegateGroupsWithAccountCommand}.
+ */
 export interface AssociateSigninDelegateGroupsWithAccountCommandOutput
   extends AssociateSigninDelegateGroupsWithAccountResponse,
     __MetadataBearer {}

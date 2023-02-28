@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteQueryDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteQueryDefinitionCommand}.
+ */
 export interface DeleteQueryDefinitionCommandInput extends DeleteQueryDefinitionRequest {}
+/**
+ * The output of {@link DeleteQueryDefinitionCommand}.
+ */
 export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitionResponse, __MetadataBearer {}
 
 /**

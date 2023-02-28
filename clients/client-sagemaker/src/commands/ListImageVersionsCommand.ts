@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link ListImageVersionsCommand}.
+ */
 export interface ListImageVersionsCommandInput extends ListImageVersionsRequest {}
+/**
+ * The output of {@link ListImageVersionsCommand}.
+ */
 export interface ListImageVersionsCommandOutput extends ListImageVersionsResponse, __MetadataBearer {}
 
 /**

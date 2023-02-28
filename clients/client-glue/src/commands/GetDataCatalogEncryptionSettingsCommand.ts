@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDataCatalogEncryptionSettingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDataCatalogEncryptionSettingsCommand}.
+ */
 export interface GetDataCatalogEncryptionSettingsCommandInput extends GetDataCatalogEncryptionSettingsRequest {}
+/**
+ * The output of {@link GetDataCatalogEncryptionSettingsCommand}.
+ */
 export interface GetDataCatalogEncryptionSettingsCommandOutput
   extends GetDataCatalogEncryptionSettingsResponse,
     __MetadataBearer {}

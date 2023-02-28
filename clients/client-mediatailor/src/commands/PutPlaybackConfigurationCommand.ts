@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutPlaybackConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutPlaybackConfigurationCommand}.
+ */
 export interface PutPlaybackConfigurationCommandInput extends PutPlaybackConfigurationRequest {}
+/**
+ * The output of {@link PutPlaybackConfigurationCommand}.
+ */
 export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfigurationResponse, __MetadataBearer {}
 
 /**

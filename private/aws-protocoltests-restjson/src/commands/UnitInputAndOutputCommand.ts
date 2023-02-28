@@ -18,7 +18,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link UnitInputAndOutputCommand}.
+ */
 export interface UnitInputAndOutputCommandInput {}
+/**
+ * The output of {@link UnitInputAndOutputCommand}.
+ */
 export interface UnitInputAndOutputCommandOutput extends __MetadataBearer {}
 
 /**

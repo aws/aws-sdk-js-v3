@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteSolutionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteSolutionCommand}.
+ */
 export interface DeleteSolutionCommandInput extends DeleteSolutionRequest {}
+/**
+ * The output of {@link DeleteSolutionCommand}.
+ */
 export interface DeleteSolutionCommandOutput extends __MetadataBearer {}
 
 /**

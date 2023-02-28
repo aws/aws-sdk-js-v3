@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetViolationDetailsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetViolationDetailsCommand}.
+ */
 export interface GetViolationDetailsCommandInput extends GetViolationDetailsRequest {}
+/**
+ * The output of {@link GetViolationDetailsCommand}.
+ */
 export interface GetViolationDetailsCommandOutput extends GetViolationDetailsResponse, __MetadataBearer {}
 
 /**

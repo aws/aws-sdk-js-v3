@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartImageBuilderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartImageBuilderCommand}.
+ */
 export interface StartImageBuilderCommandInput extends StartImageBuilderRequest {}
+/**
+ * The output of {@link StartImageBuilderCommand}.
+ */
 export interface StartImageBuilderCommandOutput extends StartImageBuilderResult, __MetadataBearer {}
 
 /**

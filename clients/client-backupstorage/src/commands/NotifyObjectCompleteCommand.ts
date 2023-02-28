@@ -25,6 +25,9 @@ import {
   serializeAws_restJson1NotifyObjectCompleteCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link NotifyObjectCompleteCommand}.
+ */
 type NotifyObjectCompleteCommandInputType = Omit<NotifyObjectCompleteInput, "MetadataBlob"> & {
   /**
    * For *`NotifyObjectCompleteInput["MetadataBlob"]`*, see {@link NotifyObjectCompleteInput.MetadataBlob}.
@@ -35,6 +38,9 @@ type NotifyObjectCompleteCommandInputType = Omit<NotifyObjectCompleteInput, "Met
  * This interface extends from `NotifyObjectCompleteInput` interface. There are more parameters than `MetadataBlob` defined in {@link NotifyObjectCompleteInput}
  */
 export interface NotifyObjectCompleteCommandInput extends NotifyObjectCompleteCommandInputType {}
+/**
+ * The output of {@link NotifyObjectCompleteCommand}.
+ */
 export interface NotifyObjectCompleteCommandOutput extends NotifyObjectCompleteOutput, __MetadataBearer {}
 
 /**

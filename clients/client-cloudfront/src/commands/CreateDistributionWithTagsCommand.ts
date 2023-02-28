@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlCreateDistributionWithTagsCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link CreateDistributionWithTagsCommand}.
+ */
 export interface CreateDistributionWithTagsCommandInput extends CreateDistributionWithTagsRequest {}
+/**
+ * The output of {@link CreateDistributionWithTagsCommand}.
+ */
 export interface CreateDistributionWithTagsCommandOutput extends CreateDistributionWithTagsResult, __MetadataBearer {}
 
 /**

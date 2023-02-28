@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeAcceleratorOfferingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeAcceleratorOfferingsCommand}.
+ */
 export interface DescribeAcceleratorOfferingsCommandInput extends DescribeAcceleratorOfferingsRequest {}
+/**
+ * The output of {@link DescribeAcceleratorOfferingsCommand}.
+ */
 export interface DescribeAcceleratorOfferingsCommandOutput
   extends DescribeAcceleratorOfferingsResponse,
     __MetadataBearer {}

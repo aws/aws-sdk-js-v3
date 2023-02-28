@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link PutConfigurationSetTrackingOptionsCommand}.
+ */
 export interface PutConfigurationSetTrackingOptionsCommandInput extends PutConfigurationSetTrackingOptionsRequest {}
+/**
+ * The output of {@link PutConfigurationSetTrackingOptionsCommand}.
+ */
 export interface PutConfigurationSetTrackingOptionsCommandOutput
   extends PutConfigurationSetTrackingOptionsResponse,
     __MetadataBearer {}

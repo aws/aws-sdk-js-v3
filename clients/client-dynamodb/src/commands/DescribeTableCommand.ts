@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DescribeTableCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeTableCommand}.
+ */
 export interface DescribeTableCommandInput extends DescribeTableInput {}
+/**
+ * The output of {@link DescribeTableCommand}.
+ */
 export interface DescribeTableCommandOutput extends DescribeTableOutput, __MetadataBearer {}
 
 /**

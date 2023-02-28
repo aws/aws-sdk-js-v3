@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteAnomalyDetectorCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteAnomalyDetectorCommand}.
+ */
 export interface DeleteAnomalyDetectorCommandInput extends DeleteAnomalyDetectorInput {}
+/**
+ * The output of {@link DeleteAnomalyDetectorCommand}.
+ */
 export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetectorOutput, __MetadataBearer {}
 
 /**

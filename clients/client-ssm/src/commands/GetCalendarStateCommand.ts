@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link GetCalendarStateCommand}.
+ */
 export interface GetCalendarStateCommandInput extends GetCalendarStateRequest {}
+/**
+ * The output of {@link GetCalendarStateCommand}.
+ */
 export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse, __MetadataBearer {}
 
 /**

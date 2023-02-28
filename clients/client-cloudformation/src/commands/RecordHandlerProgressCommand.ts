@@ -25,7 +25,13 @@ import {
   serializeAws_queryRecordHandlerProgressCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RecordHandlerProgressCommand}.
+ */
 export interface RecordHandlerProgressCommandInput extends RecordHandlerProgressInput {}
+/**
+ * The output of {@link RecordHandlerProgressCommand}.
+ */
 export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgressOutput, __MetadataBearer {}
 
 /**

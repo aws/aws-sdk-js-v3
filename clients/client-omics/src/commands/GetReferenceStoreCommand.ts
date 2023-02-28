@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetReferenceStoreCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetReferenceStoreCommand}.
+ */
 export interface GetReferenceStoreCommandInput extends GetReferenceStoreRequest {}
+/**
+ * The output of {@link GetReferenceStoreCommand}.
+ */
 export interface GetReferenceStoreCommandOutput extends GetReferenceStoreResponse, __MetadataBearer {}
 
 /**

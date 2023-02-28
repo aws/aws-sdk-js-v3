@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * The input for {@link DeleteByteMatchSetCommand}.
+ */
 export interface DeleteByteMatchSetCommandInput extends DeleteByteMatchSetRequest {}
+/**
+ * The output of {@link DeleteByteMatchSetCommand}.
+ */
 export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetResponse, __MetadataBearer {}
 
 /**

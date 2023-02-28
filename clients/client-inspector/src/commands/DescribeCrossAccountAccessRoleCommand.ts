@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DescribeCrossAccountAccessRoleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeCrossAccountAccessRoleCommand}.
+ */
 export interface DescribeCrossAccountAccessRoleCommandInput {}
+/**
+ * The output of {@link DescribeCrossAccountAccessRoleCommand}.
+ */
 export interface DescribeCrossAccountAccessRoleCommandOutput
   extends DescribeCrossAccountAccessRoleResponse,
     __MetadataBearer {}

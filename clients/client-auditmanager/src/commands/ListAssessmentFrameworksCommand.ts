@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAssessmentFrameworksCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAssessmentFrameworksCommand}.
+ */
 export interface ListAssessmentFrameworksCommandInput extends ListAssessmentFrameworksRequest {}
+/**
+ * The output of {@link ListAssessmentFrameworksCommand}.
+ */
 export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFrameworksResponse, __MetadataBearer {}
 
 /**

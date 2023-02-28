@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteAnalysisSchemeCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteAnalysisSchemeCommand}.
+ */
 export interface DeleteAnalysisSchemeCommandInput extends DeleteAnalysisSchemeRequest {}
+/**
+ * The output of {@link DeleteAnalysisSchemeCommand}.
+ */
 export interface DeleteAnalysisSchemeCommandOutput extends DeleteAnalysisSchemeResponse, __MetadataBearer {}
 
 /**

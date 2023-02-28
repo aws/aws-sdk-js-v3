@@ -22,7 +22,13 @@ import {
   serializeAws_json1_1PutAndGetInlineDocumentsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutAndGetInlineDocumentsCommand}.
+ */
 export interface PutAndGetInlineDocumentsCommandInput extends PutAndGetInlineDocumentsInputOutput {}
+/**
+ * The output of {@link PutAndGetInlineDocumentsCommand}.
+ */
 export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDocumentsInputOutput, __MetadataBearer {}
 
 /**

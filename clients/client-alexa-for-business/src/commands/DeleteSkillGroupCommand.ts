@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteSkillGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteSkillGroupCommand}.
+ */
 export interface DeleteSkillGroupCommandInput extends DeleteSkillGroupRequest {}
+/**
+ * The output of {@link DeleteSkillGroupCommand}.
+ */
 export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse, __MetadataBearer {}
 
 /**

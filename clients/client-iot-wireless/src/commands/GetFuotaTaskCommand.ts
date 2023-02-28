@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetFuotaTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetFuotaTaskCommand}.
+ */
 export interface GetFuotaTaskCommandInput extends GetFuotaTaskRequest {}
+/**
+ * The output of {@link GetFuotaTaskCommand}.
+ */
 export interface GetFuotaTaskCommandOutput extends GetFuotaTaskResponse, __MetadataBearer {}
 
 /**

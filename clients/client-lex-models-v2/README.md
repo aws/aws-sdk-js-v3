@@ -203,3 +203,574 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+BatchCreateCustomVocabularyItem
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/batchcreatecustomvocabularyitemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/batchcreatecustomvocabularyitemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/batchcreatecustomvocabularyitemcommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchDeleteCustomVocabularyItem
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/batchdeletecustomvocabularyitemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/batchdeletecustomvocabularyitemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/batchdeletecustomvocabularyitemcommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchUpdateCustomVocabularyItem
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/batchupdatecustomvocabularyitemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/batchupdatecustomvocabularyitemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/batchupdatecustomvocabularyitemcommandoutput.html)
+
+</details>
+<details>
+<summary>
+BuildBotLocale
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/buildbotlocalecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/buildbotlocalecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/buildbotlocalecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateBot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/createbotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createbotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createbotcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateBotAlias
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/createbotaliascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createbotaliascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createbotaliascommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateBotLocale
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/createbotlocalecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createbotlocalecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createbotlocalecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateBotVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/createbotversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createbotversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createbotversioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateExport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/createexportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createexportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createexportcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateIntent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/createintentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createintentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createintentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/createresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createresourcepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateResourcePolicyStatement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/createresourcepolicystatementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createresourcepolicystatementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createresourcepolicystatementcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateSlot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/createslotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createslotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createslotcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateSlotType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/createslottypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createslottypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createslottypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateUploadUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/createuploadurlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createuploadurlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/createuploadurlcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteBot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/deletebotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deletebotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deletebotcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteBotAlias
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/deletebotaliascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deletebotaliascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deletebotaliascommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteBotLocale
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/deletebotlocalecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deletebotlocalecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deletebotlocalecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteBotVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/deletebotversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deletebotversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deletebotversioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteCustomVocabulary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/deletecustomvocabularycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deletecustomvocabularycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deletecustomvocabularycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteExport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/deleteexportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteexportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteexportcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteImport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/deleteimportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteimportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteimportcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteIntent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/deleteintentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteintentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteintentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/deleteresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteresourcepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteResourcePolicyStatement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/deleteresourcepolicystatementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteresourcepolicystatementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteresourcepolicystatementcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSlot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/deleteslotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteslotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteslotcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSlotType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/deleteslottypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteslottypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteslottypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteUtterances
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/deleteutterancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteutterancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/deleteutterancescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/describebotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describebotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describebotcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBotAlias
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/describebotaliascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describebotaliascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describebotaliascommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBotLocale
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/describebotlocalecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describebotlocalecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describebotlocalecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBotRecommendation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/describebotrecommendationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describebotrecommendationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describebotrecommendationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBotVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/describebotversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describebotversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describebotversioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeCustomVocabularyMetadata
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/describecustomvocabularymetadatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describecustomvocabularymetadatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describecustomvocabularymetadatacommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeExport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/describeexportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describeexportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describeexportcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeImport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/describeimportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describeimportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describeimportcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeIntent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/describeintentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describeintentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describeintentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/describeresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describeresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describeresourcepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSlot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/describeslotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describeslotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describeslotcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSlotType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/describeslottypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describeslottypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/describeslottypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAggregatedUtterances
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listaggregatedutterancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listaggregatedutterancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listaggregatedutterancescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListBotAliases
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listbotaliasescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listbotaliasescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listbotaliasescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListBotLocales
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listbotlocalescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listbotlocalescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listbotlocalescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListBotRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listbotrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listbotrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listbotrecommendationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListBots
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listbotscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listbotscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listbotscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListBotVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listbotversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listbotversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listbotversionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListBuiltInIntents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listbuiltinintentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listbuiltinintentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listbuiltinintentscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListBuiltInSlotTypes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listbuiltinslottypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listbuiltinslottypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listbuiltinslottypescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListCustomVocabularyItems
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listcustomvocabularyitemscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listcustomvocabularyitemscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listcustomvocabularyitemscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListExports
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listexportscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listexportscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listexportscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListImports
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listimportscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listimportscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listimportscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListIntents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listintentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listintentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listintentscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListRecommendedIntents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listrecommendedintentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listrecommendedintentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listrecommendedintentscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSlots
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listslotscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listslotscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listslotscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSlotTypes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listslottypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listslottypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listslottypescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+SearchAssociatedTranscripts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/searchassociatedtranscriptscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/searchassociatedtranscriptscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/searchassociatedtranscriptscommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartBotRecommendation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/startbotrecommendationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/startbotrecommendationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/startbotrecommendationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartImport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/startimportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/startimportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/startimportcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopBotRecommendation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/stopbotrecommendationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/stopbotrecommendationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/stopbotrecommendationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/updatebotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updatebotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updatebotcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBotAlias
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/updatebotaliascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updatebotaliascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updatebotaliascommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBotLocale
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/updatebotlocalecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updatebotlocalecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updatebotlocalecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBotRecommendation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/updatebotrecommendationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updatebotrecommendationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updatebotrecommendationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateExport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/updateexportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updateexportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updateexportcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateIntent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/updateintentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updateintentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updateintentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/updateresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updateresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updateresourcepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSlot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/updateslotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updateslotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updateslotcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSlotType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/classes/updateslottypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updateslottypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex models v2/interfaces/updateslottypecommandoutput.html)
+
+</details>

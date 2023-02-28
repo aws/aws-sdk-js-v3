@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetLoggerDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetLoggerDefinitionCommand}.
+ */
 export interface GetLoggerDefinitionCommandInput extends GetLoggerDefinitionRequest {}
+/**
+ * The output of {@link GetLoggerDefinitionCommand}.
+ */
 export interface GetLoggerDefinitionCommandOutput extends GetLoggerDefinitionResponse, __MetadataBearer {}
 
 /**

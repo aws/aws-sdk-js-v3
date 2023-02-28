@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1RevokeTokenCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RevokeTokenCommand}.
+ */
 export interface RevokeTokenCommandInput extends RevokeTokenRequest {}
+/**
+ * The output of {@link RevokeTokenCommand}.
+ */
 export interface RevokeTokenCommandOutput extends RevokeTokenResponse, __MetadataBearer {}
 
 /**

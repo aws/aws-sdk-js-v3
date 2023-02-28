@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateBucketAccessKeyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateBucketAccessKeyCommand}.
+ */
 export interface CreateBucketAccessKeyCommandInput extends CreateBucketAccessKeyRequest {}
+/**
+ * The output of {@link CreateBucketAccessKeyCommand}.
+ */
 export interface CreateBucketAccessKeyCommandOutput extends CreateBucketAccessKeyResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListImageBuildVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListImageBuildVersionsCommand}.
+ */
 export interface ListImageBuildVersionsCommandInput extends ListImageBuildVersionsRequest {}
+/**
+ * The output of {@link ListImageBuildVersionsCommand}.
+ */
 export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersionsResponse, __MetadataBearer {}
 
 /**

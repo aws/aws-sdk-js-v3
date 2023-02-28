@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * The input for {@link GetSamplingStatisticSummariesCommand}.
+ */
 export interface GetSamplingStatisticSummariesCommandInput extends GetSamplingStatisticSummariesRequest {}
+/**
+ * The output of {@link GetSamplingStatisticSummariesCommand}.
+ */
 export interface GetSamplingStatisticSummariesCommandOutput
   extends GetSamplingStatisticSummariesResult,
     __MetadataBearer {}

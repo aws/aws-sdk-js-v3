@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCalculationExecutionStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCalculationExecutionStatusCommand}.
+ */
 export interface GetCalculationExecutionStatusCommandInput extends GetCalculationExecutionStatusRequest {}
+/**
+ * The output of {@link GetCalculationExecutionStatusCommand}.
+ */
 export interface GetCalculationExecutionStatusCommandOutput
   extends GetCalculationExecutionStatusResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlDescribeFunctionCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link DescribeFunctionCommand}.
+ */
 export interface DescribeFunctionCommandInput extends DescribeFunctionRequest {}
+/**
+ * The output of {@link DescribeFunctionCommand}.
+ */
 export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, __MetadataBearer {}
 
 /**

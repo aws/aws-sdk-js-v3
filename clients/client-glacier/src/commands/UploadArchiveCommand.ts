@@ -25,6 +25,9 @@ import {
   serializeAws_restJson1UploadArchiveCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UploadArchiveCommand}.
+ */
 type UploadArchiveCommandInputType = Omit<UploadArchiveInput, "body"> & {
   /**
    * For *`UploadArchiveInput["body"]`*, see {@link UploadArchiveInput.body}.
@@ -35,6 +38,9 @@ type UploadArchiveCommandInputType = Omit<UploadArchiveInput, "body"> & {
  * This interface extends from `UploadArchiveInput` interface. There are more parameters than `body` defined in {@link UploadArchiveInput}
  */
 export interface UploadArchiveCommandInput extends UploadArchiveCommandInputType {}
+/**
+ * The output of {@link UploadArchiveCommand}.
+ */
 export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __MetadataBearer {}
 
 /**

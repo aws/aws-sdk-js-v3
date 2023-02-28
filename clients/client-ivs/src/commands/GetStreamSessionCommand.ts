@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetStreamSessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetStreamSessionCommand}.
+ */
 export interface GetStreamSessionCommandInput extends GetStreamSessionRequest {}
+/**
+ * The output of {@link GetStreamSessionCommand}.
+ */
 export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse, __MetadataBearer {}
 
 /**

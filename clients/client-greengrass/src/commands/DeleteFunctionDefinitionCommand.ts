@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteFunctionDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteFunctionDefinitionCommand}.
+ */
 export interface DeleteFunctionDefinitionCommandInput extends DeleteFunctionDefinitionRequest {}
+/**
+ * The output of {@link DeleteFunctionDefinitionCommand}.
+ */
 export interface DeleteFunctionDefinitionCommandOutput extends DeleteFunctionDefinitionResponse, __MetadataBearer {}
 
 /**

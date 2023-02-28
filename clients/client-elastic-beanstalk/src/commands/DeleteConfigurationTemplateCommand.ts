@@ -23,7 +23,13 @@ import {
   serializeAws_queryDeleteConfigurationTemplateCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteConfigurationTemplateCommand}.
+ */
 export interface DeleteConfigurationTemplateCommandInput extends DeleteConfigurationTemplateMessage {}
+/**
+ * The output of {@link DeleteConfigurationTemplateCommand}.
+ */
 export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBearer {}
 
 /**

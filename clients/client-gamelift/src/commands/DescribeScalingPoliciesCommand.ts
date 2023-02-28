@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeScalingPoliciesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeScalingPoliciesCommand}.
+ */
 export interface DescribeScalingPoliciesCommandInput extends DescribeScalingPoliciesInput {}
+/**
+ * The output of {@link DescribeScalingPoliciesCommand}.
+ */
 export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPoliciesOutput, __MetadataBearer {}
 
 /**

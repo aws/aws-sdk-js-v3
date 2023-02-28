@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link DeleteJobTaggingCommand}.
+ */
 export interface DeleteJobTaggingCommandInput extends DeleteJobTaggingRequest {}
+/**
+ * The output of {@link DeleteJobTaggingCommand}.
+ */
 export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, __MetadataBearer {}
 
 /**

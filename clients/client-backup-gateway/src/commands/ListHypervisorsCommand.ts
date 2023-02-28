@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListHypervisorsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListHypervisorsCommand}.
+ */
 export interface ListHypervisorsCommandInput extends ListHypervisorsInput {}
+/**
+ * The output of {@link ListHypervisorsCommand}.
+ */
 export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __MetadataBearer {}
 
 /**

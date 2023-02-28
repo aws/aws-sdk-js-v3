@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ImportHypervisorConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ImportHypervisorConfigurationCommand}.
+ */
 export interface ImportHypervisorConfigurationCommandInput extends ImportHypervisorConfigurationInput {}
+/**
+ * The output of {@link ImportHypervisorConfigurationCommand}.
+ */
 export interface ImportHypervisorConfigurationCommandOutput
   extends ImportHypervisorConfigurationOutput,
     __MetadataBearer {}

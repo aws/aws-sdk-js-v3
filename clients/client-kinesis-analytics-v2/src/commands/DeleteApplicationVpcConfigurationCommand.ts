@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DeleteApplicationVpcConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteApplicationVpcConfigurationCommand}.
+ */
 export interface DeleteApplicationVpcConfigurationCommandInput extends DeleteApplicationVpcConfigurationRequest {}
+/**
+ * The output of {@link DeleteApplicationVpcConfigurationCommand}.
+ */
 export interface DeleteApplicationVpcConfigurationCommandOutput
   extends DeleteApplicationVpcConfigurationResponse,
     __MetadataBearer {}

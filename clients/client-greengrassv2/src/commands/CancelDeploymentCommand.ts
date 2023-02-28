@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelDeploymentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelDeploymentCommand}.
+ */
 export interface CancelDeploymentCommandInput extends CancelDeploymentRequest {}
+/**
+ * The output of {@link CancelDeploymentCommand}.
+ */
 export interface CancelDeploymentCommandOutput extends CancelDeploymentResponse, __MetadataBearer {}
 
 /**

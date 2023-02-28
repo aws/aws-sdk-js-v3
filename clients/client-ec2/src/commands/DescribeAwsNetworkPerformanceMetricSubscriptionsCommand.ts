@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DescribeAwsNetworkPerformanceMetricSubscriptionsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommand}.
+ */
 export interface DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput
   extends DescribeAwsNetworkPerformanceMetricSubscriptionsRequest {}
+/**
+ * The output of {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommand}.
+ */
 export interface DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput
   extends DescribeAwsNetworkPerformanceMetricSubscriptionsResult,
     __MetadataBearer {}

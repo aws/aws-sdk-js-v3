@@ -22,7 +22,13 @@ import {
 import { deserializeAws_queryCreateTopicCommand, serializeAws_queryCreateTopicCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link CreateTopicCommand}.
+ */
 export interface CreateTopicCommandInput extends CreateTopicInput {}
+/**
+ * The output of {@link CreateTopicCommand}.
+ */
 export interface CreateTopicCommandOutput extends CreateTopicResponse, __MetadataBearer {}
 
 /**

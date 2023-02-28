@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link RemoveAllResourcePermissionsCommand}.
+ */
 export interface RemoveAllResourcePermissionsCommandInput extends RemoveAllResourcePermissionsRequest {}
+/**
+ * The output of {@link RemoveAllResourcePermissionsCommand}.
+ */
 export interface RemoveAllResourcePermissionsCommandOutput extends __MetadataBearer {}
 
 /**

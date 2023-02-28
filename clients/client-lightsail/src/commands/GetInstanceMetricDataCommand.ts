@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetInstanceMetricDataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetInstanceMetricDataCommand}.
+ */
 export interface GetInstanceMetricDataCommandInput extends GetInstanceMetricDataRequest {}
+/**
+ * The output of {@link GetInstanceMetricDataCommand}.
+ */
 export interface GetInstanceMetricDataCommandOutput extends GetInstanceMetricDataResult, __MetadataBearer {}
 
 /**

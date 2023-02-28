@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociateCustomerGatewayCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateCustomerGatewayCommand}.
+ */
 export interface DisassociateCustomerGatewayCommandInput extends DisassociateCustomerGatewayRequest {}
+/**
+ * The output of {@link DisassociateCustomerGatewayCommand}.
+ */
 export interface DisassociateCustomerGatewayCommandOutput
   extends DisassociateCustomerGatewayResponse,
     __MetadataBearer {}

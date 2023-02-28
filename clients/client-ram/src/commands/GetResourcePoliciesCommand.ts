@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * The input for {@link GetResourcePoliciesCommand}.
+ */
 export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesRequest {}
+/**
+ * The output of {@link GetResourcePoliciesCommand}.
+ */
 export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ResetAddressAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ResetAddressAttributeCommand}.
+ */
 export interface ResetAddressAttributeCommandInput extends ResetAddressAttributeRequest {}
+/**
+ * The output of {@link ResetAddressAttributeCommand}.
+ */
 export interface ResetAddressAttributeCommandOutput extends ResetAddressAttributeResult, __MetadataBearer {}
 
 /**

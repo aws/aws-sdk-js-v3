@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
+/**
+ * The input for {@link GetRoleCredentialsCommand}.
+ */
 export interface GetRoleCredentialsCommandInput extends GetRoleCredentialsRequest {}
+/**
+ * The output of {@link GetRoleCredentialsCommand}.
+ */
 export interface GetRoleCredentialsCommandOutput extends GetRoleCredentialsResponse, __MetadataBearer {}
 
 /**

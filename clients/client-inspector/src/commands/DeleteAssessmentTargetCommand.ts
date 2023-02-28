@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteAssessmentTargetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteAssessmentTargetCommand}.
+ */
 export interface DeleteAssessmentTargetCommandInput extends DeleteAssessmentTargetRequest {}
+/**
+ * The output of {@link DeleteAssessmentTargetCommand}.
+ */
 export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
 
 /**

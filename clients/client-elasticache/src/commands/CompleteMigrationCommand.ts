@@ -25,7 +25,13 @@ import {
   serializeAws_queryCompleteMigrationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CompleteMigrationCommand}.
+ */
 export interface CompleteMigrationCommandInput extends CompleteMigrationMessage {}
+/**
+ * The output of {@link CompleteMigrationCommand}.
+ */
 export interface CompleteMigrationCommandOutput extends CompleteMigrationResponse, __MetadataBearer {}
 
 /**

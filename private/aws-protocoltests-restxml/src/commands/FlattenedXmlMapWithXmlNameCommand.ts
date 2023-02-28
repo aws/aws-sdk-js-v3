@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link FlattenedXmlMapWithXmlNameCommand}.
+ */
 export interface FlattenedXmlMapWithXmlNameCommandInput extends FlattenedXmlMapWithXmlNameInputOutput {}
+/**
+ * The output of {@link FlattenedXmlMapWithXmlNameCommand}.
+ */
 export interface FlattenedXmlMapWithXmlNameCommandOutput
   extends FlattenedXmlMapWithXmlNameInputOutput,
     __MetadataBearer {}

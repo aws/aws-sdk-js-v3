@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AddApplicationReferenceDataSourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddApplicationReferenceDataSourceCommand}.
+ */
 export interface AddApplicationReferenceDataSourceCommandInput extends AddApplicationReferenceDataSourceRequest {}
+/**
+ * The output of {@link AddApplicationReferenceDataSourceCommand}.
+ */
 export interface AddApplicationReferenceDataSourceCommandOutput
   extends AddApplicationReferenceDataSourceResponse,
     __MetadataBearer {}

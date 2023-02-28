@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateIntegrationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateIntegrationCommand}.
+ */
 export interface CreateIntegrationCommandInput extends CreateIntegrationRequest {}
+/**
+ * The output of {@link CreateIntegrationCommand}.
+ */
 export interface CreateIntegrationCommandOutput extends CreateIntegrationResult, __MetadataBearer {}
 
 /**

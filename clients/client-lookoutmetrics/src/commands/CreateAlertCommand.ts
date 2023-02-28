@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateAlertCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateAlertCommand}.
+ */
 export interface CreateAlertCommandInput extends CreateAlertRequest {}
+/**
+ * The output of {@link CreateAlertCommand}.
+ */
 export interface CreateAlertCommandOutput extends CreateAlertResponse, __MetadataBearer {}
 
 /**

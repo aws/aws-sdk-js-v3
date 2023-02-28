@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisableClientAuthenticationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisableClientAuthenticationCommand}.
+ */
 export interface DisableClientAuthenticationCommandInput extends DisableClientAuthenticationRequest {}
+/**
+ * The output of {@link DisableClientAuthenticationCommand}.
+ */
 export interface DisableClientAuthenticationCommandOutput extends DisableClientAuthenticationResult, __MetadataBearer {}
 
 /**

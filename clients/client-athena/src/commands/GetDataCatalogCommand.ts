@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDataCatalogCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDataCatalogCommand}.
+ */
 export interface GetDataCatalogCommandInput extends GetDataCatalogInput {}
+/**
+ * The output of {@link GetDataCatalogCommand}.
+ */
 export interface GetDataCatalogCommandOutput extends GetDataCatalogOutput, __MetadataBearer {}
 
 /**

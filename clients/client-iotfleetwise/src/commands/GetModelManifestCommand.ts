@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetModelManifestCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetModelManifestCommand}.
+ */
 export interface GetModelManifestCommandInput extends GetModelManifestRequest {}
+/**
+ * The output of {@link GetModelManifestCommand}.
+ */
 export interface GetModelManifestCommandOutput extends GetModelManifestResponse, __MetadataBearer {}
 
 /**

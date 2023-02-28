@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
+/**
+ * The input for {@link UnlockRuleCommand}.
+ */
 export interface UnlockRuleCommandInput extends UnlockRuleRequest {}
+/**
+ * The output of {@link UnlockRuleCommand}.
+ */
 export interface UnlockRuleCommandOutput extends UnlockRuleResponse, __MetadataBearer {}
 
 /**

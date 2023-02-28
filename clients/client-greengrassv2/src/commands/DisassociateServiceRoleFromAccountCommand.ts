@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociateServiceRoleFromAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateServiceRoleFromAccountCommand}.
+ */
 export interface DisassociateServiceRoleFromAccountCommandInput extends DisassociateServiceRoleFromAccountRequest {}
+/**
+ * The output of {@link DisassociateServiceRoleFromAccountCommand}.
+ */
 export interface DisassociateServiceRoleFromAccountCommandOutput
   extends DisassociateServiceRoleFromAccountResponse,
     __MetadataBearer {}

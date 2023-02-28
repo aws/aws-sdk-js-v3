@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetIntrospectionSchemaCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetIntrospectionSchemaCommand}.
+ */
 export interface GetIntrospectionSchemaCommandInput extends GetIntrospectionSchemaRequest {}
+/**
+ * The output of {@link GetIntrospectionSchemaCommand}.
+ */
 export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSchemaResponse, __MetadataBearer {}
 
 /**

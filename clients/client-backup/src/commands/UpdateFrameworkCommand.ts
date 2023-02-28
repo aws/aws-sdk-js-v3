@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateFrameworkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateFrameworkCommand}.
+ */
 export interface UpdateFrameworkCommandInput extends UpdateFrameworkInput {}
+/**
+ * The output of {@link UpdateFrameworkCommand}.
+ */
 export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __MetadataBearer {}
 
 /**

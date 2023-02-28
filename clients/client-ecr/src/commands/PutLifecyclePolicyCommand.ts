@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutLifecyclePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutLifecyclePolicyCommand}.
+ */
 export interface PutLifecyclePolicyCommandInput extends PutLifecyclePolicyRequest {}
+/**
+ * The output of {@link PutLifecyclePolicyCommand}.
+ */
 export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyResponse, __MetadataBearer {}
 
 /**

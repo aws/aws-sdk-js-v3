@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutEmailIdentityMailFromAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutEmailIdentityMailFromAttributesCommand}.
+ */
 export interface PutEmailIdentityMailFromAttributesCommandInput extends PutEmailIdentityMailFromAttributesRequest {}
+/**
+ * The output of {@link PutEmailIdentityMailFromAttributesCommand}.
+ */
 export interface PutEmailIdentityMailFromAttributesCommandOutput
   extends PutEmailIdentityMailFromAttributesResponse,
     __MetadataBearer {}

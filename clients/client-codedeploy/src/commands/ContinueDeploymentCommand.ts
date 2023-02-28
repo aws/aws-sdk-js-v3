@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1ContinueDeploymentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ContinueDeploymentCommand}.
+ */
 export interface ContinueDeploymentCommandInput extends ContinueDeploymentInput {}
+/**
+ * The output of {@link ContinueDeploymentCommand}.
+ */
 export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
 
 /**

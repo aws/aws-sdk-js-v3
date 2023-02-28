@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetApplicationDateRangeKpiCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetApplicationDateRangeKpiCommand}.
+ */
 export interface GetApplicationDateRangeKpiCommandInput extends GetApplicationDateRangeKpiRequest {}
+/**
+ * The output of {@link GetApplicationDateRangeKpiCommand}.
+ */
 export interface GetApplicationDateRangeKpiCommandOutput extends GetApplicationDateRangeKpiResponse, __MetadataBearer {}
 
 /**

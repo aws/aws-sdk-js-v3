@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * The input for {@link UpdateEndpointAccessCommand}.
+ */
 export interface UpdateEndpointAccessCommandInput extends UpdateEndpointAccessRequest {}
+/**
+ * The output of {@link UpdateEndpointAccessCommand}.
+ */
 export interface UpdateEndpointAccessCommandOutput extends UpdateEndpointAccessResponse, __MetadataBearer {}
 
 /**

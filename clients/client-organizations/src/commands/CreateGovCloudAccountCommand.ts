@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateGovCloudAccountCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateGovCloudAccountCommand}.
+ */
 export interface CreateGovCloudAccountCommandInput extends CreateGovCloudAccountRequest {}
+/**
+ * The output of {@link CreateGovCloudAccountCommand}.
+ */
 export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccountResponse, __MetadataBearer {}
 
 /**

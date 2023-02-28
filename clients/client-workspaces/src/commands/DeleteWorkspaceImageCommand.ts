@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link DeleteWorkspaceImageCommand}.
+ */
 export interface DeleteWorkspaceImageCommandInput extends DeleteWorkspaceImageRequest {}
+/**
+ * The output of {@link DeleteWorkspaceImageCommand}.
+ */
 export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageResult, __MetadataBearer {}
 
 /**

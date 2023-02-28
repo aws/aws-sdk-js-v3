@@ -20,7 +20,13 @@ import {
   serializeAws_ec2SendDiagnosticInterruptCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link SendDiagnosticInterruptCommand}.
+ */
 export interface SendDiagnosticInterruptCommandInput extends SendDiagnosticInterruptRequest {}
+/**
+ * The output of {@link SendDiagnosticInterruptCommand}.
+ */
 export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {}
 
 /**

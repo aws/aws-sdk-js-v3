@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteGatewayCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteGatewayCommand}.
+ */
 export interface DeleteGatewayCommandInput extends DeleteGatewayRequest {}
+/**
+ * The output of {@link DeleteGatewayCommand}.
+ */
 export interface DeleteGatewayCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link DeleteMobileDeviceAccessOverrideCommand}.
+ */
 export interface DeleteMobileDeviceAccessOverrideCommandInput extends DeleteMobileDeviceAccessOverrideRequest {}
+/**
+ * The output of {@link DeleteMobileDeviceAccessOverrideCommand}.
+ */
 export interface DeleteMobileDeviceAccessOverrideCommandOutput
   extends DeleteMobileDeviceAccessOverrideResponse,
     __MetadataBearer {}

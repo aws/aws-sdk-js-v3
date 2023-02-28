@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListDelegatedAdministratorsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListDelegatedAdministratorsCommand}.
+ */
 export interface ListDelegatedAdministratorsCommandInput extends ListDelegatedAdministratorsRequest {}
+/**
+ * The output of {@link ListDelegatedAdministratorsCommand}.
+ */
 export interface ListDelegatedAdministratorsCommandOutput
   extends ListDelegatedAdministratorsResponse,
     __MetadataBearer {}

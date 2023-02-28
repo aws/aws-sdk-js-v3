@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DescribeScheduledInstanceAvailabilityCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeScheduledInstanceAvailabilityCommand}.
+ */
 export interface DescribeScheduledInstanceAvailabilityCommandInput
   extends DescribeScheduledInstanceAvailabilityRequest {}
+/**
+ * The output of {@link DescribeScheduledInstanceAvailabilityCommand}.
+ */
 export interface DescribeScheduledInstanceAvailabilityCommandOutput
   extends DescribeScheduledInstanceAvailabilityResult,
     __MetadataBearer {}

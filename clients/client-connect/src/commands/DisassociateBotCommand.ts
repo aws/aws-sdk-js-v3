@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DisassociateBotCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateBotCommand}.
+ */
 export interface DisassociateBotCommandInput extends DisassociateBotRequest {}
+/**
+ * The output of {@link DisassociateBotCommand}.
+ */
 export interface DisassociateBotCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCloudFormationStackRecordsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCloudFormationStackRecordsCommand}.
+ */
 export interface GetCloudFormationStackRecordsCommandInput extends GetCloudFormationStackRecordsRequest {}
+/**
+ * The output of {@link GetCloudFormationStackRecordsCommand}.
+ */
 export interface GetCloudFormationStackRecordsCommandOutput
   extends GetCloudFormationStackRecordsResult,
     __MetadataBearer {}

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListElasticsearchVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListElasticsearchVersionsCommand}.
+ */
 export interface ListElasticsearchVersionsCommandInput extends ListElasticsearchVersionsRequest {}
+/**
+ * The output of {@link ListElasticsearchVersionsCommand}.
+ */
 export interface ListElasticsearchVersionsCommandOutput extends ListElasticsearchVersionsResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1AttachPrincipalPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AttachPrincipalPolicyCommand}.
+ */
 export interface AttachPrincipalPolicyCommandInput extends AttachPrincipalPolicyRequest {}
+/**
+ * The output of {@link AttachPrincipalPolicyCommand}.
+ */
 export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
 
 /**

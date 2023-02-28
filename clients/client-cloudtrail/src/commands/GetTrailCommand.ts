@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetTrailCommand, serializeAws_json1_1GetTrailCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetTrailCommand}.
+ */
 export interface GetTrailCommandInput extends GetTrailRequest {}
+/**
+ * The output of {@link GetTrailCommand}.
+ */
 export interface GetTrailCommandOutput extends GetTrailResponse, __MetadataBearer {}
 
 /**

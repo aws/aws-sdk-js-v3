@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1PutJobSuccessResultCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutJobSuccessResultCommand}.
+ */
 export interface PutJobSuccessResultCommandInput extends PutJobSuccessResultInput {}
+/**
+ * The output of {@link PutJobSuccessResultCommand}.
+ */
 export interface PutJobSuccessResultCommandOutput extends __MetadataBearer {}
 
 /**

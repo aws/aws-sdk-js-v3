@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1RemoveAccountFromOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RemoveAccountFromOrganizationCommand}.
+ */
 export interface RemoveAccountFromOrganizationCommandInput extends RemoveAccountFromOrganizationRequest {}
+/**
+ * The output of {@link RemoveAccountFromOrganizationCommand}.
+ */
 export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBearer {}
 
 /**

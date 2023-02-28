@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1PutPolicyCommand, serializeAws_json1_1PutPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutPolicyCommand}.
+ */
 export interface PutPolicyCommandInput extends PutPolicyRequest {}
+/**
+ * The output of {@link PutPolicyCommand}.
+ */
 export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelOrderCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelOrderCommand}.
+ */
 export interface CancelOrderCommandInput extends CancelOrderInput {}
+/**
+ * The output of {@link CancelOrderCommand}.
+ */
 export interface CancelOrderCommandOutput extends CancelOrderOutput, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1PutPortfolioPreferencesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutPortfolioPreferencesCommand}.
+ */
 export interface PutPortfolioPreferencesCommandInput extends PutPortfolioPreferencesRequest {}
+/**
+ * The output of {@link PutPortfolioPreferencesCommand}.
+ */
 export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPreferencesResponse, __MetadataBearer {}
 
 /**

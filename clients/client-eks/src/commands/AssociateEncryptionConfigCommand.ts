@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateEncryptionConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateEncryptionConfigCommand}.
+ */
 export interface AssociateEncryptionConfigCommandInput extends AssociateEncryptionConfigRequest {}
+/**
+ * The output of {@link AssociateEncryptionConfigCommand}.
+ */
 export interface AssociateEncryptionConfigCommandOutput extends AssociateEncryptionConfigResponse, __MetadataBearer {}
 
 /**

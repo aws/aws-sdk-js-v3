@@ -19,7 +19,13 @@ import {
   serializeAws_ec2SimpleInputParamsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link SimpleInputParamsCommand}.
+ */
 export interface SimpleInputParamsCommandInput extends SimpleInputParamsInput {}
+/**
+ * The output of {@link SimpleInputParamsCommand}.
+ */
 export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
 
 /**

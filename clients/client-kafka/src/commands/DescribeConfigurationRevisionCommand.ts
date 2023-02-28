@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeConfigurationRevisionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeConfigurationRevisionCommand}.
+ */
 export interface DescribeConfigurationRevisionCommandInput extends DescribeConfigurationRevisionRequest {}
+/**
+ * The output of {@link DescribeConfigurationRevisionCommand}.
+ */
 export interface DescribeConfigurationRevisionCommandOutput
   extends DescribeConfigurationRevisionResponse,
     __MetadataBearer {}

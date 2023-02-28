@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link GetMailDomainCommand}.
+ */
 export interface GetMailDomainCommandInput extends GetMailDomainRequest {}
+/**
+ * The output of {@link GetMailDomainCommand}.
+ */
 export interface GetMailDomainCommandOutput extends GetMailDomainResponse, __MetadataBearer {}
 
 /**

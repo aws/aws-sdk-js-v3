@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteNetworkInsightsAccessScopeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteNetworkInsightsAccessScopeCommand}.
+ */
 export interface DeleteNetworkInsightsAccessScopeCommandInput extends DeleteNetworkInsightsAccessScopeRequest {}
+/**
+ * The output of {@link DeleteNetworkInsightsAccessScopeCommand}.
+ */
 export interface DeleteNetworkInsightsAccessScopeCommandOutput
   extends DeleteNetworkInsightsAccessScopeResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateAddressBookCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateAddressBookCommand}.
+ */
 export interface UpdateAddressBookCommandInput extends UpdateAddressBookRequest {}
+/**
+ * The output of {@link UpdateAddressBookCommand}.
+ */
 export interface UpdateAddressBookCommandOutput extends UpdateAddressBookResponse, __MetadataBearer {}
 
 /**

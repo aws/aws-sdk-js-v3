@@ -19,7 +19,13 @@ import {
   serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EnableHealthServiceAccessForOrganizationCommand}.
+ */
 export interface EnableHealthServiceAccessForOrganizationCommandInput {}
+/**
+ * The output of {@link EnableHealthServiceAccessForOrganizationCommand}.
+ */
 export interface EnableHealthServiceAccessForOrganizationCommandOutput extends __MetadataBearer {}
 
 /**

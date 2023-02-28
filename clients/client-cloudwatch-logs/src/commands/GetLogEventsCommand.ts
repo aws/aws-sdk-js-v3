@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetLogEventsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetLogEventsCommand}.
+ */
 export interface GetLogEventsCommandInput extends GetLogEventsRequest {}
+/**
+ * The output of {@link GetLogEventsCommand}.
+ */
 export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __MetadataBearer {}
 
 /**

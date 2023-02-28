@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DisassociateTrunkInterfaceCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisassociateTrunkInterfaceCommand}.
+ */
 export interface DisassociateTrunkInterfaceCommandInput extends DisassociateTrunkInterfaceRequest {}
+/**
+ * The output of {@link DisassociateTrunkInterfaceCommand}.
+ */
 export interface DisassociateTrunkInterfaceCommandOutput extends DisassociateTrunkInterfaceResult, __MetadataBearer {}
 
 /**

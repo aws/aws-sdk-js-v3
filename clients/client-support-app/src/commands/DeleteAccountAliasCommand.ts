@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
+/**
+ * The input for {@link DeleteAccountAliasCommand}.
+ */
 export interface DeleteAccountAliasCommandInput extends DeleteAccountAliasRequest {}
+/**
+ * The output of {@link DeleteAccountAliasCommand}.
+ */
 export interface DeleteAccountAliasCommandOutput extends DeleteAccountAliasResult, __MetadataBearer {}
 
 /**

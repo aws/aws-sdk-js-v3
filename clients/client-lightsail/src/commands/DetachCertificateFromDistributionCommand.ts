@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DetachCertificateFromDistributionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DetachCertificateFromDistributionCommand}.
+ */
 export interface DetachCertificateFromDistributionCommandInput extends DetachCertificateFromDistributionRequest {}
+/**
+ * The output of {@link DetachCertificateFromDistributionCommand}.
+ */
 export interface DetachCertificateFromDistributionCommandOutput
   extends DetachCertificateFromDistributionResult,
     __MetadataBearer {}

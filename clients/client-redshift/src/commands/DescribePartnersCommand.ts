@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DescribePartnersCommand}.
+ */
 export interface DescribePartnersCommandInput extends DescribePartnersInputMessage {}
+/**
+ * The output of {@link DescribePartnersCommand}.
+ */
 export interface DescribePartnersCommandOutput extends DescribePartnersOutputMessage, __MetadataBearer {}
 
 /**

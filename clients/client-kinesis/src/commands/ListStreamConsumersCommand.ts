@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListStreamConsumersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListStreamConsumersCommand}.
+ */
 export interface ListStreamConsumersCommandInput extends ListStreamConsumersInput {}
+/**
+ * The output of {@link ListStreamConsumersCommand}.
+ */
 export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOutput, __MetadataBearer {}
 
 /**

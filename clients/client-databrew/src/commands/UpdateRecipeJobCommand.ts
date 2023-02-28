@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateRecipeJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateRecipeJobCommand}.
+ */
 export interface UpdateRecipeJobCommandInput extends UpdateRecipeJobRequest {}
+/**
+ * The output of {@link UpdateRecipeJobCommand}.
+ */
 export interface UpdateRecipeJobCommandOutput extends UpdateRecipeJobResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeRegionSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeRegionSettingsCommand}.
+ */
 export interface DescribeRegionSettingsCommandInput extends DescribeRegionSettingsInput {}
+/**
+ * The output of {@link DescribeRegionSettingsCommand}.
+ */
 export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSettingsOutput, __MetadataBearer {}
 
 /**

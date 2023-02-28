@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { QLDBSessionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBSessionClient";
 
+/**
+ * The input for {@link SendCommandCommand}.
+ */
 export interface SendCommandCommandInput extends SendCommandRequest {}
+/**
+ * The output of {@link SendCommandCommand}.
+ */
 export interface SendCommandCommandOutput extends SendCommandResult, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListMediaPipelinesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListMediaPipelinesCommand}.
+ */
 export interface ListMediaPipelinesCommandInput extends ListMediaPipelinesRequest {}
+/**
+ * The output of {@link ListMediaPipelinesCommand}.
+ */
 export interface ListMediaPipelinesCommandOutput extends ListMediaPipelinesResponse, __MetadataBearer {}
 
 /**

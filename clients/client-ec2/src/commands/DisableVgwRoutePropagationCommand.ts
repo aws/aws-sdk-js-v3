@@ -23,7 +23,13 @@ import {
   serializeAws_ec2DisableVgwRoutePropagationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisableVgwRoutePropagationCommand}.
+ */
 export interface DisableVgwRoutePropagationCommandInput extends DisableVgwRoutePropagationRequest {}
+/**
+ * The output of {@link DisableVgwRoutePropagationCommand}.
+ */
 export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBearer {}
 
 /**

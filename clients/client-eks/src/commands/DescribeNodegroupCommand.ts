@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeNodegroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeNodegroupCommand}.
+ */
 export interface DescribeNodegroupCommandInput extends DescribeNodegroupRequest {}
+/**
+ * The output of {@link DescribeNodegroupCommand}.
+ */
 export interface DescribeNodegroupCommandOutput extends DescribeNodegroupResponse, __MetadataBearer {}
 
 /**

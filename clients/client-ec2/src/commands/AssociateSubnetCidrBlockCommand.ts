@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AssociateSubnetCidrBlockCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AssociateSubnetCidrBlockCommand}.
+ */
 export interface AssociateSubnetCidrBlockCommandInput extends AssociateSubnetCidrBlockRequest {}
+/**
+ * The output of {@link AssociateSubnetCidrBlockCommand}.
+ */
 export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCidrBlockResult, __MetadataBearer {}
 
 /**

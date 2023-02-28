@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListDataQualityRulesetsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListDataQualityRulesetsCommand}.
+ */
 export interface ListDataQualityRulesetsCommandInput extends ListDataQualityRulesetsRequest {}
+/**
+ * The output of {@link ListDataQualityRulesetsCommand}.
+ */
 export interface ListDataQualityRulesetsCommandOutput extends ListDataQualityRulesetsResponse, __MetadataBearer {}
 
 /**

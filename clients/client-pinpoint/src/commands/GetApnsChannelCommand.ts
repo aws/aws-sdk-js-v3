@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetApnsChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetApnsChannelCommand}.
+ */
 export interface GetApnsChannelCommandInput extends GetApnsChannelRequest {}
+/**
+ * The output of {@link GetApnsChannelCommand}.
+ */
 export interface GetApnsChannelCommandOutput extends GetApnsChannelResponse, __MetadataBearer {}
 
 /**

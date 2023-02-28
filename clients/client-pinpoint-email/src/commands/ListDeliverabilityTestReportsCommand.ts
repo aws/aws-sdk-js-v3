@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListDeliverabilityTestReportsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDeliverabilityTestReportsCommand}.
+ */
 export interface ListDeliverabilityTestReportsCommandInput extends ListDeliverabilityTestReportsRequest {}
+/**
+ * The output of {@link ListDeliverabilityTestReportsCommand}.
+ */
 export interface ListDeliverabilityTestReportsCommandOutput
   extends ListDeliverabilityTestReportsResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ForgetSmartHomeAppliancesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ForgetSmartHomeAppliancesCommand}.
+ */
 export interface ForgetSmartHomeAppliancesCommandInput extends ForgetSmartHomeAppliancesRequest {}
+/**
+ * The output of {@link ForgetSmartHomeAppliancesCommand}.
+ */
 export interface ForgetSmartHomeAppliancesCommandOutput extends ForgetSmartHomeAppliancesResponse, __MetadataBearer {}
 
 /**

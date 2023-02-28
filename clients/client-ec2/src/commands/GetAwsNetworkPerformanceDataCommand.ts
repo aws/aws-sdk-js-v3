@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetAwsNetworkPerformanceDataCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetAwsNetworkPerformanceDataCommand}.
+ */
 export interface GetAwsNetworkPerformanceDataCommandInput extends GetAwsNetworkPerformanceDataRequest {}
+/**
+ * The output of {@link GetAwsNetworkPerformanceDataCommand}.
+ */
 export interface GetAwsNetworkPerformanceDataCommandOutput
   extends GetAwsNetworkPerformanceDataResult,
     __MetadataBearer {}

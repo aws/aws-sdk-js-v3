@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link OmitsNullSerializesEmptyStringCommand}.
+ */
 export interface OmitsNullSerializesEmptyStringCommandInput extends OmitsNullSerializesEmptyStringInput {}
+/**
+ * The output of {@link OmitsNullSerializesEmptyStringCommand}.
+ */
 export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataBearer {}
 
 /**

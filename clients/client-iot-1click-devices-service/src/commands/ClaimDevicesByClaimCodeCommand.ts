@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ClaimDevicesByClaimCodeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ClaimDevicesByClaimCodeCommand}.
+ */
 export interface ClaimDevicesByClaimCodeCommandInput extends ClaimDevicesByClaimCodeRequest {}
+/**
+ * The output of {@link ClaimDevicesByClaimCodeCommand}.
+ */
 export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClaimCodeResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link CountOpenWorkflowExecutionsCommand}.
+ */
 export interface CountOpenWorkflowExecutionsCommandInput extends CountOpenWorkflowExecutionsInput {}
+/**
+ * The output of {@link CountOpenWorkflowExecutionsCommand}.
+ */
 export interface CountOpenWorkflowExecutionsCommandOutput extends WorkflowExecutionCount, __MetadataBearer {}
 
 /**

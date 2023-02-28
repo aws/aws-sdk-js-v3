@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateDistributionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateDistributionCommand}.
+ */
 export interface UpdateDistributionCommandInput extends UpdateDistributionRequest {}
+/**
+ * The output of {@link UpdateDistributionCommand}.
+ */
 export interface UpdateDistributionCommandOutput extends UpdateDistributionResult, __MetadataBearer {}
 
 /**

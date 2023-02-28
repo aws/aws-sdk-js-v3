@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
+/**
+ * The input for {@link DeleteInstanceAccessControlAttributeConfigurationCommand}.
+ */
 export interface DeleteInstanceAccessControlAttributeConfigurationCommandInput
   extends DeleteInstanceAccessControlAttributeConfigurationRequest {}
+/**
+ * The output of {@link DeleteInstanceAccessControlAttributeConfigurationCommand}.
+ */
 export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
   extends DeleteInstanceAccessControlAttributeConfigurationResponse,
     __MetadataBearer {}

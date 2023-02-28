@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1ListKeysCommand, serializeAws_json1_1ListKeysCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListKeysCommand}.
+ */
 export interface ListKeysCommandInput extends ListKeysRequest {}
+/**
+ * The output of {@link ListKeysCommand}.
+ */
 export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBearer {}
 
 /**

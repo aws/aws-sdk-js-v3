@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutQueryDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutQueryDefinitionCommand}.
+ */
 export interface PutQueryDefinitionCommandInput extends PutQueryDefinitionRequest {}
+/**
+ * The output of {@link PutQueryDefinitionCommand}.
+ */
 export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionResponse, __MetadataBearer {}
 
 /**

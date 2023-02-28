@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateDatasourcePackagesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateDatasourcePackagesCommand}.
+ */
 export interface UpdateDatasourcePackagesCommandInput extends UpdateDatasourcePackagesRequest {}
+/**
+ * The output of {@link UpdateDatasourcePackagesCommand}.
+ */
 export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer {}
 
 /**

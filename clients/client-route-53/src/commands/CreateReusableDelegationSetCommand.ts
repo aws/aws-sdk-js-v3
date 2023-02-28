@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link CreateReusableDelegationSetCommand}.
+ */
 export interface CreateReusableDelegationSetCommandInput extends CreateReusableDelegationSetRequest {}
+/**
+ * The output of {@link CreateReusableDelegationSetCommand}.
+ */
 export interface CreateReusableDelegationSetCommandOutput
   extends CreateReusableDelegationSetResponse,
     __MetadataBearer {}

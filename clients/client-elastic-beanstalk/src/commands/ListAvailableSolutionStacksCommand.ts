@@ -23,7 +23,13 @@ import {
   serializeAws_queryListAvailableSolutionStacksCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListAvailableSolutionStacksCommand}.
+ */
 export interface ListAvailableSolutionStacksCommandInput {}
+/**
+ * The output of {@link ListAvailableSolutionStacksCommand}.
+ */
 export interface ListAvailableSolutionStacksCommandOutput
   extends ListAvailableSolutionStacksResultMessage,
     __MetadataBearer {}

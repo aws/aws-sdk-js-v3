@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateSystemTemplateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateSystemTemplateCommand}.
+ */
 export interface UpdateSystemTemplateCommandInput extends UpdateSystemTemplateRequest {}
+/**
+ * The output of {@link UpdateSystemTemplateCommand}.
+ */
 export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateResponse, __MetadataBearer {}
 
 /**

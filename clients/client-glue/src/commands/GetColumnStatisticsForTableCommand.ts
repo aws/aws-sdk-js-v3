@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetColumnStatisticsForTableCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetColumnStatisticsForTableCommand}.
+ */
 export interface GetColumnStatisticsForTableCommandInput extends GetColumnStatisticsForTableRequest {}
+/**
+ * The output of {@link GetColumnStatisticsForTableCommand}.
+ */
 export interface GetColumnStatisticsForTableCommandOutput
   extends GetColumnStatisticsForTableResponse,
     __MetadataBearer {}

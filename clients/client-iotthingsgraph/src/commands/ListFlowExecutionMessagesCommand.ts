@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListFlowExecutionMessagesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListFlowExecutionMessagesCommand}.
+ */
 export interface ListFlowExecutionMessagesCommandInput extends ListFlowExecutionMessagesRequest {}
+/**
+ * The output of {@link ListFlowExecutionMessagesCommand}.
+ */
 export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutionMessagesResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CompleteAttachmentUploadCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CompleteAttachmentUploadCommand}.
+ */
 export interface CompleteAttachmentUploadCommandInput extends CompleteAttachmentUploadRequest {}
+/**
+ * The output of {@link CompleteAttachmentUploadCommand}.
+ */
 export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmentUploadResponse, __MetadataBearer {}
 
 /**

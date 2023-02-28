@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteLiveSourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteLiveSourceCommand}.
+ */
 export interface DeleteLiveSourceCommandInput extends DeleteLiveSourceRequest {}
+/**
+ * The output of {@link DeleteLiveSourceCommand}.
+ */
 export interface DeleteLiveSourceCommandOutput extends DeleteLiveSourceResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SendChannelMessageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SendChannelMessageCommand}.
+ */
 export interface SendChannelMessageCommandInput extends SendChannelMessageRequest {}
+/**
+ * The output of {@link SendChannelMessageCommand}.
+ */
 export interface SendChannelMessageCommandOutput extends SendChannelMessageResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeRdsDbInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeRdsDbInstancesCommand}.
+ */
 export interface DescribeRdsDbInstancesCommandInput extends DescribeRdsDbInstancesRequest {}
+/**
+ * The output of {@link DescribeRdsDbInstancesCommand}.
+ */
 export interface DescribeRdsDbInstancesCommandOutput extends DescribeRdsDbInstancesResult, __MetadataBearer {}
 
 /**

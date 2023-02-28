@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AcceptAttachmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AcceptAttachmentCommand}.
+ */
 export interface AcceptAttachmentCommandInput extends AcceptAttachmentRequest {}
+/**
+ * The output of {@link AcceptAttachmentCommand}.
+ */
 export interface AcceptAttachmentCommandOutput extends AcceptAttachmentResponse, __MetadataBearer {}
 
 /**

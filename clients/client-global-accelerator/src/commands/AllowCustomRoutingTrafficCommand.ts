@@ -27,7 +27,13 @@ import {
   serializeAws_json1_1AllowCustomRoutingTrafficCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AllowCustomRoutingTrafficCommand}.
+ */
 export interface AllowCustomRoutingTrafficCommandInput extends AllowCustomRoutingTrafficRequest {}
+/**
+ * The output of {@link AllowCustomRoutingTrafficCommand}.
+ */
 export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer {}
 
 /**

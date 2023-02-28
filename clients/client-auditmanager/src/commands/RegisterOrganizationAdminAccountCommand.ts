@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RegisterOrganizationAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RegisterOrganizationAdminAccountCommand}.
+ */
 export interface RegisterOrganizationAdminAccountCommandInput extends RegisterOrganizationAdminAccountRequest {}
+/**
+ * The output of {@link RegisterOrganizationAdminAccountCommand}.
+ */
 export interface RegisterOrganizationAdminAccountCommandOutput
   extends RegisterOrganizationAdminAccountResponse,
     __MetadataBearer {}

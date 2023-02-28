@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateRuleVersionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateRuleVersionCommand}.
+ */
 export interface UpdateRuleVersionCommandInput extends UpdateRuleVersionRequest {}
+/**
+ * The output of {@link UpdateRuleVersionCommand}.
+ */
 export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult, __MetadataBearer {}
 
 /**

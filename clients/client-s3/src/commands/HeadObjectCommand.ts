@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link HeadObjectCommand}.
+ */
 export interface HeadObjectCommandInput extends HeadObjectRequest {}
+/**
+ * The output of {@link HeadObjectCommand}.
+ */
 export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBearer {}
 
 /**

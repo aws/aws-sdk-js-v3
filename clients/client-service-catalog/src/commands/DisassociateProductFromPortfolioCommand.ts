@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link DisassociateProductFromPortfolioCommand}.
+ */
 export interface DisassociateProductFromPortfolioCommandInput extends DisassociateProductFromPortfolioInput {}
+/**
+ * The output of {@link DisassociateProductFromPortfolioCommand}.
+ */
 export interface DisassociateProductFromPortfolioCommandOutput
   extends DisassociateProductFromPortfolioOutput,
     __MetadataBearer {}

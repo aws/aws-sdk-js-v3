@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListRevisionAssetsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListRevisionAssetsCommand}.
+ */
 export interface ListRevisionAssetsCommandInput extends ListRevisionAssetsRequest {}
+/**
+ * The output of {@link ListRevisionAssetsCommand}.
+ */
 export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsResponse, __MetadataBearer {}
 
 /**

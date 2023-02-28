@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ConfirmConnectionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ConfirmConnectionCommand}.
+ */
 export interface ConfirmConnectionCommandInput extends ConfirmConnectionRequest {}
+/**
+ * The output of {@link ConfirmConnectionCommand}.
+ */
 export interface ConfirmConnectionCommandOutput extends ConfirmConnectionResponse, __MetadataBearer {}
 
 /**

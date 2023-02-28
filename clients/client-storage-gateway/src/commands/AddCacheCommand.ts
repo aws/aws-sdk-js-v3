@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1AddCacheCommand, serializeAws_json1_1AddCacheCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link AddCacheCommand}.
+ */
 export interface AddCacheCommandInput extends AddCacheInput {}
+/**
+ * The output of {@link AddCacheCommand}.
+ */
 export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer {}
 
 /**

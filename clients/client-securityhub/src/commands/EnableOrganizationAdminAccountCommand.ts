@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link EnableOrganizationAdminAccountCommand}.
+ */
 export interface EnableOrganizationAdminAccountCommandInput extends EnableOrganizationAdminAccountRequest {}
+/**
+ * The output of {@link EnableOrganizationAdminAccountCommand}.
+ */
 export interface EnableOrganizationAdminAccountCommandOutput
   extends EnableOrganizationAdminAccountResponse,
     __MetadataBearer {}

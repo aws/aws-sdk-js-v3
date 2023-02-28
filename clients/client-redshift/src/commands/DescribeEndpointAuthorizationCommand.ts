@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DescribeEndpointAuthorizationCommand}.
+ */
 export interface DescribeEndpointAuthorizationCommandInput extends DescribeEndpointAuthorizationMessage {}
+/**
+ * The output of {@link DescribeEndpointAuthorizationCommand}.
+ */
 export interface DescribeEndpointAuthorizationCommandOutput extends EndpointAuthorizationList, __MetadataBearer {}
 
 /**

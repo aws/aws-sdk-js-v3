@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1InviteAccountToOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link InviteAccountToOrganizationCommand}.
+ */
 export interface InviteAccountToOrganizationCommandInput extends InviteAccountToOrganizationRequest {}
+/**
+ * The output of {@link InviteAccountToOrganizationCommand}.
+ */
 export interface InviteAccountToOrganizationCommandOutput
   extends InviteAccountToOrganizationResponse,
     __MetadataBearer {}

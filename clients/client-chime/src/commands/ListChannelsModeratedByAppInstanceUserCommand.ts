@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListChannelsModeratedByAppInstanceUserCommand}.
+ */
 export interface ListChannelsModeratedByAppInstanceUserCommandInput
   extends ListChannelsModeratedByAppInstanceUserRequest {}
+/**
+ * The output of {@link ListChannelsModeratedByAppInstanceUserCommand}.
+ */
 export interface ListChannelsModeratedByAppInstanceUserCommandOutput
   extends ListChannelsModeratedByAppInstanceUserResponse,
     __MetadataBearer {}

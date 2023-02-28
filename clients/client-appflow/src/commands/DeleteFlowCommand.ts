@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteFlowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteFlowCommand}.
+ */
 export interface DeleteFlowCommandInput extends DeleteFlowRequest {}
+/**
+ * The output of {@link DeleteFlowCommand}.
+ */
 export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataBearer {}
 
 /**

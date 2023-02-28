@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteLaunchConfigurationTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteLaunchConfigurationTemplateCommand}.
+ */
 export interface DeleteLaunchConfigurationTemplateCommandInput extends DeleteLaunchConfigurationTemplateRequest {}
+/**
+ * The output of {@link DeleteLaunchConfigurationTemplateCommand}.
+ */
 export interface DeleteLaunchConfigurationTemplateCommandOutput
   extends DeleteLaunchConfigurationTemplateResponse,
     __MetadataBearer {}

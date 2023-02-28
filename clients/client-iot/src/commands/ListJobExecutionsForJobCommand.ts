@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListJobExecutionsForJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListJobExecutionsForJobCommand}.
+ */
 export interface ListJobExecutionsForJobCommandInput extends ListJobExecutionsForJobRequest {}
+/**
+ * The output of {@link ListJobExecutionsForJobCommand}.
+ */
 export interface ListJobExecutionsForJobCommandOutput extends ListJobExecutionsForJobResponse, __MetadataBearer {}
 
 /**

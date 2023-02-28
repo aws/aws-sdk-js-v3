@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListPreparedStatementsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListPreparedStatementsCommand}.
+ */
 export interface ListPreparedStatementsCommandInput extends ListPreparedStatementsInput {}
+/**
+ * The output of {@link ListPreparedStatementsCommand}.
+ */
 export interface ListPreparedStatementsCommandOutput extends ListPreparedStatementsOutput, __MetadataBearer {}
 
 /**

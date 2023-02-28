@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link DeleteEmailMonitoringConfigurationCommand}.
+ */
 export interface DeleteEmailMonitoringConfigurationCommandInput extends DeleteEmailMonitoringConfigurationRequest {}
+/**
+ * The output of {@link DeleteEmailMonitoringConfigurationCommand}.
+ */
 export interface DeleteEmailMonitoringConfigurationCommandOutput
   extends DeleteEmailMonitoringConfigurationResponse,
     __MetadataBearer {}

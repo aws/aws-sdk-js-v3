@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateLaunchConfigurationTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateLaunchConfigurationTemplateCommand}.
+ */
 export interface UpdateLaunchConfigurationTemplateCommandInput extends UpdateLaunchConfigurationTemplateRequest {}
+/**
+ * The output of {@link UpdateLaunchConfigurationTemplateCommand}.
+ */
 export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchConfigurationTemplate, __MetadataBearer {}
 
 /**

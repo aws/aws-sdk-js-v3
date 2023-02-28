@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAssociatedRoleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAssociatedRoleCommand}.
+ */
 export interface GetAssociatedRoleCommandInput extends GetAssociatedRoleRequest {}
+/**
+ * The output of {@link GetAssociatedRoleCommand}.
+ */
 export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleResponse, __MetadataBearer {}
 
 /**

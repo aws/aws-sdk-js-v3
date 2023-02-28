@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateLicenseSpecificationsForResourceCommand}.
+ */
 export interface UpdateLicenseSpecificationsForResourceCommandInput
   extends UpdateLicenseSpecificationsForResourceRequest {}
+/**
+ * The output of {@link UpdateLicenseSpecificationsForResourceCommand}.
+ */
 export interface UpdateLicenseSpecificationsForResourceCommandOutput
   extends UpdateLicenseSpecificationsForResourceResponse,
     __MetadataBearer {}

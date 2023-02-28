@@ -25,7 +25,13 @@ import {
   serializeAws_ec2MonitorInstancesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link MonitorInstancesCommand}.
+ */
 export interface MonitorInstancesCommandInput extends MonitorInstancesRequest {}
+/**
+ * The output of {@link MonitorInstancesCommand}.
+ */
 export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, __MetadataBearer {}
 
 /**

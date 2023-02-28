@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutDestinationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutDestinationCommand}.
+ */
 export interface PutDestinationCommandInput extends PutDestinationRequest {}
+/**
+ * The output of {@link PutDestinationCommand}.
+ */
 export interface PutDestinationCommandOutput extends PutDestinationResponse, __MetadataBearer {}
 
 /**

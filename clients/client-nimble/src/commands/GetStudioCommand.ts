@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetStudioCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetStudioCommand}.
+ */
 export interface GetStudioCommandInput extends GetStudioRequest {}
+/**
+ * The output of {@link GetStudioCommand}.
+ */
 export interface GetStudioCommandOutput extends GetStudioResponse, __MetadataBearer {}
 
 /**

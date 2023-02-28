@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DetachInstancesFromLoadBalancerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DetachInstancesFromLoadBalancerCommand}.
+ */
 export interface DetachInstancesFromLoadBalancerCommandInput extends DetachInstancesFromLoadBalancerRequest {}
+/**
+ * The output of {@link DetachInstancesFromLoadBalancerCommand}.
+ */
 export interface DetachInstancesFromLoadBalancerCommandOutput
   extends DetachInstancesFromLoadBalancerResult,
     __MetadataBearer {}

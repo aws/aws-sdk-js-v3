@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DeleteAutoScalingConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteAutoScalingConfigurationCommand}.
+ */
 export interface DeleteAutoScalingConfigurationCommandInput extends DeleteAutoScalingConfigurationRequest {}
+/**
+ * The output of {@link DeleteAutoScalingConfigurationCommand}.
+ */
 export interface DeleteAutoScalingConfigurationCommandOutput
   extends DeleteAutoScalingConfigurationResponse,
     __MetadataBearer {}

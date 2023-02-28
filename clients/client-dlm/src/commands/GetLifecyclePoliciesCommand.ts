@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetLifecyclePoliciesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetLifecyclePoliciesCommand}.
+ */
 export interface GetLifecyclePoliciesCommandInput extends GetLifecyclePoliciesRequest {}
+/**
+ * The output of {@link GetLifecyclePoliciesCommand}.
+ */
 export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1AddApplicationVpcConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddApplicationVpcConfigurationCommand}.
+ */
 export interface AddApplicationVpcConfigurationCommandInput extends AddApplicationVpcConfigurationRequest {}
+/**
+ * The output of {@link AddApplicationVpcConfigurationCommand}.
+ */
 export interface AddApplicationVpcConfigurationCommandOutput
   extends AddApplicationVpcConfigurationResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeploySystemInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeploySystemInstanceCommand}.
+ */
 export interface DeploySystemInstanceCommandInput extends DeploySystemInstanceRequest {}
+/**
+ * The output of {@link DeploySystemInstanceCommand}.
+ */
 export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceResponse, __MetadataBearer {}
 
 /**

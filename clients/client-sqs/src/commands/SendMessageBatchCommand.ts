@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link SendMessageBatchCommand}.
+ */
 export interface SendMessageBatchCommandInput extends SendMessageBatchRequest {}
+/**
+ * The output of {@link SendMessageBatchCommand}.
+ */
 export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, __MetadataBearer {}
 
 /**

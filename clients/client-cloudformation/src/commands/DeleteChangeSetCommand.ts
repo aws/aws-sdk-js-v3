@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteChangeSetCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteChangeSetCommand}.
+ */
 export interface DeleteChangeSetCommandInput extends DeleteChangeSetInput {}
+/**
+ * The output of {@link DeleteChangeSetCommand}.
+ */
 export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __MetadataBearer {}
 
 /**

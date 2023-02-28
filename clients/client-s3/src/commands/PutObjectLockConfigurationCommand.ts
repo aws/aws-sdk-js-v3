@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link PutObjectLockConfigurationCommand}.
+ */
 export interface PutObjectLockConfigurationCommandInput extends PutObjectLockConfigurationRequest {}
+/**
+ * The output of {@link PutObjectLockConfigurationCommand}.
+ */
 export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockConfigurationOutput, __MetadataBearer {}
 
 /**

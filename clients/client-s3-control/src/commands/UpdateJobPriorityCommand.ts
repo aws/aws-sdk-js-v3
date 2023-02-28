@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link UpdateJobPriorityCommand}.
+ */
 export interface UpdateJobPriorityCommandInput extends UpdateJobPriorityRequest {}
+/**
+ * The output of {@link UpdateJobPriorityCommand}.
+ */
 export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult, __MetadataBearer {}
 
 /**

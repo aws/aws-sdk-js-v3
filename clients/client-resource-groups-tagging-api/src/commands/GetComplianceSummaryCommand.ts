@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
 
+/**
+ * The input for {@link GetComplianceSummaryCommand}.
+ */
 export interface GetComplianceSummaryCommandInput extends GetComplianceSummaryInput {}
+/**
+ * The output of {@link GetComplianceSummaryCommand}.
+ */
 export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryOutput, __MetadataBearer {}
 
 /**

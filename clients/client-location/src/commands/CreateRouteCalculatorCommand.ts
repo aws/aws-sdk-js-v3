@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateRouteCalculatorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateRouteCalculatorCommand}.
+ */
 export interface CreateRouteCalculatorCommandInput extends CreateRouteCalculatorRequest {}
+/**
+ * The output of {@link CreateRouteCalculatorCommand}.
+ */
 export interface CreateRouteCalculatorCommandOutput extends CreateRouteCalculatorResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteAddressBookCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteAddressBookCommand}.
+ */
 export interface DeleteAddressBookCommandInput extends DeleteAddressBookRequest {}
+/**
+ * The output of {@link DeleteAddressBookCommand}.
+ */
 export interface DeleteAddressBookCommandOutput extends DeleteAddressBookResponse, __MetadataBearer {}
 
 /**

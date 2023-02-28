@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetPipelineCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetPipelineCommand}.
+ */
 export interface GetPipelineCommandInput extends GetPipelineInput {}
+/**
+ * The output of {@link GetPipelineCommand}.
+ */
 export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataBearer {}
 
 /**

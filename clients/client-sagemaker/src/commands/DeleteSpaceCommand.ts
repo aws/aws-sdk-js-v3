@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteSpaceCommand}.
+ */
 export interface DeleteSpaceCommandInput extends DeleteSpaceRequest {}
+/**
+ * The output of {@link DeleteSpaceCommand}.
+ */
 export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
 
 /**

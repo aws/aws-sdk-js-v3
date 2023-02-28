@@ -24,7 +24,13 @@ import {
   serializeAws_json1_1DenyCustomRoutingTrafficCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DenyCustomRoutingTrafficCommand}.
+ */
 export interface DenyCustomRoutingTrafficCommandInput extends DenyCustomRoutingTrafficRequest {}
+/**
+ * The output of {@link DenyCustomRoutingTrafficCommand}.
+ */
 export interface DenyCustomRoutingTrafficCommandOutput extends __MetadataBearer {}
 
 /**

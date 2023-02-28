@@ -29,7 +29,13 @@ import {
   serializeAws_querySetSecurityGroupsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SetSecurityGroupsCommand}.
+ */
 export interface SetSecurityGroupsCommandInput extends SetSecurityGroupsInput {}
+/**
+ * The output of {@link SetSecurityGroupsCommand}.
+ */
 export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput, __MetadataBearer {}
 
 /**

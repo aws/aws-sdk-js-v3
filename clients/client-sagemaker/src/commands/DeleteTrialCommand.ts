@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteTrialCommand}.
+ */
 export interface DeleteTrialCommandInput extends DeleteTrialRequest {}
+/**
+ * The output of {@link DeleteTrialCommand}.
+ */
 export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __MetadataBearer {}
 
 /**

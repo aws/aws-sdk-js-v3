@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SkipWaitTimeForInstanceTerminationCommand}.
+ */
 export interface SkipWaitTimeForInstanceTerminationCommandInput extends SkipWaitTimeForInstanceTerminationInput {}
+/**
+ * The output of {@link SkipWaitTimeForInstanceTerminationCommand}.
+ */
 export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __MetadataBearer {}
 
 /**

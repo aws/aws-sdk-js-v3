@@ -24,7 +24,13 @@ import {
   serializeAws_ec2EmptyInputAndEmptyOutputCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link EmptyInputAndEmptyOutputCommand}.
+ */
 export interface EmptyInputAndEmptyOutputCommandInput extends EmptyInputAndEmptyOutputInput {}
+/**
+ * The output of {@link EmptyInputAndEmptyOutputCommand}.
+ */
 export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmptyOutputOutput, __MetadataBearer {}
 
 /**

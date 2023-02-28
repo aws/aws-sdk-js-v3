@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateTrustCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateTrustCommand}.
+ */
 export interface CreateTrustCommandInput extends CreateTrustRequest {}
+/**
+ * The output of {@link CreateTrustCommand}.
+ */
 export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link DeregisterManagedInstanceCommand}.
+ */
 export interface DeregisterManagedInstanceCommandInput extends DeregisterManagedInstanceRequest {}
+/**
+ * The output of {@link DeregisterManagedInstanceCommand}.
+ */
 export interface DeregisterManagedInstanceCommandOutput extends DeregisterManagedInstanceResult, __MetadataBearer {}
 
 /**

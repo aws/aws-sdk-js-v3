@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteRelationalDatabaseSnapshotCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteRelationalDatabaseSnapshotCommand}.
+ */
 export interface DeleteRelationalDatabaseSnapshotCommandInput extends DeleteRelationalDatabaseSnapshotRequest {}
+/**
+ * The output of {@link DeleteRelationalDatabaseSnapshotCommand}.
+ */
 export interface DeleteRelationalDatabaseSnapshotCommandOutput
   extends DeleteRelationalDatabaseSnapshotResult,
     __MetadataBearer {}

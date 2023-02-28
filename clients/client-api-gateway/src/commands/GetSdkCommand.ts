@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_restJson1GetSdkCommand, serializeAws_restJson1GetSdkCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSdkCommand}.
+ */
 export interface GetSdkCommandInput extends GetSdkRequest {}
+/**
+ * The output of {@link GetSdkCommand}.
+ */
 export interface GetSdkCommandOutput extends SdkResponse, __MetadataBearer {}
 
 /**

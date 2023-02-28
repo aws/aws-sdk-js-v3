@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DeleteAccessorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAccessorCommand}.
+ */
 export interface DeleteAccessorCommandInput extends DeleteAccessorInput {}
+/**
+ * The output of {@link DeleteAccessorCommand}.
+ */
 export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __MetadataBearer {}
 
 /**

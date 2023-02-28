@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CancelImportTaskCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CancelImportTaskCommand}.
+ */
 export interface CancelImportTaskCommandInput extends CancelImportTaskRequest {}
+/**
+ * The output of {@link CancelImportTaskCommand}.
+ */
 export interface CancelImportTaskCommandOutput extends CancelImportTaskResult, __MetadataBearer {}
 
 /**

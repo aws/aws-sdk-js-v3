@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link DisassociateConnectionAliasCommand}.
+ */
 export interface DisassociateConnectionAliasCommandInput extends DisassociateConnectionAliasRequest {}
+/**
+ * The output of {@link DisassociateConnectionAliasCommand}.
+ */
 export interface DisassociateConnectionAliasCommandOutput extends DisassociateConnectionAliasResult, __MetadataBearer {}
 
 /**

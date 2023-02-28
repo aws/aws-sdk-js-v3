@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateRouteResponseCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateRouteResponseCommand}.
+ */
 export interface UpdateRouteResponseCommandInput extends UpdateRouteResponseRequest {}
+/**
+ * The output of {@link UpdateRouteResponseCommand}.
+ */
 export interface UpdateRouteResponseCommandOutput extends UpdateRouteResponseResponse, __MetadataBearer {}
 
 /**

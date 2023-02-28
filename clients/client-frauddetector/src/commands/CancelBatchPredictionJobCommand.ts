@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CancelBatchPredictionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CancelBatchPredictionJobCommand}.
+ */
 export interface CancelBatchPredictionJobCommandInput extends CancelBatchPredictionJobRequest {}
+/**
+ * The output of {@link CancelBatchPredictionJobCommand}.
+ */
 export interface CancelBatchPredictionJobCommandOutput extends CancelBatchPredictionJobResult, __MetadataBearer {}
 
 /**

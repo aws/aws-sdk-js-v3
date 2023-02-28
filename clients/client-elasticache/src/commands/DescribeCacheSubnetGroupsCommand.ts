@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeCacheSubnetGroupsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeCacheSubnetGroupsCommand}.
+ */
 export interface DescribeCacheSubnetGroupsCommandInput extends DescribeCacheSubnetGroupsMessage {}
+/**
+ * The output of {@link DescribeCacheSubnetGroupsCommand}.
+ */
 export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroupMessage, __MetadataBearer {}
 
 /**

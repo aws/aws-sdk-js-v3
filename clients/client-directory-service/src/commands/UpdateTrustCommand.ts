@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateTrustCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateTrustCommand}.
+ */
 export interface UpdateTrustCommandInput extends UpdateTrustRequest {}
+/**
+ * The output of {@link UpdateTrustCommand}.
+ */
 export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataBearer {}
 
 /**

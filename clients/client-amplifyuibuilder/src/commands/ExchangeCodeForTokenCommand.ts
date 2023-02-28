@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ExchangeCodeForTokenCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ExchangeCodeForTokenCommand}.
+ */
 export interface ExchangeCodeForTokenCommandInput extends ExchangeCodeForTokenRequest {}
+/**
+ * The output of {@link ExchangeCodeForTokenCommand}.
+ */
 export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenResponse, __MetadataBearer {}
 
 /**

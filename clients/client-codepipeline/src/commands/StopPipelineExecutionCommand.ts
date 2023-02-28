@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopPipelineExecutionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopPipelineExecutionCommand}.
+ */
 export interface StopPipelineExecutionCommandInput extends StopPipelineExecutionInput {}
+/**
+ * The output of {@link StopPipelineExecutionCommand}.
+ */
 export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutionOutput, __MetadataBearer {}
 
 /**

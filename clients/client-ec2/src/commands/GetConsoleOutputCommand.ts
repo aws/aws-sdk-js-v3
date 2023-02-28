@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetConsoleOutputCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetConsoleOutputCommand}.
+ */
 export interface GetConsoleOutputCommandInput extends GetConsoleOutputRequest {}
+/**
+ * The output of {@link GetConsoleOutputCommand}.
+ */
 export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchReadCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchReadCommand}.
+ */
 export interface BatchReadCommandInput extends BatchReadRequest {}
+/**
+ * The output of {@link BatchReadCommand}.
+ */
 export interface BatchReadCommandOutput extends BatchReadResponse, __MetadataBearer {}
 
 /**

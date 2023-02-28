@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreatePredictorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreatePredictorCommand}.
+ */
 export interface CreatePredictorCommandInput extends CreatePredictorRequest {}
+/**
+ * The output of {@link CreatePredictorCommand}.
+ */
 export interface CreatePredictorCommandOutput extends CreatePredictorResponse, __MetadataBearer {}
 
 /**

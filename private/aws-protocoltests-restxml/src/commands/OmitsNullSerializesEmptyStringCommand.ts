@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link OmitsNullSerializesEmptyStringCommand}.
+ */
 export interface OmitsNullSerializesEmptyStringCommandInput extends OmitsNullSerializesEmptyStringInput {}
+/**
+ * The output of {@link OmitsNullSerializesEmptyStringCommand}.
+ */
 export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataBearer {}
 
 /**

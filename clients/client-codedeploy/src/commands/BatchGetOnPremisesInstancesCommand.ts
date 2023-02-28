@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetOnPremisesInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetOnPremisesInstancesCommand}.
+ */
 export interface BatchGetOnPremisesInstancesCommandInput extends BatchGetOnPremisesInstancesInput {}
+/**
+ * The output of {@link BatchGetOnPremisesInstancesCommand}.
+ */
 export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPremisesInstancesOutput, __MetadataBearer {}
 
 /**

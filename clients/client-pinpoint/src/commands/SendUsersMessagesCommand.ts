@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SendUsersMessagesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SendUsersMessagesCommand}.
+ */
 export interface SendUsersMessagesCommandInput extends SendUsersMessagesRequest {}
+/**
+ * The output of {@link SendUsersMessagesCommand}.
+ */
 export interface SendUsersMessagesCommandOutput extends SendUsersMessagesResponse, __MetadataBearer {}
 
 /**

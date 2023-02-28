@@ -25,7 +25,13 @@ import {
   serializeAws_ec2MoveByoipCidrToIpamCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link MoveByoipCidrToIpamCommand}.
+ */
 export interface MoveByoipCidrToIpamCommandInput extends MoveByoipCidrToIpamRequest {}
+/**
+ * The output of {@link MoveByoipCidrToIpamCommand}.
+ */
 export interface MoveByoipCidrToIpamCommandOutput extends MoveByoipCidrToIpamResult, __MetadataBearer {}
 
 /**

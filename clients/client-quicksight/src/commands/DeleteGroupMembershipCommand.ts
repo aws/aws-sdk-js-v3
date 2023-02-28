@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link DeleteGroupMembershipCommand}.
+ */
 export interface DeleteGroupMembershipCommandInput extends DeleteGroupMembershipRequest {}
+/**
+ * The output of {@link DeleteGroupMembershipCommand}.
+ */
 export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershipResponse, __MetadataBearer {}
 
 /**

@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link ResumeClusterCommand}.
+ */
 export interface ResumeClusterCommandInput extends ResumeClusterMessage {}
+/**
+ * The output of {@link ResumeClusterCommand}.
+ */
 export interface ResumeClusterCommandOutput extends ResumeClusterResult, __MetadataBearer {}
 
 /**

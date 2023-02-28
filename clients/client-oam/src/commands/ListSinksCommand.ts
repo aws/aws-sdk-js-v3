@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListSinksCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSinksCommand}.
+ */
 export interface ListSinksCommandInput extends ListSinksInput {}
+/**
+ * The output of {@link ListSinksCommand}.
+ */
 export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBearer {}
 
 /**

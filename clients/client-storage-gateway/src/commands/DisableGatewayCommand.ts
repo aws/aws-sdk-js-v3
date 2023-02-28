@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link DisableGatewayCommand}.
+ */
 export interface DisableGatewayCommandInput extends DisableGatewayInput {}
+/**
+ * The output of {@link DisableGatewayCommand}.
+ */
 export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __MetadataBearer {}
 
 /**

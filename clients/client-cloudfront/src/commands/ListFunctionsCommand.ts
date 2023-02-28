@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlListFunctionsCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link ListFunctionsCommand}.
+ */
 export interface ListFunctionsCommandInput extends ListFunctionsRequest {}
+/**
+ * The output of {@link ListFunctionsCommand}.
+ */
 export interface ListFunctionsCommandOutput extends ListFunctionsResult, __MetadataBearer {}
 
 /**

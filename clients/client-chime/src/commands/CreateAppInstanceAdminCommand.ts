@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateAppInstanceAdminCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateAppInstanceAdminCommand}.
+ */
 export interface CreateAppInstanceAdminCommandInput extends CreateAppInstanceAdminRequest {}
+/**
+ * The output of {@link CreateAppInstanceAdminCommand}.
+ */
 export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAdminResponse, __MetadataBearer {}
 
 /**

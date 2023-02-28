@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link ListRegionalBucketsCommand}.
+ */
 export interface ListRegionalBucketsCommandInput extends ListRegionalBucketsRequest {}
+/**
+ * The output of {@link ListRegionalBucketsCommand}.
+ */
 export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsResult, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeletePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeletePolicyCommand}.
+ */
 export interface DeletePolicyCommandInput extends DeletePolicyRequest {}
+/**
+ * The output of {@link DeletePolicyCommand}.
+ */
 export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**

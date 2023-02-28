@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ReportTaskRunnerHeartbeatCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ReportTaskRunnerHeartbeatCommand}.
+ */
 export interface ReportTaskRunnerHeartbeatCommandInput extends ReportTaskRunnerHeartbeatInput {}
+/**
+ * The output of {@link ReportTaskRunnerHeartbeatCommand}.
+ */
 export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunnerHeartbeatOutput, __MetadataBearer {}
 
 /**

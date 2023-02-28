@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RemoveManagedScalingPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RemoveManagedScalingPolicyCommand}.
+ */
 export interface RemoveManagedScalingPolicyCommandInput extends RemoveManagedScalingPolicyInput {}
+/**
+ * The output of {@link RemoveManagedScalingPolicyCommand}.
+ */
 export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedScalingPolicyOutput, __MetadataBearer {}
 
 /**

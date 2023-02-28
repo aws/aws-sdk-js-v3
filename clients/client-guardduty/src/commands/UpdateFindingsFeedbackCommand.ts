@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateFindingsFeedbackCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateFindingsFeedbackCommand}.
+ */
 export interface UpdateFindingsFeedbackCommandInput extends UpdateFindingsFeedbackRequest {}
+/**
+ * The output of {@link UpdateFindingsFeedbackCommand}.
+ */
 export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedbackResponse, __MetadataBearer {}
 
 /**

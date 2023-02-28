@@ -23,7 +23,13 @@ import {
   serializeAws_restXmlDeleteResponseHeadersPolicyCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link DeleteResponseHeadersPolicyCommand}.
+ */
 export interface DeleteResponseHeadersPolicyCommandInput extends DeleteResponseHeadersPolicyRequest {}
+/**
+ * The output of {@link DeleteResponseHeadersPolicyCommand}.
+ */
 export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBearer {}
 
 /**

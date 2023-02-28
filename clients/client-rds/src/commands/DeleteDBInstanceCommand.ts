@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DeleteDBInstanceCommand}.
+ */
 export interface DeleteDBInstanceCommandInput extends DeleteDBInstanceMessage {}
+/**
+ * The output of {@link DeleteDBInstanceCommand}.
+ */
 export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, __MetadataBearer {}
 
 /**

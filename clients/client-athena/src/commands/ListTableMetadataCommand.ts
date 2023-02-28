@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListTableMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTableMetadataCommand}.
+ */
 export interface ListTableMetadataCommandInput extends ListTableMetadataInput {}
+/**
+ * The output of {@link ListTableMetadataCommand}.
+ */
 export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput, __MetadataBearer {}
 
 /**

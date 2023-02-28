@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
+/**
+ * The input for {@link GetStatementResultCommand}.
+ */
 export interface GetStatementResultCommandInput extends GetStatementResultRequest {}
+/**
+ * The output of {@link GetStatementResultCommand}.
+ */
 export interface GetStatementResultCommandOutput extends GetStatementResultResponse, __MetadataBearer {}
 
 /**

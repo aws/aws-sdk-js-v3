@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeEventSubscriptionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeEventSubscriptionsCommand}.
+ */
 export interface DescribeEventSubscriptionsCommandInput extends DescribeEventSubscriptionsMessage {}
+/**
+ * The output of {@link DescribeEventSubscriptionsCommand}.
+ */
 export interface DescribeEventSubscriptionsCommandOutput extends DescribeEventSubscriptionsResponse, __MetadataBearer {}
 
 /**

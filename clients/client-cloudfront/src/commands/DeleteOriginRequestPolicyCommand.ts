@@ -23,7 +23,13 @@ import {
   serializeAws_restXmlDeleteOriginRequestPolicyCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link DeleteOriginRequestPolicyCommand}.
+ */
 export interface DeleteOriginRequestPolicyCommandInput extends DeleteOriginRequestPolicyRequest {}
+/**
+ * The output of {@link DeleteOriginRequestPolicyCommand}.
+ */
 export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer {}
 
 /**

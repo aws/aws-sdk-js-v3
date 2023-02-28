@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteBackendEnvironmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteBackendEnvironmentCommand}.
+ */
 export interface DeleteBackendEnvironmentCommandInput extends DeleteBackendEnvironmentRequest {}
+/**
+ * The output of {@link DeleteBackendEnvironmentCommand}.
+ */
 export interface DeleteBackendEnvironmentCommandOutput extends DeleteBackendEnvironmentResult, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetHLSStreamingSessionURLCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetHLSStreamingSessionURLCommand}.
+ */
 export interface GetHLSStreamingSessionURLCommandInput extends GetHLSStreamingSessionURLInput {}
+/**
+ * The output of {@link GetHLSStreamingSessionURLCommand}.
+ */
 export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingSessionURLOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateBackendEnvironmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateBackendEnvironmentCommand}.
+ */
 export interface CreateBackendEnvironmentCommandInput extends CreateBackendEnvironmentRequest {}
+/**
+ * The output of {@link CreateBackendEnvironmentCommand}.
+ */
 export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvironmentResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RegisterGameServerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterGameServerCommand}.
+ */
 export interface RegisterGameServerCommandInput extends RegisterGameServerInput {}
+/**
+ * The output of {@link RegisterGameServerCommand}.
+ */
 export interface RegisterGameServerCommandOutput extends RegisterGameServerOutput, __MetadataBearer {}
 
 /**

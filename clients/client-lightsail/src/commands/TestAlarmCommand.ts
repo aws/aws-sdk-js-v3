@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_json1_1TestAlarmCommand, serializeAws_json1_1TestAlarmCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link TestAlarmCommand}.
+ */
 export interface TestAlarmCommandInput extends TestAlarmRequest {}
+/**
+ * The output of {@link TestAlarmCommand}.
+ */
 export interface TestAlarmCommandOutput extends TestAlarmResult, __MetadataBearer {}
 
 /**

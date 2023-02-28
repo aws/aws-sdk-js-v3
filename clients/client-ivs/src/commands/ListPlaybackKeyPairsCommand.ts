@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListPlaybackKeyPairsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPlaybackKeyPairsCommand}.
+ */
 export interface ListPlaybackKeyPairsCommandInput extends ListPlaybackKeyPairsRequest {}
+/**
+ * The output of {@link ListPlaybackKeyPairsCommand}.
+ */
 export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsResponse, __MetadataBearer {}
 
 /**

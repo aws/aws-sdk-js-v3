@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateSceneCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateSceneCommand}.
+ */
 export interface UpdateSceneCommandInput extends UpdateSceneRequest {}
+/**
+ * The output of {@link UpdateSceneCommand}.
+ */
 export interface UpdateSceneCommandOutput extends UpdateSceneResponse, __MetadataBearer {}
 
 /**

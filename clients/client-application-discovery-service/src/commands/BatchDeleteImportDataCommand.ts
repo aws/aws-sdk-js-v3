@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1BatchDeleteImportDataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchDeleteImportDataCommand}.
+ */
 export interface BatchDeleteImportDataCommandInput extends BatchDeleteImportDataRequest {}
+/**
+ * The output of {@link BatchDeleteImportDataCommand}.
+ */
 export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDataResponse, __MetadataBearer {}
 
 /**

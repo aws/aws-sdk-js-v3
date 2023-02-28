@@ -20,7 +20,13 @@ import {
   serializeAws_querySignalResourceCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SignalResourceCommand}.
+ */
 export interface SignalResourceCommandInput extends SignalResourceInput {}
+/**
+ * The output of {@link SignalResourceCommand}.
+ */
 export interface SignalResourceCommandOutput extends __MetadataBearer {}
 
 /**

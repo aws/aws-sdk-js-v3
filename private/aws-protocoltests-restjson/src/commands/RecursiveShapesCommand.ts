@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link RecursiveShapesCommand}.
+ */
 export interface RecursiveShapesCommandInput extends RecursiveShapesInputOutput {}
+/**
+ * The output of {@link RecursiveShapesCommand}.
+ */
 export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput, __MetadataBearer {}
 
 /**

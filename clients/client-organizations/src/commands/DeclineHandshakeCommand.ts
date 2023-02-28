@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeclineHandshakeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeclineHandshakeCommand}.
+ */
 export interface DeclineHandshakeCommandInput extends DeclineHandshakeRequest {}
+/**
+ * The output of {@link DeclineHandshakeCommand}.
+ */
 export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse, __MetadataBearer {}
 
 /**

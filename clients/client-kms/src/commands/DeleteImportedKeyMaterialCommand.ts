@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DeleteImportedKeyMaterialCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteImportedKeyMaterialCommand}.
+ */
 export interface DeleteImportedKeyMaterialCommandInput extends DeleteImportedKeyMaterialRequest {}
+/**
+ * The output of {@link DeleteImportedKeyMaterialCommand}.
+ */
 export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPolicyCommand}.
+ */
 export interface GetPolicyCommandInput extends GetPolicyRequest {}
+/**
+ * The output of {@link GetPolicyCommand}.
+ */
 export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBearer {}
 
 /**

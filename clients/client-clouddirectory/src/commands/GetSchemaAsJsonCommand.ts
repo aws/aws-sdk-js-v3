@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSchemaAsJsonCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSchemaAsJsonCommand}.
+ */
 export interface GetSchemaAsJsonCommandInput extends GetSchemaAsJsonRequest {}
+/**
+ * The output of {@link GetSchemaAsJsonCommand}.
+ */
 export interface GetSchemaAsJsonCommandOutput extends GetSchemaAsJsonResponse, __MetadataBearer {}
 
 /**

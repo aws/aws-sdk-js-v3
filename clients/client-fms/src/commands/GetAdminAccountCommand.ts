@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetAdminAccountCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetAdminAccountCommand}.
+ */
 export interface GetAdminAccountCommandInput extends GetAdminAccountRequest {}
+/**
+ * The output of {@link GetAdminAccountCommand}.
+ */
 export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, __MetadataBearer {}
 
 /**

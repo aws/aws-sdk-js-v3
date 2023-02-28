@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CreateMediaConcatenationPipelineCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateMediaConcatenationPipelineCommand}.
+ */
 export interface CreateMediaConcatenationPipelineCommandInput extends CreateMediaConcatenationPipelineRequest {}
+/**
+ * The output of {@link CreateMediaConcatenationPipelineCommand}.
+ */
 export interface CreateMediaConcatenationPipelineCommandOutput
   extends CreateMediaConcatenationPipelineResponse,
     __MetadataBearer {}

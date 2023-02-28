@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AttachStaticIpCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AttachStaticIpCommand}.
+ */
 export interface AttachStaticIpCommandInput extends AttachStaticIpRequest {}
+/**
+ * The output of {@link AttachStaticIpCommand}.
+ */
 export interface AttachStaticIpCommandOutput extends AttachStaticIpResult, __MetadataBearer {}
 
 /**

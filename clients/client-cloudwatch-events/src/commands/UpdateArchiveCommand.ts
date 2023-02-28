@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateArchiveCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateArchiveCommand}.
+ */
 export interface UpdateArchiveCommandInput extends UpdateArchiveRequest {}
+/**
+ * The output of {@link UpdateArchiveCommand}.
+ */
 export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __MetadataBearer {}
 
 /**

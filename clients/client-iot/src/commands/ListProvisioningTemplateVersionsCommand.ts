@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListProvisioningTemplateVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListProvisioningTemplateVersionsCommand}.
+ */
 export interface ListProvisioningTemplateVersionsCommandInput extends ListProvisioningTemplateVersionsRequest {}
+/**
+ * The output of {@link ListProvisioningTemplateVersionsCommand}.
+ */
 export interface ListProvisioningTemplateVersionsCommandOutput
   extends ListProvisioningTemplateVersionsResponse,
     __MetadataBearer {}

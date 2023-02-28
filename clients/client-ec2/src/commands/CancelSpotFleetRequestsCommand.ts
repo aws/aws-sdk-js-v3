@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CancelSpotFleetRequestsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CancelSpotFleetRequestsCommand}.
+ */
 export interface CancelSpotFleetRequestsCommandInput extends CancelSpotFleetRequestsRequest {}
+/**
+ * The output of {@link CancelSpotFleetRequestsCommand}.
+ */
 export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetRequestsResponse, __MetadataBearer {}
 
 /**

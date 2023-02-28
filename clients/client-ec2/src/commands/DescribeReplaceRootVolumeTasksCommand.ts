@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeReplaceRootVolumeTasksCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeReplaceRootVolumeTasksCommand}.
+ */
 export interface DescribeReplaceRootVolumeTasksCommandInput extends DescribeReplaceRootVolumeTasksRequest {}
+/**
+ * The output of {@link DescribeReplaceRootVolumeTasksCommand}.
+ */
 export interface DescribeReplaceRootVolumeTasksCommandOutput
   extends DescribeReplaceRootVolumeTasksResult,
     __MetadataBearer {}

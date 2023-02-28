@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1CreateApplicationPresignedUrlCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateApplicationPresignedUrlCommand}.
+ */
 export interface CreateApplicationPresignedUrlCommandInput extends CreateApplicationPresignedUrlRequest {}
+/**
+ * The output of {@link CreateApplicationPresignedUrlCommand}.
+ */
 export interface CreateApplicationPresignedUrlCommandOutput
   extends CreateApplicationPresignedUrlResponse,
     __MetadataBearer {}

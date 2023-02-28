@@ -277,3 +277,86 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+DeleteScalingPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/classes/deletescalingpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/deletescalingpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/deletescalingpolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteScheduledAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/classes/deletescheduledactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/deletescheduledactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/deletescheduledactioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeregisterScalableTarget
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/classes/deregisterscalabletargetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/deregisterscalabletargetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/deregisterscalabletargetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeScalableTargets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/classes/describescalabletargetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/describescalabletargetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/describescalabletargetscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeScalingActivities
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/classes/describescalingactivitiescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/describescalingactivitiescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/describescalingactivitiescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeScalingPolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/classes/describescalingpoliciescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/describescalingpoliciescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/describescalingpoliciescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeScheduledActions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/classes/describescheduledactionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/describescheduledactionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/describescheduledactionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutScalingPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/classes/putscalingpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/putscalingpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/putscalingpolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutScheduledAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/classes/putscheduledactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/putscheduledactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/putscheduledactioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+RegisterScalableTarget
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/classes/registerscalabletargetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/registerscalabletargetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application auto scaling/interfaces/registerscalabletargetcommandoutput.html)
+
+</details>

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetAggregateResourceConfigCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetAggregateResourceConfigCommand}.
+ */
 export interface GetAggregateResourceConfigCommandInput extends GetAggregateResourceConfigRequest {}
+/**
+ * The output of {@link GetAggregateResourceConfigCommand}.
+ */
 export interface GetAggregateResourceConfigCommandOutput extends GetAggregateResourceConfigResponse, __MetadataBearer {}
 
 /**

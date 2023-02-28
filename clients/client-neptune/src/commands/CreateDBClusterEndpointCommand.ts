@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateDBClusterEndpointCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateDBClusterEndpointCommand}.
+ */
 export interface CreateDBClusterEndpointCommandInput extends CreateDBClusterEndpointMessage {}
+/**
+ * The output of {@link CreateDBClusterEndpointCommand}.
+ */
 export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEndpointOutput, __MetadataBearer {}
 
 /**

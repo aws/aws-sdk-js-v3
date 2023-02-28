@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteVaultAccessPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteVaultAccessPolicyCommand}.
+ */
 export interface DeleteVaultAccessPolicyCommandInput extends DeleteVaultAccessPolicyInput {}
+/**
+ * The output of {@link DeleteVaultAccessPolicyCommand}.
+ */
 export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {}
 
 /**

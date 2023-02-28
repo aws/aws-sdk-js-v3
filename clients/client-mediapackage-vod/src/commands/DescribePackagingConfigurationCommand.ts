@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribePackagingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribePackagingConfigurationCommand}.
+ */
 export interface DescribePackagingConfigurationCommandInput extends DescribePackagingConfigurationRequest {}
+/**
+ * The output of {@link DescribePackagingConfigurationCommand}.
+ */
 export interface DescribePackagingConfigurationCommandOutput
   extends DescribePackagingConfigurationResponse,
     __MetadataBearer {}

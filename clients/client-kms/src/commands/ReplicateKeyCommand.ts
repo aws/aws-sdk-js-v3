@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ReplicateKeyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ReplicateKeyCommand}.
+ */
 export interface ReplicateKeyCommandInput extends ReplicateKeyRequest {}
+/**
+ * The output of {@link ReplicateKeyCommand}.
+ */
 export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __MetadataBearer {}
 
 /**

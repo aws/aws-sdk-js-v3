@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0CreateCollectionCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateCollectionCommand}.
+ */
 export interface CreateCollectionCommandInput extends CreateCollectionRequest {}
+/**
+ * The output of {@link CreateCollectionCommand}.
+ */
 export interface CreateCollectionCommandOutput extends CreateCollectionResponse, __MetadataBearer {}
 
 /**

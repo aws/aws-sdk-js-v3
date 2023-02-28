@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1UpdateIdentityProviderSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateIdentityProviderSettingsCommand}.
+ */
 export interface UpdateIdentityProviderSettingsCommandInput extends UpdateIdentityProviderSettingsRequest {}
+/**
+ * The output of {@link UpdateIdentityProviderSettingsCommand}.
+ */
 export interface UpdateIdentityProviderSettingsCommandOutput
   extends UpdateIdentityProviderSettingsResponse,
     __MetadataBearer {}

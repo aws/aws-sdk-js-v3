@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteQuickConnectCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteQuickConnectCommand}.
+ */
 export interface DeleteQuickConnectCommandInput extends DeleteQuickConnectRequest {}
+/**
+ * The output of {@link DeleteQuickConnectCommand}.
+ */
 export interface DeleteQuickConnectCommandOutput extends __MetadataBearer {}
 
 /**

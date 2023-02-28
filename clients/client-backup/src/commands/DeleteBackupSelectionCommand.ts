@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteBackupSelectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteBackupSelectionCommand}.
+ */
 export interface DeleteBackupSelectionCommandInput extends DeleteBackupSelectionInput {}
+/**
+ * The output of {@link DeleteBackupSelectionCommand}.
+ */
 export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
 
 /**

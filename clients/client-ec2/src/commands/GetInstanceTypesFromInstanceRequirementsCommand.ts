@@ -25,8 +25,14 @@ import {
   serializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetInstanceTypesFromInstanceRequirementsCommand}.
+ */
 export interface GetInstanceTypesFromInstanceRequirementsCommandInput
   extends GetInstanceTypesFromInstanceRequirementsRequest {}
+/**
+ * The output of {@link GetInstanceTypesFromInstanceRequirementsCommand}.
+ */
 export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
   extends GetInstanceTypesFromInstanceRequirementsResult,
     __MetadataBearer {}

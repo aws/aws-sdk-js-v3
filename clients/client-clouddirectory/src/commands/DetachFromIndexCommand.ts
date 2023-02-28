@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DetachFromIndexCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DetachFromIndexCommand}.
+ */
 export interface DetachFromIndexCommandInput extends DetachFromIndexRequest {}
+/**
+ * The output of {@link DetachFromIndexCommand}.
+ */
 export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, __MetadataBearer {}
 
 /**

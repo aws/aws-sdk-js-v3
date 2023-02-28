@@ -270,3 +270,726 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+ActivateGateway
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/activategatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/activategatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/activategatewaycommandoutput.html)
+
+</details>
+<details>
+<summary>
+AddCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/addcachecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/addcachecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/addcachecommandoutput.html)
+
+</details>
+<details>
+<summary>
+AddTagsToResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/addtagstoresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/addtagstoresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/addtagstoresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+AddUploadBuffer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/adduploadbuffercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/adduploadbuffercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/adduploadbuffercommandoutput.html)
+
+</details>
+<details>
+<summary>
+AddWorkingStorage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/addworkingstoragecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/addworkingstoragecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/addworkingstoragecommandoutput.html)
+
+</details>
+<details>
+<summary>
+AssignTapePool
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/assigntapepoolcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/assigntapepoolcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/assigntapepoolcommandoutput.html)
+
+</details>
+<details>
+<summary>
+AssociateFileSystem
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/associatefilesystemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/associatefilesystemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/associatefilesystemcommandoutput.html)
+
+</details>
+<details>
+<summary>
+AttachVolume
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/attachvolumecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/attachvolumecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/attachvolumecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CancelArchival
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/cancelarchivalcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/cancelarchivalcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/cancelarchivalcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CancelRetrieval
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/cancelretrievalcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/cancelretrievalcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/cancelretrievalcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateCachediSCSIVolume
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/createcachediscsivolumecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createcachediscsivolumecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createcachediscsivolumecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateNFSFileShare
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/createnfsfilesharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createnfsfilesharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createnfsfilesharecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateSMBFileShare
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/createsmbfilesharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createsmbfilesharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createsmbfilesharecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateSnapshot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/createsnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createsnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createsnapshotcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateSnapshotFromVolumeRecoveryPoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/createsnapshotfromvolumerecoverypointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createsnapshotfromvolumerecoverypointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createsnapshotfromvolumerecoverypointcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateStorediSCSIVolume
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/createstorediscsivolumecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createstorediscsivolumecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createstorediscsivolumecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateTapePool
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/createtapepoolcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createtapepoolcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createtapepoolcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateTapes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/createtapescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createtapescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createtapescommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateTapeWithBarcode
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/createtapewithbarcodecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createtapewithbarcodecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/createtapewithbarcodecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteAutomaticTapeCreationPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/deleteautomatictapecreationpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deleteautomatictapecreationpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deleteautomatictapecreationpolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteBandwidthRateLimit
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/deletebandwidthratelimitcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletebandwidthratelimitcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletebandwidthratelimitcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteChapCredentials
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/deletechapcredentialscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletechapcredentialscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletechapcredentialscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteFileShare
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/deletefilesharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletefilesharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletefilesharecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteGateway
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/deletegatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletegatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletegatewaycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSnapshotSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/deletesnapshotschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletesnapshotschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletesnapshotschedulecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteTape
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/deletetapecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletetapecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletetapecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteTapeArchive
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/deletetapearchivecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletetapearchivecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletetapearchivecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteTapePool
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/deletetapepoolcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletetapepoolcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletetapepoolcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteVolume
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/deletevolumecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletevolumecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/deletevolumecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeAvailabilityMonitorTest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describeavailabilitymonitortestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describeavailabilitymonitortestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describeavailabilitymonitortestcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBandwidthRateLimit
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describebandwidthratelimitcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describebandwidthratelimitcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describebandwidthratelimitcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBandwidthRateLimitSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describebandwidthratelimitschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describebandwidthratelimitschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describebandwidthratelimitschedulecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describecachecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describecachecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describecachecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeCachediSCSIVolumes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describecachediscsivolumescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describecachediscsivolumescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describecachediscsivolumescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeChapCredentials
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describechapcredentialscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describechapcredentialscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describechapcredentialscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeFileSystemAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describefilesystemassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describefilesystemassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describefilesystemassociationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeGatewayInformation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describegatewayinformationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describegatewayinformationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describegatewayinformationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeMaintenanceStartTime
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describemaintenancestarttimecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describemaintenancestarttimecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describemaintenancestarttimecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeNFSFileShares
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describenfsfilesharescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describenfsfilesharescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describenfsfilesharescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSMBFileShares
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describesmbfilesharescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describesmbfilesharescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describesmbfilesharescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSMBSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describesmbsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describesmbsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describesmbsettingscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSnapshotSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describesnapshotschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describesnapshotschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describesnapshotschedulecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeStorediSCSIVolumes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describestorediscsivolumescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describestorediscsivolumescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describestorediscsivolumescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTapeArchives
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describetapearchivescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describetapearchivescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describetapearchivescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTapeRecoveryPoints
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describetaperecoverypointscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describetaperecoverypointscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describetaperecoverypointscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTapes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describetapescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describetapescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describetapescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeUploadBuffer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describeuploadbuffercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describeuploadbuffercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describeuploadbuffercommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeVTLDevices
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describevtldevicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describevtldevicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describevtldevicescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeWorkingStorage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/describeworkingstoragecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describeworkingstoragecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/describeworkingstoragecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DetachVolume
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/detachvolumecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/detachvolumecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/detachvolumecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DisableGateway
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/disablegatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/disablegatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/disablegatewaycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DisassociateFileSystem
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/disassociatefilesystemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/disassociatefilesystemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/disassociatefilesystemcommandoutput.html)
+
+</details>
+<details>
+<summary>
+JoinDomain
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/joindomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/joindomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/joindomaincommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAutomaticTapeCreationPolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/listautomatictapecreationpoliciescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listautomatictapecreationpoliciescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listautomatictapecreationpoliciescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListFileShares
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/listfilesharescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listfilesharescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listfilesharescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListFileSystemAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/listfilesystemassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listfilesystemassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listfilesystemassociationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListGateways
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/listgatewayscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listgatewayscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listgatewayscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListLocalDisks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/listlocaldiskscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listlocaldiskscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listlocaldiskscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTapePools
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/listtapepoolscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listtapepoolscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listtapepoolscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTapes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/listtapescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listtapescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listtapescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListVolumeInitiators
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/listvolumeinitiatorscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listvolumeinitiatorscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listvolumeinitiatorscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListVolumeRecoveryPoints
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/listvolumerecoverypointscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listvolumerecoverypointscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listvolumerecoverypointscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListVolumes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/listvolumescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listvolumescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/listvolumescommandoutput.html)
+
+</details>
+<details>
+<summary>
+NotifyWhenUploaded
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/notifywhenuploadedcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/notifywhenuploadedcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/notifywhenuploadedcommandoutput.html)
+
+</details>
+<details>
+<summary>
+RefreshCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/refreshcachecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/refreshcachecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/refreshcachecommandoutput.html)
+
+</details>
+<details>
+<summary>
+RemoveTagsFromResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/removetagsfromresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/removetagsfromresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/removetagsfromresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ResetCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/resetcachecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/resetcachecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/resetcachecommandoutput.html)
+
+</details>
+<details>
+<summary>
+RetrieveTapeArchive
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/retrievetapearchivecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/retrievetapearchivecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/retrievetapearchivecommandoutput.html)
+
+</details>
+<details>
+<summary>
+RetrieveTapeRecoveryPoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/retrievetaperecoverypointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/retrievetaperecoverypointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/retrievetaperecoverypointcommandoutput.html)
+
+</details>
+<details>
+<summary>
+SetLocalConsolePassword
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/setlocalconsolepasswordcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/setlocalconsolepasswordcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/setlocalconsolepasswordcommandoutput.html)
+
+</details>
+<details>
+<summary>
+SetSMBGuestPassword
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/setsmbguestpasswordcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/setsmbguestpasswordcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/setsmbguestpasswordcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ShutdownGateway
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/shutdowngatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/shutdowngatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/shutdowngatewaycommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartAvailabilityMonitorTest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/startavailabilitymonitortestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/startavailabilitymonitortestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/startavailabilitymonitortestcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartGateway
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/startgatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/startgatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/startgatewaycommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateAutomaticTapeCreationPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/updateautomatictapecreationpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updateautomatictapecreationpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updateautomatictapecreationpolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBandwidthRateLimit
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/updatebandwidthratelimitcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatebandwidthratelimitcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatebandwidthratelimitcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBandwidthRateLimitSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/updatebandwidthratelimitschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatebandwidthratelimitschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatebandwidthratelimitschedulecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateChapCredentials
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/updatechapcredentialscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatechapcredentialscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatechapcredentialscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateFileSystemAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/updatefilesystemassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatefilesystemassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatefilesystemassociationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateGatewayInformation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/updategatewayinformationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updategatewayinformationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updategatewayinformationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateGatewaySoftwareNow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/updategatewaysoftwarenowcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updategatewaysoftwarenowcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updategatewaysoftwarenowcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateMaintenanceStartTime
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/updatemaintenancestarttimecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatemaintenancestarttimecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatemaintenancestarttimecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateNFSFileShare
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/updatenfsfilesharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatenfsfilesharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatenfsfilesharecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSMBFileShare
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/updatesmbfilesharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatesmbfilesharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatesmbfilesharecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSMBFileShareVisibility
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/updatesmbfilesharevisibilitycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatesmbfilesharevisibilitycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatesmbfilesharevisibilitycommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSMBLocalGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/updatesmblocalgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatesmblocalgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatesmblocalgroupscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSMBSecurityStrategy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/updatesmbsecuritystrategycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatesmbsecuritystrategycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatesmbsecuritystrategycommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSnapshotSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/updatesnapshotschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatesnapshotschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatesnapshotschedulecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateVTLDeviceType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/classes/updatevtldevicetypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatevtldevicetypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-storage gateway/interfaces/updatevtldevicetypecommandoutput.html)
+
+</details>

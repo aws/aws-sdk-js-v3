@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PurchaseReservedInstanceOfferingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PurchaseReservedInstanceOfferingCommand}.
+ */
 export interface PurchaseReservedInstanceOfferingCommandInput extends PurchaseReservedInstanceOfferingRequest {}
+/**
+ * The output of {@link PurchaseReservedInstanceOfferingCommand}.
+ */
 export interface PurchaseReservedInstanceOfferingCommandOutput
   extends PurchaseReservedInstanceOfferingResponse,
     __MetadataBearer {}

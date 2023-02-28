@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * The input for {@link GetResolverQueryLogConfigPolicyCommand}.
+ */
 export interface GetResolverQueryLogConfigPolicyCommandInput extends GetResolverQueryLogConfigPolicyRequest {}
+/**
+ * The output of {@link GetResolverQueryLogConfigPolicyCommand}.
+ */
 export interface GetResolverQueryLogConfigPolicyCommandOutput
   extends GetResolverQueryLogConfigPolicyResponse,
     __MetadataBearer {}

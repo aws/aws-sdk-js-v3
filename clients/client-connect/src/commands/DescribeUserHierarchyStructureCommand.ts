@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeUserHierarchyStructureCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeUserHierarchyStructureCommand}.
+ */
 export interface DescribeUserHierarchyStructureCommandInput extends DescribeUserHierarchyStructureRequest {}
+/**
+ * The output of {@link DescribeUserHierarchyStructureCommand}.
+ */
 export interface DescribeUserHierarchyStructureCommandOutput
   extends DescribeUserHierarchyStructureResponse,
     __MetadataBearer {}

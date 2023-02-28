@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateGraphCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateGraphCommand}.
+ */
 export interface CreateGraphCommandInput extends CreateGraphRequest {}
+/**
+ * The output of {@link CreateGraphCommand}.
+ */
 export interface CreateGraphCommandOutput extends CreateGraphResponse, __MetadataBearer {}
 
 /**

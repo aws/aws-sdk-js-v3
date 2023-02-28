@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DeleteRouteCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteRouteCommand}.
+ */
 export interface DeleteRouteCommandInput extends DeleteRouteRequest {}
+/**
+ * The output of {@link DeleteRouteCommand}.
+ */
 export interface DeleteRouteCommandOutput extends DeleteRouteResponse, __MetadataBearer {}
 
 /**

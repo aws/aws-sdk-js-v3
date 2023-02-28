@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListResolversCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListResolversCommand}.
+ */
 export interface ListResolversCommandInput extends ListResolversRequest {}
+/**
+ * The output of {@link ListResolversCommand}.
+ */
 export interface ListResolversCommandOutput extends ListResolversResponse, __MetadataBearer {}
 
 /**

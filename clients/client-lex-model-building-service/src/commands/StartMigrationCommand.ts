@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1StartMigrationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartMigrationCommand}.
+ */
 export interface StartMigrationCommandInput extends StartMigrationRequest {}
+/**
+ * The output of {@link StartMigrationCommand}.
+ */
 export interface StartMigrationCommandOutput extends StartMigrationResponse, __MetadataBearer {}
 
 /**

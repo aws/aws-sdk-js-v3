@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link ListTapePoolsCommand}.
+ */
 export interface ListTapePoolsCommandInput extends ListTapePoolsInput {}
+/**
+ * The output of {@link ListTapePoolsCommand}.
+ */
 export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __MetadataBearer {}
 
 /**

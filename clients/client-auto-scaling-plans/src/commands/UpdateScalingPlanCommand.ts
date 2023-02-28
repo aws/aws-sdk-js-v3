@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateScalingPlanCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateScalingPlanCommand}.
+ */
 export interface UpdateScalingPlanCommandInput extends UpdateScalingPlanRequest {}
+/**
+ * The output of {@link UpdateScalingPlanCommand}.
+ */
 export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanResponse, __MetadataBearer {}
 
 /**

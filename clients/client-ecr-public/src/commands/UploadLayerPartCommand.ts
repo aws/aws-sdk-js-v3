@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UploadLayerPartCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UploadLayerPartCommand}.
+ */
 export interface UploadLayerPartCommandInput extends UploadLayerPartRequest {}
+/**
+ * The output of {@link UploadLayerPartCommand}.
+ */
 export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, __MetadataBearer {}
 
 /**

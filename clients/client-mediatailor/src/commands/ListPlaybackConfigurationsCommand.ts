@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListPlaybackConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPlaybackConfigurationsCommand}.
+ */
 export interface ListPlaybackConfigurationsCommandInput extends ListPlaybackConfigurationsRequest {}
+/**
+ * The output of {@link ListPlaybackConfigurationsCommand}.
+ */
 export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackConfigurationsResponse, __MetadataBearer {}
 
 /**

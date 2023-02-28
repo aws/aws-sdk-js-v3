@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeStaleSecurityGroupsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeStaleSecurityGroupsCommand}.
+ */
 export interface DescribeStaleSecurityGroupsCommandInput extends DescribeStaleSecurityGroupsRequest {}
+/**
+ * The output of {@link DescribeStaleSecurityGroupsCommand}.
+ */
 export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleSecurityGroupsResult, __MetadataBearer {}
 
 /**

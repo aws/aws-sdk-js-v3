@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListOriginEndpointsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListOriginEndpointsCommand}.
+ */
 export interface ListOriginEndpointsCommandInput extends ListOriginEndpointsRequest {}
+/**
+ * The output of {@link ListOriginEndpointsCommand}.
+ */
 export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsResponse, __MetadataBearer {}
 
 /**

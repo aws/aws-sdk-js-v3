@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ForgotPasswordCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ForgotPasswordCommand}.
+ */
 export interface ForgotPasswordCommandInput extends ForgotPasswordRequest {}
+/**
+ * The output of {@link ForgotPasswordCommand}.
+ */
 export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __MetadataBearer {}
 
 /**

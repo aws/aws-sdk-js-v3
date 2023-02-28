@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteExternalModelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteExternalModelCommand}.
+ */
 export interface DeleteExternalModelCommandInput extends DeleteExternalModelRequest {}
+/**
+ * The output of {@link DeleteExternalModelCommand}.
+ */
 export interface DeleteExternalModelCommandOutput extends DeleteExternalModelResult, __MetadataBearer {}
 
 /**

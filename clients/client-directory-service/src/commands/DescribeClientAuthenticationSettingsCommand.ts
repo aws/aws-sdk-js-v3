@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeClientAuthenticationSettingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeClientAuthenticationSettingsCommand}.
+ */
 export interface DescribeClientAuthenticationSettingsCommandInput extends DescribeClientAuthenticationSettingsRequest {}
+/**
+ * The output of {@link DescribeClientAuthenticationSettingsCommand}.
+ */
 export interface DescribeClientAuthenticationSettingsCommandOutput
   extends DescribeClientAuthenticationSettingsResult,
     __MetadataBearer {}

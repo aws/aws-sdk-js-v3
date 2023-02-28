@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AllocateStaticIpCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AllocateStaticIpCommand}.
+ */
 export interface AllocateStaticIpCommandInput extends AllocateStaticIpRequest {}
+/**
+ * The output of {@link AllocateStaticIpCommand}.
+ */
 export interface AllocateStaticIpCommandOutput extends AllocateStaticIpResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateResourceDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateResourceDefinitionCommand}.
+ */
 export interface CreateResourceDefinitionCommandInput extends CreateResourceDefinitionRequest {}
+/**
+ * The output of {@link CreateResourceDefinitionCommand}.
+ */
 export interface CreateResourceDefinitionCommandOutput extends CreateResourceDefinitionResponse, __MetadataBearer {}
 
 /**

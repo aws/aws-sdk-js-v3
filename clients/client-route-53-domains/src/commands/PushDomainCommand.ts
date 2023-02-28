@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link PushDomainCommand}.
+ */
 export interface PushDomainCommandInput extends PushDomainRequest {}
+/**
+ * The output of {@link PushDomainCommand}.
+ */
 export interface PushDomainCommandOutput extends __MetadataBearer {}
 
 /**

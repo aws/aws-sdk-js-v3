@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeletePipelineCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeletePipelineCommand}.
+ */
 export interface DeletePipelineCommandInput extends DeletePipelineInput {}
+/**
+ * The output of {@link DeletePipelineCommand}.
+ */
 export interface DeletePipelineCommandOutput extends __MetadataBearer {}
 
 /**

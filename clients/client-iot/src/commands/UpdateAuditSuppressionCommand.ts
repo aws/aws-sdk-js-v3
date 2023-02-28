@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateAuditSuppressionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateAuditSuppressionCommand}.
+ */
 export interface UpdateAuditSuppressionCommandInput extends UpdateAuditSuppressionRequest {}
+/**
+ * The output of {@link UpdateAuditSuppressionCommand}.
+ */
 export interface UpdateAuditSuppressionCommandOutput extends UpdateAuditSuppressionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetMappingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetMappingCommand}.
+ */
 export interface GetMappingCommandInput extends GetMappingRequest {}
+/**
+ * The output of {@link GetMappingCommand}.
+ */
 export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataBearer {}
 
 /**

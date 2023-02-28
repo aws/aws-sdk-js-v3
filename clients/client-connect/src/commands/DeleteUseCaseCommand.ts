@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteUseCaseCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteUseCaseCommand}.
+ */
 export interface DeleteUseCaseCommandInput extends DeleteUseCaseRequest {}
+/**
+ * The output of {@link DeleteUseCaseCommand}.
+ */
 export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
 
 /**

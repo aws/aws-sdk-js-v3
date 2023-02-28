@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link DescribeAccountModificationsCommand}.
+ */
 export interface DescribeAccountModificationsCommandInput extends DescribeAccountModificationsRequest {}
+/**
+ * The output of {@link DescribeAccountModificationsCommand}.
+ */
 export interface DescribeAccountModificationsCommandOutput
   extends DescribeAccountModificationsResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateServicePrimaryTaskSetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateServicePrimaryTaskSetCommand}.
+ */
 export interface UpdateServicePrimaryTaskSetCommandInput extends UpdateServicePrimaryTaskSetRequest {}
+/**
+ * The output of {@link UpdateServicePrimaryTaskSetCommand}.
+ */
 export interface UpdateServicePrimaryTaskSetCommandOutput
   extends UpdateServicePrimaryTaskSetResponse,
     __MetadataBearer {}

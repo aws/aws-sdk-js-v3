@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link AddSourceIdentifierToSubscriptionCommand}.
+ */
 export interface AddSourceIdentifierToSubscriptionCommandInput extends AddSourceIdentifierToSubscriptionMessage {}
+/**
+ * The output of {@link AddSourceIdentifierToSubscriptionCommand}.
+ */
 export interface AddSourceIdentifierToSubscriptionCommandOutput
   extends AddSourceIdentifierToSubscriptionResult,
     __MetadataBearer {}

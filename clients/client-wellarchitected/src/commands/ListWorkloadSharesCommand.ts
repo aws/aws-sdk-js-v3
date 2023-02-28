@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * The input for {@link ListWorkloadSharesCommand}.
+ */
 export interface ListWorkloadSharesCommandInput extends ListWorkloadSharesInput {}
+/**
+ * The output of {@link ListWorkloadSharesCommand}.
+ */
 export interface ListWorkloadSharesCommandOutput extends ListWorkloadSharesOutput, __MetadataBearer {}
 
 /**

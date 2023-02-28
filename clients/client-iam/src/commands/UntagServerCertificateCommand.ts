@@ -20,7 +20,13 @@ import {
   serializeAws_queryUntagServerCertificateCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UntagServerCertificateCommand}.
+ */
 export interface UntagServerCertificateCommandInput extends UntagServerCertificateRequest {}
+/**
+ * The output of {@link UntagServerCertificateCommand}.
+ */
 export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**

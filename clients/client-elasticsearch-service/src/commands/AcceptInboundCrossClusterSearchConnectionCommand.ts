@@ -29,8 +29,14 @@ import {
   serializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AcceptInboundCrossClusterSearchConnectionCommand}.
+ */
 export interface AcceptInboundCrossClusterSearchConnectionCommandInput
   extends AcceptInboundCrossClusterSearchConnectionRequest {}
+/**
+ * The output of {@link AcceptInboundCrossClusterSearchConnectionCommand}.
+ */
 export interface AcceptInboundCrossClusterSearchConnectionCommandOutput
   extends AcceptInboundCrossClusterSearchConnectionResponse,
     __MetadataBearer {}

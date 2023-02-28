@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetEndpointCommand}.
+ */
 export interface GetEndpointCommandInput extends GetEndpointRequest {}
+/**
+ * The output of {@link GetEndpointCommand}.
+ */
 export interface GetEndpointCommandOutput extends GetEndpointResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SetTaskStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SetTaskStatusCommand}.
+ */
 export interface SetTaskStatusCommandInput extends SetTaskStatusInput {}
+/**
+ * The output of {@link SetTaskStatusCommand}.
+ */
 export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __MetadataBearer {}
 
 /**

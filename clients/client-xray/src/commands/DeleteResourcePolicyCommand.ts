@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * The input for {@link DeleteResourcePolicyCommand}.
+ */
 export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRequest {}
+/**
+ * The output of {@link DeleteResourcePolicyCommand}.
+ */
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResult, __MetadataBearer {}
 
 /**

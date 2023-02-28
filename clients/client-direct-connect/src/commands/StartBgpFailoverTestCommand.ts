@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartBgpFailoverTestCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartBgpFailoverTestCommand}.
+ */
 export interface StartBgpFailoverTestCommandInput extends StartBgpFailoverTestRequest {}
+/**
+ * The output of {@link StartBgpFailoverTestCommand}.
+ */
 export interface StartBgpFailoverTestCommandOutput extends StartBgpFailoverTestResponse, __MetadataBearer {}
 
 /**

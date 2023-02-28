@@ -24,7 +24,13 @@ import {
   serializeAws_restJson1AddTagsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AddTagsCommand}.
+ */
 export interface AddTagsCommandInput extends AddTagsRequest {}
+/**
+ * The output of {@link AddTagsCommand}.
+ */
 export interface AddTagsCommandOutput extends __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 } from "../models/models_5";
 import { deserializeAws_ec2DescribeVpcsCommand, serializeAws_ec2DescribeVpcsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeVpcsCommand}.
+ */
 export interface DescribeVpcsCommandInput extends DescribeVpcsRequest {}
+/**
+ * The output of {@link DescribeVpcsCommand}.
+ */
 export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __MetadataBearer {}
 
 /**

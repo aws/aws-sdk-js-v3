@@ -20,7 +20,13 @@ import {
   serializeAws_restXmlDeleteCachePolicyCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link DeleteCachePolicyCommand}.
+ */
 export interface DeleteCachePolicyCommandInput extends DeleteCachePolicyRequest {}
+/**
+ * The output of {@link DeleteCachePolicyCommand}.
+ */
 export interface DeleteCachePolicyCommandOutput extends __MetadataBearer {}
 
 /**

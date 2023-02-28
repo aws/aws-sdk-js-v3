@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateEndpointsBatchCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateEndpointsBatchCommand}.
+ */
 export interface UpdateEndpointsBatchCommandInput extends UpdateEndpointsBatchRequest {}
+/**
+ * The output of {@link UpdateEndpointsBatchCommand}.
+ */
 export interface UpdateEndpointsBatchCommandOutput extends UpdateEndpointsBatchResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateComputerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateComputerCommand}.
+ */
 export interface CreateComputerCommandInput extends CreateComputerRequest {}
+/**
+ * The output of {@link CreateComputerCommand}.
+ */
 export interface CreateComputerCommandOutput extends CreateComputerResult, __MetadataBearer {}
 
 /**

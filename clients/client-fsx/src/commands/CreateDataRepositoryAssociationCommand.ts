@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDataRepositoryAssociationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDataRepositoryAssociationCommand}.
+ */
 export interface CreateDataRepositoryAssociationCommandInput extends CreateDataRepositoryAssociationRequest {}
+/**
+ * The output of {@link CreateDataRepositoryAssociationCommand}.
+ */
 export interface CreateDataRepositoryAssociationCommandOutput
   extends CreateDataRepositoryAssociationResponse,
     __MetadataBearer {}

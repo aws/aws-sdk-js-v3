@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetPlaybackConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPlaybackConfigurationCommand}.
+ */
 export interface GetPlaybackConfigurationCommandInput extends GetPlaybackConfigurationRequest {}
+/**
+ * The output of {@link GetPlaybackConfigurationCommand}.
+ */
 export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfigurationResponse, __MetadataBearer {}
 
 /**

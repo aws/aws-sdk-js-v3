@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * The input for {@link DeleteAssistantCommand}.
+ */
 export interface DeleteAssistantCommandInput extends DeleteAssistantRequest {}
+/**
+ * The output of {@link DeleteAssistantCommand}.
+ */
 export interface DeleteAssistantCommandOutput extends DeleteAssistantResponse, __MetadataBearer {}
 
 /**

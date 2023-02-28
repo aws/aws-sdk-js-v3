@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CompleteLayerUploadCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CompleteLayerUploadCommand}.
+ */
 export interface CompleteLayerUploadCommandInput extends CompleteLayerUploadRequest {}
+/**
+ * The output of {@link CompleteLayerUploadCommand}.
+ */
 export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadResponse, __MetadataBearer {}
 
 /**

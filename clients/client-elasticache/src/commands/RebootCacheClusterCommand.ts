@@ -25,7 +25,13 @@ import {
   serializeAws_queryRebootCacheClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RebootCacheClusterCommand}.
+ */
 export interface RebootCacheClusterCommandInput extends RebootCacheClusterMessage {}
+/**
+ * The output of {@link RebootCacheClusterCommand}.
+ */
 export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResult, __MetadataBearer {}
 
 /**

@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1DescribeRiskConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeRiskConfigurationCommand}.
+ */
 export interface DescribeRiskConfigurationCommandInput extends DescribeRiskConfigurationRequest {}
+/**
+ * The output of {@link DescribeRiskConfigurationCommand}.
+ */
 export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConfigurationResponse, __MetadataBearer {}
 
 /**

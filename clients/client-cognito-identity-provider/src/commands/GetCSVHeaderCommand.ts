@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1GetCSVHeaderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCSVHeaderCommand}.
+ */
 export interface GetCSVHeaderCommandInput extends GetCSVHeaderRequest {}
+/**
+ * The output of {@link GetCSVHeaderCommand}.
+ */
 export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __MetadataBearer {}
 
 /**

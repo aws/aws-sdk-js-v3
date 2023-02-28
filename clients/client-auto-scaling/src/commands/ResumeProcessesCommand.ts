@@ -20,7 +20,13 @@ import {
   serializeAws_queryResumeProcessesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ResumeProcessesCommand}.
+ */
 export interface ResumeProcessesCommandInput extends ScalingProcessQuery {}
+/**
+ * The output of {@link ResumeProcessesCommand}.
+ */
 export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
 
 /**

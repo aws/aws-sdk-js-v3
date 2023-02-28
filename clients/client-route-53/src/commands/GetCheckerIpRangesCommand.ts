@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link GetCheckerIpRangesCommand}.
+ */
 export interface GetCheckerIpRangesCommandInput extends GetCheckerIpRangesRequest {}
+/**
+ * The output of {@link GetCheckerIpRangesCommand}.
+ */
 export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesResponse, __MetadataBearer {}
 
 /**

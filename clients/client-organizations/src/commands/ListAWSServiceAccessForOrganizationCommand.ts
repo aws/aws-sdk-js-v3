@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAWSServiceAccessForOrganizationCommand}.
+ */
 export interface ListAWSServiceAccessForOrganizationCommandInput extends ListAWSServiceAccessForOrganizationRequest {}
+/**
+ * The output of {@link ListAWSServiceAccessForOrganizationCommand}.
+ */
 export interface ListAWSServiceAccessForOrganizationCommandOutput
   extends ListAWSServiceAccessForOrganizationResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateExternalConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateExternalConnectionCommand}.
+ */
 export interface AssociateExternalConnectionCommandInput extends AssociateExternalConnectionRequest {}
+/**
+ * The output of {@link AssociateExternalConnectionCommand}.
+ */
 export interface AssociateExternalConnectionCommandOutput extends AssociateExternalConnectionResult, __MetadataBearer {}
 
 /**

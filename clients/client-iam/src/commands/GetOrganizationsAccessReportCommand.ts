@@ -25,7 +25,13 @@ import {
   serializeAws_queryGetOrganizationsAccessReportCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetOrganizationsAccessReportCommand}.
+ */
 export interface GetOrganizationsAccessReportCommandInput extends GetOrganizationsAccessReportRequest {}
+/**
+ * The output of {@link GetOrganizationsAccessReportCommand}.
+ */
 export interface GetOrganizationsAccessReportCommandOutput
   extends GetOrganizationsAccessReportResponse,
     __MetadataBearer {}

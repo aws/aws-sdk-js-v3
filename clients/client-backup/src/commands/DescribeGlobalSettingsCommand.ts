@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeGlobalSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeGlobalSettingsCommand}.
+ */
 export interface DescribeGlobalSettingsCommandInput extends DescribeGlobalSettingsInput {}
+/**
+ * The output of {@link DescribeGlobalSettingsCommand}.
+ */
 export interface DescribeGlobalSettingsCommandOutput extends DescribeGlobalSettingsOutput, __MetadataBearer {}
 
 /**

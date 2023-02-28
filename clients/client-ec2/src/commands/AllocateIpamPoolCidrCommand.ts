@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AllocateIpamPoolCidrCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AllocateIpamPoolCidrCommand}.
+ */
 export interface AllocateIpamPoolCidrCommandInput extends AllocateIpamPoolCidrRequest {}
+/**
+ * The output of {@link AllocateIpamPoolCidrCommand}.
+ */
 export interface AllocateIpamPoolCidrCommandOutput extends AllocateIpamPoolCidrResult, __MetadataBearer {}
 
 /**

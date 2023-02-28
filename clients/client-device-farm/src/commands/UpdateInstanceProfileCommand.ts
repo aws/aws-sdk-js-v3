@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateInstanceProfileCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateInstanceProfileCommand}.
+ */
 export interface UpdateInstanceProfileCommandInput extends UpdateInstanceProfileRequest {}
+/**
+ * The output of {@link UpdateInstanceProfileCommand}.
+ */
 export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfileResult, __MetadataBearer {}
 
 /**

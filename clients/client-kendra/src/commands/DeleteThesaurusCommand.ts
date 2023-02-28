@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteThesaurusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteThesaurusCommand}.
+ */
 export interface DeleteThesaurusCommandInput extends DeleteThesaurusRequest {}
+/**
+ * The output of {@link DeleteThesaurusCommand}.
+ */
 export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
 
 /**

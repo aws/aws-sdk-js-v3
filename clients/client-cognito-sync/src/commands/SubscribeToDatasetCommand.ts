@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SubscribeToDatasetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SubscribeToDatasetCommand}.
+ */
 export interface SubscribeToDatasetCommandInput extends SubscribeToDatasetRequest {}
+/**
+ * The output of {@link SubscribeToDatasetCommand}.
+ */
 export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetResponse, __MetadataBearer {}
 
 /**

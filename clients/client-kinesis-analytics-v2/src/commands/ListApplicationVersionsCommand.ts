@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListApplicationVersionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListApplicationVersionsCommand}.
+ */
 export interface ListApplicationVersionsCommandInput extends ListApplicationVersionsRequest {}
+/**
+ * The output of {@link ListApplicationVersionsCommand}.
+ */
 export interface ListApplicationVersionsCommandOutput extends ListApplicationVersionsResponse, __MetadataBearer {}
 
 /**

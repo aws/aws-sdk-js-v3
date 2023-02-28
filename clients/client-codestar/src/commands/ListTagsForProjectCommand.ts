@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListTagsForProjectCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTagsForProjectCommand}.
+ */
 export interface ListTagsForProjectCommandInput extends ListTagsForProjectRequest {}
+/**
+ * The output of {@link ListTagsForProjectCommand}.
+ */
 export interface ListTagsForProjectCommandOutput extends ListTagsForProjectResult, __MetadataBearer {}
 
 /**

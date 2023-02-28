@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DescribeScheduledActionsCommand}.
+ */
 export interface DescribeScheduledActionsCommandInput extends DescribeScheduledActionsMessage {}
+/**
+ * The output of {@link DescribeScheduledActionsCommand}.
+ */
 export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsMessage, __MetadataBearer {}
 
 /**

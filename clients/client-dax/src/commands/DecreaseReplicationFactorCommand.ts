@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DecreaseReplicationFactorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DecreaseReplicationFactorCommand}.
+ */
 export interface DecreaseReplicationFactorCommandInput extends DecreaseReplicationFactorRequest {}
+/**
+ * The output of {@link DecreaseReplicationFactorCommand}.
+ */
 export interface DecreaseReplicationFactorCommandOutput extends DecreaseReplicationFactorResponse, __MetadataBearer {}
 
 /**

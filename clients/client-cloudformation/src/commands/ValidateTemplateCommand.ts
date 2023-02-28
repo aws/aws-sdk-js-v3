@@ -25,7 +25,13 @@ import {
   serializeAws_queryValidateTemplateCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ValidateTemplateCommand}.
+ */
 export interface ValidateTemplateCommandInput extends ValidateTemplateInput {}
+/**
+ * The output of {@link ValidateTemplateCommand}.
+ */
 export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, __MetadataBearer {}
 
 /**

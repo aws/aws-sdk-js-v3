@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1ListTasksCommand, serializeAws_json1_1ListTasksCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTasksCommand}.
+ */
 export interface ListTasksCommandInput extends ListTasksRequest {}
+/**
+ * The output of {@link ListTasksCommand}.
+ */
 export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBearer {}
 
 /**

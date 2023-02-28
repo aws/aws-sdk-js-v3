@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * The input for {@link UpdateCanaryCommand}.
+ */
 export interface UpdateCanaryCommandInput extends UpdateCanaryRequest {}
+/**
+ * The output of {@link UpdateCanaryCommand}.
+ */
 export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListLambdaFunctionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListLambdaFunctionsCommand}.
+ */
 export interface ListLambdaFunctionsCommandInput extends ListLambdaFunctionsRequest {}
+/**
+ * The output of {@link ListLambdaFunctionsCommand}.
+ */
 export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsResponse, __MetadataBearer {}
 
 /**

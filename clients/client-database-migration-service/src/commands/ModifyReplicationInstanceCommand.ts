@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ModifyReplicationInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ModifyReplicationInstanceCommand}.
+ */
 export interface ModifyReplicationInstanceCommandInput extends ModifyReplicationInstanceMessage {}
+/**
+ * The output of {@link ModifyReplicationInstanceCommand}.
+ */
 export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicationInstanceResponse, __MetadataBearer {}
 
 /**

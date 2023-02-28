@@ -25,7 +25,13 @@ import {
   serializeAws_queryListPlatformBranchesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListPlatformBranchesCommand}.
+ */
 export interface ListPlatformBranchesCommandInput extends ListPlatformBranchesRequest {}
+/**
+ * The output of {@link ListPlatformBranchesCommand}.
+ */
 export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesResult, __MetadataBearer {}
 
 /**

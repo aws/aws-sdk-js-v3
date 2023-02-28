@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UndeploySystemInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UndeploySystemInstanceCommand}.
+ */
 export interface UndeploySystemInstanceCommandInput extends UndeploySystemInstanceRequest {}
+/**
+ * The output of {@link UndeploySystemInstanceCommand}.
+ */
 export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInstanceResponse, __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryListExportsCommand, serializeAws_queryListExportsCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListExportsCommand}.
+ */
 export interface ListExportsCommandInput extends ListExportsInput {}
+/**
+ * The output of {@link ListExportsCommand}.
+ */
 export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataBearer {}
 
 /**

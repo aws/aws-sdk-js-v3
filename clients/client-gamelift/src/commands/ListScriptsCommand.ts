@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListScriptsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListScriptsCommand}.
+ */
 export interface ListScriptsCommandInput extends ListScriptsInput {}
+/**
+ * The output of {@link ListScriptsCommand}.
+ */
 export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataBearer {}
 
 /**

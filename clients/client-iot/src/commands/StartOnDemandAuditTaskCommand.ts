@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartOnDemandAuditTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartOnDemandAuditTaskCommand}.
+ */
 export interface StartOnDemandAuditTaskCommandInput extends StartOnDemandAuditTaskRequest {}
+/**
+ * The output of {@link StartOnDemandAuditTaskCommand}.
+ */
 export interface StartOnDemandAuditTaskCommandOutput extends StartOnDemandAuditTaskResponse, __MetadataBearer {}
 
 /**

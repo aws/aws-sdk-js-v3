@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutConfigurationSetDeliveryOptionsCommand}.
+ */
 export interface PutConfigurationSetDeliveryOptionsCommandInput extends PutConfigurationSetDeliveryOptionsRequest {}
+/**
+ * The output of {@link PutConfigurationSetDeliveryOptionsCommand}.
+ */
 export interface PutConfigurationSetDeliveryOptionsCommandOutput
   extends PutConfigurationSetDeliveryOptionsResponse,
     __MetadataBearer {}

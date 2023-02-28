@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyVerifiedAccessEndpointCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyVerifiedAccessEndpointCommand}.
+ */
 export interface ModifyVerifiedAccessEndpointCommandInput extends ModifyVerifiedAccessEndpointRequest {}
+/**
+ * The output of {@link ModifyVerifiedAccessEndpointCommand}.
+ */
 export interface ModifyVerifiedAccessEndpointCommandOutput
   extends ModifyVerifiedAccessEndpointResult,
     __MetadataBearer {}

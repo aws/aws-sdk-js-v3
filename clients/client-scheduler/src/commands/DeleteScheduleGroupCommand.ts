@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
+/**
+ * The input for {@link DeleteScheduleGroupCommand}.
+ */
 export interface DeleteScheduleGroupCommandInput extends DeleteScheduleGroupInput {}
+/**
+ * The output of {@link DeleteScheduleGroupCommand}.
+ */
 export interface DeleteScheduleGroupCommandOutput extends DeleteScheduleGroupOutput, __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_json1_1GetTagsCommand, serializeAws_json1_1GetTagsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetTagsCommand}.
+ */
 export interface GetTagsCommandInput extends GetTagsRequest {}
+/**
+ * The output of {@link GetTagsCommand}.
+ */
 export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer {}
 
 /**

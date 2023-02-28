@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartCalculationExecutionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartCalculationExecutionCommand}.
+ */
 export interface StartCalculationExecutionCommandInput extends StartCalculationExecutionRequest {}
+/**
+ * The output of {@link StartCalculationExecutionCommand}.
+ */
 export interface StartCalculationExecutionCommandOutput extends StartCalculationExecutionResponse, __MetadataBearer {}
 
 /**

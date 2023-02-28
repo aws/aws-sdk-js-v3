@@ -27,7 +27,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link ResetClusterParameterGroupCommand}.
+ */
 export interface ResetClusterParameterGroupCommandInput extends ResetClusterParameterGroupMessage {}
+/**
+ * The output of {@link ResetClusterParameterGroupCommand}.
+ */
 export interface ResetClusterParameterGroupCommandOutput extends ClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**

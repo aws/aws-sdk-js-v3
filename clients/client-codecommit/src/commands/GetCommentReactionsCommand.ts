@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCommentReactionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCommentReactionsCommand}.
+ */
 export interface GetCommentReactionsCommandInput extends GetCommentReactionsInput {}
+/**
+ * The output of {@link GetCommentReactionsCommand}.
+ */
 export interface GetCommentReactionsCommandOutput extends GetCommentReactionsOutput, __MetadataBearer {}
 
 /**

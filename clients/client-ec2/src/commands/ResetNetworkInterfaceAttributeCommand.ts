@@ -23,7 +23,13 @@ import {
   serializeAws_ec2ResetNetworkInterfaceAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ResetNetworkInterfaceAttributeCommand}.
+ */
 export interface ResetNetworkInterfaceAttributeCommandInput extends ResetNetworkInterfaceAttributeRequest {}
+/**
+ * The output of {@link ResetNetworkInterfaceAttributeCommand}.
+ */
 export interface ResetNetworkInterfaceAttributeCommandOutput extends __MetadataBearer {}
 
 /**

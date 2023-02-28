@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartQueryPlanningCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartQueryPlanningCommand}.
+ */
 export interface StartQueryPlanningCommandInput extends StartQueryPlanningRequest {}
+/**
+ * The output of {@link StartQueryPlanningCommand}.
+ */
 export interface StartQueryPlanningCommandOutput extends StartQueryPlanningResponse, __MetadataBearer {}
 
 /**

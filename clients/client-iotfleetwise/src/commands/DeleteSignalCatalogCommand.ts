@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DeleteSignalCatalogCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteSignalCatalogCommand}.
+ */
 export interface DeleteSignalCatalogCommandInput extends DeleteSignalCatalogRequest {}
+/**
+ * The output of {@link DeleteSignalCatalogCommand}.
+ */
 export interface DeleteSignalCatalogCommandOutput extends DeleteSignalCatalogResponse, __MetadataBearer {}
 
 /**

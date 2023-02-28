@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DeleteDBSubnetGroupCommand}.
+ */
 export interface DeleteDBSubnetGroupCommandInput extends DeleteDBSubnetGroupMessage {}
+/**
+ * The output of {@link DeleteDBSubnetGroupCommand}.
+ */
 export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1AddRegionCommand, serializeAws_json1_1AddRegionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddRegionCommand}.
+ */
 export interface AddRegionCommandInput extends AddRegionRequest {}
+/**
+ * The output of {@link AddRegionCommand}.
+ */
 export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBearer {}
 
 /**

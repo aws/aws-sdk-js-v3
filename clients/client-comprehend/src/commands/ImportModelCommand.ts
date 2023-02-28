@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ImportModelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ImportModelCommand}.
+ */
 export interface ImportModelCommandInput extends ImportModelRequest {}
+/**
+ * The output of {@link ImportModelCommand}.
+ */
 export interface ImportModelCommandOutput extends ImportModelResponse, __MetadataBearer {}
 
 /**

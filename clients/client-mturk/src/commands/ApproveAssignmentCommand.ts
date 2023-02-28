@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ApproveAssignmentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ApproveAssignmentCommand}.
+ */
 export interface ApproveAssignmentCommandInput extends ApproveAssignmentRequest {}
+/**
+ * The output of {@link ApproveAssignmentCommand}.
+ */
 export interface ApproveAssignmentCommandOutput extends ApproveAssignmentResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DescribePhoneNumbersCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribePhoneNumbersCommand}.
+ */
 export interface DescribePhoneNumbersCommandInput extends DescribePhoneNumbersRequest {}
+/**
+ * The output of {@link DescribePhoneNumbersCommand}.
+ */
 export interface DescribePhoneNumbersCommandOutput extends DescribePhoneNumbersResult, __MetadataBearer {}
 
 /**

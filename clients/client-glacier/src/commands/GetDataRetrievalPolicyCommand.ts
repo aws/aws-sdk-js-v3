@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDataRetrievalPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDataRetrievalPolicyCommand}.
+ */
 export interface GetDataRetrievalPolicyCommandInput extends GetDataRetrievalPolicyInput {}
+/**
+ * The output of {@link GetDataRetrievalPolicyCommand}.
+ */
 export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPolicyOutput, __MetadataBearer {}
 
 /**

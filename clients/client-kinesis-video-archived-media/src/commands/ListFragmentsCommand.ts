@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListFragmentsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListFragmentsCommand}.
+ */
 export interface ListFragmentsCommandInput extends ListFragmentsInput {}
+/**
+ * The output of {@link ListFragmentsCommand}.
+ */
 export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __MetadataBearer {}
 
 /**

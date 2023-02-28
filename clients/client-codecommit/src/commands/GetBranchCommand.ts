@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetBranchCommand, serializeAws_json1_1GetBranchCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetBranchCommand}.
+ */
 export interface GetBranchCommandInput extends GetBranchInput {}
+/**
+ * The output of {@link GetBranchCommand}.
+ */
 export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBearer {}
 
 /**

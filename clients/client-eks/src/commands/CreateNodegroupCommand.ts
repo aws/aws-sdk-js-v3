@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateNodegroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateNodegroupCommand}.
+ */
 export interface CreateNodegroupCommandInput extends CreateNodegroupRequest {}
+/**
+ * The output of {@link CreateNodegroupCommand}.
+ */
 export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, __MetadataBearer {}
 
 /**

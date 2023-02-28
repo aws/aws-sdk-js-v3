@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateTestGridProjectCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateTestGridProjectCommand}.
+ */
 export interface UpdateTestGridProjectCommandInput extends UpdateTestGridProjectRequest {}
+/**
+ * The output of {@link UpdateTestGridProjectCommand}.
+ */
 export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjectResult, __MetadataBearer {}
 
 /**

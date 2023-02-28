@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateDBClusterParameterGroupCommand}.
+ */
 export interface CreateDBClusterParameterGroupCommandInput extends CreateDBClusterParameterGroupMessage {}
+/**
+ * The output of {@link CreateDBClusterParameterGroupCommand}.
+ */
 export interface CreateDBClusterParameterGroupCommandOutput
   extends CreateDBClusterParameterGroupResult,
     __MetadataBearer {}

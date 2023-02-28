@@ -25,7 +25,13 @@ import {
   serializeAws_queryGetRolePolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetRolePolicyCommand}.
+ */
 export interface GetRolePolicyCommandInput extends GetRolePolicyRequest {}
+/**
+ * The output of {@link GetRolePolicyCommand}.
+ */
 export interface GetRolePolicyCommandOutput extends GetRolePolicyResponse, __MetadataBearer {}
 
 /**

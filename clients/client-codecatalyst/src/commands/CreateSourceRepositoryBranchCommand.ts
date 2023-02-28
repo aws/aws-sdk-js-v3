@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateSourceRepositoryBranchCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateSourceRepositoryBranchCommand}.
+ */
 export interface CreateSourceRepositoryBranchCommandInput extends CreateSourceRepositoryBranchRequest {}
+/**
+ * The output of {@link CreateSourceRepositoryBranchCommand}.
+ */
 export interface CreateSourceRepositoryBranchCommandOutput
   extends CreateSourceRepositoryBranchResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListShardsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListShardsCommand}.
+ */
 export interface ListShardsCommandInput extends ListShardsInput {}
+/**
+ * The output of {@link ListShardsCommand}.
+ */
 export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBearer {}
 
 /**

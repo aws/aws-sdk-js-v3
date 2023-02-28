@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateBrokerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateBrokerCommand}.
+ */
 export interface UpdateBrokerCommandInput extends UpdateBrokerRequest {}
+/**
+ * The output of {@link UpdateBrokerCommand}.
+ */
 export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __MetadataBearer {}
 
 /**

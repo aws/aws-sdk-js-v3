@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link MalformedTimestampPathHttpDateCommand}.
+ */
 export interface MalformedTimestampPathHttpDateCommandInput extends MalformedTimestampPathHttpDateInput {}
+/**
+ * The output of {@link MalformedTimestampPathHttpDateCommand}.
+ */
 export interface MalformedTimestampPathHttpDateCommandOutput extends __MetadataBearer {}
 
 export class MalformedTimestampPathHttpDateCommand extends $Command<

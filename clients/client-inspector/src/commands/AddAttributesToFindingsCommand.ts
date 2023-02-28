@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AddAttributesToFindingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddAttributesToFindingsCommand}.
+ */
 export interface AddAttributesToFindingsCommandInput extends AddAttributesToFindingsRequest {}
+/**
+ * The output of {@link AddAttributesToFindingsCommand}.
+ */
 export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFindingsResponse, __MetadataBearer {}
 
 /**

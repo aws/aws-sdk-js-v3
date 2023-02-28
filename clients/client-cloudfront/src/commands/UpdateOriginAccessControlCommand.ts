@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlUpdateOriginAccessControlCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link UpdateOriginAccessControlCommand}.
+ */
 export interface UpdateOriginAccessControlCommandInput extends UpdateOriginAccessControlRequest {}
+/**
+ * The output of {@link UpdateOriginAccessControlCommand}.
+ */
 export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAccessControlResult, __MetadataBearer {}
 
 /**

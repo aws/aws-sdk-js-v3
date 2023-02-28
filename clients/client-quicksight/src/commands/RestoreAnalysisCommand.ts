@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link RestoreAnalysisCommand}.
+ */
 export interface RestoreAnalysisCommandInput extends RestoreAnalysisRequest {}
+/**
+ * The output of {@link RestoreAnalysisCommand}.
+ */
 export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListScheduledActionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListScheduledActionsCommand}.
+ */
 export interface ListScheduledActionsCommandInput extends ListScheduledActionsRequest {}
+/**
+ * The output of {@link ListScheduledActionsCommand}.
+ */
 export interface ListScheduledActionsCommandOutput extends ListScheduledActionsResponse, __MetadataBearer {}
 
 /**

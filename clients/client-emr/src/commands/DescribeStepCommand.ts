@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeStepCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeStepCommand}.
+ */
 export interface DescribeStepCommandInput extends DescribeStepInput {}
+/**
+ * The output of {@link DescribeStepCommand}.
+ */
 export interface DescribeStepCommandOutput extends DescribeStepOutput, __MetadataBearer {}
 
 /**

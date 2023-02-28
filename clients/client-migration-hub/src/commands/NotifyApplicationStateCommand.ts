@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1NotifyApplicationStateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link NotifyApplicationStateCommand}.
+ */
 export interface NotifyApplicationStateCommandInput extends NotifyApplicationStateRequest {}
+/**
+ * The output of {@link NotifyApplicationStateCommand}.
+ */
 export interface NotifyApplicationStateCommandOutput extends NotifyApplicationStateResult, __MetadataBearer {}
 
 /**

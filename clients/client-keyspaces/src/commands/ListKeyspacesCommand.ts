@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListKeyspacesCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListKeyspacesCommand}.
+ */
 export interface ListKeyspacesCommandInput extends ListKeyspacesRequest {}
+/**
+ * The output of {@link ListKeyspacesCommand}.
+ */
 export interface ListKeyspacesCommandOutput extends ListKeyspacesResponse, __MetadataBearer {}
 
 /**

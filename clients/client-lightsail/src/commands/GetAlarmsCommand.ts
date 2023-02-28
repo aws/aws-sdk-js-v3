@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetAlarmsCommand, serializeAws_json1_1GetAlarmsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetAlarmsCommand}.
+ */
 export interface GetAlarmsCommandInput extends GetAlarmsRequest {}
+/**
+ * The output of {@link GetAlarmsCommand}.
+ */
 export interface GetAlarmsCommandOutput extends GetAlarmsResult, __MetadataBearer {}
 
 /**

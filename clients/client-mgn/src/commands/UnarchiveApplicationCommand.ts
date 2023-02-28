@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UnarchiveApplicationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UnarchiveApplicationCommand}.
+ */
 export interface UnarchiveApplicationCommandInput extends UnarchiveApplicationRequest {}
+/**
+ * The output of {@link UnarchiveApplicationCommand}.
+ */
 export interface UnarchiveApplicationCommandOutput extends Application, __MetadataBearer {}
 
 /**

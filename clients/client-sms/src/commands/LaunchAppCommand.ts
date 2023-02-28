@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1LaunchAppCommand, serializeAws_json1_1LaunchAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link LaunchAppCommand}.
+ */
 export interface LaunchAppCommandInput extends LaunchAppRequest {}
+/**
+ * The output of {@link LaunchAppCommand}.
+ */
 export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBearer {}
 
 /**

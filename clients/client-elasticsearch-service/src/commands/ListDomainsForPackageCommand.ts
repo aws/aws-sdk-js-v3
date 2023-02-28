@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListDomainsForPackageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDomainsForPackageCommand}.
+ */
 export interface ListDomainsForPackageCommandInput extends ListDomainsForPackageRequest {}
+/**
+ * The output of {@link ListDomainsForPackageCommand}.
+ */
 export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackageResponse, __MetadataBearer {}
 
 /**

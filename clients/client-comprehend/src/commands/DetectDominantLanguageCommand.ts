@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DetectDominantLanguageCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DetectDominantLanguageCommand}.
+ */
 export interface DetectDominantLanguageCommandInput extends DetectDominantLanguageRequest {}
+/**
+ * The output of {@link DetectDominantLanguageCommand}.
+ */
 export interface DetectDominantLanguageCommandOutput extends DetectDominantLanguageResponse, __MetadataBearer {}
 
 /**

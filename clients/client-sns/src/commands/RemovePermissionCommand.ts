@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link RemovePermissionCommand}.
+ */
 export interface RemovePermissionCommandInput extends RemovePermissionInput {}
+/**
+ * The output of {@link RemovePermissionCommand}.
+ */
 export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**

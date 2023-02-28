@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateDeploymentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateDeploymentCommand}.
+ */
 export interface UpdateDeploymentCommandInput extends UpdateDeploymentRequest {}
+/**
+ * The output of {@link UpdateDeploymentCommand}.
+ */
 export interface UpdateDeploymentCommandOutput extends UpdateDeploymentResponse, __MetadataBearer {}
 
 /**

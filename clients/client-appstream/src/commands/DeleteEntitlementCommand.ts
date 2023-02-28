@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteEntitlementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteEntitlementCommand}.
+ */
 export interface DeleteEntitlementCommandInput extends DeleteEntitlementRequest {}
+/**
+ * The output of {@link DeleteEntitlementCommand}.
+ */
 export interface DeleteEntitlementCommandOutput extends DeleteEntitlementResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link PutProjectPolicyCommand}.
+ */
 export interface PutProjectPolicyCommandInput extends PutProjectPolicyRequest {}
+/**
+ * The output of {@link PutProjectPolicyCommand}.
+ */
 export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse, __MetadataBearer {}
 
 /**

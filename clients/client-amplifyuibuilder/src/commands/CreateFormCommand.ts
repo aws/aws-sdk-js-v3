@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateFormCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateFormCommand}.
+ */
 export interface CreateFormCommandInput extends CreateFormRequest {}
+/**
+ * The output of {@link CreateFormCommand}.
+ */
 export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataBearer {}
 
 /**

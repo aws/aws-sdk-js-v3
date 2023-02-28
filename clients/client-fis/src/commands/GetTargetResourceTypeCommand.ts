@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetTargetResourceTypeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetTargetResourceTypeCommand}.
+ */
 export interface GetTargetResourceTypeCommandInput extends GetTargetResourceTypeRequest {}
+/**
+ * The output of {@link GetTargetResourceTypeCommand}.
+ */
 export interface GetTargetResourceTypeCommandOutput extends GetTargetResourceTypeResponse, __MetadataBearer {}
 
 /**

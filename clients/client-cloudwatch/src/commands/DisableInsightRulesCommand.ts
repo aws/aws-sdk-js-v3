@@ -25,7 +25,13 @@ import {
   serializeAws_queryDisableInsightRulesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DisableInsightRulesCommand}.
+ */
 export interface DisableInsightRulesCommandInput extends DisableInsightRulesInput {}
+/**
+ * The output of {@link DisableInsightRulesCommand}.
+ */
 export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOutput, __MetadataBearer {}
 
 /**

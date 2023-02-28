@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DetachObjectCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DetachObjectCommand}.
+ */
 export interface DetachObjectCommandInput extends DetachObjectRequest {}
+/**
+ * The output of {@link DetachObjectCommand}.
+ */
 export interface DetachObjectCommandOutput extends DetachObjectResponse, __MetadataBearer {}
 
 /**

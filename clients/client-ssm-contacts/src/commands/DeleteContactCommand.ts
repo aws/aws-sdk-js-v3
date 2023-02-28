@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
+/**
+ * The input for {@link DeleteContactCommand}.
+ */
 export interface DeleteContactCommandInput extends DeleteContactRequest {}
+/**
+ * The output of {@link DeleteContactCommand}.
+ */
 export interface DeleteContactCommandOutput extends DeleteContactResult, __MetadataBearer {}
 
 /**

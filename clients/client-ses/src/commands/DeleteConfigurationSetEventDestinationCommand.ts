@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link DeleteConfigurationSetEventDestinationCommand}.
+ */
 export interface DeleteConfigurationSetEventDestinationCommandInput
   extends DeleteConfigurationSetEventDestinationRequest {}
+/**
+ * The output of {@link DeleteConfigurationSetEventDestinationCommand}.
+ */
 export interface DeleteConfigurationSetEventDestinationCommandOutput
   extends DeleteConfigurationSetEventDestinationResponse,
     __MetadataBearer {}

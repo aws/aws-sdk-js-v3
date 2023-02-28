@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetVehicleCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetVehicleCommand}.
+ */
 export interface GetVehicleCommandInput extends GetVehicleRequest {}
+/**
+ * The output of {@link GetVehicleCommand}.
+ */
 export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataBearer {}
 
 /**

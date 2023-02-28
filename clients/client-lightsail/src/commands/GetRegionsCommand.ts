@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetRegionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRegionsCommand}.
+ */
 export interface GetRegionsCommandInput extends GetRegionsRequest {}
+/**
+ * The output of {@link GetRegionsCommand}.
+ */
 export interface GetRegionsCommandOutput extends GetRegionsResult, __MetadataBearer {}
 
 /**

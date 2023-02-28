@@ -17,7 +17,13 @@ import { PingResponse, PingResponseFilterSensitiveLog } from "../models/models_0
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
 import { deserializeAws_restJson1PingCommand, serializeAws_restJson1PingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PingCommand}.
+ */
 export interface PingCommandInput {}
+/**
+ * The output of {@link PingCommand}.
+ */
 export interface PingCommandOutput extends PingResponse, __MetadataBearer {}
 
 /**

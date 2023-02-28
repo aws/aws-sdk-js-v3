@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CancelMLTaskRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CancelMLTaskRunCommand}.
+ */
 export interface CancelMLTaskRunCommandInput extends CancelMLTaskRunRequest {}
+/**
+ * The output of {@link CancelMLTaskRunCommand}.
+ */
 export interface CancelMLTaskRunCommandOutput extends CancelMLTaskRunResponse, __MetadataBearer {}
 
 /**

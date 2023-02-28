@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateRequestValidatorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateRequestValidatorCommand}.
+ */
 export interface UpdateRequestValidatorCommandInput extends UpdateRequestValidatorRequest {}
+/**
+ * The output of {@link UpdateRequestValidatorCommand}.
+ */
 export interface UpdateRequestValidatorCommandOutput extends RequestValidator, __MetadataBearer {}
 
 /**

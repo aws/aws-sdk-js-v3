@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeAccountCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeAccountCommand}.
+ */
 export interface DescribeAccountCommandInput extends DescribeAccountRequest {}
+/**
+ * The output of {@link DescribeAccountCommand}.
+ */
 export interface DescribeAccountCommandOutput extends DescribeAccountResponse, __MetadataBearer {}
 
 /**

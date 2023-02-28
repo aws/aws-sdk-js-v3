@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelVariantImportJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelVariantImportJobCommand}.
+ */
 export interface CancelVariantImportJobCommandInput extends CancelVariantImportRequest {}
+/**
+ * The output of {@link CancelVariantImportJobCommand}.
+ */
 export interface CancelVariantImportJobCommandOutput extends CancelVariantImportResponse, __MetadataBearer {}
 
 /**

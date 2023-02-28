@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteTrafficMirrorFilterCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteTrafficMirrorFilterCommand}.
+ */
 export interface DeleteTrafficMirrorFilterCommandInput extends DeleteTrafficMirrorFilterRequest {}
+/**
+ * The output of {@link DeleteTrafficMirrorFilterCommand}.
+ */
 export interface DeleteTrafficMirrorFilterCommandOutput extends DeleteTrafficMirrorFilterResult, __MetadataBearer {}
 
 /**

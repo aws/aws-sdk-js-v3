@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetGcmChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetGcmChannelCommand}.
+ */
 export interface GetGcmChannelCommandInput extends GetGcmChannelRequest {}
+/**
+ * The output of {@link GetGcmChannelCommand}.
+ */
 export interface GetGcmChannelCommandOutput extends GetGcmChannelResponse, __MetadataBearer {}
 
 /**

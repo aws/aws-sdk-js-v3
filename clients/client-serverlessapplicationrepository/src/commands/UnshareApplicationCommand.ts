@@ -24,7 +24,13 @@ import {
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
 
+/**
+ * The input for {@link UnshareApplicationCommand}.
+ */
 export interface UnshareApplicationCommandInput extends UnshareApplicationRequest {}
+/**
+ * The output of {@link UnshareApplicationCommand}.
+ */
 export interface UnshareApplicationCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListGlobalTablesCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListGlobalTablesCommand}.
+ */
 export interface ListGlobalTablesCommandInput extends ListGlobalTablesInput {}
+/**
+ * The output of {@link ListGlobalTablesCommand}.
+ */
 export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, __MetadataBearer {}
 
 /**

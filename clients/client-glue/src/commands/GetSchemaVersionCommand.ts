@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetSchemaVersionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetSchemaVersionCommand}.
+ */
 export interface GetSchemaVersionCommandInput extends GetSchemaVersionInput {}
+/**
+ * The output of {@link GetSchemaVersionCommand}.
+ */
 export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link DeleteMaintenanceWindowCommand}.
+ */
 export interface DeleteMaintenanceWindowCommandInput extends DeleteMaintenanceWindowRequest {}
+/**
+ * The output of {@link DeleteMaintenanceWindowCommand}.
+ */
 export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceWindowResult, __MetadataBearer {}
 
 /**

@@ -19,7 +19,13 @@ import {
   serializeAws_ec2NestedStructuresCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link NestedStructuresCommand}.
+ */
 export interface NestedStructuresCommandInput extends NestedStructuresInput {}
+/**
+ * The output of {@link NestedStructuresCommand}.
+ */
 export interface NestedStructuresCommandOutput extends __MetadataBearer {}
 
 /**

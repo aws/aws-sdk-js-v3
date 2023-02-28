@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DeleteRuleGroupCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteRuleGroupCommand}.
+ */
 export interface DeleteRuleGroupCommandInput extends DeleteRuleGroupRequest {}
+/**
+ * The output of {@link DeleteRuleGroupCommand}.
+ */
 export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, __MetadataBearer {}
 
 /**

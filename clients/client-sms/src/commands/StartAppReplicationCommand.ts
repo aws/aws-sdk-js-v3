@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link StartAppReplicationCommand}.
+ */
 export interface StartAppReplicationCommandInput extends StartAppReplicationRequest {}
+/**
+ * The output of {@link StartAppReplicationCommand}.
+ */
 export interface StartAppReplicationCommandOutput extends StartAppReplicationResponse, __MetadataBearer {}
 
 /**

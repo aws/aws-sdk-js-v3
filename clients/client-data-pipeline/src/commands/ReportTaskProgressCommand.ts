@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ReportTaskProgressCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ReportTaskProgressCommand}.
+ */
 export interface ReportTaskProgressCommandInput extends ReportTaskProgressInput {}
+/**
+ * The output of {@link ReportTaskProgressCommand}.
+ */
 export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutput, __MetadataBearer {}
 
 /**

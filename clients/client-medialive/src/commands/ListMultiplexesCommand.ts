@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListMultiplexesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListMultiplexesCommand}.
+ */
 export interface ListMultiplexesCommandInput extends ListMultiplexesRequest {}
+/**
+ * The output of {@link ListMultiplexesCommand}.
+ */
 export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, __MetadataBearer {}
 
 /**

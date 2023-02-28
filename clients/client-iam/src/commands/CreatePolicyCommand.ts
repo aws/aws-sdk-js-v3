@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryCreatePolicyCommand, serializeAws_queryCreatePolicyCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreatePolicyCommand}.
+ */
 export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
+/**
+ * The output of {@link CreatePolicyCommand}.
+ */
 export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __MetadataBearer {}
 
 /**

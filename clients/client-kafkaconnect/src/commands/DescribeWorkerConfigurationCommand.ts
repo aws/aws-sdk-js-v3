@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeWorkerConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeWorkerConfigurationCommand}.
+ */
 export interface DescribeWorkerConfigurationCommandInput extends DescribeWorkerConfigurationRequest {}
+/**
+ * The output of {@link DescribeWorkerConfigurationCommand}.
+ */
 export interface DescribeWorkerConfigurationCommandOutput
   extends DescribeWorkerConfigurationResponse,
     __MetadataBearer {}

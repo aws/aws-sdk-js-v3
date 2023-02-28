@@ -20,7 +20,13 @@ import {
   serializeAws_queryPutMetricAlarmCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PutMetricAlarmCommand}.
+ */
 export interface PutMetricAlarmCommandInput extends PutMetricAlarmInput {}
+/**
+ * The output of {@link PutMetricAlarmCommand}.
+ */
 export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
 
 /**

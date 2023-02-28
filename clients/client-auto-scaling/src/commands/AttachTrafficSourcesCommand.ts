@@ -25,7 +25,13 @@ import {
   serializeAws_queryAttachTrafficSourcesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link AttachTrafficSourcesCommand}.
+ */
 export interface AttachTrafficSourcesCommandInput extends AttachTrafficSourcesType {}
+/**
+ * The output of {@link AttachTrafficSourcesCommand}.
+ */
 export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesResultType, __MetadataBearer {}
 
 /**

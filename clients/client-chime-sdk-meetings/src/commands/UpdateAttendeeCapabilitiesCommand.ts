@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateAttendeeCapabilitiesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateAttendeeCapabilitiesCommand}.
+ */
 export interface UpdateAttendeeCapabilitiesCommandInput extends UpdateAttendeeCapabilitiesRequest {}
+/**
+ * The output of {@link UpdateAttendeeCapabilitiesCommand}.
+ */
 export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeCapabilitiesResponse, __MetadataBearer {}
 
 /**

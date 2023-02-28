@@ -25,7 +25,13 @@ import {
   serializeAws_queryDisassociateGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DisassociateGlobalReplicationGroupCommand}.
+ */
 export interface DisassociateGlobalReplicationGroupCommandInput extends DisassociateGlobalReplicationGroupMessage {}
+/**
+ * The output of {@link DisassociateGlobalReplicationGroupCommand}.
+ */
 export interface DisassociateGlobalReplicationGroupCommandOutput
   extends DisassociateGlobalReplicationGroupResult,
     __MetadataBearer {}

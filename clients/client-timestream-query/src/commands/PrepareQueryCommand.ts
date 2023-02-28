@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
+/**
+ * The input for {@link PrepareQueryCommand}.
+ */
 export interface PrepareQueryCommandInput extends PrepareQueryRequest {}
+/**
+ * The output of {@link PrepareQueryCommand}.
+ */
 export interface PrepareQueryCommandOutput extends PrepareQueryResponse, __MetadataBearer {}
 
 /**

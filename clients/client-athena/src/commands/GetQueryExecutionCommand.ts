@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetQueryExecutionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetQueryExecutionCommand}.
+ */
 export interface GetQueryExecutionCommandInput extends GetQueryExecutionInput {}
+/**
+ * The output of {@link GetQueryExecutionCommand}.
+ */
 export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput, __MetadataBearer {}
 
 /**

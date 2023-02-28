@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DeleteEventSubscriptionCommand}.
+ */
 export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscriptionMessage {}
+/**
+ * The output of {@link DeleteEventSubscriptionCommand}.
+ */
 export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscriptionResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryUpdateApplicationResourceLifecycleCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateApplicationResourceLifecycleCommand}.
+ */
 export interface UpdateApplicationResourceLifecycleCommandInput extends UpdateApplicationResourceLifecycleMessage {}
+/**
+ * The output of {@link UpdateApplicationResourceLifecycleCommand}.
+ */
 export interface UpdateApplicationResourceLifecycleCommandOutput
   extends ApplicationResourceLifecycleDescriptionMessage,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDataSourceFromS3Command,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDataSourceFromS3Command}.
+ */
 export interface CreateDataSourceFromS3CommandInput extends CreateDataSourceFromS3Input {}
+/**
+ * The output of {@link CreateDataSourceFromS3Command}.
+ */
 export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFromS3Output, __MetadataBearer {}
 
 /**

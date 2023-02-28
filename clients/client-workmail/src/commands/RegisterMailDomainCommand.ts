@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link RegisterMailDomainCommand}.
+ */
 export interface RegisterMailDomainCommandInput extends RegisterMailDomainRequest {}
+/**
+ * The output of {@link RegisterMailDomainCommand}.
+ */
 export interface RegisterMailDomainCommandOutput extends RegisterMailDomainResponse, __MetadataBearer {}
 
 /**

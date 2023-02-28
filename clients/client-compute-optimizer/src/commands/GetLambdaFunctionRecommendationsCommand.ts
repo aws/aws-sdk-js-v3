@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetLambdaFunctionRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetLambdaFunctionRecommendationsCommand}.
+ */
 export interface GetLambdaFunctionRecommendationsCommandInput extends GetLambdaFunctionRecommendationsRequest {}
+/**
+ * The output of {@link GetLambdaFunctionRecommendationsCommand}.
+ */
 export interface GetLambdaFunctionRecommendationsCommandOutput
   extends GetLambdaFunctionRecommendationsResponse,
     __MetadataBearer {}

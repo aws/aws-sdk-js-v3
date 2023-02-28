@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link DeleteVPCAssociationAuthorizationCommand}.
+ */
 export interface DeleteVPCAssociationAuthorizationCommandInput extends DeleteVPCAssociationAuthorizationRequest {}
+/**
+ * The output of {@link DeleteVPCAssociationAuthorizationCommand}.
+ */
 export interface DeleteVPCAssociationAuthorizationCommandOutput
   extends DeleteVPCAssociationAuthorizationResponse,
     __MetadataBearer {}

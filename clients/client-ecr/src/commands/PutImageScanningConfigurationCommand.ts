@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutImageScanningConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutImageScanningConfigurationCommand}.
+ */
 export interface PutImageScanningConfigurationCommandInput extends PutImageScanningConfigurationRequest {}
+/**
+ * The output of {@link PutImageScanningConfigurationCommand}.
+ */
 export interface PutImageScanningConfigurationCommandOutput
   extends PutImageScanningConfigurationResponse,
     __MetadataBearer {}

@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1FlushStageAuthorizersCacheCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link FlushStageAuthorizersCacheCommand}.
+ */
 export interface FlushStageAuthorizersCacheCommandInput extends FlushStageAuthorizersCacheRequest {}
+/**
+ * The output of {@link FlushStageAuthorizersCacheCommand}.
+ */
 export interface FlushStageAuthorizersCacheCommandOutput extends __MetadataBearer {}
 
 /**

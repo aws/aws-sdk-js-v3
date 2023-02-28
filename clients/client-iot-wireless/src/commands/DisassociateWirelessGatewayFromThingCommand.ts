@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociateWirelessGatewayFromThingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateWirelessGatewayFromThingCommand}.
+ */
 export interface DisassociateWirelessGatewayFromThingCommandInput extends DisassociateWirelessGatewayFromThingRequest {}
+/**
+ * The output of {@link DisassociateWirelessGatewayFromThingCommand}.
+ */
 export interface DisassociateWirelessGatewayFromThingCommandOutput
   extends DisassociateWirelessGatewayFromThingResponse,
     __MetadataBearer {}

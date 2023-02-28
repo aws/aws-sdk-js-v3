@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListKeyPoliciesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListKeyPoliciesCommand}.
+ */
 export interface ListKeyPoliciesCommandInput extends ListKeyPoliciesRequest {}
+/**
+ * The output of {@link ListKeyPoliciesCommand}.
+ */
 export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, __MetadataBearer {}
 
 /**

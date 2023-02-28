@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link RebootDBClusterCommand}.
+ */
 export interface RebootDBClusterCommandInput extends RebootDBClusterMessage {}
+/**
+ * The output of {@link RebootDBClusterCommand}.
+ */
 export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __MetadataBearer {}
 
 /**

@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSensitiveDataOccurrencesAvailabilityCommand}.
+ */
 export interface GetSensitiveDataOccurrencesAvailabilityCommandInput
   extends GetSensitiveDataOccurrencesAvailabilityRequest {}
+/**
+ * The output of {@link GetSensitiveDataOccurrencesAvailabilityCommand}.
+ */
 export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
   extends GetSensitiveDataOccurrencesAvailabilityResponse,
     __MetadataBearer {}

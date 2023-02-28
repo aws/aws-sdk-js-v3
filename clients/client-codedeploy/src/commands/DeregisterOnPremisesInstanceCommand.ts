@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DeregisterOnPremisesInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterOnPremisesInstanceCommand}.
+ */
 export interface DeregisterOnPremisesInstanceCommandInput extends DeregisterOnPremisesInstanceInput {}
+/**
+ * The output of {@link DeregisterOnPremisesInstanceCommand}.
+ */
 export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBearer {}
 
 /**

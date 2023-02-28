@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateIntentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateIntentCommand}.
+ */
 export interface CreateIntentCommandInput extends CreateIntentRequest {}
+/**
+ * The output of {@link CreateIntentCommand}.
+ */
 export interface CreateIntentCommandOutput extends CreateIntentResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetEvidenceByEvidenceFolderCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetEvidenceByEvidenceFolderCommand}.
+ */
 export interface GetEvidenceByEvidenceFolderCommandInput extends GetEvidenceByEvidenceFolderRequest {}
+/**
+ * The output of {@link GetEvidenceByEvidenceFolderCommand}.
+ */
 export interface GetEvidenceByEvidenceFolderCommandOutput
   extends GetEvidenceByEvidenceFolderResponse,
     __MetadataBearer {}

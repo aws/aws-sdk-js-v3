@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyTrafficMirrorSessionCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyTrafficMirrorSessionCommand}.
+ */
 export interface ModifyTrafficMirrorSessionCommandInput extends ModifyTrafficMirrorSessionRequest {}
+/**
+ * The output of {@link ModifyTrafficMirrorSessionCommand}.
+ */
 export interface ModifyTrafficMirrorSessionCommandOutput extends ModifyTrafficMirrorSessionResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisconnectCustomKeyStoreCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisconnectCustomKeyStoreCommand}.
+ */
 export interface DisconnectCustomKeyStoreCommandInput extends DisconnectCustomKeyStoreRequest {}
+/**
+ * The output of {@link DisconnectCustomKeyStoreCommand}.
+ */
 export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomKeyStoreResponse, __MetadataBearer {}
 
 /**

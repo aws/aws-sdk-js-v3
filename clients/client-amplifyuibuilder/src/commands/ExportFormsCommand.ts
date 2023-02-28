@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ExportFormsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ExportFormsCommand}.
+ */
 export interface ExportFormsCommandInput extends ExportFormsRequest {}
+/**
+ * The output of {@link ExportFormsCommand}.
+ */
 export interface ExportFormsCommandOutput extends ExportFormsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * The input for {@link DisableProactiveEngagementCommand}.
+ */
 export interface DisableProactiveEngagementCommandInput extends DisableProactiveEngagementRequest {}
+/**
+ * The output of {@link DisableProactiveEngagementCommand}.
+ */
 export interface DisableProactiveEngagementCommandOutput extends DisableProactiveEngagementResponse, __MetadataBearer {}
 
 /**

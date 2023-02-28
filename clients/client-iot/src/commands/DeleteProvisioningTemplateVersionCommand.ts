@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteProvisioningTemplateVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteProvisioningTemplateVersionCommand}.
+ */
 export interface DeleteProvisioningTemplateVersionCommandInput extends DeleteProvisioningTemplateVersionRequest {}
+/**
+ * The output of {@link DeleteProvisioningTemplateVersionCommand}.
+ */
 export interface DeleteProvisioningTemplateVersionCommandOutput
   extends DeleteProvisioningTemplateVersionResponse,
     __MetadataBearer {}

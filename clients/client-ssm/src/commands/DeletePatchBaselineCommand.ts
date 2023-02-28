@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link DeletePatchBaselineCommand}.
+ */
 export interface DeletePatchBaselineCommandInput extends DeletePatchBaselineRequest {}
+/**
+ * The output of {@link DeletePatchBaselineCommand}.
+ */
 export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineResult, __MetadataBearer {}
 
 /**

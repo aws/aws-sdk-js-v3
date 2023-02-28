@@ -16,7 +16,13 @@ import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import { XmlNamespacesOutput, XmlNamespacesOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_ec2XmlNamespacesCommand, serializeAws_ec2XmlNamespacesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link XmlNamespacesCommand}.
+ */
 export interface XmlNamespacesCommandInput {}
+/**
+ * The output of {@link XmlNamespacesCommand}.
+ */
 export interface XmlNamespacesCommandOutput extends XmlNamespacesOutput, __MetadataBearer {}
 
 export class XmlNamespacesCommand extends $Command<

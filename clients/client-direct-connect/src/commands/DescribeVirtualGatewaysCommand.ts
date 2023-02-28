@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DescribeVirtualGatewaysCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeVirtualGatewaysCommand}.
+ */
 export interface DescribeVirtualGatewaysCommandInput {}
+/**
+ * The output of {@link DescribeVirtualGatewaysCommand}.
+ */
 export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, __MetadataBearer {}
 
 /**

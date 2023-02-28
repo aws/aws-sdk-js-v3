@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CompleteSnapshotCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CompleteSnapshotCommand}.
+ */
 export interface CompleteSnapshotCommandInput extends CompleteSnapshotRequest {}
+/**
+ * The output of {@link CompleteSnapshotCommand}.
+ */
 export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse, __MetadataBearer {}
 
 /**

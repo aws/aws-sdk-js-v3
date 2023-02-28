@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAdmChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAdmChannelCommand}.
+ */
 export interface GetAdmChannelCommandInput extends GetAdmChannelRequest {}
+/**
+ * The output of {@link GetAdmChannelCommand}.
+ */
 export interface GetAdmChannelCommandOutput extends GetAdmChannelResponse, __MetadataBearer {}
 
 /**

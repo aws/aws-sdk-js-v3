@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListContributorInsightsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListContributorInsightsCommand}.
+ */
 export interface ListContributorInsightsCommandInput extends ListContributorInsightsInput {}
+/**
+ * The output of {@link ListContributorInsightsCommand}.
+ */
 export interface ListContributorInsightsCommandOutput extends ListContributorInsightsOutput, __MetadataBearer {}
 
 /**

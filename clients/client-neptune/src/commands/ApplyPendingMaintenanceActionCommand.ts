@@ -25,7 +25,13 @@ import {
   serializeAws_queryApplyPendingMaintenanceActionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ApplyPendingMaintenanceActionCommand}.
+ */
 export interface ApplyPendingMaintenanceActionCommandInput extends ApplyPendingMaintenanceActionMessage {}
+/**
+ * The output of {@link ApplyPendingMaintenanceActionCommand}.
+ */
 export interface ApplyPendingMaintenanceActionCommandOutput
   extends ApplyPendingMaintenanceActionResult,
     __MetadataBearer {}

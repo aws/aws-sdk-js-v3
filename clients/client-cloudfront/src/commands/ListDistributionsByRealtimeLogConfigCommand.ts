@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlListDistributionsByRealtimeLogConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link ListDistributionsByRealtimeLogConfigCommand}.
+ */
 export interface ListDistributionsByRealtimeLogConfigCommandInput extends ListDistributionsByRealtimeLogConfigRequest {}
+/**
+ * The output of {@link ListDistributionsByRealtimeLogConfigCommand}.
+ */
 export interface ListDistributionsByRealtimeLogConfigCommandOutput
   extends ListDistributionsByRealtimeLogConfigResult,
     __MetadataBearer {}

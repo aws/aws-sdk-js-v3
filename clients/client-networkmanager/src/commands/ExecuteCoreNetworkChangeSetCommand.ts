@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ExecuteCoreNetworkChangeSetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ExecuteCoreNetworkChangeSetCommand}.
+ */
 export interface ExecuteCoreNetworkChangeSetCommandInput extends ExecuteCoreNetworkChangeSetRequest {}
+/**
+ * The output of {@link ExecuteCoreNetworkChangeSetCommand}.
+ */
 export interface ExecuteCoreNetworkChangeSetCommandOutput
   extends ExecuteCoreNetworkChangeSetResponse,
     __MetadataBearer {}

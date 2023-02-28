@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link ListPipelineExecutionStepsCommand}.
+ */
 export interface ListPipelineExecutionStepsCommandInput extends ListPipelineExecutionStepsRequest {}
+/**
+ * The output of {@link ListPipelineExecutionStepsCommand}.
+ */
 export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExecutionStepsResponse, __MetadataBearer {}
 
 /**

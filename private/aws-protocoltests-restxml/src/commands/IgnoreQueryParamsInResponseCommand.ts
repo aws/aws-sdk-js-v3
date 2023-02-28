@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link IgnoreQueryParamsInResponseCommand}.
+ */
 export interface IgnoreQueryParamsInResponseCommandInput {}
+/**
+ * The output of {@link IgnoreQueryParamsInResponseCommand}.
+ */
 export interface IgnoreQueryParamsInResponseCommandOutput extends IgnoreQueryParamsInResponseOutput, __MetadataBearer {}
 
 /**

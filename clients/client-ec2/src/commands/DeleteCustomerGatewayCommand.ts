@@ -20,7 +20,13 @@ import {
   serializeAws_ec2DeleteCustomerGatewayCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteCustomerGatewayCommand}.
+ */
 export interface DeleteCustomerGatewayCommandInput extends DeleteCustomerGatewayRequest {}
+/**
+ * The output of {@link DeleteCustomerGatewayCommand}.
+ */
 export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
 
 /**

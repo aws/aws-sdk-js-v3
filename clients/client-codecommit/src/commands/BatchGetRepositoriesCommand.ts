@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetRepositoriesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetRepositoriesCommand}.
+ */
 export interface BatchGetRepositoriesCommandInput extends BatchGetRepositoriesInput {}
+/**
+ * The output of {@link BatchGetRepositoriesCommand}.
+ */
 export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DescribeContinuousBackupsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeContinuousBackupsCommand}.
+ */
 export interface DescribeContinuousBackupsCommandInput extends DescribeContinuousBackupsInput {}
+/**
+ * The output of {@link DescribeContinuousBackupsCommand}.
+ */
 export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuousBackupsOutput, __MetadataBearer {}
 
 /**

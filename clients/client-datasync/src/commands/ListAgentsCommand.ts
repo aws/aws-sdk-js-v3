@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListAgentsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAgentsCommand}.
+ */
 export interface ListAgentsCommandInput extends ListAgentsRequest {}
+/**
+ * The output of {@link ListAgentsCommand}.
+ */
 export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataBearer {}
 
 /**

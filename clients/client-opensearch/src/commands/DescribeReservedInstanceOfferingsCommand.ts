@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeReservedInstanceOfferingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeReservedInstanceOfferingsCommand}.
+ */
 export interface DescribeReservedInstanceOfferingsCommandInput extends DescribeReservedInstanceOfferingsRequest {}
+/**
+ * The output of {@link DescribeReservedInstanceOfferingsCommand}.
+ */
 export interface DescribeReservedInstanceOfferingsCommandOutput
   extends DescribeReservedInstanceOfferingsResponse,
     __MetadataBearer {}

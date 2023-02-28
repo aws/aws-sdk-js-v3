@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateDevEnvironmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateDevEnvironmentCommand}.
+ */
 export interface UpdateDevEnvironmentCommandInput extends UpdateDevEnvironmentRequest {}
+/**
+ * The output of {@link UpdateDevEnvironmentCommand}.
+ */
 export interface UpdateDevEnvironmentCommandOutput extends UpdateDevEnvironmentResponse, __MetadataBearer {}
 
 /**

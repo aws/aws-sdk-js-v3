@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateMicrosoftADCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateMicrosoftADCommand}.
+ */
 export interface CreateMicrosoftADCommandInput extends CreateMicrosoftADRequest {}
+/**
+ * The output of {@link CreateMicrosoftADCommand}.
+ */
 export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult, __MetadataBearer {}
 
 /**

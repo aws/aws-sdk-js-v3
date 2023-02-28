@@ -20,7 +20,13 @@ import {
   serializeAws_restXmlDeleteKeyGroupCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link DeleteKeyGroupCommand}.
+ */
 export interface DeleteKeyGroupCommandInput extends DeleteKeyGroupRequest {}
+/**
+ * The output of {@link DeleteKeyGroupCommand}.
+ */
 export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
 
 /**

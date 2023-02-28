@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AddIpRoutesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddIpRoutesCommand}.
+ */
 export interface AddIpRoutesCommandInput extends AddIpRoutesRequest {}
+/**
+ * The output of {@link AddIpRoutesCommand}.
+ */
 export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataBearer {}
 
 /**

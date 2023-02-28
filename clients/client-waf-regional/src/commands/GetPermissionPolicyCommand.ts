@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link GetPermissionPolicyCommand}.
+ */
 export interface GetPermissionPolicyCommandInput extends GetPermissionPolicyRequest {}
+/**
+ * The output of {@link GetPermissionPolicyCommand}.
+ */
 export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyResponse, __MetadataBearer {}
 
 /**

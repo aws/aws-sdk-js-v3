@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
+/**
+ * The input for {@link DescribeTableCommand}.
+ */
 export interface DescribeTableCommandInput extends DescribeTableRequest {}
+/**
+ * The output of {@link DescribeTableCommand}.
+ */
 export interface DescribeTableCommandOutput extends DescribeTableResponse, __MetadataBearer {}
 
 /**

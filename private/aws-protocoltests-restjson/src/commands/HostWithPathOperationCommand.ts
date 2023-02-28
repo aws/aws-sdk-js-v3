@@ -18,7 +18,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link HostWithPathOperationCommand}.
+ */
 export interface HostWithPathOperationCommandInput {}
+/**
+ * The output of {@link HostWithPathOperationCommand}.
+ */
 export interface HostWithPathOperationCommandOutput extends __MetadataBearer {}
 
 export class HostWithPathOperationCommand extends $Command<

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link CreateClusterSubnetGroupCommand}.
+ */
 export interface CreateClusterSubnetGroupCommandInput extends CreateClusterSubnetGroupMessage {}
+/**
+ * The output of {@link CreateClusterSubnetGroupCommand}.
+ */
 export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubnetGroupResult, __MetadataBearer {}
 
 /**

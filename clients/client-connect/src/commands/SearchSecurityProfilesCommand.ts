@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SearchSecurityProfilesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SearchSecurityProfilesCommand}.
+ */
 export interface SearchSecurityProfilesCommandInput extends SearchSecurityProfilesRequest {}
+/**
+ * The output of {@link SearchSecurityProfilesCommand}.
+ */
 export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfilesResponse, __MetadataBearer {}
 
 /**

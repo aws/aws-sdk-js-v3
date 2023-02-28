@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DeleteConfigurationAggregatorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteConfigurationAggregatorCommand}.
+ */
 export interface DeleteConfigurationAggregatorCommandInput extends DeleteConfigurationAggregatorRequest {}
+/**
+ * The output of {@link DeleteConfigurationAggregatorCommand}.
+ */
 export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBearer {}
 
 /**

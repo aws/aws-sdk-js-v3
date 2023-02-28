@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetContactInformationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetContactInformationCommand}.
+ */
 export interface GetContactInformationCommandInput extends GetContactInformationRequest {}
+/**
+ * The output of {@link GetContactInformationCommand}.
+ */
 export interface GetContactInformationCommandOutput extends GetContactInformationResponse, __MetadataBearer {}
 
 /**

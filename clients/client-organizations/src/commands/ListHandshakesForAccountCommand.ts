@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListHandshakesForAccountCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListHandshakesForAccountCommand}.
+ */
 export interface ListHandshakesForAccountCommandInput extends ListHandshakesForAccountRequest {}
+/**
+ * The output of {@link ListHandshakesForAccountCommand}.
+ */
 export interface ListHandshakesForAccountCommandOutput extends ListHandshakesForAccountResponse, __MetadataBearer {}
 
 /**

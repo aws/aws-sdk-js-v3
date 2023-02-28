@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1RunTaskCommand, serializeAws_json1_1RunTaskCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RunTaskCommand}.
+ */
 export interface RunTaskCommandInput extends RunTaskRequest {}
+/**
+ * The output of {@link RunTaskCommand}.
+ */
 export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer {}
 
 /**

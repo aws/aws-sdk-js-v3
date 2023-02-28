@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDirectoryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDirectoryCommand}.
+ */
 export interface GetDirectoryCommandInput extends GetDirectoryRequest {}
+/**
+ * The output of {@link GetDirectoryCommand}.
+ */
 export interface GetDirectoryCommandOutput extends GetDirectoryResponse, __MetadataBearer {}
 
 /**

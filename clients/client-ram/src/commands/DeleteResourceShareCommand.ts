@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * The input for {@link DeleteResourceShareCommand}.
+ */
 export interface DeleteResourceShareCommandInput extends DeleteResourceShareRequest {}
+/**
+ * The output of {@link DeleteResourceShareCommand}.
+ */
 export interface DeleteResourceShareCommandOutput extends DeleteResourceShareResponse, __MetadataBearer {}
 
 /**

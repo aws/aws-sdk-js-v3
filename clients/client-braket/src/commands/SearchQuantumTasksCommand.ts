@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SearchQuantumTasksCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SearchQuantumTasksCommand}.
+ */
 export interface SearchQuantumTasksCommandInput extends SearchQuantumTasksRequest {}
+/**
+ * The output of {@link SearchQuantumTasksCommand}.
+ */
 export interface SearchQuantumTasksCommandOutput extends SearchQuantumTasksResponse, __MetadataBearer {}
 
 /**

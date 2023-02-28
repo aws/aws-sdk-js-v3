@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListServiceProfilesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListServiceProfilesCommand}.
+ */
 export interface ListServiceProfilesCommandInput extends ListServiceProfilesRequest {}
+/**
+ * The output of {@link ListServiceProfilesCommand}.
+ */
 export interface ListServiceProfilesCommandOutput extends ListServiceProfilesResponse, __MetadataBearer {}
 
 /**

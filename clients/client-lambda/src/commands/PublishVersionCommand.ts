@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PublishVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PublishVersionCommand}.
+ */
 export interface PublishVersionCommandInput extends PublishVersionRequest {}
+/**
+ * The output of {@link PublishVersionCommand}.
+ */
 export interface PublishVersionCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**

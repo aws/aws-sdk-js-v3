@@ -29,7 +29,13 @@ import {
   serializeAws_queryRemoveListenerCertificatesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RemoveListenerCertificatesCommand}.
+ */
 export interface RemoveListenerCertificatesCommandInput extends RemoveListenerCertificatesInput {}
+/**
+ * The output of {@link RemoveListenerCertificatesCommand}.
+ */
 export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerCertificatesOutput, __MetadataBearer {}
 
 /**

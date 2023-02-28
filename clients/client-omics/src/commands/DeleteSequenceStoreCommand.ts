@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteSequenceStoreCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteSequenceStoreCommand}.
+ */
 export interface DeleteSequenceStoreCommandInput extends DeleteSequenceStoreRequest {}
+/**
+ * The output of {@link DeleteSequenceStoreCommand}.
+ */
 export interface DeleteSequenceStoreCommandOutput extends DeleteSequenceStoreResponse, __MetadataBearer {}
 
 /**

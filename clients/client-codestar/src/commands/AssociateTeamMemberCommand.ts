@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateTeamMemberCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateTeamMemberCommand}.
+ */
 export interface AssociateTeamMemberCommandInput extends AssociateTeamMemberRequest {}
+/**
+ * The output of {@link AssociateTeamMemberCommand}.
+ */
 export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberResult, __MetadataBearer {}
 
 /**

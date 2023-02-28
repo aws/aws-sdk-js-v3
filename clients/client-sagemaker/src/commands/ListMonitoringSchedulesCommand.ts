@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link ListMonitoringSchedulesCommand}.
+ */
 export interface ListMonitoringSchedulesCommandInput extends ListMonitoringSchedulesRequest {}
+/**
+ * The output of {@link ListMonitoringSchedulesCommand}.
+ */
 export interface ListMonitoringSchedulesCommandOutput extends ListMonitoringSchedulesResponse, __MetadataBearer {}
 
 /**

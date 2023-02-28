@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1DisassociateMulticastGroupFromFuotaTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateMulticastGroupFromFuotaTaskCommand}.
+ */
 export interface DisassociateMulticastGroupFromFuotaTaskCommandInput
   extends DisassociateMulticastGroupFromFuotaTaskRequest {}
+/**
+ * The output of {@link DisassociateMulticastGroupFromFuotaTaskCommand}.
+ */
 export interface DisassociateMulticastGroupFromFuotaTaskCommandOutput
   extends DisassociateMulticastGroupFromFuotaTaskResponse,
     __MetadataBearer {}

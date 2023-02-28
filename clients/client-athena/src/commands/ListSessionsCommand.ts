@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListSessionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListSessionsCommand}.
+ */
 export interface ListSessionsCommandInput extends ListSessionsRequest {}
+/**
+ * The output of {@link ListSessionsCommand}.
+ */
 export interface ListSessionsCommandOutput extends ListSessionsResponse, __MetadataBearer {}
 
 /**

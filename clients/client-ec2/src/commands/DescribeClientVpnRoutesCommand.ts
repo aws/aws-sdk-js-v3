@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeClientVpnRoutesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeClientVpnRoutesCommand}.
+ */
 export interface DescribeClientVpnRoutesCommandInput extends DescribeClientVpnRoutesRequest {}
+/**
+ * The output of {@link DescribeClientVpnRoutesCommand}.
+ */
 export interface DescribeClientVpnRoutesCommandOutput extends DescribeClientVpnRoutesResult, __MetadataBearer {}
 
 /**

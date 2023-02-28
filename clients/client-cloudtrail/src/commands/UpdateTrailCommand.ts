@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateTrailCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateTrailCommand}.
+ */
 export interface UpdateTrailCommandInput extends UpdateTrailRequest {}
+/**
+ * The output of {@link UpdateTrailCommand}.
+ */
 export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __MetadataBearer {}
 
 /**

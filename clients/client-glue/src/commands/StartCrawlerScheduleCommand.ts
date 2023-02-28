@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartCrawlerScheduleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartCrawlerScheduleCommand}.
+ */
 export interface StartCrawlerScheduleCommandInput extends StartCrawlerScheduleRequest {}
+/**
+ * The output of {@link StartCrawlerScheduleCommand}.
+ */
 export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleResponse, __MetadataBearer {}
 
 /**

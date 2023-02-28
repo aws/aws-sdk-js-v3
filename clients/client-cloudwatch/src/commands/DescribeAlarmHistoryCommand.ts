@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeAlarmHistoryCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeAlarmHistoryCommand}.
+ */
 export interface DescribeAlarmHistoryCommandInput extends DescribeAlarmHistoryInput {}
+/**
+ * The output of {@link DescribeAlarmHistoryCommand}.
+ */
 export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryOutput, __MetadataBearer {}
 
 /**

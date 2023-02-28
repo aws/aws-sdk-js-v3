@@ -29,7 +29,13 @@ import {
   SnowDeviceManagementClientResolvedConfig,
 } from "../SnowDeviceManagementClient";
 
+/**
+ * The input for {@link CancelTaskCommand}.
+ */
 export interface CancelTaskCommandInput extends CancelTaskInput {}
+/**
+ * The output of {@link CancelTaskCommand}.
+ */
 export interface CancelTaskCommandOutput extends CancelTaskOutput, __MetadataBearer {}
 
 /**

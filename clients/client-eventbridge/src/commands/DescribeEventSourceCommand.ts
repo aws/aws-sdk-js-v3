@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeEventSourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeEventSourceCommand}.
+ */
 export interface DescribeEventSourceCommandInput extends DescribeEventSourceRequest {}
+/**
+ * The output of {@link DescribeEventSourceCommand}.
+ */
 export interface DescribeEventSourceCommandOutput extends DescribeEventSourceResponse, __MetadataBearer {}
 
 /**

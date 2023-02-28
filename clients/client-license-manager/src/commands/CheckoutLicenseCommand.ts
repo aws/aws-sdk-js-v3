@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CheckoutLicenseCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CheckoutLicenseCommand}.
+ */
 export interface CheckoutLicenseCommandInput extends CheckoutLicenseRequest {}
+/**
+ * The output of {@link CheckoutLicenseCommand}.
+ */
 export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, __MetadataBearer {}
 
 /**

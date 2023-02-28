@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeletePartnerEventSourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeletePartnerEventSourceCommand}.
+ */
 export interface DeletePartnerEventSourceCommandInput extends DeletePartnerEventSourceRequest {}
+/**
+ * The output of {@link DeletePartnerEventSourceCommand}.
+ */
 export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer {}
 
 /**

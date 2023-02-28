@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * The input for {@link EnableProfileCommand}.
+ */
 export interface EnableProfileCommandInput extends ScalarProfileRequest {}
+/**
+ * The output of {@link EnableProfileCommand}.
+ */
 export interface EnableProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**

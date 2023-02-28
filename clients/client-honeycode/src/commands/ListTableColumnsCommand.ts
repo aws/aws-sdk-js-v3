@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListTableColumnsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListTableColumnsCommand}.
+ */
 export interface ListTableColumnsCommandInput extends ListTableColumnsRequest {}
+/**
+ * The output of {@link ListTableColumnsCommand}.
+ */
 export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, __MetadataBearer {}
 
 /**

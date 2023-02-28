@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link SetReceiptRulePositionCommand}.
+ */
 export interface SetReceiptRulePositionCommandInput extends SetReceiptRulePositionRequest {}
+/**
+ * The output of {@link SetReceiptRulePositionCommand}.
+ */
 export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePositionResponse, __MetadataBearer {}
 
 /**

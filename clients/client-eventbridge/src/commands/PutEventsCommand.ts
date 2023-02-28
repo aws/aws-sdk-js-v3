@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1PutEventsCommand, serializeAws_json1_1PutEventsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutEventsCommand}.
+ */
 export interface PutEventsCommandInput extends PutEventsRequest {}
+/**
+ * The output of {@link PutEventsCommand}.
+ */
 export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBearer {}
 
 /**

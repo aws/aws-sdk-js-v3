@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateModelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateModelCommand}.
+ */
 export interface UpdateModelCommandInput extends UpdateModelRequest {}
+/**
+ * The output of {@link UpdateModelCommand}.
+ */
 export interface UpdateModelCommandOutput extends UpdateModelResult, __MetadataBearer {}
 
 /**

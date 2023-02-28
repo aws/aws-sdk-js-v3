@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1RotateTunnelAccessTokenCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RotateTunnelAccessTokenCommand}.
+ */
 export interface RotateTunnelAccessTokenCommandInput extends RotateTunnelAccessTokenRequest {}
+/**
+ * The output of {@link RotateTunnelAccessTokenCommand}.
+ */
 export interface RotateTunnelAccessTokenCommandOutput extends RotateTunnelAccessTokenResponse, __MetadataBearer {}
 
 /**

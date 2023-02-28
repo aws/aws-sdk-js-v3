@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * The input for {@link DeleteAttributeGroupCommand}.
+ */
 export interface DeleteAttributeGroupCommandInput extends DeleteAttributeGroupRequest {}
+/**
+ * The output of {@link DeleteAttributeGroupCommand}.
+ */
 export interface DeleteAttributeGroupCommandOutput extends DeleteAttributeGroupResponse, __MetadataBearer {}
 
 /**

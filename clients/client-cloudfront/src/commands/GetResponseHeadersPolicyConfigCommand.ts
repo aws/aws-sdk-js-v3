@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlGetResponseHeadersPolicyConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link GetResponseHeadersPolicyConfigCommand}.
+ */
 export interface GetResponseHeadersPolicyConfigCommandInput extends GetResponseHeadersPolicyConfigRequest {}
+/**
+ * The output of {@link GetResponseHeadersPolicyConfigCommand}.
+ */
 export interface GetResponseHeadersPolicyConfigCommandOutput
   extends GetResponseHeadersPolicyConfigResult,
     __MetadataBearer {}

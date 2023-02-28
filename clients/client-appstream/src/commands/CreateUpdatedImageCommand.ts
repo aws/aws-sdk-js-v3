@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateUpdatedImageCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateUpdatedImageCommand}.
+ */
 export interface CreateUpdatedImageCommandInput extends CreateUpdatedImageRequest {}
+/**
+ * The output of {@link CreateUpdatedImageCommand}.
+ */
 export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResult, __MetadataBearer {}
 
 /**

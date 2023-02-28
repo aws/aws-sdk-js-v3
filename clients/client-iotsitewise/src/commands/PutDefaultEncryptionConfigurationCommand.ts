@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutDefaultEncryptionConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutDefaultEncryptionConfigurationCommand}.
+ */
 export interface PutDefaultEncryptionConfigurationCommandInput extends PutDefaultEncryptionConfigurationRequest {}
+/**
+ * The output of {@link PutDefaultEncryptionConfigurationCommand}.
+ */
 export interface PutDefaultEncryptionConfigurationCommandOutput
   extends PutDefaultEncryptionConfigurationResponse,
     __MetadataBearer {}

@@ -29,7 +29,13 @@ import {
   serializeAws_queryDescribeSSLPoliciesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeSSLPoliciesCommand}.
+ */
 export interface DescribeSSLPoliciesCommandInput extends DescribeSSLPoliciesInput {}
+/**
+ * The output of {@link DescribeSSLPoliciesCommand}.
+ */
 export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOutput, __MetadataBearer {}
 
 /**

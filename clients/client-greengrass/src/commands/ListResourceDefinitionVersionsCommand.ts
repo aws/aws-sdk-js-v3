@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListResourceDefinitionVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListResourceDefinitionVersionsCommand}.
+ */
 export interface ListResourceDefinitionVersionsCommandInput extends ListResourceDefinitionVersionsRequest {}
+/**
+ * The output of {@link ListResourceDefinitionVersionsCommand}.
+ */
 export interface ListResourceDefinitionVersionsCommandOutput
   extends ListResourceDefinitionVersionsResponse,
     __MetadataBearer {}

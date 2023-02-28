@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetRemainingFreeTrialDaysCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetRemainingFreeTrialDaysCommand}.
+ */
 export interface GetRemainingFreeTrialDaysCommandInput extends GetRemainingFreeTrialDaysRequest {}
+/**
+ * The output of {@link GetRemainingFreeTrialDaysCommand}.
+ */
 export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFreeTrialDaysResponse, __MetadataBearer {}
 
 /**

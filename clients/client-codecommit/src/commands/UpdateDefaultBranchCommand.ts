@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateDefaultBranchCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateDefaultBranchCommand}.
+ */
 export interface UpdateDefaultBranchCommandInput extends UpdateDefaultBranchInput {}
+/**
+ * The output of {@link UpdateDefaultBranchCommand}.
+ */
 export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
 
 /**

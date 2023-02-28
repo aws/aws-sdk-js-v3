@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AssociateNatGatewayAddressCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AssociateNatGatewayAddressCommand}.
+ */
 export interface AssociateNatGatewayAddressCommandInput extends AssociateNatGatewayAddressRequest {}
+/**
+ * The output of {@link AssociateNatGatewayAddressCommand}.
+ */
 export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGatewayAddressResult, __MetadataBearer {}
 
 /**

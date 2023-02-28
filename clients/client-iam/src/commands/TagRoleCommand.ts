@@ -17,7 +17,13 @@ import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { TagRoleRequest, TagRoleRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryTagRoleCommand, serializeAws_queryTagRoleCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link TagRoleCommand}.
+ */
 export interface TagRoleCommandInput extends TagRoleRequest {}
+/**
+ * The output of {@link TagRoleCommand}.
+ */
 export interface TagRoleCommandOutput extends __MetadataBearer {}
 
 /**

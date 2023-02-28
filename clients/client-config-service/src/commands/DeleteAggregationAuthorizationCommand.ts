@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DeleteAggregationAuthorizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteAggregationAuthorizationCommand}.
+ */
 export interface DeleteAggregationAuthorizationCommandInput extends DeleteAggregationAuthorizationRequest {}
+/**
+ * The output of {@link DeleteAggregationAuthorizationCommand}.
+ */
 export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataBearer {}
 
 /**

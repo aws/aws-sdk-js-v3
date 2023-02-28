@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1TestInvokeAuthorizerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link TestInvokeAuthorizerCommand}.
+ */
 export interface TestInvokeAuthorizerCommandInput extends TestInvokeAuthorizerRequest {}
+/**
+ * The output of {@link TestInvokeAuthorizerCommand}.
+ */
 export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerResponse, __MetadataBearer {}
 
 /**

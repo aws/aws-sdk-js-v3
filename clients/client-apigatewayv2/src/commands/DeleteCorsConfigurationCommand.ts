@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteCorsConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteCorsConfigurationCommand}.
+ */
 export interface DeleteCorsConfigurationCommandInput extends DeleteCorsConfigurationRequest {}
+/**
+ * The output of {@link DeleteCorsConfigurationCommand}.
+ */
 export interface DeleteCorsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

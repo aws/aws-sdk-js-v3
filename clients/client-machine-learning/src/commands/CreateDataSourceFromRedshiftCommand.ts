@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDataSourceFromRedshiftCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDataSourceFromRedshiftCommand}.
+ */
 export interface CreateDataSourceFromRedshiftCommandInput extends CreateDataSourceFromRedshiftInput {}
+/**
+ * The output of {@link CreateDataSourceFromRedshiftCommand}.
+ */
 export interface CreateDataSourceFromRedshiftCommandOutput
   extends CreateDataSourceFromRedshiftOutput,
     __MetadataBearer {}

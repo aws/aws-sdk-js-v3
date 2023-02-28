@@ -22,7 +22,13 @@ import {
 } from "../models/models_6";
 import { deserializeAws_ec2ModifyFleetCommand, serializeAws_ec2ModifyFleetCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyFleetCommand}.
+ */
 export interface ModifyFleetCommandInput extends ModifyFleetRequest {}
+/**
+ * The output of {@link ModifyFleetCommand}.
+ */
 export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataBearer {}
 
 /**

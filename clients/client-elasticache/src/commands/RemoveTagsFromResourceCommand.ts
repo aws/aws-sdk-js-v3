@@ -25,7 +25,13 @@ import {
   serializeAws_queryRemoveTagsFromResourceCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RemoveTagsFromResourceCommand}.
+ */
 export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResourceMessage {}
+/**
+ * The output of {@link RemoveTagsFromResourceCommand}.
+ */
 export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __MetadataBearer {}
 
 /**

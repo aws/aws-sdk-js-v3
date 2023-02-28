@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateInstanceAttributeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateInstanceAttributeCommand}.
+ */
 export interface UpdateInstanceAttributeCommandInput extends UpdateInstanceAttributeRequest {}
+/**
+ * The output of {@link UpdateInstanceAttributeCommand}.
+ */
 export interface UpdateInstanceAttributeCommandOutput extends __MetadataBearer {}
 
 /**

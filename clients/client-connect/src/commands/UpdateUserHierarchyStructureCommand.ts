@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1UpdateUserHierarchyStructureCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateUserHierarchyStructureCommand}.
+ */
 export interface UpdateUserHierarchyStructureCommandInput extends UpdateUserHierarchyStructureRequest {}
+/**
+ * The output of {@link UpdateUserHierarchyStructureCommand}.
+ */
 export interface UpdateUserHierarchyStructureCommandOutput extends __MetadataBearer {}
 
 /**

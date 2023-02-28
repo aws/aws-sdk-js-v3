@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ScheduleKeyDeletionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ScheduleKeyDeletionCommand}.
+ */
 export interface ScheduleKeyDeletionCommandInput extends ScheduleKeyDeletionRequest {}
+/**
+ * The output of {@link ScheduleKeyDeletionCommand}.
+ */
 export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionResponse, __MetadataBearer {}
 
 /**

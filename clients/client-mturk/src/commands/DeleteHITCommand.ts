@@ -22,7 +22,13 @@ import {
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { deserializeAws_json1_1DeleteHITCommand, serializeAws_json1_1DeleteHITCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteHITCommand}.
+ */
 export interface DeleteHITCommandInput extends DeleteHITRequest {}
+/**
+ * The output of {@link DeleteHITCommand}.
+ */
 export interface DeleteHITCommandOutput extends DeleteHITResponse, __MetadataBearer {}
 
 /**

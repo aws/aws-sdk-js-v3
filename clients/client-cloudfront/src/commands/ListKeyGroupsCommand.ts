@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlListKeyGroupsCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link ListKeyGroupsCommand}.
+ */
 export interface ListKeyGroupsCommandInput extends ListKeyGroupsRequest {}
+/**
+ * The output of {@link ListKeyGroupsCommand}.
+ */
 export interface ListKeyGroupsCommandOutput extends ListKeyGroupsResult, __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link QueryIdempotencyTokenAutoFillCommand}.
+ */
 export interface QueryIdempotencyTokenAutoFillCommandInput extends QueryIdempotencyTokenAutoFillInput {}
+/**
+ * The output of {@link QueryIdempotencyTokenAutoFillCommand}.
+ */
 export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBearer {}
 
 /**

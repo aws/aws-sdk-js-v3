@@ -25,7 +25,13 @@ import {
   serializeAws_queryCancelInstanceRefreshCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CancelInstanceRefreshCommand}.
+ */
 export interface CancelInstanceRefreshCommandInput extends CancelInstanceRefreshType {}
+/**
+ * The output of {@link CancelInstanceRefreshCommand}.
+ */
 export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefreshAnswer, __MetadataBearer {}
 
 /**

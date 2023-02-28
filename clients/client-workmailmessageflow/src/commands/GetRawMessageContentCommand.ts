@@ -32,7 +32,13 @@ import {
   WorkMailMessageFlowClientResolvedConfig,
 } from "../WorkMailMessageFlowClient";
 
+/**
+ * The input for {@link GetRawMessageContentCommand}.
+ */
 export interface GetRawMessageContentCommandInput extends GetRawMessageContentRequest {}
+/**
+ * The output of {@link GetRawMessageContentCommand}.
+ */
 export interface GetRawMessageContentCommandOutput
   extends __WithSdkStreamMixin<GetRawMessageContentResponse, "messageContent">,
     __MetadataBearer {}

@@ -24,7 +24,13 @@ import {
   serializeAws_json1_0SimpleScalarPropertiesCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link SimpleScalarPropertiesCommand}.
+ */
 export interface SimpleScalarPropertiesCommandInput extends SimpleScalarPropertiesInput {}
+/**
+ * The output of {@link SimpleScalarPropertiesCommand}.
+ */
 export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropertiesOutput, __MetadataBearer {}
 
 export class SimpleScalarPropertiesCommand extends $Command<

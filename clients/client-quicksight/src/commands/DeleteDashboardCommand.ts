@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link DeleteDashboardCommand}.
+ */
 export interface DeleteDashboardCommandInput extends DeleteDashboardRequest {}
+/**
+ * The output of {@link DeleteDashboardCommand}.
+ */
 export interface DeleteDashboardCommandOutput extends DeleteDashboardResponse, __MetadataBearer {}
 
 /**

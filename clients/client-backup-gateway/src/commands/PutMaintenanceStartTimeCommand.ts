@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0PutMaintenanceStartTimeCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link PutMaintenanceStartTimeCommand}.
+ */
 export interface PutMaintenanceStartTimeCommandInput extends PutMaintenanceStartTimeInput {}
+/**
+ * The output of {@link PutMaintenanceStartTimeCommand}.
+ */
 export interface PutMaintenanceStartTimeCommandOutput extends PutMaintenanceStartTimeOutput, __MetadataBearer {}
 
 /**

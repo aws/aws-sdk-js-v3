@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link CreateNamespaceCommand}.
+ */
 export interface CreateNamespaceCommandInput extends CreateNamespaceRequest {}
+/**
+ * The output of {@link CreateNamespaceCommand}.
+ */
 export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, __MetadataBearer {}
 
 /**

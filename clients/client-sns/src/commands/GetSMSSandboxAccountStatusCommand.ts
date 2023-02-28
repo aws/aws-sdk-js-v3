@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link GetSMSSandboxAccountStatusCommand}.
+ */
 export interface GetSMSSandboxAccountStatusCommandInput extends GetSMSSandboxAccountStatusInput {}
+/**
+ * The output of {@link GetSMSSandboxAccountStatusCommand}.
+ */
 export interface GetSMSSandboxAccountStatusCommandOutput extends GetSMSSandboxAccountStatusResult, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link StartServerCommand}.
+ */
 export interface StartServerCommandInput extends StartServerRequest {}
+/**
+ * The output of {@link StartServerCommand}.
+ */
 export interface StartServerCommandOutput extends __MetadataBearer {}
 
 /**

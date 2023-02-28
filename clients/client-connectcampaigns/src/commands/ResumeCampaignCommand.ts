@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1ResumeCampaignCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ResumeCampaignCommand}.
+ */
 export interface ResumeCampaignCommandInput extends ResumeCampaignRequest {}
+/**
+ * The output of {@link ResumeCampaignCommand}.
+ */
 export interface ResumeCampaignCommandOutput extends __MetadataBearer {}
 
 /**

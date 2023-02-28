@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteReportPlanCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteReportPlanCommand}.
+ */
 export interface DeleteReportPlanCommandInput extends DeleteReportPlanInput {}
+/**
+ * The output of {@link DeleteReportPlanCommand}.
+ */
 export interface DeleteReportPlanCommandOutput extends __MetadataBearer {}
 
 /**

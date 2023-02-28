@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteControlCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteControlCommand}.
+ */
 export interface DeleteControlCommandInput extends DeleteControlRequest {}
+/**
+ * The output of {@link DeleteControlCommand}.
+ */
 export interface DeleteControlCommandOutput extends DeleteControlResponse, __MetadataBearer {}
 
 /**

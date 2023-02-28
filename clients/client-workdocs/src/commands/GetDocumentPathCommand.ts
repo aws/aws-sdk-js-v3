@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link GetDocumentPathCommand}.
+ */
 export interface GetDocumentPathCommandInput extends GetDocumentPathRequest {}
+/**
+ * The output of {@link GetDocumentPathCommand}.
+ */
 export interface GetDocumentPathCommandOutput extends GetDocumentPathResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeBundleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeBundleCommand}.
+ */
 export interface DescribeBundleCommandInput extends DescribeBundleRequest {}
+/**
+ * The output of {@link DescribeBundleCommand}.
+ */
 export interface DescribeBundleCommandOutput extends DescribeBundleResult, __MetadataBearer {}
 
 /**

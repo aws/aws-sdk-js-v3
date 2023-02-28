@@ -24,7 +24,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link PutBucketOwnershipControlsCommand}.
+ */
 export interface PutBucketOwnershipControlsCommandInput extends PutBucketOwnershipControlsRequest {}
+/**
+ * The output of {@link PutBucketOwnershipControlsCommand}.
+ */
 export interface PutBucketOwnershipControlsCommandOutput extends __MetadataBearer {}
 
 /**

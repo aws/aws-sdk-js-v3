@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateCreatedArtifactCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateCreatedArtifactCommand}.
+ */
 export interface DisassociateCreatedArtifactCommandInput extends DisassociateCreatedArtifactRequest {}
+/**
+ * The output of {@link DisassociateCreatedArtifactCommand}.
+ */
 export interface DisassociateCreatedArtifactCommandOutput extends DisassociateCreatedArtifactResult, __MetadataBearer {}
 
 /**

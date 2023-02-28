@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DescribeDomainChangeProgressCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeDomainChangeProgressCommand}.
+ */
 export interface DescribeDomainChangeProgressCommandInput extends DescribeDomainChangeProgressRequest {}
+/**
+ * The output of {@link DescribeDomainChangeProgressCommand}.
+ */
 export interface DescribeDomainChangeProgressCommandOutput
   extends DescribeDomainChangeProgressResponse,
     __MetadataBearer {}

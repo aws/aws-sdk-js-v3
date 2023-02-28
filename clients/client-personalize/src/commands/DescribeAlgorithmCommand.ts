@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeAlgorithmCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeAlgorithmCommand}.
+ */
 export interface DescribeAlgorithmCommandInput extends DescribeAlgorithmRequest {}
+/**
+ * The output of {@link DescribeAlgorithmCommand}.
+ */
 export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmResponse, __MetadataBearer {}
 
 /**

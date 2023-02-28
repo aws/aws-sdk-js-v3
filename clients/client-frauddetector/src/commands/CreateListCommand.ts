@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateListCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateListCommand}.
+ */
 export interface CreateListCommandInput extends CreateListRequest {}
+/**
+ * The output of {@link CreateListCommand}.
+ */
 export interface CreateListCommandOutput extends CreateListResult, __MetadataBearer {}
 
 /**

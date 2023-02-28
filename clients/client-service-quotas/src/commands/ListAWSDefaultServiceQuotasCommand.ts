@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
+/**
+ * The input for {@link ListAWSDefaultServiceQuotasCommand}.
+ */
 export interface ListAWSDefaultServiceQuotasCommandInput extends ListAWSDefaultServiceQuotasRequest {}
+/**
+ * The output of {@link ListAWSDefaultServiceQuotasCommand}.
+ */
 export interface ListAWSDefaultServiceQuotasCommandOutput
   extends ListAWSDefaultServiceQuotasResponse,
     __MetadataBearer {}

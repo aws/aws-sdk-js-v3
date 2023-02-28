@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DisableVpcClassicLinkDnsSupportCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisableVpcClassicLinkDnsSupportCommand}.
+ */
 export interface DisableVpcClassicLinkDnsSupportCommandInput extends DisableVpcClassicLinkDnsSupportRequest {}
+/**
+ * The output of {@link DisableVpcClassicLinkDnsSupportCommand}.
+ */
 export interface DisableVpcClassicLinkDnsSupportCommandOutput
   extends DisableVpcClassicLinkDnsSupportResult,
     __MetadataBearer {}

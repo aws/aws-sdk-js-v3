@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteBotAliasCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteBotAliasCommand}.
+ */
 export interface DeleteBotAliasCommandInput extends DeleteBotAliasRequest {}
+/**
+ * The output of {@link DeleteBotAliasCommand}.
+ */
 export interface DeleteBotAliasCommandOutput extends DeleteBotAliasResponse, __MetadataBearer {}
 
 /**

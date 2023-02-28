@@ -28,7 +28,13 @@ import {
   serializeAws_restJson1GetReferenceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetReferenceCommand}.
+ */
 export interface GetReferenceCommandInput extends GetReferenceRequest {}
+/**
+ * The output of {@link GetReferenceCommand}.
+ */
 export interface GetReferenceCommandOutput
   extends __WithSdkStreamMixin<GetReferenceResponse, "payload">,
     __MetadataBearer {}

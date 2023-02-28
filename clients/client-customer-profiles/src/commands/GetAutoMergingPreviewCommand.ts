@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAutoMergingPreviewCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAutoMergingPreviewCommand}.
+ */
 export interface GetAutoMergingPreviewCommandInput extends GetAutoMergingPreviewRequest {}
+/**
+ * The output of {@link GetAutoMergingPreviewCommand}.
+ */
 export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPreviewResponse, __MetadataBearer {}
 
 /**

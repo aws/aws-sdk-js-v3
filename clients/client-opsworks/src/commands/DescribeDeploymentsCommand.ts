@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeDeploymentsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeDeploymentsCommand}.
+ */
 export interface DescribeDeploymentsCommandInput extends DescribeDeploymentsRequest {}
+/**
+ * The output of {@link DescribeDeploymentsCommand}.
+ */
 export interface DescribeDeploymentsCommandOutput extends DescribeDeploymentsResult, __MetadataBearer {}
 
 /**

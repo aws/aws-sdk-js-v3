@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeElasticIpsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeElasticIpsCommand}.
+ */
 export interface DescribeElasticIpsCommandInput extends DescribeElasticIpsRequest {}
+/**
+ * The output of {@link DescribeElasticIpsCommand}.
+ */
 export interface DescribeElasticIpsCommandOutput extends DescribeElasticIpsResult, __MetadataBearer {}
 
 /**

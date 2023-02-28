@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteIPSetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteIPSetCommand}.
+ */
 export interface DeleteIPSetCommandInput extends DeleteIPSetRequest {}
+/**
+ * The output of {@link DeleteIPSetCommand}.
+ */
 export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __MetadataBearer {}
 
 /**

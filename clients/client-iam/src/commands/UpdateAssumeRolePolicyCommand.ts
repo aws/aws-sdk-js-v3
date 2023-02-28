@@ -20,7 +20,13 @@ import {
   serializeAws_queryUpdateAssumeRolePolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateAssumeRolePolicyCommand}.
+ */
 export interface UpdateAssumeRolePolicyCommandInput extends UpdateAssumeRolePolicyRequest {}
+/**
+ * The output of {@link UpdateAssumeRolePolicyCommand}.
+ */
 export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**

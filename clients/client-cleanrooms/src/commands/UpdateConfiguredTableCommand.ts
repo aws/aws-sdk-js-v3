@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateConfiguredTableCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateConfiguredTableCommand}.
+ */
 export interface UpdateConfiguredTableCommandInput extends UpdateConfiguredTableInput {}
+/**
+ * The output of {@link UpdateConfiguredTableCommand}.
+ */
 export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTableOutput, __MetadataBearer {}
 
 /**

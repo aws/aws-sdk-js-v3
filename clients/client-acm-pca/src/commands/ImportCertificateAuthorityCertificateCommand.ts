@@ -23,8 +23,14 @@ import {
   serializeAws_json1_1ImportCertificateAuthorityCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ImportCertificateAuthorityCertificateCommand}.
+ */
 export interface ImportCertificateAuthorityCertificateCommandInput
   extends ImportCertificateAuthorityCertificateRequest {}
+/**
+ * The output of {@link ImportCertificateAuthorityCertificateCommand}.
+ */
 export interface ImportCertificateAuthorityCertificateCommandOutput extends __MetadataBearer {}
 
 /**

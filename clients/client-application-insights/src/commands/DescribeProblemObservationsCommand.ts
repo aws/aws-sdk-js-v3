@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeProblemObservationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeProblemObservationsCommand}.
+ */
 export interface DescribeProblemObservationsCommandInput extends DescribeProblemObservationsRequest {}
+/**
+ * The output of {@link DescribeProblemObservationsCommand}.
+ */
 export interface DescribeProblemObservationsCommandOutput
   extends DescribeProblemObservationsResponse,
     __MetadataBearer {}

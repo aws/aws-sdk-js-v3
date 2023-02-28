@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
+/**
+ * The input for {@link DescribeAttachmentCommand}.
+ */
 export interface DescribeAttachmentCommandInput extends DescribeAttachmentRequest {}
+/**
+ * The output of {@link DescribeAttachmentCommand}.
+ */
 export interface DescribeAttachmentCommandOutput extends DescribeAttachmentResponse, __MetadataBearer {}
 
 /**

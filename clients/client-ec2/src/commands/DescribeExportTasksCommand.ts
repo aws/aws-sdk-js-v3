@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeExportTasksCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeExportTasksCommand}.
+ */
 export interface DescribeExportTasksCommandInput extends DescribeExportTasksRequest {}
+/**
+ * The output of {@link DescribeExportTasksCommand}.
+ */
 export interface DescribeExportTasksCommandOutput extends DescribeExportTasksResult, __MetadataBearer {}
 
 /**

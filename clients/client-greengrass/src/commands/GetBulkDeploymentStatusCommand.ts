@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetBulkDeploymentStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBulkDeploymentStatusCommand}.
+ */
 export interface GetBulkDeploymentStatusCommandInput extends GetBulkDeploymentStatusRequest {}
+/**
+ * The output of {@link GetBulkDeploymentStatusCommand}.
+ */
 export interface GetBulkDeploymentStatusCommandOutput extends GetBulkDeploymentStatusResponse, __MetadataBearer {}
 
 /**

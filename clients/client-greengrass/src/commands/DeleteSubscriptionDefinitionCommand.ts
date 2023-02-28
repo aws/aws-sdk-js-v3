@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteSubscriptionDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteSubscriptionDefinitionCommand}.
+ */
 export interface DeleteSubscriptionDefinitionCommandInput extends DeleteSubscriptionDefinitionRequest {}
+/**
+ * The output of {@link DeleteSubscriptionDefinitionCommand}.
+ */
 export interface DeleteSubscriptionDefinitionCommandOutput
   extends DeleteSubscriptionDefinitionResponse,
     __MetadataBearer {}

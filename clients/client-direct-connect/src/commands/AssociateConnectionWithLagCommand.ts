@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateConnectionWithLagCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateConnectionWithLagCommand}.
+ */
 export interface AssociateConnectionWithLagCommandInput extends AssociateConnectionWithLagRequest {}
+/**
+ * The output of {@link AssociateConnectionWithLagCommand}.
+ */
 export interface AssociateConnectionWithLagCommandOutput extends Connection, __MetadataBearer {}
 
 /**

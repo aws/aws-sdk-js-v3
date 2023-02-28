@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1FlushStageCacheCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link FlushStageCacheCommand}.
+ */
 export interface FlushStageCacheCommandInput extends FlushStageCacheRequest {}
+/**
+ * The output of {@link FlushStageCacheCommand}.
+ */
 export interface FlushStageCacheCommandOutput extends __MetadataBearer {}
 
 /**

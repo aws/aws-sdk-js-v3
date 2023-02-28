@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteConditionalForwarderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteConditionalForwarderCommand}.
+ */
 export interface DeleteConditionalForwarderCommandInput extends DeleteConditionalForwarderRequest {}
+/**
+ * The output of {@link DeleteConditionalForwarderCommand}.
+ */
 export interface DeleteConditionalForwarderCommandOutput extends DeleteConditionalForwarderResult, __MetadataBearer {}
 
 /**

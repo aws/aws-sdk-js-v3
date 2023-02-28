@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListCuratedEnvironmentImagesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListCuratedEnvironmentImagesCommand}.
+ */
 export interface ListCuratedEnvironmentImagesCommandInput extends ListCuratedEnvironmentImagesInput {}
+/**
+ * The output of {@link ListCuratedEnvironmentImagesCommand}.
+ */
 export interface ListCuratedEnvironmentImagesCommandOutput
   extends ListCuratedEnvironmentImagesOutput,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetFederationTokenCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetFederationTokenCommand}.
+ */
 export interface GetFederationTokenCommandInput extends GetFederationTokenRequest {}
+/**
+ * The output of {@link GetFederationTokenCommand}.
+ */
 export interface GetFederationTokenCommandOutput extends GetFederationTokenResponse, __MetadataBearer {}
 
 /**

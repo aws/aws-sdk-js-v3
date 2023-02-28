@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateNotificationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateNotificationCommand}.
+ */
 export interface CreateNotificationCommandInput extends CreateNotificationRequest {}
+/**
+ * The output of {@link CreateNotificationCommand}.
+ */
 export interface CreateNotificationCommandOutput extends CreateNotificationResponse, __MetadataBearer {}
 
 /**

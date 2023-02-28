@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DescribeDBParametersCommand}.
+ */
 export interface DescribeDBParametersCommandInput extends DescribeDBParametersMessage {}
+/**
+ * The output of {@link DescribeDBParametersCommand}.
+ */
 export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetails, __MetadataBearer {}
 
 /**

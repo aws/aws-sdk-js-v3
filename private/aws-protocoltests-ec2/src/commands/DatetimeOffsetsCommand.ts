@@ -16,7 +16,13 @@ import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import { DatetimeOffsetsOutput, DatetimeOffsetsOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_ec2DatetimeOffsetsCommand, serializeAws_ec2DatetimeOffsetsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DatetimeOffsetsCommand}.
+ */
 export interface DatetimeOffsetsCommandInput {}
+/**
+ * The output of {@link DatetimeOffsetsCommand}.
+ */
 export interface DatetimeOffsetsCommandOutput extends DatetimeOffsetsOutput, __MetadataBearer {}
 
 export class DatetimeOffsetsCommand extends $Command<

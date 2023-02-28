@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListExecutorsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListExecutorsCommand}.
+ */
 export interface ListExecutorsCommandInput extends ListExecutorsRequest {}
+/**
+ * The output of {@link ListExecutorsCommand}.
+ */
 export interface ListExecutorsCommandOutput extends ListExecutorsResponse, __MetadataBearer {}
 
 /**

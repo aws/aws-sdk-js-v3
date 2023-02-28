@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1VerifyOTPMessageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link VerifyOTPMessageCommand}.
+ */
 export interface VerifyOTPMessageCommandInput extends VerifyOTPMessageRequest {}
+/**
+ * The output of {@link VerifyOTPMessageCommand}.
+ */
 export interface VerifyOTPMessageCommandOutput extends VerifyOTPMessageResponse, __MetadataBearer {}
 
 /**

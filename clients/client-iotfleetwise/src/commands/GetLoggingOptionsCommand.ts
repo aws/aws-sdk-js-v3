@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetLoggingOptionsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetLoggingOptionsCommand}.
+ */
 export interface GetLoggingOptionsCommandInput extends GetLoggingOptionsRequest {}
+/**
+ * The output of {@link GetLoggingOptionsCommand}.
+ */
 export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsResponse, __MetadataBearer {}
 
 /**

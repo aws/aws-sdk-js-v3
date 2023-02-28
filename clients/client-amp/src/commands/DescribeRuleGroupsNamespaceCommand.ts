@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeRuleGroupsNamespaceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeRuleGroupsNamespaceCommand}.
+ */
 export interface DescribeRuleGroupsNamespaceCommandInput extends DescribeRuleGroupsNamespaceRequest {}
+/**
+ * The output of {@link DescribeRuleGroupsNamespaceCommand}.
+ */
 export interface DescribeRuleGroupsNamespaceCommandOutput
   extends DescribeRuleGroupsNamespaceResponse,
     __MetadataBearer {}

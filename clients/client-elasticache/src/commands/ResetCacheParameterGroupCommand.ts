@@ -25,7 +25,13 @@ import {
   serializeAws_queryResetCacheParameterGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ResetCacheParameterGroupCommand}.
+ */
 export interface ResetCacheParameterGroupCommandInput extends ResetCacheParameterGroupMessage {}
+/**
+ * The output of {@link ResetCacheParameterGroupCommand}.
+ */
 export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGroupNameMessage, __MetadataBearer {}
 
 /**

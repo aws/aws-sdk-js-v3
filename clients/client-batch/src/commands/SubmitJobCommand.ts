@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SubmitJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SubmitJobCommand}.
+ */
 export interface SubmitJobCommandInput extends SubmitJobRequest {}
+/**
+ * The output of {@link SubmitJobCommand}.
+ */
 export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBearer {}
 
 /**

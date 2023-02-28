@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminListGroupsForUserCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminListGroupsForUserCommand}.
+ */
 export interface AdminListGroupsForUserCommandInput extends AdminListGroupsForUserRequest {}
+/**
+ * The output of {@link AdminListGroupsForUserCommand}.
+ */
 export interface AdminListGroupsForUserCommandOutput extends AdminListGroupsForUserResponse, __MetadataBearer {}
 
 /**

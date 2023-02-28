@@ -17,7 +17,13 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { EnableVolumeIORequest, EnableVolumeIORequestFilterSensitiveLog } from "../models/models_5";
 import { deserializeAws_ec2EnableVolumeIOCommand, serializeAws_ec2EnableVolumeIOCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link EnableVolumeIOCommand}.
+ */
 export interface EnableVolumeIOCommandInput extends EnableVolumeIORequest {}
+/**
+ * The output of {@link EnableVolumeIOCommand}.
+ */
 export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
 
 /**

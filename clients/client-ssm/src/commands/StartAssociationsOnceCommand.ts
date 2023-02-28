@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link StartAssociationsOnceCommand}.
+ */
 export interface StartAssociationsOnceCommandInput extends StartAssociationsOnceRequest {}
+/**
+ * The output of {@link StartAssociationsOnceCommand}.
+ */
 export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnceResult, __MetadataBearer {}
 
 /**

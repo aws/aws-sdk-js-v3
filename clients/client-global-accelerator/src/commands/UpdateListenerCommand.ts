@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1UpdateListenerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateListenerCommand}.
+ */
 export interface UpdateListenerCommandInput extends UpdateListenerRequest {}
+/**
+ * The output of {@link UpdateListenerCommand}.
+ */
 export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __MetadataBearer {}
 
 /**

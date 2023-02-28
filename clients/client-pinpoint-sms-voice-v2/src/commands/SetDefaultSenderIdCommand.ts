@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0SetDefaultSenderIdCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link SetDefaultSenderIdCommand}.
+ */
 export interface SetDefaultSenderIdCommandInput extends SetDefaultSenderIdRequest {}
+/**
+ * The output of {@link SetDefaultSenderIdCommand}.
+ */
 export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResult, __MetadataBearer {}
 
 /**

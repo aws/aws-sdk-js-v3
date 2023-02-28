@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetShardIteratorCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetShardIteratorCommand}.
+ */
 export interface GetShardIteratorCommandInput extends GetShardIteratorInput {}
+/**
+ * The output of {@link GetShardIteratorCommand}.
+ */
 export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, __MetadataBearer {}
 
 /**

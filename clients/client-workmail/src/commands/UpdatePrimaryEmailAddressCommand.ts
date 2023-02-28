@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link UpdatePrimaryEmailAddressCommand}.
+ */
 export interface UpdatePrimaryEmailAddressCommandInput extends UpdatePrimaryEmailAddressRequest {}
+/**
+ * The output of {@link UpdatePrimaryEmailAddressCommand}.
+ */
 export interface UpdatePrimaryEmailAddressCommandOutput extends UpdatePrimaryEmailAddressResponse, __MetadataBearer {}
 
 /**

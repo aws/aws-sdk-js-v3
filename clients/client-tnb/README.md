@@ -203,3 +203,270 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CancelSolNetworkOperation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/cancelsolnetworkoperationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/cancelsolnetworkoperationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/cancelsolnetworkoperationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateSolFunctionPackage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/createsolfunctionpackagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/createsolfunctionpackagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/createsolfunctionpackagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateSolNetworkInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/createsolnetworkinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/createsolnetworkinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/createsolnetworkinstancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateSolNetworkPackage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/createsolnetworkpackagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/createsolnetworkpackagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/createsolnetworkpackagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSolFunctionPackage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/deletesolfunctionpackagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/deletesolfunctionpackagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/deletesolfunctionpackagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSolNetworkInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/deletesolnetworkinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/deletesolnetworkinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/deletesolnetworkinstancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSolNetworkPackage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/deletesolnetworkpackagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/deletesolnetworkpackagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/deletesolnetworkpackagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSolFunctionInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/getsolfunctioninstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolfunctioninstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolfunctioninstancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSolFunctionPackage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/getsolfunctionpackagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolfunctionpackagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolfunctionpackagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSolFunctionPackageContent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/getsolfunctionpackagecontentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolfunctionpackagecontentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolfunctionpackagecontentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSolFunctionPackageDescriptor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/getsolfunctionpackagedescriptorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolfunctionpackagedescriptorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolfunctionpackagedescriptorcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSolNetworkInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/getsolnetworkinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolnetworkinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolnetworkinstancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSolNetworkOperation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/getsolnetworkoperationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolnetworkoperationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolnetworkoperationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSolNetworkPackage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/getsolnetworkpackagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolnetworkpackagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolnetworkpackagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSolNetworkPackageContent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/getsolnetworkpackagecontentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolnetworkpackagecontentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolnetworkpackagecontentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSolNetworkPackageDescriptor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/getsolnetworkpackagedescriptorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolnetworkpackagedescriptorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/getsolnetworkpackagedescriptorcommandoutput.html)
+
+</details>
+<details>
+<summary>
+InstantiateSolNetworkInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/instantiatesolnetworkinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/instantiatesolnetworkinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/instantiatesolnetworkinstancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSolFunctionInstances
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/listsolfunctioninstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/listsolfunctioninstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/listsolfunctioninstancescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSolFunctionPackages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/listsolfunctionpackagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/listsolfunctionpackagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/listsolfunctionpackagescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSolNetworkInstances
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/listsolnetworkinstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/listsolnetworkinstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/listsolnetworkinstancescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSolNetworkOperations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/listsolnetworkoperationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/listsolnetworkoperationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/listsolnetworkoperationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSolNetworkPackages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/listsolnetworkpackagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/listsolnetworkpackagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/listsolnetworkpackagescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutSolFunctionPackageContent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/putsolfunctionpackagecontentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/putsolfunctionpackagecontentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/putsolfunctionpackagecontentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutSolNetworkPackageContent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/putsolnetworkpackagecontentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/putsolnetworkpackagecontentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/putsolnetworkpackagecontentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+TerminateSolNetworkInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/terminatesolnetworkinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/terminatesolnetworkinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/terminatesolnetworkinstancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSolFunctionPackage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/updatesolfunctionpackagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/updatesolfunctionpackagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/updatesolfunctionpackagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSolNetworkInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/updatesolnetworkinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/updatesolnetworkinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/updatesolnetworkinstancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSolNetworkPackage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/updatesolnetworkpackagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/updatesolnetworkpackagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/updatesolnetworkpackagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ValidateSolFunctionPackageContent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/validatesolfunctionpackagecontentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/validatesolfunctionpackagecontentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/validatesolfunctionpackagecontentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ValidateSolNetworkPackageContent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/classes/validatesolnetworkpackagecontentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/validatesolnetworkpackagecontentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-tnb/interfaces/validatesolnetworkpackagecontentcommandoutput.html)
+
+</details>

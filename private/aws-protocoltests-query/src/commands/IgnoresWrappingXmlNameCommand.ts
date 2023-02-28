@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link IgnoresWrappingXmlNameCommand}.
+ */
 export interface IgnoresWrappingXmlNameCommandInput {}
+/**
+ * The output of {@link IgnoresWrappingXmlNameCommand}.
+ */
 export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlNameOutput, __MetadataBearer {}
 
 /**

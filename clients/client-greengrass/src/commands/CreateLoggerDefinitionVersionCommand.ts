@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateLoggerDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateLoggerDefinitionVersionCommand}.
+ */
 export interface CreateLoggerDefinitionVersionCommandInput extends CreateLoggerDefinitionVersionRequest {}
+/**
+ * The output of {@link CreateLoggerDefinitionVersionCommand}.
+ */
 export interface CreateLoggerDefinitionVersionCommandOutput
   extends CreateLoggerDefinitionVersionResponse,
     __MetadataBearer {}

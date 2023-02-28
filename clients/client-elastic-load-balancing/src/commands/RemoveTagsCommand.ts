@@ -26,7 +26,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryRemoveTagsCommand, serializeAws_queryRemoveTagsCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RemoveTagsCommand}.
+ */
 export interface RemoveTagsCommandInput extends RemoveTagsInput {}
+/**
+ * The output of {@link RemoveTagsCommand}.
+ */
 export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBearer {}
 
 /**

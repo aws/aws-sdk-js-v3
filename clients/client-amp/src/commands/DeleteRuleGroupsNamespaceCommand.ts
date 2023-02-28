@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteRuleGroupsNamespaceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteRuleGroupsNamespaceCommand}.
+ */
 export interface DeleteRuleGroupsNamespaceCommandInput extends DeleteRuleGroupsNamespaceRequest {}
+/**
+ * The output of {@link DeleteRuleGroupsNamespaceCommand}.
+ */
 export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer {}
 
 /**

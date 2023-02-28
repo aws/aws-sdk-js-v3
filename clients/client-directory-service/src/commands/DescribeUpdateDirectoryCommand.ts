@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeUpdateDirectoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeUpdateDirectoryCommand}.
+ */
 export interface DescribeUpdateDirectoryCommandInput extends DescribeUpdateDirectoryRequest {}
+/**
+ * The output of {@link DescribeUpdateDirectoryCommand}.
+ */
 export interface DescribeUpdateDirectoryCommandOutput extends DescribeUpdateDirectoryResult, __MetadataBearer {}
 
 /**

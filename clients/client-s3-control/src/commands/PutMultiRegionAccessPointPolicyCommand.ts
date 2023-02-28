@@ -27,7 +27,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link PutMultiRegionAccessPointPolicyCommand}.
+ */
 export interface PutMultiRegionAccessPointPolicyCommandInput extends PutMultiRegionAccessPointPolicyRequest {}
+/**
+ * The output of {@link PutMultiRegionAccessPointPolicyCommand}.
+ */
 export interface PutMultiRegionAccessPointPolicyCommandOutput
   extends PutMultiRegionAccessPointPolicyResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeSubscribersForNotificationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeSubscribersForNotificationCommand}.
+ */
 export interface DescribeSubscribersForNotificationCommandInput extends DescribeSubscribersForNotificationRequest {}
+/**
+ * The output of {@link DescribeSubscribersForNotificationCommand}.
+ */
 export interface DescribeSubscribersForNotificationCommandOutput
   extends DescribeSubscribersForNotificationResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListServicesCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListServicesCommand}.
+ */
 export interface ListServicesCommandInput extends ListServicesRequest {}
+/**
+ * The output of {@link ListServicesCommand}.
+ */
 export interface ListServicesCommandOutput extends ListServicesResponse, __MetadataBearer {}
 
 /**

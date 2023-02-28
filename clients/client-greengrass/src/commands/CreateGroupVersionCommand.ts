@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateGroupVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateGroupVersionCommand}.
+ */
 export interface CreateGroupVersionCommandInput extends CreateGroupVersionRequest {}
+/**
+ * The output of {@link CreateGroupVersionCommand}.
+ */
 export interface CreateGroupVersionCommandOutput extends CreateGroupVersionResponse, __MetadataBearer {}
 
 /**

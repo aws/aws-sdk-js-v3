@@ -25,8 +25,14 @@ import {
   serializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link IncreaseNodeGroupsInGlobalReplicationGroupCommand}.
+ */
 export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandInput
   extends IncreaseNodeGroupsInGlobalReplicationGroupMessage {}
+/**
+ * The output of {@link IncreaseNodeGroupsInGlobalReplicationGroupCommand}.
+ */
 export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
   extends IncreaseNodeGroupsInGlobalReplicationGroupResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartImagePipelineExecutionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartImagePipelineExecutionCommand}.
+ */
 export interface StartImagePipelineExecutionCommandInput extends StartImagePipelineExecutionRequest {}
+/**
+ * The output of {@link StartImagePipelineExecutionCommand}.
+ */
 export interface StartImagePipelineExecutionCommandOutput
   extends StartImagePipelineExecutionResponse,
     __MetadataBearer {}

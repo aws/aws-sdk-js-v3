@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PhoneNumberValidateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PhoneNumberValidateCommand}.
+ */
 export interface PhoneNumberValidateCommandInput extends PhoneNumberValidateRequest {}
+/**
+ * The output of {@link PhoneNumberValidateCommand}.
+ */
 export interface PhoneNumberValidateCommandOutput extends PhoneNumberValidateResponse, __MetadataBearer {}
 
 /**

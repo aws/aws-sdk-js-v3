@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListBlueprintsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListBlueprintsCommand}.
+ */
 export interface ListBlueprintsCommandInput extends ListBlueprintsRequest {}
+/**
+ * The output of {@link ListBlueprintsCommand}.
+ */
 export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __MetadataBearer {}
 
 /**

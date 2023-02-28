@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateImageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateImageCommand}.
+ */
 export interface CreateImageCommandInput extends CreateImageRequest {}
+/**
+ * The output of {@link CreateImageCommand}.
+ */
 export interface CreateImageCommandOutput extends CreateImageResponse, __MetadataBearer {}
 
 /**

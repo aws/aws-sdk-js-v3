@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteDashboardCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteDashboardCommand}.
+ */
 export interface DeleteDashboardCommandInput extends DeleteDashboardRequest {}
+/**
+ * The output of {@link DeleteDashboardCommand}.
+ */
 export interface DeleteDashboardCommandOutput extends DeleteDashboardResponse, __MetadataBearer {}
 
 /**

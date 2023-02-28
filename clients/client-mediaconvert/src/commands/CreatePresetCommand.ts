@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreatePresetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreatePresetCommand}.
+ */
 export interface CreatePresetCommandInput extends CreatePresetRequest {}
+/**
+ * The output of {@link CreatePresetCommand}.
+ */
 export interface CreatePresetCommandOutput extends CreatePresetResponse, __MetadataBearer {}
 
 /**

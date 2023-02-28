@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListControlDomainInsightsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListControlDomainInsightsCommand}.
+ */
 export interface ListControlDomainInsightsCommandInput extends ListControlDomainInsightsRequest {}
+/**
+ * The output of {@link ListControlDomainInsightsCommand}.
+ */
 export interface ListControlDomainInsightsCommandOutput extends ListControlDomainInsightsResponse, __MetadataBearer {}
 
 /**

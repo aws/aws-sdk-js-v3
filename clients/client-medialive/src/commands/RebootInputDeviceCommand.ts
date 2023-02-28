@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RebootInputDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RebootInputDeviceCommand}.
+ */
 export interface RebootInputDeviceCommandInput extends RebootInputDeviceRequest {}
+/**
+ * The output of {@link RebootInputDeviceCommand}.
+ */
 export interface RebootInputDeviceCommandOutput extends RebootInputDeviceResponse, __MetadataBearer {}
 
 /**

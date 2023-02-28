@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetComplianceDetailsByResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetComplianceDetailsByResourceCommand}.
+ */
 export interface GetComplianceDetailsByResourceCommandInput extends GetComplianceDetailsByResourceRequest {}
+/**
+ * The output of {@link GetComplianceDetailsByResourceCommand}.
+ */
 export interface GetComplianceDetailsByResourceCommandOutput
   extends GetComplianceDetailsByResourceResponse,
     __MetadataBearer {}

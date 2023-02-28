@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * The input for {@link CreateSubscriptionCommand}.
+ */
 export interface CreateSubscriptionCommandInput extends CreateSubscriptionRequest {}
+/**
+ * The output of {@link CreateSubscriptionCommand}.
+ */
 export interface CreateSubscriptionCommandOutput extends CreateSubscriptionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListSignalCatalogNodesCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListSignalCatalogNodesCommand}.
+ */
 export interface ListSignalCatalogNodesCommandInput extends ListSignalCatalogNodesRequest {}
+/**
+ * The output of {@link ListSignalCatalogNodesCommand}.
+ */
 export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNodesResponse, __MetadataBearer {}
 
 /**

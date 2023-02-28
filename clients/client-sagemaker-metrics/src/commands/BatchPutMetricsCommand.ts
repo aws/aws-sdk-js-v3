@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SageMakerMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerMetricsClient";
 
+/**
+ * The input for {@link BatchPutMetricsCommand}.
+ */
 export interface BatchPutMetricsCommandInput extends BatchPutMetricsRequest {}
+/**
+ * The output of {@link BatchPutMetricsCommand}.
+ */
 export interface BatchPutMetricsCommandOutput extends BatchPutMetricsResponse, __MetadataBearer {}
 
 /**

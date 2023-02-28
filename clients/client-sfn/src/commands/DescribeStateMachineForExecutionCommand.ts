@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * The input for {@link DescribeStateMachineForExecutionCommand}.
+ */
 export interface DescribeStateMachineForExecutionCommandInput extends DescribeStateMachineForExecutionInput {}
+/**
+ * The output of {@link DescribeStateMachineForExecutionCommand}.
+ */
 export interface DescribeStateMachineForExecutionCommandOutput
   extends DescribeStateMachineForExecutionOutput,
     __MetadataBearer {}

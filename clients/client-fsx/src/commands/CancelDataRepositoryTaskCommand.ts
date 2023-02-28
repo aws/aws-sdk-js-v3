@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CancelDataRepositoryTaskCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CancelDataRepositoryTaskCommand}.
+ */
 export interface CancelDataRepositoryTaskCommandInput extends CancelDataRepositoryTaskRequest {}
+/**
+ * The output of {@link CancelDataRepositoryTaskCommand}.
+ */
 export interface CancelDataRepositoryTaskCommandOutput extends CancelDataRepositoryTaskResponse, __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1CreateFaqCommand, serializeAws_json1_1CreateFaqCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateFaqCommand}.
+ */
 export interface CreateFaqCommandInput extends CreateFaqRequest {}
+/**
+ * The output of {@link CreateFaqCommand}.
+ */
 export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBearer {}
 
 /**

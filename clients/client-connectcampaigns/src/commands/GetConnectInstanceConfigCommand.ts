@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetConnectInstanceConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetConnectInstanceConfigCommand}.
+ */
 export interface GetConnectInstanceConfigCommandInput extends GetConnectInstanceConfigRequest {}
+/**
+ * The output of {@link GetConnectInstanceConfigCommand}.
+ */
 export interface GetConnectInstanceConfigCommandOutput extends GetConnectInstanceConfigResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartAssessmentRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartAssessmentRunCommand}.
+ */
 export interface StartAssessmentRunCommandInput extends StartAssessmentRunRequest {}
+/**
+ * The output of {@link StartAssessmentRunCommand}.
+ */
 export interface StartAssessmentRunCommandOutput extends StartAssessmentRunResponse, __MetadataBearer {}
 
 /**

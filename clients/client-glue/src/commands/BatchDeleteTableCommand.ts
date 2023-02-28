@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchDeleteTableCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchDeleteTableCommand}.
+ */
 export interface BatchDeleteTableCommandInput extends BatchDeleteTableRequest {}
+/**
+ * The output of {@link BatchDeleteTableCommand}.
+ */
 export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse, __MetadataBearer {}
 
 /**

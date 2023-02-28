@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlListTagsForResourceCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+/**
+ * The output of {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisableDirectoryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisableDirectoryCommand}.
+ */
 export interface DisableDirectoryCommandInput extends DisableDirectoryRequest {}
+/**
+ * The output of {@link DisableDirectoryCommand}.
+ */
 export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse, __MetadataBearer {}
 
 /**

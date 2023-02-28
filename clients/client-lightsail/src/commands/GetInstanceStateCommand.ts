@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetInstanceStateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetInstanceStateCommand}.
+ */
 export interface GetInstanceStateCommandInput extends GetInstanceStateRequest {}
+/**
+ * The output of {@link GetInstanceStateCommand}.
+ */
 export interface GetInstanceStateCommandOutput extends GetInstanceStateResult, __MetadataBearer {}
 
 /**

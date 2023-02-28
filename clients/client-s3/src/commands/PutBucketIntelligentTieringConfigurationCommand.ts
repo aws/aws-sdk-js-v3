@@ -23,8 +23,14 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link PutBucketIntelligentTieringConfigurationCommand}.
+ */
 export interface PutBucketIntelligentTieringConfigurationCommandInput
   extends PutBucketIntelligentTieringConfigurationRequest {}
+/**
+ * The output of {@link PutBucketIntelligentTieringConfigurationCommand}.
+ */
 export interface PutBucketIntelligentTieringConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

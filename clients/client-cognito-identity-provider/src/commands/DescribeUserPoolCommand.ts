@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1DescribeUserPoolCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeUserPoolCommand}.
+ */
 export interface DescribeUserPoolCommandInput extends DescribeUserPoolRequest {}
+/**
+ * The output of {@link DescribeUserPoolCommand}.
+ */
 export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse, __MetadataBearer {}
 
 /**

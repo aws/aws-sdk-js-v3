@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateTeamMemberCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateTeamMemberCommand}.
+ */
 export interface DisassociateTeamMemberCommandInput extends DisassociateTeamMemberRequest {}
+/**
+ * The output of {@link DisassociateTeamMemberCommand}.
+ */
 export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMemberResult, __MetadataBearer {}
 
 /**

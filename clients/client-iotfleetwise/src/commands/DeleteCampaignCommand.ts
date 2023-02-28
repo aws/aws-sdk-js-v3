@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DeleteCampaignCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteCampaignCommand}.
+ */
 export interface DeleteCampaignCommandInput extends DeleteCampaignRequest {}
+/**
+ * The output of {@link DeleteCampaignCommand}.
+ */
 export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __MetadataBearer {}
 
 /**

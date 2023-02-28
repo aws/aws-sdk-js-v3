@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartImageScanCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartImageScanCommand}.
+ */
 export interface StartImageScanCommandInput extends StartImageScanRequest {}
+/**
+ * The output of {@link StartImageScanCommand}.
+ */
 export interface StartImageScanCommandOutput extends StartImageScanResponse, __MetadataBearer {}
 
 /**

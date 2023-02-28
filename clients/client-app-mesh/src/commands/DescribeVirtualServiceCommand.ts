@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeVirtualServiceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeVirtualServiceCommand}.
+ */
 export interface DescribeVirtualServiceCommandInput extends DescribeVirtualServiceInput {}
+/**
+ * The output of {@link DescribeVirtualServiceCommand}.
+ */
 export interface DescribeVirtualServiceCommandOutput extends DescribeVirtualServiceOutput, __MetadataBearer {}
 
 /**

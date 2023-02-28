@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribePackagingGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribePackagingGroupCommand}.
+ */
 export interface DescribePackagingGroupCommandInput extends DescribePackagingGroupRequest {}
+/**
+ * The output of {@link DescribePackagingGroupCommand}.
+ */
 export interface DescribePackagingGroupCommandOutput extends DescribePackagingGroupResponse, __MetadataBearer {}
 
 /**

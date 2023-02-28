@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link DeleteRateBasedRuleCommand}.
+ */
 export interface DeleteRateBasedRuleCommandInput extends DeleteRateBasedRuleRequest {}
+/**
+ * The output of {@link DeleteRateBasedRuleCommand}.
+ */
 export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleResponse, __MetadataBearer {}
 
 /**

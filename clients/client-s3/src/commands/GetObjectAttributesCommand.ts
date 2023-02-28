@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetObjectAttributesCommand}.
+ */
 export interface GetObjectAttributesCommandInput extends GetObjectAttributesRequest {}
+/**
+ * The output of {@link GetObjectAttributesCommand}.
+ */
 export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOutput, __MetadataBearer {}
 
 /**

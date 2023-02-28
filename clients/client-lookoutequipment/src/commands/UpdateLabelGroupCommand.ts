@@ -20,7 +20,13 @@ import {
   serializeAws_json1_0UpdateLabelGroupCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateLabelGroupCommand}.
+ */
 export interface UpdateLabelGroupCommandInput extends UpdateLabelGroupRequest {}
+/**
+ * The output of {@link UpdateLabelGroupCommand}.
+ */
 export interface UpdateLabelGroupCommandOutput extends __MetadataBearer {}
 
 /**

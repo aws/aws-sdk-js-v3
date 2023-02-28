@@ -25,7 +25,13 @@ import {
   serializeAws_queryExecuteChangeSetCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ExecuteChangeSetCommand}.
+ */
 export interface ExecuteChangeSetCommandInput extends ExecuteChangeSetInput {}
+/**
+ * The output of {@link ExecuteChangeSetCommand}.
+ */
 export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, __MetadataBearer {}
 
 /**

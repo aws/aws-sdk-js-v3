@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetChannelMessageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetChannelMessageCommand}.
+ */
 export interface GetChannelMessageCommandInput extends GetChannelMessageRequest {}
+/**
+ * The output of {@link GetChannelMessageCommand}.
+ */
 export interface GetChannelMessageCommandOutput extends GetChannelMessageResponse, __MetadataBearer {}
 
 /**

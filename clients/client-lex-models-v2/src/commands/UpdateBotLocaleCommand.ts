@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateBotLocaleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateBotLocaleCommand}.
+ */
 export interface UpdateBotLocaleCommandInput extends UpdateBotLocaleRequest {}
+/**
+ * The output of {@link UpdateBotLocaleCommand}.
+ */
 export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeUserStackAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeUserStackAssociationsCommand}.
+ */
 export interface DescribeUserStackAssociationsCommandInput extends DescribeUserStackAssociationsRequest {}
+/**
+ * The output of {@link DescribeUserStackAssociationsCommand}.
+ */
 export interface DescribeUserStackAssociationsCommandOutput
   extends DescribeUserStackAssociationsResult,
     __MetadataBearer {}

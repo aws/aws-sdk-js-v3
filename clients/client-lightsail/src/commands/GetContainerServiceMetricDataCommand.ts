@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetContainerServiceMetricDataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetContainerServiceMetricDataCommand}.
+ */
 export interface GetContainerServiceMetricDataCommandInput extends GetContainerServiceMetricDataRequest {}
+/**
+ * The output of {@link GetContainerServiceMetricDataCommand}.
+ */
 export interface GetContainerServiceMetricDataCommandOutput
   extends GetContainerServiceMetricDataResult,
     __MetadataBearer {}

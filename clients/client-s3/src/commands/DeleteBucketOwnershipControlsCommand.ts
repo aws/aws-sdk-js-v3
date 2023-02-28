@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link DeleteBucketOwnershipControlsCommand}.
+ */
 export interface DeleteBucketOwnershipControlsCommandInput extends DeleteBucketOwnershipControlsRequest {}
+/**
+ * The output of {@link DeleteBucketOwnershipControlsCommand}.
+ */
 export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBearer {}
 
 /**

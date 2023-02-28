@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
+/**
+ * The input for {@link GetTagsCommand}.
+ */
 export interface GetTagsCommandInput extends GetTagsInput {}
+/**
+ * The output of {@link GetTagsCommand}.
+ */
 export interface GetTagsCommandOutput extends GetTagsOutput, __MetadataBearer {}
 
 /**

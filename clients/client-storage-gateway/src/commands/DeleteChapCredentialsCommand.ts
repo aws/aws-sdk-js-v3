@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link DeleteChapCredentialsCommand}.
+ */
 export interface DeleteChapCredentialsCommandInput extends DeleteChapCredentialsInput {}
+/**
+ * The output of {@link DeleteChapCredentialsCommand}.
+ */
 export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredentialsOutput, __MetadataBearer {}
 
 /**

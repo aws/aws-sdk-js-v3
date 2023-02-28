@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RevokeRevisionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RevokeRevisionCommand}.
+ */
 export interface RevokeRevisionCommandInput extends RevokeRevisionRequest {}
+/**
+ * The output of {@link RevokeRevisionCommand}.
+ */
 export interface RevokeRevisionCommandOutput extends RevokeRevisionResponse, __MetadataBearer {}
 
 /**

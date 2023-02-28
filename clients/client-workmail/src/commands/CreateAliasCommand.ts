@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link CreateAliasCommand}.
+ */
 export interface CreateAliasCommandInput extends CreateAliasRequest {}
+/**
+ * The output of {@link CreateAliasCommand}.
+ */
 export interface CreateAliasCommandOutput extends CreateAliasResponse, __MetadataBearer {}
 
 /**

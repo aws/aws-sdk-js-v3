@@ -20,7 +20,13 @@ import {
   serializeAws_querySwapEnvironmentCNAMEsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SwapEnvironmentCNAMEsCommand}.
+ */
 export interface SwapEnvironmentCNAMEsCommandInput extends SwapEnvironmentCNAMEsMessage {}
+/**
+ * The output of {@link SwapEnvironmentCNAMEsCommand}.
+ */
 export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
 
 /**

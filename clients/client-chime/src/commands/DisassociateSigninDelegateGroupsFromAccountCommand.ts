@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1DisassociateSigninDelegateGroupsFromAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateSigninDelegateGroupsFromAccountCommand}.
+ */
 export interface DisassociateSigninDelegateGroupsFromAccountCommandInput
   extends DisassociateSigninDelegateGroupsFromAccountRequest {}
+/**
+ * The output of {@link DisassociateSigninDelegateGroupsFromAccountCommand}.
+ */
 export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
   extends DisassociateSigninDelegateGroupsFromAccountResponse,
     __MetadataBearer {}

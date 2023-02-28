@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1SplitShardCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SplitShardCommand}.
+ */
 export interface SplitShardCommandInput extends SplitShardInput {}
+/**
+ * The output of {@link SplitShardCommand}.
+ */
 export interface SplitShardCommandOutput extends __MetadataBearer {}
 
 /**

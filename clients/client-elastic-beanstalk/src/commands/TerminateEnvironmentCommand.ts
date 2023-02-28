@@ -25,7 +25,13 @@ import {
   serializeAws_queryTerminateEnvironmentCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link TerminateEnvironmentCommand}.
+ */
 export interface TerminateEnvironmentCommandInput extends TerminateEnvironmentMessage {}
+/**
+ * The output of {@link TerminateEnvironmentCommand}.
+ */
 export interface TerminateEnvironmentCommandOutput extends EnvironmentDescription, __MetadataBearer {}
 
 /**

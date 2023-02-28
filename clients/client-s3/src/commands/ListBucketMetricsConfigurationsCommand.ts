@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link ListBucketMetricsConfigurationsCommand}.
+ */
 export interface ListBucketMetricsConfigurationsCommandInput extends ListBucketMetricsConfigurationsRequest {}
+/**
+ * The output of {@link ListBucketMetricsConfigurationsCommand}.
+ */
 export interface ListBucketMetricsConfigurationsCommandOutput
   extends ListBucketMetricsConfigurationsOutput,
     __MetadataBearer {}

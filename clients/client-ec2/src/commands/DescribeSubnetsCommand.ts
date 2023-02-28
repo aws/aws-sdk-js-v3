@@ -22,7 +22,13 @@ import {
 } from "../models/models_4";
 import { deserializeAws_ec2DescribeSubnetsCommand, serializeAws_ec2DescribeSubnetsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeSubnetsCommand}.
+ */
 export interface DescribeSubnetsCommandInput extends DescribeSubnetsRequest {}
+/**
+ * The output of {@link DescribeSubnetsCommand}.
+ */
 export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __MetadataBearer {}
 
 /**

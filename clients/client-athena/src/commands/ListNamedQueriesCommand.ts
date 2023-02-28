@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListNamedQueriesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListNamedQueriesCommand}.
+ */
 export interface ListNamedQueriesCommandInput extends ListNamedQueriesInput {}
+/**
+ * The output of {@link ListNamedQueriesCommand}.
+ */
 export interface ListNamedQueriesCommandOutput extends ListNamedQueriesOutput, __MetadataBearer {}
 
 /**

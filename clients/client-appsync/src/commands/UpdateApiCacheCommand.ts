@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateApiCacheCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateApiCacheCommand}.
+ */
 export interface UpdateApiCacheCommandInput extends UpdateApiCacheRequest {}
+/**
+ * The output of {@link UpdateApiCacheCommand}.
+ */
 export interface UpdateApiCacheCommandOutput extends UpdateApiCacheResponse, __MetadataBearer {}
 
 /**

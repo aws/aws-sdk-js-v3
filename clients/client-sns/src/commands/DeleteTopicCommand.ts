@@ -17,7 +17,13 @@ import { DeleteTopicInput, DeleteTopicInputFilterSensitiveLog } from "../models/
 import { deserializeAws_queryDeleteTopicCommand, serializeAws_queryDeleteTopicCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link DeleteTopicCommand}.
+ */
 export interface DeleteTopicCommandInput extends DeleteTopicInput {}
+/**
+ * The output of {@link DeleteTopicCommand}.
+ */
 export interface DeleteTopicCommandOutput extends __MetadataBearer {}
 
 /**

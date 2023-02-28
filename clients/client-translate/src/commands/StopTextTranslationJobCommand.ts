@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
+/**
+ * The input for {@link StopTextTranslationJobCommand}.
+ */
 export interface StopTextTranslationJobCommandInput extends StopTextTranslationJobRequest {}
+/**
+ * The output of {@link StopTextTranslationJobCommand}.
+ */
 export interface StopTextTranslationJobCommandOutput extends StopTextTranslationJobResponse, __MetadataBearer {}
 
 /**

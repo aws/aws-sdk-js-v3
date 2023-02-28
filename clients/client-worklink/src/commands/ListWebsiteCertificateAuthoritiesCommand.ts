@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * The input for {@link ListWebsiteCertificateAuthoritiesCommand}.
+ */
 export interface ListWebsiteCertificateAuthoritiesCommandInput extends ListWebsiteCertificateAuthoritiesRequest {}
+/**
+ * The output of {@link ListWebsiteCertificateAuthoritiesCommand}.
+ */
 export interface ListWebsiteCertificateAuthoritiesCommandOutput
   extends ListWebsiteCertificateAuthoritiesResponse,
     __MetadataBearer {}

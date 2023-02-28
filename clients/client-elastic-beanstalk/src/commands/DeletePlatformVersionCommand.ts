@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeletePlatformVersionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeletePlatformVersionCommand}.
+ */
 export interface DeletePlatformVersionCommandInput extends DeletePlatformVersionRequest {}
+/**
+ * The output of {@link DeletePlatformVersionCommand}.
+ */
 export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersionResult, __MetadataBearer {}
 
 /**

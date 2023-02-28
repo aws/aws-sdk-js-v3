@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1PutDestinationPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutDestinationPolicyCommand}.
+ */
 export interface PutDestinationPolicyCommandInput extends PutDestinationPolicyRequest {}
+/**
+ * The output of {@link PutDestinationPolicyCommand}.
+ */
 export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
 
 /**

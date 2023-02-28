@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteEvaluationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteEvaluationCommand}.
+ */
 export interface DeleteEvaluationCommandInput extends DeleteEvaluationInput {}
+/**
+ * The output of {@link DeleteEvaluationCommand}.
+ */
 export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, __MetadataBearer {}
 
 /**

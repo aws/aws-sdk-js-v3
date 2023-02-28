@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreatePlacementGroupCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreatePlacementGroupCommand}.
+ */
 export interface CreatePlacementGroupCommandInput extends CreatePlacementGroupRequest {}
+/**
+ * The output of {@link CreatePlacementGroupCommand}.
+ */
 export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupResult, __MetadataBearer {}
 
 /**

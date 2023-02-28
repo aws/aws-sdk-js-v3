@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
+/**
+ * The input for {@link DeletePermissionsBoundaryFromPermissionSetCommand}.
+ */
 export interface DeletePermissionsBoundaryFromPermissionSetCommandInput
   extends DeletePermissionsBoundaryFromPermissionSetRequest {}
+/**
+ * The output of {@link DeletePermissionsBoundaryFromPermissionSetCommand}.
+ */
 export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput
   extends DeletePermissionsBoundaryFromPermissionSetResponse,
     __MetadataBearer {}

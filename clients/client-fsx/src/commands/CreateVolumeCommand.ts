@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateVolumeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateVolumeCommand}.
+ */
 export interface CreateVolumeCommandInput extends CreateVolumeRequest {}
+/**
+ * The output of {@link CreateVolumeCommand}.
+ */
 export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DeleteSnapshotCopyGrantCommand}.
+ */
 export interface DeleteSnapshotCopyGrantCommandInput extends DeleteSnapshotCopyGrantMessage {}
+/**
+ * The output of {@link DeleteSnapshotCopyGrantCommand}.
+ */
 export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteInvitationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteInvitationsCommand}.
+ */
 export interface DeleteInvitationsCommandInput extends DeleteInvitationsRequest {}
+/**
+ * The output of {@link DeleteInvitationsCommand}.
+ */
 export interface DeleteInvitationsCommandOutput extends DeleteInvitationsResponse, __MetadataBearer {}
 
 /**

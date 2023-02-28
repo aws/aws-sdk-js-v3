@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListDomainsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDomainsCommand}.
+ */
 export interface ListDomainsCommandInput extends ListDomainsRequest {}
+/**
+ * The output of {@link ListDomainsCommand}.
+ */
 export interface ListDomainsCommandOutput extends ListDomainsResult, __MetadataBearer {}
 
 /**

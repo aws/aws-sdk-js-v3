@@ -25,7 +25,13 @@ import {
   serializeAws_queryRollbackStackCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RollbackStackCommand}.
+ */
 export interface RollbackStackCommandInput extends RollbackStackInput {}
+/**
+ * The output of {@link RollbackStackCommand}.
+ */
 export interface RollbackStackCommandOutput extends RollbackStackOutput, __MetadataBearer {}
 
 /**

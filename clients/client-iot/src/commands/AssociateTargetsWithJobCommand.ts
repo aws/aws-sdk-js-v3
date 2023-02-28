@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateTargetsWithJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateTargetsWithJobCommand}.
+ */
 export interface AssociateTargetsWithJobCommandInput extends AssociateTargetsWithJobRequest {}
+/**
+ * The output of {@link AssociateTargetsWithJobCommand}.
+ */
 export interface AssociateTargetsWithJobCommandOutput extends AssociateTargetsWithJobResponse, __MetadataBearer {}
 
 /**

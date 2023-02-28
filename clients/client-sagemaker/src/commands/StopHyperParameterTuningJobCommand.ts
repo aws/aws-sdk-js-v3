@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link StopHyperParameterTuningJobCommand}.
+ */
 export interface StopHyperParameterTuningJobCommandInput extends StopHyperParameterTuningJobRequest {}
+/**
+ * The output of {@link StopHyperParameterTuningJobCommand}.
+ */
 export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBearer {}
 
 /**

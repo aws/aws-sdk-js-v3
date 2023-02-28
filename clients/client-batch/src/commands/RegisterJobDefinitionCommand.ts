@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RegisterJobDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RegisterJobDefinitionCommand}.
+ */
 export interface RegisterJobDefinitionCommandInput extends RegisterJobDefinitionRequest {}
+/**
+ * The output of {@link RegisterJobDefinitionCommand}.
+ */
 export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitionResponse, __MetadataBearer {}
 
 /**

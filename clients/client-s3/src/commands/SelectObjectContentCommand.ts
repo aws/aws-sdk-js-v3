@@ -27,7 +27,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link SelectObjectContentCommand}.
+ */
 export interface SelectObjectContentCommandInput extends SelectObjectContentRequest {}
+/**
+ * The output of {@link SelectObjectContentCommand}.
+ */
 export interface SelectObjectContentCommandOutput extends SelectObjectContentOutput, __MetadataBearer {}
 
 /**

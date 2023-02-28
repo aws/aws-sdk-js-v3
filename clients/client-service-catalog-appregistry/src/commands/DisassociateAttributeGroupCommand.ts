@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * The input for {@link DisassociateAttributeGroupCommand}.
+ */
 export interface DisassociateAttributeGroupCommandInput extends DisassociateAttributeGroupRequest {}
+/**
+ * The output of {@link DisassociateAttributeGroupCommand}.
+ */
 export interface DisassociateAttributeGroupCommandOutput extends DisassociateAttributeGroupResponse, __MetadataBearer {}
 
 /**

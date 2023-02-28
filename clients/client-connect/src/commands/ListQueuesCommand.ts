@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListQueuesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListQueuesCommand}.
+ */
 export interface ListQueuesCommandInput extends ListQueuesRequest {}
+/**
+ * The output of {@link ListQueuesCommand}.
+ */
 export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataBearer {}
 
 /**

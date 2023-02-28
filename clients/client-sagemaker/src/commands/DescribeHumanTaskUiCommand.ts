@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DescribeHumanTaskUiCommand}.
+ */
 export interface DescribeHumanTaskUiCommandInput extends DescribeHumanTaskUiRequest {}
+/**
+ * The output of {@link DescribeHumanTaskUiCommand}.
+ */
 export interface DescribeHumanTaskUiCommandOutput extends DescribeHumanTaskUiResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdatePositionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdatePositionCommand}.
+ */
 export interface UpdatePositionCommandInput extends UpdatePositionRequest {}
+/**
+ * The output of {@link UpdatePositionCommand}.
+ */
 export interface UpdatePositionCommandOutput extends UpdatePositionResponse, __MetadataBearer {}
 
 /**

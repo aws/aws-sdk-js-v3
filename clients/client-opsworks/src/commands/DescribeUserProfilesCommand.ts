@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeUserProfilesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeUserProfilesCommand}.
+ */
 export interface DescribeUserProfilesCommandInput extends DescribeUserProfilesRequest {}
+/**
+ * The output of {@link DescribeUserProfilesCommand}.
+ */
 export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesResult, __MetadataBearer {}
 
 /**

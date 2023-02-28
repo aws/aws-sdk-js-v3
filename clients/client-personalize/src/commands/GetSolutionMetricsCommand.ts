@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetSolutionMetricsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetSolutionMetricsCommand}.
+ */
 export interface GetSolutionMetricsCommandInput extends GetSolutionMetricsRequest {}
+/**
+ * The output of {@link GetSolutionMetricsCommand}.
+ */
 export interface GetSolutionMetricsCommandOutput extends GetSolutionMetricsResponse, __MetadataBearer {}
 
 /**

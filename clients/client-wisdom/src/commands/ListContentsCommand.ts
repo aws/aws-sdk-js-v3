@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * The input for {@link ListContentsCommand}.
+ */
 export interface ListContentsCommandInput extends ListContentsRequest {}
+/**
+ * The output of {@link ListContentsCommand}.
+ */
 export interface ListContentsCommandOutput extends ListContentsResponse, __MetadataBearer {}
 
 /**

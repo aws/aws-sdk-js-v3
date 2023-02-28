@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateSchemaCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateSchemaCommand}.
+ */
 export interface UpdateSchemaCommandInput extends UpdateSchemaRequest {}
+/**
+ * The output of {@link UpdateSchemaCommand}.
+ */
 export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __MetadataBearer {}
 
 /**

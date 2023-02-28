@@ -17,7 +17,13 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { ReleaseAddressRequest, ReleaseAddressRequestFilterSensitiveLog } from "../models/models_6";
 import { deserializeAws_ec2ReleaseAddressCommand, serializeAws_ec2ReleaseAddressCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ReleaseAddressCommand}.
+ */
 export interface ReleaseAddressCommandInput extends ReleaseAddressRequest {}
+/**
+ * The output of {@link ReleaseAddressCommand}.
+ */
 export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
 
 /**

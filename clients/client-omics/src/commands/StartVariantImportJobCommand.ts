@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartVariantImportJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartVariantImportJobCommand}.
+ */
 export interface StartVariantImportJobCommandInput extends StartVariantImportRequest {}
+/**
+ * The output of {@link StartVariantImportJobCommand}.
+ */
 export interface StartVariantImportJobCommandOutput extends StartVariantImportResponse, __MetadataBearer {}
 
 /**

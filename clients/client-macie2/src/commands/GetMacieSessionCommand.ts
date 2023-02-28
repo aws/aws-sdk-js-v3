@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetMacieSessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetMacieSessionCommand}.
+ */
 export interface GetMacieSessionCommandInput extends GetMacieSessionRequest {}
+/**
+ * The output of {@link GetMacieSessionCommand}.
+ */
 export interface GetMacieSessionCommandOutput extends GetMacieSessionResponse, __MetadataBearer {}
 
 /**

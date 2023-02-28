@@ -18,7 +18,13 @@ import {
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link NoInputAndNoOutputCommand}.
+ */
 export interface NoInputAndNoOutputCommandInput {}
+/**
+ * The output of {@link NoInputAndNoOutputCommand}.
+ */
 export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
 
 /**

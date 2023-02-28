@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetPlaceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPlaceCommand}.
+ */
 export interface GetPlaceCommandInput extends GetPlaceRequest {}
+/**
+ * The output of {@link GetPlaceCommand}.
+ */
 export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBearer {}
 
 /**

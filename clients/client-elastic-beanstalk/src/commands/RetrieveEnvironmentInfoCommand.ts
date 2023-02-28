@@ -25,7 +25,13 @@ import {
   serializeAws_queryRetrieveEnvironmentInfoCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RetrieveEnvironmentInfoCommand}.
+ */
 export interface RetrieveEnvironmentInfoCommandInput extends RetrieveEnvironmentInfoMessage {}
+/**
+ * The output of {@link RetrieveEnvironmentInfoCommand}.
+ */
 export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmentInfoResultMessage, __MetadataBearer {}
 
 /**

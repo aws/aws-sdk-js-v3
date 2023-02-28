@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link ImportAppCatalogCommand}.
+ */
 export interface ImportAppCatalogCommandInput extends ImportAppCatalogRequest {}
+/**
+ * The output of {@link ImportAppCatalogCommand}.
+ */
 export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse, __MetadataBearer {}
 
 /**

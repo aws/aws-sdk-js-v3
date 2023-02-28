@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link QueryParamsAsStringListMapCommand}.
+ */
 export interface QueryParamsAsStringListMapCommandInput extends QueryParamsAsStringListMapInput {}
+/**
+ * The output of {@link QueryParamsAsStringListMapCommand}.
+ */
 export interface QueryParamsAsStringListMapCommandOutput extends __MetadataBearer {}
 
 export class QueryParamsAsStringListMapCommand extends $Command<

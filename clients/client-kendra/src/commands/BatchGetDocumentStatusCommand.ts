@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetDocumentStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetDocumentStatusCommand}.
+ */
 export interface BatchGetDocumentStatusCommandInput extends BatchGetDocumentStatusRequest {}
+/**
+ * The output of {@link BatchGetDocumentStatusCommand}.
+ */
 export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentStatusResponse, __MetadataBearer {}
 
 /**

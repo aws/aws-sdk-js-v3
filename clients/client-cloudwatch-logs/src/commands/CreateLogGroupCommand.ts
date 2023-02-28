@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1CreateLogGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateLogGroupCommand}.
+ */
 export interface CreateLogGroupCommandInput extends CreateLogGroupRequest {}
+/**
+ * The output of {@link CreateLogGroupCommand}.
+ */
 export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
 
 /**

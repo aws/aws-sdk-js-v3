@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeImageTagsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeImageTagsCommand}.
+ */
 export interface DescribeImageTagsCommandInput extends DescribeImageTagsRequest {}
+/**
+ * The output of {@link DescribeImageTagsCommand}.
+ */
 export interface DescribeImageTagsCommandOutput extends DescribeImageTagsResponse, __MetadataBearer {}
 
 /**

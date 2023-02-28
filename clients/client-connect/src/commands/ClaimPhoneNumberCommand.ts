@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ClaimPhoneNumberCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ClaimPhoneNumberCommand}.
+ */
 export interface ClaimPhoneNumberCommandInput extends ClaimPhoneNumberRequest {}
+/**
+ * The output of {@link ClaimPhoneNumberCommand}.
+ */
 export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse, __MetadataBearer {}
 
 /**

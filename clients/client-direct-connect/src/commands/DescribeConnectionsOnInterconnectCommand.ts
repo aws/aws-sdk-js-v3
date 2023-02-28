@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeConnectionsOnInterconnectCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeConnectionsOnInterconnectCommand}.
+ */
 export interface DescribeConnectionsOnInterconnectCommandInput extends DescribeConnectionsOnInterconnectRequest {}
+/**
+ * The output of {@link DescribeConnectionsOnInterconnectCommand}.
+ */
 export interface DescribeConnectionsOnInterconnectCommandOutput extends Connections, __MetadataBearer {}
 
 /**

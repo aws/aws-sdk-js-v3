@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetWorkflowsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetWorkflowsCommand}.
+ */
 export interface BatchGetWorkflowsCommandInput extends BatchGetWorkflowsRequest {}
+/**
+ * The output of {@link BatchGetWorkflowsCommand}.
+ */
 export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsResponse, __MetadataBearer {}
 
 /**

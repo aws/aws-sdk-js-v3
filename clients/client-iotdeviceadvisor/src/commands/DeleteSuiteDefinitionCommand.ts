@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteSuiteDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteSuiteDefinitionCommand}.
+ */
 export interface DeleteSuiteDefinitionCommandInput extends DeleteSuiteDefinitionRequest {}
+/**
+ * The output of {@link DeleteSuiteDefinitionCommand}.
+ */
 export interface DeleteSuiteDefinitionCommandOutput extends DeleteSuiteDefinitionResponse, __MetadataBearer {}
 
 /**

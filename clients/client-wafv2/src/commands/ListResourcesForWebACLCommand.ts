@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * The input for {@link ListResourcesForWebACLCommand}.
+ */
 export interface ListResourcesForWebACLCommandInput extends ListResourcesForWebACLRequest {}
+/**
+ * The output of {@link ListResourcesForWebACLCommand}.
+ */
 export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWebACLResponse, __MetadataBearer {}
 
 /**

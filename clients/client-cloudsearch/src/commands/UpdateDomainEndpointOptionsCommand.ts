@@ -25,7 +25,13 @@ import {
   serializeAws_queryUpdateDomainEndpointOptionsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateDomainEndpointOptionsCommand}.
+ */
 export interface UpdateDomainEndpointOptionsCommandInput extends UpdateDomainEndpointOptionsRequest {}
+/**
+ * The output of {@link UpdateDomainEndpointOptionsCommand}.
+ */
 export interface UpdateDomainEndpointOptionsCommandOutput
   extends UpdateDomainEndpointOptionsResponse,
     __MetadataBearer {}

@@ -17,7 +17,13 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { DeleteSubnetRequest, DeleteSubnetRequestFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_ec2DeleteSubnetCommand, serializeAws_ec2DeleteSubnetCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteSubnetCommand}.
+ */
 export interface DeleteSubnetCommandInput extends DeleteSubnetRequest {}
+/**
+ * The output of {@link DeleteSubnetCommand}.
+ */
 export interface DeleteSubnetCommandOutput extends __MetadataBearer {}
 
 /**

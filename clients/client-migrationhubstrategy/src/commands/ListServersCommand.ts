@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListServersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListServersCommand}.
+ */
 export interface ListServersCommandInput extends ListServersRequest {}
+/**
+ * The output of {@link ListServersCommand}.
+ */
 export interface ListServersCommandOutput extends ListServersResponse, __MetadataBearer {}
 
 /**

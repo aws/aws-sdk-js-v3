@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeKeyPairsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeKeyPairsCommand}.
+ */
 export interface DescribeKeyPairsCommandInput extends DescribeKeyPairsRequest {}
+/**
+ * The output of {@link DescribeKeyPairsCommand}.
+ */
 export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, __MetadataBearer {}
 
 /**

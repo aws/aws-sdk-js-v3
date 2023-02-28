@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0CreateEventDestinationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateEventDestinationCommand}.
+ */
 export interface CreateEventDestinationCommandInput extends CreateEventDestinationRequest {}
+/**
+ * The output of {@link CreateEventDestinationCommand}.
+ */
 export interface CreateEventDestinationCommandOutput extends CreateEventDestinationResult, __MetadataBearer {}
 
 /**

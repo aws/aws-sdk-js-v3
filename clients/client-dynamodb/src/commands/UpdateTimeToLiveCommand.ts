@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0UpdateTimeToLiveCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateTimeToLiveCommand}.
+ */
 export interface UpdateTimeToLiveCommandInput extends UpdateTimeToLiveInput {}
+/**
+ * The output of {@link UpdateTimeToLiveCommand}.
+ */
 export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, __MetadataBearer {}
 
 /**

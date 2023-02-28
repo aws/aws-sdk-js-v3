@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateCertificateFromCsrCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateCertificateFromCsrCommand}.
+ */
 export interface CreateCertificateFromCsrCommandInput extends CreateCertificateFromCsrRequest {}
+/**
+ * The output of {@link CreateCertificateFromCsrCommand}.
+ */
 export interface CreateCertificateFromCsrCommandOutput extends CreateCertificateFromCsrResponse, __MetadataBearer {}
 
 /**

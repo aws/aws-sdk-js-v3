@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * The input for {@link DisassociateLensesCommand}.
+ */
 export interface DisassociateLensesCommandInput extends DisassociateLensesInput {}
+/**
+ * The output of {@link DisassociateLensesCommand}.
+ */
 export interface DisassociateLensesCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetFlowTemplateRevisionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetFlowTemplateRevisionsCommand}.
+ */
 export interface GetFlowTemplateRevisionsCommandInput extends GetFlowTemplateRevisionsRequest {}
+/**
+ * The output of {@link GetFlowTemplateRevisionsCommand}.
+ */
 export interface GetFlowTemplateRevisionsCommandOutput extends GetFlowTemplateRevisionsResponse, __MetadataBearer {}
 
 /**

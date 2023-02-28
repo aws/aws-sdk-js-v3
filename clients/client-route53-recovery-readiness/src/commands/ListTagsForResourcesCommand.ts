@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * The input for {@link ListTagsForResourcesCommand}.
+ */
 export interface ListTagsForResourcesCommandInput extends ListTagsForResourcesRequest {}
+/**
+ * The output of {@link ListTagsForResourcesCommand}.
+ */
 export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesResponse, __MetadataBearer {}
 
 /**

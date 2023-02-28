@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1AssociateWirelessGatewayWithCertificateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateWirelessGatewayWithCertificateCommand}.
+ */
 export interface AssociateWirelessGatewayWithCertificateCommandInput
   extends AssociateWirelessGatewayWithCertificateRequest {}
+/**
+ * The output of {@link AssociateWirelessGatewayWithCertificateCommand}.
+ */
 export interface AssociateWirelessGatewayWithCertificateCommandOutput
   extends AssociateWirelessGatewayWithCertificateResponse,
     __MetadataBearer {}

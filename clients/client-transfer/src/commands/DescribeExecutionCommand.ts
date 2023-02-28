@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link DescribeExecutionCommand}.
+ */
 export interface DescribeExecutionCommandInput extends DescribeExecutionRequest {}
+/**
+ * The output of {@link DescribeExecutionCommand}.
+ */
 export interface DescribeExecutionCommandOutput extends DescribeExecutionResponse, __MetadataBearer {}
 
 /**

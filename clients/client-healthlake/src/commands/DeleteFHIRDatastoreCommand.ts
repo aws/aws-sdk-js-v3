@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DeleteFHIRDatastoreCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteFHIRDatastoreCommand}.
+ */
 export interface DeleteFHIRDatastoreCommandInput extends DeleteFHIRDatastoreRequest {}
+/**
+ * The output of {@link DeleteFHIRDatastoreCommand}.
+ */
 export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreResponse, __MetadataBearer {}
 
 /**

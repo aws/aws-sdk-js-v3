@@ -25,7 +25,13 @@ import {
   serializeAws_queryPurchaseReservedCacheNodesOfferingCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PurchaseReservedCacheNodesOfferingCommand}.
+ */
 export interface PurchaseReservedCacheNodesOfferingCommandInput extends PurchaseReservedCacheNodesOfferingMessage {}
+/**
+ * The output of {@link PurchaseReservedCacheNodesOfferingCommand}.
+ */
 export interface PurchaseReservedCacheNodesOfferingCommandOutput
   extends PurchaseReservedCacheNodesOfferingResult,
     __MetadataBearer {}

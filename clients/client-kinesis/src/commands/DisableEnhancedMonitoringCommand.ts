@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisableEnhancedMonitoringCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisableEnhancedMonitoringCommand}.
+ */
 export interface DisableEnhancedMonitoringCommandInput extends DisableEnhancedMonitoringInput {}
+/**
+ * The output of {@link DisableEnhancedMonitoringCommand}.
+ */
 export interface DisableEnhancedMonitoringCommandOutput extends EnhancedMonitoringOutput, __MetadataBearer {}
 
 /**

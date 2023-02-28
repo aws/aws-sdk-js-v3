@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1StartRxNormInferenceJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartRxNormInferenceJobCommand}.
+ */
 export interface StartRxNormInferenceJobCommandInput extends StartRxNormInferenceJobRequest {}
+/**
+ * The output of {@link StartRxNormInferenceJobCommand}.
+ */
 export interface StartRxNormInferenceJobCommandOutput extends StartRxNormInferenceJobResponse, __MetadataBearer {}
 
 /**

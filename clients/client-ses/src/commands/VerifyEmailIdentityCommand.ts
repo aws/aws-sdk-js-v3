@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link VerifyEmailIdentityCommand}.
+ */
 export interface VerifyEmailIdentityCommandInput extends VerifyEmailIdentityRequest {}
+/**
+ * The output of {@link VerifyEmailIdentityCommand}.
+ */
 export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CreateProposalCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateProposalCommand}.
+ */
 export interface CreateProposalCommandInput extends CreateProposalInput {}
+/**
+ * The output of {@link CreateProposalCommand}.
+ */
 export interface CreateProposalCommandOutput extends CreateProposalOutput, __MetadataBearer {}
 
 /**

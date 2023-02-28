@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteRemoteAccessSessionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteRemoteAccessSessionCommand}.
+ */
 export interface DeleteRemoteAccessSessionCommandInput extends DeleteRemoteAccessSessionRequest {}
+/**
+ * The output of {@link DeleteRemoteAccessSessionCommand}.
+ */
 export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAccessSessionResult, __MetadataBearer {}
 
 /**

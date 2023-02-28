@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link UpdateAccountSendingEnabledCommand}.
+ */
 export interface UpdateAccountSendingEnabledCommandInput extends UpdateAccountSendingEnabledRequest {}
+/**
+ * The output of {@link UpdateAccountSendingEnabledCommand}.
+ */
 export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBearer {}
 
 /**

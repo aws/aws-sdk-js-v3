@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateS3ResourcesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateS3ResourcesCommand}.
+ */
 export interface DisassociateS3ResourcesCommandInput extends DisassociateS3ResourcesRequest {}
+/**
+ * The output of {@link DisassociateS3ResourcesCommand}.
+ */
 export interface DisassociateS3ResourcesCommandOutput extends DisassociateS3ResourcesResult, __MetadataBearer {}
 
 /**

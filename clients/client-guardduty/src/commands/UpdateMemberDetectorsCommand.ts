@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateMemberDetectorsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateMemberDetectorsCommand}.
+ */
 export interface UpdateMemberDetectorsCommandInput extends UpdateMemberDetectorsRequest {}
+/**
+ * The output of {@link UpdateMemberDetectorsCommand}.
+ */
 export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetectorsResponse, __MetadataBearer {}
 
 /**

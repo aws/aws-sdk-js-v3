@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryDescribeTypeCommand, serializeAws_queryDescribeTypeCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeTypeCommand}.
+ */
 export interface DescribeTypeCommandInput extends DescribeTypeInput {}
+/**
+ * The output of {@link DescribeTypeCommand}.
+ */
 export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __MetadataBearer {}
 
 /**

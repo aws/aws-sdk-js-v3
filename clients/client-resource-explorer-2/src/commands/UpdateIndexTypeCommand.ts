@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * The input for {@link UpdateIndexTypeCommand}.
+ */
 export interface UpdateIndexTypeCommandInput extends UpdateIndexTypeInput {}
+/**
+ * The output of {@link UpdateIndexTypeCommand}.
+ */
 export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __MetadataBearer {}
 
 /**

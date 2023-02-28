@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateJobForDevicesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateJobForDevicesCommand}.
+ */
 export interface CreateJobForDevicesCommandInput extends CreateJobForDevicesRequest {}
+/**
+ * The output of {@link CreateJobForDevicesCommand}.
+ */
 export interface CreateJobForDevicesCommandOutput extends CreateJobForDevicesResponse, __MetadataBearer {}
 
 /**

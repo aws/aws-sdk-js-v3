@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DescribeCertificatesCommand}.
+ */
 export interface DescribeCertificatesCommandInput extends DescribeCertificatesMessage {}
+/**
+ * The output of {@link DescribeCertificatesCommand}.
+ */
 export interface DescribeCertificatesCommandOutput extends CertificateMessage, __MetadataBearer {}
 
 /**

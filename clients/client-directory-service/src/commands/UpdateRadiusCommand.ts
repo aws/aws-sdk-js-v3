@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateRadiusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateRadiusCommand}.
+ */
 export interface UpdateRadiusCommandInput extends UpdateRadiusRequest {}
+/**
+ * The output of {@link UpdateRadiusCommand}.
+ */
 export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __MetadataBearer {}
 
 /**

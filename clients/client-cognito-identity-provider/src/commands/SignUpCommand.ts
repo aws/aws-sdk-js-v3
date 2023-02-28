@@ -26,7 +26,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_json1_1SignUpCommand, serializeAws_json1_1SignUpCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SignUpCommand}.
+ */
 export interface SignUpCommandInput extends SignUpRequest {}
+/**
+ * The output of {@link SignUpCommand}.
+ */
 export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
 
 /**

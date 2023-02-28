@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeregisterRdsDbInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterRdsDbInstanceCommand}.
+ */
 export interface DeregisterRdsDbInstanceCommandInput extends DeregisterRdsDbInstanceRequest {}
+/**
+ * The output of {@link DeregisterRdsDbInstanceCommand}.
+ */
 export interface DeregisterRdsDbInstanceCommandOutput extends __MetadataBearer {}
 
 /**

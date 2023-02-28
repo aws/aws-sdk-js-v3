@@ -25,7 +25,13 @@ import {
   serializeAws_queryListAllowedNodeTypeModificationsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListAllowedNodeTypeModificationsCommand}.
+ */
 export interface ListAllowedNodeTypeModificationsCommandInput extends ListAllowedNodeTypeModificationsMessage {}
+/**
+ * The output of {@link ListAllowedNodeTypeModificationsCommand}.
+ */
 export interface ListAllowedNodeTypeModificationsCommandOutput
   extends AllowedNodeTypeModificationsMessage,
     __MetadataBearer {}

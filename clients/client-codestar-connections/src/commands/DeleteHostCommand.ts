@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DeleteHostCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteHostCommand}.
+ */
 export interface DeleteHostCommandInput extends DeleteHostInput {}
+/**
+ * The output of {@link DeleteHostCommand}.
+ */
 export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBearer {}
 
 /**

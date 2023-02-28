@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListLayersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListLayersCommand}.
+ */
 export interface ListLayersCommandInput extends ListLayersRequest {}
+/**
+ * The output of {@link ListLayersCommand}.
+ */
 export interface ListLayersCommandOutput extends ListLayersResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListGameServerGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListGameServerGroupsCommand}.
+ */
 export interface ListGameServerGroupsCommandInput extends ListGameServerGroupsInput {}
+/**
+ * The output of {@link ListGameServerGroupsCommand}.
+ */
 export interface ListGameServerGroupsCommandOutput extends ListGameServerGroupsOutput, __MetadataBearer {}
 
 /**

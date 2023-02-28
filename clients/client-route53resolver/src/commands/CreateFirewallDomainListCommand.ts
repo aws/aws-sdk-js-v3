@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * The input for {@link CreateFirewallDomainListCommand}.
+ */
 export interface CreateFirewallDomainListCommandInput extends CreateFirewallDomainListRequest {}
+/**
+ * The output of {@link CreateFirewallDomainListCommand}.
+ */
 export interface CreateFirewallDomainListCommandOutput extends CreateFirewallDomainListResponse, __MetadataBearer {}
 
 /**

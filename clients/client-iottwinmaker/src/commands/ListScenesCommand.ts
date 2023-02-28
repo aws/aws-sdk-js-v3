@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListScenesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListScenesCommand}.
+ */
 export interface ListScenesCommandInput extends ListScenesRequest {}
+/**
+ * The output of {@link ListScenesCommand}.
+ */
 export interface ListScenesCommandOutput extends ListScenesResponse, __MetadataBearer {}
 
 /**

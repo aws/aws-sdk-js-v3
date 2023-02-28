@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteCustomPluginCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteCustomPluginCommand}.
+ */
 export interface DeleteCustomPluginCommandInput extends DeleteCustomPluginRequest {}
+/**
+ * The output of {@link DeleteCustomPluginCommand}.
+ */
 export interface DeleteCustomPluginCommandOutput extends DeleteCustomPluginResponse, __MetadataBearer {}
 
 /**

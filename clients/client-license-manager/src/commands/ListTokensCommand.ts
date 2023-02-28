@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListTokensCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTokensCommand}.
+ */
 export interface ListTokensCommandInput extends ListTokensRequest {}
+/**
+ * The output of {@link ListTokensCommand}.
+ */
 export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataBearer {}
 
 /**

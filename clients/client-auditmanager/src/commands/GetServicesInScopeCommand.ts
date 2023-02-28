@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetServicesInScopeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetServicesInScopeCommand}.
+ */
 export interface GetServicesInScopeCommandInput extends GetServicesInScopeRequest {}
+/**
+ * The output of {@link GetServicesInScopeCommand}.
+ */
 export interface GetServicesInScopeCommandOutput extends GetServicesInScopeResponse, __MetadataBearer {}
 
 /**

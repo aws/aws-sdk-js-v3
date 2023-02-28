@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * The input for {@link CreateDatalakeAutoEnableCommand}.
+ */
 export interface CreateDatalakeAutoEnableCommandInput extends CreateDatalakeAutoEnableRequest {}
+/**
+ * The output of {@link CreateDatalakeAutoEnableCommand}.
+ */
 export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAutoEnableResponse, __MetadataBearer {}
 
 /**

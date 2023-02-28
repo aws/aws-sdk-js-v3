@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1QueryTableRowsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link QueryTableRowsCommand}.
+ */
 export interface QueryTableRowsCommandInput extends QueryTableRowsRequest {}
+/**
+ * The output of {@link QueryTableRowsCommand}.
+ */
 export interface QueryTableRowsCommandOutput extends QueryTableRowsResult, __MetadataBearer {}
 
 /**

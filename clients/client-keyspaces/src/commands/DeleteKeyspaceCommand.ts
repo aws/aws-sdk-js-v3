@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DeleteKeyspaceCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteKeyspaceCommand}.
+ */
 export interface DeleteKeyspaceCommandInput extends DeleteKeyspaceRequest {}
+/**
+ * The output of {@link DeleteKeyspaceCommand}.
+ */
 export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link UpdateEndpointWeightsAndCapacitiesCommand}.
+ */
 export interface UpdateEndpointWeightsAndCapacitiesCommandInput extends UpdateEndpointWeightsAndCapacitiesInput {}
+/**
+ * The output of {@link UpdateEndpointWeightsAndCapacitiesCommand}.
+ */
 export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
   extends UpdateEndpointWeightsAndCapacitiesOutput,
     __MetadataBearer {}

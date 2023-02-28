@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1StopSolutionVersionCreationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopSolutionVersionCreationCommand}.
+ */
 export interface StopSolutionVersionCreationCommandInput extends StopSolutionVersionCreationRequest {}
+/**
+ * The output of {@link StopSolutionVersionCreationCommand}.
+ */
 export interface StopSolutionVersionCreationCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CancelHandshakeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CancelHandshakeCommand}.
+ */
 export interface CancelHandshakeCommandInput extends CancelHandshakeRequest {}
+/**
+ * The output of {@link CancelHandshakeCommand}.
+ */
 export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, __MetadataBearer {}
 
 /**

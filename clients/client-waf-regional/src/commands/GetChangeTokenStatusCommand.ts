@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link GetChangeTokenStatusCommand}.
+ */
 export interface GetChangeTokenStatusCommandInput extends GetChangeTokenStatusRequest {}
+/**
+ * The output of {@link GetChangeTokenStatusCommand}.
+ */
 export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusResponse, __MetadataBearer {}
 
 /**

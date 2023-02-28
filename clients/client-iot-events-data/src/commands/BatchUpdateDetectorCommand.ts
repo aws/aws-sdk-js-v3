@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchUpdateDetectorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchUpdateDetectorCommand}.
+ */
 export interface BatchUpdateDetectorCommandInput extends BatchUpdateDetectorRequest {}
+/**
+ * The output of {@link BatchUpdateDetectorCommand}.
+ */
 export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorResponse, __MetadataBearer {}
 
 /**

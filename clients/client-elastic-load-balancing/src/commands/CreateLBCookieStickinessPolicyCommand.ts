@@ -29,7 +29,13 @@ import {
   serializeAws_queryCreateLBCookieStickinessPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateLBCookieStickinessPolicyCommand}.
+ */
 export interface CreateLBCookieStickinessPolicyCommandInput extends CreateLBCookieStickinessPolicyInput {}
+/**
+ * The output of {@link CreateLBCookieStickinessPolicyCommand}.
+ */
 export interface CreateLBCookieStickinessPolicyCommandOutput
   extends CreateLBCookieStickinessPolicyOutput,
     __MetadataBearer {}

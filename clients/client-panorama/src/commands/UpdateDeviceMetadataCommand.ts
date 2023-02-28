@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateDeviceMetadataCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateDeviceMetadataCommand}.
+ */
 export interface UpdateDeviceMetadataCommandInput extends UpdateDeviceMetadataRequest {}
+/**
+ * The output of {@link UpdateDeviceMetadataCommand}.
+ */
 export interface UpdateDeviceMetadataCommandOutput extends UpdateDeviceMetadataResponse, __MetadataBearer {}
 
 /**

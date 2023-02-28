@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link DeleteLoggingConfigurationCommand}.
+ */
 export interface DeleteLoggingConfigurationCommandInput extends DeleteLoggingConfigurationRequest {}
+/**
+ * The output of {@link DeleteLoggingConfigurationCommand}.
+ */
 export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingConfigurationResponse, __MetadataBearer {}
 
 /**

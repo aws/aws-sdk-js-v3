@@ -23,8 +23,14 @@ import {
   serializeAws_restJson1UpdateRoutingProfileDefaultOutboundQueueCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateRoutingProfileDefaultOutboundQueueCommand}.
+ */
 export interface UpdateRoutingProfileDefaultOutboundQueueCommandInput
   extends UpdateRoutingProfileDefaultOutboundQueueRequest {}
+/**
+ * The output of {@link UpdateRoutingProfileDefaultOutboundQueueCommand}.
+ */
 export interface UpdateRoutingProfileDefaultOutboundQueueCommandOutput extends __MetadataBearer {}
 
 /**

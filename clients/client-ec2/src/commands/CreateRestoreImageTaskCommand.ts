@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateRestoreImageTaskCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateRestoreImageTaskCommand}.
+ */
 export interface CreateRestoreImageTaskCommandInput extends CreateRestoreImageTaskRequest {}
+/**
+ * The output of {@link CreateRestoreImageTaskCommand}.
+ */
 export interface CreateRestoreImageTaskCommandOutput extends CreateRestoreImageTaskResult, __MetadataBearer {}
 
 /**

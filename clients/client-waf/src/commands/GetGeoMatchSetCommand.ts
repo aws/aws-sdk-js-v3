@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * The input for {@link GetGeoMatchSetCommand}.
+ */
 export interface GetGeoMatchSetCommandInput extends GetGeoMatchSetRequest {}
+/**
+ * The output of {@link GetGeoMatchSetCommand}.
+ */
 export interface GetGeoMatchSetCommandOutput extends GetGeoMatchSetResponse, __MetadataBearer {}
 
 /**

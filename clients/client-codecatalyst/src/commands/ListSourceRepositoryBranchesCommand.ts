@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListSourceRepositoryBranchesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSourceRepositoryBranchesCommand}.
+ */
 export interface ListSourceRepositoryBranchesCommandInput extends ListSourceRepositoryBranchesRequest {}
+/**
+ * The output of {@link ListSourceRepositoryBranchesCommand}.
+ */
 export interface ListSourceRepositoryBranchesCommandOutput
   extends ListSourceRepositoryBranchesResponse,
     __MetadataBearer {}

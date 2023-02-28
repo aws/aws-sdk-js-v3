@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetEffectivePermissionsForPathCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetEffectivePermissionsForPathCommand}.
+ */
 export interface GetEffectivePermissionsForPathCommandInput extends GetEffectivePermissionsForPathRequest {}
+/**
+ * The output of {@link GetEffectivePermissionsForPathCommand}.
+ */
 export interface GetEffectivePermissionsForPathCommandOutput
   extends GetEffectivePermissionsForPathResponse,
     __MetadataBearer {}

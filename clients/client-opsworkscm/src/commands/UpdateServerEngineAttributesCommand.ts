@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateServerEngineAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateServerEngineAttributesCommand}.
+ */
 export interface UpdateServerEngineAttributesCommandInput extends UpdateServerEngineAttributesRequest {}
+/**
+ * The output of {@link UpdateServerEngineAttributesCommand}.
+ */
 export interface UpdateServerEngineAttributesCommandOutput
   extends UpdateServerEngineAttributesResponse,
     __MetadataBearer {}

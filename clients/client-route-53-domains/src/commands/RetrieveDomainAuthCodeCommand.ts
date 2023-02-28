@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link RetrieveDomainAuthCodeCommand}.
+ */
 export interface RetrieveDomainAuthCodeCommandInput extends RetrieveDomainAuthCodeRequest {}
+/**
+ * The output of {@link RetrieveDomainAuthCodeCommand}.
+ */
 export interface RetrieveDomainAuthCodeCommandOutput extends RetrieveDomainAuthCodeResponse, __MetadataBearer {}
 
 /**

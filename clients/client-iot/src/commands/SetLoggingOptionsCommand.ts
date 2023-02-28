@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1SetLoggingOptionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SetLoggingOptionsCommand}.
+ */
 export interface SetLoggingOptionsCommandInput extends SetLoggingOptionsRequest {}
+/**
+ * The output of {@link SetLoggingOptionsCommand}.
+ */
 export interface SetLoggingOptionsCommandOutput extends __MetadataBearer {}
 
 /**

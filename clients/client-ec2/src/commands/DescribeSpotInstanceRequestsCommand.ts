@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeSpotInstanceRequestsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeSpotInstanceRequestsCommand}.
+ */
 export interface DescribeSpotInstanceRequestsCommandInput extends DescribeSpotInstanceRequestsRequest {}
+/**
+ * The output of {@link DescribeSpotInstanceRequestsCommand}.
+ */
 export interface DescribeSpotInstanceRequestsCommandOutput
   extends DescribeSpotInstanceRequestsResult,
     __MetadataBearer {}

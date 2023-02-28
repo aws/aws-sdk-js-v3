@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteDataRepositoryAssociationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteDataRepositoryAssociationCommand}.
+ */
 export interface DeleteDataRepositoryAssociationCommandInput extends DeleteDataRepositoryAssociationRequest {}
+/**
+ * The output of {@link DeleteDataRepositoryAssociationCommand}.
+ */
 export interface DeleteDataRepositoryAssociationCommandOutput
   extends DeleteDataRepositoryAssociationResponse,
     __MetadataBearer {}

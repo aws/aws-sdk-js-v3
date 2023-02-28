@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeNotificationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeNotificationConfigurationCommand}.
+ */
 export interface DescribeNotificationConfigurationCommandInput extends DescribeNotificationConfigurationInput {}
+/**
+ * The output of {@link DescribeNotificationConfigurationCommand}.
+ */
 export interface DescribeNotificationConfigurationCommandOutput
   extends DescribeNotificationConfigurationOutput,
     __MetadataBearer {}

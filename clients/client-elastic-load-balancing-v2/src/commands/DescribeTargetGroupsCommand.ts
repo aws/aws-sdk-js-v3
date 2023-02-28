@@ -29,7 +29,13 @@ import {
   serializeAws_queryDescribeTargetGroupsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeTargetGroupsCommand}.
+ */
 export interface DescribeTargetGroupsCommandInput extends DescribeTargetGroupsInput {}
+/**
+ * The output of {@link DescribeTargetGroupsCommand}.
+ */
 export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsOutput, __MetadataBearer {}
 
 /**

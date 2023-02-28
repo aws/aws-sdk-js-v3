@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AcceptVpcEndpointConnectionsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AcceptVpcEndpointConnectionsCommand}.
+ */
 export interface AcceptVpcEndpointConnectionsCommandInput extends AcceptVpcEndpointConnectionsRequest {}
+/**
+ * The output of {@link AcceptVpcEndpointConnectionsCommand}.
+ */
 export interface AcceptVpcEndpointConnectionsCommandOutput
   extends AcceptVpcEndpointConnectionsResult,
     __MetadataBearer {}

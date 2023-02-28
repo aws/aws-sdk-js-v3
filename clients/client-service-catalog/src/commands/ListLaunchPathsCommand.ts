@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link ListLaunchPathsCommand}.
+ */
 export interface ListLaunchPathsCommandInput extends ListLaunchPathsInput {}
+/**
+ * The output of {@link ListLaunchPathsCommand}.
+ */
 export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __MetadataBearer {}
 
 /**

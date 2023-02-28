@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteFeatureGroupCommand}.
+ */
 export interface DeleteFeatureGroupCommandInput extends DeleteFeatureGroupRequest {}
+/**
+ * The output of {@link DeleteFeatureGroupCommand}.
+ */
 export interface DeleteFeatureGroupCommandOutput extends __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link AddPermissionCommand}.
+ */
 export interface AddPermissionCommandInput extends AddPermissionInput {}
+/**
+ * The output of {@link AddPermissionCommand}.
+ */
 export interface AddPermissionCommandOutput extends __MetadataBearer {}
 
 /**

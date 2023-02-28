@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListGraphsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListGraphsCommand}.
+ */
 export interface ListGraphsCommandInput extends ListGraphsRequest {}
+/**
+ * The output of {@link ListGraphsCommand}.
+ */
 export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataBearer {}
 
 /**

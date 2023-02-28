@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
+/**
+ * The input for {@link StartLendingAnalysisCommand}.
+ */
 export interface StartLendingAnalysisCommandInput extends StartLendingAnalysisRequest {}
+/**
+ * The output of {@link StartLendingAnalysisCommand}.
+ */
 export interface StartLendingAnalysisCommandOutput extends StartLendingAnalysisResponse, __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_ec2CreateFleetCommand, serializeAws_ec2CreateFleetCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateFleetCommand}.
+ */
 export interface CreateFleetCommandInput extends CreateFleetRequest {}
+/**
+ * The output of {@link CreateFleetCommand}.
+ */
 export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataBearer {}
 
 /**

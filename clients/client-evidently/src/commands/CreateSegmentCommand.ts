@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateSegmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateSegmentCommand}.
+ */
 export interface CreateSegmentCommandInput extends CreateSegmentRequest {}
+/**
+ * The output of {@link CreateSegmentCommand}.
+ */
 export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __MetadataBearer {}
 
 /**

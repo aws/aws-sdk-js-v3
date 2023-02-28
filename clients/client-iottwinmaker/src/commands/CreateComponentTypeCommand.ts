@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateComponentTypeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateComponentTypeCommand}.
+ */
 export interface CreateComponentTypeCommandInput extends CreateComponentTypeRequest {}
+/**
+ * The output of {@link CreateComponentTypeCommand}.
+ */
 export interface CreateComponentTypeCommandOutput extends CreateComponentTypeResponse, __MetadataBearer {}
 
 /**

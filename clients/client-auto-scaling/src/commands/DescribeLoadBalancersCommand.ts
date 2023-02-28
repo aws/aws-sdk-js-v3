@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeLoadBalancersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeLoadBalancersCommand}.
+ */
 export interface DescribeLoadBalancersCommandInput extends DescribeLoadBalancersRequest {}
+/**
+ * The output of {@link DescribeLoadBalancersCommand}.
+ */
 export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancersResponse, __MetadataBearer {}
 
 /**

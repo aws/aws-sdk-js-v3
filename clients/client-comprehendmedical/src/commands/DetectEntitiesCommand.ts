@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DetectEntitiesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DetectEntitiesCommand}.
+ */
 export interface DetectEntitiesCommandInput extends DetectEntitiesRequest {}
+/**
+ * The output of {@link DetectEntitiesCommand}.
+ */
 export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __MetadataBearer {}
 
 /**

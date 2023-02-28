@@ -23,7 +23,13 @@ import {
   serializeAws_ec2DeleteSpotDatafeedSubscriptionCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteSpotDatafeedSubscriptionCommand}.
+ */
 export interface DeleteSpotDatafeedSubscriptionCommandInput extends DeleteSpotDatafeedSubscriptionRequest {}
+/**
+ * The output of {@link DeleteSpotDatafeedSubscriptionCommand}.
+ */
 export interface DeleteSpotDatafeedSubscriptionCommandOutput extends __MetadataBearer {}
 
 /**

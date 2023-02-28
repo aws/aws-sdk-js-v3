@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopReplicationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopReplicationCommand}.
+ */
 export interface StopReplicationCommandInput extends StopReplicationRequest {}
+/**
+ * The output of {@link StopReplicationCommand}.
+ */
 export interface StopReplicationCommandOutput extends StopReplicationResponse, __MetadataBearer {}
 
 /**

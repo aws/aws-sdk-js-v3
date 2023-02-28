@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListDatasetGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListDatasetGroupsCommand}.
+ */
 export interface ListDatasetGroupsCommandInput extends ListDatasetGroupsRequest {}
+/**
+ * The output of {@link ListDatasetGroupsCommand}.
+ */
 export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsResponse, __MetadataBearer {}
 
 /**

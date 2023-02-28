@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDevicePositionHistoryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDevicePositionHistoryCommand}.
+ */
 export interface GetDevicePositionHistoryCommandInput extends GetDevicePositionHistoryRequest {}
+/**
+ * The output of {@link GetDevicePositionHistoryCommand}.
+ */
 export interface GetDevicePositionHistoryCommandOutput extends GetDevicePositionHistoryResponse, __MetadataBearer {}
 
 /**

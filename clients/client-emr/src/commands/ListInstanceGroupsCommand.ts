@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListInstanceGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListInstanceGroupsCommand}.
+ */
 export interface ListInstanceGroupsCommandInput extends ListInstanceGroupsInput {}
+/**
+ * The output of {@link ListInstanceGroupsCommand}.
+ */
 export interface ListInstanceGroupsCommandOutput extends ListInstanceGroupsOutput, __MetadataBearer {}
 
 /**

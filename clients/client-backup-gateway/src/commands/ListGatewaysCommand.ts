@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListGatewaysCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListGatewaysCommand}.
+ */
 export interface ListGatewaysCommandInput extends ListGatewaysInput {}
+/**
+ * The output of {@link ListGatewaysCommand}.
+ */
 export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __MetadataBearer {}
 
 /**

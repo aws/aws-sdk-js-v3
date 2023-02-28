@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateDimensionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateDimensionCommand}.
+ */
 export interface UpdateDimensionCommandInput extends UpdateDimensionRequest {}
+/**
+ * The output of {@link UpdateDimensionCommand}.
+ */
 export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, __MetadataBearer {}
 
 /**

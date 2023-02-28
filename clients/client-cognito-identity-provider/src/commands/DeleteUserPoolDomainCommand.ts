@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1DeleteUserPoolDomainCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteUserPoolDomainCommand}.
+ */
 export interface DeleteUserPoolDomainCommandInput extends DeleteUserPoolDomainRequest {}
+/**
+ * The output of {@link DeleteUserPoolDomainCommand}.
+ */
 export interface DeleteUserPoolDomainCommandOutput extends DeleteUserPoolDomainResponse, __MetadataBearer {}
 
 /**

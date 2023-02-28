@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeTableStatisticsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeTableStatisticsCommand}.
+ */
 export interface DescribeTableStatisticsCommandInput extends DescribeTableStatisticsMessage {}
+/**
+ * The output of {@link DescribeTableStatisticsCommand}.
+ */
 export interface DescribeTableStatisticsCommandOutput extends DescribeTableStatisticsResponse, __MetadataBearer {}
 
 /**

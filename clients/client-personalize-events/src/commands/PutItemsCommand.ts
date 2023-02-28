@@ -24,7 +24,13 @@ import {
   serializeAws_restJson1PutItemsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutItemsCommand}.
+ */
 export interface PutItemsCommandInput extends PutItemsRequest {}
+/**
+ * The output of {@link PutItemsCommand}.
+ */
 export interface PutItemsCommandOutput extends __MetadataBearer {}
 
 /**

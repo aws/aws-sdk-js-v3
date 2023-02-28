@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListSourceServerActionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSourceServerActionsCommand}.
+ */
 export interface ListSourceServerActionsCommandInput extends ListSourceServerActionsRequest {}
+/**
+ * The output of {@link ListSourceServerActionsCommand}.
+ */
 export interface ListSourceServerActionsCommandOutput extends ListSourceServerActionsResponse, __MetadataBearer {}
 
 /**

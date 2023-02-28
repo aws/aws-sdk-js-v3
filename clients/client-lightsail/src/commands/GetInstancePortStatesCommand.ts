@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetInstancePortStatesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetInstancePortStatesCommand}.
+ */
 export interface GetInstancePortStatesCommandInput extends GetInstancePortStatesRequest {}
+/**
+ * The output of {@link GetInstancePortStatesCommand}.
+ */
 export interface GetInstancePortStatesCommandOutput extends GetInstancePortStatesResult, __MetadataBearer {}
 
 /**

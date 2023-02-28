@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1StopBackupJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopBackupJobCommand}.
+ */
 export interface StopBackupJobCommandInput extends StopBackupJobInput {}
+/**
+ * The output of {@link StopBackupJobCommand}.
+ */
 export interface StopBackupJobCommandOutput extends __MetadataBearer {}
 
 /**

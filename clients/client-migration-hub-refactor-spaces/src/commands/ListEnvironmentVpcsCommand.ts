@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListEnvironmentVpcsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListEnvironmentVpcsCommand}.
+ */
 export interface ListEnvironmentVpcsCommandInput extends ListEnvironmentVpcsRequest {}
+/**
+ * The output of {@link ListEnvironmentVpcsCommand}.
+ */
 export interface ListEnvironmentVpcsCommandOutput extends ListEnvironmentVpcsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateDataViewCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateDataViewCommand}.
+ */
 export interface CreateDataViewCommandInput extends CreateDataViewRequest {}
+/**
+ * The output of {@link CreateDataViewCommand}.
+ */
 export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __MetadataBearer {}
 
 /**

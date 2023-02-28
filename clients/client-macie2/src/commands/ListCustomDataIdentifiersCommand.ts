@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListCustomDataIdentifiersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListCustomDataIdentifiersCommand}.
+ */
 export interface ListCustomDataIdentifiersCommandInput extends ListCustomDataIdentifiersRequest {}
+/**
+ * The output of {@link ListCustomDataIdentifiersCommand}.
+ */
 export interface ListCustomDataIdentifiersCommandOutput extends ListCustomDataIdentifiersResponse, __MetadataBearer {}
 
 /**

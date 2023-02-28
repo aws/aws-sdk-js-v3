@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link ModifyDBProxyEndpointCommand}.
+ */
 export interface ModifyDBProxyEndpointCommandInput extends ModifyDBProxyEndpointRequest {}
+/**
+ * The output of {@link ModifyDBProxyEndpointCommand}.
+ */
 export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpointResponse, __MetadataBearer {}
 
 /**

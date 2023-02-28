@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GenerateRandomCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GenerateRandomCommand}.
+ */
 export interface GenerateRandomCommandInput extends GenerateRandomRequest {}
+/**
+ * The output of {@link GenerateRandomCommand}.
+ */
 export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __MetadataBearer {}
 
 /**

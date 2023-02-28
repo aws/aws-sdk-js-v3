@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateQualificationTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateQualificationTypeCommand}.
+ */
 export interface CreateQualificationTypeCommandInput extends CreateQualificationTypeRequest {}
+/**
+ * The output of {@link CreateQualificationTypeCommand}.
+ */
 export interface CreateQualificationTypeCommandOutput extends CreateQualificationTypeResponse, __MetadataBearer {}
 
 /**

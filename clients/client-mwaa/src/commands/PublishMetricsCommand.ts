@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PublishMetricsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PublishMetricsCommand}.
+ */
 export interface PublishMetricsCommandInput extends PublishMetricsInput {}
+/**
+ * The output of {@link PublishMetricsCommand}.
+ */
 export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __MetadataBearer {}
 
 /**

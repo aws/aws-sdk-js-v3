@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DeleteScheduledActionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteScheduledActionCommand}.
+ */
 export interface DeleteScheduledActionCommandInput extends DeleteScheduledActionRequest {}
+/**
+ * The output of {@link DeleteScheduledActionCommand}.
+ */
 export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActionResponse, __MetadataBearer {}
 
 /**

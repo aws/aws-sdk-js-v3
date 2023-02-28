@@ -25,7 +25,13 @@ import {
   serializeAws_queryCopyDBParameterGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CopyDBParameterGroupCommand}.
+ */
 export interface CopyDBParameterGroupCommandInput extends CopyDBParameterGroupMessage {}
+/**
+ * The output of {@link CopyDBParameterGroupCommand}.
+ */
 export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupResult, __MetadataBearer {}
 
 /**

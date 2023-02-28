@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeAnalysisSchemesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeAnalysisSchemesCommand}.
+ */
 export interface DescribeAnalysisSchemesCommandInput extends DescribeAnalysisSchemesRequest {}
+/**
+ * The output of {@link DescribeAnalysisSchemesCommand}.
+ */
 export interface DescribeAnalysisSchemesCommandOutput extends DescribeAnalysisSchemesResponse, __MetadataBearer {}
 
 /**

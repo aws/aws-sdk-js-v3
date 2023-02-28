@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetJobBookmarkCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetJobBookmarkCommand}.
+ */
 export interface GetJobBookmarkCommandInput extends GetJobBookmarkRequest {}
+/**
+ * The output of {@link GetJobBookmarkCommand}.
+ */
 export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __MetadataBearer {}
 
 /**

@@ -17,7 +17,13 @@ import { GetSendQuotaResponse, GetSendQuotaResponseFilterSensitiveLog } from "..
 import { deserializeAws_queryGetSendQuotaCommand, serializeAws_queryGetSendQuotaCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link GetSendQuotaCommand}.
+ */
 export interface GetSendQuotaCommandInput {}
+/**
+ * The output of {@link GetSendQuotaCommand}.
+ */
 export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __MetadataBearer {}
 
 /**

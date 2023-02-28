@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1AssociateBotCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateBotCommand}.
+ */
 export interface AssociateBotCommandInput extends AssociateBotRequest {}
+/**
+ * The output of {@link AssociateBotCommand}.
+ */
 export interface AssociateBotCommandOutput extends __MetadataBearer {}
 
 /**

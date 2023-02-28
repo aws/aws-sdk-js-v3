@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
 
+/**
+ * The input for {@link CreateClusterCommand}.
+ */
 export interface CreateClusterCommandInput extends CreateClusterRequest {}
+/**
+ * The output of {@link CreateClusterCommand}.
+ */
 export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
 
 /**

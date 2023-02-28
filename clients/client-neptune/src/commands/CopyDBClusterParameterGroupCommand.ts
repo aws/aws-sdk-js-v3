@@ -25,7 +25,13 @@ import {
   serializeAws_queryCopyDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CopyDBClusterParameterGroupCommand}.
+ */
 export interface CopyDBClusterParameterGroupCommandInput extends CopyDBClusterParameterGroupMessage {}
+/**
+ * The output of {@link CopyDBClusterParameterGroupCommand}.
+ */
 export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterParameterGroupResult, __MetadataBearer {}
 
 /**

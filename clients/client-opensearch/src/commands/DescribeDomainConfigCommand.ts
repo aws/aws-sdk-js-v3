@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeDomainConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeDomainConfigCommand}.
+ */
 export interface DescribeDomainConfigCommandInput extends DescribeDomainConfigRequest {}
+/**
+ * The output of {@link DescribeDomainConfigCommand}.
+ */
 export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigResponse, __MetadataBearer {}
 
 /**

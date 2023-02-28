@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListCoreDefinitionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListCoreDefinitionsCommand}.
+ */
 export interface ListCoreDefinitionsCommandInput extends ListCoreDefinitionsRequest {}
+/**
+ * The output of {@link ListCoreDefinitionsCommand}.
+ */
 export interface ListCoreDefinitionsCommandOutput extends ListCoreDefinitionsResponse, __MetadataBearer {}
 
 /**

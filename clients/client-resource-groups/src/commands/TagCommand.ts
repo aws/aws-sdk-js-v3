@@ -17,7 +17,13 @@ import { TagInput, TagInputFilterSensitiveLog, TagOutput, TagOutputFilterSensiti
 import { deserializeAws_restJson1TagCommand, serializeAws_restJson1TagCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
+/**
+ * The input for {@link TagCommand}.
+ */
 export interface TagCommandInput extends TagInput {}
+/**
+ * The output of {@link TagCommand}.
+ */
 export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteInstanceOnboardingJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteInstanceOnboardingJobCommand}.
+ */
 export interface DeleteInstanceOnboardingJobCommandInput extends DeleteInstanceOnboardingJobRequest {}
+/**
+ * The output of {@link DeleteInstanceOnboardingJobCommand}.
+ */
 export interface DeleteInstanceOnboardingJobCommandOutput extends __MetadataBearer {}
 
 /**

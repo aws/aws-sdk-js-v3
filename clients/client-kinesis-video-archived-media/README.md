@@ -203,3 +203,54 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+GetClip
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/classes/getclipcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/interfaces/getclipcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/interfaces/getclipcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetDASHStreamingSessionURL
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/classes/getdashstreamingsessionurlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/interfaces/getdashstreamingsessionurlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/interfaces/getdashstreamingsessionurlcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetHLSStreamingSessionURL
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/classes/gethlsstreamingsessionurlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/interfaces/gethlsstreamingsessionurlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/interfaces/gethlsstreamingsessionurlcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetImages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/classes/getimagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/interfaces/getimagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/interfaces/getimagescommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetMediaForFragmentList
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/classes/getmediaforfragmentlistcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/interfaces/getmediaforfragmentlistcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/interfaces/getmediaforfragmentlistcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListFragments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/classes/listfragmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/interfaces/listfragmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis video archived media/interfaces/listfragmentscommandoutput.html)
+
+</details>

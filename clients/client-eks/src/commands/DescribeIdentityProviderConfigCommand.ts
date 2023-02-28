@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeIdentityProviderConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeIdentityProviderConfigCommand}.
+ */
 export interface DescribeIdentityProviderConfigCommandInput extends DescribeIdentityProviderConfigRequest {}
+/**
+ * The output of {@link DescribeIdentityProviderConfigCommand}.
+ */
 export interface DescribeIdentityProviderConfigCommandOutput
   extends DescribeIdentityProviderConfigResponse,
     __MetadataBearer {}

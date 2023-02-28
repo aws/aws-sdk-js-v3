@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AcceptMatchCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AcceptMatchCommand}.
+ */
 export interface AcceptMatchCommandInput extends AcceptMatchInput {}
+/**
+ * The output of {@link AcceptMatchCommand}.
+ */
 export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataBearer {}
 
 /**

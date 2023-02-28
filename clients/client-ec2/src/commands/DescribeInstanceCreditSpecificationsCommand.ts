@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeInstanceCreditSpecificationsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeInstanceCreditSpecificationsCommand}.
+ */
 export interface DescribeInstanceCreditSpecificationsCommandInput extends DescribeInstanceCreditSpecificationsRequest {}
+/**
+ * The output of {@link DescribeInstanceCreditSpecificationsCommand}.
+ */
 export interface DescribeInstanceCreditSpecificationsCommandOutput
   extends DescribeInstanceCreditSpecificationsResult,
     __MetadataBearer {}

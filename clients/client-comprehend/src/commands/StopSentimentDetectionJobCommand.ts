@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopSentimentDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopSentimentDetectionJobCommand}.
+ */
 export interface StopSentimentDetectionJobCommandInput extends StopSentimentDetectionJobRequest {}
+/**
+ * The output of {@link StopSentimentDetectionJobCommand}.
+ */
 export interface StopSentimentDetectionJobCommandOutput extends StopSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**

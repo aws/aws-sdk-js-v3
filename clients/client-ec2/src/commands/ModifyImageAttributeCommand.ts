@@ -20,7 +20,13 @@ import {
   serializeAws_ec2ModifyImageAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyImageAttributeCommand}.
+ */
 export interface ModifyImageAttributeCommandInput extends ModifyImageAttributeRequest {}
+/**
+ * The output of {@link ModifyImageAttributeCommand}.
+ */
 export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
 
 /**

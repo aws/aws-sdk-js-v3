@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDifferencesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDifferencesCommand}.
+ */
 export interface GetDifferencesCommandInput extends GetDifferencesInput {}
+/**
+ * The output of {@link GetDifferencesCommand}.
+ */
 export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __MetadataBearer {}
 
 /**

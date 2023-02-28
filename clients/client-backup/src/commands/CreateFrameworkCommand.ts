@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateFrameworkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateFrameworkCommand}.
+ */
 export interface CreateFrameworkCommandInput extends CreateFrameworkInput {}
+/**
+ * The output of {@link CreateFrameworkCommand}.
+ */
 export interface CreateFrameworkCommandOutput extends CreateFrameworkOutput, __MetadataBearer {}
 
 /**

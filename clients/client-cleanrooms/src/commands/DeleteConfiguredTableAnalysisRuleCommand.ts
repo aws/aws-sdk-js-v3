@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteConfiguredTableAnalysisRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteConfiguredTableAnalysisRuleCommand}.
+ */
 export interface DeleteConfiguredTableAnalysisRuleCommandInput extends DeleteConfiguredTableAnalysisRuleInput {}
+/**
+ * The output of {@link DeleteConfiguredTableAnalysisRuleCommand}.
+ */
 export interface DeleteConfiguredTableAnalysisRuleCommandOutput
   extends DeleteConfiguredTableAnalysisRuleOutput,
     __MetadataBearer {}

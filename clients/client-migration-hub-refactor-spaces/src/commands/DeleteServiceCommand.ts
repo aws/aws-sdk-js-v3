@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DeleteServiceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteServiceCommand}.
+ */
 export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
+/**
+ * The output of {@link DeleteServiceCommand}.
+ */
 export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
 
 /**

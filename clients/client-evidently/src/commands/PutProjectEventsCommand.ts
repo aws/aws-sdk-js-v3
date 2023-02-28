@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutProjectEventsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutProjectEventsCommand}.
+ */
 export interface PutProjectEventsCommandInput extends PutProjectEventsRequest {}
+/**
+ * The output of {@link PutProjectEventsCommand}.
+ */
 export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateAssetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateAssetCommand}.
+ */
 export interface CreateAssetCommandInput extends CreateAssetRequest {}
+/**
+ * The output of {@link CreateAssetCommand}.
+ */
 export interface CreateAssetCommandOutput extends CreateAssetResponse, __MetadataBearer {}
 
 /**

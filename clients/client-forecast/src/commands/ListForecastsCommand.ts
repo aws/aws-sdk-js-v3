@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListForecastsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListForecastsCommand}.
+ */
 export interface ListForecastsCommandInput extends ListForecastsRequest {}
+/**
+ * The output of {@link ListForecastsCommand}.
+ */
 export interface ListForecastsCommandOutput extends ListForecastsResponse, __MetadataBearer {}
 
 /**

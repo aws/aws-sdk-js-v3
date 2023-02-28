@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteVirtualClusterCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteVirtualClusterCommand}.
+ */
 export interface DeleteVirtualClusterCommandInput extends DeleteVirtualClusterRequest {}
+/**
+ * The output of {@link DeleteVirtualClusterCommand}.
+ */
 export interface DeleteVirtualClusterCommandOutput extends DeleteVirtualClusterResponse, __MetadataBearer {}
 
 /**

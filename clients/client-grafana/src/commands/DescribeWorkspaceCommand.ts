@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeWorkspaceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeWorkspaceCommand}.
+ */
 export interface DescribeWorkspaceCommandInput extends DescribeWorkspaceRequest {}
+/**
+ * The output of {@link DescribeWorkspaceCommand}.
+ */
 export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceResponse, __MetadataBearer {}
 
 /**

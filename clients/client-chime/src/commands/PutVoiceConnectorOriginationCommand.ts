@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutVoiceConnectorOriginationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutVoiceConnectorOriginationCommand}.
+ */
 export interface PutVoiceConnectorOriginationCommandInput extends PutVoiceConnectorOriginationRequest {}
+/**
+ * The output of {@link PutVoiceConnectorOriginationCommand}.
+ */
 export interface PutVoiceConnectorOriginationCommandOutput
   extends PutVoiceConnectorOriginationResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_queryGetUserPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetUserPolicyCommand}.
+ */
 export interface GetUserPolicyCommandInput extends GetUserPolicyRequest {}
+/**
+ * The output of {@link GetUserPolicyCommand}.
+ */
 export interface GetUserPolicyCommandOutput extends GetUserPolicyResponse, __MetadataBearer {}
 
 /**

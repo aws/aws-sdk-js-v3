@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * The input for {@link ListAvailableManagedRuleGroupVersionsCommand}.
+ */
 export interface ListAvailableManagedRuleGroupVersionsCommandInput
   extends ListAvailableManagedRuleGroupVersionsRequest {}
+/**
+ * The output of {@link ListAvailableManagedRuleGroupVersionsCommand}.
+ */
 export interface ListAvailableManagedRuleGroupVersionsCommandOutput
   extends ListAvailableManagedRuleGroupVersionsResponse,
     __MetadataBearer {}

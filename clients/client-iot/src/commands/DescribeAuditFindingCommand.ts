@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeAuditFindingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeAuditFindingCommand}.
+ */
 export interface DescribeAuditFindingCommandInput extends DescribeAuditFindingRequest {}
+/**
+ * The output of {@link DescribeAuditFindingCommand}.
+ */
 export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingResponse, __MetadataBearer {}
 
 /**

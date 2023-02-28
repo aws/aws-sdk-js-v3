@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
+/**
+ * The input for {@link DeleteScheduledQueryCommand}.
+ */
 export interface DeleteScheduledQueryCommandInput extends DeleteScheduledQueryRequest {}
+/**
+ * The output of {@link DeleteScheduledQueryCommand}.
+ */
 export interface DeleteScheduledQueryCommandOutput extends __MetadataBearer {}
 
 /**

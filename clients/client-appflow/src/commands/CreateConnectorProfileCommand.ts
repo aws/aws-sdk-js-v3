@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateConnectorProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateConnectorProfileCommand}.
+ */
 export interface CreateConnectorProfileCommandInput extends CreateConnectorProfileRequest {}
+/**
+ * The output of {@link CreateConnectorProfileCommand}.
+ */
 export interface CreateConnectorProfileCommandOutput extends CreateConnectorProfileResponse, __MetadataBearer {}
 
 /**

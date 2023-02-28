@@ -25,7 +25,13 @@ import {
   serializeAws_queryResetDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ResetDBClusterParameterGroupCommand}.
+ */
 export interface ResetDBClusterParameterGroupCommandInput extends ResetDBClusterParameterGroupMessage {}
+/**
+ * The output of {@link ResetDBClusterParameterGroupCommand}.
+ */
 export interface ResetDBClusterParameterGroupCommandOutput
   extends DBClusterParameterGroupNameMessage,
     __MetadataBearer {}

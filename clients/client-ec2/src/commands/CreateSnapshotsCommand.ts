@@ -22,7 +22,13 @@ import {
 } from "../models/models_2";
 import { deserializeAws_ec2CreateSnapshotsCommand, serializeAws_ec2CreateSnapshotsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateSnapshotsCommand}.
+ */
 export interface CreateSnapshotsCommandInput extends CreateSnapshotsRequest {}
+/**
+ * The output of {@link CreateSnapshotsCommand}.
+ */
 export interface CreateSnapshotsCommandOutput extends CreateSnapshotsResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListRuleNamesByTargetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListRuleNamesByTargetCommand}.
+ */
 export interface ListRuleNamesByTargetCommandInput extends ListRuleNamesByTargetRequest {}
+/**
+ * The output of {@link ListRuleNamesByTargetCommand}.
+ */
 export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTargetResponse, __MetadataBearer {}
 
 /**

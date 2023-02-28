@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeregisterJobDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeregisterJobDefinitionCommand}.
+ */
 export interface DeregisterJobDefinitionCommandInput extends DeregisterJobDefinitionRequest {}
+/**
+ * The output of {@link DeregisterJobDefinitionCommand}.
+ */
 export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefinitionResponse, __MetadataBearer {}
 
 /**

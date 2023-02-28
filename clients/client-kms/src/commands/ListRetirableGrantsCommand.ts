@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListRetirableGrantsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListRetirableGrantsCommand}.
+ */
 export interface ListRetirableGrantsCommandInput extends ListRetirableGrantsRequest {}
+/**
+ * The output of {@link ListRetirableGrantsCommand}.
+ */
 export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __MetadataBearer {}
 
 /**

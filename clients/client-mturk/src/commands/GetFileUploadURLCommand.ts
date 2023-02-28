@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetFileUploadURLCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetFileUploadURLCommand}.
+ */
 export interface GetFileUploadURLCommandInput extends GetFileUploadURLRequest {}
+/**
+ * The output of {@link GetFileUploadURLCommand}.
+ */
 export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse, __MetadataBearer {}
 
 /**

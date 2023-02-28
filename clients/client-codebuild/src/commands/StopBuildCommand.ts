@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1StopBuildCommand, serializeAws_json1_1StopBuildCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopBuildCommand}.
+ */
 export interface StopBuildCommandInput extends StopBuildInput {}
+/**
+ * The output of {@link StopBuildCommand}.
+ */
 export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBearer {}
 
 /**

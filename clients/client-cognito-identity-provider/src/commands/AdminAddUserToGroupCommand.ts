@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AdminAddUserToGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminAddUserToGroupCommand}.
+ */
 export interface AdminAddUserToGroupCommandInput extends AdminAddUserToGroupRequest {}
+/**
+ * The output of {@link AdminAddUserToGroupCommand}.
+ */
 export interface AdminAddUserToGroupCommandOutput extends __MetadataBearer {}
 
 /**

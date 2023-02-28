@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateDataQualityRulesetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateDataQualityRulesetCommand}.
+ */
 export interface UpdateDataQualityRulesetCommandInput extends UpdateDataQualityRulesetRequest {}
+/**
+ * The output of {@link UpdateDataQualityRulesetCommand}.
+ */
 export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQualityRulesetResponse, __MetadataBearer {}
 
 /**

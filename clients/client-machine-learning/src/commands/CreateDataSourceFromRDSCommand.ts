@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDataSourceFromRDSCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDataSourceFromRDSCommand}.
+ */
 export interface CreateDataSourceFromRDSCommandInput extends CreateDataSourceFromRDSInput {}
+/**
+ * The output of {@link CreateDataSourceFromRDSCommand}.
+ */
 export interface CreateDataSourceFromRDSCommandOutput extends CreateDataSourceFromRDSOutput, __MetadataBearer {}
 
 /**

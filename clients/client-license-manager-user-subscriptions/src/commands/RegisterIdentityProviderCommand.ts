@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1RegisterIdentityProviderCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RegisterIdentityProviderCommand}.
+ */
 export interface RegisterIdentityProviderCommandInput extends RegisterIdentityProviderRequest {}
+/**
+ * The output of {@link RegisterIdentityProviderCommand}.
+ */
 export interface RegisterIdentityProviderCommandOutput extends RegisterIdentityProviderResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1CloseAccountCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CloseAccountCommand}.
+ */
 export interface CloseAccountCommandInput extends CloseAccountRequest {}
+/**
+ * The output of {@link CloseAccountCommand}.
+ */
 export interface CloseAccountCommandOutput extends __MetadataBearer {}
 
 /**

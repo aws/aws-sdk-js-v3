@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SearchOrganizationInsightsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SearchOrganizationInsightsCommand}.
+ */
 export interface SearchOrganizationInsightsCommandInput extends SearchOrganizationInsightsRequest {}
+/**
+ * The output of {@link SearchOrganizationInsightsCommand}.
+ */
 export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizationInsightsResponse, __MetadataBearer {}
 
 /**

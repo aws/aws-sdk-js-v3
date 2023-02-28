@@ -29,8 +29,14 @@ import {
   serializeAws_json1_1AddApplicationInputProcessingConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddApplicationInputProcessingConfigurationCommand}.
+ */
 export interface AddApplicationInputProcessingConfigurationCommandInput
   extends AddApplicationInputProcessingConfigurationRequest {}
+/**
+ * The output of {@link AddApplicationInputProcessingConfigurationCommand}.
+ */
 export interface AddApplicationInputProcessingConfigurationCommandOutput
   extends AddApplicationInputProcessingConfigurationResponse,
     __MetadataBearer {}

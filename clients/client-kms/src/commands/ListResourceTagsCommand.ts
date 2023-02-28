@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListResourceTagsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListResourceTagsCommand}.
+ */
 export interface ListResourceTagsCommandInput extends ListResourceTagsRequest {}
+/**
+ * The output of {@link ListResourceTagsCommand}.
+ */
 export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse, __MetadataBearer {}
 
 /**

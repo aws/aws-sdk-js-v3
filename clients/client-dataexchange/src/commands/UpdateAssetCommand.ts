@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateAssetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateAssetCommand}.
+ */
 export interface UpdateAssetCommandInput extends UpdateAssetRequest {}
+/**
+ * The output of {@link UpdateAssetCommand}.
+ */
 export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __MetadataBearer {}
 
 /**

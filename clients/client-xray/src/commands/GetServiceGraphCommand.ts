@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * The input for {@link GetServiceGraphCommand}.
+ */
 export interface GetServiceGraphCommandInput extends GetServiceGraphRequest {}
+/**
+ * The output of {@link GetServiceGraphCommand}.
+ */
 export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __MetadataBearer {}
 
 /**

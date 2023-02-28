@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListEntitiesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListEntitiesCommand}.
+ */
 export interface ListEntitiesCommandInput extends ListEntitiesRequest {}
+/**
+ * The output of {@link ListEntitiesCommand}.
+ */
 export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __MetadataBearer {}
 
 /**

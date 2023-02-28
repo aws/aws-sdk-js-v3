@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1InvokeDeviceMethodCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link InvokeDeviceMethodCommand}.
+ */
 export interface InvokeDeviceMethodCommandInput extends InvokeDeviceMethodRequest {}
+/**
+ * The output of {@link InvokeDeviceMethodCommand}.
+ */
 export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodResponse, __MetadataBearer {}
 
 /**

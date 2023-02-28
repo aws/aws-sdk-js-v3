@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetBucketsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetBucketsCommand}.
+ */
 export interface GetBucketsCommandInput extends GetBucketsRequest {}
+/**
+ * The output of {@link GetBucketsCommand}.
+ */
 export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBearer {}
 
 /**

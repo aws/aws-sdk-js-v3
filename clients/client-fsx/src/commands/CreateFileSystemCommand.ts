@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateFileSystemCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateFileSystemCommand}.
+ */
 export interface CreateFileSystemCommandInput extends CreateFileSystemRequest {}
+/**
+ * The output of {@link CreateFileSystemCommand}.
+ */
 export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse, __MetadataBearer {}
 
 /**

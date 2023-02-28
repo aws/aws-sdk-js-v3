@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link CreateTransformJobCommand}.
+ */
 export interface CreateTransformJobCommandInput extends CreateTransformJobRequest {}
+/**
+ * The output of {@link CreateTransformJobCommand}.
+ */
 export interface CreateTransformJobCommandOutput extends CreateTransformJobResponse, __MetadataBearer {}
 
 /**

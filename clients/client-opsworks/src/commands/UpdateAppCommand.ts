@@ -17,7 +17,13 @@ import { UpdateAppRequest, UpdateAppRequestFilterSensitiveLog } from "../models/
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import { deserializeAws_json1_1UpdateAppCommand, serializeAws_json1_1UpdateAppCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateAppCommand}.
+ */
 export interface UpdateAppCommandInput extends UpdateAppRequest {}
+/**
+ * The output of {@link UpdateAppCommand}.
+ */
 export interface UpdateAppCommandOutput extends __MetadataBearer {}
 
 /**

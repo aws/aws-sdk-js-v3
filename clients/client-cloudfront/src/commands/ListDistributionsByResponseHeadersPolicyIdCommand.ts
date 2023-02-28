@@ -25,8 +25,14 @@ import {
   serializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link ListDistributionsByResponseHeadersPolicyIdCommand}.
+ */
 export interface ListDistributionsByResponseHeadersPolicyIdCommandInput
   extends ListDistributionsByResponseHeadersPolicyIdRequest {}
+/**
+ * The output of {@link ListDistributionsByResponseHeadersPolicyIdCommand}.
+ */
 export interface ListDistributionsByResponseHeadersPolicyIdCommandOutput
   extends ListDistributionsByResponseHeadersPolicyIdResult,
     __MetadataBearer {}

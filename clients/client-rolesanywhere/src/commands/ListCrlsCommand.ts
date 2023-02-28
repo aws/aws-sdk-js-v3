@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * The input for {@link ListCrlsCommand}.
+ */
 export interface ListCrlsCommandInput extends ListRequest {}
+/**
+ * The output of {@link ListCrlsCommand}.
+ */
 export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBearer {}
 
 /**

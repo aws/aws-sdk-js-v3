@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
+/**
+ * The input for {@link BatchDeleteRumMetricDefinitionsCommand}.
+ */
 export interface BatchDeleteRumMetricDefinitionsCommandInput extends BatchDeleteRumMetricDefinitionsRequest {}
+/**
+ * The output of {@link BatchDeleteRumMetricDefinitionsCommand}.
+ */
 export interface BatchDeleteRumMetricDefinitionsCommandOutput
   extends BatchDeleteRumMetricDefinitionsResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeAggregationAuthorizationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeAggregationAuthorizationsCommand}.
+ */
 export interface DescribeAggregationAuthorizationsCommandInput extends DescribeAggregationAuthorizationsRequest {}
+/**
+ * The output of {@link DescribeAggregationAuthorizationsCommand}.
+ */
 export interface DescribeAggregationAuthorizationsCommandOutput
   extends DescribeAggregationAuthorizationsResponse,
     __MetadataBearer {}

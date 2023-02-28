@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link CopyWorkspaceImageCommand}.
+ */
 export interface CopyWorkspaceImageCommandInput extends CopyWorkspaceImageRequest {}
+/**
+ * The output of {@link CopyWorkspaceImageCommand}.
+ */
 export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResult, __MetadataBearer {}
 
 /**

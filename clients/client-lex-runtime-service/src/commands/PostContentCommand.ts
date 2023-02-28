@@ -32,6 +32,9 @@ import {
   serializeAws_restJson1PostContentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PostContentCommand}.
+ */
 type PostContentCommandInputType = Omit<PostContentRequest, "inputStream"> & {
   /**
    * For *`PostContentRequest["inputStream"]`*, see {@link PostContentRequest.inputStream}.
@@ -42,6 +45,9 @@ type PostContentCommandInputType = Omit<PostContentRequest, "inputStream"> & {
  * This interface extends from `PostContentRequest` interface. There are more parameters than `inputStream` defined in {@link PostContentRequest}
  */
 export interface PostContentCommandInput extends PostContentCommandInputType {}
+/**
+ * The output of {@link PostContentCommand}.
+ */
 export interface PostContentCommandOutput
   extends __WithSdkStreamMixin<PostContentResponse, "audioStream">,
     __MetadataBearer {}

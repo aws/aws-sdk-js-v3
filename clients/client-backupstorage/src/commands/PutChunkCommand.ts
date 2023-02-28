@@ -25,6 +25,9 @@ import {
   serializeAws_restJson1PutChunkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutChunkCommand}.
+ */
 type PutChunkCommandInputType = Omit<PutChunkInput, "Data"> & {
   /**
    * For *`PutChunkInput["Data"]`*, see {@link PutChunkInput.Data}.
@@ -35,6 +38,9 @@ type PutChunkCommandInputType = Omit<PutChunkInput, "Data"> & {
  * This interface extends from `PutChunkInput` interface. There are more parameters than `Data` defined in {@link PutChunkInput}
  */
 export interface PutChunkCommandInput extends PutChunkCommandInputType {}
+/**
+ * The output of {@link PutChunkCommand}.
+ */
 export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AssociateIamInstanceProfileCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AssociateIamInstanceProfileCommand}.
+ */
 export interface AssociateIamInstanceProfileCommandInput extends AssociateIamInstanceProfileRequest {}
+/**
+ * The output of {@link AssociateIamInstanceProfileCommand}.
+ */
 export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamInstanceProfileResult, __MetadataBearer {}
 
 /**

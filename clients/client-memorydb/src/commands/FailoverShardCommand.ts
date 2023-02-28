@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1FailoverShardCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link FailoverShardCommand}.
+ */
 export interface FailoverShardCommandInput extends FailoverShardRequest {}
+/**
+ * The output of {@link FailoverShardCommand}.
+ */
 export interface FailoverShardCommandOutput extends FailoverShardResponse, __MetadataBearer {}
 
 /**

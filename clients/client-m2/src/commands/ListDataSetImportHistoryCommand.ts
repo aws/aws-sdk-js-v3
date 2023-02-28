@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListDataSetImportHistoryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDataSetImportHistoryCommand}.
+ */
 export interface ListDataSetImportHistoryCommandInput extends ListDataSetImportHistoryRequest {}
+/**
+ * The output of {@link ListDataSetImportHistoryCommand}.
+ */
 export interface ListDataSetImportHistoryCommandOutput extends ListDataSetImportHistoryResponse, __MetadataBearer {}
 
 /**

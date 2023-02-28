@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link RegisterUserCommand}.
+ */
 export interface RegisterUserCommandInput extends RegisterUserRequest {}
+/**
+ * The output of {@link RegisterUserCommand}.
+ */
 export interface RegisterUserCommandOutput extends RegisterUserResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link PutAccessControlRuleCommand}.
+ */
 export interface PutAccessControlRuleCommandInput extends PutAccessControlRuleRequest {}
+/**
+ * The output of {@link PutAccessControlRuleCommand}.
+ */
 export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleResponse, __MetadataBearer {}
 
 /**

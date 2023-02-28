@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopImportCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopImportCommand}.
+ */
 export interface StopImportCommandInput extends StopImportRequest {}
+/**
+ * The output of {@link StopImportCommand}.
+ */
 export interface StopImportCommandOutput extends StopImportResponse, __MetadataBearer {}
 
 /**

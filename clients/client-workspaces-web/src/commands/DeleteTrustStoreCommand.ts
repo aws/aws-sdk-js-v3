@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link DeleteTrustStoreCommand}.
+ */
 export interface DeleteTrustStoreCommandInput extends DeleteTrustStoreRequest {}
+/**
+ * The output of {@link DeleteTrustStoreCommand}.
+ */
 export interface DeleteTrustStoreCommandOutput extends DeleteTrustStoreResponse, __MetadataBearer {}
 
 /**

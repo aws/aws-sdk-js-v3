@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link TestDNSAnswerCommand}.
+ */
 export interface TestDNSAnswerCommandInput extends TestDNSAnswerRequest {}
+/**
+ * The output of {@link TestDNSAnswerCommand}.
+ */
 export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __MetadataBearer {}
 
 /**

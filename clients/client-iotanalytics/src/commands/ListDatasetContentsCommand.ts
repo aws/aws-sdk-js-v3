@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListDatasetContentsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDatasetContentsCommand}.
+ */
 export interface ListDatasetContentsCommandInput extends ListDatasetContentsRequest {}
+/**
+ * The output of {@link ListDatasetContentsCommand}.
+ */
 export interface ListDatasetContentsCommandOutput extends ListDatasetContentsResponse, __MetadataBearer {}
 
 /**

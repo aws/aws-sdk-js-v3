@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link DescribeWorkflowExecutionCommand}.
+ */
 export interface DescribeWorkflowExecutionCommandInput extends DescribeWorkflowExecutionInput {}
+/**
+ * The output of {@link DescribeWorkflowExecutionCommand}.
+ */
 export interface DescribeWorkflowExecutionCommandOutput extends WorkflowExecutionDetail, __MetadataBearer {}
 
 /**

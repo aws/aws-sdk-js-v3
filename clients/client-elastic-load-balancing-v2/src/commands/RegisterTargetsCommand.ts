@@ -29,7 +29,13 @@ import {
   serializeAws_queryRegisterTargetsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RegisterTargetsCommand}.
+ */
 export interface RegisterTargetsCommandInput extends RegisterTargetsInput {}
+/**
+ * The output of {@link RegisterTargetsCommand}.
+ */
 export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __MetadataBearer {}
 
 /**

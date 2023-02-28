@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link DeleteResourceDataSyncCommand}.
+ */
 export interface DeleteResourceDataSyncCommandInput extends DeleteResourceDataSyncRequest {}
+/**
+ * The output of {@link DeleteResourceDataSyncCommand}.
+ */
 export interface DeleteResourceDataSyncCommandOutput extends DeleteResourceDataSyncResult, __MetadataBearer {}
 
 /**

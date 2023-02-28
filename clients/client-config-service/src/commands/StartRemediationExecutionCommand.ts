@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartRemediationExecutionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartRemediationExecutionCommand}.
+ */
 export interface StartRemediationExecutionCommandInput extends StartRemediationExecutionRequest {}
+/**
+ * The output of {@link StartRemediationExecutionCommand}.
+ */
 export interface StartRemediationExecutionCommandOutput extends StartRemediationExecutionResponse, __MetadataBearer {}
 
 /**

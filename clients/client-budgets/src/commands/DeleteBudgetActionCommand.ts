@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteBudgetActionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteBudgetActionCommand}.
+ */
 export interface DeleteBudgetActionCommandInput extends DeleteBudgetActionRequest {}
+/**
+ * The output of {@link DeleteBudgetActionCommand}.
+ */
 export interface DeleteBudgetActionCommandOutput extends DeleteBudgetActionResponse, __MetadataBearer {}
 
 /**

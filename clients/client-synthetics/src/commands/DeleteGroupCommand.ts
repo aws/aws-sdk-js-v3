@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * The input for {@link DeleteGroupCommand}.
+ */
 export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
+/**
+ * The output of {@link DeleteGroupCommand}.
+ */
 export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __MetadataBearer {}
 
 /**

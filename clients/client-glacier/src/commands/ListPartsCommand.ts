@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListPartsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPartsCommand}.
+ */
 export interface ListPartsCommandInput extends ListPartsInput {}
+/**
+ * The output of {@link ListPartsCommand}.
+ */
 export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetRunTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetRunTaskCommand}.
+ */
 export interface GetRunTaskCommandInput extends GetRunTaskRequest {}
+/**
+ * The output of {@link GetRunTaskCommand}.
+ */
 export interface GetRunTaskCommandOutput extends GetRunTaskResponse, __MetadataBearer {}
 
 /**

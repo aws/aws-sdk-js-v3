@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteWarmPoolCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteWarmPoolCommand}.
+ */
 export interface DeleteWarmPoolCommandInput extends DeleteWarmPoolType {}
+/**
+ * The output of {@link DeleteWarmPoolCommand}.
+ */
 export interface DeleteWarmPoolCommandOutput extends DeleteWarmPoolAnswer, __MetadataBearer {}
 
 /**

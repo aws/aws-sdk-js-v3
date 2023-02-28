@@ -22,7 +22,13 @@ import {
 } from "../models/models_5";
 import { deserializeAws_ec2GetPasswordDataCommand, serializeAws_ec2GetPasswordDataCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetPasswordDataCommand}.
+ */
 export interface GetPasswordDataCommandInput extends GetPasswordDataRequest {}
+/**
+ * The output of {@link GetPasswordDataCommand}.
+ */
 export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __MetadataBearer {}
 
 /**

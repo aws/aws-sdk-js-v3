@@ -25,7 +25,13 @@ import {
   serializeAws_queryImportStacksToStackSetCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ImportStacksToStackSetCommand}.
+ */
 export interface ImportStacksToStackSetCommandInput extends ImportStacksToStackSetInput {}
+/**
+ * The output of {@link ImportStacksToStackSetCommand}.
+ */
 export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStackSetOutput, __MetadataBearer {}
 
 /**

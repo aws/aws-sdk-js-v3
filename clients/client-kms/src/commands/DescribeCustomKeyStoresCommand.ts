@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeCustomKeyStoresCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeCustomKeyStoresCommand}.
+ */
 export interface DescribeCustomKeyStoresCommandInput extends DescribeCustomKeyStoresRequest {}
+/**
+ * The output of {@link DescribeCustomKeyStoresCommand}.
+ */
 export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyStoresResponse, __MetadataBearer {}
 
 /**

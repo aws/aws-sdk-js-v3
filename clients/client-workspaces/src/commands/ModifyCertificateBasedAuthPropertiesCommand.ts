@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link ModifyCertificateBasedAuthPropertiesCommand}.
+ */
 export interface ModifyCertificateBasedAuthPropertiesCommandInput extends ModifyCertificateBasedAuthPropertiesRequest {}
+/**
+ * The output of {@link ModifyCertificateBasedAuthPropertiesCommand}.
+ */
 export interface ModifyCertificateBasedAuthPropertiesCommandOutput
   extends ModifyCertificateBasedAuthPropertiesResult,
     __MetadataBearer {}

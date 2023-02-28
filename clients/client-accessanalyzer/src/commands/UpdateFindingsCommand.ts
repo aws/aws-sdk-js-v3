@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateFindingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateFindingsCommand}.
+ */
 export interface UpdateFindingsCommandInput extends UpdateFindingsRequest {}
+/**
+ * The output of {@link UpdateFindingsCommand}.
+ */
 export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
 
 /**

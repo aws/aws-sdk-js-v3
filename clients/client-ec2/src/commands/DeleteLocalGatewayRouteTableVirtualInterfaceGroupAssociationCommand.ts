@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand}.
+ */
 export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput
   extends DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {}
+/**
+ * The output of {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand}.
+ */
 export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput
   extends DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
     __MetadataBearer {}

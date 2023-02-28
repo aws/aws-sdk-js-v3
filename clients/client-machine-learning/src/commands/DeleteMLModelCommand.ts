@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteMLModelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteMLModelCommand}.
+ */
 export interface DeleteMLModelCommandInput extends DeleteMLModelInput {}
+/**
+ * The output of {@link DeleteMLModelCommand}.
+ */
 export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __MetadataBearer {}
 
 /**

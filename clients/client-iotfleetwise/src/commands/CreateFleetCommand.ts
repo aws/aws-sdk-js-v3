@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0CreateFleetCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateFleetCommand}.
+ */
 export interface CreateFleetCommandInput extends CreateFleetRequest {}
+/**
+ * The output of {@link CreateFleetCommand}.
+ */
 export interface CreateFleetCommandOutput extends CreateFleetResponse, __MetadataBearer {}
 
 /**

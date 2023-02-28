@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchUnsuspendUserCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchUnsuspendUserCommand}.
+ */
 export interface BatchUnsuspendUserCommandInput extends BatchUnsuspendUserRequest {}
+/**
+ * The output of {@link BatchUnsuspendUserCommand}.
+ */
 export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserResponse, __MetadataBearer {}
 
 /**

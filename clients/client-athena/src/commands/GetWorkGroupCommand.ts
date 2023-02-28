@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetWorkGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetWorkGroupCommand}.
+ */
 export interface GetWorkGroupCommandInput extends GetWorkGroupInput {}
+/**
+ * The output of {@link GetWorkGroupCommand}.
+ */
 export interface GetWorkGroupCommandOutput extends GetWorkGroupOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateRecoveryPointLifecycleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateRecoveryPointLifecycleCommand}.
+ */
 export interface UpdateRecoveryPointLifecycleCommandInput extends UpdateRecoveryPointLifecycleInput {}
+/**
+ * The output of {@link UpdateRecoveryPointLifecycleCommand}.
+ */
 export interface UpdateRecoveryPointLifecycleCommandOutput
   extends UpdateRecoveryPointLifecycleOutput,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link SetLocalConsolePasswordCommand}.
+ */
 export interface SetLocalConsolePasswordCommandInput extends SetLocalConsolePasswordInput {}
+/**
+ * The output of {@link SetLocalConsolePasswordCommand}.
+ */
 export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePasswordOutput, __MetadataBearer {}
 
 /**

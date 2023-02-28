@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetBucketMetricDataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetBucketMetricDataCommand}.
+ */
 export interface GetBucketMetricDataCommandInput extends GetBucketMetricDataRequest {}
+/**
+ * The output of {@link GetBucketMetricDataCommand}.
+ */
 export interface GetBucketMetricDataCommandOutput extends GetBucketMetricDataResult, __MetadataBearer {}
 
 /**

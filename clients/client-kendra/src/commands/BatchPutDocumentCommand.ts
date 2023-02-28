@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchPutDocumentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchPutDocumentCommand}.
+ */
 export interface BatchPutDocumentCommandInput extends BatchPutDocumentRequest {}
+/**
+ * The output of {@link BatchPutDocumentCommand}.
+ */
 export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse, __MetadataBearer {}
 
 /**

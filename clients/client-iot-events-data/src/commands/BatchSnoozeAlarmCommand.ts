@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchSnoozeAlarmCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchSnoozeAlarmCommand}.
+ */
 export interface BatchSnoozeAlarmCommandInput extends BatchSnoozeAlarmRequest {}
+/**
+ * The output of {@link BatchSnoozeAlarmCommand}.
+ */
 export interface BatchSnoozeAlarmCommandOutput extends BatchSnoozeAlarmResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateEventDataStoreCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateEventDataStoreCommand}.
+ */
 export interface CreateEventDataStoreCommandInput extends CreateEventDataStoreRequest {}
+/**
+ * The output of {@link CreateEventDataStoreCommand}.
+ */
 export interface CreateEventDataStoreCommandOutput extends CreateEventDataStoreResponse, __MetadataBearer {}
 
 /**

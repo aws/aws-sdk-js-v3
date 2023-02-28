@@ -22,7 +22,13 @@ import {
 } from "../models/models_6";
 import { deserializeAws_ec2RegisterImageCommand, serializeAws_ec2RegisterImageCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RegisterImageCommand}.
+ */
 export interface RegisterImageCommandInput extends RegisterImageRequest {}
+/**
+ * The output of {@link RegisterImageCommand}.
+ */
 export interface RegisterImageCommandOutput extends RegisterImageResult, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * The input for {@link GetRecoveryPointCommand}.
+ */
 export interface GetRecoveryPointCommandInput extends GetRecoveryPointRequest {}
+/**
+ * The output of {@link GetRecoveryPointCommand}.
+ */
 export interface GetRecoveryPointCommandOutput extends GetRecoveryPointResponse, __MetadataBearer {}
 
 /**

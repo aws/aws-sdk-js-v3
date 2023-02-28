@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateNetworkSiteCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateNetworkSiteCommand}.
+ */
 export interface CreateNetworkSiteCommandInput extends CreateNetworkSiteRequest {}
+/**
+ * The output of {@link CreateNetworkSiteCommand}.
+ */
 export interface CreateNetworkSiteCommandOutput extends CreateNetworkSiteResponse, __MetadataBearer {}
 
 /**

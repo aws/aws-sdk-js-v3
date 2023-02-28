@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListDatasetImportJobsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListDatasetImportJobsCommand}.
+ */
 export interface ListDatasetImportJobsCommandInput extends ListDatasetImportJobsRequest {}
+/**
+ * The output of {@link ListDatasetImportJobsCommand}.
+ */
 export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJobsResponse, __MetadataBearer {}
 
 /**

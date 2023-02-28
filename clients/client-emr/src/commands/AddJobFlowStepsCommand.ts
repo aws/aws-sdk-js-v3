@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AddJobFlowStepsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddJobFlowStepsCommand}.
+ */
 export interface AddJobFlowStepsCommandInput extends AddJobFlowStepsInput {}
+/**
+ * The output of {@link AddJobFlowStepsCommand}.
+ */
 export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __MetadataBearer {}
 
 /**

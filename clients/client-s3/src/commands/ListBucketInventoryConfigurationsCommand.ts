@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link ListBucketInventoryConfigurationsCommand}.
+ */
 export interface ListBucketInventoryConfigurationsCommandInput extends ListBucketInventoryConfigurationsRequest {}
+/**
+ * The output of {@link ListBucketInventoryConfigurationsCommand}.
+ */
 export interface ListBucketInventoryConfigurationsCommandOutput
   extends ListBucketInventoryConfigurationsOutput,
     __MetadataBearer {}

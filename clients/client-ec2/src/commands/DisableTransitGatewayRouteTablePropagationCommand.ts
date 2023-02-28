@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisableTransitGatewayRouteTablePropagationCommand}.
+ */
 export interface DisableTransitGatewayRouteTablePropagationCommandInput
   extends DisableTransitGatewayRouteTablePropagationRequest {}
+/**
+ * The output of {@link DisableTransitGatewayRouteTablePropagationCommand}.
+ */
 export interface DisableTransitGatewayRouteTablePropagationCommandOutput
   extends DisableTransitGatewayRouteTablePropagationResult,
     __MetadataBearer {}

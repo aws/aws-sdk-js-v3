@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetCaseCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetCaseCommand}.
+ */
 export interface GetCaseCommandInput extends GetCaseRequest {}
+/**
+ * The output of {@link GetCaseCommand}.
+ */
 export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer {}
 
 /**

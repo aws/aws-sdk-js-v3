@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartTriggerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartTriggerCommand}.
+ */
 export interface StartTriggerCommandInput extends StartTriggerRequest {}
+/**
+ * The output of {@link StartTriggerCommand}.
+ */
 export interface StartTriggerCommandOutput extends StartTriggerResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetResourceEvaluationSummaryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetResourceEvaluationSummaryCommand}.
+ */
 export interface GetResourceEvaluationSummaryCommandInput extends GetResourceEvaluationSummaryRequest {}
+/**
+ * The output of {@link GetResourceEvaluationSummaryCommand}.
+ */
 export interface GetResourceEvaluationSummaryCommandOutput
   extends GetResourceEvaluationSummaryResponse,
     __MetadataBearer {}

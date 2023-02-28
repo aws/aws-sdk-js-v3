@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DescribeNotificationRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeNotificationRuleCommand}.
+ */
 export interface DescribeNotificationRuleCommandInput extends DescribeNotificationRuleRequest {}
+/**
+ * The output of {@link DescribeNotificationRuleCommand}.
+ */
 export interface DescribeNotificationRuleCommandOutput extends DescribeNotificationRuleResult, __MetadataBearer {}
 
 /**

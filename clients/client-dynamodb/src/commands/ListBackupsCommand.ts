@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListBackupsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListBackupsCommand}.
+ */
 export interface ListBackupsCommandInput extends ListBackupsInput {}
+/**
+ * The output of {@link ListBackupsCommand}.
+ */
 export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link CreateAvailabilityConfigurationCommand}.
+ */
 export interface CreateAvailabilityConfigurationCommandInput extends CreateAvailabilityConfigurationRequest {}
+/**
+ * The output of {@link CreateAvailabilityConfigurationCommand}.
+ */
 export interface CreateAvailabilityConfigurationCommandOutput
   extends CreateAvailabilityConfigurationResponse,
     __MetadataBearer {}

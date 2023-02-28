@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link ListTrafficPolicyInstancesCommand}.
+ */
 export interface ListTrafficPolicyInstancesCommandInput extends ListTrafficPolicyInstancesRequest {}
+/**
+ * The output of {@link ListTrafficPolicyInstancesCommand}.
+ */
 export interface ListTrafficPolicyInstancesCommandOutput extends ListTrafficPolicyInstancesResponse, __MetadataBearer {}
 
 /**

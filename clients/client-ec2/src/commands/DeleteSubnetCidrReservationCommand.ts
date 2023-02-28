@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteSubnetCidrReservationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteSubnetCidrReservationCommand}.
+ */
 export interface DeleteSubnetCidrReservationCommandInput extends DeleteSubnetCidrReservationRequest {}
+/**
+ * The output of {@link DeleteSubnetCidrReservationCommand}.
+ */
 export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCidrReservationResult, __MetadataBearer {}
 
 /**

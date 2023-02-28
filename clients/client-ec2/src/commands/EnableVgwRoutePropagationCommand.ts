@@ -23,7 +23,13 @@ import {
   serializeAws_ec2EnableVgwRoutePropagationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link EnableVgwRoutePropagationCommand}.
+ */
 export interface EnableVgwRoutePropagationCommandInput extends EnableVgwRoutePropagationRequest {}
+/**
+ * The output of {@link EnableVgwRoutePropagationCommand}.
+ */
 export interface EnableVgwRoutePropagationCommandOutput extends __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateKeyDescriptionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateKeyDescriptionCommand}.
+ */
 export interface UpdateKeyDescriptionCommandInput extends UpdateKeyDescriptionRequest {}
+/**
+ * The output of {@link UpdateKeyDescriptionCommand}.
+ */
 export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
 
 /**

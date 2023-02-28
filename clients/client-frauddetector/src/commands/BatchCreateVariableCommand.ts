@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchCreateVariableCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchCreateVariableCommand}.
+ */
 export interface BatchCreateVariableCommandInput extends BatchCreateVariableRequest {}
+/**
+ * The output of {@link BatchCreateVariableCommand}.
+ */
 export interface BatchCreateVariableCommandOutput extends BatchCreateVariableResult, __MetadataBearer {}
 
 /**

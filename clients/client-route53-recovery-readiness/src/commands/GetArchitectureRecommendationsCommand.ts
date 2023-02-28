@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * The input for {@link GetArchitectureRecommendationsCommand}.
+ */
 export interface GetArchitectureRecommendationsCommandInput extends GetArchitectureRecommendationsRequest {}
+/**
+ * The output of {@link GetArchitectureRecommendationsCommand}.
+ */
 export interface GetArchitectureRecommendationsCommandOutput
   extends GetArchitectureRecommendationsResponse,
     __MetadataBearer {}

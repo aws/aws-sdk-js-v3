@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetBackupVaultAccessPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBackupVaultAccessPolicyCommand}.
+ */
 export interface GetBackupVaultAccessPolicyCommandInput extends GetBackupVaultAccessPolicyInput {}
+/**
+ * The output of {@link GetBackupVaultAccessPolicyCommand}.
+ */
 export interface GetBackupVaultAccessPolicyCommandOutput extends GetBackupVaultAccessPolicyOutput, __MetadataBearer {}
 
 /**

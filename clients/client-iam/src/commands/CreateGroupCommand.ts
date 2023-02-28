@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryCreateGroupCommand, serializeAws_queryCreateGroupCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateGroupCommand}.
+ */
 export interface CreateGroupCommandInput extends CreateGroupRequest {}
+/**
+ * The output of {@link CreateGroupCommand}.
+ */
 export interface CreateGroupCommandOutput extends CreateGroupResponse, __MetadataBearer {}
 
 /**

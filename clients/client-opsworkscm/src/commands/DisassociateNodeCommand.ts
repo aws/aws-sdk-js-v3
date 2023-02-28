@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateNodeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateNodeCommand}.
+ */
 export interface DisassociateNodeCommandInput extends DisassociateNodeRequest {}
+/**
+ * The output of {@link DisassociateNodeCommand}.
+ */
 export interface DisassociateNodeCommandOutput extends DisassociateNodeResponse, __MetadataBearer {}
 
 /**

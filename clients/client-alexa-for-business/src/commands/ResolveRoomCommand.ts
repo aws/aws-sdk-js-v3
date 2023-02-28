@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ResolveRoomCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ResolveRoomCommand}.
+ */
 export interface ResolveRoomCommandInput extends ResolveRoomRequest {}
+/**
+ * The output of {@link ResolveRoomCommand}.
+ */
 export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __MetadataBearer {}
 
 /**

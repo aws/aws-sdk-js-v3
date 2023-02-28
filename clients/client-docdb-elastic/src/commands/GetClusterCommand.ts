@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetClusterCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetClusterCommand}.
+ */
 export interface GetClusterCommandInput extends GetClusterInput {}
+/**
+ * The output of {@link GetClusterCommand}.
+ */
 export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBearer {}
 
 /**

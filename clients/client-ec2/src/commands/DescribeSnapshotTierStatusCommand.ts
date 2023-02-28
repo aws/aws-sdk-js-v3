@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeSnapshotTierStatusCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeSnapshotTierStatusCommand}.
+ */
 export interface DescribeSnapshotTierStatusCommandInput extends DescribeSnapshotTierStatusRequest {}
+/**
+ * The output of {@link DescribeSnapshotTierStatusCommand}.
+ */
 export interface DescribeSnapshotTierStatusCommandOutput extends DescribeSnapshotTierStatusResult, __MetadataBearer {}
 
 /**

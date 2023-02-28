@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeTestCasesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeTestCasesCommand}.
+ */
 export interface DescribeTestCasesCommandInput extends DescribeTestCasesInput {}
+/**
+ * The output of {@link DescribeTestCasesCommand}.
+ */
 export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput, __MetadataBearer {}
 
 /**

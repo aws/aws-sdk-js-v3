@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link AddTagsToResourceCommand}.
+ */
 export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage {}
+/**
+ * The output of {@link AddTagsToResourceCommand}.
+ */
 export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
 
 /**

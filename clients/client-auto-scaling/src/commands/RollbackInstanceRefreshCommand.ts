@@ -25,7 +25,13 @@ import {
   serializeAws_queryRollbackInstanceRefreshCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RollbackInstanceRefreshCommand}.
+ */
 export interface RollbackInstanceRefreshCommandInput extends RollbackInstanceRefreshType {}
+/**
+ * The output of {@link RollbackInstanceRefreshCommand}.
+ */
 export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRefreshAnswer, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1SetVisibleToAllUsersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SetVisibleToAllUsersCommand}.
+ */
 export interface SetVisibleToAllUsersCommandInput extends SetVisibleToAllUsersInput {}
+/**
+ * The output of {@link SetVisibleToAllUsersCommand}.
+ */
 export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
 
 /**

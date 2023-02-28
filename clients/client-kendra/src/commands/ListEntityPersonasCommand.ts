@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListEntityPersonasCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListEntityPersonasCommand}.
+ */
 export interface ListEntityPersonasCommandInput extends ListEntityPersonasRequest {}
+/**
+ * The output of {@link ListEntityPersonasCommand}.
+ */
 export interface ListEntityPersonasCommandOutput extends ListEntityPersonasResponse, __MetadataBearer {}
 
 /**

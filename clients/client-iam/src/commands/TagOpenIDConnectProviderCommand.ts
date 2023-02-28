@@ -20,7 +20,13 @@ import {
   serializeAws_queryTagOpenIDConnectProviderCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link TagOpenIDConnectProviderCommand}.
+ */
 export interface TagOpenIDConnectProviderCommandInput extends TagOpenIDConnectProviderRequest {}
+/**
+ * The output of {@link TagOpenIDConnectProviderCommand}.
+ */
 export interface TagOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**

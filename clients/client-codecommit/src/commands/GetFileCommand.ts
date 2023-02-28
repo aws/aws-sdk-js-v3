@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetFileCommand, serializeAws_json1_1GetFileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetFileCommand}.
+ */
 export interface GetFileCommandInput extends GetFileInput {}
+/**
+ * The output of {@link GetFileCommand}.
+ */
 export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
 
 /**

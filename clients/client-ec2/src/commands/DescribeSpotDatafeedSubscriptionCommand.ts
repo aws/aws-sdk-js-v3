@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeSpotDatafeedSubscriptionCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeSpotDatafeedSubscriptionCommand}.
+ */
 export interface DescribeSpotDatafeedSubscriptionCommandInput extends DescribeSpotDatafeedSubscriptionRequest {}
+/**
+ * The output of {@link DescribeSpotDatafeedSubscriptionCommand}.
+ */
 export interface DescribeSpotDatafeedSubscriptionCommandOutput
   extends DescribeSpotDatafeedSubscriptionResult,
     __MetadataBearer {}

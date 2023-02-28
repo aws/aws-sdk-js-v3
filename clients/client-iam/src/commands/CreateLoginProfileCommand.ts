@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateLoginProfileCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateLoginProfileCommand}.
+ */
 export interface CreateLoginProfileCommandInput extends CreateLoginProfileRequest {}
+/**
+ * The output of {@link CreateLoginProfileCommand}.
+ */
 export interface CreateLoginProfileCommandOutput extends CreateLoginProfileResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetManagedResourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetManagedResourceCommand}.
+ */
 export interface GetManagedResourceCommandInput extends GetManagedResourceRequest {}
+/**
+ * The output of {@link GetManagedResourceCommand}.
+ */
 export interface GetManagedResourceCommandOutput extends GetManagedResourceResponse, __MetadataBearer {}
 
 /**

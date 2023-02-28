@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link UpdateSMBFileShareCommand}.
+ */
 export interface UpdateSMBFileShareCommandInput extends UpdateSMBFileShareInput {}
+/**
+ * The output of {@link UpdateSMBFileShareCommand}.
+ */
 export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutput, __MetadataBearer {}
 
 /**

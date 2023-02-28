@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_restJson1GetApiCommand, serializeAws_restJson1GetApiCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetApiCommand}.
+ */
 export interface GetApiCommandInput extends GetApiRequest {}
+/**
+ * The output of {@link GetApiCommand}.
+ */
 export interface GetApiCommandOutput extends GetApiResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryStartMetricStreamsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link StartMetricStreamsCommand}.
+ */
 export interface StartMetricStreamsCommandInput extends StartMetricStreamsInput {}
+/**
+ * The output of {@link StartMetricStreamsCommand}.
+ */
 export interface StartMetricStreamsCommandOutput extends StartMetricStreamsOutput, __MetadataBearer {}
 
 /**

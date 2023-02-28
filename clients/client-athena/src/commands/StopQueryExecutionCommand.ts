@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopQueryExecutionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopQueryExecutionCommand}.
+ */
 export interface StopQueryExecutionCommandInput extends StopQueryExecutionInput {}
+/**
+ * The output of {@link StopQueryExecutionCommand}.
+ */
 export interface StopQueryExecutionCommandOutput extends StopQueryExecutionOutput, __MetadataBearer {}
 
 /**

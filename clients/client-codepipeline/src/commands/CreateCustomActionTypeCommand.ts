@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateCustomActionTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateCustomActionTypeCommand}.
+ */
 export interface CreateCustomActionTypeCommandInput extends CreateCustomActionTypeInput {}
+/**
+ * The output of {@link CreateCustomActionTypeCommand}.
+ */
 export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionTypeOutput, __MetadataBearer {}
 
 /**

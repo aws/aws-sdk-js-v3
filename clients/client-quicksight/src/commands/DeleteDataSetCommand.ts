@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link DeleteDataSetCommand}.
+ */
 export interface DeleteDataSetCommandInput extends DeleteDataSetRequest {}
+/**
+ * The output of {@link DeleteDataSetCommand}.
+ */
 export interface DeleteDataSetCommandOutput extends DeleteDataSetResponse, __MetadataBearer {}
 
 /**

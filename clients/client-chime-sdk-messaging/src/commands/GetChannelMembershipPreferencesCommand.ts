@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetChannelMembershipPreferencesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetChannelMembershipPreferencesCommand}.
+ */
 export interface GetChannelMembershipPreferencesCommandInput extends GetChannelMembershipPreferencesRequest {}
+/**
+ * The output of {@link GetChannelMembershipPreferencesCommand}.
+ */
 export interface GetChannelMembershipPreferencesCommandOutput
   extends GetChannelMembershipPreferencesResponse,
     __MetadataBearer {}

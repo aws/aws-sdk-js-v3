@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link ListMailboxPermissionsCommand}.
+ */
 export interface ListMailboxPermissionsCommandInput extends ListMailboxPermissionsRequest {}
+/**
+ * The output of {@link ListMailboxPermissionsCommand}.
+ */
 export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissionsResponse, __MetadataBearer {}
 
 /**

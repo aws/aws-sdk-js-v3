@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1GetKMSEncryptionKeyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetKMSEncryptionKeyCommand}.
+ */
 export interface GetKMSEncryptionKeyCommandInput {}
+/**
+ * The output of {@link GetKMSEncryptionKeyCommand}.
+ */
 export interface GetKMSEncryptionKeyCommandOutput extends GetKMSEncryptionKeyResult, __MetadataBearer {}
 
 /**

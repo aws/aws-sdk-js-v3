@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link CreateClusterSnapshotCommand}.
+ */
 export interface CreateClusterSnapshotCommandInput extends CreateClusterSnapshotMessage {}
+/**
+ * The output of {@link CreateClusterSnapshotCommand}.
+ */
 export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapshotResult, __MetadataBearer {}
 
 /**

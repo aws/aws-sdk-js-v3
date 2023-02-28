@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteAccessKeyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteAccessKeyCommand}.
+ */
 export interface DeleteAccessKeyCommandInput extends DeleteAccessKeyRequest {}
+/**
+ * The output of {@link DeleteAccessKeyCommand}.
+ */
 export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
 
 /**

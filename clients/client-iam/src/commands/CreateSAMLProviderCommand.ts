@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateSAMLProviderCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateSAMLProviderCommand}.
+ */
 export interface CreateSAMLProviderCommandInput extends CreateSAMLProviderRequest {}
+/**
+ * The output of {@link CreateSAMLProviderCommand}.
+ */
 export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderResponse, __MetadataBearer {}
 
 /**

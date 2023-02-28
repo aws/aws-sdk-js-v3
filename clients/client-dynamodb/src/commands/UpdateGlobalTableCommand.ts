@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0UpdateGlobalTableCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateGlobalTableCommand}.
+ */
 export interface UpdateGlobalTableCommandInput extends UpdateGlobalTableInput {}
+/**
+ * The output of {@link UpdateGlobalTableCommand}.
+ */
 export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput, __MetadataBearer {}
 
 /**

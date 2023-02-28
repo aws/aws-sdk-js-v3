@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetCrawlersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetCrawlersCommand}.
+ */
 export interface BatchGetCrawlersCommandInput extends BatchGetCrawlersRequest {}
+/**
+ * The output of {@link BatchGetCrawlersCommand}.
+ */
 export interface BatchGetCrawlersCommandOutput extends BatchGetCrawlersResponse, __MetadataBearer {}
 
 /**

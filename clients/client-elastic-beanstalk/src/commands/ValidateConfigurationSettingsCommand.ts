@@ -25,7 +25,13 @@ import {
   serializeAws_queryValidateConfigurationSettingsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ValidateConfigurationSettingsCommand}.
+ */
 export interface ValidateConfigurationSettingsCommandInput extends ValidateConfigurationSettingsMessage {}
+/**
+ * The output of {@link ValidateConfigurationSettingsCommand}.
+ */
 export interface ValidateConfigurationSettingsCommandOutput
   extends ConfigurationSettingsValidationMessages,
     __MetadataBearer {}

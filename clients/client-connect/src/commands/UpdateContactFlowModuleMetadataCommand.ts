@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateContactFlowModuleMetadataCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateContactFlowModuleMetadataCommand}.
+ */
 export interface UpdateContactFlowModuleMetadataCommandInput extends UpdateContactFlowModuleMetadataRequest {}
+/**
+ * The output of {@link UpdateContactFlowModuleMetadataCommand}.
+ */
 export interface UpdateContactFlowModuleMetadataCommandOutput
   extends UpdateContactFlowModuleMetadataResponse,
     __MetadataBearer {}

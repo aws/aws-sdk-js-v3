@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopImageBuilderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopImageBuilderCommand}.
+ */
 export interface StopImageBuilderCommandInput extends StopImageBuilderRequest {}
+/**
+ * The output of {@link StopImageBuilderCommand}.
+ */
 export interface StopImageBuilderCommandOutput extends StopImageBuilderResult, __MetadataBearer {}
 
 /**

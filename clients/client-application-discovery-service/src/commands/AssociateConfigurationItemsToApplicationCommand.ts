@@ -29,8 +29,14 @@ import {
   serializeAws_json1_1AssociateConfigurationItemsToApplicationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateConfigurationItemsToApplicationCommand}.
+ */
 export interface AssociateConfigurationItemsToApplicationCommandInput
   extends AssociateConfigurationItemsToApplicationRequest {}
+/**
+ * The output of {@link AssociateConfigurationItemsToApplicationCommand}.
+ */
 export interface AssociateConfigurationItemsToApplicationCommandOutput
   extends AssociateConfigurationItemsToApplicationResponse,
     __MetadataBearer {}

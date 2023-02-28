@@ -24,7 +24,13 @@ import {
   serializeAws_json1_1DeleteListenerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteListenerCommand}.
+ */
 export interface DeleteListenerCommandInput extends DeleteListenerRequest {}
+/**
+ * The output of {@link DeleteListenerCommand}.
+ */
 export interface DeleteListenerCommandOutput extends __MetadataBearer {}
 
 /**

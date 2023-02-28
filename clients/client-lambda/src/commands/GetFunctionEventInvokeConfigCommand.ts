@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetFunctionEventInvokeConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetFunctionEventInvokeConfigCommand}.
+ */
 export interface GetFunctionEventInvokeConfigCommandInput extends GetFunctionEventInvokeConfigRequest {}
+/**
+ * The output of {@link GetFunctionEventInvokeConfigCommand}.
+ */
 export interface GetFunctionEventInvokeConfigCommandOutput extends FunctionEventInvokeConfig, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SendContactMethodVerificationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SendContactMethodVerificationCommand}.
+ */
 export interface SendContactMethodVerificationCommandInput extends SendContactMethodVerificationRequest {}
+/**
+ * The output of {@link SendContactMethodVerificationCommand}.
+ */
 export interface SendContactMethodVerificationCommandOutput
   extends SendContactMethodVerificationResult,
     __MetadataBearer {}

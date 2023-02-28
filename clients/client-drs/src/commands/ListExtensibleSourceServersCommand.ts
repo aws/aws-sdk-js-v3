@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListExtensibleSourceServersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListExtensibleSourceServersCommand}.
+ */
 export interface ListExtensibleSourceServersCommandInput extends ListExtensibleSourceServersRequest {}
+/**
+ * The output of {@link ListExtensibleSourceServersCommand}.
+ */
 export interface ListExtensibleSourceServersCommandOutput
   extends ListExtensibleSourceServersResponse,
     __MetadataBearer {}

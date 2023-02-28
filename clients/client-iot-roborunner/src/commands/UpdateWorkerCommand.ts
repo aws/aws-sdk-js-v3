@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateWorkerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateWorkerCommand}.
+ */
 export interface UpdateWorkerCommandInput extends UpdateWorkerRequest {}
+/**
+ * The output of {@link UpdateWorkerCommand}.
+ */
 export interface UpdateWorkerCommandOutput extends UpdateWorkerResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteClusterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteClusterCommand}.
+ */
 export interface DeleteClusterCommandInput extends DeleteClusterRequest {}
+/**
+ * The output of {@link DeleteClusterCommand}.
+ */
 export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __MetadataBearer {}
 
 /**

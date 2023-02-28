@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeTimeSeriesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeTimeSeriesCommand}.
+ */
 export interface DescribeTimeSeriesCommandInput extends DescribeTimeSeriesRequest {}
+/**
+ * The output of {@link DescribeTimeSeriesCommand}.
+ */
 export interface DescribeTimeSeriesCommandOutput extends DescribeTimeSeriesResponse, __MetadataBearer {}
 
 /**

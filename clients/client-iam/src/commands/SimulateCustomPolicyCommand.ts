@@ -25,7 +25,13 @@ import {
   serializeAws_querySimulateCustomPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SimulateCustomPolicyCommand}.
+ */
 export interface SimulateCustomPolicyCommandInput extends SimulateCustomPolicyRequest {}
+/**
+ * The output of {@link SimulateCustomPolicyCommand}.
+ */
 export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyResponse, __MetadataBearer {}
 
 /**

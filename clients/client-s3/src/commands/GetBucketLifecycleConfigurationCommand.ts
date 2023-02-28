@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetBucketLifecycleConfigurationCommand}.
+ */
 export interface GetBucketLifecycleConfigurationCommandInput extends GetBucketLifecycleConfigurationRequest {}
+/**
+ * The output of {@link GetBucketLifecycleConfigurationCommand}.
+ */
 export interface GetBucketLifecycleConfigurationCommandOutput
   extends GetBucketLifecycleConfigurationOutput,
     __MetadataBearer {}

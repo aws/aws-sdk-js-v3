@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1CreateIdentityProviderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateIdentityProviderCommand}.
+ */
 export interface CreateIdentityProviderCommandInput extends CreateIdentityProviderRequest {}
+/**
+ * The output of {@link CreateIdentityProviderCommand}.
+ */
 export interface CreateIdentityProviderCommandOutput extends CreateIdentityProviderResponse, __MetadataBearer {}
 
 /**

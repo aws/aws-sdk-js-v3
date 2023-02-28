@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1CancelReplicationTaskAssessmentRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CancelReplicationTaskAssessmentRunCommand}.
+ */
 export interface CancelReplicationTaskAssessmentRunCommandInput extends CancelReplicationTaskAssessmentRunMessage {}
+/**
+ * The output of {@link CancelReplicationTaskAssessmentRunCommand}.
+ */
 export interface CancelReplicationTaskAssessmentRunCommandOutput
   extends CancelReplicationTaskAssessmentRunResponse,
     __MetadataBearer {}

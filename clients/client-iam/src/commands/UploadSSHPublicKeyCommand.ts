@@ -25,7 +25,13 @@ import {
   serializeAws_queryUploadSSHPublicKeyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UploadSSHPublicKeyCommand}.
+ */
 export interface UploadSSHPublicKeyCommandInput extends UploadSSHPublicKeyRequest {}
+/**
+ * The output of {@link UploadSSHPublicKeyCommand}.
+ */
 export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyResponse, __MetadataBearer {}
 
 /**

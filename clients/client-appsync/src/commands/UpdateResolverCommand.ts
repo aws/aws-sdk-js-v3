@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateResolverCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateResolverCommand}.
+ */
 export interface UpdateResolverCommandInput extends UpdateResolverRequest {}
+/**
+ * The output of {@link UpdateResolverCommand}.
+ */
 export interface UpdateResolverCommandOutput extends UpdateResolverResponse, __MetadataBearer {}
 
 /**

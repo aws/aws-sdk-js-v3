@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AcceptGrantCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AcceptGrantCommand}.
+ */
 export interface AcceptGrantCommandInput extends AcceptGrantRequest {}
+/**
+ * The output of {@link AcceptGrantCommand}.
+ */
 export interface AcceptGrantCommandOutput extends AcceptGrantResponse, __MetadataBearer {}
 
 /**

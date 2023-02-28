@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutClassificationExportConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutClassificationExportConfigurationCommand}.
+ */
 export interface PutClassificationExportConfigurationCommandInput extends PutClassificationExportConfigurationRequest {}
+/**
+ * The output of {@link PutClassificationExportConfigurationCommand}.
+ */
 export interface PutClassificationExportConfigurationCommandOutput
   extends PutClassificationExportConfigurationResponse,
     __MetadataBearer {}

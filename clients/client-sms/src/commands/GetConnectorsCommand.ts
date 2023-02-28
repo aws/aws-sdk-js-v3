@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link GetConnectorsCommand}.
+ */
 export interface GetConnectorsCommandInput extends GetConnectorsRequest {}
+/**
+ * The output of {@link GetConnectorsCommand}.
+ */
 export interface GetConnectorsCommandOutput extends GetConnectorsResponse, __MetadataBearer {}
 
 /**

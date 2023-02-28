@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAccessPreviewsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAccessPreviewsCommand}.
+ */
 export interface ListAccessPreviewsCommandInput extends ListAccessPreviewsRequest {}
+/**
+ * The output of {@link ListAccessPreviewsCommand}.
+ */
 export interface ListAccessPreviewsCommandOutput extends ListAccessPreviewsResponse, __MetadataBearer {}
 
 /**

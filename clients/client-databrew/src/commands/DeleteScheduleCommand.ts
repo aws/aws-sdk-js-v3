@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteScheduleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteScheduleCommand}.
+ */
 export interface DeleteScheduleCommandInput extends DeleteScheduleRequest {}
+/**
+ * The output of {@link DeleteScheduleCommand}.
+ */
 export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __MetadataBearer {}
 
 /**

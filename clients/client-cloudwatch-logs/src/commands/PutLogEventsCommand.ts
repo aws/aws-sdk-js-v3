@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutLogEventsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutLogEventsCommand}.
+ */
 export interface PutLogEventsCommandInput extends PutLogEventsRequest {}
+/**
+ * The output of {@link PutLogEventsCommand}.
+ */
 export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __MetadataBearer {}
 
 /**

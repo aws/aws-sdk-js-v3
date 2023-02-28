@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCrawlerMetricsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCrawlerMetricsCommand}.
+ */
 export interface GetCrawlerMetricsCommandInput extends GetCrawlerMetricsRequest {}
+/**
+ * The output of {@link GetCrawlerMetricsCommand}.
+ */
 export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsResponse, __MetadataBearer {}
 
 /**

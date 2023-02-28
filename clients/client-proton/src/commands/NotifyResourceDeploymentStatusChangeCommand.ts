@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * The input for {@link NotifyResourceDeploymentStatusChangeCommand}.
+ */
 export interface NotifyResourceDeploymentStatusChangeCommandInput extends NotifyResourceDeploymentStatusChangeInput {}
+/**
+ * The output of {@link NotifyResourceDeploymentStatusChangeCommand}.
+ */
 export interface NotifyResourceDeploymentStatusChangeCommandOutput
   extends NotifyResourceDeploymentStatusChangeOutput,
     __MetadataBearer {}

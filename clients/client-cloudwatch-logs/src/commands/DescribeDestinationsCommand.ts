@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeDestinationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeDestinationsCommand}.
+ */
 export interface DescribeDestinationsCommandInput extends DescribeDestinationsRequest {}
+/**
+ * The output of {@link DescribeDestinationsCommand}.
+ */
 export interface DescribeDestinationsCommandOutput extends DescribeDestinationsResponse, __MetadataBearer {}
 
 /**

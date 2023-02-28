@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutEmailIdentityDkimAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutEmailIdentityDkimAttributesCommand}.
+ */
 export interface PutEmailIdentityDkimAttributesCommandInput extends PutEmailIdentityDkimAttributesRequest {}
+/**
+ * The output of {@link PutEmailIdentityDkimAttributesCommand}.
+ */
 export interface PutEmailIdentityDkimAttributesCommandOutput
   extends PutEmailIdentityDkimAttributesResponse,
     __MetadataBearer {}

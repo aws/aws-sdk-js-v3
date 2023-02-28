@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * The input for {@link UpdateInstanceCustomHealthStatusCommand}.
+ */
 export interface UpdateInstanceCustomHealthStatusCommandInput extends UpdateInstanceCustomHealthStatusRequest {}
+/**
+ * The output of {@link UpdateInstanceCustomHealthStatusCommand}.
+ */
 export interface UpdateInstanceCustomHealthStatusCommandOutput extends __MetadataBearer {}
 
 /**

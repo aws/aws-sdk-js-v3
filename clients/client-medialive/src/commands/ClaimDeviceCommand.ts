@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ClaimDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ClaimDeviceCommand}.
+ */
 export interface ClaimDeviceCommandInput extends ClaimDeviceRequest {}
+/**
+ * The output of {@link ClaimDeviceCommand}.
+ */
 export interface ClaimDeviceCommandOutput extends ClaimDeviceResponse, __MetadataBearer {}
 
 /**

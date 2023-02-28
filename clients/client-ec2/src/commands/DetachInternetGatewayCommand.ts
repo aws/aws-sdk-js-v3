@@ -20,7 +20,13 @@ import {
   serializeAws_ec2DetachInternetGatewayCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DetachInternetGatewayCommand}.
+ */
 export interface DetachInternetGatewayCommandInput extends DetachInternetGatewayRequest {}
+/**
+ * The output of {@link DetachInternetGatewayCommand}.
+ */
 export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
 
 /**

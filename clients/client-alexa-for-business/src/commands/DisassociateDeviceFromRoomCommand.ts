@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateDeviceFromRoomCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateDeviceFromRoomCommand}.
+ */
 export interface DisassociateDeviceFromRoomCommandInput extends DisassociateDeviceFromRoomRequest {}
+/**
+ * The output of {@link DisassociateDeviceFromRoomCommand}.
+ */
 export interface DisassociateDeviceFromRoomCommandOutput extends DisassociateDeviceFromRoomResponse, __MetadataBearer {}
 
 /**

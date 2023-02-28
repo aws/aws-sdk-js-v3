@@ -25,8 +25,14 @@ import {
   serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyTrafficMirrorFilterNetworkServicesCommand}.
+ */
 export interface ModifyTrafficMirrorFilterNetworkServicesCommandInput
   extends ModifyTrafficMirrorFilterNetworkServicesRequest {}
+/**
+ * The output of {@link ModifyTrafficMirrorFilterNetworkServicesCommand}.
+ */
 export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
   extends ModifyTrafficMirrorFilterNetworkServicesResult,
     __MetadataBearer {}

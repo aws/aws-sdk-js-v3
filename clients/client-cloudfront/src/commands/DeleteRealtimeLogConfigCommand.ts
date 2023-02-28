@@ -20,7 +20,13 @@ import {
   serializeAws_restXmlDeleteRealtimeLogConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link DeleteRealtimeLogConfigCommand}.
+ */
 export interface DeleteRealtimeLogConfigCommandInput extends DeleteRealtimeLogConfigRequest {}
+/**
+ * The output of {@link DeleteRealtimeLogConfigCommand}.
+ */
 export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {}
 
 /**

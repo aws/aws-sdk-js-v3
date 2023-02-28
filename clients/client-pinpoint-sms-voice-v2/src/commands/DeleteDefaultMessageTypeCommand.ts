@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DeleteDefaultMessageTypeCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteDefaultMessageTypeCommand}.
+ */
 export interface DeleteDefaultMessageTypeCommandInput extends DeleteDefaultMessageTypeRequest {}
+/**
+ * The output of {@link DeleteDefaultMessageTypeCommand}.
+ */
 export interface DeleteDefaultMessageTypeCommandOutput extends DeleteDefaultMessageTypeResult, __MetadataBearer {}
 
 /**

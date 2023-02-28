@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateApnsChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateApnsChannelCommand}.
+ */
 export interface UpdateApnsChannelCommandInput extends UpdateApnsChannelRequest {}
+/**
+ * The output of {@link UpdateApnsChannelCommand}.
+ */
 export interface UpdateApnsChannelCommandOutput extends UpdateApnsChannelResponse, __MetadataBearer {}
 
 /**

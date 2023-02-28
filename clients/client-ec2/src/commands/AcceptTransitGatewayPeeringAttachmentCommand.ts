@@ -25,8 +25,14 @@ import {
   serializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AcceptTransitGatewayPeeringAttachmentCommand}.
+ */
 export interface AcceptTransitGatewayPeeringAttachmentCommandInput
   extends AcceptTransitGatewayPeeringAttachmentRequest {}
+/**
+ * The output of {@link AcceptTransitGatewayPeeringAttachmentCommand}.
+ */
 export interface AcceptTransitGatewayPeeringAttachmentCommandOutput
   extends AcceptTransitGatewayPeeringAttachmentResult,
     __MetadataBearer {}

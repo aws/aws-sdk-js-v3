@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListPresetsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPresetsCommand}.
+ */
 export interface ListPresetsCommandInput extends ListPresetsRequest {}
+/**
+ * The output of {@link ListPresetsCommand}.
+ */
 export interface ListPresetsCommandOutput extends ListPresetsResponse, __MetadataBearer {}
 
 /**

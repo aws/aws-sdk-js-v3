@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link AddRoleToDBClusterCommand}.
+ */
 export interface AddRoleToDBClusterCommandInput extends AddRoleToDBClusterMessage {}
+/**
+ * The output of {@link AddRoleToDBClusterCommand}.
+ */
 export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
 
 /**

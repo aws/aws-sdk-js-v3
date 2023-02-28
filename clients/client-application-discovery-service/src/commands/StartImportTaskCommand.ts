@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1StartImportTaskCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartImportTaskCommand}.
+ */
 export interface StartImportTaskCommandInput extends StartImportTaskRequest {}
+/**
+ * The output of {@link StartImportTaskCommand}.
+ */
 export interface StartImportTaskCommandOutput extends StartImportTaskResponse, __MetadataBearer {}
 
 /**

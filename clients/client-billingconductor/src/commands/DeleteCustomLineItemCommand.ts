@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteCustomLineItemCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteCustomLineItemCommand}.
+ */
 export interface DeleteCustomLineItemCommandInput extends DeleteCustomLineItemInput {}
+/**
+ * The output of {@link DeleteCustomLineItemCommand}.
+ */
 export interface DeleteCustomLineItemCommandOutput extends DeleteCustomLineItemOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteVerifiedAccessTrustProviderCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteVerifiedAccessTrustProviderCommand}.
+ */
 export interface DeleteVerifiedAccessTrustProviderCommandInput extends DeleteVerifiedAccessTrustProviderRequest {}
+/**
+ * The output of {@link DeleteVerifiedAccessTrustProviderCommand}.
+ */
 export interface DeleteVerifiedAccessTrustProviderCommandOutput
   extends DeleteVerifiedAccessTrustProviderResult,
     __MetadataBearer {}

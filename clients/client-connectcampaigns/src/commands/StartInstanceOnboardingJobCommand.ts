@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartInstanceOnboardingJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartInstanceOnboardingJobCommand}.
+ */
 export interface StartInstanceOnboardingJobCommandInput extends StartInstanceOnboardingJobRequest {}
+/**
+ * The output of {@link StartInstanceOnboardingJobCommand}.
+ */
 export interface StartInstanceOnboardingJobCommandOutput extends StartInstanceOnboardingJobResponse, __MetadataBearer {}
 
 /**

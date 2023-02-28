@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateTaskTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateTaskTemplateCommand}.
+ */
 export interface UpdateTaskTemplateCommandInput extends UpdateTaskTemplateRequest {}
+/**
+ * The output of {@link UpdateTaskTemplateCommand}.
+ */
 export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateResponse, __MetadataBearer {}
 
 /**

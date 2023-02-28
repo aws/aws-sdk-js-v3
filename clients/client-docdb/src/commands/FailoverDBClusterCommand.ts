@@ -25,7 +25,13 @@ import {
   serializeAws_queryFailoverDBClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link FailoverDBClusterCommand}.
+ */
 export interface FailoverDBClusterCommandInput extends FailoverDBClusterMessage {}
+/**
+ * The output of {@link FailoverDBClusterCommand}.
+ */
 export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult, __MetadataBearer {}
 
 /**

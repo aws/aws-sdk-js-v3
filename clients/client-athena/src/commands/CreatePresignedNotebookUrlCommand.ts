@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreatePresignedNotebookUrlCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreatePresignedNotebookUrlCommand}.
+ */
 export interface CreatePresignedNotebookUrlCommandInput extends CreatePresignedNotebookUrlRequest {}
+/**
+ * The output of {@link CreatePresignedNotebookUrlCommand}.
+ */
 export interface CreatePresignedNotebookUrlCommandOutput extends CreatePresignedNotebookUrlResponse, __MetadataBearer {}
 
 /**

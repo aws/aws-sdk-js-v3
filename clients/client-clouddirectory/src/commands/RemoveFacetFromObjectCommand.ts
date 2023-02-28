@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RemoveFacetFromObjectCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RemoveFacetFromObjectCommand}.
+ */
 export interface RemoveFacetFromObjectCommandInput extends RemoveFacetFromObjectRequest {}
+/**
+ * The output of {@link RemoveFacetFromObjectCommand}.
+ */
 export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjectResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DescribeHubCommand}.
+ */
 export interface DescribeHubCommandInput extends DescribeHubRequest {}
+/**
+ * The output of {@link DescribeHubCommand}.
+ */
 export interface DescribeHubCommandOutput extends DescribeHubResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_querySetRulePrioritiesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SetRulePrioritiesCommand}.
+ */
 export interface SetRulePrioritiesCommandInput extends SetRulePrioritiesInput {}
+/**
+ * The output of {@link SetRulePrioritiesCommand}.
+ */
 export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput, __MetadataBearer {}
 
 /**

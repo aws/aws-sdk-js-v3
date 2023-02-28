@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateRelationalDatabaseFromSnapshotCommand}.
+ */
 export interface CreateRelationalDatabaseFromSnapshotCommandInput extends CreateRelationalDatabaseFromSnapshotRequest {}
+/**
+ * The output of {@link CreateRelationalDatabaseFromSnapshotCommand}.
+ */
 export interface CreateRelationalDatabaseFromSnapshotCommandOutput
   extends CreateRelationalDatabaseFromSnapshotResult,
     __MetadataBearer {}

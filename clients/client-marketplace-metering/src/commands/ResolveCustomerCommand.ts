@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ResolveCustomerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ResolveCustomerCommand}.
+ */
 export interface ResolveCustomerCommandInput extends ResolveCustomerRequest {}
+/**
+ * The output of {@link ResolveCustomerCommand}.
+ */
 export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __MetadataBearer {}
 
 /**

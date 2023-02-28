@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link ListImpersonationRolesCommand}.
+ */
 export interface ListImpersonationRolesCommandInput extends ListImpersonationRolesRequest {}
+/**
+ * The output of {@link ListImpersonationRolesCommand}.
+ */
 export interface ListImpersonationRolesCommandOutput extends ListImpersonationRolesResponse, __MetadataBearer {}
 
 /**

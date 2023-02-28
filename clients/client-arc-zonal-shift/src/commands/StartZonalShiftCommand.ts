@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartZonalShiftCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartZonalShiftCommand}.
+ */
 export interface StartZonalShiftCommandInput extends StartZonalShiftRequest {}
+/**
+ * The output of {@link StartZonalShiftCommand}.
+ */
 export interface StartZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
 
 /**

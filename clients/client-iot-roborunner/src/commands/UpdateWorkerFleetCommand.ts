@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateWorkerFleetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateWorkerFleetCommand}.
+ */
 export interface UpdateWorkerFleetCommandInput extends UpdateWorkerFleetRequest {}
+/**
+ * The output of {@link UpdateWorkerFleetCommand}.
+ */
 export interface UpdateWorkerFleetCommandOutput extends UpdateWorkerFleetResponse, __MetadataBearer {}
 
 /**

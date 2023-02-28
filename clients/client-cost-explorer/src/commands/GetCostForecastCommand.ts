@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCostForecastCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCostForecastCommand}.
+ */
 export interface GetCostForecastCommandInput extends GetCostForecastRequest {}
+/**
+ * The output of {@link GetCostForecastCommand}.
+ */
 export interface GetCostForecastCommandOutput extends GetCostForecastResponse, __MetadataBearer {}
 
 /**

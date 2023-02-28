@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateSettingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateSettingsCommand}.
+ */
 export interface UpdateSettingsCommandInput extends UpdateSettingsRequest {}
+/**
+ * The output of {@link UpdateSettingsCommand}.
+ */
 export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __MetadataBearer {}
 
 /**

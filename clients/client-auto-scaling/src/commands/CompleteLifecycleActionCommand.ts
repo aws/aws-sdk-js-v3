@@ -25,7 +25,13 @@ import {
   serializeAws_queryCompleteLifecycleActionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CompleteLifecycleActionCommand}.
+ */
 export interface CompleteLifecycleActionCommandInput extends CompleteLifecycleActionType {}
+/**
+ * The output of {@link CompleteLifecycleActionCommand}.
+ */
 export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleActionAnswer, __MetadataBearer {}
 
 /**

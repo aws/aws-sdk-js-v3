@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteTrustCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteTrustCommand}.
+ */
 export interface DeleteTrustCommandInput extends DeleteTrustRequest {}
+/**
+ * The output of {@link DeleteTrustCommand}.
+ */
 export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataBearer {}
 
 /**

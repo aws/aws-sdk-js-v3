@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateWebhookCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateWebhookCommand}.
+ */
 export interface UpdateWebhookCommandInput extends UpdateWebhookRequest {}
+/**
+ * The output of {@link UpdateWebhookCommand}.
+ */
 export interface UpdateWebhookCommandOutput extends UpdateWebhookResult, __MetadataBearer {}
 
 /**

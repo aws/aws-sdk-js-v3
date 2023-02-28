@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeCampaignCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeCampaignCommand}.
+ */
 export interface DescribeCampaignCommandInput extends DescribeCampaignRequest {}
+/**
+ * The output of {@link DescribeCampaignCommand}.
+ */
 export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse, __MetadataBearer {}
 
 /**

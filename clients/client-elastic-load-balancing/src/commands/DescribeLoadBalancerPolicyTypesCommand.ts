@@ -29,7 +29,13 @@ import {
   serializeAws_queryDescribeLoadBalancerPolicyTypesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeLoadBalancerPolicyTypesCommand}.
+ */
 export interface DescribeLoadBalancerPolicyTypesCommandInput extends DescribeLoadBalancerPolicyTypesInput {}
+/**
+ * The output of {@link DescribeLoadBalancerPolicyTypesCommand}.
+ */
 export interface DescribeLoadBalancerPolicyTypesCommandOutput
   extends DescribeLoadBalancerPolicyTypesOutput,
     __MetadataBearer {}

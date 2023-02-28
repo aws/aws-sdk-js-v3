@@ -22,7 +22,13 @@ import {
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { deserializeAws_json1_1SendBonusCommand, serializeAws_json1_1SendBonusCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SendBonusCommand}.
+ */
 export interface SendBonusCommandInput extends SendBonusRequest {}
+/**
+ * The output of {@link SendBonusCommand}.
+ */
 export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBearer {}
 
 /**

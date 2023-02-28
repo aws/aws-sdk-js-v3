@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link BodyWithXmlNameCommand}.
+ */
 export interface BodyWithXmlNameCommandInput extends BodyWithXmlNameInputOutput {}
+/**
+ * The output of {@link BodyWithXmlNameCommand}.
+ */
 export interface BodyWithXmlNameCommandOutput extends BodyWithXmlNameInputOutput, __MetadataBearer {}
 
 /**

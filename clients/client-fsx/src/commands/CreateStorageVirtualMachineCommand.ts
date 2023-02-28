@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateStorageVirtualMachineCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateStorageVirtualMachineCommand}.
+ */
 export interface CreateStorageVirtualMachineCommandInput extends CreateStorageVirtualMachineRequest {}
+/**
+ * The output of {@link CreateStorageVirtualMachineCommand}.
+ */
 export interface CreateStorageVirtualMachineCommandOutput
   extends CreateStorageVirtualMachineResponse,
     __MetadataBearer {}

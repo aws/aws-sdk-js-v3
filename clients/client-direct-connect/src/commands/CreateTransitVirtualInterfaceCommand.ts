@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateTransitVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateTransitVirtualInterfaceCommand}.
+ */
 export interface CreateTransitVirtualInterfaceCommandInput extends CreateTransitVirtualInterfaceRequest {}
+/**
+ * The output of {@link CreateTransitVirtualInterfaceCommand}.
+ */
 export interface CreateTransitVirtualInterfaceCommandOutput
   extends CreateTransitVirtualInterfaceResult,
     __MetadataBearer {}

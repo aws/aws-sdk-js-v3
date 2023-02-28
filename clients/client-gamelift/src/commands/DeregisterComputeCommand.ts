@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeregisterComputeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterComputeCommand}.
+ */
 export interface DeregisterComputeCommandInput extends DeregisterComputeInput {}
+/**
+ * The output of {@link DeregisterComputeCommand}.
+ */
 export interface DeregisterComputeCommandOutput extends DeregisterComputeOutput, __MetadataBearer {}
 
 /**

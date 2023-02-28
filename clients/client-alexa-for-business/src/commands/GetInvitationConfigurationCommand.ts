@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetInvitationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetInvitationConfigurationCommand}.
+ */
 export interface GetInvitationConfigurationCommandInput extends GetInvitationConfigurationRequest {}
+/**
+ * The output of {@link GetInvitationConfigurationCommand}.
+ */
 export interface GetInvitationConfigurationCommandOutput extends GetInvitationConfigurationResponse, __MetadataBearer {}
 
 /**

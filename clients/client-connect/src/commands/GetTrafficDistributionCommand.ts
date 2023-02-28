@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetTrafficDistributionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetTrafficDistributionCommand}.
+ */
 export interface GetTrafficDistributionCommandInput extends GetTrafficDistributionRequest {}
+/**
+ * The output of {@link GetTrafficDistributionCommand}.
+ */
 export interface GetTrafficDistributionCommandOutput extends GetTrafficDistributionResponse, __MetadataBearer {}
 
 /**

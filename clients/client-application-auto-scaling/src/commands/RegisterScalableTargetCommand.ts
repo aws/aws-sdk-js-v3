@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1RegisterScalableTargetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterScalableTargetCommand}.
+ */
 export interface RegisterScalableTargetCommandInput extends RegisterScalableTargetRequest {}
+/**
+ * The output of {@link RegisterScalableTargetCommand}.
+ */
 export interface RegisterScalableTargetCommandOutput extends RegisterScalableTargetResponse, __MetadataBearer {}
 
 /**

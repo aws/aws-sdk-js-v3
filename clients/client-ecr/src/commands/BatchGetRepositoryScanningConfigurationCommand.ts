@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetRepositoryScanningConfigurationCommand}.
+ */
 export interface BatchGetRepositoryScanningConfigurationCommandInput
   extends BatchGetRepositoryScanningConfigurationRequest {}
+/**
+ * The output of {@link BatchGetRepositoryScanningConfigurationCommand}.
+ */
 export interface BatchGetRepositoryScanningConfigurationCommandOutput
   extends BatchGetRepositoryScanningConfigurationResponse,
     __MetadataBearer {}

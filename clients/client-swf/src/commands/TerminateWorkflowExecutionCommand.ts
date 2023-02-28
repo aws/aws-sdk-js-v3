@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link TerminateWorkflowExecutionCommand}.
+ */
 export interface TerminateWorkflowExecutionCommandInput extends TerminateWorkflowExecutionInput {}
+/**
+ * The output of {@link TerminateWorkflowExecutionCommand}.
+ */
 export interface TerminateWorkflowExecutionCommandOutput extends __MetadataBearer {}
 
 /**

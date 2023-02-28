@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeContinuousExportsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeContinuousExportsCommand}.
+ */
 export interface DescribeContinuousExportsCommandInput extends DescribeContinuousExportsRequest {}
+/**
+ * The output of {@link DescribeContinuousExportsCommand}.
+ */
 export interface DescribeContinuousExportsCommandOutput extends DescribeContinuousExportsResponse, __MetadataBearer {}
 
 /**

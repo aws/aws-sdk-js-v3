@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateWorkGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateWorkGroupCommand}.
+ */
 export interface UpdateWorkGroupCommandInput extends UpdateWorkGroupInput {}
+/**
+ * The output of {@link UpdateWorkGroupCommand}.
+ */
 export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __MetadataBearer {}
 
 /**

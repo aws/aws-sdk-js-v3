@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopGameSessionPlacementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopGameSessionPlacementCommand}.
+ */
 export interface StopGameSessionPlacementCommandInput extends StopGameSessionPlacementInput {}
+/**
+ * The output of {@link StopGameSessionPlacementCommand}.
+ */
 export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPlacementOutput, __MetadataBearer {}
 
 /**

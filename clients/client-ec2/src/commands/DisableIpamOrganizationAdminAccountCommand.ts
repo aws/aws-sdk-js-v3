@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DisableIpamOrganizationAdminAccountCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisableIpamOrganizationAdminAccountCommand}.
+ */
 export interface DisableIpamOrganizationAdminAccountCommandInput extends DisableIpamOrganizationAdminAccountRequest {}
+/**
+ * The output of {@link DisableIpamOrganizationAdminAccountCommand}.
+ */
 export interface DisableIpamOrganizationAdminAccountCommandOutput
   extends DisableIpamOrganizationAdminAccountResult,
     __MetadataBearer {}

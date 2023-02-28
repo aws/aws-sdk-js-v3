@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * The input for {@link CreateResourceSetCommand}.
+ */
 export interface CreateResourceSetCommandInput extends CreateResourceSetRequest {}
+/**
+ * The output of {@link CreateResourceSetCommand}.
+ */
 export interface CreateResourceSetCommandOutput extends CreateResourceSetResponse, __MetadataBearer {}
 
 /**

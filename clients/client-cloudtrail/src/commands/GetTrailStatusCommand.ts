@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetTrailStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetTrailStatusCommand}.
+ */
 export interface GetTrailStatusCommandInput extends GetTrailStatusRequest {}
+/**
+ * The output of {@link GetTrailStatusCommand}.
+ */
 export interface GetTrailStatusCommandOutput extends GetTrailStatusResponse, __MetadataBearer {}
 
 /**

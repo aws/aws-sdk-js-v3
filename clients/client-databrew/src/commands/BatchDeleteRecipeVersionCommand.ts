@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchDeleteRecipeVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchDeleteRecipeVersionCommand}.
+ */
 export interface BatchDeleteRecipeVersionCommandInput extends BatchDeleteRecipeVersionRequest {}
+/**
+ * The output of {@link BatchDeleteRecipeVersionCommand}.
+ */
 export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipeVersionResponse, __MetadataBearer {}
 
 /**

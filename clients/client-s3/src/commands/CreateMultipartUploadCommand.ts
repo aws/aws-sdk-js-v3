@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link CreateMultipartUploadCommand}.
+ */
 export interface CreateMultipartUploadCommandInput extends CreateMultipartUploadRequest {}
+/**
+ * The output of {@link CreateMultipartUploadCommand}.
+ */
 export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploadOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetInstanceAccessCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetInstanceAccessCommand}.
+ */
 export interface GetInstanceAccessCommandInput extends GetInstanceAccessInput {}
+/**
+ * The output of {@link GetInstanceAccessCommand}.
+ */
 export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput, __MetadataBearer {}
 
 /**

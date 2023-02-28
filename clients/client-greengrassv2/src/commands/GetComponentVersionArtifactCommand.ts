@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetComponentVersionArtifactCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetComponentVersionArtifactCommand}.
+ */
 export interface GetComponentVersionArtifactCommandInput extends GetComponentVersionArtifactRequest {}
+/**
+ * The output of {@link GetComponentVersionArtifactCommand}.
+ */
 export interface GetComponentVersionArtifactCommandOutput
   extends GetComponentVersionArtifactResponse,
     __MetadataBearer {}

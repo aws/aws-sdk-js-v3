@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link GenerateTemplateCommand}.
+ */
 export interface GenerateTemplateCommandInput extends GenerateTemplateRequest {}
+/**
+ * The output of {@link GenerateTemplateCommand}.
+ */
 export interface GenerateTemplateCommandOutput extends GenerateTemplateResponse, __MetadataBearer {}
 
 /**

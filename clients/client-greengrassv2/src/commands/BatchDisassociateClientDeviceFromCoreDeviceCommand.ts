@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1BatchDisassociateClientDeviceFromCoreDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchDisassociateClientDeviceFromCoreDeviceCommand}.
+ */
 export interface BatchDisassociateClientDeviceFromCoreDeviceCommandInput
   extends BatchDisassociateClientDeviceFromCoreDeviceRequest {}
+/**
+ * The output of {@link BatchDisassociateClientDeviceFromCoreDeviceCommand}.
+ */
 export interface BatchDisassociateClientDeviceFromCoreDeviceCommandOutput
   extends BatchDisassociateClientDeviceFromCoreDeviceResponse,
     __MetadataBearer {}

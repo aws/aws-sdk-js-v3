@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link ListResourceDataSyncCommand}.
+ */
 export interface ListResourceDataSyncCommandInput extends ListResourceDataSyncRequest {}
+/**
+ * The output of {@link ListResourceDataSyncCommand}.
+ */
 export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncResult, __MetadataBearer {}
 
 /**

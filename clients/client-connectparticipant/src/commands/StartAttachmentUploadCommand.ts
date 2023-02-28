@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1StartAttachmentUploadCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartAttachmentUploadCommand}.
+ */
 export interface StartAttachmentUploadCommandInput extends StartAttachmentUploadRequest {}
+/**
+ * The output of {@link StartAttachmentUploadCommand}.
+ */
 export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploadResponse, __MetadataBearer {}
 
 /**

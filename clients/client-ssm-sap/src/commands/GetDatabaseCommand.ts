@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
+/**
+ * The input for {@link GetDatabaseCommand}.
+ */
 export interface GetDatabaseCommandInput extends GetDatabaseInput {}
+/**
+ * The output of {@link GetDatabaseCommand}.
+ */
 export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataBearer {}
 
 /**

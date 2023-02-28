@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAgentConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAgentConfigurationCommand}.
+ */
 export interface GetAgentConfigurationCommandInput extends GetAgentConfigurationRequest {}
+/**
+ * The output of {@link GetAgentConfigurationCommand}.
+ */
 export interface GetAgentConfigurationCommandOutput extends GetAgentConfigurationResponse, __MetadataBearer {}
 
 /**

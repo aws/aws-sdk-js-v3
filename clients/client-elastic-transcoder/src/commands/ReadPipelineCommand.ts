@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ReadPipelineCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ReadPipelineCommand}.
+ */
 export interface ReadPipelineCommandInput extends ReadPipelineRequest {}
+/**
+ * The output of {@link ReadPipelineCommand}.
+ */
 export interface ReadPipelineCommandOutput extends ReadPipelineResponse, __MetadataBearer {}
 
 /**

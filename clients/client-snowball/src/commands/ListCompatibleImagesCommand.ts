@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * The input for {@link ListCompatibleImagesCommand}.
+ */
 export interface ListCompatibleImagesCommandInput extends ListCompatibleImagesRequest {}
+/**
+ * The output of {@link ListCompatibleImagesCommand}.
+ */
 export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesResult, __MetadataBearer {}
 
 /**

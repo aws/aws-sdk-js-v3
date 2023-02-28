@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdatePipelineCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdatePipelineCommand}.
+ */
 export interface UpdatePipelineCommandInput extends UpdatePipelineInput {}
+/**
+ * The output of {@link UpdatePipelineCommand}.
+ */
 export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __MetadataBearer {}
 
 /**

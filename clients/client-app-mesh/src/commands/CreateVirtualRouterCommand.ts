@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateVirtualRouterCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateVirtualRouterCommand}.
+ */
 export interface CreateVirtualRouterCommandInput extends CreateVirtualRouterInput {}
+/**
+ * The output of {@link CreateVirtualRouterCommand}.
+ */
 export interface CreateVirtualRouterCommandOutput extends CreateVirtualRouterOutput, __MetadataBearer {}
 
 /**

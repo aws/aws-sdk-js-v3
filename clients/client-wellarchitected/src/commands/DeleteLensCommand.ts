@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * The input for {@link DeleteLensCommand}.
+ */
 export interface DeleteLensCommandInput extends DeleteLensInput {}
+/**
+ * The output of {@link DeleteLensCommand}.
+ */
 export interface DeleteLensCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
+/**
+ * The input for {@link BeginTransactionCommand}.
+ */
 export interface BeginTransactionCommandInput extends BeginTransactionRequest {}
+/**
+ * The output of {@link BeginTransactionCommand}.
+ */
 export interface BeginTransactionCommandOutput extends BeginTransactionResponse, __MetadataBearer {}
 
 /**

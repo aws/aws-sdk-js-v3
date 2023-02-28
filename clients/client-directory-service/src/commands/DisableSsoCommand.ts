@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisableSsoCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisableSsoCommand}.
+ */
 export interface DisableSsoCommandInput extends DisableSsoRequest {}
+/**
+ * The output of {@link DisableSsoCommand}.
+ */
 export interface DisableSsoCommandOutput extends DisableSsoResult, __MetadataBearer {}
 
 /**

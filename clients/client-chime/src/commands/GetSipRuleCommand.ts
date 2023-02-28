@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSipRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSipRuleCommand}.
+ */
 export interface GetSipRuleCommandInput extends GetSipRuleRequest {}
+/**
+ * The output of {@link GetSipRuleCommand}.
+ */
 export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataBearer {}
 
 /**

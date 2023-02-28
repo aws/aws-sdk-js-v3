@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1PutDeliveryChannelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutDeliveryChannelCommand}.
+ */
 export interface PutDeliveryChannelCommandInput extends PutDeliveryChannelRequest {}
+/**
+ * The output of {@link PutDeliveryChannelCommand}.
+ */
 export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
 
 /**

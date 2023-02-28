@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0UpdateSubnetChangeProtectionCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateSubnetChangeProtectionCommand}.
+ */
 export interface UpdateSubnetChangeProtectionCommandInput extends UpdateSubnetChangeProtectionRequest {}
+/**
+ * The output of {@link UpdateSubnetChangeProtectionCommand}.
+ */
 export interface UpdateSubnetChangeProtectionCommandOutput
   extends UpdateSubnetChangeProtectionResponse,
     __MetadataBearer {}

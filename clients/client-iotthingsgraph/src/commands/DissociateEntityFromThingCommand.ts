@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DissociateEntityFromThingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DissociateEntityFromThingCommand}.
+ */
 export interface DissociateEntityFromThingCommandInput extends DissociateEntityFromThingRequest {}
+/**
+ * The output of {@link DissociateEntityFromThingCommand}.
+ */
 export interface DissociateEntityFromThingCommandOutput extends DissociateEntityFromThingResponse, __MetadataBearer {}
 
 /**

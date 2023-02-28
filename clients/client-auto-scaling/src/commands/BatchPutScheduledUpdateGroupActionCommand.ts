@@ -25,7 +25,13 @@ import {
   serializeAws_queryBatchPutScheduledUpdateGroupActionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link BatchPutScheduledUpdateGroupActionCommand}.
+ */
 export interface BatchPutScheduledUpdateGroupActionCommandInput extends BatchPutScheduledUpdateGroupActionType {}
+/**
+ * The output of {@link BatchPutScheduledUpdateGroupActionCommand}.
+ */
 export interface BatchPutScheduledUpdateGroupActionCommandOutput
   extends BatchPutScheduledUpdateGroupActionAnswer,
     __MetadataBearer {}

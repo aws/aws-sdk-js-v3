@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateSubnetGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateSubnetGroupCommand}.
+ */
 export interface UpdateSubnetGroupCommandInput extends UpdateSubnetGroupRequest {}
+/**
+ * The output of {@link UpdateSubnetGroupCommand}.
+ */
 export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupResponse, __MetadataBearer {}
 
 /**

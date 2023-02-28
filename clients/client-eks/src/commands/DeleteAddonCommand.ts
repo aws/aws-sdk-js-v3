@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteAddonCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAddonCommand}.
+ */
 export interface DeleteAddonCommandInput extends DeleteAddonRequest {}
+/**
+ * The output of {@link DeleteAddonCommand}.
+ */
 export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __MetadataBearer {}
 
 /**

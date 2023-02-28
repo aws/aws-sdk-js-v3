@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DescribeStorageCommand}.
+ */
 export interface DescribeStorageCommandInput {}
+/**
+ * The output of {@link DescribeStorageCommand}.
+ */
 export interface DescribeStorageCommandOutput extends CustomerStorageMessage, __MetadataBearer {}
 
 /**

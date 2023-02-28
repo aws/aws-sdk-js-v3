@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DeleteEventSubscriptionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteEventSubscriptionCommand}.
+ */
 export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscriptionMessage {}
+/**
+ * The output of {@link DeleteEventSubscriptionCommand}.
+ */
 export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscriptionResponse, __MetadataBearer {}
 
 /**

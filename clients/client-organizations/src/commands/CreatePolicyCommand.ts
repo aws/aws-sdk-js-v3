@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreatePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreatePolicyCommand}.
+ */
 export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
+/**
+ * The output of {@link CreatePolicyCommand}.
+ */
 export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __MetadataBearer {}
 
 /**

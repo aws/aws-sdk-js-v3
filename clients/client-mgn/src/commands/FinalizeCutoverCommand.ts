@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1FinalizeCutoverCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link FinalizeCutoverCommand}.
+ */
 export interface FinalizeCutoverCommandInput extends FinalizeCutoverRequest {}
+/**
+ * The output of {@link FinalizeCutoverCommand}.
+ */
 export interface FinalizeCutoverCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**

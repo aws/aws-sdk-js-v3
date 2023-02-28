@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1StartResourceScanCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartResourceScanCommand}.
+ */
 export interface StartResourceScanCommandInput extends StartResourceScanRequest {}
+/**
+ * The output of {@link StartResourceScanCommand}.
+ */
 export interface StartResourceScanCommandOutput extends __MetadataBearer {}
 
 /**

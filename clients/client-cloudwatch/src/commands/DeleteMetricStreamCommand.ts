@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteMetricStreamCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteMetricStreamCommand}.
+ */
 export interface DeleteMetricStreamCommandInput extends DeleteMetricStreamInput {}
+/**
+ * The output of {@link DeleteMetricStreamCommand}.
+ */
 export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutput, __MetadataBearer {}
 
 /**

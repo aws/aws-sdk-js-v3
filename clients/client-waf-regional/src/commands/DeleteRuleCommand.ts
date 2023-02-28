@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link DeleteRuleCommand}.
+ */
 export interface DeleteRuleCommandInput extends DeleteRuleRequest {}
+/**
+ * The output of {@link DeleteRuleCommand}.
+ */
 export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataBearer {}
 
 /**

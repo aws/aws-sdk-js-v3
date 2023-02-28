@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeEffectivePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeEffectivePolicyCommand}.
+ */
 export interface DescribeEffectivePolicyCommandInput extends DescribeEffectivePolicyRequest {}
+/**
+ * The output of {@link DescribeEffectivePolicyCommand}.
+ */
 export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectivePolicyResponse, __MetadataBearer {}
 
 /**

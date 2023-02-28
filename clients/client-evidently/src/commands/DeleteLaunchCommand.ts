@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteLaunchCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteLaunchCommand}.
+ */
 export interface DeleteLaunchCommandInput extends DeleteLaunchRequest {}
+/**
+ * The output of {@link DeleteLaunchCommand}.
+ */
 export interface DeleteLaunchCommandOutput extends DeleteLaunchResponse, __MetadataBearer {}
 
 /**

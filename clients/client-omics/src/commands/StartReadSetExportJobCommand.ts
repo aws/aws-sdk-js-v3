@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartReadSetExportJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartReadSetExportJobCommand}.
+ */
 export interface StartReadSetExportJobCommandInput extends StartReadSetExportJobRequest {}
+/**
+ * The output of {@link StartReadSetExportJobCommand}.
+ */
 export interface StartReadSetExportJobCommandOutput extends StartReadSetExportJobResponse, __MetadataBearer {}
 
 /**

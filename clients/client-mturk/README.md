@@ -203,3 +203,318 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+AcceptQualificationRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/acceptqualificationrequestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/acceptqualificationrequestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/acceptqualificationrequestcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ApproveAssignment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/approveassignmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/approveassignmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/approveassignmentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+AssociateQualificationWithWorker
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/associatequalificationwithworkercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/associatequalificationwithworkercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/associatequalificationwithworkercommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateAdditionalAssignmentsForHIT
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/createadditionalassignmentsforhitcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/createadditionalassignmentsforhitcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/createadditionalassignmentsforhitcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateHIT
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/createhitcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/createhitcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/createhitcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateHITType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/createhittypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/createhittypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/createhittypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateHITWithHITType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/createhitwithhittypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/createhitwithhittypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/createhitwithhittypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateQualificationType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/createqualificationtypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/createqualificationtypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/createqualificationtypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateWorkerBlock
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/createworkerblockcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/createworkerblockcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/createworkerblockcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteHIT
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/deletehitcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/deletehitcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/deletehitcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteQualificationType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/deletequalificationtypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/deletequalificationtypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/deletequalificationtypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteWorkerBlock
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/deleteworkerblockcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/deleteworkerblockcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/deleteworkerblockcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DisassociateQualificationFromWorker
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/disassociatequalificationfromworkercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/disassociatequalificationfromworkercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/disassociatequalificationfromworkercommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetAccountBalance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/getaccountbalancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/getaccountbalancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/getaccountbalancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetAssignment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/getassignmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/getassignmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/getassignmentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetFileUploadURL
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/getfileuploadurlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/getfileuploadurlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/getfileuploadurlcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetHIT
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/gethitcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/gethitcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/gethitcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetQualificationScore
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/getqualificationscorecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/getqualificationscorecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/getqualificationscorecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetQualificationType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/getqualificationtypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/getqualificationtypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/getqualificationtypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAssignmentsForHIT
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/listassignmentsforhitcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listassignmentsforhitcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listassignmentsforhitcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListBonusPayments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/listbonuspaymentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listbonuspaymentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listbonuspaymentscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListHITs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/listhitscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listhitscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listhitscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListHITsForQualificationType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/listhitsforqualificationtypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listhitsforqualificationtypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listhitsforqualificationtypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListQualificationRequests
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/listqualificationrequestscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listqualificationrequestscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listqualificationrequestscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListQualificationTypes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/listqualificationtypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listqualificationtypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listqualificationtypescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListReviewableHITs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/listreviewablehitscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listreviewablehitscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listreviewablehitscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListReviewPolicyResultsForHIT
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/listreviewpolicyresultsforhitcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listreviewpolicyresultsforhitcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listreviewpolicyresultsforhitcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListWorkerBlocks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/listworkerblockscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listworkerblockscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listworkerblockscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListWorkersWithQualificationType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/listworkerswithqualificationtypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listworkerswithqualificationtypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/listworkerswithqualificationtypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+NotifyWorkers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/notifyworkerscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/notifyworkerscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/notifyworkerscommandoutput.html)
+
+</details>
+<details>
+<summary>
+RejectAssignment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/rejectassignmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/rejectassignmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/rejectassignmentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+RejectQualificationRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/rejectqualificationrequestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/rejectqualificationrequestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/rejectqualificationrequestcommandoutput.html)
+
+</details>
+<details>
+<summary>
+SendBonus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/sendbonuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/sendbonuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/sendbonuscommandoutput.html)
+
+</details>
+<details>
+<summary>
+SendTestEventNotification
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/sendtesteventnotificationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/sendtesteventnotificationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/sendtesteventnotificationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateExpirationForHIT
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/updateexpirationforhitcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/updateexpirationforhitcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/updateexpirationforhitcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateHITReviewStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/updatehitreviewstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/updatehitreviewstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/updatehitreviewstatuscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateHITTypeOfHIT
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/updatehittypeofhitcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/updatehittypeofhitcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/updatehittypeofhitcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateNotificationSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/updatenotificationsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/updatenotificationsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/updatenotificationsettingscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateQualificationType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/classes/updatequalificationtypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/updatequalificationtypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mturk/interfaces/updatequalificationtypecommandoutput.html)
+
+</details>

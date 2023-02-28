@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteEntityRecognizerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteEntityRecognizerCommand}.
+ */
 export interface DeleteEntityRecognizerCommandInput extends DeleteEntityRecognizerRequest {}
+/**
+ * The output of {@link DeleteEntityRecognizerCommand}.
+ */
 export interface DeleteEntityRecognizerCommandOutput extends DeleteEntityRecognizerResponse, __MetadataBearer {}
 
 /**

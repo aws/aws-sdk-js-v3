@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopLaunchCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopLaunchCommand}.
+ */
 export interface StopLaunchCommandInput extends StopLaunchRequest {}
+/**
+ * The output of {@link StopLaunchCommand}.
+ */
 export interface StopLaunchCommandOutput extends StopLaunchResponse, __MetadataBearer {}
 
 /**

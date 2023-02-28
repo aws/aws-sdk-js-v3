@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link CreateGroupMembershipCommand}.
+ */
 export interface CreateGroupMembershipCommandInput extends CreateGroupMembershipRequest {}
+/**
+ * The output of {@link CreateGroupMembershipCommand}.
+ */
 export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershipResponse, __MetadataBearer {}
 
 /**

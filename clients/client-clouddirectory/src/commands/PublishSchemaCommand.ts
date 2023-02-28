@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PublishSchemaCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PublishSchemaCommand}.
+ */
 export interface PublishSchemaCommandInput extends PublishSchemaRequest {}
+/**
+ * The output of {@link PublishSchemaCommand}.
+ */
 export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __MetadataBearer {}
 
 /**

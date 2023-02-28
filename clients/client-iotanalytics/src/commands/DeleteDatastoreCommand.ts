@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteDatastoreCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteDatastoreCommand}.
+ */
 export interface DeleteDatastoreCommandInput extends DeleteDatastoreRequest {}
+/**
+ * The output of {@link DeleteDatastoreCommand}.
+ */
 export interface DeleteDatastoreCommandOutput extends __MetadataBearer {}
 
 /**

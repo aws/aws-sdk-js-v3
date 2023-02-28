@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1UpdateQueueOutboundCallerConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateQueueOutboundCallerConfigCommand}.
+ */
 export interface UpdateQueueOutboundCallerConfigCommandInput extends UpdateQueueOutboundCallerConfigRequest {}
+/**
+ * The output of {@link UpdateQueueOutboundCallerConfigCommand}.
+ */
 export interface UpdateQueueOutboundCallerConfigCommandOutput extends __MetadataBearer {}
 
 /**

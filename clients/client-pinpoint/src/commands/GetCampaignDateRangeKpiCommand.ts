@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetCampaignDateRangeKpiCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetCampaignDateRangeKpiCommand}.
+ */
 export interface GetCampaignDateRangeKpiCommandInput extends GetCampaignDateRangeKpiRequest {}
+/**
+ * The output of {@link GetCampaignDateRangeKpiCommand}.
+ */
 export interface GetCampaignDateRangeKpiCommandOutput extends GetCampaignDateRangeKpiResponse, __MetadataBearer {}
 
 /**

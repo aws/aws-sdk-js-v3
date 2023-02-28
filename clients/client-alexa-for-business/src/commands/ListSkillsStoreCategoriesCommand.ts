@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListSkillsStoreCategoriesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListSkillsStoreCategoriesCommand}.
+ */
 export interface ListSkillsStoreCategoriesCommandInput extends ListSkillsStoreCategoriesRequest {}
+/**
+ * The output of {@link ListSkillsStoreCategoriesCommand}.
+ */
 export interface ListSkillsStoreCategoriesCommandOutput extends ListSkillsStoreCategoriesResponse, __MetadataBearer {}
 
 /**

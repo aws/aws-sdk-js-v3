@@ -25,7 +25,13 @@ import {
   serializeAws_ec2EnableFastSnapshotRestoresCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link EnableFastSnapshotRestoresCommand}.
+ */
 export interface EnableFastSnapshotRestoresCommandInput extends EnableFastSnapshotRestoresRequest {}
+/**
+ * The output of {@link EnableFastSnapshotRestoresCommand}.
+ */
 export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnapshotRestoresResult, __MetadataBearer {}
 
 /**

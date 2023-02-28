@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteSchemaCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteSchemaCommand}.
+ */
 export interface DeleteSchemaCommandInput extends DeleteSchemaInput {}
+/**
+ * The output of {@link DeleteSchemaCommand}.
+ */
 export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __MetadataBearer {}
 
 /**

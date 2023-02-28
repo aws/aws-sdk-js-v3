@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
+/**
+ * The input for {@link GetVocabularyFilterCommand}.
+ */
 export interface GetVocabularyFilterCommandInput extends GetVocabularyFilterRequest {}
+/**
+ * The output of {@link GetVocabularyFilterCommand}.
+ */
 export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterResponse, __MetadataBearer {}
 
 /**

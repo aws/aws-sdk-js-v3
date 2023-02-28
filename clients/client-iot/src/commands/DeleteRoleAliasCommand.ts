@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteRoleAliasCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteRoleAliasCommand}.
+ */
 export interface DeleteRoleAliasCommandInput extends DeleteRoleAliasRequest {}
+/**
+ * The output of {@link DeleteRoleAliasCommand}.
+ */
 export interface DeleteRoleAliasCommandOutput extends DeleteRoleAliasResponse, __MetadataBearer {}
 
 /**

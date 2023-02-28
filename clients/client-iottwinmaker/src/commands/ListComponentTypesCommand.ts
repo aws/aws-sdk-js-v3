@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListComponentTypesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListComponentTypesCommand}.
+ */
 export interface ListComponentTypesCommandInput extends ListComponentTypesRequest {}
+/**
+ * The output of {@link ListComponentTypesCommand}.
+ */
 export interface ListComponentTypesCommandOutput extends ListComponentTypesResponse, __MetadataBearer {}
 
 /**

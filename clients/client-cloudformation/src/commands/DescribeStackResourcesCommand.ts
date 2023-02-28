@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeStackResourcesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeStackResourcesCommand}.
+ */
 export interface DescribeStackResourcesCommandInput extends DescribeStackResourcesInput {}
+/**
+ * The output of {@link DescribeStackResourcesCommand}.
+ */
 export interface DescribeStackResourcesCommandOutput extends DescribeStackResourcesOutput, __MetadataBearer {}
 
 /**

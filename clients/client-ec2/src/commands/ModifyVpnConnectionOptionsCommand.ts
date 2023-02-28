@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyVpnConnectionOptionsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyVpnConnectionOptionsCommand}.
+ */
 export interface ModifyVpnConnectionOptionsCommandInput extends ModifyVpnConnectionOptionsRequest {}
+/**
+ * The output of {@link ModifyVpnConnectionOptionsCommand}.
+ */
 export interface ModifyVpnConnectionOptionsCommandOutput extends ModifyVpnConnectionOptionsResult, __MetadataBearer {}
 
 /**

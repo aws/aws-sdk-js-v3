@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAuditTasksCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAuditTasksCommand}.
+ */
 export interface ListAuditTasksCommandInput extends ListAuditTasksRequest {}
+/**
+ * The output of {@link ListAuditTasksCommand}.
+ */
 export interface ListAuditTasksCommandOutput extends ListAuditTasksResponse, __MetadataBearer {}
 
 /**

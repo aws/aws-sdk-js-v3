@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ImportCatalogToGlueCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ImportCatalogToGlueCommand}.
+ */
 export interface ImportCatalogToGlueCommandInput extends ImportCatalogToGlueRequest {}
+/**
+ * The output of {@link ImportCatalogToGlueCommand}.
+ */
 export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueResponse, __MetadataBearer {}
 
 /**

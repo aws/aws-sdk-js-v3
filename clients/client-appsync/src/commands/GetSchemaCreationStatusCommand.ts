@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSchemaCreationStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSchemaCreationStatusCommand}.
+ */
 export interface GetSchemaCreationStatusCommandInput extends GetSchemaCreationStatusRequest {}
+/**
+ * The output of {@link GetSchemaCreationStatusCommand}.
+ */
 export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationStatusResponse, __MetadataBearer {}
 
 /**

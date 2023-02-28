@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListConferenceProvidersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListConferenceProvidersCommand}.
+ */
 export interface ListConferenceProvidersCommandInput extends ListConferenceProvidersRequest {}
+/**
+ * The output of {@link ListConferenceProvidersCommand}.
+ */
 export interface ListConferenceProvidersCommandOutput extends ListConferenceProvidersResponse, __MetadataBearer {}
 
 /**

@@ -19,6 +19,9 @@ import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAws
 
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
@@ -30,6 +33,7 @@ import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.traits.DocumentationTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -99,6 +103,53 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
                     operationName.substring(0, 1).toLowerCase() + operationName.substring(1));
 
             writer.write(resource.replaceAll(Pattern.quote("$"), Matcher.quoteReplacement("$$")));
+            writeOperationList(writer, model, settings);
         });
+    }
+
+    private void writeOperationList(TypeScriptWriter writer, Model model, TypeScriptSettings settings) {
+        writer.write("## Client Commands (Operations List)");
+        writer.write("");
+        Set<OperationShape> operationShapesSet = model.getOperationShapes();
+
+        List<OperationShape> operationShapes = operationShapesSet.stream()
+                .sorted(Comparator.comparing(Shape::getId)).toList();
+
+        for (OperationShape operationShape : operationShapes) {
+            writer.write("<details>");
+            writer.write("<summary>");
+            writer.write("$L", operationShape.getId().getName());
+            writer.write("</summary>");
+            writer.write("");
+
+            // sample URL for command
+            // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3/classes/abortmultipartuploadcommand.html
+
+            String commandNameLowercase = operationShape.getId().getName().toLowerCase();
+            String serviceId = settings.getService(model).getTrait(ServiceTrait.class)
+                    .orElseThrow(() -> new RuntimeException("Missing Service Trait during README doc generation."))
+                    .getSdkId().toLowerCase();
+
+            String commandUrl = "https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-"
+                    + serviceId + "/classes/" + commandNameLowercase + "command.html";
+
+            // sample URL for command input and outputs
+            // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3/interfaces/abortmultipartuploadcommandinput.html
+            String commandInputUrl = "https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-"
+                    + serviceId + "/interfaces/" + commandNameLowercase + "commandinput.html";
+
+            // https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3/interfaces/abortmultipartuploadcommandoutput.html
+            String commandOutputUrl = "https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-"
+                    + serviceId + "/interfaces/" + commandNameLowercase + "commandoutput.html";
+
+            writer.write(
+                    "[Command API Reference]($L) / [Input]($L) / [Output]($L)",
+                    commandUrl,
+                    commandInputUrl,
+                    commandOutputUrl
+            );
+
+            writer.write("</details>");
+        }
     }
 }

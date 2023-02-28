@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlUpdateDistributionWithStagingConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link UpdateDistributionWithStagingConfigCommand}.
+ */
 export interface UpdateDistributionWithStagingConfigCommandInput extends UpdateDistributionWithStagingConfigRequest {}
+/**
+ * The output of {@link UpdateDistributionWithStagingConfigCommand}.
+ */
 export interface UpdateDistributionWithStagingConfigCommandOutput
   extends UpdateDistributionWithStagingConfigResult,
     __MetadataBearer {}

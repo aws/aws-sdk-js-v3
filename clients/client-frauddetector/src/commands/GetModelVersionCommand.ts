@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetModelVersionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetModelVersionCommand}.
+ */
 export interface GetModelVersionCommandInput extends GetModelVersionRequest {}
+/**
+ * The output of {@link GetModelVersionCommand}.
+ */
 export interface GetModelVersionCommandOutput extends GetModelVersionResult, __MetadataBearer {}
 
 /**

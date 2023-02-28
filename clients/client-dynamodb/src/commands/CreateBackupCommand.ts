@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0CreateBackupCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateBackupCommand}.
+ */
 export interface CreateBackupCommandInput extends CreateBackupInput {}
+/**
+ * The output of {@link CreateBackupCommand}.
+ */
 export interface CreateBackupCommandOutput extends CreateBackupOutput, __MetadataBearer {}
 
 /**

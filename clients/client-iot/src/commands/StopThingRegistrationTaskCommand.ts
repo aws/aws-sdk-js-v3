@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopThingRegistrationTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopThingRegistrationTaskCommand}.
+ */
 export interface StopThingRegistrationTaskCommandInput extends StopThingRegistrationTaskRequest {}
+/**
+ * The output of {@link StopThingRegistrationTaskCommand}.
+ */
 export interface StopThingRegistrationTaskCommandOutput extends StopThingRegistrationTaskResponse, __MetadataBearer {}
 
 /**

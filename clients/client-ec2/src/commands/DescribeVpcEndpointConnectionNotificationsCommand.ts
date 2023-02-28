@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeVpcEndpointConnectionNotificationsCommand}.
+ */
 export interface DescribeVpcEndpointConnectionNotificationsCommandInput
   extends DescribeVpcEndpointConnectionNotificationsRequest {}
+/**
+ * The output of {@link DescribeVpcEndpointConnectionNotificationsCommand}.
+ */
 export interface DescribeVpcEndpointConnectionNotificationsCommandOutput
   extends DescribeVpcEndpointConnectionNotificationsResult,
     __MetadataBearer {}

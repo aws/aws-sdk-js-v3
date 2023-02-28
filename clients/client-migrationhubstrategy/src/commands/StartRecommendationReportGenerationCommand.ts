@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1StartRecommendationReportGenerationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartRecommendationReportGenerationCommand}.
+ */
 export interface StartRecommendationReportGenerationCommandInput extends StartRecommendationReportGenerationRequest {}
+/**
+ * The output of {@link StartRecommendationReportGenerationCommand}.
+ */
 export interface StartRecommendationReportGenerationCommandOutput
   extends StartRecommendationReportGenerationResponse,
     __MetadataBearer {}

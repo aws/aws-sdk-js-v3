@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link UpdateConfigurationSetEventDestinationCommand}.
+ */
 export interface UpdateConfigurationSetEventDestinationCommandInput
   extends UpdateConfigurationSetEventDestinationRequest {}
+/**
+ * The output of {@link UpdateConfigurationSetEventDestinationCommand}.
+ */
 export interface UpdateConfigurationSetEventDestinationCommandOutput
   extends UpdateConfigurationSetEventDestinationResponse,
     __MetadataBearer {}

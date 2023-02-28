@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ReverseReplicationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ReverseReplicationCommand}.
+ */
 export interface ReverseReplicationCommandInput extends ReverseReplicationRequest {}
+/**
+ * The output of {@link ReverseReplicationCommand}.
+ */
 export interface ReverseReplicationCommandOutput extends ReverseReplicationResponse, __MetadataBearer {}
 
 /**

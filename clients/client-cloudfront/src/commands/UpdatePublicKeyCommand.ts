@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlUpdatePublicKeyCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link UpdatePublicKeyCommand}.
+ */
 export interface UpdatePublicKeyCommandInput extends UpdatePublicKeyRequest {}
+/**
+ * The output of {@link UpdatePublicKeyCommand}.
+ */
 export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __MetadataBearer {}
 
 /**

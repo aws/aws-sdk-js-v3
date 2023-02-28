@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDistributionLatestCacheResetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDistributionLatestCacheResetCommand}.
+ */
 export interface GetDistributionLatestCacheResetCommandInput extends GetDistributionLatestCacheResetRequest {}
+/**
+ * The output of {@link GetDistributionLatestCacheResetCommand}.
+ */
 export interface GetDistributionLatestCacheResetCommandOutput
   extends GetDistributionLatestCacheResetResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAnomalyGroupRelatedMetricsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAnomalyGroupRelatedMetricsCommand}.
+ */
 export interface ListAnomalyGroupRelatedMetricsCommandInput extends ListAnomalyGroupRelatedMetricsRequest {}
+/**
+ * The output of {@link ListAnomalyGroupRelatedMetricsCommand}.
+ */
 export interface ListAnomalyGroupRelatedMetricsCommandOutput
   extends ListAnomalyGroupRelatedMetricsResponse,
     __MetadataBearer {}

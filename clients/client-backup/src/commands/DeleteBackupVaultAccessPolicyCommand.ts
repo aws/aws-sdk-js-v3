@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteBackupVaultAccessPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteBackupVaultAccessPolicyCommand}.
+ */
 export interface DeleteBackupVaultAccessPolicyCommandInput extends DeleteBackupVaultAccessPolicyInput {}
+/**
+ * The output of {@link DeleteBackupVaultAccessPolicyCommand}.
+ */
 export interface DeleteBackupVaultAccessPolicyCommandOutput extends __MetadataBearer {}
 
 /**

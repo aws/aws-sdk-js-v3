@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetConferencePreferenceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetConferencePreferenceCommand}.
+ */
 export interface GetConferencePreferenceCommandInput extends GetConferencePreferenceRequest {}
+/**
+ * The output of {@link GetConferencePreferenceCommand}.
+ */
 export interface GetConferencePreferenceCommandOutput extends GetConferencePreferenceResponse, __MetadataBearer {}
 
 /**

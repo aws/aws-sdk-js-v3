@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateSkillGroupWithRoomCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateSkillGroupWithRoomCommand}.
+ */
 export interface AssociateSkillGroupWithRoomCommandInput extends AssociateSkillGroupWithRoomRequest {}
+/**
+ * The output of {@link AssociateSkillGroupWithRoomCommand}.
+ */
 export interface AssociateSkillGroupWithRoomCommandOutput
   extends AssociateSkillGroupWithRoomResponse,
     __MetadataBearer {}

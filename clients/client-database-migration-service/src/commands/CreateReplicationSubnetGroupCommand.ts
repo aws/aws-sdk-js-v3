@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1CreateReplicationSubnetGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateReplicationSubnetGroupCommand}.
+ */
 export interface CreateReplicationSubnetGroupCommandInput extends CreateReplicationSubnetGroupMessage {}
+/**
+ * The output of {@link CreateReplicationSubnetGroupCommand}.
+ */
 export interface CreateReplicationSubnetGroupCommandOutput
   extends CreateReplicationSubnetGroupResponse,
     __MetadataBearer {}

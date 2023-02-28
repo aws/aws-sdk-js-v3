@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1LogoutUserCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link LogoutUserCommand}.
+ */
 export interface LogoutUserCommandInput extends LogoutUserRequest {}
+/**
+ * The output of {@link LogoutUserCommand}.
+ */
 export interface LogoutUserCommandOutput extends LogoutUserResponse, __MetadataBearer {}
 
 /**

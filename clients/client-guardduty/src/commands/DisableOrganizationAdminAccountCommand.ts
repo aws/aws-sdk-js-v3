@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisableOrganizationAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisableOrganizationAdminAccountCommand}.
+ */
 export interface DisableOrganizationAdminAccountCommandInput extends DisableOrganizationAdminAccountRequest {}
+/**
+ * The output of {@link DisableOrganizationAdminAccountCommand}.
+ */
 export interface DisableOrganizationAdminAccountCommandOutput
   extends DisableOrganizationAdminAccountResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GrantFlowEntitlementsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GrantFlowEntitlementsCommand}.
+ */
 export interface GrantFlowEntitlementsCommandInput extends GrantFlowEntitlementsRequest {}
+/**
+ * The output of {@link GrantFlowEntitlementsCommand}.
+ */
 export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlementsResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeSNOMEDCTInferenceJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeSNOMEDCTInferenceJobCommand}.
+ */
 export interface DescribeSNOMEDCTInferenceJobCommandInput extends DescribeSNOMEDCTInferenceJobRequest {}
+/**
+ * The output of {@link DescribeSNOMEDCTInferenceJobCommand}.
+ */
 export interface DescribeSNOMEDCTInferenceJobCommandOutput
   extends DescribeSNOMEDCTInferenceJobResponse,
     __MetadataBearer {}

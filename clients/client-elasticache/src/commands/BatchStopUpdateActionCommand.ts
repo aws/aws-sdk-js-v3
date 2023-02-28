@@ -25,7 +25,13 @@ import {
   serializeAws_queryBatchStopUpdateActionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link BatchStopUpdateActionCommand}.
+ */
 export interface BatchStopUpdateActionCommandInput extends BatchStopUpdateActionMessage {}
+/**
+ * The output of {@link BatchStopUpdateActionCommand}.
+ */
 export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsMessage, __MetadataBearer {}
 
 /**

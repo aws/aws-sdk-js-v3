@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1TagLogGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link TagLogGroupCommand}.
+ */
 export interface TagLogGroupCommandInput extends TagLogGroupRequest {}
+/**
+ * The output of {@link TagLogGroupCommand}.
+ */
 export interface TagLogGroupCommandOutput extends __MetadataBearer {}
 
 /**

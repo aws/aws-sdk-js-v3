@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateGroupCommand}.
+ */
 export interface CreateGroupCommandInput extends CreateGroupRequest {}
+/**
+ * The output of {@link CreateGroupCommand}.
+ */
 export interface CreateGroupCommandOutput extends CreateGroupResponse, __MetadataBearer {}
 
 /**

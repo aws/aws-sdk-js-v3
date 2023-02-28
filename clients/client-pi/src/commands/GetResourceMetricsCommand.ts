@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetResourceMetricsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetResourceMetricsCommand}.
+ */
 export interface GetResourceMetricsCommandInput extends GetResourceMetricsRequest {}
+/**
+ * The output of {@link GetResourceMetricsCommand}.
+ */
 export interface GetResourceMetricsCommandOutput extends GetResourceMetricsResponse, __MetadataBearer {}
 
 /**

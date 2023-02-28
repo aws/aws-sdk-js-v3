@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RestoreFromSnapshotCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RestoreFromSnapshotCommand}.
+ */
 export interface RestoreFromSnapshotCommandInput extends RestoreFromSnapshotRequest {}
+/**
+ * The output of {@link RestoreFromSnapshotCommand}.
+ */
 export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotResult, __MetadataBearer {}
 
 /**

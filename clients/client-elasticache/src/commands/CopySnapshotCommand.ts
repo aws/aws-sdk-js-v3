@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryCopySnapshotCommand, serializeAws_queryCopySnapshotCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CopySnapshotCommand}.
+ */
 export interface CopySnapshotCommandInput extends CopySnapshotMessage {}
+/**
+ * The output of {@link CopySnapshotCommand}.
+ */
 export interface CopySnapshotCommandOutput extends CopySnapshotResult, __MetadataBearer {}
 
 /**

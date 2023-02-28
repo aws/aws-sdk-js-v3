@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeAccountAttributesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeAccountAttributesCommand}.
+ */
 export interface DescribeAccountAttributesCommandInput extends DescribeAccountAttributesRequest {}
+/**
+ * The output of {@link DescribeAccountAttributesCommand}.
+ */
 export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResult, __MetadataBearer {}
 
 /**

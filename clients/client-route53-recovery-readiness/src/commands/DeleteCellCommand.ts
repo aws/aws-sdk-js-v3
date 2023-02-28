@@ -24,7 +24,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * The input for {@link DeleteCellCommand}.
+ */
 export interface DeleteCellCommandInput extends DeleteCellRequest {}
+/**
+ * The output of {@link DeleteCellCommand}.
+ */
 export interface DeleteCellCommandOutput extends __MetadataBearer {}
 
 /**

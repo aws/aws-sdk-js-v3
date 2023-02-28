@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * The input for {@link DeleteFirewallRuleCommand}.
+ */
 export interface DeleteFirewallRuleCommandInput extends DeleteFirewallRuleRequest {}
+/**
+ * The output of {@link DeleteFirewallRuleCommand}.
+ */
 export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleResponse, __MetadataBearer {}
 
 /**

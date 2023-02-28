@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateIndexCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateIndexCommand}.
+ */
 export interface UpdateIndexCommandInput extends UpdateIndexRequest {}
+/**
+ * The output of {@link UpdateIndexCommand}.
+ */
 export interface UpdateIndexCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link GetQueueAttributesCommand}.
+ */
 export interface GetQueueAttributesCommandInput extends GetQueueAttributesRequest {}
+/**
+ * The output of {@link GetQueueAttributesCommand}.
+ */
 export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResult, __MetadataBearer {}
 
 /**

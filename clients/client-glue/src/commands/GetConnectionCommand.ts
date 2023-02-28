@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetConnectionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetConnectionCommand}.
+ */
 export interface GetConnectionCommandInput extends GetConnectionRequest {}
+/**
+ * The output of {@link GetConnectionCommand}.
+ */
 export interface GetConnectionCommandOutput extends GetConnectionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RemoveTargetsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RemoveTargetsCommand}.
+ */
 export interface RemoveTargetsCommandInput extends RemoveTargetsRequest {}
+/**
+ * The output of {@link RemoveTargetsCommand}.
+ */
 export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __MetadataBearer {}
 
 /**

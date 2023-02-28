@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeAuthorizerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeAuthorizerCommand}.
+ */
 export interface DescribeAuthorizerCommandInput extends DescribeAuthorizerRequest {}
+/**
+ * The output of {@link DescribeAuthorizerCommand}.
+ */
 export interface DescribeAuthorizerCommandOutput extends DescribeAuthorizerResponse, __MetadataBearer {}
 
 /**

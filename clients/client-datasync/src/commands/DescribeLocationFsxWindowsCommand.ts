@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeLocationFsxWindowsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLocationFsxWindowsCommand}.
+ */
 export interface DescribeLocationFsxWindowsCommandInput extends DescribeLocationFsxWindowsRequest {}
+/**
+ * The output of {@link DescribeLocationFsxWindowsCommand}.
+ */
 export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocationFsxWindowsResponse, __MetadataBearer {}
 
 /**

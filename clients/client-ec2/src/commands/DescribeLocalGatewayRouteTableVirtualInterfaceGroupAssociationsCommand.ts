@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand}.
+ */
 export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput
   extends DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest {}
+/**
+ * The output of {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand}.
+ */
 export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
   extends DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult,
     __MetadataBearer {}

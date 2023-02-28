@@ -25,7 +25,13 @@ import {
   serializeAws_queryModifyDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyDBClusterParameterGroupCommand}.
+ */
 export interface ModifyDBClusterParameterGroupCommandInput extends ModifyDBClusterParameterGroupMessage {}
+/**
+ * The output of {@link ModifyDBClusterParameterGroupCommand}.
+ */
 export interface ModifyDBClusterParameterGroupCommandOutput
   extends DBClusterParameterGroupNameMessage,
     __MetadataBearer {}

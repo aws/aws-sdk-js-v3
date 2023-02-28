@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1EnableKeyRotationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EnableKeyRotationCommand}.
+ */
 export interface EnableKeyRotationCommandInput extends EnableKeyRotationRequest {}
+/**
+ * The output of {@link EnableKeyRotationCommand}.
+ */
 export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
 
 /**

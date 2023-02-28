@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * The input for {@link DescribeCodeBindingCommand}.
+ */
 export interface DescribeCodeBindingCommandInput extends DescribeCodeBindingRequest {}
+/**
+ * The output of {@link DescribeCodeBindingCommand}.
+ */
 export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingResponse, __MetadataBearer {}
 
 /**

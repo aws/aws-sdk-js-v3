@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
+/**
+ * The input for {@link CancelQueryCommand}.
+ */
 export interface CancelQueryCommandInput extends CancelQueryRequest {}
+/**
+ * The output of {@link CancelQueryCommand}.
+ */
 export interface CancelQueryCommandOutput extends CancelQueryResponse, __MetadataBearer {}
 
 /**

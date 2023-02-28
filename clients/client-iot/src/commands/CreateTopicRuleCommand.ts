@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1CreateTopicRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateTopicRuleCommand}.
+ */
 export interface CreateTopicRuleCommandInput extends CreateTopicRuleRequest {}
+/**
+ * The output of {@link CreateTopicRuleCommand}.
+ */
 export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**

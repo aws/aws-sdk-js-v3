@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeSecurityGroupRulesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeSecurityGroupRulesCommand}.
+ */
 export interface DescribeSecurityGroupRulesCommandInput extends DescribeSecurityGroupRulesRequest {}
+/**
+ * The output of {@link DescribeSecurityGroupRulesCommand}.
+ */
 export interface DescribeSecurityGroupRulesCommandOutput extends DescribeSecurityGroupRulesResult, __MetadataBearer {}
 
 /**

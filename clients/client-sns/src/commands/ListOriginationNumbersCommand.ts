@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link ListOriginationNumbersCommand}.
+ */
 export interface ListOriginationNumbersCommandInput extends ListOriginationNumbersRequest {}
+/**
+ * The output of {@link ListOriginationNumbersCommand}.
+ */
 export interface ListOriginationNumbersCommandOutput extends ListOriginationNumbersResult, __MetadataBearer {}
 
 /**

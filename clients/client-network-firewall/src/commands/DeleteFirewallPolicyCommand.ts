@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DeleteFirewallPolicyCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteFirewallPolicyCommand}.
+ */
 export interface DeleteFirewallPolicyCommandInput extends DeleteFirewallPolicyRequest {}
+/**
+ * The output of {@link DeleteFirewallPolicyCommand}.
+ */
 export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyResponse, __MetadataBearer {}
 
 /**

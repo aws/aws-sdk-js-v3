@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link DeleteWebACLCommand}.
+ */
 export interface DeleteWebACLCommandInput extends DeleteWebACLRequest {}
+/**
+ * The output of {@link DeleteWebACLCommand}.
+ */
 export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __MetadataBearer {}
 
 /**

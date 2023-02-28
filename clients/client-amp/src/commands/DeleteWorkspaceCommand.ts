@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteWorkspaceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteWorkspaceCommand}.
+ */
 export interface DeleteWorkspaceCommandInput extends DeleteWorkspaceRequest {}
+/**
+ * The output of {@link DeleteWorkspaceCommand}.
+ */
 export interface DeleteWorkspaceCommandOutput extends __MetadataBearer {}
 
 /**

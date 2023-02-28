@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteCarrierGatewayCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteCarrierGatewayCommand}.
+ */
 export interface DeleteCarrierGatewayCommandInput extends DeleteCarrierGatewayRequest {}
+/**
+ * The output of {@link DeleteCarrierGatewayCommand}.
+ */
 export interface DeleteCarrierGatewayCommandOutput extends DeleteCarrierGatewayResult, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_ec2ModifyNetworkInterfaceAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyNetworkInterfaceAttributeCommand}.
+ */
 export interface ModifyNetworkInterfaceAttributeCommandInput extends ModifyNetworkInterfaceAttributeRequest {}
+/**
+ * The output of {@link ModifyNetworkInterfaceAttributeCommand}.
+ */
 export interface ModifyNetworkInterfaceAttributeCommandOutput extends __MetadataBearer {}
 
 /**

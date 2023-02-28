@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AcknowledgeJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AcknowledgeJobCommand}.
+ */
 export interface AcknowledgeJobCommandInput extends AcknowledgeJobInput {}
+/**
+ * The output of {@link AcknowledgeJobCommand}.
+ */
 export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __MetadataBearer {}
 
 /**

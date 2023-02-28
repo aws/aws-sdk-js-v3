@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateHarvestJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateHarvestJobCommand}.
+ */
 export interface CreateHarvestJobCommandInput extends CreateHarvestJobRequest {}
+/**
+ * The output of {@link CreateHarvestJobCommand}.
+ */
 export interface CreateHarvestJobCommandOutput extends CreateHarvestJobResponse, __MetadataBearer {}
 
 /**

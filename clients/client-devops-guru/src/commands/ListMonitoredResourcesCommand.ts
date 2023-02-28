@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListMonitoredResourcesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListMonitoredResourcesCommand}.
+ */
 export interface ListMonitoredResourcesCommandInput extends ListMonitoredResourcesRequest {}
+/**
+ * The output of {@link ListMonitoredResourcesCommand}.
+ */
 export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResourcesResponse, __MetadataBearer {}
 
 /**

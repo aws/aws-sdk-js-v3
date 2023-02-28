@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeregisterAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeregisterAccountCommand}.
+ */
 export interface DeregisterAccountCommandInput extends DeregisterAccountRequest {}
+/**
+ * The output of {@link DeregisterAccountCommand}.
+ */
 export interface DeregisterAccountCommandOutput extends DeregisterAccountResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_queryDeleteLoadBalancerCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteLoadBalancerCommand}.
+ */
 export interface DeleteLoadBalancerCommandInput extends DeleteLoadBalancerInput {}
+/**
+ * The output of {@link DeleteLoadBalancerCommand}.
+ */
 export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutput, __MetadataBearer {}
 
 /**

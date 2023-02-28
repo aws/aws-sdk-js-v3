@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
+/**
+ * The input for {@link ListAppInputSourcesCommand}.
+ */
 export interface ListAppInputSourcesCommandInput extends ListAppInputSourcesRequest {}
+/**
+ * The output of {@link ListAppInputSourcesCommand}.
+ */
 export interface ListAppInputSourcesCommandOutput extends ListAppInputSourcesResponse, __MetadataBearer {}
 
 /**

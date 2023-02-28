@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link CreateMobileDeviceAccessRuleCommand}.
+ */
 export interface CreateMobileDeviceAccessRuleCommandInput extends CreateMobileDeviceAccessRuleRequest {}
+/**
+ * The output of {@link CreateMobileDeviceAccessRuleCommand}.
+ */
 export interface CreateMobileDeviceAccessRuleCommandOutput
   extends CreateMobileDeviceAccessRuleResponse,
     __MetadataBearer {}

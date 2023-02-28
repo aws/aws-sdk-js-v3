@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateAgentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateAgentCommand}.
+ */
 export interface CreateAgentCommandInput extends CreateAgentRequest {}
+/**
+ * The output of {@link CreateAgentCommand}.
+ */
 export interface CreateAgentCommandOutput extends CreateAgentResponse, __MetadataBearer {}
 
 /**

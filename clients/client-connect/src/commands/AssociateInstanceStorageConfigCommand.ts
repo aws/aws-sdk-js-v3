@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateInstanceStorageConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateInstanceStorageConfigCommand}.
+ */
 export interface AssociateInstanceStorageConfigCommandInput extends AssociateInstanceStorageConfigRequest {}
+/**
+ * The output of {@link AssociateInstanceStorageConfigCommand}.
+ */
 export interface AssociateInstanceStorageConfigCommandOutput
   extends AssociateInstanceStorageConfigResponse,
     __MetadataBearer {}

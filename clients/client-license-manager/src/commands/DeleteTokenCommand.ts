@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteTokenCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteTokenCommand}.
+ */
 export interface DeleteTokenCommandInput extends DeleteTokenRequest {}
+/**
+ * The output of {@link DeleteTokenCommand}.
+ */
 export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __MetadataBearer {}
 
 /**

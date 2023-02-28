@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link PromoteReadReplicaCommand}.
+ */
 export interface PromoteReadReplicaCommandInput extends PromoteReadReplicaMessage {}
+/**
+ * The output of {@link PromoteReadReplicaCommand}.
+ */
 export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResult, __MetadataBearer {}
 
 /**

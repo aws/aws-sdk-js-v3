@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteGeofenceCollectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteGeofenceCollectionCommand}.
+ */
 export interface DeleteGeofenceCollectionCommandInput extends DeleteGeofenceCollectionRequest {}
+/**
+ * The output of {@link DeleteGeofenceCollectionCommand}.
+ */
 export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCollectionResponse, __MetadataBearer {}
 
 /**

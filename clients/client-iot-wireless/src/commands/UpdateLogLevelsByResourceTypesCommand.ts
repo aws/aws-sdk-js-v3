@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateLogLevelsByResourceTypesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateLogLevelsByResourceTypesCommand}.
+ */
 export interface UpdateLogLevelsByResourceTypesCommandInput extends UpdateLogLevelsByResourceTypesRequest {}
+/**
+ * The output of {@link UpdateLogLevelsByResourceTypesCommand}.
+ */
 export interface UpdateLogLevelsByResourceTypesCommandOutput
   extends UpdateLogLevelsByResourceTypesResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link UpdateSqlInjectionMatchSetCommand}.
+ */
 export interface UpdateSqlInjectionMatchSetCommandInput extends UpdateSqlInjectionMatchSetRequest {}
+/**
+ * The output of {@link UpdateSqlInjectionMatchSetCommand}.
+ */
 export interface UpdateSqlInjectionMatchSetCommandOutput extends UpdateSqlInjectionMatchSetResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 
+/**
+ * The input for {@link DeleteQueuedSavingsPlanCommand}.
+ */
 export interface DeleteQueuedSavingsPlanCommandInput extends DeleteQueuedSavingsPlanRequest {}
+/**
+ * The output of {@link DeleteQueuedSavingsPlanCommand}.
+ */
 export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSavingsPlanResponse, __MetadataBearer {}
 
 /**

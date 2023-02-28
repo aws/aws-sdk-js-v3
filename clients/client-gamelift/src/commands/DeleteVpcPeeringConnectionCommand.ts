@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteVpcPeeringConnectionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteVpcPeeringConnectionCommand}.
+ */
 export interface DeleteVpcPeeringConnectionCommandInput extends DeleteVpcPeeringConnectionInput {}
+/**
+ * The output of {@link DeleteVpcPeeringConnectionCommand}.
+ */
 export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeeringConnectionOutput, __MetadataBearer {}
 
 /**

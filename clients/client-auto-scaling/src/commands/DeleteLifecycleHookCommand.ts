@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteLifecycleHookCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteLifecycleHookCommand}.
+ */
 export interface DeleteLifecycleHookCommandInput extends DeleteLifecycleHookType {}
+/**
+ * The output of {@link DeleteLifecycleHookCommand}.
+ */
 export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAnswer, __MetadataBearer {}
 
 /**

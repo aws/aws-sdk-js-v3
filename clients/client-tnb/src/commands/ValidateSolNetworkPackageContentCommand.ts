@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
+/**
+ * The input for {@link ValidateSolNetworkPackageContentCommand}.
+ */
 export interface ValidateSolNetworkPackageContentCommandInput extends ValidateSolNetworkPackageContentInput {}
+/**
+ * The output of {@link ValidateSolNetworkPackageContentCommand}.
+ */
 export interface ValidateSolNetworkPackageContentCommandOutput
   extends ValidateSolNetworkPackageContentOutput,
     __MetadataBearer {}

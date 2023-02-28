@@ -25,7 +25,13 @@ import {
   serializeAws_queryUpdateConfigurationTemplateCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateConfigurationTemplateCommand}.
+ */
 export interface UpdateConfigurationTemplateCommandInput extends UpdateConfigurationTemplateMessage {}
+/**
+ * The output of {@link UpdateConfigurationTemplateCommand}.
+ */
 export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationSettingsDescription, __MetadataBearer {}
 
 /**

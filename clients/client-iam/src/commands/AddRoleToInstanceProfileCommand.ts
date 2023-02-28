@@ -20,7 +20,13 @@ import {
   serializeAws_queryAddRoleToInstanceProfileCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link AddRoleToInstanceProfileCommand}.
+ */
 export interface AddRoleToInstanceProfileCommandInput extends AddRoleToInstanceProfileRequest {}
+/**
+ * The output of {@link AddRoleToInstanceProfileCommand}.
+ */
 export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopCrawlerScheduleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopCrawlerScheduleCommand}.
+ */
 export interface StopCrawlerScheduleCommandInput extends StopCrawlerScheduleRequest {}
+/**
+ * The output of {@link StopCrawlerScheduleCommand}.
+ */
 export interface StopCrawlerScheduleCommandOutput extends StopCrawlerScheduleResponse, __MetadataBearer {}
 
 /**

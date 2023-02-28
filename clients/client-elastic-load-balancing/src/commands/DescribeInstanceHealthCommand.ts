@@ -29,7 +29,13 @@ import {
   serializeAws_queryDescribeInstanceHealthCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeInstanceHealthCommand}.
+ */
 export interface DescribeInstanceHealthCommandInput extends DescribeEndPointStateInput {}
+/**
+ * The output of {@link DescribeInstanceHealthCommand}.
+ */
 export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointStateOutput, __MetadataBearer {}
 
 /**

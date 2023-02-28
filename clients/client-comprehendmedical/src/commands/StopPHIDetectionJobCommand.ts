@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1StopPHIDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopPHIDetectionJobCommand}.
+ */
 export interface StopPHIDetectionJobCommandInput extends StopPHIDetectionJobRequest {}
+/**
+ * The output of {@link StopPHIDetectionJobCommand}.
+ */
 export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobResponse, __MetadataBearer {}
 
 /**

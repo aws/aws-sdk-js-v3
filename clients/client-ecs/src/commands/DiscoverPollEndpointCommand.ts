@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DiscoverPollEndpointCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DiscoverPollEndpointCommand}.
+ */
 export interface DiscoverPollEndpointCommandInput extends DiscoverPollEndpointRequest {}
+/**
+ * The output of {@link DiscoverPollEndpointCommand}.
+ */
 export interface DiscoverPollEndpointCommandOutput extends DiscoverPollEndpointResponse, __MetadataBearer {}
 
 /**

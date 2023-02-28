@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link DisassociateWebACLCommand}.
+ */
 export interface DisassociateWebACLCommandInput extends DisassociateWebACLRequest {}
+/**
+ * The output of {@link DisassociateWebACLCommand}.
+ */
 export interface DisassociateWebACLCommandOutput extends DisassociateWebACLResponse, __MetadataBearer {}
 
 /**

@@ -27,7 +27,13 @@ import {
 import { deserializeAws_restXmlGetObjectCommand, serializeAws_restXmlGetObjectCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetObjectCommand}.
+ */
 export interface GetObjectCommandInput extends GetObjectRequest {}
+/**
+ * The output of {@link GetObjectCommand}.
+ */
 export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOutput, "Body">, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link TerminateAppCommand}.
+ */
 export interface TerminateAppCommandInput extends TerminateAppRequest {}
+/**
+ * The output of {@link TerminateAppCommand}.
+ */
 export interface TerminateAppCommandOutput extends TerminateAppResponse, __MetadataBearer {}
 
 /**

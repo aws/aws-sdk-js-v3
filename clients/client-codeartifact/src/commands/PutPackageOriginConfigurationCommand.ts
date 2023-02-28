@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutPackageOriginConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutPackageOriginConfigurationCommand}.
+ */
 export interface PutPackageOriginConfigurationCommandInput extends PutPackageOriginConfigurationRequest {}
+/**
+ * The output of {@link PutPackageOriginConfigurationCommand}.
+ */
 export interface PutPackageOriginConfigurationCommandOutput
   extends PutPackageOriginConfigurationResult,
     __MetadataBearer {}

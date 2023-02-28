@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_json1_1GetJobRunCommand, serializeAws_json1_1GetJobRunCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetJobRunCommand}.
+ */
 export interface GetJobRunCommandInput extends GetJobRunRequest {}
+/**
+ * The output of {@link GetJobRunCommand}.
+ */
 export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBearer {}
 
 /**

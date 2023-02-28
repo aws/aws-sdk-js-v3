@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1CreateAliasCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateAliasCommand}.
+ */
 export interface CreateAliasCommandInput extends CreateAliasRequest {}
+/**
+ * The output of {@link CreateAliasCommand}.
+ */
 export interface CreateAliasCommandOutput extends __MetadataBearer {}
 
 /**

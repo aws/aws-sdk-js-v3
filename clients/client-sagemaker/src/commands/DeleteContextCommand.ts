@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteContextCommand}.
+ */
 export interface DeleteContextCommandInput extends DeleteContextRequest {}
+/**
+ * The output of {@link DeleteContextCommand}.
+ */
 export interface DeleteContextCommandOutput extends DeleteContextResponse, __MetadataBearer {}
 
 /**

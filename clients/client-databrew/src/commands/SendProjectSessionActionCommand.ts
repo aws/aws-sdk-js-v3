@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SendProjectSessionActionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SendProjectSessionActionCommand}.
+ */
 export interface SendProjectSessionActionCommandInput extends SendProjectSessionActionRequest {}
+/**
+ * The output of {@link SendProjectSessionActionCommand}.
+ */
 export interface SendProjectSessionActionCommandOutput extends SendProjectSessionActionResponse, __MetadataBearer {}
 
 /**

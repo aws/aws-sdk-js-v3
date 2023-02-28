@@ -25,7 +25,13 @@ import {
   serializeAws_queryStartInstanceRefreshCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link StartInstanceRefreshCommand}.
+ */
 export interface StartInstanceRefreshCommandInput extends StartInstanceRefreshType {}
+/**
+ * The output of {@link StartInstanceRefreshCommand}.
+ */
 export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshAnswer, __MetadataBearer {}
 
 /**

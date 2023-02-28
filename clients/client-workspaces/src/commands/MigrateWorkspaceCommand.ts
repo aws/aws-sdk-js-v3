@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link MigrateWorkspaceCommand}.
+ */
 export interface MigrateWorkspaceCommandInput extends MigrateWorkspaceRequest {}
+/**
+ * The output of {@link MigrateWorkspaceCommand}.
+ */
 export interface MigrateWorkspaceCommandOutput extends MigrateWorkspaceResult, __MetadataBearer {}
 
 /**

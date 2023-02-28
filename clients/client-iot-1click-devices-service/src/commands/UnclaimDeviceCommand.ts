@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1UnclaimDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UnclaimDeviceCommand}.
+ */
 export interface UnclaimDeviceCommandInput extends UnclaimDeviceRequest {}
+/**
+ * The output of {@link UnclaimDeviceCommand}.
+ */
 export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __MetadataBearer {}
 
 /**

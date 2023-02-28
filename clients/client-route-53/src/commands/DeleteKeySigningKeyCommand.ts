@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link DeleteKeySigningKeyCommand}.
+ */
 export interface DeleteKeySigningKeyCommandInput extends DeleteKeySigningKeyRequest {}
+/**
+ * The output of {@link DeleteKeySigningKeyCommand}.
+ */
 export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyResponse, __MetadataBearer {}
 
 /**

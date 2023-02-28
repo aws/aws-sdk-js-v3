@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListV2LoggingLevelsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListV2LoggingLevelsCommand}.
+ */
 export interface ListV2LoggingLevelsCommandInput extends ListV2LoggingLevelsRequest {}
+/**
+ * The output of {@link ListV2LoggingLevelsCommand}.
+ */
 export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsResponse, __MetadataBearer {}
 
 /**

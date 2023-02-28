@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetManagedScalingPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetManagedScalingPolicyCommand}.
+ */
 export interface GetManagedScalingPolicyCommandInput extends GetManagedScalingPolicyInput {}
+/**
+ * The output of {@link GetManagedScalingPolicyCommand}.
+ */
 export interface GetManagedScalingPolicyCommandOutput extends GetManagedScalingPolicyOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateComputeEnvironmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateComputeEnvironmentCommand}.
+ */
 export interface UpdateComputeEnvironmentCommandInput extends UpdateComputeEnvironmentRequest {}
+/**
+ * The output of {@link UpdateComputeEnvironmentCommand}.
+ */
 export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvironmentResponse, __MetadataBearer {}
 
 /**

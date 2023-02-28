@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * The input for {@link StopCanaryCommand}.
+ */
 export interface StopCanaryCommandInput extends StopCanaryRequest {}
+/**
+ * The output of {@link StopCanaryCommand}.
+ */
 export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataBearer {}
 
 /**

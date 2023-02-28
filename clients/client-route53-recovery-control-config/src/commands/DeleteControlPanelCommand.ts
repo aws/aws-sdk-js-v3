@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
 
+/**
+ * The input for {@link DeleteControlPanelCommand}.
+ */
 export interface DeleteControlPanelCommandInput extends DeleteControlPanelRequest {}
+/**
+ * The output of {@link DeleteControlPanelCommand}.
+ */
 export interface DeleteControlPanelCommandOutput extends DeleteControlPanelResponse, __MetadataBearer {}
 
 /**

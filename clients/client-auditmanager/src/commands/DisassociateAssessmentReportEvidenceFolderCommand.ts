@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateAssessmentReportEvidenceFolderCommand}.
+ */
 export interface DisassociateAssessmentReportEvidenceFolderCommandInput
   extends DisassociateAssessmentReportEvidenceFolderRequest {}
+/**
+ * The output of {@link DisassociateAssessmentReportEvidenceFolderCommand}.
+ */
 export interface DisassociateAssessmentReportEvidenceFolderCommandOutput
   extends DisassociateAssessmentReportEvidenceFolderResponse,
     __MetadataBearer {}

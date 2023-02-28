@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link UpdateJobStatusCommand}.
+ */
 export interface UpdateJobStatusCommandInput extends UpdateJobStatusRequest {}
+/**
+ * The output of {@link UpdateJobStatusCommand}.
+ */
 export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __MetadataBearer {}
 
 /**

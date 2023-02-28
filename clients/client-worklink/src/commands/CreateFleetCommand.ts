@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * The input for {@link CreateFleetCommand}.
+ */
 export interface CreateFleetCommandInput extends CreateFleetRequest {}
+/**
+ * The output of {@link CreateFleetCommand}.
+ */
 export interface CreateFleetCommandOutput extends CreateFleetResponse, __MetadataBearer {}
 
 /**

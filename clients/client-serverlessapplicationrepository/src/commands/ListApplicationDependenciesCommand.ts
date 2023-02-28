@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
 
+/**
+ * The input for {@link ListApplicationDependenciesCommand}.
+ */
 export interface ListApplicationDependenciesCommandInput extends ListApplicationDependenciesRequest {}
+/**
+ * The output of {@link ListApplicationDependenciesCommand}.
+ */
 export interface ListApplicationDependenciesCommandOutput
   extends ListApplicationDependenciesResponse,
     __MetadataBearer {}

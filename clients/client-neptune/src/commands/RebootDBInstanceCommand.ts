@@ -25,7 +25,13 @@ import {
   serializeAws_queryRebootDBInstanceCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RebootDBInstanceCommand}.
+ */
 export interface RebootDBInstanceCommandInput extends RebootDBInstanceMessage {}
+/**
+ * The output of {@link RebootDBInstanceCommand}.
+ */
 export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, __MetadataBearer {}
 
 /**

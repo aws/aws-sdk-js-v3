@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link CreateDBSubnetGroupCommand}.
+ */
 export interface CreateDBSubnetGroupCommandInput extends CreateDBSubnetGroupMessage {}
+/**
+ * The output of {@link CreateDBSubnetGroupCommand}.
+ */
 export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupResult, __MetadataBearer {}
 
 /**

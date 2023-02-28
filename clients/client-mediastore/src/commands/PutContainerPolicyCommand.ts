@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutContainerPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutContainerPolicyCommand}.
+ */
 export interface PutContainerPolicyCommandInput extends PutContainerPolicyInput {}
+/**
+ * The output of {@link PutContainerPolicyCommand}.
+ */
 export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutput, __MetadataBearer {}
 
 /**

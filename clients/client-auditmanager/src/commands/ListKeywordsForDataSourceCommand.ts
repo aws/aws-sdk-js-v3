@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListKeywordsForDataSourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListKeywordsForDataSourceCommand}.
+ */
 export interface ListKeywordsForDataSourceCommandInput extends ListKeywordsForDataSourceRequest {}
+/**
+ * The output of {@link ListKeywordsForDataSourceCommand}.
+ */
 export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForDataSourceResponse, __MetadataBearer {}
 
 /**

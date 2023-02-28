@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListStudioSessionMappingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListStudioSessionMappingsCommand}.
+ */
 export interface ListStudioSessionMappingsCommandInput extends ListStudioSessionMappingsInput {}
+/**
+ * The output of {@link ListStudioSessionMappingsCommand}.
+ */
 export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessionMappingsOutput, __MetadataBearer {}
 
 /**

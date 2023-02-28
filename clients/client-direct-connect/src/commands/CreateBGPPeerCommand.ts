@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateBGPPeerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateBGPPeerCommand}.
+ */
 export interface CreateBGPPeerCommandInput extends CreateBGPPeerRequest {}
+/**
+ * The output of {@link CreateBGPPeerCommand}.
+ */
 export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __MetadataBearer {}
 
 /**

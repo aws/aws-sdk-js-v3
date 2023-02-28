@@ -16,7 +16,13 @@ import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import { XmlTimestampsOutput, XmlTimestampsOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_ec2XmlTimestampsCommand, serializeAws_ec2XmlTimestampsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link XmlTimestampsCommand}.
+ */
 export interface XmlTimestampsCommandInput {}
+/**
+ * The output of {@link XmlTimestampsCommand}.
+ */
 export interface XmlTimestampsCommandOutput extends XmlTimestampsOutput, __MetadataBearer {}
 
 /**

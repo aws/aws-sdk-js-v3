@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribePipelineCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribePipelineCommand}.
+ */
 export interface DescribePipelineCommandInput extends DescribePipelineRequest {}
+/**
+ * The output of {@link DescribePipelineCommand}.
+ */
 export interface DescribePipelineCommandOutput extends DescribePipelineResponse, __MetadataBearer {}
 
 /**

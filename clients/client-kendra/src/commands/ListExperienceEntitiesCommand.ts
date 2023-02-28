@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListExperienceEntitiesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListExperienceEntitiesCommand}.
+ */
 export interface ListExperienceEntitiesCommandInput extends ListExperienceEntitiesRequest {}
+/**
+ * The output of {@link ListExperienceEntitiesCommand}.
+ */
 export interface ListExperienceEntitiesCommandOutput extends ListExperienceEntitiesResponse, __MetadataBearer {}
 
 /**

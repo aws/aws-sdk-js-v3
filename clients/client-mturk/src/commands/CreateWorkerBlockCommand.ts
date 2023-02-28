@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateWorkerBlockCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateWorkerBlockCommand}.
+ */
 export interface CreateWorkerBlockCommandInput extends CreateWorkerBlockRequest {}
+/**
+ * The output of {@link CreateWorkerBlockCommand}.
+ */
 export interface CreateWorkerBlockCommandOutput extends CreateWorkerBlockResponse, __MetadataBearer {}
 
 /**

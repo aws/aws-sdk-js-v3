@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetApplicationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetApplicationCommand}.
+ */
 export interface GetApplicationCommandInput extends GetApplicationRequest {}
+/**
+ * The output of {@link GetApplicationCommand}.
+ */
 export interface GetApplicationCommandOutput extends GetApplicationResponse, __MetadataBearer {}
 
 /**

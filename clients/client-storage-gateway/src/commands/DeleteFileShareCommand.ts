@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link DeleteFileShareCommand}.
+ */
 export interface DeleteFileShareCommandInput extends DeleteFileShareInput {}
+/**
+ * The output of {@link DeleteFileShareCommand}.
+ */
 export interface DeleteFileShareCommandOutput extends DeleteFileShareOutput, __MetadataBearer {}
 
 /**

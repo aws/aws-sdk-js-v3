@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AssignPrivateNatGatewayAddressCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AssignPrivateNatGatewayAddressCommand}.
+ */
 export interface AssignPrivateNatGatewayAddressCommandInput extends AssignPrivateNatGatewayAddressRequest {}
+/**
+ * The output of {@link AssignPrivateNatGatewayAddressCommand}.
+ */
 export interface AssignPrivateNatGatewayAddressCommandOutput
   extends AssignPrivateNatGatewayAddressResult,
     __MetadataBearer {}

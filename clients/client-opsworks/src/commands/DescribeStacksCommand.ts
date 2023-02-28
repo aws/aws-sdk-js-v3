@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeStacksCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeStacksCommand}.
+ */
 export interface DescribeStacksCommandInput extends DescribeStacksRequest {}
+/**
+ * The output of {@link DescribeStacksCommand}.
+ */
 export interface DescribeStacksCommandOutput extends DescribeStacksResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DescribeHsmConfigurationsCommand}.
+ */
 export interface DescribeHsmConfigurationsCommandInput extends DescribeHsmConfigurationsMessage {}
+/**
+ * The output of {@link DescribeHsmConfigurationsCommand}.
+ */
 export interface DescribeHsmConfigurationsCommandOutput extends HsmConfigurationMessage, __MetadataBearer {}
 
 /**

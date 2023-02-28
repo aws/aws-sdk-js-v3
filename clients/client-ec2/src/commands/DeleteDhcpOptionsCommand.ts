@@ -20,7 +20,13 @@ import {
   serializeAws_ec2DeleteDhcpOptionsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteDhcpOptionsCommand}.
+ */
 export interface DeleteDhcpOptionsCommandInput extends DeleteDhcpOptionsRequest {}
+/**
+ * The output of {@link DeleteDhcpOptionsCommand}.
+ */
 export interface DeleteDhcpOptionsCommandOutput extends __MetadataBearer {}
 
 /**

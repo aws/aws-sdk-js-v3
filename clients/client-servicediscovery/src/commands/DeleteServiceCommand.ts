@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * The input for {@link DeleteServiceCommand}.
+ */
 export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
+/**
+ * The output of {@link DeleteServiceCommand}.
+ */
 export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
 
 /**

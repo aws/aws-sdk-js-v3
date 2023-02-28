@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListTaskDefinitionFamiliesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTaskDefinitionFamiliesCommand}.
+ */
 export interface ListTaskDefinitionFamiliesCommandInput extends ListTaskDefinitionFamiliesRequest {}
+/**
+ * The output of {@link ListTaskDefinitionFamiliesCommand}.
+ */
 export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinitionFamiliesResponse, __MetadataBearer {}
 
 /**

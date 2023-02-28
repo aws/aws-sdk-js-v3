@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CreatePackageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreatePackageCommand}.
+ */
 export interface CreatePackageCommandInput extends CreatePackageRequest {}
+/**
+ * The output of {@link CreatePackageCommand}.
+ */
 export interface CreatePackageCommandOutput extends CreatePackageResponse, __MetadataBearer {}
 
 /**

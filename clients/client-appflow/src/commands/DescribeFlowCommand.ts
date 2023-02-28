@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeFlowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeFlowCommand}.
+ */
 export interface DescribeFlowCommandInput extends DescribeFlowRequest {}
+/**
+ * The output of {@link DescribeFlowCommand}.
+ */
 export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __MetadataBearer {}
 
 /**

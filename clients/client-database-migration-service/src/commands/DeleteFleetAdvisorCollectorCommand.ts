@@ -24,7 +24,13 @@ import {
   serializeAws_json1_1DeleteFleetAdvisorCollectorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteFleetAdvisorCollectorCommand}.
+ */
 export interface DeleteFleetAdvisorCollectorCommandInput extends DeleteCollectorRequest {}
+/**
+ * The output of {@link DeleteFleetAdvisorCollectorCommand}.
+ */
 export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBearer {}
 
 /**

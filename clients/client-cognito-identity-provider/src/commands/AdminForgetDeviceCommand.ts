@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AdminForgetDeviceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminForgetDeviceCommand}.
+ */
 export interface AdminForgetDeviceCommandInput extends AdminForgetDeviceRequest {}
+/**
+ * The output of {@link AdminForgetDeviceCommand}.
+ */
 export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
 
 /**

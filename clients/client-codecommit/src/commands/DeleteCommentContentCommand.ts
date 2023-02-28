@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteCommentContentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteCommentContentCommand}.
+ */
 export interface DeleteCommentContentCommandInput extends DeleteCommentContentInput {}
+/**
+ * The output of {@link DeleteCommentContentCommand}.
+ */
 export interface DeleteCommentContentCommandOutput extends DeleteCommentContentOutput, __MetadataBearer {}
 
 /**

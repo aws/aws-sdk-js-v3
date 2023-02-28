@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListProfileObjectTypesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListProfileObjectTypesCommand}.
+ */
 export interface ListProfileObjectTypesCommandInput extends ListProfileObjectTypesRequest {}
+/**
+ * The output of {@link ListProfileObjectTypesCommand}.
+ */
 export interface ListProfileObjectTypesCommandOutput extends ListProfileObjectTypesResponse, __MetadataBearer {}
 
 /**

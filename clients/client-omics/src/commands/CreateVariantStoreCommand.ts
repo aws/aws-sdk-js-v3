@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateVariantStoreCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateVariantStoreCommand}.
+ */
 export interface CreateVariantStoreCommandInput extends CreateVariantStoreRequest {}
+/**
+ * The output of {@link CreateVariantStoreCommand}.
+ */
 export interface CreateVariantStoreCommandOutput extends CreateVariantStoreResponse, __MetadataBearer {}
 
 /**

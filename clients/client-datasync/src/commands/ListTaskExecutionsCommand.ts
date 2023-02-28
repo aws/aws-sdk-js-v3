@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListTaskExecutionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTaskExecutionsCommand}.
+ */
 export interface ListTaskExecutionsCommandInput extends ListTaskExecutionsRequest {}
+/**
+ * The output of {@link ListTaskExecutionsCommand}.
+ */
 export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsResponse, __MetadataBearer {}
 
 /**

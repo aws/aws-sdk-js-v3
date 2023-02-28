@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetObjectTaggingCommand}.
+ */
 export interface GetObjectTaggingCommandInput extends GetObjectTaggingRequest {}
+/**
+ * The output of {@link GetObjectTaggingCommand}.
+ */
 export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, __MetadataBearer {}
 
 /**

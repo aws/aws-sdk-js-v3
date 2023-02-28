@@ -25,7 +25,13 @@ import {
   serializeAws_queryListPolicyTagsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListPolicyTagsCommand}.
+ */
 export interface ListPolicyTagsCommandInput extends ListPolicyTagsRequest {}
+/**
+ * The output of {@link ListPolicyTagsCommand}.
+ */
 export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __MetadataBearer {}
 
 /**

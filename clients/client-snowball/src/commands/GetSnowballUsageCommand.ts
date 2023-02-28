@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * The input for {@link GetSnowballUsageCommand}.
+ */
 export interface GetSnowballUsageCommandInput extends GetSnowballUsageRequest {}
+/**
+ * The output of {@link GetSnowballUsageCommand}.
+ */
 export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, __MetadataBearer {}
 
 /**

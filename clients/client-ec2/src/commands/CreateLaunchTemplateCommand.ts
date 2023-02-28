@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateLaunchTemplateCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateLaunchTemplateCommand}.
+ */
 export interface CreateLaunchTemplateCommandInput extends CreateLaunchTemplateRequest {}
+/**
+ * The output of {@link CreateLaunchTemplateCommand}.
+ */
 export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateResult, __MetadataBearer {}
 
 /**

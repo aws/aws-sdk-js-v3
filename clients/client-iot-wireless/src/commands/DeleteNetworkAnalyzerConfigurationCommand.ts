@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteNetworkAnalyzerConfigurationCommand}.
+ */
 export interface DeleteNetworkAnalyzerConfigurationCommandInput extends DeleteNetworkAnalyzerConfigurationRequest {}
+/**
+ * The output of {@link DeleteNetworkAnalyzerConfigurationCommand}.
+ */
 export interface DeleteNetworkAnalyzerConfigurationCommandOutput
   extends DeleteNetworkAnalyzerConfigurationResponse,
     __MetadataBearer {}

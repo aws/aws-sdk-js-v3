@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link GreetingWithErrorsCommand}.
+ */
 export interface GreetingWithErrorsCommandInput {}
+/**
+ * The output of {@link GreetingWithErrorsCommand}.
+ */
 export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutput, __MetadataBearer {}
 
 /**

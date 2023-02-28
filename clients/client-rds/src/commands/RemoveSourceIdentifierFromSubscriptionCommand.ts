@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link RemoveSourceIdentifierFromSubscriptionCommand}.
+ */
 export interface RemoveSourceIdentifierFromSubscriptionCommandInput
   extends RemoveSourceIdentifierFromSubscriptionMessage {}
+/**
+ * The output of {@link RemoveSourceIdentifierFromSubscriptionCommand}.
+ */
 export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
   extends RemoveSourceIdentifierFromSubscriptionResult,
     __MetadataBearer {}

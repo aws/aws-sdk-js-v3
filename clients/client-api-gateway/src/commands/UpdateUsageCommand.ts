@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateUsageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateUsageCommand}.
+ */
 export interface UpdateUsageCommandInput extends UpdateUsageRequest {}
+/**
+ * The output of {@link UpdateUsageCommand}.
+ */
 export interface UpdateUsageCommandOutput extends Usage, __MetadataBearer {}
 
 /**

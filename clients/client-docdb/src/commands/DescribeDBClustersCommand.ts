@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeDBClustersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeDBClustersCommand}.
+ */
 export interface DescribeDBClustersCommandInput extends DescribeDBClustersMessage {}
+/**
+ * The output of {@link DescribeDBClustersCommand}.
+ */
 export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __MetadataBearer {}
 
 /**

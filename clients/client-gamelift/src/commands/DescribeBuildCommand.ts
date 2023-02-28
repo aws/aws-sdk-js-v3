@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeBuildCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeBuildCommand}.
+ */
 export interface DescribeBuildCommandInput extends DescribeBuildInput {}
+/**
+ * The output of {@link DescribeBuildCommand}.
+ */
 export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __MetadataBearer {}
 
 /**

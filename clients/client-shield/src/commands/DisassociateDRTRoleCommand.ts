@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * The input for {@link DisassociateDRTRoleCommand}.
+ */
 export interface DisassociateDRTRoleCommandInput extends DisassociateDRTRoleRequest {}
+/**
+ * The output of {@link DisassociateDRTRoleCommand}.
+ */
 export interface DisassociateDRTRoleCommandOutput extends DisassociateDRTRoleResponse, __MetadataBearer {}
 
 /**

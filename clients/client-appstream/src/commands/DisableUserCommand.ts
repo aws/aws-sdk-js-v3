@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisableUserCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisableUserCommand}.
+ */
 export interface DisableUserCommandInput extends DisableUserRequest {}
+/**
+ * The output of {@link DisableUserCommand}.
+ */
 export interface DisableUserCommandOutput extends DisableUserResult, __MetadataBearer {}
 
 /**

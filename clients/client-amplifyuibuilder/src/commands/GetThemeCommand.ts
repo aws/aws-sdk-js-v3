@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetThemeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetThemeCommand}.
+ */
 export interface GetThemeCommandInput extends GetThemeRequest {}
+/**
+ * The output of {@link GetThemeCommand}.
+ */
 export interface GetThemeCommandOutput extends GetThemeResponse, __MetadataBearer {}
 
 /**

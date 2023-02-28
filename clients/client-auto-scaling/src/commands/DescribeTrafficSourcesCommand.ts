@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeTrafficSourcesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeTrafficSourcesCommand}.
+ */
 export interface DescribeTrafficSourcesCommandInput extends DescribeTrafficSourcesRequest {}
+/**
+ * The output of {@link DescribeTrafficSourcesCommand}.
+ */
 export interface DescribeTrafficSourcesCommandOutput extends DescribeTrafficSourcesResponse, __MetadataBearer {}
 
 /**

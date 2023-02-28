@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDeliveryStreamCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDeliveryStreamCommand}.
+ */
 export interface CreateDeliveryStreamCommandInput extends CreateDeliveryStreamInput {}
+/**
+ * The output of {@link CreateDeliveryStreamCommand}.
+ */
 export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamOutput, __MetadataBearer {}
 
 /**

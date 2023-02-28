@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateS3ResourcesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateS3ResourcesCommand}.
+ */
 export interface UpdateS3ResourcesCommandInput extends UpdateS3ResourcesRequest {}
+/**
+ * The output of {@link UpdateS3ResourcesCommand}.
+ */
 export interface UpdateS3ResourcesCommandOutput extends UpdateS3ResourcesResult, __MetadataBearer {}
 
 /**

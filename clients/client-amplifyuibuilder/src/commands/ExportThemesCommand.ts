@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ExportThemesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ExportThemesCommand}.
+ */
 export interface ExportThemesCommandInput extends ExportThemesRequest {}
+/**
+ * The output of {@link ExportThemesCommand}.
+ */
 export interface ExportThemesCommandOutput extends ExportThemesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSipMediaApplicationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSipMediaApplicationCommand}.
+ */
 export interface GetSipMediaApplicationCommandInput extends GetSipMediaApplicationRequest {}
+/**
+ * The output of {@link GetSipMediaApplicationCommand}.
+ */
 export interface GetSipMediaApplicationCommandOutput extends GetSipMediaApplicationResponse, __MetadataBearer {}
 
 /**

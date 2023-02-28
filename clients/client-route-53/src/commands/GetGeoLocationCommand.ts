@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link GetGeoLocationCommand}.
+ */
 export interface GetGeoLocationCommandInput extends GetGeoLocationRequest {}
+/**
+ * The output of {@link GetGeoLocationCommand}.
+ */
 export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __MetadataBearer {}
 
 /**

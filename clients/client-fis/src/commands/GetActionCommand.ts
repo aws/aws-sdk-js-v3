@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetActionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetActionCommand}.
+ */
 export interface GetActionCommandInput extends GetActionRequest {}
+/**
+ * The output of {@link GetActionCommand}.
+ */
 export interface GetActionCommandOutput extends GetActionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdatePublishingDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdatePublishingDestinationCommand}.
+ */
 export interface UpdatePublishingDestinationCommandInput extends UpdatePublishingDestinationRequest {}
+/**
+ * The output of {@link UpdatePublishingDestinationCommand}.
+ */
 export interface UpdatePublishingDestinationCommandOutput
   extends UpdatePublishingDestinationResponse,
     __MetadataBearer {}

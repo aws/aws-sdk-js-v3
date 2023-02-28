@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetLaunchProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetLaunchProfileCommand}.
+ */
 export interface GetLaunchProfileCommandInput extends GetLaunchProfileRequest {}
+/**
+ * The output of {@link GetLaunchProfileCommand}.
+ */
 export interface GetLaunchProfileCommandOutput extends GetLaunchProfileResponse, __MetadataBearer {}
 
 /**

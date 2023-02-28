@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link GetHostedZoneCommand}.
+ */
 export interface GetHostedZoneCommandInput extends GetHostedZoneRequest {}
+/**
+ * The output of {@link GetHostedZoneCommand}.
+ */
 export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * The input for {@link CancelRotateSecretCommand}.
+ */
 export interface CancelRotateSecretCommandInput extends CancelRotateSecretRequest {}
+/**
+ * The output of {@link CancelRotateSecretCommand}.
+ */
 export interface CancelRotateSecretCommandOutput extends CancelRotateSecretResponse, __MetadataBearer {}
 
 /**

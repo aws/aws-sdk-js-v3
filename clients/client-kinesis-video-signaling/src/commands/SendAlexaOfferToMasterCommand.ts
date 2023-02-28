@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1SendAlexaOfferToMasterCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SendAlexaOfferToMasterCommand}.
+ */
 export interface SendAlexaOfferToMasterCommandInput extends SendAlexaOfferToMasterRequest {}
+/**
+ * The output of {@link SendAlexaOfferToMasterCommand}.
+ */
 export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMasterResponse, __MetadataBearer {}
 
 /**

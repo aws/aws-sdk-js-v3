@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1GetTransitGatewayRouteTableAttachmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetTransitGatewayRouteTableAttachmentCommand}.
+ */
 export interface GetTransitGatewayRouteTableAttachmentCommandInput
   extends GetTransitGatewayRouteTableAttachmentRequest {}
+/**
+ * The output of {@link GetTransitGatewayRouteTableAttachmentCommand}.
+ */
 export interface GetTransitGatewayRouteTableAttachmentCommandOutput
   extends GetTransitGatewayRouteTableAttachmentResponse,
     __MetadataBearer {}

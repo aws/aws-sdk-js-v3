@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DescribeAccountLimitsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeAccountLimitsCommand}.
+ */
 export interface DescribeAccountLimitsCommandInput extends DescribeAccountLimitsRequest {}
+/**
+ * The output of {@link DescribeAccountLimitsCommand}.
+ */
 export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsResult, __MetadataBearer {}
 
 /**

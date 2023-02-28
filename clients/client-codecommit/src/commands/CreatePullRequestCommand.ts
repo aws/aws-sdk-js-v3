@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreatePullRequestCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreatePullRequestCommand}.
+ */
 export interface CreatePullRequestCommandInput extends CreatePullRequestInput {}
+/**
+ * The output of {@link CreatePullRequestCommand}.
+ */
 export interface CreatePullRequestCommandOutput extends CreatePullRequestOutput, __MetadataBearer {}
 
 /**

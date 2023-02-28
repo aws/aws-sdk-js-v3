@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link CancelRetrievalCommand}.
+ */
 export interface CancelRetrievalCommandInput extends CancelRetrievalInput {}
+/**
+ * The output of {@link CancelRetrievalCommand}.
+ */
 export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __MetadataBearer {}
 
 /**

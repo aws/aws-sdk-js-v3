@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1RejectInvitationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RejectInvitationCommand}.
+ */
 export interface RejectInvitationCommandInput extends RejectInvitationRequest {}
+/**
+ * The output of {@link RejectInvitationCommand}.
+ */
 export interface RejectInvitationCommandOutput extends __MetadataBearer {}
 
 /**

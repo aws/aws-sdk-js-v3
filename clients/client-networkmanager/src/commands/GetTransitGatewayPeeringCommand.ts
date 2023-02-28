@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetTransitGatewayPeeringCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetTransitGatewayPeeringCommand}.
+ */
 export interface GetTransitGatewayPeeringCommandInput extends GetTransitGatewayPeeringRequest {}
+/**
+ * The output of {@link GetTransitGatewayPeeringCommand}.
+ */
 export interface GetTransitGatewayPeeringCommandOutput extends GetTransitGatewayPeeringResponse, __MetadataBearer {}
 
 /**

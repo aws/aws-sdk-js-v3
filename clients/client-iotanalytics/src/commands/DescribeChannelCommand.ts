@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeChannelCommand}.
+ */
 export interface DescribeChannelCommandInput extends DescribeChannelRequest {}
+/**
+ * The output of {@link DescribeChannelCommand}.
+ */
 export interface DescribeChannelCommandOutput extends DescribeChannelResponse, __MetadataBearer {}
 
 /**

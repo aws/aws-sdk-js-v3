@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateMatchmakingConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateMatchmakingConfigurationCommand}.
+ */
 export interface UpdateMatchmakingConfigurationCommandInput extends UpdateMatchmakingConfigurationInput {}
+/**
+ * The output of {@link UpdateMatchmakingConfigurationCommand}.
+ */
 export interface UpdateMatchmakingConfigurationCommandOutput
   extends UpdateMatchmakingConfigurationOutput,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateInstanceMetadataOptionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateInstanceMetadataOptionsCommand}.
+ */
 export interface UpdateInstanceMetadataOptionsCommandInput extends UpdateInstanceMetadataOptionsRequest {}
+/**
+ * The output of {@link UpdateInstanceMetadataOptionsCommand}.
+ */
 export interface UpdateInstanceMetadataOptionsCommandOutput
   extends UpdateInstanceMetadataOptionsResult,
     __MetadataBearer {}

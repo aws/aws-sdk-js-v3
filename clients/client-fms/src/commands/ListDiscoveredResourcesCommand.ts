@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListDiscoveredResourcesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListDiscoveredResourcesCommand}.
+ */
 export interface ListDiscoveredResourcesCommandInput extends ListDiscoveredResourcesRequest {}
+/**
+ * The output of {@link ListDiscoveredResourcesCommand}.
+ */
 export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredResourcesResponse, __MetadataBearer {}
 
 /**

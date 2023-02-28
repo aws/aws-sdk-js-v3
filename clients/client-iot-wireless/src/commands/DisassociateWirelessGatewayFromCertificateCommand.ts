@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1DisassociateWirelessGatewayFromCertificateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateWirelessGatewayFromCertificateCommand}.
+ */
 export interface DisassociateWirelessGatewayFromCertificateCommandInput
   extends DisassociateWirelessGatewayFromCertificateRequest {}
+/**
+ * The output of {@link DisassociateWirelessGatewayFromCertificateCommand}.
+ */
 export interface DisassociateWirelessGatewayFromCertificateCommandOutput
   extends DisassociateWirelessGatewayFromCertificateResponse,
     __MetadataBearer {}

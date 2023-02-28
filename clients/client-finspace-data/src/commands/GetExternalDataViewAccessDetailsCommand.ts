@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetExternalDataViewAccessDetailsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetExternalDataViewAccessDetailsCommand}.
+ */
 export interface GetExternalDataViewAccessDetailsCommandInput extends GetExternalDataViewAccessDetailsRequest {}
+/**
+ * The output of {@link GetExternalDataViewAccessDetailsCommand}.
+ */
 export interface GetExternalDataViewAccessDetailsCommandOutput
   extends GetExternalDataViewAccessDetailsResponse,
     __MetadataBearer {}

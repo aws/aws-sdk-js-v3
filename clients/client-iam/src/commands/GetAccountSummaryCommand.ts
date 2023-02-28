@@ -20,7 +20,13 @@ import {
   serializeAws_queryGetAccountSummaryCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetAccountSummaryCommand}.
+ */
 export interface GetAccountSummaryCommandInput {}
+/**
+ * The output of {@link GetAccountSummaryCommand}.
+ */
 export interface GetAccountSummaryCommandOutput extends GetAccountSummaryResponse, __MetadataBearer {}
 
 /**

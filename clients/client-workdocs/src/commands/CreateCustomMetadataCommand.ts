@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link CreateCustomMetadataCommand}.
+ */
 export interface CreateCustomMetadataCommandInput extends CreateCustomMetadataRequest {}
+/**
+ * The output of {@link CreateCustomMetadataCommand}.
+ */
 export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataResponse, __MetadataBearer {}
 
 /**

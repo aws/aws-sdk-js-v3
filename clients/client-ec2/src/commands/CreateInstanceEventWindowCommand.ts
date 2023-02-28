@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateInstanceEventWindowCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateInstanceEventWindowCommand}.
+ */
 export interface CreateInstanceEventWindowCommandInput extends CreateInstanceEventWindowRequest {}
+/**
+ * The output of {@link CreateInstanceEventWindowCommand}.
+ */
 export interface CreateInstanceEventWindowCommandOutput extends CreateInstanceEventWindowResult, __MetadataBearer {}
 
 /**

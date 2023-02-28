@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link TestPayloadBlobCommand}.
+ */
 export interface TestPayloadBlobCommandInput extends TestPayloadBlobInputOutput {}
+/**
+ * The output of {@link TestPayloadBlobCommand}.
+ */
 export interface TestPayloadBlobCommandOutput extends TestPayloadBlobInputOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryListTypeVersionsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListTypeVersionsCommand}.
+ */
 export interface ListTypeVersionsCommandInput extends ListTypeVersionsInput {}
+/**
+ * The output of {@link ListTypeVersionsCommand}.
+ */
 export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RegisterEcsClusterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterEcsClusterCommand}.
+ */
 export interface RegisterEcsClusterCommandInput extends RegisterEcsClusterRequest {}
+/**
+ * The output of {@link RegisterEcsClusterCommand}.
+ */
 export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResult, __MetadataBearer {}
 
 /**

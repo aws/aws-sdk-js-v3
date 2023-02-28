@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetUpgradeHistoryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetUpgradeHistoryCommand}.
+ */
 export interface GetUpgradeHistoryCommandInput extends GetUpgradeHistoryRequest {}
+/**
+ * The output of {@link GetUpgradeHistoryCommand}.
+ */
 export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryResponse, __MetadataBearer {}
 
 /**

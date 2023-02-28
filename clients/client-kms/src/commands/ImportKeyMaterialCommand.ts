@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ImportKeyMaterialCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ImportKeyMaterialCommand}.
+ */
 export interface ImportKeyMaterialCommandInput extends ImportKeyMaterialRequest {}
+/**
+ * The output of {@link ImportKeyMaterialCommand}.
+ */
 export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialResponse, __MetadataBearer {}
 
 /**

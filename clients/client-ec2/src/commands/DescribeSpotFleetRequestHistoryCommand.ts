@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeSpotFleetRequestHistoryCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeSpotFleetRequestHistoryCommand}.
+ */
 export interface DescribeSpotFleetRequestHistoryCommandInput extends DescribeSpotFleetRequestHistoryRequest {}
+/**
+ * The output of {@link DescribeSpotFleetRequestHistoryCommand}.
+ */
 export interface DescribeSpotFleetRequestHistoryCommandOutput
   extends DescribeSpotFleetRequestHistoryResponse,
     __MetadataBearer {}

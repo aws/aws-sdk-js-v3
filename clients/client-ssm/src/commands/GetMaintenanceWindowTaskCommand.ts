@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link GetMaintenanceWindowTaskCommand}.
+ */
 export interface GetMaintenanceWindowTaskCommandInput extends GetMaintenanceWindowTaskRequest {}
+/**
+ * The output of {@link GetMaintenanceWindowTaskCommand}.
+ */
 export interface GetMaintenanceWindowTaskCommandOutput extends GetMaintenanceWindowTaskResult, __MetadataBearer {}
 
 /**

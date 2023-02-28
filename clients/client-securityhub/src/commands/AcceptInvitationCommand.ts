@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link AcceptInvitationCommand}.
+ */
 export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
+/**
+ * The output of {@link AcceptInvitationCommand}.
+ */
 export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse, __MetadataBearer {}
 
 /**

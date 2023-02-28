@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1VerifyTrustCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link VerifyTrustCommand}.
+ */
 export interface VerifyTrustCommandInput extends VerifyTrustRequest {}
+/**
+ * The output of {@link VerifyTrustCommand}.
+ */
 export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataBearer {}
 
 /**

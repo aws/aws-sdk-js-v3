@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeAffectedAccountsForOrganizationCommand}.
+ */
 export interface DescribeAffectedAccountsForOrganizationCommandInput
   extends DescribeAffectedAccountsForOrganizationRequest {}
+/**
+ * The output of {@link DescribeAffectedAccountsForOrganizationCommand}.
+ */
 export interface DescribeAffectedAccountsForOrganizationCommandOutput
   extends DescribeAffectedAccountsForOrganizationResponse,
     __MetadataBearer {}

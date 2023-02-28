@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartFlowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartFlowCommand}.
+ */
 export interface StartFlowCommandInput extends StartFlowRequest {}
+/**
+ * The output of {@link StartFlowCommand}.
+ */
 export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBearer {}
 
 /**

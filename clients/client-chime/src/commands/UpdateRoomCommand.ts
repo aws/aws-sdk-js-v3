@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateRoomCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateRoomCommand}.
+ */
 export interface UpdateRoomCommandInput extends UpdateRoomRequest {}
+/**
+ * The output of {@link UpdateRoomCommand}.
+ */
 export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataBearer {}
 
 /**

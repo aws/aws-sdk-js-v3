@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1StopTaskCommand, serializeAws_json1_1StopTaskCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopTaskCommand}.
+ */
 export interface StopTaskCommandInput extends StopTaskRequest {}
+/**
+ * The output of {@link StopTaskCommand}.
+ */
 export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBearer {}
 
 /**

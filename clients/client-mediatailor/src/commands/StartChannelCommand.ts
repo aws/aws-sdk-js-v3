@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartChannelCommand}.
+ */
 export interface StartChannelCommandInput extends StartChannelRequest {}
+/**
+ * The output of {@link StartChannelCommand}.
+ */
 export interface StartChannelCommandOutput extends StartChannelResponse, __MetadataBearer {}
 
 /**

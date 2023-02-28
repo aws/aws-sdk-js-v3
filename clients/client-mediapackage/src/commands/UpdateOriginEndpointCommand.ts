@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateOriginEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateOriginEndpointCommand}.
+ */
 export interface UpdateOriginEndpointCommandInput extends UpdateOriginEndpointRequest {}
+/**
+ * The output of {@link UpdateOriginEndpointCommand}.
+ */
 export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointResponse, __MetadataBearer {}
 
 /**

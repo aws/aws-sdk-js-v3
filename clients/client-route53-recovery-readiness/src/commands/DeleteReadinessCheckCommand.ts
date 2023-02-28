@@ -24,7 +24,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * The input for {@link DeleteReadinessCheckCommand}.
+ */
 export interface DeleteReadinessCheckCommandInput extends DeleteReadinessCheckRequest {}
+/**
+ * The output of {@link DeleteReadinessCheckCommand}.
+ */
 export interface DeleteReadinessCheckCommandOutput extends __MetadataBearer {}
 
 /**

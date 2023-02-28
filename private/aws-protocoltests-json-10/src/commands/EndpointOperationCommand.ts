@@ -18,7 +18,13 @@ import {
   serializeAws_json1_0EndpointOperationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link EndpointOperationCommand}.
+ */
 export interface EndpointOperationCommandInput {}
+/**
+ * The output of {@link EndpointOperationCommand}.
+ */
 export interface EndpointOperationCommandOutput extends __MetadataBearer {}
 
 export class EndpointOperationCommand extends $Command<

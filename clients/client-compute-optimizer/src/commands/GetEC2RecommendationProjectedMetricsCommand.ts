@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetEC2RecommendationProjectedMetricsCommand}.
+ */
 export interface GetEC2RecommendationProjectedMetricsCommandInput extends GetEC2RecommendationProjectedMetricsRequest {}
+/**
+ * The output of {@link GetEC2RecommendationProjectedMetricsCommand}.
+ */
 export interface GetEC2RecommendationProjectedMetricsCommandOutput
   extends GetEC2RecommendationProjectedMetricsResponse,
     __MetadataBearer {}

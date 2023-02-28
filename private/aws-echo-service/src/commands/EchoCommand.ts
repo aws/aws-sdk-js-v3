@@ -15,7 +15,13 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+/**
+ * The input for {@link EchoCommand}.
+ */
 export interface EchoCommandInput extends EchoInput {}
+/**
+ * The output of {@link EchoCommand}.
+ */
 export interface EchoCommandOutput extends EchoOutput, __MetadataBearer {}
 
 export class EchoCommand extends $Command<EchoCommandInput, EchoCommandOutput, EchoServiceClientResolvedConfig> {

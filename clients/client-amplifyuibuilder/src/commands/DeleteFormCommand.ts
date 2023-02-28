@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteFormCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteFormCommand}.
+ */
 export interface DeleteFormCommandInput extends DeleteFormRequest {}
+/**
+ * The output of {@link DeleteFormCommand}.
+ */
 export interface DeleteFormCommandOutput extends __MetadataBearer {}
 
 /**

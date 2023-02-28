@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteProtocolsListCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteProtocolsListCommand}.
+ */
 export interface DeleteProtocolsListCommandInput extends DeleteProtocolsListRequest {}
+/**
+ * The output of {@link DeleteProtocolsListCommand}.
+ */
 export interface DeleteProtocolsListCommandOutput extends __MetadataBearer {}
 
 /**

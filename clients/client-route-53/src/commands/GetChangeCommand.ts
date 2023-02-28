@@ -23,7 +23,13 @@ import {
 import { deserializeAws_restXmlGetChangeCommand, serializeAws_restXmlGetChangeCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link GetChangeCommand}.
+ */
 export interface GetChangeCommandInput extends GetChangeRequest {}
+/**
+ * The output of {@link GetChangeCommand}.
+ */
 export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBearer {}
 
 /**

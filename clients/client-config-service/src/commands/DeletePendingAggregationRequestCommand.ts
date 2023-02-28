@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DeletePendingAggregationRequestCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeletePendingAggregationRequestCommand}.
+ */
 export interface DeletePendingAggregationRequestCommandInput extends DeletePendingAggregationRequestRequest {}
+/**
+ * The output of {@link DeletePendingAggregationRequestCommand}.
+ */
 export interface DeletePendingAggregationRequestCommandOutput extends __MetadataBearer {}
 
 /**

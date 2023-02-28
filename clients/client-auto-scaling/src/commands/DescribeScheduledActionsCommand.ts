@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeScheduledActionsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeScheduledActionsCommand}.
+ */
 export interface DescribeScheduledActionsCommandInput extends DescribeScheduledActionsType {}
+/**
+ * The output of {@link DescribeScheduledActionsCommand}.
+ */
 export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsType, __MetadataBearer {}
 
 /**

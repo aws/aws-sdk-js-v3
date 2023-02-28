@@ -20,7 +20,13 @@ import {
   serializeAws_queryDetachRolePolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DetachRolePolicyCommand}.
+ */
 export interface DetachRolePolicyCommandInput extends DetachRolePolicyRequest {}
+/**
+ * The output of {@link DetachRolePolicyCommand}.
+ */
 export interface DetachRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListSnapshotBlocksCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSnapshotBlocksCommand}.
+ */
 export interface ListSnapshotBlocksCommandInput extends ListSnapshotBlocksRequest {}
+/**
+ * The output of {@link ListSnapshotBlocksCommand}.
+ */
 export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksResponse, __MetadataBearer {}
 
 /**

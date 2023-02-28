@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link SimpleScalarPropertiesCommand}.
+ */
 export interface SimpleScalarPropertiesCommandInput extends SimpleScalarPropertiesInputOutput {}
+/**
+ * The output of {@link SimpleScalarPropertiesCommand}.
+ */
 export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropertiesInputOutput, __MetadataBearer {}
 
 export class SimpleScalarPropertiesCommand extends $Command<

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSyncJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSyncJobCommand}.
+ */
 export interface GetSyncJobCommandInput extends GetSyncJobRequest {}
+/**
+ * The output of {@link GetSyncJobCommand}.
+ */
 export interface GetSyncJobCommandOutput extends GetSyncJobResponse, __MetadataBearer {}
 
 /**

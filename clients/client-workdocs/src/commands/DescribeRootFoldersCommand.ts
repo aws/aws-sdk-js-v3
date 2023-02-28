@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link DescribeRootFoldersCommand}.
+ */
 export interface DescribeRootFoldersCommandInput extends DescribeRootFoldersRequest {}
+/**
+ * The output of {@link DescribeRootFoldersCommand}.
+ */
 export interface DescribeRootFoldersCommandOutput extends DescribeRootFoldersResponse, __MetadataBearer {}
 
 /**

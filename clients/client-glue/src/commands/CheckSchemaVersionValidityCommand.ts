@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CheckSchemaVersionValidityCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CheckSchemaVersionValidityCommand}.
+ */
 export interface CheckSchemaVersionValidityCommandInput extends CheckSchemaVersionValidityInput {}
+/**
+ * The output of {@link CheckSchemaVersionValidityCommand}.
+ */
 export interface CheckSchemaVersionValidityCommandOutput extends CheckSchemaVersionValidityResponse, __MetadataBearer {}
 
 /**

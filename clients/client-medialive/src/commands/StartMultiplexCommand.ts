@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartMultiplexCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartMultiplexCommand}.
+ */
 export interface StartMultiplexCommandInput extends StartMultiplexRequest {}
+/**
+ * The output of {@link StartMultiplexCommand}.
+ */
 export interface StartMultiplexCommandOutput extends StartMultiplexResponse, __MetadataBearer {}
 
 /**

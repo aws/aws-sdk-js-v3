@@ -23,7 +23,13 @@ import {
   serializeAws_queryAssociateEnvironmentOperationsRoleCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link AssociateEnvironmentOperationsRoleCommand}.
+ */
 export interface AssociateEnvironmentOperationsRoleCommandInput extends AssociateEnvironmentOperationsRoleMessage {}
+/**
+ * The output of {@link AssociateEnvironmentOperationsRoleCommand}.
+ */
 export interface AssociateEnvironmentOperationsRoleCommandOutput extends __MetadataBearer {}
 
 /**

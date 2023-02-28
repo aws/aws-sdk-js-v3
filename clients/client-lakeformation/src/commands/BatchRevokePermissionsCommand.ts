@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchRevokePermissionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchRevokePermissionsCommand}.
+ */
 export interface BatchRevokePermissionsCommandInput extends BatchRevokePermissionsRequest {}
+/**
+ * The output of {@link BatchRevokePermissionsCommand}.
+ */
 export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissionsResponse, __MetadataBearer {}
 
 /**

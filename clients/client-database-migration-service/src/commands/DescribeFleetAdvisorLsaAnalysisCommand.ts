@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeFleetAdvisorLsaAnalysisCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeFleetAdvisorLsaAnalysisCommand}.
+ */
 export interface DescribeFleetAdvisorLsaAnalysisCommandInput extends DescribeFleetAdvisorLsaAnalysisRequest {}
+/**
+ * The output of {@link DescribeFleetAdvisorLsaAnalysisCommand}.
+ */
 export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
   extends DescribeFleetAdvisorLsaAnalysisResponse,
     __MetadataBearer {}

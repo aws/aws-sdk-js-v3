@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetMergeConflictsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetMergeConflictsCommand}.
+ */
 export interface GetMergeConflictsCommandInput extends GetMergeConflictsInput {}
+/**
+ * The output of {@link GetMergeConflictsCommand}.
+ */
 export interface GetMergeConflictsCommandOutput extends GetMergeConflictsOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateVirtualInterfaceCommand}.
+ */
 export interface AssociateVirtualInterfaceCommandInput extends AssociateVirtualInterfaceRequest {}
+/**
+ * The output of {@link AssociateVirtualInterfaceCommand}.
+ */
 export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**

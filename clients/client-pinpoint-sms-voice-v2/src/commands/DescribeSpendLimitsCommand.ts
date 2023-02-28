@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DescribeSpendLimitsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeSpendLimitsCommand}.
+ */
 export interface DescribeSpendLimitsCommandInput extends DescribeSpendLimitsRequest {}
+/**
+ * The output of {@link DescribeSpendLimitsCommand}.
+ */
 export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsResult, __MetadataBearer {}
 
 /**

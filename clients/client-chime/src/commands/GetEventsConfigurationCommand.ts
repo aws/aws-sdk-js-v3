@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetEventsConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetEventsConfigurationCommand}.
+ */
 export interface GetEventsConfigurationCommandInput extends GetEventsConfigurationRequest {}
+/**
+ * The output of {@link GetEventsConfigurationCommand}.
+ */
 export interface GetEventsConfigurationCommandOutput extends GetEventsConfigurationResponse, __MetadataBearer {}
 
 /**

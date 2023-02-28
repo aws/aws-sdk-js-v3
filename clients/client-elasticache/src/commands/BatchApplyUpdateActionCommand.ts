@@ -25,7 +25,13 @@ import {
   serializeAws_queryBatchApplyUpdateActionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link BatchApplyUpdateActionCommand}.
+ */
 export interface BatchApplyUpdateActionCommandInput extends BatchApplyUpdateActionMessage {}
+/**
+ * The output of {@link BatchApplyUpdateActionCommand}.
+ */
 export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResultsMessage, __MetadataBearer {}
 
 /**

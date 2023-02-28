@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1TestMetricFilterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link TestMetricFilterCommand}.
+ */
 export interface TestMetricFilterCommandInput extends TestMetricFilterRequest {}
+/**
+ * The output of {@link TestMetricFilterCommand}.
+ */
 export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse, __MetadataBearer {}
 
 /**

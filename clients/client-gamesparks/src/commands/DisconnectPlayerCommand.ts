@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisconnectPlayerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisconnectPlayerCommand}.
+ */
 export interface DisconnectPlayerCommandInput extends DisconnectPlayerRequest {}
+/**
+ * The output of {@link DisconnectPlayerCommand}.
+ */
 export interface DisconnectPlayerCommandOutput extends DisconnectPlayerResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetServiceRoleForAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetServiceRoleForAccountCommand}.
+ */
 export interface GetServiceRoleForAccountCommandInput extends GetServiceRoleForAccountRequest {}
+/**
+ * The output of {@link GetServiceRoleForAccountCommand}.
+ */
 export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleForAccountResponse, __MetadataBearer {}
 
 /**

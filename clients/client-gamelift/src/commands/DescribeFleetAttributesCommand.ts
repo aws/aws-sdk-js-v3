@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeFleetAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeFleetAttributesCommand}.
+ */
 export interface DescribeFleetAttributesCommandInput extends DescribeFleetAttributesInput {}
+/**
+ * The output of {@link DescribeFleetAttributesCommand}.
+ */
 export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttributesOutput, __MetadataBearer {}
 
 /**

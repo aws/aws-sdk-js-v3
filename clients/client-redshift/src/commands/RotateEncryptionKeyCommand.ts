@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link RotateEncryptionKeyCommand}.
+ */
 export interface RotateEncryptionKeyCommandInput extends RotateEncryptionKeyMessage {}
+/**
+ * The output of {@link RotateEncryptionKeyCommand}.
+ */
 export interface RotateEncryptionKeyCommandOutput extends RotateEncryptionKeyResult, __MetadataBearer {}
 
 /**

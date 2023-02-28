@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeApplicationFleetAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeApplicationFleetAssociationsCommand}.
+ */
 export interface DescribeApplicationFleetAssociationsCommandInput extends DescribeApplicationFleetAssociationsRequest {}
+/**
+ * The output of {@link DescribeApplicationFleetAssociationsCommand}.
+ */
 export interface DescribeApplicationFleetAssociationsCommandOutput
   extends DescribeApplicationFleetAssociationsResult,
     __MetadataBearer {}

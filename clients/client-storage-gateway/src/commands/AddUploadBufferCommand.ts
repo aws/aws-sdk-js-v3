@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link AddUploadBufferCommand}.
+ */
 export interface AddUploadBufferCommandInput extends AddUploadBufferInput {}
+/**
+ * The output of {@link AddUploadBufferCommand}.
+ */
 export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __MetadataBearer {}
 
 /**

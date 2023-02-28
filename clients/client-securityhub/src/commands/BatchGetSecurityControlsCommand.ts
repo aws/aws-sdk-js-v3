@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link BatchGetSecurityControlsCommand}.
+ */
 export interface BatchGetSecurityControlsCommandInput extends BatchGetSecurityControlsRequest {}
+/**
+ * The output of {@link BatchGetSecurityControlsCommand}.
+ */
 export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityControlsResponse, __MetadataBearer {}
 
 /**

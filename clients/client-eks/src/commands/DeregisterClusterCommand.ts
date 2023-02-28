@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeregisterClusterCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeregisterClusterCommand}.
+ */
 export interface DeregisterClusterCommandInput extends DeregisterClusterRequest {}
+/**
+ * The output of {@link DeregisterClusterCommand}.
+ */
 export interface DeregisterClusterCommandOutput extends DeregisterClusterResponse, __MetadataBearer {}
 
 /**

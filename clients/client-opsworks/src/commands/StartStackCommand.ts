@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1StartStackCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartStackCommand}.
+ */
 export interface StartStackCommandInput extends StartStackRequest {}
+/**
+ * The output of {@link StartStackCommand}.
+ */
 export interface StartStackCommandOutput extends __MetadataBearer {}
 
 /**

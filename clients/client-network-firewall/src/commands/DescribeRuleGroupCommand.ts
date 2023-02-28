@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DescribeRuleGroupCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeRuleGroupCommand}.
+ */
 export interface DescribeRuleGroupCommandInput extends DescribeRuleGroupRequest {}
+/**
+ * The output of {@link DescribeRuleGroupCommand}.
+ */
 export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupResponse, __MetadataBearer {}
 
 /**

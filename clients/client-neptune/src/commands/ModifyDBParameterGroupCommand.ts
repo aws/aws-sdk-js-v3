@@ -25,7 +25,13 @@ import {
   serializeAws_queryModifyDBParameterGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyDBParameterGroupCommand}.
+ */
 export interface ModifyDBParameterGroupCommandInput extends ModifyDBParameterGroupMessage {}
+/**
+ * The output of {@link ModifyDBParameterGroupCommand}.
+ */
 export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNameMessage, __MetadataBearer {}
 
 /**

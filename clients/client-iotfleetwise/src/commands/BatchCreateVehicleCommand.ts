@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0BatchCreateVehicleCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link BatchCreateVehicleCommand}.
+ */
 export interface BatchCreateVehicleCommandInput extends BatchCreateVehicleRequest {}
+/**
+ * The output of {@link BatchCreateVehicleCommand}.
+ */
 export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleResponse, __MetadataBearer {}
 
 /**

@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetThirdPartyFirewallAssociationStatusCommand}.
+ */
 export interface GetThirdPartyFirewallAssociationStatusCommandInput
   extends GetThirdPartyFirewallAssociationStatusRequest {}
+/**
+ * The output of {@link GetThirdPartyFirewallAssociationStatusCommand}.
+ */
 export interface GetThirdPartyFirewallAssociationStatusCommandOutput
   extends GetThirdPartyFirewallAssociationStatusResponse,
     __MetadataBearer {}

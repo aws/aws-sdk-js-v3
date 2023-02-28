@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0TransactWriteItemsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link TransactWriteItemsCommand}.
+ */
 export interface TransactWriteItemsCommandInput extends TransactWriteItemsInput {}
+/**
+ * The output of {@link TransactWriteItemsCommand}.
+ */
 export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutput, __MetadataBearer {}
 
 /**

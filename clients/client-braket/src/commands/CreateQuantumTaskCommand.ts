@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateQuantumTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateQuantumTaskCommand}.
+ */
 export interface CreateQuantumTaskCommandInput extends CreateQuantumTaskRequest {}
+/**
+ * The output of {@link CreateQuantumTaskCommand}.
+ */
 export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskResponse, __MetadataBearer {}
 
 /**

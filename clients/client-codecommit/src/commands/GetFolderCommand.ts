@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetFolderCommand, serializeAws_json1_1GetFolderCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetFolderCommand}.
+ */
 export interface GetFolderCommandInput extends GetFolderInput {}
+/**
+ * The output of {@link GetFolderCommand}.
+ */
 export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBearer {}
 
 /**

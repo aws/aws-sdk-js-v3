@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateInstanceProfileCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateInstanceProfileCommand}.
+ */
 export interface CreateInstanceProfileCommandInput extends CreateInstanceProfileRequest {}
+/**
+ * The output of {@link CreateInstanceProfileCommand}.
+ */
 export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfileResult, __MetadataBearer {}
 
 /**

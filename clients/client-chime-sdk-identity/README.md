@@ -206,3 +206,198 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CreateAppInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/createappinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/createappinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/createappinstancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateAppInstanceAdmin
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/createappinstanceadmincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/createappinstanceadmincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/createappinstanceadmincommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateAppInstanceUser
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/createappinstanceusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/createappinstanceusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/createappinstanceusercommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteAppInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/deleteappinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/deleteappinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/deleteappinstancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteAppInstanceAdmin
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/deleteappinstanceadmincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/deleteappinstanceadmincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/deleteappinstanceadmincommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteAppInstanceUser
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/deleteappinstanceusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/deleteappinstanceusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/deleteappinstanceusercommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeregisterAppInstanceUserEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/deregisterappinstanceuserendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/deregisterappinstanceuserendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/deregisterappinstanceuserendpointcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeAppInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/describeappinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/describeappinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/describeappinstancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeAppInstanceAdmin
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/describeappinstanceadmincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/describeappinstanceadmincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/describeappinstanceadmincommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeAppInstanceUser
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/describeappinstanceusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/describeappinstanceusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/describeappinstanceusercommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeAppInstanceUserEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/describeappinstanceuserendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/describeappinstanceuserendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/describeappinstanceuserendpointcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetAppInstanceRetentionSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/getappinstanceretentionsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/getappinstanceretentionsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/getappinstanceretentionsettingscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAppInstanceAdmins
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/listappinstanceadminscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/listappinstanceadminscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/listappinstanceadminscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAppInstances
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/listappinstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/listappinstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/listappinstancescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAppInstanceUserEndpoints
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/listappinstanceuserendpointscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/listappinstanceuserendpointscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/listappinstanceuserendpointscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAppInstanceUsers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/listappinstanceuserscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/listappinstanceuserscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/listappinstanceuserscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutAppInstanceRetentionSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/putappinstanceretentionsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/putappinstanceretentionsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/putappinstanceretentionsettingscommandoutput.html)
+
+</details>
+<details>
+<summary>
+RegisterAppInstanceUserEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/registerappinstanceuserendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/registerappinstanceuserendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/registerappinstanceuserendpointcommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateAppInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/updateappinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/updateappinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/updateappinstancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateAppInstanceUser
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/updateappinstanceusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/updateappinstanceusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/updateappinstanceusercommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateAppInstanceUserEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/classes/updateappinstanceuserendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/updateappinstanceuserendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime sdk identity/interfaces/updateappinstanceuserendpointcommandoutput.html)
+
+</details>

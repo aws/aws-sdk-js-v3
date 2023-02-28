@@ -23,7 +23,13 @@ import {
 import { deserializeAws_restXmlGetDNSSECCommand, serializeAws_restXmlGetDNSSECCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link GetDNSSECCommand}.
+ */
 export interface GetDNSSECCommandInput extends GetDNSSECRequest {}
+/**
+ * The output of {@link GetDNSSECCommand}.
+ */
 export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBearer {}
 
 /**

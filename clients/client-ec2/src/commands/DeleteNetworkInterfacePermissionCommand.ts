@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteNetworkInterfacePermissionCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteNetworkInterfacePermissionCommand}.
+ */
 export interface DeleteNetworkInterfacePermissionCommandInput extends DeleteNetworkInterfacePermissionRequest {}
+/**
+ * The output of {@link DeleteNetworkInterfacePermissionCommand}.
+ */
 export interface DeleteNetworkInterfacePermissionCommandOutput
   extends DeleteNetworkInterfacePermissionResult,
     __MetadataBearer {}

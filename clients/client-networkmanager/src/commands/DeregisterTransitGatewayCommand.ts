@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeregisterTransitGatewayCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeregisterTransitGatewayCommand}.
+ */
 export interface DeregisterTransitGatewayCommandInput extends DeregisterTransitGatewayRequest {}
+/**
+ * The output of {@link DeregisterTransitGatewayCommand}.
+ */
 export interface DeregisterTransitGatewayCommandOutput extends DeregisterTransitGatewayResponse, __MetadataBearer {}
 
 /**

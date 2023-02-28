@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateDBInstanceCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateDBInstanceCommand}.
+ */
 export interface CreateDBInstanceCommandInput extends CreateDBInstanceMessage {}
+/**
+ * The output of {@link CreateDBInstanceCommand}.
+ */
 export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, __MetadataBearer {}
 
 /**

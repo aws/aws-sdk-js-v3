@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link CreateTapesCommand}.
+ */
 export interface CreateTapesCommandInput extends CreateTapesInput {}
+/**
+ * The output of {@link CreateTapesCommand}.
+ */
 export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataBearer {}
 
 /**

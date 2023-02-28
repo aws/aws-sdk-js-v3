@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutRegistryScanningConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutRegistryScanningConfigurationCommand}.
+ */
 export interface PutRegistryScanningConfigurationCommandInput extends PutRegistryScanningConfigurationRequest {}
+/**
+ * The output of {@link PutRegistryScanningConfigurationCommand}.
+ */
 export interface PutRegistryScanningConfigurationCommandOutput
   extends PutRegistryScanningConfigurationResponse,
     __MetadataBearer {}

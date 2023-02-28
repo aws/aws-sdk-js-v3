@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutWorkflowRunPropertiesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutWorkflowRunPropertiesCommand}.
+ */
 export interface PutWorkflowRunPropertiesCommandInput extends PutWorkflowRunPropertiesRequest {}
+/**
+ * The output of {@link PutWorkflowRunPropertiesCommand}.
+ */
 export interface PutWorkflowRunPropertiesCommandOutput extends PutWorkflowRunPropertiesResponse, __MetadataBearer {}
 
 /**

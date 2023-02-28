@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlGetOriginRequestPolicyConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link GetOriginRequestPolicyConfigCommand}.
+ */
 export interface GetOriginRequestPolicyConfigCommandInput extends GetOriginRequestPolicyConfigRequest {}
+/**
+ * The output of {@link GetOriginRequestPolicyConfigCommand}.
+ */
 export interface GetOriginRequestPolicyConfigCommandOutput
   extends GetOriginRequestPolicyConfigResult,
     __MetadataBearer {}

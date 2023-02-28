@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link AbortDocumentVersionUploadCommand}.
+ */
 export interface AbortDocumentVersionUploadCommandInput extends AbortDocumentVersionUploadRequest {}
+/**
+ * The output of {@link AbortDocumentVersionUploadCommand}.
+ */
 export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0AssociateCustomDomainCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link AssociateCustomDomainCommand}.
+ */
 export interface AssociateCustomDomainCommandInput extends AssociateCustomDomainRequest {}
+/**
+ * The output of {@link AssociateCustomDomainCommand}.
+ */
 export interface AssociateCustomDomainCommandOutput extends AssociateCustomDomainResponse, __MetadataBearer {}
 
 /**

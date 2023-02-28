@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
+/**
+ * The input for {@link UpdateDeletionProtectionCommand}.
+ */
 export interface UpdateDeletionProtectionCommandInput extends UpdateDeletionProtectionInput {}
+/**
+ * The output of {@link UpdateDeletionProtectionCommand}.
+ */
 export interface UpdateDeletionProtectionCommandOutput extends UpdateDeletionProtectionOutput, __MetadataBearer {}
 
 /**

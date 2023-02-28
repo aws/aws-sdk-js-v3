@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateTrafficDistributionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateTrafficDistributionCommand}.
+ */
 export interface UpdateTrafficDistributionCommandInput extends UpdateTrafficDistributionRequest {}
+/**
+ * The output of {@link UpdateTrafficDistributionCommand}.
+ */
 export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDistributionResponse, __MetadataBearer {}
 
 /**

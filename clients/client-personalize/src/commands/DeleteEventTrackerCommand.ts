@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteEventTrackerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteEventTrackerCommand}.
+ */
 export interface DeleteEventTrackerCommandInput extends DeleteEventTrackerRequest {}
+/**
+ * The output of {@link DeleteEventTrackerCommand}.
+ */
 export interface DeleteEventTrackerCommandOutput extends __MetadataBearer {}
 
 /**

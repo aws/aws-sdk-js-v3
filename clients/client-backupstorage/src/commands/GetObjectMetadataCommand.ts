@@ -28,7 +28,13 @@ import {
   serializeAws_restJson1GetObjectMetadataCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetObjectMetadataCommand}.
+ */
 export interface GetObjectMetadataCommandInput extends GetObjectMetadataInput {}
+/**
+ * The output of {@link GetObjectMetadataCommand}.
+ */
 export interface GetObjectMetadataCommandOutput
   extends __WithSdkStreamMixin<GetObjectMetadataOutput, "MetadataBlob">,
     __MetadataBearer {}

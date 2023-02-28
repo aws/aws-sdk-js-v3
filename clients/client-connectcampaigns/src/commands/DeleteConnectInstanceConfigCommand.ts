@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteConnectInstanceConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteConnectInstanceConfigCommand}.
+ */
 export interface DeleteConnectInstanceConfigCommandInput extends DeleteConnectInstanceConfigRequest {}
+/**
+ * The output of {@link DeleteConnectInstanceConfigCommand}.
+ */
 export interface DeleteConnectInstanceConfigCommandOutput extends __MetadataBearer {}
 
 /**

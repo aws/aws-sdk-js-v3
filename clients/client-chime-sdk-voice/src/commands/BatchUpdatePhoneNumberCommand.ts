@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchUpdatePhoneNumberCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchUpdatePhoneNumberCommand}.
+ */
 export interface BatchUpdatePhoneNumberCommandInput extends BatchUpdatePhoneNumberRequest {}
+/**
+ * The output of {@link BatchUpdatePhoneNumberCommand}.
+ */
 export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNumberResponse, __MetadataBearer {}
 
 export class BatchUpdatePhoneNumberCommand extends $Command<

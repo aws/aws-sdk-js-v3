@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeletePlaceIndexCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePlaceIndexCommand}.
+ */
 export interface DeletePlaceIndexCommandInput extends DeletePlaceIndexRequest {}
+/**
+ * The output of {@link DeletePlaceIndexCommand}.
+ */
 export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse, __MetadataBearer {}
 
 /**

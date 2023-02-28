@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateBackupPlanCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateBackupPlanCommand}.
+ */
 export interface UpdateBackupPlanCommandInput extends UpdateBackupPlanInput {}
+/**
+ * The output of {@link UpdateBackupPlanCommand}.
+ */
 export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, __MetadataBearer {}
 
 /**

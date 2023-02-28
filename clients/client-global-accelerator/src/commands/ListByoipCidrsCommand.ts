@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListByoipCidrsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListByoipCidrsCommand}.
+ */
 export interface ListByoipCidrsCommandInput extends ListByoipCidrsRequest {}
+/**
+ * The output of {@link ListByoipCidrsCommand}.
+ */
 export interface ListByoipCidrsCommandOutput extends ListByoipCidrsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDistributionBundlesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDistributionBundlesCommand}.
+ */
 export interface GetDistributionBundlesCommandInput extends GetDistributionBundlesRequest {}
+/**
+ * The output of {@link GetDistributionBundlesCommand}.
+ */
 export interface GetDistributionBundlesCommandOutput extends GetDistributionBundlesResult, __MetadataBearer {}
 
 /**

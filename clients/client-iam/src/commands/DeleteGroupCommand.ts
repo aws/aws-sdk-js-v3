@@ -17,7 +17,13 @@ import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { DeleteGroupRequest, DeleteGroupRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryDeleteGroupCommand, serializeAws_queryDeleteGroupCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteGroupCommand}.
+ */
 export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
+/**
+ * The output of {@link DeleteGroupCommand}.
+ */
 export interface DeleteGroupCommandOutput extends __MetadataBearer {}
 
 /**

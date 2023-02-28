@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link CreateRegexPatternSetCommand}.
+ */
 export interface CreateRegexPatternSetCommandInput extends CreateRegexPatternSetRequest {}
+/**
+ * The output of {@link CreateRegexPatternSetCommand}.
+ */
 export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSetResponse, __MetadataBearer {}
 
 /**

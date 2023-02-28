@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListSourceRepositoriesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSourceRepositoriesCommand}.
+ */
 export interface ListSourceRepositoriesCommandInput extends ListSourceRepositoriesRequest {}
+/**
+ * The output of {@link ListSourceRepositoriesCommand}.
+ */
 export interface ListSourceRepositoriesCommandOutput extends ListSourceRepositoriesResponse, __MetadataBearer {}
 
 /**

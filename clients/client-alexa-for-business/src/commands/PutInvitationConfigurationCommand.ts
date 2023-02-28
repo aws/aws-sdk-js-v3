@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutInvitationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutInvitationConfigurationCommand}.
+ */
 export interface PutInvitationConfigurationCommandInput extends PutInvitationConfigurationRequest {}
+/**
+ * The output of {@link PutInvitationConfigurationCommand}.
+ */
 export interface PutInvitationConfigurationCommandOutput extends PutInvitationConfigurationResponse, __MetadataBearer {}
 
 /**

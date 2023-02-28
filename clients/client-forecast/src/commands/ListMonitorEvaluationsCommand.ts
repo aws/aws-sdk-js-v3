@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListMonitorEvaluationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListMonitorEvaluationsCommand}.
+ */
 export interface ListMonitorEvaluationsCommandInput extends ListMonitorEvaluationsRequest {}
+/**
+ * The output of {@link ListMonitorEvaluationsCommand}.
+ */
 export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluationsResponse, __MetadataBearer {}
 
 /**

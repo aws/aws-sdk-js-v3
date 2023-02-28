@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1EnableLDAPSCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EnableLDAPSCommand}.
+ */
 export interface EnableLDAPSCommandInput extends EnableLDAPSRequest {}
+/**
+ * The output of {@link EnableLDAPSCommand}.
+ */
 export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataBearer {}
 
 /**

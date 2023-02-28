@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateFlowMediaStreamCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateFlowMediaStreamCommand}.
+ */
 export interface UpdateFlowMediaStreamCommandInput extends UpdateFlowMediaStreamRequest {}
+/**
+ * The output of {@link UpdateFlowMediaStreamCommand}.
+ */
 export interface UpdateFlowMediaStreamCommandOutput extends UpdateFlowMediaStreamResponse, __MetadataBearer {}
 
 /**

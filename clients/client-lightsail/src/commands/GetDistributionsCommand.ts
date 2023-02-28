@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDistributionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDistributionsCommand}.
+ */
 export interface GetDistributionsCommandInput extends GetDistributionsRequest {}
+/**
+ * The output of {@link GetDistributionsCommand}.
+ */
 export interface GetDistributionsCommandOutput extends GetDistributionsResult, __MetadataBearer {}
 
 /**

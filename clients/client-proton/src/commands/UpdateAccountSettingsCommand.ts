@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * The input for {@link UpdateAccountSettingsCommand}.
+ */
 export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettingsInput {}
+/**
+ * The output of {@link UpdateAccountSettingsCommand}.
+ */
 export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsOutput, __MetadataBearer {}
 
 /**

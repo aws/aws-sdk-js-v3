@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetEventSelectorsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetEventSelectorsCommand}.
+ */
 export interface GetEventSelectorsCommandInput extends GetEventSelectorsRequest {}
+/**
+ * The output of {@link GetEventSelectorsCommand}.
+ */
 export interface GetEventSelectorsCommandOutput extends GetEventSelectorsResponse, __MetadataBearer {}
 
 /**

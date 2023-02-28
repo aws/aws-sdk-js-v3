@@ -28,7 +28,13 @@ import {
   serializeAws_restJson1GetReadSetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetReadSetCommand}.
+ */
 export interface GetReadSetCommandInput extends GetReadSetRequest {}
+/**
+ * The output of {@link GetReadSetCommand}.
+ */
 export interface GetReadSetCommandOutput
   extends __WithSdkStreamMixin<GetReadSetResponse, "payload">,
     __MetadataBearer {}

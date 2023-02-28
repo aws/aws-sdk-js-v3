@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteInAppTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteInAppTemplateCommand}.
+ */
 export interface DeleteInAppTemplateCommandInput extends DeleteInAppTemplateRequest {}
+/**
+ * The output of {@link DeleteInAppTemplateCommand}.
+ */
 export interface DeleteInAppTemplateCommandOutput extends DeleteInAppTemplateResponse, __MetadataBearer {}
 
 /**

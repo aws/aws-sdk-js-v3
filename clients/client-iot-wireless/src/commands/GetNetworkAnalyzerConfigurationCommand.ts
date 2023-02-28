@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetNetworkAnalyzerConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetNetworkAnalyzerConfigurationCommand}.
+ */
 export interface GetNetworkAnalyzerConfigurationCommandInput extends GetNetworkAnalyzerConfigurationRequest {}
+/**
+ * The output of {@link GetNetworkAnalyzerConfigurationCommand}.
+ */
 export interface GetNetworkAnalyzerConfigurationCommandOutput
   extends GetNetworkAnalyzerConfigurationResponse,
     __MetadataBearer {}

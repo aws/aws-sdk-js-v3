@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateApplicationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateApplicationCommand}.
+ */
 export interface CreateApplicationCommandInput extends CreateApplicationInput {}
+/**
+ * The output of {@link CreateApplicationCommand}.
+ */
 export interface CreateApplicationCommandOutput extends CreateApplicationOutput, __MetadataBearer {}
 
 /**

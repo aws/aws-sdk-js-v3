@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * The input for {@link ListResourceSharePermissionsCommand}.
+ */
 export interface ListResourceSharePermissionsCommandInput extends ListResourceSharePermissionsRequest {}
+/**
+ * The output of {@link ListResourceSharePermissionsCommand}.
+ */
 export interface ListResourceSharePermissionsCommandOutput
   extends ListResourceSharePermissionsResponse,
     __MetadataBearer {}

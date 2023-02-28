@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateNodegroupConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateNodegroupConfigCommand}.
+ */
 export interface UpdateNodegroupConfigCommandInput extends UpdateNodegroupConfigRequest {}
+/**
+ * The output of {@link UpdateNodegroupConfigCommand}.
+ */
 export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfigResponse, __MetadataBearer {}
 
 /**

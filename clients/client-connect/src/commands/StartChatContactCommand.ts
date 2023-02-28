@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartChatContactCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartChatContactCommand}.
+ */
 export interface StartChatContactCommandInput extends StartChatContactRequest {}
+/**
+ * The output of {@link StartChatContactCommand}.
+ */
 export interface StartChatContactCommandOutput extends StartChatContactResponse, __MetadataBearer {}
 
 /**

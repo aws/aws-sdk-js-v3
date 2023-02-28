@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link DeleteRetentionPolicyCommand}.
+ */
 export interface DeleteRetentionPolicyCommandInput extends DeleteRetentionPolicyRequest {}
+/**
+ * The output of {@link DeleteRetentionPolicyCommand}.
+ */
 export interface DeleteRetentionPolicyCommandOutput extends DeleteRetentionPolicyResponse, __MetadataBearer {}
 
 /**

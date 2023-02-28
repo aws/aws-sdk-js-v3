@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1ListClientDevicesAssociatedWithCoreDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListClientDevicesAssociatedWithCoreDeviceCommand}.
+ */
 export interface ListClientDevicesAssociatedWithCoreDeviceCommandInput
   extends ListClientDevicesAssociatedWithCoreDeviceRequest {}
+/**
+ * The output of {@link ListClientDevicesAssociatedWithCoreDeviceCommand}.
+ */
 export interface ListClientDevicesAssociatedWithCoreDeviceCommandOutput
   extends ListClientDevicesAssociatedWithCoreDeviceResponse,
     __MetadataBearer {}

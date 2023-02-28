@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DeleteSecurityConfigCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteSecurityConfigCommand}.
+ */
 export interface DeleteSecurityConfigCommandInput extends DeleteSecurityConfigRequest {}
+/**
+ * The output of {@link DeleteSecurityConfigCommand}.
+ */
 export interface DeleteSecurityConfigCommandOutput extends DeleteSecurityConfigResponse, __MetadataBearer {}
 
 /**

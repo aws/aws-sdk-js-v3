@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteModelVersionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteModelVersionCommand}.
+ */
 export interface DeleteModelVersionCommandInput extends DeleteModelVersionRequest {}
+/**
+ * The output of {@link DeleteModelVersionCommand}.
+ */
 export interface DeleteModelVersionCommandOutput extends DeleteModelVersionResult, __MetadataBearer {}
 
 /**

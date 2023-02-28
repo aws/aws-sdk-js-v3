@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1CancelExportTaskCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CancelExportTaskCommand}.
+ */
 export interface CancelExportTaskCommandInput extends CancelExportTaskRequest {}
+/**
+ * The output of {@link CancelExportTaskCommand}.
+ */
 export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
 
+/**
+ * The input for {@link DescribeReportCreationCommand}.
+ */
 export interface DescribeReportCreationCommandInput extends DescribeReportCreationInput {}
+/**
+ * The output of {@link DescribeReportCreationCommand}.
+ */
 export interface DescribeReportCreationCommandOutput extends DescribeReportCreationOutput, __MetadataBearer {}
 
 /**

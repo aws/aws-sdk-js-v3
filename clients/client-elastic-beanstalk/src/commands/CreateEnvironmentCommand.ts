@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateEnvironmentCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateEnvironmentCommand}.
+ */
 export interface CreateEnvironmentCommandInput extends CreateEnvironmentMessage {}
+/**
+ * The output of {@link CreateEnvironmentCommand}.
+ */
 export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, __MetadataBearer {}
 
 /**

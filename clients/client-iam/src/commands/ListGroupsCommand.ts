@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryListGroupsCommand, serializeAws_queryListGroupsCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListGroupsCommand}.
+ */
 export interface ListGroupsCommandInput extends ListGroupsRequest {}
+/**
+ * The output of {@link ListGroupsCommand}.
+ */
 export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeAlertManagerDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeAlertManagerDefinitionCommand}.
+ */
 export interface DescribeAlertManagerDefinitionCommandInput extends DescribeAlertManagerDefinitionRequest {}
+/**
+ * The output of {@link DescribeAlertManagerDefinitionCommand}.
+ */
 export interface DescribeAlertManagerDefinitionCommandOutput
   extends DescribeAlertManagerDefinitionResponse,
     __MetadataBearer {}

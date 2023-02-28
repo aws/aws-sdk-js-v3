@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
+/**
+ * The input for {@link RollbackTransactionCommand}.
+ */
 export interface RollbackTransactionCommandInput extends RollbackTransactionRequest {}
+/**
+ * The output of {@link RollbackTransactionCommand}.
+ */
 export interface RollbackTransactionCommandOutput extends RollbackTransactionResponse, __MetadataBearer {}
 
 /**

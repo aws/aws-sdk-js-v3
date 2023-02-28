@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateAppBlockCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateAppBlockCommand}.
+ */
 export interface CreateAppBlockCommandInput extends CreateAppBlockRequest {}
+/**
+ * The output of {@link CreateAppBlockCommand}.
+ */
 export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __MetadataBearer {}
 
 /**

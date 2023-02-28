@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
+/**
+ * The input for {@link DescribeBatchLoadTaskCommand}.
+ */
 export interface DescribeBatchLoadTaskCommandInput extends DescribeBatchLoadTaskRequest {}
+/**
+ * The output of {@link DescribeBatchLoadTaskCommand}.
+ */
 export interface DescribeBatchLoadTaskCommandOutput extends DescribeBatchLoadTaskResponse, __MetadataBearer {}
 
 /**

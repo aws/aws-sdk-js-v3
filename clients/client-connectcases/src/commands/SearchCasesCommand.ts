@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SearchCasesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SearchCasesCommand}.
+ */
 export interface SearchCasesCommandInput extends SearchCasesRequest {}
+/**
+ * The output of {@link SearchCasesCommand}.
+ */
 export interface SearchCasesCommandOutput extends SearchCasesResponse, __MetadataBearer {}
 
 /**

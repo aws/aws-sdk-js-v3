@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateCodeSigningConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateCodeSigningConfigCommand}.
+ */
 export interface UpdateCodeSigningConfigCommandInput extends UpdateCodeSigningConfigRequest {}
+/**
+ * The output of {@link UpdateCodeSigningConfigCommand}.
+ */
 export interface UpdateCodeSigningConfigCommandOutput extends UpdateCodeSigningConfigResponse, __MetadataBearer {}
 
 /**

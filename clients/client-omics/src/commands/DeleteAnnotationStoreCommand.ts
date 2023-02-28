@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteAnnotationStoreCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteAnnotationStoreCommand}.
+ */
 export interface DeleteAnnotationStoreCommandInput extends DeleteAnnotationStoreRequest {}
+/**
+ * The output of {@link DeleteAnnotationStoreCommand}.
+ */
 export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStoreResponse, __MetadataBearer {}
 
 /**

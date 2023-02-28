@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteVpcPeeringAuthorizationCommand}.
+ */
 export interface DeleteVpcPeeringAuthorizationCommandInput extends DeleteVpcPeeringAuthorizationInput {}
+/**
+ * The output of {@link DeleteVpcPeeringAuthorizationCommand}.
+ */
 export interface DeleteVpcPeeringAuthorizationCommandOutput
   extends DeleteVpcPeeringAuthorizationOutput,
     __MetadataBearer {}

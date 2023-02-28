@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateFacetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateFacetCommand}.
+ */
 export interface CreateFacetCommandInput extends CreateFacetRequest {}
+/**
+ * The output of {@link CreateFacetCommand}.
+ */
 export interface CreateFacetCommandOutput extends CreateFacetResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopAccessLoggingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopAccessLoggingCommand}.
+ */
 export interface StopAccessLoggingCommandInput extends StopAccessLoggingInput {}
+/**
+ * The output of {@link StopAccessLoggingCommand}.
+ */
 export interface StopAccessLoggingCommandOutput extends StopAccessLoggingOutput, __MetadataBearer {}
 
 /**

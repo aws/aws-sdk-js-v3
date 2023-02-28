@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DescribeLoggingStatusCommand}.
+ */
 export interface DescribeLoggingStatusCommandInput extends DescribeLoggingStatusMessage {}
+/**
+ * The output of {@link DescribeLoggingStatusCommand}.
+ */
 export interface DescribeLoggingStatusCommandOutput extends LoggingStatus, __MetadataBearer {}
 
 /**

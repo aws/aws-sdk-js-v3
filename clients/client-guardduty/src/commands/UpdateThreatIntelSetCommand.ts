@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateThreatIntelSetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateThreatIntelSetCommand}.
+ */
 export interface UpdateThreatIntelSetCommandInput extends UpdateThreatIntelSetRequest {}
+/**
+ * The output of {@link UpdateThreatIntelSetCommand}.
+ */
 export interface UpdateThreatIntelSetCommandOutput extends UpdateThreatIntelSetResponse, __MetadataBearer {}
 
 /**

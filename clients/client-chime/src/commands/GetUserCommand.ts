@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetUserCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetUserCommand}.
+ */
 export interface GetUserCommandInput extends GetUserRequest {}
+/**
+ * The output of {@link GetUserCommand}.
+ */
 export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**

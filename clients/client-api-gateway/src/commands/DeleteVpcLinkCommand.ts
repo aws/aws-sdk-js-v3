@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteVpcLinkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteVpcLinkCommand}.
+ */
 export interface DeleteVpcLinkCommandInput extends DeleteVpcLinkRequest {}
+/**
+ * The output of {@link DeleteVpcLinkCommand}.
+ */
 export interface DeleteVpcLinkCommandOutput extends __MetadataBearer {}
 
 /**

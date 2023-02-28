@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link XmlTimestampsCommand}.
+ */
 export interface XmlTimestampsCommandInput extends XmlTimestampsInputOutput {}
+/**
+ * The output of {@link XmlTimestampsCommand}.
+ */
 export interface XmlTimestampsCommandOutput extends XmlTimestampsInputOutput, __MetadataBearer {}
 
 /**

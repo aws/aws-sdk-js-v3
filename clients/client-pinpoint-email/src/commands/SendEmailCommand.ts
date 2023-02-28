@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SendEmailCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SendEmailCommand}.
+ */
 export interface SendEmailCommandInput extends SendEmailRequest {}
+/**
+ * The output of {@link SendEmailCommand}.
+ */
 export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBearer {}
 
 /**

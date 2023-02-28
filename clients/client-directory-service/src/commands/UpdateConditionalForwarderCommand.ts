@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateConditionalForwarderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateConditionalForwarderCommand}.
+ */
 export interface UpdateConditionalForwarderCommandInput extends UpdateConditionalForwarderRequest {}
+/**
+ * The output of {@link UpdateConditionalForwarderCommand}.
+ */
 export interface UpdateConditionalForwarderCommandOutput extends UpdateConditionalForwarderResult, __MetadataBearer {}
 
 /**

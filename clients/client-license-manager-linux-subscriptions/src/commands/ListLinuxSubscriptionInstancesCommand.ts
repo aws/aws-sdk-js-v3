@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListLinuxSubscriptionInstancesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListLinuxSubscriptionInstancesCommand}.
+ */
 export interface ListLinuxSubscriptionInstancesCommandInput extends ListLinuxSubscriptionInstancesRequest {}
+/**
+ * The output of {@link ListLinuxSubscriptionInstancesCommand}.
+ */
 export interface ListLinuxSubscriptionInstancesCommandOutput
   extends ListLinuxSubscriptionInstancesResponse,
     __MetadataBearer {}

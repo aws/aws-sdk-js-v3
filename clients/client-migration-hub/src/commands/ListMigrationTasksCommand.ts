@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListMigrationTasksCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListMigrationTasksCommand}.
+ */
 export interface ListMigrationTasksCommandInput extends ListMigrationTasksRequest {}
+/**
+ * The output of {@link ListMigrationTasksCommand}.
+ */
 export interface ListMigrationTasksCommandOutput extends ListMigrationTasksResult, __MetadataBearer {}
 
 /**

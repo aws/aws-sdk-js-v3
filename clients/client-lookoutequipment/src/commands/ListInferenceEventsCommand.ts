@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListInferenceEventsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListInferenceEventsCommand}.
+ */
 export interface ListInferenceEventsCommandInput extends ListInferenceEventsRequest {}
+/**
+ * The output of {@link ListInferenceEventsCommand}.
+ */
 export interface ListInferenceEventsCommandOutput extends ListInferenceEventsResponse, __MetadataBearer {}
 
 /**

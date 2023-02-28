@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateCertificateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateCertificateCommand}.
+ */
 export interface UpdateCertificateCommandInput extends UpdateCertificateRequest {}
+/**
+ * The output of {@link UpdateCertificateCommand}.
+ */
 export interface UpdateCertificateCommandOutput extends __MetadataBearer {}
 
 /**

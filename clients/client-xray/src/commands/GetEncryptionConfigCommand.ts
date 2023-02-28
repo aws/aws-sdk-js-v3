@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * The input for {@link GetEncryptionConfigCommand}.
+ */
 export interface GetEncryptionConfigCommandInput extends GetEncryptionConfigRequest {}
+/**
+ * The output of {@link GetEncryptionConfigCommand}.
+ */
 export interface GetEncryptionConfigCommandOutput extends GetEncryptionConfigResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDevEnvironmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDevEnvironmentCommand}.
+ */
 export interface GetDevEnvironmentCommandInput extends GetDevEnvironmentRequest {}
+/**
+ * The output of {@link GetDevEnvironmentCommand}.
+ */
 export interface GetDevEnvironmentCommandOutput extends GetDevEnvironmentResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link AuthorizeIpRulesCommand}.
+ */
 export interface AuthorizeIpRulesCommandInput extends AuthorizeIpRulesRequest {}
+/**
+ * The output of {@link AuthorizeIpRulesCommand}.
+ */
 export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, __MetadataBearer {}
 
 /**

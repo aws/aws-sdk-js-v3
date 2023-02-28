@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link ListOpsItemEventsCommand}.
+ */
 export interface ListOpsItemEventsCommandInput extends ListOpsItemEventsRequest {}
+/**
+ * The output of {@link ListOpsItemEventsCommand}.
+ */
 export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsResponse, __MetadataBearer {}
 
 /**

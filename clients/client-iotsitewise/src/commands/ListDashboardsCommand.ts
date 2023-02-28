@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListDashboardsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDashboardsCommand}.
+ */
 export interface ListDashboardsCommandInput extends ListDashboardsRequest {}
+/**
+ * The output of {@link ListDashboardsCommand}.
+ */
 export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __MetadataBearer {}
 
 /**

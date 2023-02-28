@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeRecommendationFeedbackCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeRecommendationFeedbackCommand}.
+ */
 export interface DescribeRecommendationFeedbackCommandInput extends DescribeRecommendationFeedbackRequest {}
+/**
+ * The output of {@link DescribeRecommendationFeedbackCommand}.
+ */
 export interface DescribeRecommendationFeedbackCommandOutput
   extends DescribeRecommendationFeedbackResponse,
     __MetadataBearer {}

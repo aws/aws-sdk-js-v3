@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0BatchGetItemCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link BatchGetItemCommand}.
+ */
 export interface BatchGetItemCommandInput extends BatchGetItemInput {}
+/**
+ * The output of {@link BatchGetItemCommand}.
+ */
 export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __MetadataBearer {}
 
 /**

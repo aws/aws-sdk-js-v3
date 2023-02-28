@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListActionExecutionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListActionExecutionsCommand}.
+ */
 export interface ListActionExecutionsCommandInput extends ListActionExecutionsInput {}
+/**
+ * The output of {@link ListActionExecutionsCommand}.
+ */
 export interface ListActionExecutionsCommandOutput extends ListActionExecutionsOutput, __MetadataBearer {}
 
 /**

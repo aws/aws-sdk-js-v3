@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateLinkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateLinkCommand}.
+ */
 export interface CreateLinkCommandInput extends CreateLinkInput {}
+/**
+ * The output of {@link CreateLinkCommand}.
+ */
 export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBearer {}
 
 /**

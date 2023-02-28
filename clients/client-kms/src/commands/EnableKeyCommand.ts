@@ -17,7 +17,13 @@ import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { EnableKeyRequest, EnableKeyRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_json1_1EnableKeyCommand, serializeAws_json1_1EnableKeyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EnableKeyCommand}.
+ */
 export interface EnableKeyCommandInput extends EnableKeyRequest {}
+/**
+ * The output of {@link EnableKeyCommand}.
+ */
 export interface EnableKeyCommandOutput extends __MetadataBearer {}
 
 /**

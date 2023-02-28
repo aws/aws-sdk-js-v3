@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeStackProvisioningParametersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeStackProvisioningParametersCommand}.
+ */
 export interface DescribeStackProvisioningParametersCommandInput extends DescribeStackProvisioningParametersRequest {}
+/**
+ * The output of {@link DescribeStackProvisioningParametersCommand}.
+ */
 export interface DescribeStackProvisioningParametersCommandOutput
   extends DescribeStackProvisioningParametersResult,
     __MetadataBearer {}

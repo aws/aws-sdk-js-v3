@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetReadSetMetadataCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetReadSetMetadataCommand}.
+ */
 export interface GetReadSetMetadataCommandInput extends GetReadSetMetadataRequest {}
+/**
+ * The output of {@link GetReadSetMetadataCommand}.
+ */
 export interface GetReadSetMetadataCommandOutput extends GetReadSetMetadataResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AttachCertificateToDistributionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AttachCertificateToDistributionCommand}.
+ */
 export interface AttachCertificateToDistributionCommandInput extends AttachCertificateToDistributionRequest {}
+/**
+ * The output of {@link AttachCertificateToDistributionCommand}.
+ */
 export interface AttachCertificateToDistributionCommandOutput
   extends AttachCertificateToDistributionResult,
     __MetadataBearer {}

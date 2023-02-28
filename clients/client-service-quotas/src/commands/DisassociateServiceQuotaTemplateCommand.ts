@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
+/**
+ * The input for {@link DisassociateServiceQuotaTemplateCommand}.
+ */
 export interface DisassociateServiceQuotaTemplateCommandInput extends DisassociateServiceQuotaTemplateRequest {}
+/**
+ * The output of {@link DisassociateServiceQuotaTemplateCommand}.
+ */
 export interface DisassociateServiceQuotaTemplateCommandOutput
   extends DisassociateServiceQuotaTemplateResponse,
     __MetadataBearer {}

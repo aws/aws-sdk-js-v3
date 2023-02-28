@@ -17,7 +17,13 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { DeleteVpcRequest, DeleteVpcRequestFilterSensitiveLog } from "../models/models_3";
 import { deserializeAws_ec2DeleteVpcCommand, serializeAws_ec2DeleteVpcCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteVpcCommand}.
+ */
 export interface DeleteVpcCommandInput extends DeleteVpcRequest {}
+/**
+ * The output of {@link DeleteVpcCommand}.
+ */
 export interface DeleteVpcCommandOutput extends __MetadataBearer {}
 
 /**

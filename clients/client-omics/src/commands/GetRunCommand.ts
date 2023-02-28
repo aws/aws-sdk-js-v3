@@ -22,7 +22,13 @@ import {
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { deserializeAws_restJson1GetRunCommand, serializeAws_restJson1GetRunCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetRunCommand}.
+ */
 export interface GetRunCommandInput extends GetRunRequest {}
+/**
+ * The output of {@link GetRunCommand}.
+ */
 export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
 
 /**

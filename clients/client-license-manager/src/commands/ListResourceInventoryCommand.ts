@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListResourceInventoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListResourceInventoryCommand}.
+ */
 export interface ListResourceInventoryCommandInput extends ListResourceInventoryRequest {}
+/**
+ * The output of {@link ListResourceInventoryCommand}.
+ */
 export interface ListResourceInventoryCommandOutput extends ListResourceInventoryResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteMapCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteMapCommand}.
+ */
 export interface DeleteMapCommandInput extends DeleteMapRequest {}
+/**
+ * The output of {@link DeleteMapCommand}.
+ */
 export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBearer {}
 
 /**

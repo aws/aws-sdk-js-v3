@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1TransferContactCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link TransferContactCommand}.
+ */
 export interface TransferContactCommandInput extends TransferContactRequest {}
+/**
+ * The output of {@link TransferContactCommand}.
+ */
 export interface TransferContactCommandOutput extends TransferContactResponse, __MetadataBearer {}
 
 /**

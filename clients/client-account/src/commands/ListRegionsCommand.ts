@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListRegionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListRegionsCommand}.
+ */
 export interface ListRegionsCommandInput extends ListRegionsRequest {}
+/**
+ * The output of {@link ListRegionsCommand}.
+ */
 export interface ListRegionsCommandOutput extends ListRegionsResponse, __MetadataBearer {}
 
 /**

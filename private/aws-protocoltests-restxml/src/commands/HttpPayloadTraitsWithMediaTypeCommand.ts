@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link HttpPayloadTraitsWithMediaTypeCommand}.
+ */
 export interface HttpPayloadTraitsWithMediaTypeCommandInput extends HttpPayloadTraitsWithMediaTypeInputOutput {}
+/**
+ * The output of {@link HttpPayloadTraitsWithMediaTypeCommand}.
+ */
 export interface HttpPayloadTraitsWithMediaTypeCommandOutput
   extends HttpPayloadTraitsWithMediaTypeInputOutput,
     __MetadataBearer {}

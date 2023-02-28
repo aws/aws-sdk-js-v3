@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
+/**
+ * The input for {@link GetOperationCommand}.
+ */
 export interface GetOperationCommandInput extends GetOperationInput {}
+/**
+ * The output of {@link GetOperationCommand}.
+ */
 export interface GetOperationCommandOutput extends GetOperationOutput, __MetadataBearer {}
 
 /**

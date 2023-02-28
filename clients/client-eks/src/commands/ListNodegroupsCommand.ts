@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListNodegroupsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListNodegroupsCommand}.
+ */
 export interface ListNodegroupsCommandInput extends ListNodegroupsRequest {}
+/**
+ * The output of {@link ListNodegroupsCommand}.
+ */
 export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __MetadataBearer {}
 
 /**

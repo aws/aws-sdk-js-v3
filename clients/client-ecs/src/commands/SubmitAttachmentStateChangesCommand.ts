@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SubmitAttachmentStateChangesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SubmitAttachmentStateChangesCommand}.
+ */
 export interface SubmitAttachmentStateChangesCommandInput extends SubmitAttachmentStateChangesRequest {}
+/**
+ * The output of {@link SubmitAttachmentStateChangesCommand}.
+ */
 export interface SubmitAttachmentStateChangesCommandOutput
   extends SubmitAttachmentStateChangesResponse,
     __MetadataBearer {}

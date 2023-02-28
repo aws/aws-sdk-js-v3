@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateBotCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateBotCommand}.
+ */
 export interface CreateBotCommandInput extends CreateBotRequest {}
+/**
+ * The output of {@link CreateBotCommand}.
+ */
 export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListDevEnvironmentsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDevEnvironmentsCommand}.
+ */
 export interface ListDevEnvironmentsCommandInput extends ListDevEnvironmentsRequest {}
+/**
+ * The output of {@link ListDevEnvironmentsCommand}.
+ */
 export interface ListDevEnvironmentsCommandOutput extends ListDevEnvironmentsResponse, __MetadataBearer {}
 
 /**

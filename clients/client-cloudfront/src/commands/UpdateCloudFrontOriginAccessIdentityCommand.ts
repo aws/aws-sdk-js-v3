@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link UpdateCloudFrontOriginAccessIdentityCommand}.
+ */
 export interface UpdateCloudFrontOriginAccessIdentityCommandInput extends UpdateCloudFrontOriginAccessIdentityRequest {}
+/**
+ * The output of {@link UpdateCloudFrontOriginAccessIdentityCommand}.
+ */
 export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
   extends UpdateCloudFrontOriginAccessIdentityResult,
     __MetadataBearer {}

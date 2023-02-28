@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1PostTextCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PostTextCommand}.
+ */
 export interface PostTextCommandInput extends PostTextRequest {}
+/**
+ * The output of {@link PostTextCommand}.
+ */
 export interface PostTextCommandOutput extends PostTextResponse, __MetadataBearer {}
 
 /**

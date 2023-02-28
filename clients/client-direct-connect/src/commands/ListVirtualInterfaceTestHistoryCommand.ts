@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListVirtualInterfaceTestHistoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListVirtualInterfaceTestHistoryCommand}.
+ */
 export interface ListVirtualInterfaceTestHistoryCommandInput extends ListVirtualInterfaceTestHistoryRequest {}
+/**
+ * The output of {@link ListVirtualInterfaceTestHistoryCommand}.
+ */
 export interface ListVirtualInterfaceTestHistoryCommandOutput
   extends ListVirtualInterfaceTestHistoryResponse,
     __MetadataBearer {}

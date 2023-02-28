@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListGraphqlApisCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListGraphqlApisCommand}.
+ */
 export interface ListGraphqlApisCommandInput extends ListGraphqlApisRequest {}
+/**
+ * The output of {@link ListGraphqlApisCommand}.
+ */
 export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, __MetadataBearer {}
 
 /**

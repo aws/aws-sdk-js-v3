@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ExecuteTransactionCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ExecuteTransactionCommand}.
+ */
 export interface ExecuteTransactionCommandInput extends ExecuteTransactionInput {}
+/**
+ * The output of {@link ExecuteTransactionCommand}.
+ */
 export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteCapacityProviderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteCapacityProviderCommand}.
+ */
 export interface DeleteCapacityProviderCommandInput extends DeleteCapacityProviderRequest {}
+/**
+ * The output of {@link DeleteCapacityProviderCommand}.
+ */
 export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProviderResponse, __MetadataBearer {}
 
 /**

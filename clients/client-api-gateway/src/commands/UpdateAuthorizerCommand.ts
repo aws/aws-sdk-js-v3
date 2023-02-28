@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateAuthorizerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateAuthorizerCommand}.
+ */
 export interface UpdateAuthorizerCommandInput extends UpdateAuthorizerRequest {}
+/**
+ * The output of {@link UpdateAuthorizerCommand}.
+ */
 export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBearer {}
 
 /**

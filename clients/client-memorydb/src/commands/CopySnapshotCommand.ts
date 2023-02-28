@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CopySnapshotCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CopySnapshotCommand}.
+ */
 export interface CopySnapshotCommandInput extends CopySnapshotRequest {}
+/**
+ * The output of {@link CopySnapshotCommand}.
+ */
 export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __MetadataBearer {}
 
 /**

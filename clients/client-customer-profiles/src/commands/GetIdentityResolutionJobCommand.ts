@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetIdentityResolutionJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetIdentityResolutionJobCommand}.
+ */
 export interface GetIdentityResolutionJobCommandInput extends GetIdentityResolutionJobRequest {}
+/**
+ * The output of {@link GetIdentityResolutionJobCommand}.
+ */
 export interface GetIdentityResolutionJobCommandOutput extends GetIdentityResolutionJobResponse, __MetadataBearer {}
 
 /**

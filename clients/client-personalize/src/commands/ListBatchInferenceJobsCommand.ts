@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListBatchInferenceJobsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListBatchInferenceJobsCommand}.
+ */
 export interface ListBatchInferenceJobsCommandInput extends ListBatchInferenceJobsRequest {}
+/**
+ * The output of {@link ListBatchInferenceJobsCommand}.
+ */
 export interface ListBatchInferenceJobsCommandOutput extends ListBatchInferenceJobsResponse, __MetadataBearer {}
 
 /**

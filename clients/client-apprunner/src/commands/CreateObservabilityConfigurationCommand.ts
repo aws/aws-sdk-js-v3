@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0CreateObservabilityConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateObservabilityConfigurationCommand}.
+ */
 export interface CreateObservabilityConfigurationCommandInput extends CreateObservabilityConfigurationRequest {}
+/**
+ * The output of {@link CreateObservabilityConfigurationCommand}.
+ */
 export interface CreateObservabilityConfigurationCommandOutput
   extends CreateObservabilityConfigurationResponse,
     __MetadataBearer {}

@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link DeleteMessageCommand}.
+ */
 export interface DeleteMessageCommandInput extends DeleteMessageRequest {}
+/**
+ * The output of {@link DeleteMessageCommand}.
+ */
 export interface DeleteMessageCommandOutput extends __MetadataBearer {}
 
 /**

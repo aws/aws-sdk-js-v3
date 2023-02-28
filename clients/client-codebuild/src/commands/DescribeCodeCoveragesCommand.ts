@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeCodeCoveragesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeCodeCoveragesCommand}.
+ */
 export interface DescribeCodeCoveragesCommandInput extends DescribeCodeCoveragesInput {}
+/**
+ * The output of {@link DescribeCodeCoveragesCommand}.
+ */
 export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoveragesOutput, __MetadataBearer {}
 
 /**

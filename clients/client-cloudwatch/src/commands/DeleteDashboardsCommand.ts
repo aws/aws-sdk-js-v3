@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteDashboardsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteDashboardsCommand}.
+ */
 export interface DeleteDashboardsCommandInput extends DeleteDashboardsInput {}
+/**
+ * The output of {@link DeleteDashboardsCommand}.
+ */
 export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeletePermissionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeletePermissionCommand}.
+ */
 export interface DeletePermissionCommandInput extends DeletePermissionRequest {}
+/**
+ * The output of {@link DeletePermissionCommand}.
+ */
 export interface DeletePermissionCommandOutput extends __MetadataBearer {}
 
 /**

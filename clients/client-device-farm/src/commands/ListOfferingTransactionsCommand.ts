@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListOfferingTransactionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListOfferingTransactionsCommand}.
+ */
 export interface ListOfferingTransactionsCommandInput extends ListOfferingTransactionsRequest {}
+/**
+ * The output of {@link ListOfferingTransactionsCommand}.
+ */
 export interface ListOfferingTransactionsCommandOutput extends ListOfferingTransactionsResult, __MetadataBearer {}
 
 /**

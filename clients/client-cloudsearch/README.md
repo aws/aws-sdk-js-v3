@@ -210,3 +210,214 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+BuildSuggesters
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/buildsuggesterscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/buildsuggesterscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/buildsuggesterscommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateDomain
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/createdomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/createdomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/createdomaincommandoutput.html)
+
+</details>
+<details>
+<summary>
+DefineAnalysisScheme
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/defineanalysisschemecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/defineanalysisschemecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/defineanalysisschemecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DefineExpression
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/defineexpressioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/defineexpressioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/defineexpressioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DefineIndexField
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/defineindexfieldcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/defineindexfieldcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/defineindexfieldcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DefineSuggester
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/definesuggestercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/definesuggestercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/definesuggestercommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteAnalysisScheme
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/deleteanalysisschemecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/deleteanalysisschemecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/deleteanalysisschemecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteDomain
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/deletedomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/deletedomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/deletedomaincommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteExpression
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/deleteexpressioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/deleteexpressioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/deleteexpressioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteIndexField
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/deleteindexfieldcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/deleteindexfieldcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/deleteindexfieldcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSuggester
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/deletesuggestercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/deletesuggestercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/deletesuggestercommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeAnalysisSchemes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/describeanalysisschemescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describeanalysisschemescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describeanalysisschemescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeAvailabilityOptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/describeavailabilityoptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describeavailabilityoptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describeavailabilityoptionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeDomainEndpointOptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/describedomainendpointoptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describedomainendpointoptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describedomainendpointoptionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeDomains
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/describedomainscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describedomainscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describedomainscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeExpressions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/describeexpressionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describeexpressionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describeexpressionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeIndexFields
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/describeindexfieldscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describeindexfieldscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describeindexfieldscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeScalingParameters
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/describescalingparameterscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describescalingparameterscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describescalingparameterscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeServiceAccessPolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/describeserviceaccesspoliciescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describeserviceaccesspoliciescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describeserviceaccesspoliciescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSuggesters
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/describesuggesterscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describesuggesterscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/describesuggesterscommandoutput.html)
+
+</details>
+<details>
+<summary>
+IndexDocuments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/indexdocumentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/indexdocumentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/indexdocumentscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListDomainNames
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/listdomainnamescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/listdomainnamescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/listdomainnamescommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateAvailabilityOptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/updateavailabilityoptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/updateavailabilityoptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/updateavailabilityoptionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateDomainEndpointOptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/updatedomainendpointoptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/updatedomainendpointoptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/updatedomainendpointoptionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateScalingParameters
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/updatescalingparameterscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/updatescalingparameterscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/updatescalingparameterscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateServiceAccessPolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/classes/updateserviceaccesspoliciescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/updateserviceaccesspoliciescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudsearch/interfaces/updateserviceaccesspoliciescommandoutput.html)
+
+</details>

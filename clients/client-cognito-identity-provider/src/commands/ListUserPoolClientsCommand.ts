@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1ListUserPoolClientsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListUserPoolClientsCommand}.
+ */
 export interface ListUserPoolClientsCommandInput extends ListUserPoolClientsRequest {}
+/**
+ * The output of {@link ListUserPoolClientsCommand}.
+ */
 export interface ListUserPoolClientsCommandOutput extends ListUserPoolClientsResponse, __MetadataBearer {}
 
 /**

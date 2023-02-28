@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteAutoScalingGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteAutoScalingGroupCommand}.
+ */
 export interface DeleteAutoScalingGroupCommandInput extends DeleteAutoScalingGroupType {}
+/**
+ * The output of {@link DeleteAutoScalingGroupCommand}.
+ */
 export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
 
 /**

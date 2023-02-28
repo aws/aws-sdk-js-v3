@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListBackupVaultsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListBackupVaultsCommand}.
+ */
 export interface ListBackupVaultsCommandInput extends ListBackupVaultsInput {}
+/**
+ * The output of {@link ListBackupVaultsCommand}.
+ */
 export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, __MetadataBearer {}
 
 /**

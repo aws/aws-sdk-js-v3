@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
+/**
+ * The input for {@link RemoveDraftAppVersionResourceMappingsCommand}.
+ */
 export interface RemoveDraftAppVersionResourceMappingsCommandInput
   extends RemoveDraftAppVersionResourceMappingsRequest {}
+/**
+ * The output of {@link RemoveDraftAppVersionResourceMappingsCommand}.
+ */
 export interface RemoveDraftAppVersionResourceMappingsCommandOutput
   extends RemoveDraftAppVersionResourceMappingsResponse,
     __MetadataBearer {}

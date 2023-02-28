@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1DeleteHsmCommand, serializeAws_json1_1DeleteHsmCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteHsmCommand}.
+ */
 export interface DeleteHsmCommandInput extends DeleteHsmRequest {}
+/**
+ * The output of {@link DeleteHsmCommand}.
+ */
 export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteQualificationTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteQualificationTypeCommand}.
+ */
 export interface DeleteQualificationTypeCommandInput extends DeleteQualificationTypeRequest {}
+/**
+ * The output of {@link DeleteQualificationTypeCommand}.
+ */
 export interface DeleteQualificationTypeCommandOutput extends DeleteQualificationTypeResponse, __MetadataBearer {}
 
 /**

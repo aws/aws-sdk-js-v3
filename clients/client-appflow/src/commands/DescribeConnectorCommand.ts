@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeConnectorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeConnectorCommand}.
+ */
 export interface DescribeConnectorCommandInput extends DescribeConnectorRequest {}
+/**
+ * The output of {@link DescribeConnectorCommand}.
+ */
 export interface DescribeConnectorCommandOutput extends DescribeConnectorResponse, __MetadataBearer {}
 
 /**

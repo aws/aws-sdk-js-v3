@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SendDataToMulticastGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SendDataToMulticastGroupCommand}.
+ */
 export interface SendDataToMulticastGroupCommandInput extends SendDataToMulticastGroupRequest {}
+/**
+ * The output of {@link SendDataToMulticastGroupCommand}.
+ */
 export interface SendDataToMulticastGroupCommandOutput extends SendDataToMulticastGroupResponse, __MetadataBearer {}
 
 /**

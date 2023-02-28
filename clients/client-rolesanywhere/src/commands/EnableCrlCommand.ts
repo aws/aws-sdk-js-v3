@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * The input for {@link EnableCrlCommand}.
+ */
 export interface EnableCrlCommandInput extends ScalarCrlRequest {}
+/**
+ * The output of {@link EnableCrlCommand}.
+ */
 export interface EnableCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**

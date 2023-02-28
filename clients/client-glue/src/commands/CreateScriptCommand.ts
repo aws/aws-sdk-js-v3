@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateScriptCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateScriptCommand}.
+ */
 export interface CreateScriptCommandInput extends CreateScriptRequest {}
+/**
+ * The output of {@link CreateScriptCommand}.
+ */
 export interface CreateScriptCommandOutput extends CreateScriptResponse, __MetadataBearer {}
 
 /**

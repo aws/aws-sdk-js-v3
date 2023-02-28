@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetBatchImportJobsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetBatchImportJobsCommand}.
+ */
 export interface GetBatchImportJobsCommandInput extends GetBatchImportJobsRequest {}
+/**
+ * The output of {@link GetBatchImportJobsCommand}.
+ */
 export interface GetBatchImportJobsCommandOutput extends GetBatchImportJobsResult, __MetadataBearer {}
 
 /**

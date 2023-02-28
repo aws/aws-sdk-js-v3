@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1DisassociateApplicationFromEntitlementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateApplicationFromEntitlementCommand}.
+ */
 export interface DisassociateApplicationFromEntitlementCommandInput
   extends DisassociateApplicationFromEntitlementRequest {}
+/**
+ * The output of {@link DisassociateApplicationFromEntitlementCommand}.
+ */
 export interface DisassociateApplicationFromEntitlementCommandOutput
   extends DisassociateApplicationFromEntitlementResult,
     __MetadataBearer {}

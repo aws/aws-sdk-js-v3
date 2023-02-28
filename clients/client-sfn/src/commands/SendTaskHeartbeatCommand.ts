@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * The input for {@link SendTaskHeartbeatCommand}.
+ */
 export interface SendTaskHeartbeatCommandInput extends SendTaskHeartbeatInput {}
+/**
+ * The output of {@link SendTaskHeartbeatCommand}.
+ */
 export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput, __MetadataBearer {}
 
 /**

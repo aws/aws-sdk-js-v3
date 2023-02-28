@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeCoipPoolsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeCoipPoolsCommand}.
+ */
 export interface DescribeCoipPoolsCommandInput extends DescribeCoipPoolsRequest {}
+/**
+ * The output of {@link DescribeCoipPoolsCommand}.
+ */
 export interface DescribeCoipPoolsCommandOutput extends DescribeCoipPoolsResult, __MetadataBearer {}
 
 /**

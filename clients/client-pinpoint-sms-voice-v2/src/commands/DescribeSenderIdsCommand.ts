@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DescribeSenderIdsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeSenderIdsCommand}.
+ */
 export interface DescribeSenderIdsCommandInput extends DescribeSenderIdsRequest {}
+/**
+ * The output of {@link DescribeSenderIdsCommand}.
+ */
 export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult, __MetadataBearer {}
 
 /**

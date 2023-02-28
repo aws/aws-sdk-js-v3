@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListEventSubscriptionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListEventSubscriptionsCommand}.
+ */
 export interface ListEventSubscriptionsCommandInput extends ListEventSubscriptionsRequest {}
+/**
+ * The output of {@link ListEventSubscriptionsCommand}.
+ */
 export interface ListEventSubscriptionsCommandOutput extends ListEventSubscriptionsResponse, __MetadataBearer {}
 
 /**

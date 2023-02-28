@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link StartTextDetectionCommand}.
+ */
 export interface StartTextDetectionCommandInput extends StartTextDetectionRequest {}
+/**
+ * The output of {@link StartTextDetectionCommand}.
+ */
 export interface StartTextDetectionCommandOutput extends StartTextDetectionResponse, __MetadataBearer {}
 
 /**

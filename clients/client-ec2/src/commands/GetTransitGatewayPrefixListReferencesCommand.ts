@@ -25,8 +25,14 @@ import {
   serializeAws_ec2GetTransitGatewayPrefixListReferencesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetTransitGatewayPrefixListReferencesCommand}.
+ */
 export interface GetTransitGatewayPrefixListReferencesCommandInput
   extends GetTransitGatewayPrefixListReferencesRequest {}
+/**
+ * The output of {@link GetTransitGatewayPrefixListReferencesCommand}.
+ */
 export interface GetTransitGatewayPrefixListReferencesCommandOutput
   extends GetTransitGatewayPrefixListReferencesResult,
     __MetadataBearer {}

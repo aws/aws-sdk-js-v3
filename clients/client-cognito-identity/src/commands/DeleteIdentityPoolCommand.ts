@@ -21,7 +21,13 @@ import {
   serializeAws_json1_1DeleteIdentityPoolCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteIdentityPoolCommand}.
+ */
 export interface DeleteIdentityPoolCommandInput extends DeleteIdentityPoolInput {}
+/**
+ * The output of {@link DeleteIdentityPoolCommand}.
+ */
 export interface DeleteIdentityPoolCommandOutput extends __MetadataBearer {}
 
 /**

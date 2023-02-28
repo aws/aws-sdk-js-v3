@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link MalformedStringCommand}.
+ */
 export interface MalformedStringCommandInput extends MalformedStringInput {}
+/**
+ * The output of {@link MalformedStringCommand}.
+ */
 export interface MalformedStringCommandOutput extends __MetadataBearer {}
 
 export class MalformedStringCommand extends $Command<

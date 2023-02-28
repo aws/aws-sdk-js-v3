@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link DeleteEmailIdentityCommand}.
+ */
 export interface DeleteEmailIdentityCommandInput extends DeleteEmailIdentityRequest {}
+/**
+ * The output of {@link DeleteEmailIdentityCommand}.
+ */
 export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityResponse, __MetadataBearer {}
 
 /**

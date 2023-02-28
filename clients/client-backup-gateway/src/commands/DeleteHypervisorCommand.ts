@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DeleteHypervisorCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteHypervisorCommand}.
+ */
 export interface DeleteHypervisorCommandInput extends DeleteHypervisorInput {}
+/**
+ * The output of {@link DeleteHypervisorCommand}.
+ */
 export interface DeleteHypervisorCommandOutput extends DeleteHypervisorOutput, __MetadataBearer {}
 
 /**

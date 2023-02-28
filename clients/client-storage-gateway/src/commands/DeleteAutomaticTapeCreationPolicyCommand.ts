@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link DeleteAutomaticTapeCreationPolicyCommand}.
+ */
 export interface DeleteAutomaticTapeCreationPolicyCommandInput extends DeleteAutomaticTapeCreationPolicyInput {}
+/**
+ * The output of {@link DeleteAutomaticTapeCreationPolicyCommand}.
+ */
 export interface DeleteAutomaticTapeCreationPolicyCommandOutput
   extends DeleteAutomaticTapeCreationPolicyOutput,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1EvaluateCodeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link EvaluateCodeCommand}.
+ */
 export interface EvaluateCodeCommandInput extends EvaluateCodeRequest {}
+/**
+ * The output of {@link EvaluateCodeCommand}.
+ */
 export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __MetadataBearer {}
 
 /**

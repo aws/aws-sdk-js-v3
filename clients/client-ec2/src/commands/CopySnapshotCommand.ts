@@ -23,7 +23,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_ec2CopySnapshotCommand, serializeAws_ec2CopySnapshotCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CopySnapshotCommand}.
+ */
 export interface CopySnapshotCommandInput extends CopySnapshotRequest {}
+/**
+ * The output of {@link CopySnapshotCommand}.
+ */
 export interface CopySnapshotCommandOutput extends CopySnapshotResult, __MetadataBearer {}
 
 /**

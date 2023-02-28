@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeStorageConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeStorageConfigurationCommand}.
+ */
 export interface DescribeStorageConfigurationCommandInput extends DescribeStorageConfigurationRequest {}
+/**
+ * The output of {@link DescribeStorageConfigurationCommand}.
+ */
 export interface DescribeStorageConfigurationCommandOutput
   extends DescribeStorageConfigurationResponse,
     __MetadataBearer {}

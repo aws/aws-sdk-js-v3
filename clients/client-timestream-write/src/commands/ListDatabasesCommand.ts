@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
+/**
+ * The input for {@link ListDatabasesCommand}.
+ */
 export interface ListDatabasesCommandInput extends ListDatabasesRequest {}
+/**
+ * The output of {@link ListDatabasesCommand}.
+ */
 export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __MetadataBearer {}
 
 /**

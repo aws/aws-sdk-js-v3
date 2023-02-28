@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1UpdateSubscriptionsToEventBridgeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateSubscriptionsToEventBridgeCommand}.
+ */
 export interface UpdateSubscriptionsToEventBridgeCommandInput extends UpdateSubscriptionsToEventBridgeMessage {}
+/**
+ * The output of {@link UpdateSubscriptionsToEventBridgeCommand}.
+ */
 export interface UpdateSubscriptionsToEventBridgeCommandOutput
   extends UpdateSubscriptionsToEventBridgeResponse,
     __MetadataBearer {}

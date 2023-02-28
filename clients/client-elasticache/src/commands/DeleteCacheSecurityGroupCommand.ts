@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteCacheSecurityGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteCacheSecurityGroupCommand}.
+ */
 export interface DeleteCacheSecurityGroupCommandInput extends DeleteCacheSecurityGroupMessage {}
+/**
+ * The output of {@link DeleteCacheSecurityGroupCommand}.
+ */
 export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**

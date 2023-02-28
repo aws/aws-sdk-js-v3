@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeOfferingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeOfferingCommand}.
+ */
 export interface DescribeOfferingCommandInput extends DescribeOfferingRequest {}
+/**
+ * The output of {@link DescribeOfferingCommand}.
+ */
 export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_queryEnableMetricsCollectionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link EnableMetricsCollectionCommand}.
+ */
 export interface EnableMetricsCollectionCommandInput extends EnableMetricsCollectionQuery {}
+/**
+ * The output of {@link EnableMetricsCollectionCommand}.
+ */
 export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {}
 
 /**

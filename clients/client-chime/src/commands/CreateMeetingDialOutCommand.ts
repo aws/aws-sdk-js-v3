@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateMeetingDialOutCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateMeetingDialOutCommand}.
+ */
 export interface CreateMeetingDialOutCommandInput extends CreateMeetingDialOutRequest {}
+/**
+ * The output of {@link CreateMeetingDialOutCommand}.
+ */
 export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
+/**
+ * The input for {@link DeleteResponsePlanCommand}.
+ */
 export interface DeleteResponsePlanCommandInput extends DeleteResponsePlanInput {}
+/**
+ * The output of {@link DeleteResponsePlanCommand}.
+ */
 export interface DeleteResponsePlanCommandOutput extends DeleteResponsePlanOutput, __MetadataBearer {}
 
 /**

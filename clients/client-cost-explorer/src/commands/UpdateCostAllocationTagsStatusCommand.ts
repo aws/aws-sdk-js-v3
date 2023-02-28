@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateCostAllocationTagsStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateCostAllocationTagsStatusCommand}.
+ */
 export interface UpdateCostAllocationTagsStatusCommandInput extends UpdateCostAllocationTagsStatusRequest {}
+/**
+ * The output of {@link UpdateCostAllocationTagsStatusCommand}.
+ */
 export interface UpdateCostAllocationTagsStatusCommandOutput
   extends UpdateCostAllocationTagsStatusResponse,
     __MetadataBearer {}

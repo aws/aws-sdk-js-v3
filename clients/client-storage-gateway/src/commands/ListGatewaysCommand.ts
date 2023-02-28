@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link ListGatewaysCommand}.
+ */
 export interface ListGatewaysCommandInput extends ListGatewaysInput {}
+/**
+ * The output of {@link ListGatewaysCommand}.
+ */
 export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __MetadataBearer {}
 
 /**

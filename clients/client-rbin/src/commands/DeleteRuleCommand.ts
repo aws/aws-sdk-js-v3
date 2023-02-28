@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
+/**
+ * The input for {@link DeleteRuleCommand}.
+ */
 export interface DeleteRuleCommandInput extends DeleteRuleRequest {}
+/**
+ * The output of {@link DeleteRuleCommand}.
+ */
 export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataBearer {}
 
 /**

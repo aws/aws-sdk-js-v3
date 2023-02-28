@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeTunnelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeTunnelCommand}.
+ */
 export interface DescribeTunnelCommandInput extends DescribeTunnelRequest {}
+/**
+ * The output of {@link DescribeTunnelCommand}.
+ */
 export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __MetadataBearer {}
 
 /**

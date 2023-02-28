@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchWriteCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchWriteCommand}.
+ */
 export interface BatchWriteCommandInput extends BatchWriteRequest {}
+/**
+ * The output of {@link BatchWriteCommand}.
+ */
 export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataBearer {}
 
 /**

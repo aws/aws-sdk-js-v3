@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link HttpRequestWithGreedyLabelInPathCommand}.
+ */
 export interface HttpRequestWithGreedyLabelInPathCommandInput extends HttpRequestWithGreedyLabelInPathInput {}
+/**
+ * The output of {@link HttpRequestWithGreedyLabelInPathCommand}.
+ */
 export interface HttpRequestWithGreedyLabelInPathCommandOutput extends __MetadataBearer {}
 
 export class HttpRequestWithGreedyLabelInPathCommand extends $Command<

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link GetPortalCommand}.
+ */
 export interface GetPortalCommandInput extends GetPortalRequest {}
+/**
+ * The output of {@link GetPortalCommand}.
+ */
 export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBearer {}
 
 /**

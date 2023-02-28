@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetInvitationsCountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetInvitationsCountCommand}.
+ */
 export interface GetInvitationsCountCommandInput extends GetInvitationsCountRequest {}
+/**
+ * The output of {@link GetInvitationsCountCommand}.
+ */
 export interface GetInvitationsCountCommandOutput extends GetInvitationsCountResponse, __MetadataBearer {}
 
 /**

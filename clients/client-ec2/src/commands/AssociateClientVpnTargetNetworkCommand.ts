@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AssociateClientVpnTargetNetworkCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AssociateClientVpnTargetNetworkCommand}.
+ */
 export interface AssociateClientVpnTargetNetworkCommandInput extends AssociateClientVpnTargetNetworkRequest {}
+/**
+ * The output of {@link AssociateClientVpnTargetNetworkCommand}.
+ */
 export interface AssociateClientVpnTargetNetworkCommandOutput
   extends AssociateClientVpnTargetNetworkResult,
     __MetadataBearer {}

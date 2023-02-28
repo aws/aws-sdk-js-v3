@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
+/**
+ * The input for {@link PutRumEventsCommand}.
+ */
 export interface PutRumEventsCommandInput extends PutRumEventsRequest {}
+/**
+ * The output of {@link PutRumEventsCommand}.
+ */
 export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __MetadataBearer {}
 
 /**

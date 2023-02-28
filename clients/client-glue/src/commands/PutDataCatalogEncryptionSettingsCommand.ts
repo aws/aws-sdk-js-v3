@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutDataCatalogEncryptionSettingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutDataCatalogEncryptionSettingsCommand}.
+ */
 export interface PutDataCatalogEncryptionSettingsCommandInput extends PutDataCatalogEncryptionSettingsRequest {}
+/**
+ * The output of {@link PutDataCatalogEncryptionSettingsCommand}.
+ */
 export interface PutDataCatalogEncryptionSettingsCommandOutput
   extends PutDataCatalogEncryptionSettingsResponse,
     __MetadataBearer {}

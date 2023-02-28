@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListVirtualClustersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListVirtualClustersCommand}.
+ */
 export interface ListVirtualClustersCommandInput extends ListVirtualClustersRequest {}
+/**
+ * The output of {@link ListVirtualClustersCommand}.
+ */
 export interface ListVirtualClustersCommandOutput extends ListVirtualClustersResponse, __MetadataBearer {}
 
 /**

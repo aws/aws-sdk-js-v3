@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteRuleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteRuleCommand}.
+ */
 export interface DeleteRuleCommandInput extends DeleteRuleRequest {}
+/**
+ * The output of {@link DeleteRuleCommand}.
+ */
 export interface DeleteRuleCommandOutput extends __MetadataBearer {}
 
 /**

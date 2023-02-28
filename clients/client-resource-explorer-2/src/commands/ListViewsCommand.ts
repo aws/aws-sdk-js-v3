@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * The input for {@link ListViewsCommand}.
+ */
 export interface ListViewsCommandInput extends ListViewsInput {}
+/**
+ * The output of {@link ListViewsCommand}.
+ */
 export interface ListViewsCommandOutput extends ListViewsOutput, __MetadataBearer {}
 
 /**

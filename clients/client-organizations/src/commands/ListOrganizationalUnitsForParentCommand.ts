@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListOrganizationalUnitsForParentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListOrganizationalUnitsForParentCommand}.
+ */
 export interface ListOrganizationalUnitsForParentCommandInput extends ListOrganizationalUnitsForParentRequest {}
+/**
+ * The output of {@link ListOrganizationalUnitsForParentCommand}.
+ */
 export interface ListOrganizationalUnitsForParentCommandOutput
   extends ListOrganizationalUnitsForParentResponse,
     __MetadataBearer {}

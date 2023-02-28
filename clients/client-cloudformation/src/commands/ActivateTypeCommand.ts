@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryActivateTypeCommand, serializeAws_queryActivateTypeCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ActivateTypeCommand}.
+ */
 export interface ActivateTypeCommandInput extends ActivateTypeInput {}
+/**
+ * The output of {@link ActivateTypeCommand}.
+ */
 export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __MetadataBearer {}
 
 /**

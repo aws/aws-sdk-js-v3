@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1ListFaqsCommand, serializeAws_json1_1ListFaqsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListFaqsCommand}.
+ */
 export interface ListFaqsCommandInput extends ListFaqsRequest {}
+/**
+ * The output of {@link ListFaqsCommand}.
+ */
 export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBearer {}
 
 /**

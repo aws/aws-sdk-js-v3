@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetRightsizingRecommendationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRightsizingRecommendationCommand}.
+ */
 export interface GetRightsizingRecommendationCommandInput extends GetRightsizingRecommendationRequest {}
+/**
+ * The output of {@link GetRightsizingRecommendationCommand}.
+ */
 export interface GetRightsizingRecommendationCommandOutput
   extends GetRightsizingRecommendationResponse,
     __MetadataBearer {}

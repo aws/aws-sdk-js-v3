@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetObjectLegalHoldCommand}.
+ */
 export interface GetObjectLegalHoldCommandInput extends GetObjectLegalHoldRequest {}
+/**
+ * The output of {@link GetObjectLegalHoldCommand}.
+ */
 export interface GetObjectLegalHoldCommandOutput extends GetObjectLegalHoldOutput, __MetadataBearer {}
 
 /**

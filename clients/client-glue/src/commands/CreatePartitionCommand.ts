@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreatePartitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreatePartitionCommand}.
+ */
 export interface CreatePartitionCommandInput extends CreatePartitionRequest {}
+/**
+ * The output of {@link CreatePartitionCommand}.
+ */
 export interface CreatePartitionCommandOutput extends CreatePartitionResponse, __MetadataBearer {}
 
 /**

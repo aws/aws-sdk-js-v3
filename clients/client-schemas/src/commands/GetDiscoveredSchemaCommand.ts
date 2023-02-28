@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * The input for {@link GetDiscoveredSchemaCommand}.
+ */
 export interface GetDiscoveredSchemaCommandInput extends GetDiscoveredSchemaRequest {}
+/**
+ * The output of {@link GetDiscoveredSchemaCommand}.
+ */
 export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaResponse, __MetadataBearer {}
 
 /**

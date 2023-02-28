@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateThirdPartyFirewallCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateThirdPartyFirewallCommand}.
+ */
 export interface DisassociateThirdPartyFirewallCommandInput extends DisassociateThirdPartyFirewallRequest {}
+/**
+ * The output of {@link DisassociateThirdPartyFirewallCommand}.
+ */
 export interface DisassociateThirdPartyFirewallCommandOutput
   extends DisassociateThirdPartyFirewallResponse,
     __MetadataBearer {}

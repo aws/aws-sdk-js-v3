@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListModelManifestsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListModelManifestsCommand}.
+ */
 export interface ListModelManifestsCommandInput extends ListModelManifestsRequest {}
+/**
+ * The output of {@link ListModelManifestsCommand}.
+ */
 export interface ListModelManifestsCommandOutput extends ListModelManifestsResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeLogPatternCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLogPatternCommand}.
+ */
 export interface DescribeLogPatternCommandInput extends DescribeLogPatternRequest {}
+/**
+ * The output of {@link DescribeLogPatternCommand}.
+ */
 export interface DescribeLogPatternCommandOutput extends DescribeLogPatternResponse, __MetadataBearer {}
 
 /**

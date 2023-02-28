@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * The input for {@link SignOutUserCommand}.
+ */
 export interface SignOutUserCommandInput extends SignOutUserRequest {}
+/**
+ * The output of {@link SignOutUserCommand}.
+ */
 export interface SignOutUserCommandOutput extends SignOutUserResponse, __MetadataBearer {}
 
 /**

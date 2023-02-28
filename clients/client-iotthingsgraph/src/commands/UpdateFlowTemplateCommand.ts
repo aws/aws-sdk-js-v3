@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateFlowTemplateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateFlowTemplateCommand}.
+ */
 export interface UpdateFlowTemplateCommandInput extends UpdateFlowTemplateRequest {}
+/**
+ * The output of {@link UpdateFlowTemplateCommand}.
+ */
 export interface UpdateFlowTemplateCommandOutput extends UpdateFlowTemplateResponse, __MetadataBearer {}
 
 /**

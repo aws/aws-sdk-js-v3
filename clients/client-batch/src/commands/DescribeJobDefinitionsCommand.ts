@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeJobDefinitionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeJobDefinitionsCommand}.
+ */
 export interface DescribeJobDefinitionsCommandInput extends DescribeJobDefinitionsRequest {}
+/**
+ * The output of {@link DescribeJobDefinitionsCommand}.
+ */
 export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefinitionsResponse, __MetadataBearer {}
 
 /**

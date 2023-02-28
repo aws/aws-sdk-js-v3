@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SelectResourceConfigCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SelectResourceConfigCommand}.
+ */
 export interface SelectResourceConfigCommandInput extends SelectResourceConfigRequest {}
+/**
+ * The output of {@link SelectResourceConfigCommand}.
+ */
 export interface SelectResourceConfigCommandOutput extends SelectResourceConfigResponse, __MetadataBearer {}
 
 /**

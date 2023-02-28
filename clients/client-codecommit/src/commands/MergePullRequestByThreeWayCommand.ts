@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1MergePullRequestByThreeWayCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link MergePullRequestByThreeWayCommand}.
+ */
 export interface MergePullRequestByThreeWayCommandInput extends MergePullRequestByThreeWayInput {}
+/**
+ * The output of {@link MergePullRequestByThreeWayCommand}.
+ */
 export interface MergePullRequestByThreeWayCommandOutput extends MergePullRequestByThreeWayOutput, __MetadataBearer {}
 
 /**

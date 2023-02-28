@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1AssignVolumeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssignVolumeCommand}.
+ */
 export interface AssignVolumeCommandInput extends AssignVolumeRequest {}
+/**
+ * The output of {@link AssignVolumeCommand}.
+ */
 export interface AssignVolumeCommandOutput extends __MetadataBearer {}
 
 /**

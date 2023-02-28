@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteTransitGatewayMulticastDomainCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteTransitGatewayMulticastDomainCommand}.
+ */
 export interface DeleteTransitGatewayMulticastDomainCommandInput extends DeleteTransitGatewayMulticastDomainRequest {}
+/**
+ * The output of {@link DeleteTransitGatewayMulticastDomainCommand}.
+ */
 export interface DeleteTransitGatewayMulticastDomainCommandOutput
   extends DeleteTransitGatewayMulticastDomainResult,
     __MetadataBearer {}

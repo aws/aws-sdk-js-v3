@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeFeatureTransformationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeFeatureTransformationCommand}.
+ */
 export interface DescribeFeatureTransformationCommandInput extends DescribeFeatureTransformationRequest {}
+/**
+ * The output of {@link DescribeFeatureTransformationCommand}.
+ */
 export interface DescribeFeatureTransformationCommandOutput
   extends DescribeFeatureTransformationResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteStudioCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteStudioCommand}.
+ */
 export interface DeleteStudioCommandInput extends DeleteStudioRequest {}
+/**
+ * The output of {@link DeleteStudioCommand}.
+ */
 export interface DeleteStudioCommandOutput extends DeleteStudioResponse, __MetadataBearer {}
 
 /**

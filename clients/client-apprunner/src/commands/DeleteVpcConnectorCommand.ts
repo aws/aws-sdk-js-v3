@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DeleteVpcConnectorCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteVpcConnectorCommand}.
+ */
 export interface DeleteVpcConnectorCommandInput extends DeleteVpcConnectorRequest {}
+/**
+ * The output of {@link DeleteVpcConnectorCommand}.
+ */
 export interface DeleteVpcConnectorCommandOutput extends DeleteVpcConnectorResponse, __MetadataBearer {}
 
 /**

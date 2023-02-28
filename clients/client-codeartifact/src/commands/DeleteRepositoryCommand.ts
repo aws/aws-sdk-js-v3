@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteRepositoryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteRepositoryCommand}.
+ */
 export interface DeleteRepositoryCommandInput extends DeleteRepositoryRequest {}
+/**
+ * The output of {@link DeleteRepositoryCommand}.
+ */
 export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, __MetadataBearer {}
 
 /**

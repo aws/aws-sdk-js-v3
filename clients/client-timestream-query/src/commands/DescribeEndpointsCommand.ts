@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
+/**
+ * The input for {@link DescribeEndpointsCommand}.
+ */
 export interface DescribeEndpointsCommandInput extends DescribeEndpointsRequest {}
+/**
+ * The output of {@link DescribeEndpointsCommand}.
+ */
 export interface DescribeEndpointsCommandOutput extends DescribeEndpointsResponse, __MetadataBearer {}
 
 /**

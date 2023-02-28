@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
+/**
+ * The input for {@link DeleteRecommendationTemplateCommand}.
+ */
 export interface DeleteRecommendationTemplateCommandInput extends DeleteRecommendationTemplateRequest {}
+/**
+ * The output of {@link DeleteRecommendationTemplateCommand}.
+ */
 export interface DeleteRecommendationTemplateCommandOutput
   extends DeleteRecommendationTemplateResponse,
     __MetadataBearer {}

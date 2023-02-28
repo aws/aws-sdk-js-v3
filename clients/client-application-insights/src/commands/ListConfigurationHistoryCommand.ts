@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListConfigurationHistoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListConfigurationHistoryCommand}.
+ */
 export interface ListConfigurationHistoryCommandInput extends ListConfigurationHistoryRequest {}
+/**
+ * The output of {@link ListConfigurationHistoryCommand}.
+ */
 export interface ListConfigurationHistoryCommandOutput extends ListConfigurationHistoryResponse, __MetadataBearer {}
 
 /**

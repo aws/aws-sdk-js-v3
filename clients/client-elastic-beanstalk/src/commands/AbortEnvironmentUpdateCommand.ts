@@ -20,7 +20,13 @@ import {
   serializeAws_queryAbortEnvironmentUpdateCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link AbortEnvironmentUpdateCommand}.
+ */
 export interface AbortEnvironmentUpdateCommandInput extends AbortEnvironmentUpdateMessage {}
+/**
+ * The output of {@link AbortEnvironmentUpdateCommand}.
+ */
 export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
 
 /**

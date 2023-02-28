@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link HttpResponseCodeCommand}.
+ */
 export interface HttpResponseCodeCommandInput {}
+/**
+ * The output of {@link HttpResponseCodeCommand}.
+ */
 export interface HttpResponseCodeCommandOutput extends HttpResponseCodeOutput, __MetadataBearer {}
 
 export class HttpResponseCodeCommand extends $Command<

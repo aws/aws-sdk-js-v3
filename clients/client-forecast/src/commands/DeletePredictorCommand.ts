@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeletePredictorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeletePredictorCommand}.
+ */
 export interface DeletePredictorCommandInput extends DeletePredictorRequest {}
+/**
+ * The output of {@link DeletePredictorCommand}.
+ */
 export interface DeletePredictorCommandOutput extends __MetadataBearer {}
 
 /**

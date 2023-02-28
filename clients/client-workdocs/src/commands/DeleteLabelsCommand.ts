@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link DeleteLabelsCommand}.
+ */
 export interface DeleteLabelsCommandInput extends DeleteLabelsRequest {}
+/**
+ * The output of {@link DeleteLabelsCommand}.
+ */
 export interface DeleteLabelsCommandOutput extends DeleteLabelsResponse, __MetadataBearer {}
 
 /**

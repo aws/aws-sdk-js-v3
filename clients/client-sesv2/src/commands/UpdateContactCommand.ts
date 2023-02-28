@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link UpdateContactCommand}.
+ */
 export interface UpdateContactCommandInput extends UpdateContactRequest {}
+/**
+ * The output of {@link UpdateContactCommand}.
+ */
 export interface UpdateContactCommandOutput extends UpdateContactResponse, __MetadataBearer {}
 
 /**

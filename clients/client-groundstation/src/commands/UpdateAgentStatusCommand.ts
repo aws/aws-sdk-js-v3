@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateAgentStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateAgentStatusCommand}.
+ */
 export interface UpdateAgentStatusCommandInput extends UpdateAgentStatusRequest {}
+/**
+ * The output of {@link UpdateAgentStatusCommand}.
+ */
 export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusResponse, __MetadataBearer {}
 
 /**

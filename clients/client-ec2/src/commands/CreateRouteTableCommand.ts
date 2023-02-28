@@ -21,7 +21,13 @@ import {
   serializeAws_ec2CreateRouteTableCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateRouteTableCommand}.
+ */
 export interface CreateRouteTableCommandInput extends CreateRouteTableRequest {}
+/**
+ * The output of {@link CreateRouteTableCommand}.
+ */
 export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, __MetadataBearer {}
 
 /**

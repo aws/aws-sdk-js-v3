@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * The input for {@link GetSqlInjectionMatchSetCommand}.
+ */
 export interface GetSqlInjectionMatchSetCommandInput extends GetSqlInjectionMatchSetRequest {}
+/**
+ * The output of {@link GetSqlInjectionMatchSetCommand}.
+ */
 export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMatchSetResponse, __MetadataBearer {}
 
 /**

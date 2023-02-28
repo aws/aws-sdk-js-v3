@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteDeploymentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteDeploymentCommand}.
+ */
 export interface DeleteDeploymentCommandInput extends DeleteDeploymentRequest {}
+/**
+ * The output of {@link DeleteDeploymentCommand}.
+ */
 export interface DeleteDeploymentCommandOutput extends __MetadataBearer {}
 
 /**

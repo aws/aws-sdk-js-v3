@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociatePersonasFromEntitiesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociatePersonasFromEntitiesCommand}.
+ */
 export interface DisassociatePersonasFromEntitiesCommandInput extends DisassociatePersonasFromEntitiesRequest {}
+/**
+ * The output of {@link DisassociatePersonasFromEntitiesCommand}.
+ */
 export interface DisassociatePersonasFromEntitiesCommandOutput
   extends DisassociatePersonasFromEntitiesResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeHostReservationOfferingsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeHostReservationOfferingsCommand}.
+ */
 export interface DescribeHostReservationOfferingsCommandInput extends DescribeHostReservationOfferingsRequest {}
+/**
+ * The output of {@link DescribeHostReservationOfferingsCommand}.
+ */
 export interface DescribeHostReservationOfferingsCommandOutput
   extends DescribeHostReservationOfferingsResult,
     __MetadataBearer {}

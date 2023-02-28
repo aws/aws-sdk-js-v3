@@ -22,7 +22,13 @@ import {
 import { deserializeAws_queryGetTemplateCommand, serializeAws_queryGetTemplateCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link GetTemplateCommand}.
+ */
 export interface GetTemplateCommandInput extends GetTemplateRequest {}
+/**
+ * The output of {@link GetTemplateCommand}.
+ */
 export interface GetTemplateCommandOutput extends GetTemplateResponse, __MetadataBearer {}
 
 /**

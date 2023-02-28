@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListCertificatesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListCertificatesCommand}.
+ */
 export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
+/**
+ * The output of {@link ListCertificatesCommand}.
+ */
 export interface ListCertificatesCommandOutput extends ListCertificatesResult, __MetadataBearer {}
 
 /**

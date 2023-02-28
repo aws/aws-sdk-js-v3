@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateMacSecKeyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateMacSecKeyCommand}.
+ */
 export interface AssociateMacSecKeyCommandInput extends AssociateMacSecKeyRequest {}
+/**
+ * The output of {@link AssociateMacSecKeyCommand}.
+ */
 export interface AssociateMacSecKeyCommandOutput extends AssociateMacSecKeyResponse, __MetadataBearer {}
 
 /**

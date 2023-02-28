@@ -24,7 +24,13 @@ import {
   serializeAws_json1_1DeleteAcceleratorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteAcceleratorCommand}.
+ */
 export interface DeleteAcceleratorCommandInput extends DeleteAcceleratorRequest {}
+/**
+ * The output of {@link DeleteAcceleratorCommand}.
+ */
 export interface DeleteAcceleratorCommandOutput extends __MetadataBearer {}
 
 /**

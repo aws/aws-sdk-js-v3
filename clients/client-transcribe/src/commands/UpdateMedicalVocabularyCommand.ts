@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
+/**
+ * The input for {@link UpdateMedicalVocabularyCommand}.
+ */
 export interface UpdateMedicalVocabularyCommandInput extends UpdateMedicalVocabularyRequest {}
+/**
+ * The output of {@link UpdateMedicalVocabularyCommand}.
+ */
 export interface UpdateMedicalVocabularyCommandOutput extends UpdateMedicalVocabularyResponse, __MetadataBearer {}
 
 /**

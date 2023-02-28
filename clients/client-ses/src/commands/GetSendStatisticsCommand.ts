@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link GetSendStatisticsCommand}.
+ */
 export interface GetSendStatisticsCommandInput {}
+/**
+ * The output of {@link GetSendStatisticsCommand}.
+ */
 export interface GetSendStatisticsCommandOutput extends GetSendStatisticsResponse, __MetadataBearer {}
 
 /**

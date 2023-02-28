@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateGlobalClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateGlobalClusterCommand}.
+ */
 export interface CreateGlobalClusterCommandInput extends CreateGlobalClusterMessage {}
+/**
+ * The output of {@link CreateGlobalClusterCommand}.
+ */
 export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterResult, __MetadataBearer {}
 
 /**

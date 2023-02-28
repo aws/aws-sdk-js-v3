@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link DeleteUserByPrincipalIdCommand}.
+ */
 export interface DeleteUserByPrincipalIdCommandInput extends DeleteUserByPrincipalIdRequest {}
+/**
+ * The output of {@link DeleteUserByPrincipalIdCommand}.
+ */
 export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrincipalIdResponse, __MetadataBearer {}
 
 /**

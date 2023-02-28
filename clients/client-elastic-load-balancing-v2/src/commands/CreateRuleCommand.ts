@@ -26,7 +26,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryCreateRuleCommand, serializeAws_queryCreateRuleCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateRuleCommand}.
+ */
 export interface CreateRuleCommandInput extends CreateRuleInput {}
+/**
+ * The output of {@link CreateRuleCommand}.
+ */
 export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBearer {}
 
 /**

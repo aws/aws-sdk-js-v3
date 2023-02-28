@@ -23,8 +23,14 @@ import {
   serializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchUpdateAttendeeCapabilitiesExceptCommand}.
+ */
 export interface BatchUpdateAttendeeCapabilitiesExceptCommandInput
   extends BatchUpdateAttendeeCapabilitiesExceptRequest {}
+/**
+ * The output of {@link BatchUpdateAttendeeCapabilitiesExceptCommand}.
+ */
 export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __MetadataBearer {}
 
 /**

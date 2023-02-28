@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetExtensionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetExtensionVersionCommand}.
+ */
 export interface GetExtensionVersionCommandInput extends GetExtensionVersionRequest {}
+/**
+ * The output of {@link GetExtensionVersionCommand}.
+ */
 export interface GetExtensionVersionCommandOutput extends GetExtensionVersionResult, __MetadataBearer {}
 
 /**

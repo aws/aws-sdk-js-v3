@@ -19,7 +19,13 @@ import {
   serializeAws_json1_1NullOperationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link NullOperationCommand}.
+ */
 export interface NullOperationCommandInput extends NullOperationInputOutput {}
+/**
+ * The output of {@link NullOperationCommand}.
+ */
 export interface NullOperationCommandOutput extends NullOperationInputOutput, __MetadataBearer {}
 
 export class NullOperationCommand extends $Command<

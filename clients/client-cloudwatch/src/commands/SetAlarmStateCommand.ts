@@ -20,7 +20,13 @@ import {
   serializeAws_querySetAlarmStateCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SetAlarmStateCommand}.
+ */
 export interface SetAlarmStateCommandInput extends SetAlarmStateInput {}
+/**
+ * The output of {@link SetAlarmStateCommand}.
+ */
 export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
 
 /**

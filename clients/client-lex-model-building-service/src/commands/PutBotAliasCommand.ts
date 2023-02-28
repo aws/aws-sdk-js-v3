@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1PutBotAliasCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutBotAliasCommand}.
+ */
 export interface PutBotAliasCommandInput extends PutBotAliasRequest {}
+/**
+ * The output of {@link PutBotAliasCommand}.
+ */
 export interface PutBotAliasCommandOutput extends PutBotAliasResponse, __MetadataBearer {}
 
 /**

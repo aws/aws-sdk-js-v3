@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link RegisterActivityTypeCommand}.
+ */
 export interface RegisterActivityTypeCommandInput extends RegisterActivityTypeInput {}
+/**
+ * The output of {@link RegisterActivityTypeCommand}.
+ */
 export interface RegisterActivityTypeCommandOutput extends __MetadataBearer {}
 
 /**

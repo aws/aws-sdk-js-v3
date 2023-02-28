@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * The input for {@link UpdateComponentCommand}.
+ */
 export interface UpdateComponentCommandInput extends UpdateComponentInput {}
+/**
+ * The output of {@link UpdateComponentCommand}.
+ */
 export interface UpdateComponentCommandOutput extends UpdateComponentOutput, __MetadataBearer {}
 
 /**

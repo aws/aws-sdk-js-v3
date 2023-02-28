@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link UpdateDomainNameserversCommand}.
+ */
 export interface UpdateDomainNameserversCommandInput extends UpdateDomainNameserversRequest {}
+/**
+ * The output of {@link UpdateDomainNameserversCommand}.
+ */
 export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNameserversResponse, __MetadataBearer {}
 
 /**

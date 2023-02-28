@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateSiteRackPhysicalPropertiesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateSiteRackPhysicalPropertiesCommand}.
+ */
 export interface UpdateSiteRackPhysicalPropertiesCommandInput extends UpdateSiteRackPhysicalPropertiesInput {}
+/**
+ * The output of {@link UpdateSiteRackPhysicalPropertiesCommand}.
+ */
 export interface UpdateSiteRackPhysicalPropertiesCommandOutput
   extends UpdateSiteRackPhysicalPropertiesOutput,
     __MetadataBearer {}

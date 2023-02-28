@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateOTAUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateOTAUpdateCommand}.
+ */
 export interface CreateOTAUpdateCommandInput extends CreateOTAUpdateRequest {}
+/**
+ * The output of {@link CreateOTAUpdateCommand}.
+ */
 export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, __MetadataBearer {}
 
 /**

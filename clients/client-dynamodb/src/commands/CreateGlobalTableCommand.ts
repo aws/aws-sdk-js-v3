@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0CreateGlobalTableCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateGlobalTableCommand}.
+ */
 export interface CreateGlobalTableCommandInput extends CreateGlobalTableInput {}
+/**
+ * The output of {@link CreateGlobalTableCommand}.
+ */
 export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput, __MetadataBearer {}
 
 /**

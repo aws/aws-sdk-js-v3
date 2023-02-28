@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1GetSupportedResourceTypesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSupportedResourceTypesCommand}.
+ */
 export interface GetSupportedResourceTypesCommandInput {}
+/**
+ * The output of {@link GetSupportedResourceTypesCommand}.
+ */
 export interface GetSupportedResourceTypesCommandOutput extends GetSupportedResourceTypesOutput, __MetadataBearer {}
 
 /**

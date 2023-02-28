@@ -16,7 +16,13 @@ import { QueryMapsInput, QueryMapsInputFilterSensitiveLog } from "../models/mode
 import { deserializeAws_queryQueryMapsCommand, serializeAws_queryQueryMapsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link QueryMapsCommand}.
+ */
 export interface QueryMapsCommandInput extends QueryMapsInput {}
+/**
+ * The output of {@link QueryMapsCommand}.
+ */
 export interface QueryMapsCommandOutput extends __MetadataBearer {}
 
 /**

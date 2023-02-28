@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetLayoutCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetLayoutCommand}.
+ */
 export interface GetLayoutCommandInput extends GetLayoutRequest {}
+/**
+ * The output of {@link GetLayoutCommand}.
+ */
 export interface GetLayoutCommandOutput extends GetLayoutResponse, __MetadataBearer {}
 
 /**

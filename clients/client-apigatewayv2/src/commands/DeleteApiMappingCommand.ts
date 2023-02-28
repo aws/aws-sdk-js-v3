@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteApiMappingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteApiMappingCommand}.
+ */
 export interface DeleteApiMappingCommandInput extends DeleteApiMappingRequest {}
+/**
+ * The output of {@link DeleteApiMappingCommand}.
+ */
 export interface DeleteApiMappingCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListSignalCatalogsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListSignalCatalogsCommand}.
+ */
 export interface ListSignalCatalogsCommandInput extends ListSignalCatalogsRequest {}
+/**
+ * The output of {@link ListSignalCatalogsCommand}.
+ */
 export interface ListSignalCatalogsCommandOutput extends ListSignalCatalogsResponse, __MetadataBearer {}
 
 /**

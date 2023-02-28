@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListCustomRoutingEndpointGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListCustomRoutingEndpointGroupsCommand}.
+ */
 export interface ListCustomRoutingEndpointGroupsCommandInput extends ListCustomRoutingEndpointGroupsRequest {}
+/**
+ * The output of {@link ListCustomRoutingEndpointGroupsCommand}.
+ */
 export interface ListCustomRoutingEndpointGroupsCommandOutput
   extends ListCustomRoutingEndpointGroupsResponse,
     __MetadataBearer {}

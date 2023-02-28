@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryCreateDomainCommand, serializeAws_queryCreateDomainCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateDomainCommand}.
+ */
 export interface CreateDomainCommandInput extends CreateDomainRequest {}
+/**
+ * The output of {@link CreateDomainCommand}.
+ */
 export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
 
 /**

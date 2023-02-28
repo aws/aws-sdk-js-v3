@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateInAppTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateInAppTemplateCommand}.
+ */
 export interface UpdateInAppTemplateCommandInput extends UpdateInAppTemplateRequest {}
+/**
+ * The output of {@link UpdateInAppTemplateCommand}.
+ */
 export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateResponse, __MetadataBearer {}
 
 /**

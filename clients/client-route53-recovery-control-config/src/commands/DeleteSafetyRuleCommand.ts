@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
 
+/**
+ * The input for {@link DeleteSafetyRuleCommand}.
+ */
 export interface DeleteSafetyRuleCommandInput extends DeleteSafetyRuleRequest {}
+/**
+ * The output of {@link DeleteSafetyRuleCommand}.
+ */
 export interface DeleteSafetyRuleCommandOutput extends DeleteSafetyRuleResponse, __MetadataBearer {}
 
 /**

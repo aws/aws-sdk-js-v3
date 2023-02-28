@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateLocalGatewayRouteCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateLocalGatewayRouteCommand}.
+ */
 export interface CreateLocalGatewayRouteCommandInput extends CreateLocalGatewayRouteRequest {}
+/**
+ * The output of {@link CreateLocalGatewayRouteCommand}.
+ */
 export interface CreateLocalGatewayRouteCommandOutput extends CreateLocalGatewayRouteResult, __MetadataBearer {}
 
 /**

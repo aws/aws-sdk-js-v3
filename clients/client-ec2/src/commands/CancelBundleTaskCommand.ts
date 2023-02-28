@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CancelBundleTaskCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CancelBundleTaskCommand}.
+ */
 export interface CancelBundleTaskCommandInput extends CancelBundleTaskRequest {}
+/**
+ * The output of {@link CancelBundleTaskCommand}.
+ */
 export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutRecordBatchCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutRecordBatchCommand}.
+ */
 export interface PutRecordBatchCommandInput extends PutRecordBatchInput {}
+/**
+ * The output of {@link PutRecordBatchCommand}.
+ */
 export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __MetadataBearer {}
 
 /**

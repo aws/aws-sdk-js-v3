@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteLocalGatewayRouteTableVpcAssociationCommand}.
+ */
 export interface DeleteLocalGatewayRouteTableVpcAssociationCommandInput
   extends DeleteLocalGatewayRouteTableVpcAssociationRequest {}
+/**
+ * The output of {@link DeleteLocalGatewayRouteTableVpcAssociationCommand}.
+ */
 export interface DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
   extends DeleteLocalGatewayRouteTableVpcAssociationResult,
     __MetadataBearer {}

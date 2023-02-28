@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1MergeBranchesBySquashCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link MergeBranchesBySquashCommand}.
+ */
 export interface MergeBranchesBySquashCommandInput extends MergeBranchesBySquashInput {}
+/**
+ * The output of {@link MergeBranchesBySquashCommand}.
+ */
 export interface MergeBranchesBySquashCommandOutput extends MergeBranchesBySquashOutput, __MetadataBearer {}
 
 /**

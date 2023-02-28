@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAssetPropertyAggregatesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAssetPropertyAggregatesCommand}.
+ */
 export interface GetAssetPropertyAggregatesCommandInput extends GetAssetPropertyAggregatesRequest {}
+/**
+ * The output of {@link GetAssetPropertyAggregatesCommand}.
+ */
 export interface GetAssetPropertyAggregatesCommandOutput extends GetAssetPropertyAggregatesResponse, __MetadataBearer {}
 
 /**

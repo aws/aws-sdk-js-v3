@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0UpdateCampaignCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateCampaignCommand}.
+ */
 export interface UpdateCampaignCommandInput extends UpdateCampaignRequest {}
+/**
+ * The output of {@link UpdateCampaignCommand}.
+ */
 export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __MetadataBearer {}
 
 /**

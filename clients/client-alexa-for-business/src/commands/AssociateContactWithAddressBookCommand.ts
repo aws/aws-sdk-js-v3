@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateContactWithAddressBookCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateContactWithAddressBookCommand}.
+ */
 export interface AssociateContactWithAddressBookCommandInput extends AssociateContactWithAddressBookRequest {}
+/**
+ * The output of {@link AssociateContactWithAddressBookCommand}.
+ */
 export interface AssociateContactWithAddressBookCommandOutput
   extends AssociateContactWithAddressBookResponse,
     __MetadataBearer {}

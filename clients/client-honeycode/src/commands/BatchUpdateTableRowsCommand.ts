@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchUpdateTableRowsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchUpdateTableRowsCommand}.
+ */
 export interface BatchUpdateTableRowsCommandInput extends BatchUpdateTableRowsRequest {}
+/**
+ * The output of {@link BatchUpdateTableRowsCommand}.
+ */
 export interface BatchUpdateTableRowsCommandOutput extends BatchUpdateTableRowsResult, __MetadataBearer {}
 
 /**

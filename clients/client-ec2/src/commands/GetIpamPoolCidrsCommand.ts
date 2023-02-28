@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetIpamPoolCidrsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetIpamPoolCidrsCommand}.
+ */
 export interface GetIpamPoolCidrsCommandInput extends GetIpamPoolCidrsRequest {}
+/**
+ * The output of {@link GetIpamPoolCidrsCommand}.
+ */
 export interface GetIpamPoolCidrsCommandOutput extends GetIpamPoolCidrsResult, __MetadataBearer {}
 
 /**

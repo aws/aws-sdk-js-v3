@@ -23,8 +23,14 @@ import {
   serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateApprovalRuleTemplateWithRepositoryCommand}.
+ */
 export interface AssociateApprovalRuleTemplateWithRepositoryCommandInput
   extends AssociateApprovalRuleTemplateWithRepositoryInput {}
+/**
+ * The output of {@link AssociateApprovalRuleTemplateWithRepositoryCommand}.
+ */
 export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extends __MetadataBearer {}
 
 /**

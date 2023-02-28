@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1OverridePullRequestApprovalRulesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link OverridePullRequestApprovalRulesCommand}.
+ */
 export interface OverridePullRequestApprovalRulesCommandInput extends OverridePullRequestApprovalRulesInput {}
+/**
+ * The output of {@link OverridePullRequestApprovalRulesCommand}.
+ */
 export interface OverridePullRequestApprovalRulesCommandOutput extends __MetadataBearer {}
 
 /**

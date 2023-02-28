@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * The input for {@link ListIndexesCommand}.
+ */
 export interface ListIndexesCommandInput extends ListIndexesInput {}
+/**
+ * The output of {@link ListIndexesCommand}.
+ */
 export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataBearer {}
 
 /**

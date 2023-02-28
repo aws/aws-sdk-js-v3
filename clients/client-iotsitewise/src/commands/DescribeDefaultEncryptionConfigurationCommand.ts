@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1DescribeDefaultEncryptionConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeDefaultEncryptionConfigurationCommand}.
+ */
 export interface DescribeDefaultEncryptionConfigurationCommandInput
   extends DescribeDefaultEncryptionConfigurationRequest {}
+/**
+ * The output of {@link DescribeDefaultEncryptionConfigurationCommand}.
+ */
 export interface DescribeDefaultEncryptionConfigurationCommandOutput
   extends DescribeDefaultEncryptionConfigurationResponse,
     __MetadataBearer {}

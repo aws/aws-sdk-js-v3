@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AssociateInstanceEventWindowCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AssociateInstanceEventWindowCommand}.
+ */
 export interface AssociateInstanceEventWindowCommandInput extends AssociateInstanceEventWindowRequest {}
+/**
+ * The output of {@link AssociateInstanceEventWindowCommand}.
+ */
 export interface AssociateInstanceEventWindowCommandOutput
   extends AssociateInstanceEventWindowResult,
     __MetadataBearer {}

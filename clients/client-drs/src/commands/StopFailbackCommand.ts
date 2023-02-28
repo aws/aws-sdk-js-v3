@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1StopFailbackCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopFailbackCommand}.
+ */
 export interface StopFailbackCommandInput extends StopFailbackRequest {}
+/**
+ * The output of {@link StopFailbackCommand}.
+ */
 export interface StopFailbackCommandOutput extends __MetadataBearer {}
 
 /**

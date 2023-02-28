@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link CreateOpsMetadataCommand}.
+ */
 export interface CreateOpsMetadataCommandInput extends CreateOpsMetadataRequest {}
+/**
+ * The output of {@link CreateOpsMetadataCommand}.
+ */
 export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult, __MetadataBearer {}
 
 /**

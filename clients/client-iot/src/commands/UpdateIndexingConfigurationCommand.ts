@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateIndexingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateIndexingConfigurationCommand}.
+ */
 export interface UpdateIndexingConfigurationCommandInput extends UpdateIndexingConfigurationRequest {}
+/**
+ * The output of {@link UpdateIndexingConfigurationCommand}.
+ */
 export interface UpdateIndexingConfigurationCommandOutput
   extends UpdateIndexingConfigurationResponse,
     __MetadataBearer {}

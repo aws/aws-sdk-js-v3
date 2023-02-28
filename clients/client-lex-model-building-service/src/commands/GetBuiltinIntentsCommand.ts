@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetBuiltinIntentsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBuiltinIntentsCommand}.
+ */
 export interface GetBuiltinIntentsCommandInput extends GetBuiltinIntentsRequest {}
+/**
+ * The output of {@link GetBuiltinIntentsCommand}.
+ */
 export interface GetBuiltinIntentsCommandOutput extends GetBuiltinIntentsResponse, __MetadataBearer {}
 
 /**

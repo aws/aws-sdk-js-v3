@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CalculateRouteMatrixCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CalculateRouteMatrixCommand}.
+ */
 export interface CalculateRouteMatrixCommandInput extends CalculateRouteMatrixRequest {}
+/**
+ * The output of {@link CalculateRouteMatrixCommand}.
+ */
 export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixResponse, __MetadataBearer {}
 
 /**

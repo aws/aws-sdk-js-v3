@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetHypervisorPropertyMappingsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetHypervisorPropertyMappingsCommand}.
+ */
 export interface GetHypervisorPropertyMappingsCommandInput extends GetHypervisorPropertyMappingsInput {}
+/**
+ * The output of {@link GetHypervisorPropertyMappingsCommand}.
+ */
 export interface GetHypervisorPropertyMappingsCommandOutput
   extends GetHypervisorPropertyMappingsOutput,
     __MetadataBearer {}

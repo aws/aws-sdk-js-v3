@@ -20,7 +20,13 @@ import {
   serializeAws_ec2ResetImageAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ResetImageAttributeCommand}.
+ */
 export interface ResetImageAttributeCommandInput extends ResetImageAttributeRequest {}
+/**
+ * The output of {@link ResetImageAttributeCommand}.
+ */
 export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
 
 /**

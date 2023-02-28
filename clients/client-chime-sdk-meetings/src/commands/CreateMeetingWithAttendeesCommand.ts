@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateMeetingWithAttendeesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateMeetingWithAttendeesCommand}.
+ */
 export interface CreateMeetingWithAttendeesCommandInput extends CreateMeetingWithAttendeesRequest {}
+/**
+ * The output of {@link CreateMeetingWithAttendeesCommand}.
+ */
 export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWithAttendeesResponse, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteModelPackageGroupPolicyCommand}.
+ */
 export interface DeleteModelPackageGroupPolicyCommandInput extends DeleteModelPackageGroupPolicyInput {}
+/**
+ * The output of {@link DeleteModelPackageGroupPolicyCommand}.
+ */
 export interface DeleteModelPackageGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**

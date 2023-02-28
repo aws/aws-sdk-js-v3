@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetGroupMembershipIdCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetGroupMembershipIdCommand}.
+ */
 export interface GetGroupMembershipIdCommandInput extends GetGroupMembershipIdRequest {}
+/**
+ * The output of {@link GetGroupMembershipIdCommand}.
+ */
 export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdResponse, __MetadataBearer {}
 
 /**

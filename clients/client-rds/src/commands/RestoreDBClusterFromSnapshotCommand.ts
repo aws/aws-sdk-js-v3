@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link RestoreDBClusterFromSnapshotCommand}.
+ */
 export interface RestoreDBClusterFromSnapshotCommandInput extends RestoreDBClusterFromSnapshotMessage {}
+/**
+ * The output of {@link RestoreDBClusterFromSnapshotCommand}.
+ */
 export interface RestoreDBClusterFromSnapshotCommandOutput
   extends RestoreDBClusterFromSnapshotResult,
     __MetadataBearer {}

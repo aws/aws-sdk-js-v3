@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateRuntimeConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateRuntimeConfigurationCommand}.
+ */
 export interface UpdateRuntimeConfigurationCommandInput extends UpdateRuntimeConfigurationInput {}
+/**
+ * The output of {@link UpdateRuntimeConfigurationCommand}.
+ */
 export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeConfigurationOutput, __MetadataBearer {}
 
 /**

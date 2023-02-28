@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1ListRunsCommand, serializeAws_json1_1ListRunsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListRunsCommand}.
+ */
 export interface ListRunsCommandInput extends ListRunsRequest {}
+/**
+ * The output of {@link ListRunsCommand}.
+ */
 export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SearchAssociatedTranscriptsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SearchAssociatedTranscriptsCommand}.
+ */
 export interface SearchAssociatedTranscriptsCommandInput extends SearchAssociatedTranscriptsRequest {}
+/**
+ * The output of {@link SearchAssociatedTranscriptsCommand}.
+ */
 export interface SearchAssociatedTranscriptsCommandOutput
   extends SearchAssociatedTranscriptsResponse,
     __MetadataBearer {}

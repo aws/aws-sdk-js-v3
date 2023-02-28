@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateS3ResourcesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateS3ResourcesCommand}.
+ */
 export interface AssociateS3ResourcesCommandInput extends AssociateS3ResourcesRequest {}
+/**
+ * The output of {@link AssociateS3ResourcesCommand}.
+ */
 export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesResult, __MetadataBearer {}
 
 /**

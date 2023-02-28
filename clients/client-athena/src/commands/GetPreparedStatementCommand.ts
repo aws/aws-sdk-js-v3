@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetPreparedStatementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetPreparedStatementCommand}.
+ */
 export interface GetPreparedStatementCommandInput extends GetPreparedStatementInput {}
+/**
+ * The output of {@link GetPreparedStatementCommand}.
+ */
 export interface GetPreparedStatementCommandOutput extends GetPreparedStatementOutput, __MetadataBearer {}
 
 /**

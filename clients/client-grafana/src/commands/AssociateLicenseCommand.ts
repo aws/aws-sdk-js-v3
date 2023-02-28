@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateLicenseCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateLicenseCommand}.
+ */
 export interface AssociateLicenseCommandInput extends AssociateLicenseRequest {}
+/**
+ * The output of {@link AssociateLicenseCommand}.
+ */
 export interface AssociateLicenseCommandOutput extends AssociateLicenseResponse, __MetadataBearer {}
 
 /**

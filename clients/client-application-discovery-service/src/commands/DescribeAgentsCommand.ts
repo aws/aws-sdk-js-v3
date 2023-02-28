@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeAgentsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeAgentsCommand}.
+ */
 export interface DescribeAgentsCommandInput extends DescribeAgentsRequest {}
+/**
+ * The output of {@link DescribeAgentsCommand}.
+ */
 export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __MetadataBearer {}
 
 /**

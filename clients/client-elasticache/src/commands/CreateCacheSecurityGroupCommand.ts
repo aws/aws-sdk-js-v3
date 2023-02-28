@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateCacheSecurityGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateCacheSecurityGroupCommand}.
+ */
 export interface CreateCacheSecurityGroupCommandInput extends CreateCacheSecurityGroupMessage {}
+/**
+ * The output of {@link CreateCacheSecurityGroupCommand}.
+ */
 export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecurityGroupResult, __MetadataBearer {}
 
 /**

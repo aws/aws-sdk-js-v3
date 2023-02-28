@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateDBClusterSnapshotCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateDBClusterSnapshotCommand}.
+ */
 export interface CreateDBClusterSnapshotCommandInput extends CreateDBClusterSnapshotMessage {}
+/**
+ * The output of {@link CreateDBClusterSnapshotCommand}.
+ */
 export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSnapshotResult, __MetadataBearer {}
 
 /**

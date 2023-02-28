@@ -25,7 +25,13 @@ import {
   serializeAws_ec2RejectVpcPeeringConnectionCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RejectVpcPeeringConnectionCommand}.
+ */
 export interface RejectVpcPeeringConnectionCommandInput extends RejectVpcPeeringConnectionRequest {}
+/**
+ * The output of {@link RejectVpcPeeringConnectionCommand}.
+ */
 export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**

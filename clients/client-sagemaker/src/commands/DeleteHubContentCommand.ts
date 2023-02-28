@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteHubContentCommand}.
+ */
 export interface DeleteHubContentCommandInput extends DeleteHubContentRequest {}
+/**
+ * The output of {@link DeleteHubContentCommand}.
+ */
 export interface DeleteHubContentCommandOutput extends __MetadataBearer {}
 
 /**

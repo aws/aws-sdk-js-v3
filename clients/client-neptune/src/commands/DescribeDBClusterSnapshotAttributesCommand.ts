@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeDBClusterSnapshotAttributesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeDBClusterSnapshotAttributesCommand}.
+ */
 export interface DescribeDBClusterSnapshotAttributesCommandInput extends DescribeDBClusterSnapshotAttributesMessage {}
+/**
+ * The output of {@link DescribeDBClusterSnapshotAttributesCommand}.
+ */
 export interface DescribeDBClusterSnapshotAttributesCommandOutput
   extends DescribeDBClusterSnapshotAttributesResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateHostedConfigurationVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateHostedConfigurationVersionCommand}.
+ */
 export interface CreateHostedConfigurationVersionCommandInput extends CreateHostedConfigurationVersionRequest {}
+/**
+ * The output of {@link CreateHostedConfigurationVersionCommand}.
+ */
 export interface CreateHostedConfigurationVersionCommandOutput extends HostedConfigurationVersion, __MetadataBearer {}
 
 /**

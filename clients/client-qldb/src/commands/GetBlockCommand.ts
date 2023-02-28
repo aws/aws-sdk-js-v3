@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * The input for {@link GetBlockCommand}.
+ */
 export interface GetBlockCommandInput extends GetBlockRequest {}
+/**
+ * The output of {@link GetBlockCommand}.
+ */
 export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBearer {}
 
 /**

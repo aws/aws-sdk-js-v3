@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DeleteDBClusterSnapshotCommand}.
+ */
 export interface DeleteDBClusterSnapshotCommandInput extends DeleteDBClusterSnapshotMessage {}
+/**
+ * The output of {@link DeleteDBClusterSnapshotCommand}.
+ */
 export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSnapshotResult, __MetadataBearer {}
 
 /**

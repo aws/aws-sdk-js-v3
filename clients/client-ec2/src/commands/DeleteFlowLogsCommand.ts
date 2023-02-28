@@ -22,7 +22,13 @@ import {
 } from "../models/models_2";
 import { deserializeAws_ec2DeleteFlowLogsCommand, serializeAws_ec2DeleteFlowLogsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteFlowLogsCommand}.
+ */
 export interface DeleteFlowLogsCommandInput extends DeleteFlowLogsRequest {}
+/**
+ * The output of {@link DeleteFlowLogsCommand}.
+ */
 export interface DeleteFlowLogsCommandOutput extends DeleteFlowLogsResult, __MetadataBearer {}
 
 /**

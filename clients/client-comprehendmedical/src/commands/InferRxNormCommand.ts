@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1InferRxNormCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link InferRxNormCommand}.
+ */
 export interface InferRxNormCommandInput extends InferRxNormRequest {}
+/**
+ * The output of {@link InferRxNormCommand}.
+ */
 export interface InferRxNormCommandOutput extends InferRxNormResponse, __MetadataBearer {}
 
 /**

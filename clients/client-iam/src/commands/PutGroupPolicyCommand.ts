@@ -20,7 +20,13 @@ import {
   serializeAws_queryPutGroupPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PutGroupPolicyCommand}.
+ */
 export interface PutGroupPolicyCommandInput extends PutGroupPolicyRequest {}
+/**
+ * The output of {@link PutGroupPolicyCommand}.
+ */
 export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**

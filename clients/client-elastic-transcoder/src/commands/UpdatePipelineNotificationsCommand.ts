@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1UpdatePipelineNotificationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdatePipelineNotificationsCommand}.
+ */
 export interface UpdatePipelineNotificationsCommandInput extends UpdatePipelineNotificationsRequest {}
+/**
+ * The output of {@link UpdatePipelineNotificationsCommand}.
+ */
 export interface UpdatePipelineNotificationsCommandOutput
   extends UpdatePipelineNotificationsResponse,
     __MetadataBearer {}

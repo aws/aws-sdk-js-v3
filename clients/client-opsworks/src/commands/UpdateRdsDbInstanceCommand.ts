@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateRdsDbInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateRdsDbInstanceCommand}.
+ */
 export interface UpdateRdsDbInstanceCommandInput extends UpdateRdsDbInstanceRequest {}
+/**
+ * The output of {@link UpdateRdsDbInstanceCommand}.
+ */
 export interface UpdateRdsDbInstanceCommandOutput extends __MetadataBearer {}
 
 /**

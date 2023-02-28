@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetBehaviorModelTrainingSummariesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBehaviorModelTrainingSummariesCommand}.
+ */
 export interface GetBehaviorModelTrainingSummariesCommandInput extends GetBehaviorModelTrainingSummariesRequest {}
+/**
+ * The output of {@link GetBehaviorModelTrainingSummariesCommand}.
+ */
 export interface GetBehaviorModelTrainingSummariesCommandOutput
   extends GetBehaviorModelTrainingSummariesResponse,
     __MetadataBearer {}

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_0UpdateInferenceSchedulerCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateInferenceSchedulerCommand}.
+ */
 export interface UpdateInferenceSchedulerCommandInput extends UpdateInferenceSchedulerRequest {}
+/**
+ * The output of {@link UpdateInferenceSchedulerCommand}.
+ */
 export interface UpdateInferenceSchedulerCommandOutput extends __MetadataBearer {}
 
 /**

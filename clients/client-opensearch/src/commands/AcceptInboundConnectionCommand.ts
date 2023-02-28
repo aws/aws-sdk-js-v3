@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AcceptInboundConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AcceptInboundConnectionCommand}.
+ */
 export interface AcceptInboundConnectionCommandInput extends AcceptInboundConnectionRequest {}
+/**
+ * The output of {@link AcceptInboundConnectionCommand}.
+ */
 export interface AcceptInboundConnectionCommandOutput extends AcceptInboundConnectionResponse, __MetadataBearer {}
 
 /**

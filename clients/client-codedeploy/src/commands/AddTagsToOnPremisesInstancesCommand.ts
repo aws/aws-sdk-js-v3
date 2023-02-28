@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1AddTagsToOnPremisesInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddTagsToOnPremisesInstancesCommand}.
+ */
 export interface AddTagsToOnPremisesInstancesCommandInput extends AddTagsToOnPremisesInstancesInput {}
+/**
+ * The output of {@link AddTagsToOnPremisesInstancesCommand}.
+ */
 export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBearer {}
 
 /**

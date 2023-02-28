@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link NullAndEmptyHeadersClientCommand}.
+ */
 export interface NullAndEmptyHeadersClientCommandInput extends NullAndEmptyHeadersIO {}
+/**
+ * The output of {@link NullAndEmptyHeadersClientCommand}.
+ */
 export interface NullAndEmptyHeadersClientCommandOutput extends NullAndEmptyHeadersIO, __MetadataBearer {}
 
 /**

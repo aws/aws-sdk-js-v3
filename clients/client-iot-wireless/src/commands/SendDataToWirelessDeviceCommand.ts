@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SendDataToWirelessDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SendDataToWirelessDeviceCommand}.
+ */
 export interface SendDataToWirelessDeviceCommandInput extends SendDataToWirelessDeviceRequest {}
+/**
+ * The output of {@link SendDataToWirelessDeviceCommand}.
+ */
 export interface SendDataToWirelessDeviceCommandOutput extends SendDataToWirelessDeviceResponse, __MetadataBearer {}
 
 /**

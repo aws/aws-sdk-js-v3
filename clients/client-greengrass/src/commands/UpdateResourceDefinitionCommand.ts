@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateResourceDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateResourceDefinitionCommand}.
+ */
 export interface UpdateResourceDefinitionCommandInput extends UpdateResourceDefinitionRequest {}
+/**
+ * The output of {@link UpdateResourceDefinitionCommand}.
+ */
 export interface UpdateResourceDefinitionCommandOutput extends UpdateResourceDefinitionResponse, __MetadataBearer {}
 
 /**

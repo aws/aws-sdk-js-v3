@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link CreateGlobalClusterCommand}.
+ */
 export interface CreateGlobalClusterCommandInput extends CreateGlobalClusterMessage {}
+/**
+ * The output of {@link CreateGlobalClusterCommand}.
+ */
 export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterResult, __MetadataBearer {}
 
 /**

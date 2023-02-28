@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link DeleteHostedZoneCommand}.
+ */
 export interface DeleteHostedZoneCommandInput extends DeleteHostedZoneRequest {}
+/**
+ * The output of {@link DeleteHostedZoneCommand}.
+ */
 export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeletePipeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePipeCommand}.
+ */
 export interface DeletePipeCommandInput extends DeletePipeRequest {}
+/**
+ * The output of {@link DeletePipeCommand}.
+ */
 export interface DeletePipeCommandOutput extends DeletePipeResponse, __MetadataBearer {}
 
 /**

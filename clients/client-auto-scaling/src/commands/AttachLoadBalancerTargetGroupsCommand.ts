@@ -25,7 +25,13 @@ import {
   serializeAws_queryAttachLoadBalancerTargetGroupsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link AttachLoadBalancerTargetGroupsCommand}.
+ */
 export interface AttachLoadBalancerTargetGroupsCommandInput extends AttachLoadBalancerTargetGroupsType {}
+/**
+ * The output of {@link AttachLoadBalancerTargetGroupsCommand}.
+ */
 export interface AttachLoadBalancerTargetGroupsCommandOutput
   extends AttachLoadBalancerTargetGroupsResultType,
     __MetadataBearer {}

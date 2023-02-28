@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeAccessControlConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeAccessControlConfigurationCommand}.
+ */
 export interface DescribeAccessControlConfigurationCommandInput extends DescribeAccessControlConfigurationRequest {}
+/**
+ * The output of {@link DescribeAccessControlConfigurationCommand}.
+ */
 export interface DescribeAccessControlConfigurationCommandOutput
   extends DescribeAccessControlConfigurationResponse,
     __MetadataBearer {}

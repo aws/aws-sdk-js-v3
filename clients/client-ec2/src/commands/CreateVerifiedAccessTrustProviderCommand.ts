@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateVerifiedAccessTrustProviderCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateVerifiedAccessTrustProviderCommand}.
+ */
 export interface CreateVerifiedAccessTrustProviderCommandInput extends CreateVerifiedAccessTrustProviderRequest {}
+/**
+ * The output of {@link CreateVerifiedAccessTrustProviderCommand}.
+ */
 export interface CreateVerifiedAccessTrustProviderCommandOutput
   extends CreateVerifiedAccessTrustProviderResult,
     __MetadataBearer {}

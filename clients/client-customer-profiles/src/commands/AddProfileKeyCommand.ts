@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AddProfileKeyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AddProfileKeyCommand}.
+ */
 export interface AddProfileKeyCommandInput extends AddProfileKeyRequest {}
+/**
+ * The output of {@link AddProfileKeyCommand}.
+ */
 export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __MetadataBearer {}
 
 /**

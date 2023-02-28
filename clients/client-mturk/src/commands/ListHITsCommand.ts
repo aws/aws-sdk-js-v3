@@ -22,7 +22,13 @@ import {
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { deserializeAws_json1_1ListHITsCommand, serializeAws_json1_1ListHITsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListHITsCommand}.
+ */
 export interface ListHITsCommandInput extends ListHITsRequest {}
+/**
+ * The output of {@link ListHITsCommand}.
+ */
 export interface ListHITsCommandOutput extends ListHITsResponse, __MetadataBearer {}
 
 /**

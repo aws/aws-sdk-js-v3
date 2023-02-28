@@ -25,7 +25,13 @@ import {
   serializeAws_ec2UnassignIpv6AddressesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link UnassignIpv6AddressesCommand}.
+ */
 export interface UnassignIpv6AddressesCommandInput extends UnassignIpv6AddressesRequest {}
+/**
+ * The output of {@link UnassignIpv6AddressesCommand}.
+ */
 export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6AddressesResult, __MetadataBearer {}
 
 /**

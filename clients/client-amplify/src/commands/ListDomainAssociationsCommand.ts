@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListDomainAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDomainAssociationsCommand}.
+ */
 export interface ListDomainAssociationsCommandInput extends ListDomainAssociationsRequest {}
+/**
+ * The output of {@link ListDomainAssociationsCommand}.
+ */
 export interface ListDomainAssociationsCommandOutput extends ListDomainAssociationsResult, __MetadataBearer {}
 
 /**

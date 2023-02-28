@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetStoredQueryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetStoredQueryCommand}.
+ */
 export interface GetStoredQueryCommandInput extends GetStoredQueryRequest {}
+/**
+ * The output of {@link GetStoredQueryCommand}.
+ */
 export interface GetStoredQueryCommandOutput extends GetStoredQueryResponse, __MetadataBearer {}
 
 /**

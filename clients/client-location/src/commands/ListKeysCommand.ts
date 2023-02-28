@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListKeysCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListKeysCommand}.
+ */
 export interface ListKeysCommandInput extends ListKeysRequest {}
+/**
+ * The output of {@link ListKeysCommand}.
+ */
 export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBearer {}
 
 /**

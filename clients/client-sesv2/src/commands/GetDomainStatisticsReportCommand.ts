@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link GetDomainStatisticsReportCommand}.
+ */
 export interface GetDomainStatisticsReportCommandInput extends GetDomainStatisticsReportRequest {}
+/**
+ * The output of {@link GetDomainStatisticsReportCommand}.
+ */
 export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatisticsReportResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryGetContextKeysForCustomPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetContextKeysForCustomPolicyCommand}.
+ */
 export interface GetContextKeysForCustomPolicyCommandInput extends GetContextKeysForCustomPolicyRequest {}
+/**
+ * The output of {@link GetContextKeysForCustomPolicyCommand}.
+ */
 export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKeysForPolicyResponse, __MetadataBearer {}
 
 /**

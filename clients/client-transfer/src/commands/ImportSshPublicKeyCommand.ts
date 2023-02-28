@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link ImportSshPublicKeyCommand}.
+ */
 export interface ImportSshPublicKeyCommandInput extends ImportSshPublicKeyRequest {}
+/**
+ * The output of {@link ImportSshPublicKeyCommand}.
+ */
 export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyResponse, __MetadataBearer {}
 
 /**

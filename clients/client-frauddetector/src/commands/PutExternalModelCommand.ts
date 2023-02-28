@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutExternalModelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutExternalModelCommand}.
+ */
 export interface PutExternalModelCommandInput extends PutExternalModelRequest {}
+/**
+ * The output of {@link PutExternalModelCommand}.
+ */
 export interface PutExternalModelCommandOutput extends PutExternalModelResult, __MetadataBearer {}
 
 /**

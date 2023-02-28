@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
+/**
+ * The input for {@link SearchResourcesCommand}.
+ */
 export interface SearchResourcesCommandInput extends SearchResourcesInput {}
+/**
+ * The output of {@link SearchResourcesCommand}.
+ */
 export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __MetadataBearer {}
 
 /**

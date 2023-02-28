@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateSourceServersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateSourceServersCommand}.
+ */
 export interface AssociateSourceServersCommandInput extends AssociateSourceServersRequest {}
+/**
+ * The output of {@link AssociateSourceServersCommand}.
+ */
 export interface AssociateSourceServersCommandOutput extends AssociateSourceServersResponse, __MetadataBearer {}
 
 /**

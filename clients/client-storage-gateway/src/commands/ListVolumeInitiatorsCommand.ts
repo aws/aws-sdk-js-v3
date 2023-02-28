@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link ListVolumeInitiatorsCommand}.
+ */
 export interface ListVolumeInitiatorsCommandInput extends ListVolumeInitiatorsInput {}
+/**
+ * The output of {@link ListVolumeInitiatorsCommand}.
+ */
 export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsOutput, __MetadataBearer {}
 
 /**

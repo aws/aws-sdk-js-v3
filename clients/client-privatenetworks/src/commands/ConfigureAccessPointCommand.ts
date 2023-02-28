@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ConfigureAccessPointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ConfigureAccessPointCommand}.
+ */
 export interface ConfigureAccessPointCommandInput extends ConfigureAccessPointRequest {}
+/**
+ * The output of {@link ConfigureAccessPointCommand}.
+ */
 export interface ConfigureAccessPointCommandOutput extends ConfigureAccessPointResponse, __MetadataBearer {}
 
 /**

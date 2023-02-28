@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DescribeClusterParametersCommand}.
+ */
 export interface DescribeClusterParametersCommandInput extends DescribeClusterParametersMessage {}
+/**
+ * The output of {@link DescribeClusterParametersCommand}.
+ */
 export interface DescribeClusterParametersCommandOutput extends ClusterParameterGroupDetails, __MetadataBearer {}
 
 /**

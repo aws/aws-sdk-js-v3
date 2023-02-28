@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SearchEntitiesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SearchEntitiesCommand}.
+ */
 export interface SearchEntitiesCommandInput extends SearchEntitiesRequest {}
+/**
+ * The output of {@link SearchEntitiesCommand}.
+ */
 export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __MetadataBearer {}
 
 /**

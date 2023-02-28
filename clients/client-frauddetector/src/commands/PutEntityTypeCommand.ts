@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutEntityTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutEntityTypeCommand}.
+ */
 export interface PutEntityTypeCommandInput extends PutEntityTypeRequest {}
+/**
+ * The output of {@link PutEntityTypeCommand}.
+ */
 export interface PutEntityTypeCommandOutput extends PutEntityTypeResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListInvitationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListInvitationsCommand}.
+ */
 export interface ListInvitationsCommandInput extends ListInvitationsRequest {}
+/**
+ * The output of {@link ListInvitationsCommand}.
+ */
 export interface ListInvitationsCommandOutput extends ListInvitationsResponse, __MetadataBearer {}
 
 /**

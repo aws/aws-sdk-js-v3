@@ -18,7 +18,13 @@ import { VolumeAttachment, VolumeAttachmentFilterSensitiveLog } from "../models/
 import { DetachVolumeRequest, DetachVolumeRequestFilterSensitiveLog } from "../models/models_5";
 import { deserializeAws_ec2DetachVolumeCommand, serializeAws_ec2DetachVolumeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DetachVolumeCommand}.
+ */
 export interface DetachVolumeCommandInput extends DetachVolumeRequest {}
+/**
+ * The output of {@link DetachVolumeCommand}.
+ */
 export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataBearer {}
 
 /**

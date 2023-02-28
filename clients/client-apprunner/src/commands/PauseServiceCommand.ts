@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0PauseServiceCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link PauseServiceCommand}.
+ */
 export interface PauseServiceCommandInput extends PauseServiceRequest {}
+/**
+ * The output of {@link PauseServiceCommand}.
+ */
 export interface PauseServiceCommandOutput extends PauseServiceResponse, __MetadataBearer {}
 
 /**

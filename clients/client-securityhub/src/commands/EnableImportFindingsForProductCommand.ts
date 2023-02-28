@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link EnableImportFindingsForProductCommand}.
+ */
 export interface EnableImportFindingsForProductCommandInput extends EnableImportFindingsForProductRequest {}
+/**
+ * The output of {@link EnableImportFindingsForProductCommand}.
+ */
 export interface EnableImportFindingsForProductCommandOutput
   extends EnableImportFindingsForProductResponse,
     __MetadataBearer {}

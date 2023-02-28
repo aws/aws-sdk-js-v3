@@ -22,6 +22,9 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link StreamingTraitsRequireLengthCommand}.
+ */
 type StreamingTraitsRequireLengthCommandInputType = Omit<StreamingTraitsRequireLengthInput, "blob"> & {
   /**
    * For *`StreamingTraitsRequireLengthInput["blob"]`*, see {@link StreamingTraitsRequireLengthInput.blob}.
@@ -32,6 +35,9 @@ type StreamingTraitsRequireLengthCommandInputType = Omit<StreamingTraitsRequireL
  * This interface extends from `StreamingTraitsRequireLengthInput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsRequireLengthInput}
  */
 export interface StreamingTraitsRequireLengthCommandInput extends StreamingTraitsRequireLengthCommandInputType {}
+/**
+ * The output of {@link StreamingTraitsRequireLengthCommand}.
+ */
 export interface StreamingTraitsRequireLengthCommandOutput extends __MetadataBearer {}
 
 /**

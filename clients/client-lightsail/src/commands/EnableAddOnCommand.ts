@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1EnableAddOnCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EnableAddOnCommand}.
+ */
 export interface EnableAddOnCommandInput extends EnableAddOnRequest {}
+/**
+ * The output of {@link EnableAddOnCommand}.
+ */
 export interface EnableAddOnCommandOutput extends EnableAddOnResult, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0ListVpcEndpointsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListVpcEndpointsCommand}.
+ */
 export interface ListVpcEndpointsCommandInput extends ListVpcEndpointsRequest {}
+/**
+ * The output of {@link ListVpcEndpointsCommand}.
+ */
 export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetOutpostInstanceTypesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetOutpostInstanceTypesCommand}.
+ */
 export interface GetOutpostInstanceTypesCommandInput extends GetOutpostInstanceTypesInput {}
+/**
+ * The output of {@link GetOutpostInstanceTypesCommand}.
+ */
 export interface GetOutpostInstanceTypesCommandOutput extends GetOutpostInstanceTypesOutput, __MetadataBearer {}
 
 /**

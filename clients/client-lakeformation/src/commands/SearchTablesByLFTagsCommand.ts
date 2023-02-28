@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SearchTablesByLFTagsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SearchTablesByLFTagsCommand}.
+ */
 export interface SearchTablesByLFTagsCommandInput extends SearchTablesByLFTagsRequest {}
+/**
+ * The output of {@link SearchTablesByLFTagsCommand}.
+ */
 export interface SearchTablesByLFTagsCommandOutput extends SearchTablesByLFTagsResponse, __MetadataBearer {}
 
 /**

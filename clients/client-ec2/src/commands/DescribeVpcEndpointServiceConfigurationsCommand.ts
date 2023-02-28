@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeVpcEndpointServiceConfigurationsCommand}.
+ */
 export interface DescribeVpcEndpointServiceConfigurationsCommandInput
   extends DescribeVpcEndpointServiceConfigurationsRequest {}
+/**
+ * The output of {@link DescribeVpcEndpointServiceConfigurationsCommand}.
+ */
 export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
   extends DescribeVpcEndpointServiceConfigurationsResult,
     __MetadataBearer {}

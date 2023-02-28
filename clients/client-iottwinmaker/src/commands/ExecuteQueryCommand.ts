@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ExecuteQueryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ExecuteQueryCommand}.
+ */
 export interface ExecuteQueryCommandInput extends ExecuteQueryRequest {}
+/**
+ * The output of {@link ExecuteQueryCommand}.
+ */
 export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __MetadataBearer {}
 
 /**

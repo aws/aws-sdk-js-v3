@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeBotLocaleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeBotLocaleCommand}.
+ */
 export interface DescribeBotLocaleCommandInput extends DescribeBotLocaleRequest {}
+/**
+ * The output of {@link DescribeBotLocaleCommand}.
+ */
 export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleResponse, __MetadataBearer {}
 
 /**

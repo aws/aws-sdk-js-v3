@@ -25,7 +25,13 @@ import {
   serializeAws_queryUpdateApplicationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateApplicationCommand}.
+ */
 export interface UpdateApplicationCommandInput extends UpdateApplicationMessage {}
+/**
+ * The output of {@link UpdateApplicationCommand}.
+ */
 export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMessage, __MetadataBearer {}
 
 /**

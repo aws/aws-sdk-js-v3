@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateCacheClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateCacheClusterCommand}.
+ */
 export interface CreateCacheClusterCommandInput extends CreateCacheClusterMessage {}
+/**
+ * The output of {@link CreateCacheClusterCommand}.
+ */
 export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResult, __MetadataBearer {}
 
 /**

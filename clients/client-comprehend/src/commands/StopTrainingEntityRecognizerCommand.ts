@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopTrainingEntityRecognizerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopTrainingEntityRecognizerCommand}.
+ */
 export interface StopTrainingEntityRecognizerCommandInput extends StopTrainingEntityRecognizerRequest {}
+/**
+ * The output of {@link StopTrainingEntityRecognizerCommand}.
+ */
 export interface StopTrainingEntityRecognizerCommandOutput
   extends StopTrainingEntityRecognizerResponse,
     __MetadataBearer {}

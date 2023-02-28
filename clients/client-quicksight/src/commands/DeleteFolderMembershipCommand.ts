@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link DeleteFolderMembershipCommand}.
+ */
 export interface DeleteFolderMembershipCommandInput extends DeleteFolderMembershipRequest {}
+/**
+ * The output of {@link DeleteFolderMembershipCommand}.
+ */
 export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembershipResponse, __MetadataBearer {}
 
 /**

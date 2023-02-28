@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * The input for {@link ListAttributeGroupsCommand}.
+ */
 export interface ListAttributeGroupsCommandInput extends ListAttributeGroupsRequest {}
+/**
+ * The output of {@link ListAttributeGroupsCommand}.
+ */
 export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsResponse, __MetadataBearer {}
 
 /**

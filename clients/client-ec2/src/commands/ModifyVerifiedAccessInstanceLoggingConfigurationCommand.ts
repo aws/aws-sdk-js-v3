@@ -25,8 +25,14 @@ import {
   serializeAws_ec2ModifyVerifiedAccessInstanceLoggingConfigurationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyVerifiedAccessInstanceLoggingConfigurationCommand}.
+ */
 export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput
   extends ModifyVerifiedAccessInstanceLoggingConfigurationRequest {}
+/**
+ * The output of {@link ModifyVerifiedAccessInstanceLoggingConfigurationCommand}.
+ */
 export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput
   extends ModifyVerifiedAccessInstanceLoggingConfigurationResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
+/**
+ * The input for {@link GetRuleCommand}.
+ */
 export interface GetRuleCommandInput extends GetRuleRequest {}
+/**
+ * The output of {@link GetRuleCommand}.
+ */
 export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer {}
 
 /**

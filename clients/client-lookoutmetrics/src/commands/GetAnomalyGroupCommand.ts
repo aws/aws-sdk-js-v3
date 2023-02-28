@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAnomalyGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAnomalyGroupCommand}.
+ */
 export interface GetAnomalyGroupCommandInput extends GetAnomalyGroupRequest {}
+/**
+ * The output of {@link GetAnomalyGroupCommand}.
+ */
 export interface GetAnomalyGroupCommandOutput extends GetAnomalyGroupResponse, __MetadataBearer {}
 
 /**

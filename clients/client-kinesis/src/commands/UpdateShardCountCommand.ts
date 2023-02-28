@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateShardCountCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateShardCountCommand}.
+ */
 export interface UpdateShardCountCommandInput extends UpdateShardCountInput {}
+/**
+ * The output of {@link UpdateShardCountCommand}.
+ */
 export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, __MetadataBearer {}
 
 /**

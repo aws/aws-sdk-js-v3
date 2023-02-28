@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DeleteDataProtectionPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteDataProtectionPolicyCommand}.
+ */
 export interface DeleteDataProtectionPolicyCommandInput extends DeleteDataProtectionPolicyRequest {}
+/**
+ * The output of {@link DeleteDataProtectionPolicyCommand}.
+ */
 export interface DeleteDataProtectionPolicyCommandOutput extends __MetadataBearer {}
 
 /**

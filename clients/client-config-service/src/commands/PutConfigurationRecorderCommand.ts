@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1PutConfigurationRecorderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutConfigurationRecorderCommand}.
+ */
 export interface PutConfigurationRecorderCommandInput extends PutConfigurationRecorderRequest {}
+/**
+ * The output of {@link PutConfigurationRecorderCommand}.
+ */
 export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**

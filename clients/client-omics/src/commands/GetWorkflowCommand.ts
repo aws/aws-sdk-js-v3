@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetWorkflowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetWorkflowCommand}.
+ */
 export interface GetWorkflowCommandInput extends GetWorkflowRequest {}
+/**
+ * The output of {@link GetWorkflowCommand}.
+ */
 export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __MetadataBearer {}
 
 /**

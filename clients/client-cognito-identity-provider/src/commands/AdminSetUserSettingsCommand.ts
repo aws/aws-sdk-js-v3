@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminSetUserSettingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminSetUserSettingsCommand}.
+ */
 export interface AdminSetUserSettingsCommandInput extends AdminSetUserSettingsRequest {}
+/**
+ * The output of {@link AdminSetUserSettingsCommand}.
+ */
 export interface AdminSetUserSettingsCommandOutput extends AdminSetUserSettingsResponse, __MetadataBearer {}
 
 /**

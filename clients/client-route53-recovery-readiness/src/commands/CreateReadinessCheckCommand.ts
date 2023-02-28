@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * The input for {@link CreateReadinessCheckCommand}.
+ */
 export interface CreateReadinessCheckCommandInput extends CreateReadinessCheckRequest {}
+/**
+ * The output of {@link CreateReadinessCheckCommand}.
+ */
 export interface CreateReadinessCheckCommandOutput extends CreateReadinessCheckResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetOutpostCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetOutpostCommand}.
+ */
 export interface GetOutpostCommandInput extends GetOutpostInput {}
+/**
+ * The output of {@link GetOutpostCommand}.
+ */
 export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBearer {}
 
 /**

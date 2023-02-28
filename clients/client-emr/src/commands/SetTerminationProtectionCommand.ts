@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1SetTerminationProtectionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SetTerminationProtectionCommand}.
+ */
 export interface SetTerminationProtectionCommandInput extends SetTerminationProtectionInput {}
+/**
+ * The output of {@link SetTerminationProtectionCommand}.
+ */
 export interface SetTerminationProtectionCommandOutput extends __MetadataBearer {}
 
 /**

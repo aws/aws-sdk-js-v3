@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * The input for {@link PutTraceSegmentsCommand}.
+ */
 export interface PutTraceSegmentsCommandInput extends PutTraceSegmentsRequest {}
+/**
+ * The output of {@link PutTraceSegmentsCommand}.
+ */
 export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, __MetadataBearer {}
 
 /**

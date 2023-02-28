@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListOTAUpdatesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListOTAUpdatesCommand}.
+ */
 export interface ListOTAUpdatesCommandInput extends ListOTAUpdatesRequest {}
+/**
+ * The output of {@link ListOTAUpdatesCommand}.
+ */
 export interface ListOTAUpdatesCommandOutput extends ListOTAUpdatesResponse, __MetadataBearer {}
 
 /**

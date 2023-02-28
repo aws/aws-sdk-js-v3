@@ -20,7 +20,13 @@ import {
   serializeAws_queryUpdateSSHPublicKeyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateSSHPublicKeyCommand}.
+ */
 export interface UpdateSSHPublicKeyCommandInput extends UpdateSSHPublicKeyRequest {}
+/**
+ * The output of {@link UpdateSSHPublicKeyCommand}.
+ */
 export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**

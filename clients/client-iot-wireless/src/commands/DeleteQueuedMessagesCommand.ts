@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteQueuedMessagesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteQueuedMessagesCommand}.
+ */
 export interface DeleteQueuedMessagesCommandInput extends DeleteQueuedMessagesRequest {}
+/**
+ * The output of {@link DeleteQueuedMessagesCommand}.
+ */
 export interface DeleteQueuedMessagesCommandOutput extends DeleteQueuedMessagesResponse, __MetadataBearer {}
 
 /**

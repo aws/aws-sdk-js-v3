@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAnomalyGroupTimeSeriesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAnomalyGroupTimeSeriesCommand}.
+ */
 export interface ListAnomalyGroupTimeSeriesCommandInput extends ListAnomalyGroupTimeSeriesRequest {}
+/**
+ * The output of {@link ListAnomalyGroupTimeSeriesCommand}.
+ */
 export interface ListAnomalyGroupTimeSeriesCommandOutput extends ListAnomalyGroupTimeSeriesResponse, __MetadataBearer {}
 
 /**

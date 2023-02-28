@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateDatasetEntriesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateDatasetEntriesCommand}.
+ */
 export interface UpdateDatasetEntriesCommandInput extends UpdateDatasetEntriesRequest {}
+/**
+ * The output of {@link UpdateDatasetEntriesCommand}.
+ */
 export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesResponse, __MetadataBearer {}
 
 /**

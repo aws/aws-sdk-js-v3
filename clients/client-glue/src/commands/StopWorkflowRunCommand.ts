@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopWorkflowRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopWorkflowRunCommand}.
+ */
 export interface StopWorkflowRunCommandInput extends StopWorkflowRunRequest {}
+/**
+ * The output of {@link StopWorkflowRunCommand}.
+ */
 export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, __MetadataBearer {}
 
 /**

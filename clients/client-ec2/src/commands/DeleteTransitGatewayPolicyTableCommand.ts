@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteTransitGatewayPolicyTableCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteTransitGatewayPolicyTableCommand}.
+ */
 export interface DeleteTransitGatewayPolicyTableCommandInput extends DeleteTransitGatewayPolicyTableRequest {}
+/**
+ * The output of {@link DeleteTransitGatewayPolicyTableCommand}.
+ */
 export interface DeleteTransitGatewayPolicyTableCommandOutput
   extends DeleteTransitGatewayPolicyTableResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateOrderCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateOrderCommand}.
+ */
 export interface CreateOrderCommandInput extends CreateOrderInput {}
+/**
+ * The output of {@link CreateOrderCommand}.
+ */
 export interface CreateOrderCommandOutput extends CreateOrderOutput, __MetadataBearer {}
 
 /**

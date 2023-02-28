@@ -28,7 +28,13 @@ import {
   serializeAws_restJson1GetChunkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetChunkCommand}.
+ */
 export interface GetChunkCommandInput extends GetChunkInput {}
+/**
+ * The output of {@link GetChunkCommand}.
+ */
 export interface GetChunkCommandOutput extends __WithSdkStreamMixin<GetChunkOutput, "Data">, __MetadataBearer {}
 
 /**

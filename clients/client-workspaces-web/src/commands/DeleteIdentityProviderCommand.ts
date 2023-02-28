@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link DeleteIdentityProviderCommand}.
+ */
 export interface DeleteIdentityProviderCommandInput extends DeleteIdentityProviderRequest {}
+/**
+ * The output of {@link DeleteIdentityProviderCommand}.
+ */
 export interface DeleteIdentityProviderCommandOutput extends DeleteIdentityProviderResponse, __MetadataBearer {}
 
 /**

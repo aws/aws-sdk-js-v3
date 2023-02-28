@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link DescribeConnectorCommand}.
+ */
 export interface DescribeConnectorCommandInput extends DescribeConnectorRequest {}
+/**
+ * The output of {@link DescribeConnectorCommand}.
+ */
 export interface DescribeConnectorCommandOutput extends DescribeConnectorResponse, __MetadataBearer {}
 
 /**

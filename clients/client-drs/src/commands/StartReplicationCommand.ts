@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartReplicationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartReplicationCommand}.
+ */
 export interface StartReplicationCommandInput extends StartReplicationRequest {}
+/**
+ * The output of {@link StartReplicationCommand}.
+ */
 export interface StartReplicationCommandOutput extends StartReplicationResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ReplicateInstanceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ReplicateInstanceCommand}.
+ */
 export interface ReplicateInstanceCommandInput extends ReplicateInstanceRequest {}
+/**
+ * The output of {@link ReplicateInstanceCommand}.
+ */
 export interface ReplicateInstanceCommandOutput extends ReplicateInstanceResponse, __MetadataBearer {}
 
 /**

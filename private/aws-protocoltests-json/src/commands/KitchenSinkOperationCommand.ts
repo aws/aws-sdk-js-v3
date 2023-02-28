@@ -19,7 +19,13 @@ import {
   serializeAws_json1_1KitchenSinkOperationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link KitchenSinkOperationCommand}.
+ */
 export interface KitchenSinkOperationCommandInput extends KitchenSink {}
+/**
+ * The output of {@link KitchenSinkOperationCommand}.
+ */
 export interface KitchenSinkOperationCommandOutput extends KitchenSink, __MetadataBearer {}
 
 export class KitchenSinkOperationCommand extends $Command<

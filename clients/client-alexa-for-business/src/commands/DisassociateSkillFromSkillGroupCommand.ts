@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateSkillFromSkillGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateSkillFromSkillGroupCommand}.
+ */
 export interface DisassociateSkillFromSkillGroupCommandInput extends DisassociateSkillFromSkillGroupRequest {}
+/**
+ * The output of {@link DisassociateSkillFromSkillGroupCommand}.
+ */
 export interface DisassociateSkillFromSkillGroupCommandOutput
   extends DisassociateSkillFromSkillGroupResponse,
     __MetadataBearer {}

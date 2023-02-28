@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetTypeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetTypeCommand}.
+ */
 export interface GetTypeCommandInput extends GetTypeRequest {}
+/**
+ * The output of {@link GetTypeCommand}.
+ */
 export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer {}
 
 /**

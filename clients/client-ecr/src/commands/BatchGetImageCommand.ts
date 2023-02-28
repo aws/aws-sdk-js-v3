@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetImageCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetImageCommand}.
+ */
 export interface BatchGetImageCommandInput extends BatchGetImageRequest {}
+/**
+ * The output of {@link BatchGetImageCommand}.
+ */
 export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteRouteRequestParameterCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteRouteRequestParameterCommand}.
+ */
 export interface DeleteRouteRequestParameterCommandInput extends DeleteRouteRequestParameterRequest {}
+/**
+ * The output of {@link DeleteRouteRequestParameterCommand}.
+ */
 export interface DeleteRouteRequestParameterCommandOutput extends __MetadataBearer {}
 
 /**

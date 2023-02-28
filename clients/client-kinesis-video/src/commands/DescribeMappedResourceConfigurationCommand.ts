@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeMappedResourceConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeMappedResourceConfigurationCommand}.
+ */
 export interface DescribeMappedResourceConfigurationCommandInput extends DescribeMappedResourceConfigurationInput {}
+/**
+ * The output of {@link DescribeMappedResourceConfigurationCommand}.
+ */
 export interface DescribeMappedResourceConfigurationCommandOutput
   extends DescribeMappedResourceConfigurationOutput,
     __MetadataBearer {}

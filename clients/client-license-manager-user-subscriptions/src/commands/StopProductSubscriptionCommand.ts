@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1StopProductSubscriptionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopProductSubscriptionCommand}.
+ */
 export interface StopProductSubscriptionCommandInput extends StopProductSubscriptionRequest {}
+/**
+ * The output of {@link StopProductSubscriptionCommand}.
+ */
 export interface StopProductSubscriptionCommandOutput extends StopProductSubscriptionResponse, __MetadataBearer {}
 
 /**

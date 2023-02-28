@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteExpressionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteExpressionCommand}.
+ */
 export interface DeleteExpressionCommandInput extends DeleteExpressionRequest {}
+/**
+ * The output of {@link DeleteExpressionCommand}.
+ */
 export interface DeleteExpressionCommandOutput extends DeleteExpressionResponse, __MetadataBearer {}
 
 /**

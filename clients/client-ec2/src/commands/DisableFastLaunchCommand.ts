@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DisableFastLaunchCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisableFastLaunchCommand}.
+ */
 export interface DisableFastLaunchCommandInput extends DisableFastLaunchRequest {}
+/**
+ * The output of {@link DisableFastLaunchCommand}.
+ */
 export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult, __MetadataBearer {}
 
 /**

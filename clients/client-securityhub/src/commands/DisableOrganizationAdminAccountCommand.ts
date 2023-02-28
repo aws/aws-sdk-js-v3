@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link DisableOrganizationAdminAccountCommand}.
+ */
 export interface DisableOrganizationAdminAccountCommandInput extends DisableOrganizationAdminAccountRequest {}
+/**
+ * The output of {@link DisableOrganizationAdminAccountCommand}.
+ */
 export interface DisableOrganizationAdminAccountCommandOutput
   extends DisableOrganizationAdminAccountResponse,
     __MetadataBearer {}

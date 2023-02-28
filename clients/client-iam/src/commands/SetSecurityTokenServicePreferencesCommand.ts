@@ -23,7 +23,13 @@ import {
   serializeAws_querySetSecurityTokenServicePreferencesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SetSecurityTokenServicePreferencesCommand}.
+ */
 export interface SetSecurityTokenServicePreferencesCommandInput extends SetSecurityTokenServicePreferencesRequest {}
+/**
+ * The output of {@link SetSecurityTokenServicePreferencesCommand}.
+ */
 export interface SetSecurityTokenServicePreferencesCommandOutput extends __MetadataBearer {}
 
 /**

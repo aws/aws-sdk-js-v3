@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link DeleteContactCommand}.
+ */
 export interface DeleteContactCommandInput extends DeleteContactRequest {}
+/**
+ * The output of {@link DeleteContactCommand}.
+ */
 export interface DeleteContactCommandOutput extends DeleteContactResponse, __MetadataBearer {}
 
 /**

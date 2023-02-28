@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * The input for {@link GetEnvironmentAccountConnectionCommand}.
+ */
 export interface GetEnvironmentAccountConnectionCommandInput extends GetEnvironmentAccountConnectionInput {}
+/**
+ * The output of {@link GetEnvironmentAccountConnectionCommand}.
+ */
 export interface GetEnvironmentAccountConnectionCommandOutput
   extends GetEnvironmentAccountConnectionOutput,
     __MetadataBearer {}

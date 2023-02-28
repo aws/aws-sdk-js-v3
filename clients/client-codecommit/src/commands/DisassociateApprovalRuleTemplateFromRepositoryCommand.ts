@@ -23,8 +23,14 @@ import {
   serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateApprovalRuleTemplateFromRepositoryCommand}.
+ */
 export interface DisassociateApprovalRuleTemplateFromRepositoryCommandInput
   extends DisassociateApprovalRuleTemplateFromRepositoryInput {}
+/**
+ * The output of {@link DisassociateApprovalRuleTemplateFromRepositoryCommand}.
+ */
 export interface DisassociateApprovalRuleTemplateFromRepositoryCommandOutput extends __MetadataBearer {}
 
 /**

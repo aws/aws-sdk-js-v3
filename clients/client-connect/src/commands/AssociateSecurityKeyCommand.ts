@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateSecurityKeyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateSecurityKeyCommand}.
+ */
 export interface AssociateSecurityKeyCommandInput extends AssociateSecurityKeyRequest {}
+/**
+ * The output of {@link AssociateSecurityKeyCommand}.
+ */
 export interface AssociateSecurityKeyCommandOutput extends AssociateSecurityKeyResponse, __MetadataBearer {}
 
 /**

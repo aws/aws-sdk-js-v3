@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopTriggerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopTriggerCommand}.
+ */
 export interface StopTriggerCommandInput extends StopTriggerRequest {}
+/**
+ * The output of {@link StopTriggerCommand}.
+ */
 export interface StopTriggerCommandOutput extends StopTriggerResponse, __MetadataBearer {}
 
 /**

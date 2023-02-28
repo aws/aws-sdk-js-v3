@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdatePresetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdatePresetCommand}.
+ */
 export interface UpdatePresetCommandInput extends UpdatePresetRequest {}
+/**
+ * The output of {@link UpdatePresetCommand}.
+ */
 export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __MetadataBearer {}
 
 /**

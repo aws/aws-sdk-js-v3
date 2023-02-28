@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link XmlNamespacesCommand}.
+ */
 export interface XmlNamespacesCommandInput extends XmlNamespacesInputOutput {}
+/**
+ * The output of {@link XmlNamespacesCommand}.
+ */
 export interface XmlNamespacesCommandOutput extends XmlNamespacesInputOutput, __MetadataBearer {}
 
 export class XmlNamespacesCommand extends $Command<

@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1UpdateCampaignOutboundCallConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateCampaignOutboundCallConfigCommand}.
+ */
 export interface UpdateCampaignOutboundCallConfigCommandInput extends UpdateCampaignOutboundCallConfigRequest {}
+/**
+ * The output of {@link UpdateCampaignOutboundCallConfigCommand}.
+ */
 export interface UpdateCampaignOutboundCallConfigCommandOutput extends __MetadataBearer {}
 
 /**

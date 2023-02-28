@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ArchiveWaveCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ArchiveWaveCommand}.
+ */
 export interface ArchiveWaveCommandInput extends ArchiveWaveRequest {}
+/**
+ * The output of {@link ArchiveWaveCommand}.
+ */
 export interface ArchiveWaveCommandOutput extends Wave, __MetadataBearer {}
 
 /**

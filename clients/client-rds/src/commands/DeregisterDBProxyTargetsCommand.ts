@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DeregisterDBProxyTargetsCommand}.
+ */
 export interface DeregisterDBProxyTargetsCommandInput extends DeregisterDBProxyTargetsRequest {}
+/**
+ * The output of {@link DeregisterDBProxyTargetsCommand}.
+ */
 export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxyTargetsResponse, __MetadataBearer {}
 
 /**

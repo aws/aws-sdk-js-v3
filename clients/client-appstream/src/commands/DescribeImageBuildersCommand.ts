@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeImageBuildersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeImageBuildersCommand}.
+ */
 export interface DescribeImageBuildersCommandInput extends DescribeImageBuildersRequest {}
+/**
+ * The output of {@link DescribeImageBuildersCommand}.
+ */
 export interface DescribeImageBuildersCommandOutput extends DescribeImageBuildersResult, __MetadataBearer {}
 
 /**

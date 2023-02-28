@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link CreateFlowDefinitionCommand}.
+ */
 export interface CreateFlowDefinitionCommandInput extends CreateFlowDefinitionRequest {}
+/**
+ * The output of {@link CreateFlowDefinitionCommand}.
+ */
 export interface CreateFlowDefinitionCommandOutput extends CreateFlowDefinitionResponse, __MetadataBearer {}
 
 /**

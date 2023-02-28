@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateStreamingImageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateStreamingImageCommand}.
+ */
 export interface UpdateStreamingImageCommandInput extends UpdateStreamingImageRequest {}
+/**
+ * The output of {@link UpdateStreamingImageCommand}.
+ */
 export interface UpdateStreamingImageCommandOutput extends UpdateStreamingImageResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetEulaCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetEulaCommand}.
+ */
 export interface GetEulaCommandInput extends GetEulaRequest {}
+/**
+ * The output of {@link GetEulaCommand}.
+ */
 export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer {}
 
 /**

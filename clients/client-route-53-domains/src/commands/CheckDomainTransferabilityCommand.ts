@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link CheckDomainTransferabilityCommand}.
+ */
 export interface CheckDomainTransferabilityCommandInput extends CheckDomainTransferabilityRequest {}
+/**
+ * The output of {@link CheckDomainTransferabilityCommand}.
+ */
 export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTransferabilityResponse, __MetadataBearer {}
 
 /**

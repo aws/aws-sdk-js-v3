@@ -18,7 +18,13 @@ import { SearchRequest, SearchRequestFilterSensitiveLog } from "../models/models
 import { deserializeAws_json1_1SearchCommand, serializeAws_json1_1SearchCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link SearchCommand}.
+ */
 export interface SearchCommandInput extends SearchRequest {}
+/**
+ * The output of {@link SearchCommand}.
+ */
 export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1UpdateUserHierarchyGroupNameCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateUserHierarchyGroupNameCommand}.
+ */
 export interface UpdateUserHierarchyGroupNameCommandInput extends UpdateUserHierarchyGroupNameRequest {}
+/**
+ * The output of {@link UpdateUserHierarchyGroupNameCommand}.
+ */
 export interface UpdateUserHierarchyGroupNameCommandOutput extends __MetadataBearer {}
 
 /**

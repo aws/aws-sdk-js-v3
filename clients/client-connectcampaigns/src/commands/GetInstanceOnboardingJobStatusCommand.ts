@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetInstanceOnboardingJobStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetInstanceOnboardingJobStatusCommand}.
+ */
 export interface GetInstanceOnboardingJobStatusCommandInput extends GetInstanceOnboardingJobStatusRequest {}
+/**
+ * The output of {@link GetInstanceOnboardingJobStatusCommand}.
+ */
 export interface GetInstanceOnboardingJobStatusCommandOutput
   extends GetInstanceOnboardingJobStatusResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateImagePipelineCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateImagePipelineCommand}.
+ */
 export interface UpdateImagePipelineCommandInput extends UpdateImagePipelineRequest {}
+/**
+ * The output of {@link UpdateImagePipelineCommand}.
+ */
 export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineResponse, __MetadataBearer {}
 
 /**

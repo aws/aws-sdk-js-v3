@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteFlowDefinitionCommand}.
+ */
 export interface DeleteFlowDefinitionCommandInput extends DeleteFlowDefinitionRequest {}
+/**
+ * The output of {@link DeleteFlowDefinitionCommand}.
+ */
 export interface DeleteFlowDefinitionCommandOutput extends DeleteFlowDefinitionResponse, __MetadataBearer {}
 
 /**

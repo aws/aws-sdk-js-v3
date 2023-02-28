@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_0GetItemCommand, serializeAws_json1_0GetItemCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetItemCommand}.
+ */
 export interface GetItemCommandInput extends GetItemInput {}
+/**
+ * The output of {@link GetItemCommand}.
+ */
 export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
 
 /**

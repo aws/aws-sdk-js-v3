@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetCognitoEventsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetCognitoEventsCommand}.
+ */
 export interface GetCognitoEventsCommandInput extends GetCognitoEventsRequest {}
+/**
+ * The output of {@link GetCognitoEventsCommand}.
+ */
 export interface GetCognitoEventsCommandOutput extends GetCognitoEventsResponse, __MetadataBearer {}
 
 /**

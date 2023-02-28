@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCostAndUsageCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCostAndUsageCommand}.
+ */
 export interface GetCostAndUsageCommandInput extends GetCostAndUsageRequest {}
+/**
+ * The output of {@link GetCostAndUsageCommand}.
+ */
 export interface GetCostAndUsageCommandOutput extends GetCostAndUsageResponse, __MetadataBearer {}
 
 /**

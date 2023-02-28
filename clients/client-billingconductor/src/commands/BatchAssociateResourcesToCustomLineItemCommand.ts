@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1BatchAssociateResourcesToCustomLineItemCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchAssociateResourcesToCustomLineItemCommand}.
+ */
 export interface BatchAssociateResourcesToCustomLineItemCommandInput
   extends BatchAssociateResourcesToCustomLineItemInput {}
+/**
+ * The output of {@link BatchAssociateResourcesToCustomLineItemCommand}.
+ */
 export interface BatchAssociateResourcesToCustomLineItemCommandOutput
   extends BatchAssociateResourcesToCustomLineItemOutput,
     __MetadataBearer {}

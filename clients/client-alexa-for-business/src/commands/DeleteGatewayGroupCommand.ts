@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteGatewayGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteGatewayGroupCommand}.
+ */
 export interface DeleteGatewayGroupCommandInput extends DeleteGatewayGroupRequest {}
+/**
+ * The output of {@link DeleteGatewayGroupCommand}.
+ */
 export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupResponse, __MetadataBearer {}
 
 /**

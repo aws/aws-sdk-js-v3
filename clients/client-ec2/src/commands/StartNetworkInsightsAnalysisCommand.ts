@@ -25,7 +25,13 @@ import {
   serializeAws_ec2StartNetworkInsightsAnalysisCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link StartNetworkInsightsAnalysisCommand}.
+ */
 export interface StartNetworkInsightsAnalysisCommandInput extends StartNetworkInsightsAnalysisRequest {}
+/**
+ * The output of {@link StartNetworkInsightsAnalysisCommand}.
+ */
 export interface StartNetworkInsightsAnalysisCommandOutput
   extends StartNetworkInsightsAnalysisResult,
     __MetadataBearer {}

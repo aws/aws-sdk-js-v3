@@ -23,7 +23,13 @@ import {
   serializeAws_queryUpdateServiceSpecificCredentialCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateServiceSpecificCredentialCommand}.
+ */
 export interface UpdateServiceSpecificCredentialCommandInput extends UpdateServiceSpecificCredentialRequest {}
+/**
+ * The output of {@link UpdateServiceSpecificCredentialCommand}.
+ */
 export interface UpdateServiceSpecificCredentialCommandOutput extends __MetadataBearer {}
 
 /**

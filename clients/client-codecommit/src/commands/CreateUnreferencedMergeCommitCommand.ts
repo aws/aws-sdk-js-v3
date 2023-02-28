@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateUnreferencedMergeCommitCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateUnreferencedMergeCommitCommand}.
+ */
 export interface CreateUnreferencedMergeCommitCommandInput extends CreateUnreferencedMergeCommitInput {}
+/**
+ * The output of {@link CreateUnreferencedMergeCommitCommand}.
+ */
 export interface CreateUnreferencedMergeCommitCommandOutput
   extends CreateUnreferencedMergeCommitOutput,
     __MetadataBearer {}

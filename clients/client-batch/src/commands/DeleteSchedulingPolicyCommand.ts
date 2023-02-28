@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteSchedulingPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteSchedulingPolicyCommand}.
+ */
 export interface DeleteSchedulingPolicyCommandInput extends DeleteSchedulingPolicyRequest {}
+/**
+ * The output of {@link DeleteSchedulingPolicyCommand}.
+ */
 export interface DeleteSchedulingPolicyCommandOutput extends DeleteSchedulingPolicyResponse, __MetadataBearer {}
 
 /**

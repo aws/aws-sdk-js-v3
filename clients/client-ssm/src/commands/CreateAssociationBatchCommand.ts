@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link CreateAssociationBatchCommand}.
+ */
 export interface CreateAssociationBatchCommandInput extends CreateAssociationBatchRequest {}
+/**
+ * The output of {@link CreateAssociationBatchCommand}.
+ */
 export interface CreateAssociationBatchCommandOutput extends CreateAssociationBatchResult, __MetadataBearer {}
 
 /**

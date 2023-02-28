@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetEventCommand, serializeAws_json1_1GetEventCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetEventCommand}.
+ */
 export interface GetEventCommandInput extends GetEventRequest {}
+/**
+ * The output of {@link GetEventCommand}.
+ */
 export interface GetEventCommandOutput extends GetEventResult, __MetadataBearer {}
 
 /**

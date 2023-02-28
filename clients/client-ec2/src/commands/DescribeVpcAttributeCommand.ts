@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeVpcAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeVpcAttributeCommand}.
+ */
 export interface DescribeVpcAttributeCommandInput extends DescribeVpcAttributeRequest {}
+/**
+ * The output of {@link DescribeVpcAttributeCommand}.
+ */
 export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeResult, __MetadataBearer {}
 
 /**

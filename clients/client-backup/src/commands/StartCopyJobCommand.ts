@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartCopyJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartCopyJobCommand}.
+ */
 export interface StartCopyJobCommandInput extends StartCopyJobInput {}
+/**
+ * The output of {@link StartCopyJobCommand}.
+ */
 export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __MetadataBearer {}
 
 /**

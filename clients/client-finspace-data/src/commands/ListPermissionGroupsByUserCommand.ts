@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListPermissionGroupsByUserCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPermissionGroupsByUserCommand}.
+ */
 export interface ListPermissionGroupsByUserCommandInput extends ListPermissionGroupsByUserRequest {}
+/**
+ * The output of {@link ListPermissionGroupsByUserCommand}.
+ */
 export interface ListPermissionGroupsByUserCommandOutput extends ListPermissionGroupsByUserResponse, __MetadataBearer {}
 
 /**

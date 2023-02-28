@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link ConfirmSubscriptionCommand}.
+ */
 export interface ConfirmSubscriptionCommandInput extends ConfirmSubscriptionInput {}
+/**
+ * The output of {@link ConfirmSubscriptionCommand}.
+ */
 export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeAgentVersionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeAgentVersionsCommand}.
+ */
 export interface DescribeAgentVersionsCommandInput extends DescribeAgentVersionsRequest {}
+/**
+ * The output of {@link DescribeAgentVersionsCommand}.
+ */
 export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersionsResult, __MetadataBearer {}
 
 /**

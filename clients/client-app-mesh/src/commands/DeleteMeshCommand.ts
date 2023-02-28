@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteMeshCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteMeshCommand}.
+ */
 export interface DeleteMeshCommandInput extends DeleteMeshInput {}
+/**
+ * The output of {@link DeleteMeshCommand}.
+ */
 export interface DeleteMeshCommandOutput extends DeleteMeshOutput, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DeleteOptOutListCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteOptOutListCommand}.
+ */
 export interface DeleteOptOutListCommandInput extends DeleteOptOutListRequest {}
+/**
+ * The output of {@link DeleteOptOutListCommand}.
+ */
 export interface DeleteOptOutListCommandOutput extends DeleteOptOutListResult, __MetadataBearer {}
 
 /**

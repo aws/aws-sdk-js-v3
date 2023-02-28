@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link DetectProtectiveEquipmentCommand}.
+ */
 export interface DetectProtectiveEquipmentCommandInput extends DetectProtectiveEquipmentRequest {}
+/**
+ * The output of {@link DetectProtectiveEquipmentCommand}.
+ */
 export interface DetectProtectiveEquipmentCommandOutput extends DetectProtectiveEquipmentResponse, __MetadataBearer {}
 
 /**

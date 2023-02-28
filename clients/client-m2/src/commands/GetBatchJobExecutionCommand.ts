@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetBatchJobExecutionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBatchJobExecutionCommand}.
+ */
 export interface GetBatchJobExecutionCommandInput extends GetBatchJobExecutionRequest {}
+/**
+ * The output of {@link GetBatchJobExecutionCommand}.
+ */
 export interface GetBatchJobExecutionCommandOutput extends GetBatchJobExecutionResponse, __MetadataBearer {}
 
 /**

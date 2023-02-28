@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteRoomSkillParameterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteRoomSkillParameterCommand}.
+ */
 export interface DeleteRoomSkillParameterCommandInput extends DeleteRoomSkillParameterRequest {}
+/**
+ * The output of {@link DeleteRoomSkillParameterCommand}.
+ */
 export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillParameterResponse, __MetadataBearer {}
 
 /**

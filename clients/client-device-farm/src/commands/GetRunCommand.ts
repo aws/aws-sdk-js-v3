@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetRunCommand, serializeAws_json1_1GetRunCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRunCommand}.
+ */
 export interface GetRunCommandInput extends GetRunRequest {}
+/**
+ * The output of {@link GetRunCommand}.
+ */
 export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ResetParameterGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ResetParameterGroupCommand}.
+ */
 export interface ResetParameterGroupCommandInput extends ResetParameterGroupRequest {}
+/**
+ * The output of {@link ResetParameterGroupCommand}.
+ */
 export interface ResetParameterGroupCommandOutput extends ResetParameterGroupResponse, __MetadataBearer {}
 
 /**

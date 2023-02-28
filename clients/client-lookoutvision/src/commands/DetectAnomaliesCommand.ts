@@ -25,6 +25,9 @@ import {
   serializeAws_restJson1DetectAnomaliesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DetectAnomaliesCommand}.
+ */
 type DetectAnomaliesCommandInputType = Omit<DetectAnomaliesRequest, "Body"> & {
   /**
    * For *`DetectAnomaliesRequest["Body"]`*, see {@link DetectAnomaliesRequest.Body}.
@@ -35,6 +38,9 @@ type DetectAnomaliesCommandInputType = Omit<DetectAnomaliesRequest, "Body"> & {
  * This interface extends from `DetectAnomaliesRequest` interface. There are more parameters than `Body` defined in {@link DetectAnomaliesRequest}
  */
 export interface DetectAnomaliesCommandInput extends DetectAnomaliesCommandInputType {}
+/**
+ * The output of {@link DetectAnomaliesCommand}.
+ */
 export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, __MetadataBearer {}
 
 /**

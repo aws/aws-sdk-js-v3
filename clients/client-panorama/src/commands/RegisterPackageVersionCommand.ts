@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RegisterPackageVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RegisterPackageVersionCommand}.
+ */
 export interface RegisterPackageVersionCommandInput extends RegisterPackageVersionRequest {}
+/**
+ * The output of {@link RegisterPackageVersionCommand}.
+ */
 export interface RegisterPackageVersionCommandOutput extends RegisterPackageVersionResponse, __MetadataBearer {}
 
 /**

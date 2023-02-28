@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * The input for {@link CreateDatalakeDelegatedAdminCommand}.
+ */
 export interface CreateDatalakeDelegatedAdminCommandInput extends CreateDatalakeDelegatedAdminRequest {}
+/**
+ * The output of {@link CreateDatalakeDelegatedAdminCommand}.
+ */
 export interface CreateDatalakeDelegatedAdminCommandOutput
   extends CreateDatalakeDelegatedAdminResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeSubnetGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeSubnetGroupsCommand}.
+ */
 export interface DescribeSubnetGroupsCommandInput extends DescribeSubnetGroupsRequest {}
+/**
+ * The output of {@link DescribeSubnetGroupsCommand}.
+ */
 export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsResponse, __MetadataBearer {}
 
 /**

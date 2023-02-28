@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteExperimentCommand}.
+ */
 export interface DeleteExperimentCommandInput extends DeleteExperimentRequest {}
+/**
+ * The output of {@link DeleteExperimentCommand}.
+ */
 export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse, __MetadataBearer {}
 
 /**

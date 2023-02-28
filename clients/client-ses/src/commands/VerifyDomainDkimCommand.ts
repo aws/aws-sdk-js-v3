@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link VerifyDomainDkimCommand}.
+ */
 export interface VerifyDomainDkimCommandInput extends VerifyDomainDkimRequest {}
+/**
+ * The output of {@link VerifyDomainDkimCommand}.
+ */
 export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse, __MetadataBearer {}
 
 /**

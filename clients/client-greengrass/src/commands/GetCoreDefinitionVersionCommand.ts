@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetCoreDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetCoreDefinitionVersionCommand}.
+ */
 export interface GetCoreDefinitionVersionCommandInput extends GetCoreDefinitionVersionRequest {}
+/**
+ * The output of {@link GetCoreDefinitionVersionCommand}.
+ */
 export interface GetCoreDefinitionVersionCommandOutput extends GetCoreDefinitionVersionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteDataQualityRulesetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteDataQualityRulesetCommand}.
+ */
 export interface DeleteDataQualityRulesetCommandInput extends DeleteDataQualityRulesetRequest {}
+/**
+ * The output of {@link DeleteDataQualityRulesetCommand}.
+ */
 export interface DeleteDataQualityRulesetCommandOutput extends DeleteDataQualityRulesetResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListJobsByPipelineCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListJobsByPipelineCommand}.
+ */
 export interface ListJobsByPipelineCommandInput extends ListJobsByPipelineRequest {}
+/**
+ * The output of {@link ListJobsByPipelineCommand}.
+ */
 export interface ListJobsByPipelineCommandOutput extends ListJobsByPipelineResponse, __MetadataBearer {}
 
 /**

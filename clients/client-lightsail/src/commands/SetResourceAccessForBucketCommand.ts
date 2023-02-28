@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SetResourceAccessForBucketCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SetResourceAccessForBucketCommand}.
+ */
 export interface SetResourceAccessForBucketCommandInput extends SetResourceAccessForBucketRequest {}
+/**
+ * The output of {@link SetResourceAccessForBucketCommand}.
+ */
 export interface SetResourceAccessForBucketCommandOutput extends SetResourceAccessForBucketResult, __MetadataBearer {}
 
 /**

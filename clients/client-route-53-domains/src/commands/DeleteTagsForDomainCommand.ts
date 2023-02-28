@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link DeleteTagsForDomainCommand}.
+ */
 export interface DeleteTagsForDomainCommandInput extends DeleteTagsForDomainRequest {}
+/**
+ * The output of {@link DeleteTagsForDomainCommand}.
+ */
 export interface DeleteTagsForDomainCommandOutput extends DeleteTagsForDomainResponse, __MetadataBearer {}
 
 /**

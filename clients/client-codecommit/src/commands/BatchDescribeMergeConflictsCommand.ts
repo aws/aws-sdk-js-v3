@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchDescribeMergeConflictsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchDescribeMergeConflictsCommand}.
+ */
 export interface BatchDescribeMergeConflictsCommandInput extends BatchDescribeMergeConflictsInput {}
+/**
+ * The output of {@link BatchDescribeMergeConflictsCommand}.
+ */
 export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeMergeConflictsOutput, __MetadataBearer {}
 
 /**

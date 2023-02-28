@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * The input for {@link DeleteWorkloadShareCommand}.
+ */
 export interface DeleteWorkloadShareCommandInput extends DeleteWorkloadShareInput {}
+/**
+ * The output of {@link DeleteWorkloadShareCommand}.
+ */
 export interface DeleteWorkloadShareCommandOutput extends __MetadataBearer {}
 
 /**

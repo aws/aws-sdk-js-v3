@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteRecommenderConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteRecommenderConfigurationCommand}.
+ */
 export interface DeleteRecommenderConfigurationCommandInput extends DeleteRecommenderConfigurationRequest {}
+/**
+ * The output of {@link DeleteRecommenderConfigurationCommand}.
+ */
 export interface DeleteRecommenderConfigurationCommandOutput
   extends DeleteRecommenderConfigurationResponse,
     __MetadataBearer {}

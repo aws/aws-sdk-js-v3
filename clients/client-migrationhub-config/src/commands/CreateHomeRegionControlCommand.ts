@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1CreateHomeRegionControlCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateHomeRegionControlCommand}.
+ */
 export interface CreateHomeRegionControlCommandInput extends CreateHomeRegionControlRequest {}
+/**
+ * The output of {@link CreateHomeRegionControlCommand}.
+ */
 export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionControlResult, __MetadataBearer {}
 
 /**

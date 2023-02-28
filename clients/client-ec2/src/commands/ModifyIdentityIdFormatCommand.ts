@@ -20,7 +20,13 @@ import {
   serializeAws_ec2ModifyIdentityIdFormatCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyIdentityIdFormatCommand}.
+ */
 export interface ModifyIdentityIdFormatCommandInput extends ModifyIdentityIdFormatRequest {}
+/**
+ * The output of {@link ModifyIdentityIdFormatCommand}.
+ */
 export interface ModifyIdentityIdFormatCommandOutput extends __MetadataBearer {}
 
 /**

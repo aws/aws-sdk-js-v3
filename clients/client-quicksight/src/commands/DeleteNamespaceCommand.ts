@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link DeleteNamespaceCommand}.
+ */
 export interface DeleteNamespaceCommandInput extends DeleteNamespaceRequest {}
+/**
+ * The output of {@link DeleteNamespaceCommand}.
+ */
 export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, __MetadataBearer {}
 
 /**

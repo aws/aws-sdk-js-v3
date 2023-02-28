@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link ChangeResourceRecordSetsCommand}.
+ */
 export interface ChangeResourceRecordSetsCommandInput extends ChangeResourceRecordSetsRequest {}
+/**
+ * The output of {@link ChangeResourceRecordSetsCommand}.
+ */
 export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRecordSetsResponse, __MetadataBearer {}
 
 /**

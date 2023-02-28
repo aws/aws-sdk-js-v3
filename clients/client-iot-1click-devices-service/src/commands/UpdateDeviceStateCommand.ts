@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1UpdateDeviceStateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateDeviceStateCommand}.
+ */
 export interface UpdateDeviceStateCommandInput extends UpdateDeviceStateRequest {}
+/**
+ * The output of {@link UpdateDeviceStateCommand}.
+ */
 export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateResponse, __MetadataBearer {}
 
 /**

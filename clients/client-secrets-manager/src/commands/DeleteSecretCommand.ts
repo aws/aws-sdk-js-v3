@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * The input for {@link DeleteSecretCommand}.
+ */
 export interface DeleteSecretCommandInput extends DeleteSecretRequest {}
+/**
+ * The output of {@link DeleteSecretCommand}.
+ */
 export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __MetadataBearer {}
 
 /**

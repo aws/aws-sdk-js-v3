@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListTargetResourceTypesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListTargetResourceTypesCommand}.
+ */
 export interface ListTargetResourceTypesCommandInput extends ListTargetResourceTypesRequest {}
+/**
+ * The output of {@link ListTargetResourceTypesCommand}.
+ */
 export interface ListTargetResourceTypesCommandOutput extends ListTargetResourceTypesResponse, __MetadataBearer {}
 
 /**

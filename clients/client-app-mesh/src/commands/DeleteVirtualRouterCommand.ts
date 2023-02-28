@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteVirtualRouterCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteVirtualRouterCommand}.
+ */
 export interface DeleteVirtualRouterCommandInput extends DeleteVirtualRouterInput {}
+/**
+ * The output of {@link DeleteVirtualRouterCommand}.
+ */
 export interface DeleteVirtualRouterCommandOutput extends DeleteVirtualRouterOutput, __MetadataBearer {}
 
 /**

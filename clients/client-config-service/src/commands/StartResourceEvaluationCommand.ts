@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartResourceEvaluationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartResourceEvaluationCommand}.
+ */
 export interface StartResourceEvaluationCommandInput extends StartResourceEvaluationRequest {}
+/**
+ * The output of {@link StartResourceEvaluationCommand}.
+ */
 export interface StartResourceEvaluationCommandOutput extends StartResourceEvaluationResponse, __MetadataBearer {}
 
 /**

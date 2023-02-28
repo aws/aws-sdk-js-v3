@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
+/**
+ * The input for {@link GetAccountSettingsCommand}.
+ */
 export interface GetAccountSettingsCommandInput {}
+/**
+ * The output of {@link GetAccountSettingsCommand}.
+ */
 export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutput, __MetadataBearer {}
 
 /**

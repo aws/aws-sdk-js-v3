@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListComponentsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListComponentsCommand}.
+ */
 export interface ListComponentsCommandInput extends ListComponentsRequest {}
+/**
+ * The output of {@link ListComponentsCommand}.
+ */
 export interface ListComponentsCommandOutput extends ListComponentsResponse, __MetadataBearer {}
 
 /**

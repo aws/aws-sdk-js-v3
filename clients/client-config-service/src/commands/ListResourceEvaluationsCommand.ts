@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListResourceEvaluationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListResourceEvaluationsCommand}.
+ */
 export interface ListResourceEvaluationsCommandInput extends ListResourceEvaluationsRequest {}
+/**
+ * The output of {@link ListResourceEvaluationsCommand}.
+ */
 export interface ListResourceEvaluationsCommandOutput extends ListResourceEvaluationsResponse, __MetadataBearer {}
 
 /**

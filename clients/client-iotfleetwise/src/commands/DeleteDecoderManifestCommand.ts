@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DeleteDecoderManifestCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteDecoderManifestCommand}.
+ */
 export interface DeleteDecoderManifestCommandInput extends DeleteDecoderManifestRequest {}
+/**
+ * The output of {@link DeleteDecoderManifestCommand}.
+ */
 export interface DeleteDecoderManifestCommandOutput extends DeleteDecoderManifestResponse, __MetadataBearer {}
 
 /**

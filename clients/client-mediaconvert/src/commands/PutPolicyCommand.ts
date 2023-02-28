@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutPolicyCommand}.
+ */
 export interface PutPolicyCommandInput extends PutPolicyRequest {}
+/**
+ * The output of {@link PutPolicyCommand}.
+ */
 export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBearer {}
 
 /**

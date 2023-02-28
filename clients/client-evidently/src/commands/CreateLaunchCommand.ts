@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateLaunchCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateLaunchCommand}.
+ */
 export interface CreateLaunchCommandInput extends CreateLaunchRequest {}
+/**
+ * The output of {@link CreateLaunchCommand}.
+ */
 export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __MetadataBearer {}
 
 /**

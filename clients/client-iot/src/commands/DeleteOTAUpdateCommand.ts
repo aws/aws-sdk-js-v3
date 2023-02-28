@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteOTAUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteOTAUpdateCommand}.
+ */
 export interface DeleteOTAUpdateCommandInput extends DeleteOTAUpdateRequest {}
+/**
+ * The output of {@link DeleteOTAUpdateCommand}.
+ */
 export interface DeleteOTAUpdateCommandOutput extends DeleteOTAUpdateResponse, __MetadataBearer {}
 
 /**

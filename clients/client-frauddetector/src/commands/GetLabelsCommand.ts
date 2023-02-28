@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetLabelsCommand, serializeAws_json1_1GetLabelsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetLabelsCommand}.
+ */
 export interface GetLabelsCommandInput extends GetLabelsRequest {}
+/**
+ * The output of {@link GetLabelsCommand}.
+ */
 export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBearer {}
 
 /**

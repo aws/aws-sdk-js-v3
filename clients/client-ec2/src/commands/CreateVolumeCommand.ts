@@ -22,7 +22,13 @@ import {
 } from "../models/models_2";
 import { deserializeAws_ec2CreateVolumeCommand, serializeAws_ec2CreateVolumeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateVolumeCommand}.
+ */
 export interface CreateVolumeCommandInput extends CreateVolumeRequest {}
+/**
+ * The output of {@link CreateVolumeCommand}.
+ */
 export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
 
 /**

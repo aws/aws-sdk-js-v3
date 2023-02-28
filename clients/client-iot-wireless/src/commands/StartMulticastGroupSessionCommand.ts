@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartMulticastGroupSessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartMulticastGroupSessionCommand}.
+ */
 export interface StartMulticastGroupSessionCommandInput extends StartMulticastGroupSessionRequest {}
+/**
+ * The output of {@link StartMulticastGroupSessionCommand}.
+ */
 export interface StartMulticastGroupSessionCommandOutput extends StartMulticastGroupSessionResponse, __MetadataBearer {}
 
 /**

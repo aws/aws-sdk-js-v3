@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetFacetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetFacetCommand}.
+ */
 export interface GetFacetCommandInput extends GetFacetRequest {}
+/**
+ * The output of {@link GetFacetCommand}.
+ */
 export interface GetFacetCommandOutput extends GetFacetResponse, __MetadataBearer {}
 
 /**

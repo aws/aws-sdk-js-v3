@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1SearchChannelsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SearchChannelsCommand}.
+ */
 export interface SearchChannelsCommandInput extends SearchChannelsRequest {}
+/**
+ * The output of {@link SearchChannelsCommand}.
+ */
 export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __MetadataBearer {}
 
 /**

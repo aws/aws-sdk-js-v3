@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListPoliciesForTargetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListPoliciesForTargetCommand}.
+ */
 export interface ListPoliciesForTargetCommandInput extends ListPoliciesForTargetRequest {}
+/**
+ * The output of {@link ListPoliciesForTargetCommand}.
+ */
 export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTargetResponse, __MetadataBearer {}
 
 /**

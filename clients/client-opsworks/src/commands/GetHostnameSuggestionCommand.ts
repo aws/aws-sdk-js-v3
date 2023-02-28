@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetHostnameSuggestionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetHostnameSuggestionCommand}.
+ */
 export interface GetHostnameSuggestionCommandInput extends GetHostnameSuggestionRequest {}
+/**
+ * The output of {@link GetHostnameSuggestionCommand}.
+ */
 export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestionResult, __MetadataBearer {}
 
 /**

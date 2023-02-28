@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeFleetPortSettingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeFleetPortSettingsCommand}.
+ */
 export interface DescribeFleetPortSettingsCommandInput extends DescribeFleetPortSettingsInput {}
+/**
+ * The output of {@link DescribeFleetPortSettingsCommand}.
+ */
 export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPortSettingsOutput, __MetadataBearer {}
 
 /**

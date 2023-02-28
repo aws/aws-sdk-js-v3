@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteBGPPeerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteBGPPeerCommand}.
+ */
 export interface DeleteBGPPeerCommandInput extends DeleteBGPPeerRequest {}
+/**
+ * The output of {@link DeleteBGPPeerCommand}.
+ */
 export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __MetadataBearer {}
 
 /**

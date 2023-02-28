@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDistributionConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDistributionConfigurationCommand}.
+ */
 export interface GetDistributionConfigurationCommandInput extends GetDistributionConfigurationRequest {}
+/**
+ * The output of {@link GetDistributionConfigurationCommand}.
+ */
 export interface GetDistributionConfigurationCommandOutput
   extends GetDistributionConfigurationResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeDefaultParametersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeDefaultParametersCommand}.
+ */
 export interface DescribeDefaultParametersCommandInput extends DescribeDefaultParametersRequest {}
+/**
+ * The output of {@link DescribeDefaultParametersCommand}.
+ */
 export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultParametersResponse, __MetadataBearer {}
 
 /**

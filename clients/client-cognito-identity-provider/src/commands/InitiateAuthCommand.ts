@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1InitiateAuthCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link InitiateAuthCommand}.
+ */
 export interface InitiateAuthCommandInput extends InitiateAuthRequest {}
+/**
+ * The output of {@link InitiateAuthCommand}.
+ */
 export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __MetadataBearer {}
 
 /**

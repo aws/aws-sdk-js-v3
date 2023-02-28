@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAttachedIndicesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAttachedIndicesCommand}.
+ */
 export interface ListAttachedIndicesCommandInput extends ListAttachedIndicesRequest {}
+/**
+ * The output of {@link ListAttachedIndicesCommand}.
+ */
 export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesResponse, __MetadataBearer {}
 
 /**

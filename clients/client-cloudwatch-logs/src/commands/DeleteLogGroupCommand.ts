@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteLogGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteLogGroupCommand}.
+ */
 export interface DeleteLogGroupCommandInput extends DeleteLogGroupRequest {}
+/**
+ * The output of {@link DeleteLogGroupCommand}.
+ */
 export interface DeleteLogGroupCommandOutput extends __MetadataBearer {}
 
 /**

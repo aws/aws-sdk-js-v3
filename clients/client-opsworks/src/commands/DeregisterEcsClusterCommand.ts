@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeregisterEcsClusterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterEcsClusterCommand}.
+ */
 export interface DeregisterEcsClusterCommandInput extends DeregisterEcsClusterRequest {}
+/**
+ * The output of {@link DeregisterEcsClusterCommand}.
+ */
 export interface DeregisterEcsClusterCommandOutput extends __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListRealtimeContactAnalysisSegmentsCommand}.
+ */
 export interface ListRealtimeContactAnalysisSegmentsCommandInput extends ListRealtimeContactAnalysisSegmentsRequest {}
+/**
+ * The output of {@link ListRealtimeContactAnalysisSegmentsCommand}.
+ */
 export interface ListRealtimeContactAnalysisSegmentsCommandOutput
   extends ListRealtimeContactAnalysisSegmentsResponse,
     __MetadataBearer {}

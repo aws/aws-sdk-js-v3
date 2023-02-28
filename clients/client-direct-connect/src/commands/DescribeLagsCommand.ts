@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeLagsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLagsCommand}.
+ */
 export interface DescribeLagsCommandInput extends DescribeLagsRequest {}
+/**
+ * The output of {@link DescribeLagsCommand}.
+ */
 export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
 
 /**

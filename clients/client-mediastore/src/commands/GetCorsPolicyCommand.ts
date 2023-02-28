@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCorsPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCorsPolicyCommand}.
+ */
 export interface GetCorsPolicyCommandInput extends GetCorsPolicyInput {}
+/**
+ * The output of {@link GetCorsPolicyCommand}.
+ */
 export interface GetCorsPolicyCommandOutput extends GetCorsPolicyOutput, __MetadataBearer {}
 
 /**

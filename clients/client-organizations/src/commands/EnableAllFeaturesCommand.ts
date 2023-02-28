@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1EnableAllFeaturesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EnableAllFeaturesCommand}.
+ */
 export interface EnableAllFeaturesCommandInput extends EnableAllFeaturesRequest {}
+/**
+ * The output of {@link EnableAllFeaturesCommand}.
+ */
 export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesResponse, __MetadataBearer {}
 
 /**

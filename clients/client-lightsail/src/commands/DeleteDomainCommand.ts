@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteDomainCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteDomainCommand}.
+ */
 export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
+/**
+ * The output of {@link DeleteDomainCommand}.
+ */
 export interface DeleteDomainCommandOutput extends DeleteDomainResult, __MetadataBearer {}
 
 /**

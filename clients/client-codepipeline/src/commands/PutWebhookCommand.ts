@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutWebhookCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutWebhookCommand}.
+ */
 export interface PutWebhookCommandInput extends PutWebhookInput {}
+/**
+ * The output of {@link PutWebhookCommand}.
+ */
 export interface PutWebhookCommandOutput extends PutWebhookOutput, __MetadataBearer {}
 
 /**

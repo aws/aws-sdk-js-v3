@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdatePartnerAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdatePartnerAccountCommand}.
+ */
 export interface UpdatePartnerAccountCommandInput extends UpdatePartnerAccountRequest {}
+/**
+ * The output of {@link UpdatePartnerAccountCommand}.
+ */
 export interface UpdatePartnerAccountCommandOutput extends UpdatePartnerAccountResponse, __MetadataBearer {}
 
 /**

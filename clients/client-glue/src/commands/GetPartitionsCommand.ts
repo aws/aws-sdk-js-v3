@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetPartitionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetPartitionsCommand}.
+ */
 export interface GetPartitionsCommandInput extends GetPartitionsRequest {}
+/**
+ * The output of {@link GetPartitionsCommand}.
+ */
 export interface GetPartitionsCommandOutput extends GetPartitionsResponse, __MetadataBearer {}
 
 /**

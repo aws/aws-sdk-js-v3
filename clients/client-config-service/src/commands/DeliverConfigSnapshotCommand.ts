@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeliverConfigSnapshotCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeliverConfigSnapshotCommand}.
+ */
 export interface DeliverConfigSnapshotCommandInput extends DeliverConfigSnapshotRequest {}
+/**
+ * The output of {@link DeliverConfigSnapshotCommand}.
+ */
 export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapshotResponse, __MetadataBearer {}
 
 /**

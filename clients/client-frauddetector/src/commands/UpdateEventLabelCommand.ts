@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateEventLabelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateEventLabelCommand}.
+ */
 export interface UpdateEventLabelCommandInput extends UpdateEventLabelRequest {}
+/**
+ * The output of {@link UpdateEventLabelCommand}.
+ */
 export interface UpdateEventLabelCommandOutput extends UpdateEventLabelResult, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_queryEnableMFADeviceCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link EnableMFADeviceCommand}.
+ */
 export interface EnableMFADeviceCommandInput extends EnableMFADeviceRequest {}
+/**
+ * The output of {@link EnableMFADeviceCommand}.
+ */
 export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**

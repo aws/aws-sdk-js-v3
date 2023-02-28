@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateLicenseVersionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateLicenseVersionCommand}.
+ */
 export interface CreateLicenseVersionCommandInput extends CreateLicenseVersionRequest {}
+/**
+ * The output of {@link CreateLicenseVersionCommand}.
+ */
 export interface CreateLicenseVersionCommandOutput extends CreateLicenseVersionResponse, __MetadataBearer {}
 
 /**

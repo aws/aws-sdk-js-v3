@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociatePricingRulesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociatePricingRulesCommand}.
+ */
 export interface AssociatePricingRulesCommandInput extends AssociatePricingRulesInput {}
+/**
+ * The output of {@link AssociatePricingRulesCommand}.
+ */
 export interface AssociatePricingRulesCommandOutput extends AssociatePricingRulesOutput, __MetadataBearer {}
 
 /**

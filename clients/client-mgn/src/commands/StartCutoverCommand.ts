@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartCutoverCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartCutoverCommand}.
+ */
 export interface StartCutoverCommandInput extends StartCutoverRequest {}
+/**
+ * The output of {@link StartCutoverCommand}.
+ */
 export interface StartCutoverCommandOutput extends StartCutoverResponse, __MetadataBearer {}
 
 /**

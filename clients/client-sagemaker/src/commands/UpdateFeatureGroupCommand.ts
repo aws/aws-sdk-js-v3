@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link UpdateFeatureGroupCommand}.
+ */
 export interface UpdateFeatureGroupCommandInput extends UpdateFeatureGroupRequest {}
+/**
+ * The output of {@link UpdateFeatureGroupCommand}.
+ */
 export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupResponse, __MetadataBearer {}
 
 /**

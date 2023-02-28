@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetConfigCommand, serializeAws_json1_1GetConfigCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetConfigCommand}.
+ */
 export interface GetConfigCommandInput extends GetConfigRequest {}
+/**
+ * The output of {@link GetConfigCommand}.
+ */
 export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBearer {}
 
 /**

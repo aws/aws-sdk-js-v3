@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PostAgentProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PostAgentProfileCommand}.
+ */
 export interface PostAgentProfileCommandInput extends PostAgentProfileRequest {}
+/**
+ * The output of {@link PostAgentProfileCommand}.
+ */
 export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse, __MetadataBearer {}
 
 /**

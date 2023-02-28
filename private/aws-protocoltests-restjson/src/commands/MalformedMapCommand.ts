@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link MalformedMapCommand}.
+ */
 export interface MalformedMapCommandInput extends MalformedMapInput {}
+/**
+ * The output of {@link MalformedMapCommand}.
+ */
 export interface MalformedMapCommandOutput extends __MetadataBearer {}
 
 export class MalformedMapCommand extends $Command<

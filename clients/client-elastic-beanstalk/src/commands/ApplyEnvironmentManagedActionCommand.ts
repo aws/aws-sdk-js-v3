@@ -25,7 +25,13 @@ import {
   serializeAws_queryApplyEnvironmentManagedActionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ApplyEnvironmentManagedActionCommand}.
+ */
 export interface ApplyEnvironmentManagedActionCommandInput extends ApplyEnvironmentManagedActionRequest {}
+/**
+ * The output of {@link ApplyEnvironmentManagedActionCommand}.
+ */
 export interface ApplyEnvironmentManagedActionCommandOutput
   extends ApplyEnvironmentManagedActionResult,
     __MetadataBearer {}

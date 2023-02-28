@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetModelsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetModelsCommand}.
+ */
 export interface GetModelsCommandInput extends GetModelsRequest {}
+/**
+ * The output of {@link GetModelsCommand}.
+ */
 export interface GetModelsCommandOutput extends GetModelsResponse, __MetadataBearer {}
 
 /**

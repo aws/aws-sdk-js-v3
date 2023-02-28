@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSegmentExportJobsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSegmentExportJobsCommand}.
+ */
 export interface GetSegmentExportJobsCommandInput extends GetSegmentExportJobsRequest {}
+/**
+ * The output of {@link GetSegmentExportJobsCommand}.
+ */
 export interface GetSegmentExportJobsCommandOutput extends GetSegmentExportJobsResponse, __MetadataBearer {}
 
 /**

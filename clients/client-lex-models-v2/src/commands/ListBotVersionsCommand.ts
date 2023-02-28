@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListBotVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListBotVersionsCommand}.
+ */
 export interface ListBotVersionsCommandInput extends ListBotVersionsRequest {}
+/**
+ * The output of {@link ListBotVersionsCommand}.
+ */
 export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, __MetadataBearer {}
 
 /**

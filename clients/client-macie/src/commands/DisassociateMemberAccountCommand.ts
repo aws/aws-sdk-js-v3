@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DisassociateMemberAccountCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateMemberAccountCommand}.
+ */
 export interface DisassociateMemberAccountCommandInput extends DisassociateMemberAccountRequest {}
+/**
+ * The output of {@link DisassociateMemberAccountCommand}.
+ */
 export interface DisassociateMemberAccountCommandOutput extends __MetadataBearer {}
 
 /**

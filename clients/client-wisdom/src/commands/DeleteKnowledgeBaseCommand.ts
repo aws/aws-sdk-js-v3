@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * The input for {@link DeleteKnowledgeBaseCommand}.
+ */
 export interface DeleteKnowledgeBaseCommandInput extends DeleteKnowledgeBaseRequest {}
+/**
+ * The output of {@link DeleteKnowledgeBaseCommand}.
+ */
 export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
+/**
+ * The input for {@link GetReplicationSetCommand}.
+ */
 export interface GetReplicationSetCommandInput extends GetReplicationSetInput {}
+/**
+ * The output of {@link GetReplicationSetCommand}.
+ */
 export interface GetReplicationSetCommandOutput extends GetReplicationSetOutput, __MetadataBearer {}
 
 /**

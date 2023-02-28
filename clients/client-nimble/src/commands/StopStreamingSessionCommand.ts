@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopStreamingSessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopStreamingSessionCommand}.
+ */
 export interface StopStreamingSessionCommandInput extends StopStreamingSessionRequest {}
+/**
+ * The output of {@link StopStreamingSessionCommand}.
+ */
 export interface StopStreamingSessionCommandOutput extends StopStreamingSessionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
+/**
+ * The input for {@link AssumeRoleWithSAMLCommand}.
+ */
 export interface AssumeRoleWithSAMLCommandInput extends AssumeRoleWithSAMLRequest {}
+/**
+ * The output of {@link AssumeRoleWithSAMLCommand}.
+ */
 export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLResponse, __MetadataBearer {}
 
 /**

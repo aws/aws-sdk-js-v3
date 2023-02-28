@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1VerifyCommand, serializeAws_json1_1VerifyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link VerifyCommand}.
+ */
 export interface VerifyCommandInput extends VerifyRequest {}
+/**
+ * The output of {@link VerifyCommand}.
+ */
 export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
 
 /**

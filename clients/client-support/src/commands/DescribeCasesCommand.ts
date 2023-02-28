@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
+/**
+ * The input for {@link DescribeCasesCommand}.
+ */
 export interface DescribeCasesCommandInput extends DescribeCasesRequest {}
+/**
+ * The output of {@link DescribeCasesCommand}.
+ */
 export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __MetadataBearer {}
 
 /**

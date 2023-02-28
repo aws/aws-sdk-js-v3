@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchStopJobRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchStopJobRunCommand}.
+ */
 export interface BatchStopJobRunCommandInput extends BatchStopJobRunRequest {}
+/**
+ * The output of {@link BatchStopJobRunCommand}.
+ */
 export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, __MetadataBearer {}
 
 /**

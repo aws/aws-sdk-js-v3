@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListCostAllocationTagsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListCostAllocationTagsCommand}.
+ */
 export interface ListCostAllocationTagsCommandInput extends ListCostAllocationTagsRequest {}
+/**
+ * The output of {@link ListCostAllocationTagsCommand}.
+ */
 export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationTagsResponse, __MetadataBearer {}
 
 /**

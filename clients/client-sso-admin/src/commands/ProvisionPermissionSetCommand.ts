@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
+/**
+ * The input for {@link ProvisionPermissionSetCommand}.
+ */
 export interface ProvisionPermissionSetCommandInput extends ProvisionPermissionSetRequest {}
+/**
+ * The output of {@link ProvisionPermissionSetCommand}.
+ */
 export interface ProvisionPermissionSetCommandOutput extends ProvisionPermissionSetResponse, __MetadataBearer {}
 
 /**

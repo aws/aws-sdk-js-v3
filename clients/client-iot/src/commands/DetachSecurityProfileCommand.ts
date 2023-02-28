@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DetachSecurityProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DetachSecurityProfileCommand}.
+ */
 export interface DetachSecurityProfileCommandInput extends DetachSecurityProfileRequest {}
+/**
+ * The output of {@link DetachSecurityProfileCommand}.
+ */
 export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfileResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link DescribeInventoryDeletionsCommand}.
+ */
 export interface DescribeInventoryDeletionsCommandInput extends DescribeInventoryDeletionsRequest {}
+/**
+ * The output of {@link DescribeInventoryDeletionsCommand}.
+ */
 export interface DescribeInventoryDeletionsCommandOutput extends DescribeInventoryDeletionsResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteReferenceStoreCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteReferenceStoreCommand}.
+ */
 export interface DeleteReferenceStoreCommandInput extends DeleteReferenceStoreRequest {}
+/**
+ * The output of {@link DeleteReferenceStoreCommand}.
+ */
 export interface DeleteReferenceStoreCommandOutput extends DeleteReferenceStoreResponse, __MetadataBearer {}
 
 /**

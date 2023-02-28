@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetEvidenceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetEvidenceCommand}.
+ */
 export interface GetEvidenceCommandInput extends GetEvidenceRequest {}
+/**
+ * The output of {@link GetEvidenceCommand}.
+ */
 export interface GetEvidenceCommandOutput extends GetEvidenceResponse, __MetadataBearer {}
 
 /**

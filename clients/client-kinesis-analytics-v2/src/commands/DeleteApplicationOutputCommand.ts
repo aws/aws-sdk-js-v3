@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DeleteApplicationOutputCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteApplicationOutputCommand}.
+ */
 export interface DeleteApplicationOutputCommandInput extends DeleteApplicationOutputRequest {}
+/**
+ * The output of {@link DeleteApplicationOutputCommand}.
+ */
 export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationOutputResponse, __MetadataBearer {}
 
 /**

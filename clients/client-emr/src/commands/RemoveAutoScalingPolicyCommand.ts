@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RemoveAutoScalingPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RemoveAutoScalingPolicyCommand}.
+ */
 export interface RemoveAutoScalingPolicyCommandInput extends RemoveAutoScalingPolicyInput {}
+/**
+ * The output of {@link RemoveAutoScalingPolicyCommand}.
+ */
 export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingPolicyOutput, __MetadataBearer {}
 
 /**

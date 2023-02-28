@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeReplicationInstanceTaskLogsCommand}.
+ */
 export interface DescribeReplicationInstanceTaskLogsCommandInput extends DescribeReplicationInstanceTaskLogsMessage {}
+/**
+ * The output of {@link DescribeReplicationInstanceTaskLogsCommand}.
+ */
 export interface DescribeReplicationInstanceTaskLogsCommandOutput
   extends DescribeReplicationInstanceTaskLogsResponse,
     __MetadataBearer {}

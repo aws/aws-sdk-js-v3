@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
+/**
+ * The input for {@link StartMedicalTranscriptionJobCommand}.
+ */
 export interface StartMedicalTranscriptionJobCommandInput extends StartMedicalTranscriptionJobRequest {}
+/**
+ * The output of {@link StartMedicalTranscriptionJobCommand}.
+ */
 export interface StartMedicalTranscriptionJobCommandOutput
   extends StartMedicalTranscriptionJobResponse,
     __MetadataBearer {}

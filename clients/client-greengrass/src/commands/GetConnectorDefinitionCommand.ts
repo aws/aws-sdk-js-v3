@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetConnectorDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetConnectorDefinitionCommand}.
+ */
 export interface GetConnectorDefinitionCommandInput extends GetConnectorDefinitionRequest {}
+/**
+ * The output of {@link GetConnectorDefinitionCommand}.
+ */
 export interface GetConnectorDefinitionCommandOutput extends GetConnectorDefinitionResponse, __MetadataBearer {}
 
 /**

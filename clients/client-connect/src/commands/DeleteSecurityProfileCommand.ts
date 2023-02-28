@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteSecurityProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteSecurityProfileCommand}.
+ */
 export interface DeleteSecurityProfileCommandInput extends DeleteSecurityProfileRequest {}
+/**
+ * The output of {@link DeleteSecurityProfileCommand}.
+ */
 export interface DeleteSecurityProfileCommandOutput extends __MetadataBearer {}
 
 /**

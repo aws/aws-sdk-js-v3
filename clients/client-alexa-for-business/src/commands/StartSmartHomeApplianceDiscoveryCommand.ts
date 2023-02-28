@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartSmartHomeApplianceDiscoveryCommand}.
+ */
 export interface StartSmartHomeApplianceDiscoveryCommandInput extends StartSmartHomeApplianceDiscoveryRequest {}
+/**
+ * The output of {@link StartSmartHomeApplianceDiscoveryCommand}.
+ */
 export interface StartSmartHomeApplianceDiscoveryCommandOutput
   extends StartSmartHomeApplianceDiscoveryResponse,
     __MetadataBearer {}

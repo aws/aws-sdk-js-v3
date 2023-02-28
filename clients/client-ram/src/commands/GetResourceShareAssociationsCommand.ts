@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * The input for {@link GetResourceShareAssociationsCommand}.
+ */
 export interface GetResourceShareAssociationsCommandInput extends GetResourceShareAssociationsRequest {}
+/**
+ * The output of {@link GetResourceShareAssociationsCommand}.
+ */
 export interface GetResourceShareAssociationsCommandOutput
   extends GetResourceShareAssociationsResponse,
     __MetadataBearer {}

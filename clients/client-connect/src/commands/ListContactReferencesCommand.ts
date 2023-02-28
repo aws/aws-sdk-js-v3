@@ -21,7 +21,13 @@ import {
   serializeAws_restJson1ListContactReferencesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListContactReferencesCommand}.
+ */
 export interface ListContactReferencesCommandInput extends ListContactReferencesRequest {}
+/**
+ * The output of {@link ListContactReferencesCommand}.
+ */
 export interface ListContactReferencesCommandOutput extends ListContactReferencesResponse, __MetadataBearer {}
 
 /**

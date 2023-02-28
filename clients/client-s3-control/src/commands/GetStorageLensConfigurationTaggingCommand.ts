@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link GetStorageLensConfigurationTaggingCommand}.
+ */
 export interface GetStorageLensConfigurationTaggingCommandInput extends GetStorageLensConfigurationTaggingRequest {}
+/**
+ * The output of {@link GetStorageLensConfigurationTaggingCommand}.
+ */
 export interface GetStorageLensConfigurationTaggingCommandOutput
   extends GetStorageLensConfigurationTaggingResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * The input for {@link DescribeDRTAccessCommand}.
+ */
 export interface DescribeDRTAccessCommandInput extends DescribeDRTAccessRequest {}
+/**
+ * The output of {@link DescribeDRTAccessCommand}.
+ */
 export interface DescribeDRTAccessCommandOutput extends DescribeDRTAccessResponse, __MetadataBearer {}
 
 /**

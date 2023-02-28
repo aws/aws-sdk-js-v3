@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link DeleteUserSettingsCommand}.
+ */
 export interface DeleteUserSettingsCommandInput extends DeleteUserSettingsRequest {}
+/**
+ * The output of {@link DeleteUserSettingsCommand}.
+ */
 export interface DeleteUserSettingsCommandOutput extends DeleteUserSettingsResponse, __MetadataBearer {}
 
 /**

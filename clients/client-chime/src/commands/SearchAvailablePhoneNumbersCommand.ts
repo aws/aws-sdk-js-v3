@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SearchAvailablePhoneNumbersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SearchAvailablePhoneNumbersCommand}.
+ */
 export interface SearchAvailablePhoneNumbersCommandInput extends SearchAvailablePhoneNumbersRequest {}
+/**
+ * The output of {@link SearchAvailablePhoneNumbersCommand}.
+ */
 export interface SearchAvailablePhoneNumbersCommandOutput
   extends SearchAvailablePhoneNumbersResponse,
     __MetadataBearer {}

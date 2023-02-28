@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link SetSMBGuestPasswordCommand}.
+ */
 export interface SetSMBGuestPasswordCommandInput extends SetSMBGuestPasswordInput {}
+/**
+ * The output of {@link SetSMBGuestPasswordCommand}.
+ */
 export interface SetSMBGuestPasswordCommandOutput extends SetSMBGuestPasswordOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryListSAMLProvidersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListSAMLProvidersCommand}.
+ */
 export interface ListSAMLProvidersCommandInput extends ListSAMLProvidersRequest {}
+/**
+ * The output of {@link ListSAMLProvidersCommand}.
+ */
 export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersResponse, __MetadataBearer {}
 
 /**

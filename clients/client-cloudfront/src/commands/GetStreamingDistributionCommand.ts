@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlGetStreamingDistributionCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link GetStreamingDistributionCommand}.
+ */
 export interface GetStreamingDistributionCommandInput extends GetStreamingDistributionRequest {}
+/**
+ * The output of {@link GetStreamingDistributionCommand}.
+ */
 export interface GetStreamingDistributionCommandOutput extends GetStreamingDistributionResult, __MetadataBearer {}
 
 /**

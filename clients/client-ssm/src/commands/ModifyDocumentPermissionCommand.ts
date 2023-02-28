@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link ModifyDocumentPermissionCommand}.
+ */
 export interface ModifyDocumentPermissionCommandInput extends ModifyDocumentPermissionRequest {}
+/**
+ * The output of {@link ModifyDocumentPermissionCommand}.
+ */
 export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPermissionResponse, __MetadataBearer {}
 
 /**

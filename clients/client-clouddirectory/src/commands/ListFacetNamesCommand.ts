@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListFacetNamesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListFacetNamesCommand}.
+ */
 export interface ListFacetNamesCommandInput extends ListFacetNamesRequest {}
+/**
+ * The output of {@link ListFacetNamesCommand}.
+ */
 export interface ListFacetNamesCommandOutput extends ListFacetNamesResponse, __MetadataBearer {}
 
 /**

@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link PutConfigurationSetSuppressionOptionsCommand}.
+ */
 export interface PutConfigurationSetSuppressionOptionsCommandInput
   extends PutConfigurationSetSuppressionOptionsRequest {}
+/**
+ * The output of {@link PutConfigurationSetSuppressionOptionsCommand}.
+ */
 export interface PutConfigurationSetSuppressionOptionsCommandOutput
   extends PutConfigurationSetSuppressionOptionsResponse,
     __MetadataBearer {}

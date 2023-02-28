@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListTagsLogGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTagsLogGroupCommand}.
+ */
 export interface ListTagsLogGroupCommandInput extends ListTagsLogGroupRequest {}
+/**
+ * The output of {@link ListTagsLogGroupCommand}.
+ */
 export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse, __MetadataBearer {}
 
 /**

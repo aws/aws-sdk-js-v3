@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListSignalingChannelsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSignalingChannelsCommand}.
+ */
 export interface ListSignalingChannelsCommandInput extends ListSignalingChannelsInput {}
+/**
+ * The output of {@link ListSignalingChannelsCommand}.
+ */
 export interface ListSignalingChannelsCommandOutput extends ListSignalingChannelsOutput, __MetadataBearer {}
 
 /**

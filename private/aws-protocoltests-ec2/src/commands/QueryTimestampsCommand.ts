@@ -16,7 +16,13 @@ import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import { QueryTimestampsInput, QueryTimestampsInputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_ec2QueryTimestampsCommand, serializeAws_ec2QueryTimestampsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link QueryTimestampsCommand}.
+ */
 export interface QueryTimestampsCommandInput extends QueryTimestampsInput {}
+/**
+ * The output of {@link QueryTimestampsCommand}.
+ */
 export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListTrackersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListTrackersCommand}.
+ */
 export interface ListTrackersCommandInput extends ListTrackersRequest {}
+/**
+ * The output of {@link ListTrackersCommand}.
+ */
 export interface ListTrackersCommandOutput extends ListTrackersResponse, __MetadataBearer {}
 
 /**

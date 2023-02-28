@@ -25,8 +25,14 @@ import {
   serializeAws_queryModifyReplicationGroupShardConfigurationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyReplicationGroupShardConfigurationCommand}.
+ */
 export interface ModifyReplicationGroupShardConfigurationCommandInput
   extends ModifyReplicationGroupShardConfigurationMessage {}
+/**
+ * The output of {@link ModifyReplicationGroupShardConfigurationCommand}.
+ */
 export interface ModifyReplicationGroupShardConfigurationCommandOutput
   extends ModifyReplicationGroupShardConfigurationResult,
     __MetadataBearer {}

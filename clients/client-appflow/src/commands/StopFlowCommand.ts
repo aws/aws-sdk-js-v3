@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopFlowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopFlowCommand}.
+ */
 export interface StopFlowCommandInput extends StopFlowRequest {}
+/**
+ * The output of {@link StopFlowCommand}.
+ */
 export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBearer {}
 
 /**

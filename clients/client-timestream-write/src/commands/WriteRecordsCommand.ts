@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
+/**
+ * The input for {@link WriteRecordsCommand}.
+ */
 export interface WriteRecordsCommandInput extends WriteRecordsRequest {}
+/**
+ * The output of {@link WriteRecordsCommand}.
+ */
 export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __MetadataBearer {}
 
 /**

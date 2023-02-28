@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListWorkerConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListWorkerConfigurationsCommand}.
+ */
 export interface ListWorkerConfigurationsCommandInput extends ListWorkerConfigurationsRequest {}
+/**
+ * The output of {@link ListWorkerConfigurationsCommand}.
+ */
 export interface ListWorkerConfigurationsCommandOutput extends ListWorkerConfigurationsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
+/**
+ * The input for {@link RemoveProfilePermissionCommand}.
+ */
 export interface RemoveProfilePermissionCommandInput extends RemoveProfilePermissionRequest {}
+/**
+ * The output of {@link RemoveProfilePermissionCommand}.
+ */
 export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermissionResponse, __MetadataBearer {}
 
 /**

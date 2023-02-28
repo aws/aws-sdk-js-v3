@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * The input for {@link GetResolverDnssecConfigCommand}.
+ */
 export interface GetResolverDnssecConfigCommandInput extends GetResolverDnssecConfigRequest {}
+/**
+ * The output of {@link GetResolverDnssecConfigCommand}.
+ */
 export interface GetResolverDnssecConfigCommandOutput extends GetResolverDnssecConfigResponse, __MetadataBearer {}
 
 /**

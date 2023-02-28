@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateSkillGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateSkillGroupCommand}.
+ */
 export interface CreateSkillGroupCommandInput extends CreateSkillGroupRequest {}
+/**
+ * The output of {@link CreateSkillGroupCommand}.
+ */
 export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse, __MetadataBearer {}
 
 /**

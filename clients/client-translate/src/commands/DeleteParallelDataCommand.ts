@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
+/**
+ * The input for {@link DeleteParallelDataCommand}.
+ */
 export interface DeleteParallelDataCommandInput extends DeleteParallelDataRequest {}
+/**
+ * The output of {@link DeleteParallelDataCommand}.
+ */
 export interface DeleteParallelDataCommandOutput extends DeleteParallelDataResponse, __MetadataBearer {}
 
 /**

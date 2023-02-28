@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
+/**
+ * The input for {@link ListTimelineEventsCommand}.
+ */
 export interface ListTimelineEventsCommandInput extends ListTimelineEventsInput {}
+/**
+ * The output of {@link ListTimelineEventsCommand}.
+ */
 export interface ListTimelineEventsCommandOutput extends ListTimelineEventsOutput, __MetadataBearer {}
 
 /**

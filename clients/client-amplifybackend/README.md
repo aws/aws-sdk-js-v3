@@ -203,3 +203,254 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CloneBackend
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/clonebackendcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/clonebackendcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/clonebackendcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateBackend
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/createbackendcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/createbackendcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/createbackendcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateBackendAPI
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/createbackendapicommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/createbackendapicommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/createbackendapicommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateBackendAuth
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/createbackendauthcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/createbackendauthcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/createbackendauthcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateBackendConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/createbackendconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/createbackendconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/createbackendconfigcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateBackendStorage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/createbackendstoragecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/createbackendstoragecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/createbackendstoragecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/createtokencommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/createtokencommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/createtokencommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteBackend
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/deletebackendcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/deletebackendcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/deletebackendcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteBackendAPI
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/deletebackendapicommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/deletebackendapicommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/deletebackendapicommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteBackendAuth
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/deletebackendauthcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/deletebackendauthcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/deletebackendauthcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteBackendStorage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/deletebackendstoragecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/deletebackendstoragecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/deletebackendstoragecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/deletetokencommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/deletetokencommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/deletetokencommandoutput.html)
+
+</details>
+<details>
+<summary>
+GenerateBackendAPIModels
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/generatebackendapimodelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/generatebackendapimodelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/generatebackendapimodelscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetBackend
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/getbackendcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/getbackendcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/getbackendcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetBackendAPI
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/getbackendapicommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/getbackendapicommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/getbackendapicommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetBackendAPIModels
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/getbackendapimodelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/getbackendapimodelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/getbackendapimodelscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetBackendAuth
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/getbackendauthcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/getbackendauthcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/getbackendauthcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetBackendJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/getbackendjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/getbackendjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/getbackendjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetBackendStorage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/getbackendstoragecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/getbackendstoragecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/getbackendstoragecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/gettokencommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/gettokencommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/gettokencommandoutput.html)
+
+</details>
+<details>
+<summary>
+ImportBackendAuth
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/importbackendauthcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/importbackendauthcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/importbackendauthcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ImportBackendStorage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/importbackendstoragecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/importbackendstoragecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/importbackendstoragecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListBackendJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/listbackendjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/listbackendjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/listbackendjobscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListS3Buckets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/lists3bucketscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/lists3bucketscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/lists3bucketscommandoutput.html)
+
+</details>
+<details>
+<summary>
+RemoveAllBackends
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/removeallbackendscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/removeallbackendscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/removeallbackendscommandoutput.html)
+
+</details>
+<details>
+<summary>
+RemoveBackendConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/removebackendconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/removebackendconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/removebackendconfigcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBackendAPI
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/updatebackendapicommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/updatebackendapicommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/updatebackendapicommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBackendAuth
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/updatebackendauthcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/updatebackendauthcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/updatebackendauthcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBackendConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/updatebackendconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/updatebackendconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/updatebackendconfigcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBackendJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/updatebackendjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/updatebackendjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/updatebackendjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBackendStorage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/classes/updatebackendstoragecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/updatebackendstoragecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifybackend/interfaces/updatebackendstoragecommandoutput.html)
+
+</details>

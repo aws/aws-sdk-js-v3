@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
+/**
+ * The input for {@link DeleteMedicalTranscriptionJobCommand}.
+ */
 export interface DeleteMedicalTranscriptionJobCommandInput extends DeleteMedicalTranscriptionJobRequest {}
+/**
+ * The output of {@link DeleteMedicalTranscriptionJobCommand}.
+ */
 export interface DeleteMedicalTranscriptionJobCommandOutput extends __MetadataBearer {}
 
 /**

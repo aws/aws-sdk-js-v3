@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetIpamDiscoveredResourceCidrsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetIpamDiscoveredResourceCidrsCommand}.
+ */
 export interface GetIpamDiscoveredResourceCidrsCommandInput extends GetIpamDiscoveredResourceCidrsRequest {}
+/**
+ * The output of {@link GetIpamDiscoveredResourceCidrsCommand}.
+ */
 export interface GetIpamDiscoveredResourceCidrsCommandOutput
   extends GetIpamDiscoveredResourceCidrsResult,
     __MetadataBearer {}

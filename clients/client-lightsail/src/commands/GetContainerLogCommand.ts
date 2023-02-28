@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetContainerLogCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetContainerLogCommand}.
+ */
 export interface GetContainerLogCommandInput extends GetContainerLogRequest {}
+/**
+ * The output of {@link GetContainerLogCommand}.
+ */
 export interface GetContainerLogCommandOutput extends GetContainerLogResult, __MetadataBearer {}
 
 /**

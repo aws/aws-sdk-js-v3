@@ -17,7 +17,13 @@ import { DeleteHubRequest, DeleteHubRequestFilterSensitiveLog } from "../models/
 import { deserializeAws_json1_1DeleteHubCommand, serializeAws_json1_1DeleteHubCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteHubCommand}.
+ */
 export interface DeleteHubCommandInput extends DeleteHubRequest {}
+/**
+ * The output of {@link DeleteHubCommand}.
+ */
 export interface DeleteHubCommandOutput extends __MetadataBearer {}
 
 /**

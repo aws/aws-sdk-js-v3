@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link GetImportJobCommand}.
+ */
 export interface GetImportJobCommandInput extends GetImportJobRequest {}
+/**
+ * The output of {@link GetImportJobCommand}.
+ */
 export interface GetImportJobCommandOutput extends GetImportJobResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListPluginsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPluginsCommand}.
+ */
 export interface ListPluginsCommandInput extends ListPluginsRequest {}
+/**
+ * The output of {@link ListPluginsCommand}.
+ */
 export interface ListPluginsCommandOutput extends ListPluginsResponse, __MetadataBearer {}
 
 /**

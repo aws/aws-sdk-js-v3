@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyPrivateDnsNameOptionsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyPrivateDnsNameOptionsCommand}.
+ */
 export interface ModifyPrivateDnsNameOptionsCommandInput extends ModifyPrivateDnsNameOptionsRequest {}
+/**
+ * The output of {@link ModifyPrivateDnsNameOptionsCommand}.
+ */
 export interface ModifyPrivateDnsNameOptionsCommandOutput extends ModifyPrivateDnsNameOptionsResult, __MetadataBearer {}
 
 /**

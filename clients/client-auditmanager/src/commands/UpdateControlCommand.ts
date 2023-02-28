@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateControlCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateControlCommand}.
+ */
 export interface UpdateControlCommandInput extends UpdateControlRequest {}
+/**
+ * The output of {@link UpdateControlCommand}.
+ */
 export interface UpdateControlCommandOutput extends UpdateControlResponse, __MetadataBearer {}
 
 /**

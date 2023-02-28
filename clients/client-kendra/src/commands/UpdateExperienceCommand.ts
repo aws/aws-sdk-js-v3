@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateExperienceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateExperienceCommand}.
+ */
 export interface UpdateExperienceCommandInput extends UpdateExperienceRequest {}
+/**
+ * The output of {@link UpdateExperienceCommand}.
+ */
 export interface UpdateExperienceCommandOutput extends __MetadataBearer {}
 
 /**

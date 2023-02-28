@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeImportSnapshotTasksCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeImportSnapshotTasksCommand}.
+ */
 export interface DescribeImportSnapshotTasksCommandInput extends DescribeImportSnapshotTasksRequest {}
+/**
+ * The output of {@link DescribeImportSnapshotTasksCommand}.
+ */
 export interface DescribeImportSnapshotTasksCommandOutput extends DescribeImportSnapshotTasksResult, __MetadataBearer {}
 
 /**

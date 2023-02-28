@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DeleteCustomDBEngineVersionCommand}.
+ */
 export interface DeleteCustomDBEngineVersionCommandInput extends DeleteCustomDBEngineVersionMessage {}
+/**
+ * The output of {@link DeleteCustomDBEngineVersionCommand}.
+ */
 export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersion, __MetadataBearer {}
 
 /**

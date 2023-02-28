@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * The input for {@link GetAnswerCommand}.
+ */
 export interface GetAnswerCommandInput extends GetAnswerInput {}
+/**
+ * The output of {@link GetAnswerCommand}.
+ */
 export interface GetAnswerCommandOutput extends GetAnswerOutput, __MetadataBearer {}
 
 /**

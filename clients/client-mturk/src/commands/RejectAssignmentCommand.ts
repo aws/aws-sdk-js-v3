@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RejectAssignmentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RejectAssignmentCommand}.
+ */
 export interface RejectAssignmentCommandInput extends RejectAssignmentRequest {}
+/**
+ * The output of {@link RejectAssignmentCommand}.
+ */
 export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse, __MetadataBearer {}
 
 /**

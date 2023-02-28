@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteServiceLinkedRoleCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteServiceLinkedRoleCommand}.
+ */
 export interface DeleteServiceLinkedRoleCommandInput extends DeleteServiceLinkedRoleRequest {}
+/**
+ * The output of {@link DeleteServiceLinkedRoleCommand}.
+ */
 export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinkedRoleResponse, __MetadataBearer {}
 
 /**

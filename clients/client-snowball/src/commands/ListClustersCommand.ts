@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * The input for {@link ListClustersCommand}.
+ */
 export interface ListClustersCommandInput extends ListClustersRequest {}
+/**
+ * The output of {@link ListClustersCommand}.
+ */
 export interface ListClustersCommandOutput extends ListClustersResult, __MetadataBearer {}
 
 /**

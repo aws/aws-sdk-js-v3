@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetBlobCommand, serializeAws_json1_1GetBlobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetBlobCommand}.
+ */
 export interface GetBlobCommandInput extends GetBlobInput {}
+/**
+ * The output of {@link GetBlobCommand}.
+ */
 export interface GetBlobCommandOutput extends GetBlobOutput, __MetadataBearer {}
 
 /**

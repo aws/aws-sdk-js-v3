@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateRoleToGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateRoleToGroupCommand}.
+ */
 export interface AssociateRoleToGroupCommandInput extends AssociateRoleToGroupRequest {}
+/**
+ * The output of {@link AssociateRoleToGroupCommand}.
+ */
 export interface AssociateRoleToGroupCommandOutput extends AssociateRoleToGroupResponse, __MetadataBearer {}
 
 /**

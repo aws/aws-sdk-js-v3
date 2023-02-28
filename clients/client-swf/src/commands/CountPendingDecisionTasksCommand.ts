@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link CountPendingDecisionTasksCommand}.
+ */
 export interface CountPendingDecisionTasksCommandInput extends CountPendingDecisionTasksInput {}
+/**
+ * The output of {@link CountPendingDecisionTasksCommand}.
+ */
 export interface CountPendingDecisionTasksCommandOutput extends PendingTaskCount, __MetadataBearer {}
 
 /**

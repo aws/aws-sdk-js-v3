@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchUpdateUserCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchUpdateUserCommand}.
+ */
 export interface BatchUpdateUserCommandInput extends BatchUpdateUserRequest {}
+/**
+ * The output of {@link BatchUpdateUserCommand}.
+ */
 export interface BatchUpdateUserCommandOutput extends BatchUpdateUserResponse, __MetadataBearer {}
 
 /**

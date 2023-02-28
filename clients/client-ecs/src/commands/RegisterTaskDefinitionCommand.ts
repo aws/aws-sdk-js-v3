@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RegisterTaskDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterTaskDefinitionCommand}.
+ */
 export interface RegisterTaskDefinitionCommandInput extends RegisterTaskDefinitionRequest {}
+/**
+ * The output of {@link RegisterTaskDefinitionCommand}.
+ */
 export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinitionResponse, __MetadataBearer {}
 
 /**

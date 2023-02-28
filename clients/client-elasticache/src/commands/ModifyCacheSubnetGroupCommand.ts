@@ -25,7 +25,13 @@ import {
   serializeAws_queryModifyCacheSubnetGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyCacheSubnetGroupCommand}.
+ */
 export interface ModifyCacheSubnetGroupCommandInput extends ModifyCacheSubnetGroupMessage {}
+/**
+ * The output of {@link ModifyCacheSubnetGroupCommand}.
+ */
 export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGroupResult, __MetadataBearer {}
 
 /**

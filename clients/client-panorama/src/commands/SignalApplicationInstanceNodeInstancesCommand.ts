@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1SignalApplicationInstanceNodeInstancesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SignalApplicationInstanceNodeInstancesCommand}.
+ */
 export interface SignalApplicationInstanceNodeInstancesCommandInput
   extends SignalApplicationInstanceNodeInstancesRequest {}
+/**
+ * The output of {@link SignalApplicationInstanceNodeInstancesCommand}.
+ */
 export interface SignalApplicationInstanceNodeInstancesCommandOutput
   extends SignalApplicationInstanceNodeInstancesResponse,
     __MetadataBearer {}

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UntagLogGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UntagLogGroupCommand}.
+ */
 export interface UntagLogGroupCommandInput extends UntagLogGroupRequest {}
+/**
+ * The output of {@link UntagLogGroupCommand}.
+ */
 export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
 
 /**

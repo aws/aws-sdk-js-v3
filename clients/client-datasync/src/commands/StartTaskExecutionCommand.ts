@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartTaskExecutionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartTaskExecutionCommand}.
+ */
 export interface StartTaskExecutionCommandInput extends StartTaskExecutionRequest {}
+/**
+ * The output of {@link StartTaskExecutionCommand}.
+ */
 export interface StartTaskExecutionCommandOutput extends StartTaskExecutionResponse, __MetadataBearer {}
 
 /**

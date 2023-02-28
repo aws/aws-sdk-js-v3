@@ -25,7 +25,13 @@ import {
   serializeAws_queryStopDBClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link StopDBClusterCommand}.
+ */
 export interface StopDBClusterCommandInput extends StopDBClusterMessage {}
+/**
+ * The output of {@link StopDBClusterCommand}.
+ */
 export interface StopDBClusterCommandOutput extends StopDBClusterResult, __MetadataBearer {}
 
 /**

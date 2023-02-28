@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeauthorizeConnectionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeauthorizeConnectionCommand}.
+ */
 export interface DeauthorizeConnectionCommandInput extends DeauthorizeConnectionRequest {}
+/**
+ * The output of {@link DeauthorizeConnectionCommand}.
+ */
 export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchGetAssetPropertyValueHistoryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchGetAssetPropertyValueHistoryCommand}.
+ */
 export interface BatchGetAssetPropertyValueHistoryCommandInput extends BatchGetAssetPropertyValueHistoryRequest {}
+/**
+ * The output of {@link BatchGetAssetPropertyValueHistoryCommand}.
+ */
 export interface BatchGetAssetPropertyValueHistoryCommandOutput
   extends BatchGetAssetPropertyValueHistoryResponse,
     __MetadataBearer {}

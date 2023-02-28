@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListRoomsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListRoomsCommand}.
+ */
 export interface ListRoomsCommandInput extends ListRoomsRequest {}
+/**
+ * The output of {@link ListRoomsCommand}.
+ */
 export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBearer {}
 
 /**

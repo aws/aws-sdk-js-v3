@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListCasesForContactCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListCasesForContactCommand}.
+ */
 export interface ListCasesForContactCommandInput extends ListCasesForContactRequest {}
+/**
+ * The output of {@link ListCasesForContactCommand}.
+ */
 export interface ListCasesForContactCommandOutput extends ListCasesForContactResponse, __MetadataBearer {}
 
 /**

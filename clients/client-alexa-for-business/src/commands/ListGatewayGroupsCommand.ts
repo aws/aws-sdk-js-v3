@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListGatewayGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListGatewayGroupsCommand}.
+ */
 export interface ListGatewayGroupsCommandInput extends ListGatewayGroupsRequest {}
+/**
+ * The output of {@link ListGatewayGroupsCommand}.
+ */
 export interface ListGatewayGroupsCommandOutput extends ListGatewayGroupsResponse, __MetadataBearer {}
 
 /**

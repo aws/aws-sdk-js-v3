@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteMeetingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteMeetingCommand}.
+ */
 export interface DeleteMeetingCommandInput extends DeleteMeetingRequest {}
+/**
+ * The output of {@link DeleteMeetingCommand}.
+ */
 export interface DeleteMeetingCommandOutput extends __MetadataBearer {}
 
 /**

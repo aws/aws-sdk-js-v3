@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetAggregateComplianceDetailsByConfigRuleCommand}.
+ */
 export interface GetAggregateComplianceDetailsByConfigRuleCommandInput
   extends GetAggregateComplianceDetailsByConfigRuleRequest {}
+/**
+ * The output of {@link GetAggregateComplianceDetailsByConfigRuleCommand}.
+ */
 export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput
   extends GetAggregateComplianceDetailsByConfigRuleResponse,
     __MetadataBearer {}

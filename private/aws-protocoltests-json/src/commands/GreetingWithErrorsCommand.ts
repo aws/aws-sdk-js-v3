@@ -19,7 +19,13 @@ import {
   serializeAws_json1_1GreetingWithErrorsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GreetingWithErrorsCommand}.
+ */
 export interface GreetingWithErrorsCommandInput {}
+/**
+ * The output of {@link GreetingWithErrorsCommand}.
+ */
 export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutput, __MetadataBearer {}
 
 /**

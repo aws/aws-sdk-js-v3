@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteVcenterClientCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteVcenterClientCommand}.
+ */
 export interface DeleteVcenterClientCommandInput extends DeleteVcenterClientRequest {}
+/**
+ * The output of {@link DeleteVcenterClientCommand}.
+ */
 export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
 
 /**

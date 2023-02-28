@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link ListActivityTypesCommand}.
+ */
 export interface ListActivityTypesCommandInput extends ListActivityTypesInput {}
+/**
+ * The output of {@link ListActivityTypesCommand}.
+ */
 export interface ListActivityTypesCommandOutput extends ActivityTypeInfos, __MetadataBearer {}
 
 /**

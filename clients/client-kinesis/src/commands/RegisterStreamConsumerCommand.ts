@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RegisterStreamConsumerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterStreamConsumerCommand}.
+ */
 export interface RegisterStreamConsumerCommandInput extends RegisterStreamConsumerInput {}
+/**
+ * The output of {@link RegisterStreamConsumerCommand}.
+ */
 export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsumerOutput, __MetadataBearer {}
 
 /**

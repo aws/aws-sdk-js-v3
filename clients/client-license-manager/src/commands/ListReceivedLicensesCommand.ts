@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListReceivedLicensesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListReceivedLicensesCommand}.
+ */
 export interface ListReceivedLicensesCommandInput extends ListReceivedLicensesRequest {}
+/**
+ * The output of {@link ListReceivedLicensesCommand}.
+ */
 export interface ListReceivedLicensesCommandOutput extends ListReceivedLicensesResponse, __MetadataBearer {}
 
 /**

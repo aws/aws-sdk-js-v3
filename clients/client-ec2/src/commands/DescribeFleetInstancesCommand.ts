@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeFleetInstancesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeFleetInstancesCommand}.
+ */
 export interface DescribeFleetInstancesCommandInput extends DescribeFleetInstancesRequest {}
+/**
+ * The output of {@link DescribeFleetInstancesCommand}.
+ */
 export interface DescribeFleetInstancesCommandOutput extends DescribeFleetInstancesResult, __MetadataBearer {}
 
 /**

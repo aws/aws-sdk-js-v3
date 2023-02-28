@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateEnvironmentMembershipCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateEnvironmentMembershipCommand}.
+ */
 export interface CreateEnvironmentMembershipCommandInput extends CreateEnvironmentMembershipRequest {}
+/**
+ * The output of {@link CreateEnvironmentMembershipCommand}.
+ */
 export interface CreateEnvironmentMembershipCommandOutput extends CreateEnvironmentMembershipResult, __MetadataBearer {}
 
 /**

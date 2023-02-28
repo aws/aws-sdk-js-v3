@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyInstanceEventStartTimeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyInstanceEventStartTimeCommand}.
+ */
 export interface ModifyInstanceEventStartTimeCommandInput extends ModifyInstanceEventStartTimeRequest {}
+/**
+ * The output of {@link ModifyInstanceEventStartTimeCommand}.
+ */
 export interface ModifyInstanceEventStartTimeCommandOutput
   extends ModifyInstanceEventStartTimeResult,
     __MetadataBearer {}

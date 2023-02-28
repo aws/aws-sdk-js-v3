@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1DescribeAggregateComplianceByConformancePacksCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeAggregateComplianceByConformancePacksCommand}.
+ */
 export interface DescribeAggregateComplianceByConformancePacksCommandInput
   extends DescribeAggregateComplianceByConformancePacksRequest {}
+/**
+ * The output of {@link DescribeAggregateComplianceByConformancePacksCommand}.
+ */
 export interface DescribeAggregateComplianceByConformancePacksCommandOutput
   extends DescribeAggregateComplianceByConformancePacksResponse,
     __MetadataBearer {}

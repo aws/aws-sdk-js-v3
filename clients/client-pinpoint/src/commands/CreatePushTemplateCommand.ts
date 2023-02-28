@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreatePushTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreatePushTemplateCommand}.
+ */
 export interface CreatePushTemplateCommandInput extends CreatePushTemplateRequest {}
+/**
+ * The output of {@link CreatePushTemplateCommand}.
+ */
 export interface CreatePushTemplateCommandOutput extends CreatePushTemplateResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetBucketCorsCommand}.
+ */
 export interface GetBucketCorsCommandInput extends GetBucketCorsRequest {}
+/**
+ * The output of {@link GetBucketCorsCommand}.
+ */
 export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __MetadataBearer {}
 
 /**

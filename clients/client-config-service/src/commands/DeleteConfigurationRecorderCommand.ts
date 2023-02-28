@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DeleteConfigurationRecorderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteConfigurationRecorderCommand}.
+ */
 export interface DeleteConfigurationRecorderCommandInput extends DeleteConfigurationRecorderRequest {}
+/**
+ * The output of {@link DeleteConfigurationRecorderCommand}.
+ */
 export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**

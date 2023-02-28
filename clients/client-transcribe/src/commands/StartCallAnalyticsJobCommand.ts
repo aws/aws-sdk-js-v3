@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
+/**
+ * The input for {@link StartCallAnalyticsJobCommand}.
+ */
 export interface StartCallAnalyticsJobCommandInput extends StartCallAnalyticsJobRequest {}
+/**
+ * The output of {@link StartCallAnalyticsJobCommand}.
+ */
 export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJobResponse, __MetadataBearer {}
 
 /**

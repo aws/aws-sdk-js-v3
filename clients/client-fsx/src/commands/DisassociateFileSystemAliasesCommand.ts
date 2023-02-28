@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateFileSystemAliasesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateFileSystemAliasesCommand}.
+ */
 export interface DisassociateFileSystemAliasesCommandInput extends DisassociateFileSystemAliasesRequest {}
+/**
+ * The output of {@link DisassociateFileSystemAliasesCommand}.
+ */
 export interface DisassociateFileSystemAliasesCommandOutput
   extends DisassociateFileSystemAliasesResponse,
     __MetadataBearer {}

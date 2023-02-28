@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link DeleteBucketEncryptionCommand}.
+ */
 export interface DeleteBucketEncryptionCommandInput extends DeleteBucketEncryptionRequest {}
+/**
+ * The output of {@link DeleteBucketEncryptionCommand}.
+ */
 export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetVoiceConnectorTerminationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetVoiceConnectorTerminationCommand}.
+ */
 export interface GetVoiceConnectorTerminationCommandInput extends GetVoiceConnectorTerminationRequest {}
+/**
+ * The output of {@link GetVoiceConnectorTerminationCommand}.
+ */
 export interface GetVoiceConnectorTerminationCommandOutput
   extends GetVoiceConnectorTerminationResponse,
     __MetadataBearer {}

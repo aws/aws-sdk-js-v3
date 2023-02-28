@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link ListDatasetEntriesCommand}.
+ */
 export interface ListDatasetEntriesCommandInput extends ListDatasetEntriesRequest {}
+/**
+ * The output of {@link ListDatasetEntriesCommand}.
+ */
 export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesResponse, __MetadataBearer {}
 
 /**

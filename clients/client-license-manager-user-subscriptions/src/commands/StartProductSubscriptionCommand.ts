@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1StartProductSubscriptionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartProductSubscriptionCommand}.
+ */
 export interface StartProductSubscriptionCommandInput extends StartProductSubscriptionRequest {}
+/**
+ * The output of {@link StartProductSubscriptionCommand}.
+ */
 export interface StartProductSubscriptionCommandOutput extends StartProductSubscriptionResponse, __MetadataBearer {}
 
 /**

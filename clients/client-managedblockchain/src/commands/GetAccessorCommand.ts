@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetAccessorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAccessorCommand}.
+ */
 export interface GetAccessorCommandInput extends GetAccessorInput {}
+/**
+ * The output of {@link GetAccessorCommand}.
+ */
 export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataBearer {}
 
 /**

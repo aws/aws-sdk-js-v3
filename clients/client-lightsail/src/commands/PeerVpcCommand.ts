@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_json1_1PeerVpcCommand, serializeAws_json1_1PeerVpcCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PeerVpcCommand}.
+ */
 export interface PeerVpcCommandInput extends PeerVpcRequest {}
+/**
+ * The output of {@link PeerVpcCommand}.
+ */
 export interface PeerVpcCommandOutput extends PeerVpcResult, __MetadataBearer {}
 
 /**

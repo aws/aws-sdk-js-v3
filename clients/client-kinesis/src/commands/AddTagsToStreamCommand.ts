@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1AddTagsToStreamCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddTagsToStreamCommand}.
+ */
 export interface AddTagsToStreamCommandInput extends AddTagsToStreamInput {}
+/**
+ * The output of {@link AddTagsToStreamCommand}.
+ */
 export interface AddTagsToStreamCommandOutput extends __MetadataBearer {}
 
 /**

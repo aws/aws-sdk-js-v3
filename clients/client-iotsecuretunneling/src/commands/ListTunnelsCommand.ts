@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListTunnelsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTunnelsCommand}.
+ */
 export interface ListTunnelsCommandInput extends ListTunnelsRequest {}
+/**
+ * The output of {@link ListTunnelsCommand}.
+ */
 export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __MetadataBearer {}
 
 /**

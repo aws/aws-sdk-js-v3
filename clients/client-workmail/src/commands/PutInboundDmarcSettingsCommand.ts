@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link PutInboundDmarcSettingsCommand}.
+ */
 export interface PutInboundDmarcSettingsCommandInput extends PutInboundDmarcSettingsRequest {}
+/**
+ * The output of {@link PutInboundDmarcSettingsCommand}.
+ */
 export interface PutInboundDmarcSettingsCommandOutput extends PutInboundDmarcSettingsResponse, __MetadataBearer {}
 
 /**

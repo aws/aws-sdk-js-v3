@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link RenewDomainCommand}.
+ */
 export interface RenewDomainCommandInput extends RenewDomainRequest {}
+/**
+ * The output of {@link RenewDomainCommand}.
+ */
 export interface RenewDomainCommandOutput extends RenewDomainResponse, __MetadataBearer {}
 
 /**

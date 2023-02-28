@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateWorkspaceApiKeyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateWorkspaceApiKeyCommand}.
+ */
 export interface CreateWorkspaceApiKeyCommandInput extends CreateWorkspaceApiKeyRequest {}
+/**
+ * The output of {@link CreateWorkspaceApiKeyCommand}.
+ */
 export interface CreateWorkspaceApiKeyCommandOutput extends CreateWorkspaceApiKeyResponse, __MetadataBearer {}
 
 /**

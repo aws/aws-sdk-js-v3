@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartOutboundVoiceContactCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartOutboundVoiceContactCommand}.
+ */
 export interface StartOutboundVoiceContactCommandInput extends StartOutboundVoiceContactRequest {}
+/**
+ * The output of {@link StartOutboundVoiceContactCommand}.
+ */
 export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoiceContactResponse, __MetadataBearer {}
 
 /**

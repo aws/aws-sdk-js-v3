@@ -25,7 +25,13 @@ import {
   serializeAws_ec2EnableIpamOrganizationAdminAccountCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link EnableIpamOrganizationAdminAccountCommand}.
+ */
 export interface EnableIpamOrganizationAdminAccountCommandInput extends EnableIpamOrganizationAdminAccountRequest {}
+/**
+ * The output of {@link EnableIpamOrganizationAdminAccountCommand}.
+ */
 export interface EnableIpamOrganizationAdminAccountCommandOutput
   extends EnableIpamOrganizationAdminAccountResult,
     __MetadataBearer {}

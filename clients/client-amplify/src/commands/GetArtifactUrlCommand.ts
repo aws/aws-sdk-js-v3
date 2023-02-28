@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetArtifactUrlCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetArtifactUrlCommand}.
+ */
 export interface GetArtifactUrlCommandInput extends GetArtifactUrlRequest {}
+/**
+ * The output of {@link GetArtifactUrlCommand}.
+ */
 export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __MetadataBearer {}
 
 /**

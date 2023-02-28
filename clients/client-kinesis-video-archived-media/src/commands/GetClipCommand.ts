@@ -32,7 +32,13 @@ import {
   serializeAws_restJson1GetClipCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetClipCommand}.
+ */
 export interface GetClipCommandInput extends GetClipInput {}
+/**
+ * The output of {@link GetClipCommand}.
+ */
 export interface GetClipCommandOutput extends __WithSdkStreamMixin<GetClipOutput, "Payload">, __MetadataBearer {}
 
 /**

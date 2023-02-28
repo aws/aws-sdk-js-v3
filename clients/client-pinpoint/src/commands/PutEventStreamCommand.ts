@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutEventStreamCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutEventStreamCommand}.
+ */
 export interface PutEventStreamCommandInput extends PutEventStreamRequest {}
+/**
+ * The output of {@link PutEventStreamCommand}.
+ */
 export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __MetadataBearer {}
 
 /**

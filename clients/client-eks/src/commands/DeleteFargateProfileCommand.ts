@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteFargateProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteFargateProfileCommand}.
+ */
 export interface DeleteFargateProfileCommandInput extends DeleteFargateProfileRequest {}
+/**
+ * The output of {@link DeleteFargateProfileCommand}.
+ */
 export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileResponse, __MetadataBearer {}
 
 /**

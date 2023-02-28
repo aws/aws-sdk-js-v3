@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ReserveContactCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ReserveContactCommand}.
+ */
 export interface ReserveContactCommandInput extends ReserveContactRequest {}
+/**
+ * The output of {@link ReserveContactCommand}.
+ */
 export interface ReserveContactCommandOutput extends ContactIdResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDiskFromSnapshotCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDiskFromSnapshotCommand}.
+ */
 export interface CreateDiskFromSnapshotCommandInput extends CreateDiskFromSnapshotRequest {}
+/**
+ * The output of {@link CreateDiskFromSnapshotCommand}.
+ */
 export interface CreateDiskFromSnapshotCommandOutput extends CreateDiskFromSnapshotResult, __MetadataBearer {}
 
 /**

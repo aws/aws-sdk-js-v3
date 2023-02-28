@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartBuildBatchCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartBuildBatchCommand}.
+ */
 export interface StartBuildBatchCommandInput extends StartBuildBatchInput {}
+/**
+ * The output of {@link StartBuildBatchCommand}.
+ */
 export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __MetadataBearer {}
 
 /**

@@ -19,7 +19,13 @@ import {
   serializeAws_ec2RecursiveXmlShapesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RecursiveXmlShapesCommand}.
+ */
 export interface RecursiveXmlShapesCommandInput {}
+/**
+ * The output of {@link RecursiveXmlShapesCommand}.
+ */
 export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutput, __MetadataBearer {}
 
 /**

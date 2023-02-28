@@ -19,7 +19,13 @@ import {
   serializeAws_queryDeleteAccountPasswordPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteAccountPasswordPolicyCommand}.
+ */
 export interface DeleteAccountPasswordPolicyCommandInput {}
+/**
+ * The output of {@link DeleteAccountPasswordPolicyCommand}.
+ */
 export interface DeleteAccountPasswordPolicyCommandOutput extends __MetadataBearer {}
 
 /**

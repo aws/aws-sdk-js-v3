@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeregisterVolumeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterVolumeCommand}.
+ */
 export interface DeregisterVolumeCommandInput extends DeregisterVolumeRequest {}
+/**
+ * The output of {@link DeregisterVolumeCommand}.
+ */
 export interface DeregisterVolumeCommandOutput extends __MetadataBearer {}
 
 /**

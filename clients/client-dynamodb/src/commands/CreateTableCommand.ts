@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0CreateTableCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateTableCommand}.
+ */
 export interface CreateTableCommandInput extends CreateTableInput {}
+/**
+ * The output of {@link CreateTableCommand}.
+ */
 export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataBearer {}
 
 /**

@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeGatewayCapabilityConfigurationCommand}.
+ */
 export interface DescribeGatewayCapabilityConfigurationCommandInput
   extends DescribeGatewayCapabilityConfigurationRequest {}
+/**
+ * The output of {@link DescribeGatewayCapabilityConfigurationCommand}.
+ */
 export interface DescribeGatewayCapabilityConfigurationCommandOutput
   extends DescribeGatewayCapabilityConfigurationResponse,
     __MetadataBearer {}

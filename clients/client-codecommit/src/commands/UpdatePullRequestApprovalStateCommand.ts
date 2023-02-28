@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1UpdatePullRequestApprovalStateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdatePullRequestApprovalStateCommand}.
+ */
 export interface UpdatePullRequestApprovalStateCommandInput extends UpdatePullRequestApprovalStateInput {}
+/**
+ * The output of {@link UpdatePullRequestApprovalStateCommand}.
+ */
 export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataBearer {}
 
 /**

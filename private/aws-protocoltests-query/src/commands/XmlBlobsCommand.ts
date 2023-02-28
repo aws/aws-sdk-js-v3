@@ -16,7 +16,13 @@ import { XmlBlobsOutput, XmlBlobsOutputFilterSensitiveLog } from "../models/mode
 import { deserializeAws_queryXmlBlobsCommand, serializeAws_queryXmlBlobsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link XmlBlobsCommand}.
+ */
 export interface XmlBlobsCommandInput {}
+/**
+ * The output of {@link XmlBlobsCommand}.
+ */
 export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer {}
 
 /**

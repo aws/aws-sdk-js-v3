@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteRepositoryPermissionsPolicyCommand}.
+ */
 export interface DeleteRepositoryPermissionsPolicyCommandInput extends DeleteRepositoryPermissionsPolicyRequest {}
+/**
+ * The output of {@link DeleteRepositoryPermissionsPolicyCommand}.
+ */
 export interface DeleteRepositoryPermissionsPolicyCommandOutput
   extends DeleteRepositoryPermissionsPolicyResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetInAppMessagesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetInAppMessagesCommand}.
+ */
 export interface GetInAppMessagesCommandInput extends GetInAppMessagesRequest {}
+/**
+ * The output of {@link GetInAppMessagesCommand}.
+ */
 export interface GetInAppMessagesCommandOutput extends GetInAppMessagesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListTopicRulesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListTopicRulesCommand}.
+ */
 export interface ListTopicRulesCommandInput extends ListTopicRulesRequest {}
+/**
+ * The output of {@link ListTopicRulesCommand}.
+ */
 export interface ListTopicRulesCommandOutput extends ListTopicRulesResponse, __MetadataBearer {}
 
 /**

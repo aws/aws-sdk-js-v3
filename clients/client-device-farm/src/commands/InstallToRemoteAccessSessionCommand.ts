@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1InstallToRemoteAccessSessionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link InstallToRemoteAccessSessionCommand}.
+ */
 export interface InstallToRemoteAccessSessionCommandInput extends InstallToRemoteAccessSessionRequest {}
+/**
+ * The output of {@link InstallToRemoteAccessSessionCommand}.
+ */
 export interface InstallToRemoteAccessSessionCommandOutput
   extends InstallToRemoteAccessSessionResult,
     __MetadataBearer {}

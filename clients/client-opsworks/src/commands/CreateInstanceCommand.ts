@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateInstanceCommand}.
+ */
 export interface CreateInstanceCommandInput extends CreateInstanceRequest {}
+/**
+ * The output of {@link CreateInstanceCommand}.
+ */
 export interface CreateInstanceCommandOutput extends CreateInstanceResult, __MetadataBearer {}
 
 /**

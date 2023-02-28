@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
 
+/**
+ * The input for {@link CreateEndpointCommand}.
+ */
 export interface CreateEndpointCommandInput extends CreateEndpointRequest {}
+/**
+ * The output of {@link CreateEndpointCommand}.
+ */
 export interface CreateEndpointCommandOutput extends CreateEndpointResult, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_ec2ModifyVolumeAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyVolumeAttributeCommand}.
+ */
 export interface ModifyVolumeAttributeCommandInput extends ModifyVolumeAttributeRequest {}
+/**
+ * The output of {@link ModifyVolumeAttributeCommand}.
+ */
 export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
 
 /**

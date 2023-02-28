@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateDirectConnectGatewayCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateDirectConnectGatewayCommand}.
+ */
 export interface UpdateDirectConnectGatewayCommandInput extends UpdateDirectConnectGatewayRequest {}
+/**
+ * The output of {@link UpdateDirectConnectGatewayCommand}.
+ */
 export interface UpdateDirectConnectGatewayCommandOutput extends UpdateDirectConnectGatewayResponse, __MetadataBearer {}
 
 /**

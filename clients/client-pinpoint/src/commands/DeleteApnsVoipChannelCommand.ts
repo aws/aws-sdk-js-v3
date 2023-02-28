@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteApnsVoipChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteApnsVoipChannelCommand}.
+ */
 export interface DeleteApnsVoipChannelCommandInput extends DeleteApnsVoipChannelRequest {}
+/**
+ * The output of {@link DeleteApnsVoipChannelCommand}.
+ */
 export interface DeleteApnsVoipChannelCommandOutput extends DeleteApnsVoipChannelResponse, __MetadataBearer {}
 
 /**

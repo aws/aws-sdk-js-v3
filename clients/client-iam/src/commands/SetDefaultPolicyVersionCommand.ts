@@ -20,7 +20,13 @@ import {
   serializeAws_querySetDefaultPolicyVersionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SetDefaultPolicyVersionCommand}.
+ */
 export interface SetDefaultPolicyVersionCommandInput extends SetDefaultPolicyVersionRequest {}
+/**
+ * The output of {@link SetDefaultPolicyVersionCommand}.
+ */
 export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**

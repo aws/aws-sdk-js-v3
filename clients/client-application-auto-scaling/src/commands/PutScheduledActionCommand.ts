@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1PutScheduledActionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutScheduledActionCommand}.
+ */
 export interface PutScheduledActionCommandInput extends PutScheduledActionRequest {}
+/**
+ * The output of {@link PutScheduledActionCommand}.
+ */
 export interface PutScheduledActionCommandOutput extends PutScheduledActionResponse, __MetadataBearer {}
 
 /**

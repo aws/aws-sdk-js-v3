@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetBlueprintsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetBlueprintsCommand}.
+ */
 export interface BatchGetBlueprintsCommandInput extends BatchGetBlueprintsRequest {}
+/**
+ * The output of {@link BatchGetBlueprintsCommand}.
+ */
 export interface BatchGetBlueprintsCommandOutput extends BatchGetBlueprintsResponse, __MetadataBearer {}
 
 /**

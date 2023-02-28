@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateEventSourceMappingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateEventSourceMappingCommand}.
+ */
 export interface CreateEventSourceMappingCommandInput extends CreateEventSourceMappingRequest {}
+/**
+ * The output of {@link CreateEventSourceMappingCommand}.
+ */
 export interface CreateEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1OpenInstancePublicPortsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link OpenInstancePublicPortsCommand}.
+ */
 export interface OpenInstancePublicPortsCommandInput extends OpenInstancePublicPortsRequest {}
+/**
+ * The output of {@link OpenInstancePublicPortsCommand}.
+ */
 export interface OpenInstancePublicPortsCommandOutput extends OpenInstancePublicPortsResult, __MetadataBearer {}
 
 /**

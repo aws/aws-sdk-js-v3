@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopLoggingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopLoggingCommand}.
+ */
 export interface StopLoggingCommandInput extends StopLoggingRequest {}
+/**
+ * The output of {@link StopLoggingCommand}.
+ */
 export interface StopLoggingCommandOutput extends StopLoggingResponse, __MetadataBearer {}
 
 /**

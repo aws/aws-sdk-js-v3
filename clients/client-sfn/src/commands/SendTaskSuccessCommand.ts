@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * The input for {@link SendTaskSuccessCommand}.
+ */
 export interface SendTaskSuccessCommandInput extends SendTaskSuccessInput {}
+/**
+ * The output of {@link SendTaskSuccessCommand}.
+ */
 export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __MetadataBearer {}
 
 /**

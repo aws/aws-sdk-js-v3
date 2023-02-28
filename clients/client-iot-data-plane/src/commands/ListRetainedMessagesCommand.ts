@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListRetainedMessagesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListRetainedMessagesCommand}.
+ */
 export interface ListRetainedMessagesCommandInput extends ListRetainedMessagesRequest {}
+/**
+ * The output of {@link ListRetainedMessagesCommand}.
+ */
 export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesResponse, __MetadataBearer {}
 
 /**

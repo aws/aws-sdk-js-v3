@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1StopSNOMEDCTInferenceJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopSNOMEDCTInferenceJobCommand}.
+ */
 export interface StopSNOMEDCTInferenceJobCommandInput extends StopSNOMEDCTInferenceJobRequest {}
+/**
+ * The output of {@link StopSNOMEDCTInferenceJobCommand}.
+ */
 export interface StopSNOMEDCTInferenceJobCommandOutput extends StopSNOMEDCTInferenceJobResponse, __MetadataBearer {}
 
 /**

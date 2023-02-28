@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetObjectAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetObjectAttributesCommand}.
+ */
 export interface GetObjectAttributesCommandInput extends GetObjectAttributesRequest {}
+/**
+ * The output of {@link GetObjectAttributesCommand}.
+ */
 export interface GetObjectAttributesCommandOutput extends GetObjectAttributesResponse, __MetadataBearer {}
 
 /**

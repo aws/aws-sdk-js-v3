@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateChannelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateChannelCommand}.
+ */
 export interface UpdateChannelCommandInput extends UpdateChannelRequest {}
+/**
+ * The output of {@link UpdateChannelCommand}.
+ */
 export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __MetadataBearer {}
 
 /**

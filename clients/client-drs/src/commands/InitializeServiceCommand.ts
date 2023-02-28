@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1InitializeServiceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link InitializeServiceCommand}.
+ */
 export interface InitializeServiceCommandInput extends InitializeServiceRequest {}
+/**
+ * The output of {@link InitializeServiceCommand}.
+ */
 export interface InitializeServiceCommandOutput extends InitializeServiceResponse, __MetadataBearer {}
 
 /**

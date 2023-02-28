@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminDeleteUserAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminDeleteUserAttributesCommand}.
+ */
 export interface AdminDeleteUserAttributesCommandInput extends AdminDeleteUserAttributesRequest {}
+/**
+ * The output of {@link AdminDeleteUserAttributesCommand}.
+ */
 export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserAttributesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchDetectDominantLanguageCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchDetectDominantLanguageCommand}.
+ */
 export interface BatchDetectDominantLanguageCommandInput extends BatchDetectDominantLanguageRequest {}
+/**
+ * The output of {@link BatchDetectDominantLanguageCommand}.
+ */
 export interface BatchDetectDominantLanguageCommandOutput
   extends BatchDetectDominantLanguageResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link UpdateFieldLevelEncryptionConfigCommand}.
+ */
 export interface UpdateFieldLevelEncryptionConfigCommandInput extends UpdateFieldLevelEncryptionConfigRequest {}
+/**
+ * The output of {@link UpdateFieldLevelEncryptionConfigCommand}.
+ */
 export interface UpdateFieldLevelEncryptionConfigCommandOutput
   extends UpdateFieldLevelEncryptionConfigResult,
     __MetadataBearer {}

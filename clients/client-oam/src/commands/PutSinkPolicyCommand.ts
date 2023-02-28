@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutSinkPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutSinkPolicyCommand}.
+ */
 export interface PutSinkPolicyCommandInput extends PutSinkPolicyInput {}
+/**
+ * The output of {@link PutSinkPolicyCommand}.
+ */
 export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __MetadataBearer {}
 
 /**

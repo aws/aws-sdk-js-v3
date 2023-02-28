@@ -17,7 +17,13 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { ModifyIdFormatRequest, ModifyIdFormatRequestFilterSensitiveLog } from "../models/models_6";
 import { deserializeAws_ec2ModifyIdFormatCommand, serializeAws_ec2ModifyIdFormatCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyIdFormatCommand}.
+ */
 export interface ModifyIdFormatCommandInput extends ModifyIdFormatRequest {}
+/**
+ * The output of {@link ModifyIdFormatCommand}.
+ */
 export interface ModifyIdFormatCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * The input for {@link GetPermissionCommand}.
+ */
 export interface GetPermissionCommandInput extends GetPermissionRequest {}
+/**
+ * The output of {@link GetPermissionCommand}.
+ */
 export interface GetPermissionCommandOutput extends GetPermissionResponse, __MetadataBearer {}
 
 /**

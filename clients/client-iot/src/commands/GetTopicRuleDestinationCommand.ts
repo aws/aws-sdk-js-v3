@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetTopicRuleDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetTopicRuleDestinationCommand}.
+ */
 export interface GetTopicRuleDestinationCommandInput extends GetTopicRuleDestinationRequest {}
+/**
+ * The output of {@link GetTopicRuleDestinationCommand}.
+ */
 export interface GetTopicRuleDestinationCommandOutput extends GetTopicRuleDestinationResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetFunctionConcurrencyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetFunctionConcurrencyCommand}.
+ */
 export interface GetFunctionConcurrencyCommandInput extends GetFunctionConcurrencyRequest {}
+/**
+ * The output of {@link GetFunctionConcurrencyCommand}.
+ */
 export interface GetFunctionConcurrencyCommandOutput extends GetFunctionConcurrencyResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link GetContentModerationCommand}.
+ */
 export interface GetContentModerationCommandInput extends GetContentModerationRequest {}
+/**
+ * The output of {@link GetContentModerationCommand}.
+ */
 export interface GetContentModerationCommandOutput extends GetContentModerationResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetUsageForecastCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetUsageForecastCommand}.
+ */
 export interface GetUsageForecastCommandInput extends GetUsageForecastRequest {}
+/**
+ * The output of {@link GetUsageForecastCommand}.
+ */
 export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse, __MetadataBearer {}
 
 /**

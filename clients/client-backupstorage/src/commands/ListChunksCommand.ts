@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListChunksCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListChunksCommand}.
+ */
 export interface ListChunksCommandInput extends ListChunksInput {}
+/**
+ * The output of {@link ListChunksCommand}.
+ */
 export interface ListChunksCommandOutput extends ListChunksOutput, __MetadataBearer {}
 
 /**

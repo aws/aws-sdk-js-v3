@@ -32,7 +32,13 @@ import {
   ServiceOutputTypes,
 } from "../SageMakerGeospatialClient";
 
+/**
+ * The input for {@link GetTileCommand}.
+ */
 export interface GetTileCommandInput extends GetTileInput {}
+/**
+ * The output of {@link GetTileCommand}.
+ */
 export interface GetTileCommandOutput extends __WithSdkStreamMixin<GetTileOutput, "BinaryFile">, __MetadataBearer {}
 
 /**

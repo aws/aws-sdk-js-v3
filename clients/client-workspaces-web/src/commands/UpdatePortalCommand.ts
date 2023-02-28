@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link UpdatePortalCommand}.
+ */
 export interface UpdatePortalCommandInput extends UpdatePortalRequest {}
+/**
+ * The output of {@link UpdatePortalCommand}.
+ */
 export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __MetadataBearer {}
 
 /**

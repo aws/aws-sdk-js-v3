@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ScheduleRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ScheduleRunCommand}.
+ */
 export interface ScheduleRunCommandInput extends ScheduleRunRequest {}
+/**
+ * The output of {@link ScheduleRunCommand}.
+ */
 export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataBearer {}
 
 /**

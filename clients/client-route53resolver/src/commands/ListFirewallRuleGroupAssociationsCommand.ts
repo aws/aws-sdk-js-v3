@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * The input for {@link ListFirewallRuleGroupAssociationsCommand}.
+ */
 export interface ListFirewallRuleGroupAssociationsCommandInput extends ListFirewallRuleGroupAssociationsRequest {}
+/**
+ * The output of {@link ListFirewallRuleGroupAssociationsCommand}.
+ */
 export interface ListFirewallRuleGroupAssociationsCommandOutput
   extends ListFirewallRuleGroupAssociationsResponse,
     __MetadataBearer {}

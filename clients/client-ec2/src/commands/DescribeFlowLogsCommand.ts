@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeFlowLogsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeFlowLogsCommand}.
+ */
 export interface DescribeFlowLogsCommandInput extends DescribeFlowLogsRequest {}
+/**
+ * The output of {@link DescribeFlowLogsCommand}.
+ */
 export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, __MetadataBearer {}
 
 /**

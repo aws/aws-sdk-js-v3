@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * The input for {@link ListSnapshotsCommand}.
+ */
 export interface ListSnapshotsCommandInput extends ListSnapshotsRequest {}
+/**
+ * The output of {@link ListSnapshotsCommand}.
+ */
 export interface ListSnapshotsCommandOutput extends ListSnapshotsResponse, __MetadataBearer {}
 
 /**

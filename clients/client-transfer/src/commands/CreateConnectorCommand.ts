@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link CreateConnectorCommand}.
+ */
 export interface CreateConnectorCommandInput extends CreateConnectorRequest {}
+/**
+ * The output of {@link CreateConnectorCommand}.
+ */
 export interface CreateConnectorCommandOutput extends CreateConnectorResponse, __MetadataBearer {}
 
 /**

@@ -17,7 +17,13 @@ import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import { DeleteAlarmsInput, DeleteAlarmsInputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryDeleteAlarmsCommand, serializeAws_queryDeleteAlarmsCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteAlarmsCommand}.
+ */
 export interface DeleteAlarmsCommandInput extends DeleteAlarmsInput {}
+/**
+ * The output of {@link DeleteAlarmsCommand}.
+ */
 export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
 
 /**

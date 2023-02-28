@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDeploymentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDeploymentCommand}.
+ */
 export interface CreateDeploymentCommandInput extends CreateDeploymentInput {}
+/**
+ * The output of {@link CreateDeploymentCommand}.
+ */
 export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, __MetadataBearer {}
 
 /**

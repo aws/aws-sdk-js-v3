@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeScalingActivitiesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeScalingActivitiesCommand}.
+ */
 export interface DescribeScalingActivitiesCommandInput extends DescribeScalingActivitiesType {}
+/**
+ * The output of {@link DescribeScalingActivitiesCommand}.
+ */
 export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, __MetadataBearer {}
 
 /**

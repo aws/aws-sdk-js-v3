@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * The input for {@link DeleteStateMachineCommand}.
+ */
 export interface DeleteStateMachineCommandInput extends DeleteStateMachineInput {}
+/**
+ * The output of {@link DeleteStateMachineCommand}.
+ */
 export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutput, __MetadataBearer {}
 
 /**

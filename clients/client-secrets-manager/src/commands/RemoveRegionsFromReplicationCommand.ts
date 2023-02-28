@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * The input for {@link RemoveRegionsFromReplicationCommand}.
+ */
 export interface RemoveRegionsFromReplicationCommandInput extends RemoveRegionsFromReplicationRequest {}
+/**
+ * The output of {@link RemoveRegionsFromReplicationCommand}.
+ */
 export interface RemoveRegionsFromReplicationCommandOutput
   extends RemoveRegionsFromReplicationResponse,
     __MetadataBearer {}

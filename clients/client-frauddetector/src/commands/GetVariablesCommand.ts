@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetVariablesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetVariablesCommand}.
+ */
 export interface GetVariablesCommandInput extends GetVariablesRequest {}
+/**
+ * The output of {@link GetVariablesCommand}.
+ */
 export interface GetVariablesCommandOutput extends GetVariablesResult, __MetadataBearer {}
 
 /**

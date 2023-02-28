@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CloneBackendCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CloneBackendCommand}.
+ */
 export interface CloneBackendCommandInput extends CloneBackendRequest {}
+/**
+ * The output of {@link CloneBackendCommand}.
+ */
 export interface CloneBackendCommandOutput extends CloneBackendResponse, __MetadataBearer {}
 
 /**

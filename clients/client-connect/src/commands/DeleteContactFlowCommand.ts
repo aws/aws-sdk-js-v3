@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteContactFlowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteContactFlowCommand}.
+ */
 export interface DeleteContactFlowCommandInput extends DeleteContactFlowRequest {}
+/**
+ * The output of {@link DeleteContactFlowCommand}.
+ */
 export interface DeleteContactFlowCommandOutput extends DeleteContactFlowResponse, __MetadataBearer {}
 
 /**

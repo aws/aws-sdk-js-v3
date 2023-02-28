@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1RegisterApplicationRevisionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterApplicationRevisionCommand}.
+ */
 export interface RegisterApplicationRevisionCommandInput extends RegisterApplicationRevisionInput {}
+/**
+ * The output of {@link RegisterApplicationRevisionCommand}.
+ */
 export interface RegisterApplicationRevisionCommandOutput extends __MetadataBearer {}
 
 /**

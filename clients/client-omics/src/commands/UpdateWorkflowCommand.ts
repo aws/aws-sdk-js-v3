@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateWorkflowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateWorkflowCommand}.
+ */
 export interface UpdateWorkflowCommandInput extends UpdateWorkflowRequest {}
+/**
+ * The output of {@link UpdateWorkflowCommand}.
+ */
 export interface UpdateWorkflowCommandOutput extends __MetadataBearer {}
 
 /**

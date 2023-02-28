@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BulkPublishCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BulkPublishCommand}.
+ */
 export interface BulkPublishCommandInput extends BulkPublishRequest {}
+/**
+ * The output of {@link BulkPublishCommand}.
+ */
 export interface BulkPublishCommandOutput extends BulkPublishResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListSmartHomeAppliancesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListSmartHomeAppliancesCommand}.
+ */
 export interface ListSmartHomeAppliancesCommandInput extends ListSmartHomeAppliancesRequest {}
+/**
+ * The output of {@link ListSmartHomeAppliancesCommand}.
+ */
 export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppliancesResponse, __MetadataBearer {}
 
 /**

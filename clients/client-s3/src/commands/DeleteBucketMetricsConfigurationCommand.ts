@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link DeleteBucketMetricsConfigurationCommand}.
+ */
 export interface DeleteBucketMetricsConfigurationCommandInput extends DeleteBucketMetricsConfigurationRequest {}
+/**
+ * The output of {@link DeleteBucketMetricsConfigurationCommand}.
+ */
 export interface DeleteBucketMetricsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

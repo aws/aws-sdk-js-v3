@@ -27,7 +27,13 @@ import {
   serializeAws_json1_1DeleteCustomRoutingEndpointGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteCustomRoutingEndpointGroupCommand}.
+ */
 export interface DeleteCustomRoutingEndpointGroupCommandInput extends DeleteCustomRoutingEndpointGroupRequest {}
+/**
+ * The output of {@link DeleteCustomRoutingEndpointGroupCommand}.
+ */
 export interface DeleteCustomRoutingEndpointGroupCommandOutput extends __MetadataBearer {}
 
 /**

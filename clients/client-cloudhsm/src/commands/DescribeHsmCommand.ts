@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeHsmCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeHsmCommand}.
+ */
 export interface DescribeHsmCommandInput extends DescribeHsmRequest {}
+/**
+ * The output of {@link DescribeHsmCommand}.
+ */
 export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __MetadataBearer {}
 
 /**

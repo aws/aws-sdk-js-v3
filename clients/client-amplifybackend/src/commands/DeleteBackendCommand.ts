@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteBackendCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteBackendCommand}.
+ */
 export interface DeleteBackendCommandInput extends DeleteBackendRequest {}
+/**
+ * The output of {@link DeleteBackendCommand}.
+ */
 export interface DeleteBackendCommandOutput extends DeleteBackendResponse, __MetadataBearer {}
 
 /**

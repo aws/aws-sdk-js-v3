@@ -25,6 +25,9 @@ import {
   serializeAws_restJson1PutSnapshotBlockCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutSnapshotBlockCommand}.
+ */
 type PutSnapshotBlockCommandInputType = Omit<PutSnapshotBlockRequest, "BlockData"> & {
   /**
    * For *`PutSnapshotBlockRequest["BlockData"]`*, see {@link PutSnapshotBlockRequest.BlockData}.
@@ -35,6 +38,9 @@ type PutSnapshotBlockCommandInputType = Omit<PutSnapshotBlockRequest, "BlockData
  * This interface extends from `PutSnapshotBlockRequest` interface. There are more parameters than `BlockData` defined in {@link PutSnapshotBlockRequest}
  */
 export interface PutSnapshotBlockCommandInput extends PutSnapshotBlockCommandInputType {}
+/**
+ * The output of {@link PutSnapshotBlockCommand}.
+ */
 export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse, __MetadataBearer {}
 
 /**

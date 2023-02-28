@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetPendingJobExecutionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPendingJobExecutionsCommand}.
+ */
 export interface GetPendingJobExecutionsCommandInput extends GetPendingJobExecutionsRequest {}
+/**
+ * The output of {@link GetPendingJobExecutionsCommand}.
+ */
 export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecutionsResponse, __MetadataBearer {}
 
 /**

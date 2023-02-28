@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetWorkerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetWorkerCommand}.
+ */
 export interface GetWorkerCommandInput extends GetWorkerRequest {}
+/**
+ * The output of {@link GetWorkerCommand}.
+ */
 export interface GetWorkerCommandOutput extends GetWorkerResponse, __MetadataBearer {}
 
 /**

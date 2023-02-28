@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AttachInstancesToLoadBalancerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AttachInstancesToLoadBalancerCommand}.
+ */
 export interface AttachInstancesToLoadBalancerCommandInput extends AttachInstancesToLoadBalancerRequest {}
+/**
+ * The output of {@link AttachInstancesToLoadBalancerCommand}.
+ */
 export interface AttachInstancesToLoadBalancerCommandOutput
   extends AttachInstancesToLoadBalancerResult,
     __MetadataBearer {}

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1CreateListenerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateListenerCommand}.
+ */
 export interface CreateListenerCommandInput extends CreateListenerRequest {}
+/**
+ * The output of {@link CreateListenerCommand}.
+ */
 export interface CreateListenerCommandOutput extends CreateListenerResponse, __MetadataBearer {}
 
 /**

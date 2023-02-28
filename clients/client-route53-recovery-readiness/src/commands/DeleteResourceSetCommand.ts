@@ -24,7 +24,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * The input for {@link DeleteResourceSetCommand}.
+ */
 export interface DeleteResourceSetCommandInput extends DeleteResourceSetRequest {}
+/**
+ * The output of {@link DeleteResourceSetCommand}.
+ */
 export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
 
 /**

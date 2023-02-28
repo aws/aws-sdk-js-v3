@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdatePortalCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdatePortalCommand}.
+ */
 export interface UpdatePortalCommandInput extends UpdatePortalRequest {}
+/**
+ * The output of {@link UpdatePortalCommand}.
+ */
 export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DetachDiskCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DetachDiskCommand}.
+ */
 export interface DetachDiskCommandInput extends DetachDiskRequest {}
+/**
+ * The output of {@link DetachDiskCommand}.
+ */
 export interface DetachDiskCommandOutput extends DetachDiskResult, __MetadataBearer {}
 
 /**

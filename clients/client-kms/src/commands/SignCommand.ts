@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1SignCommand, serializeAws_json1_1SignCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SignCommand}.
+ */
 export interface SignCommandInput extends SignRequest {}
+/**
+ * The output of {@link SignCommand}.
+ */
 export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
 
 /**

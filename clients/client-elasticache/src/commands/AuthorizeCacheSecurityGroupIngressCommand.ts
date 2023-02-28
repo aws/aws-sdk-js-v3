@@ -25,7 +25,13 @@ import {
   serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link AuthorizeCacheSecurityGroupIngressCommand}.
+ */
 export interface AuthorizeCacheSecurityGroupIngressCommandInput extends AuthorizeCacheSecurityGroupIngressMessage {}
+/**
+ * The output of {@link AuthorizeCacheSecurityGroupIngressCommand}.
+ */
 export interface AuthorizeCacheSecurityGroupIngressCommandOutput
   extends AuthorizeCacheSecurityGroupIngressResult,
     __MetadataBearer {}

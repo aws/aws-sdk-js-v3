@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * The input for {@link UpdateHttpNamespaceCommand}.
+ */
 export interface UpdateHttpNamespaceCommandInput extends UpdateHttpNamespaceRequest {}
+/**
+ * The output of {@link UpdateHttpNamespaceCommand}.
+ */
 export interface UpdateHttpNamespaceCommandOutput extends UpdateHttpNamespaceResponse, __MetadataBearer {}
 
 /**

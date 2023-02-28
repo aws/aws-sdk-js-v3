@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteRealtimeEndpointCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteRealtimeEndpointCommand}.
+ */
 export interface DeleteRealtimeEndpointCommandInput extends DeleteRealtimeEndpointInput {}
+/**
+ * The output of {@link DeleteRealtimeEndpointCommand}.
+ */
 export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpointOutput, __MetadataBearer {}
 
 /**

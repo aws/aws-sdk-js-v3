@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetThirdPartyJobDetailsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetThirdPartyJobDetailsCommand}.
+ */
 export interface GetThirdPartyJobDetailsCommandInput extends GetThirdPartyJobDetailsInput {}
+/**
+ * The output of {@link GetThirdPartyJobDetailsCommand}.
+ */
 export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDetailsOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateLegalHoldCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateLegalHoldCommand}.
+ */
 export interface CreateLegalHoldCommandInput extends CreateLegalHoldInput {}
+/**
+ * The output of {@link CreateLegalHoldCommand}.
+ */
 export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __MetadataBearer {}
 
 /**

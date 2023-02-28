@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link IndexFacesCommand}.
+ */
 export interface IndexFacesCommandInput extends IndexFacesRequest {}
+/**
+ * The output of {@link IndexFacesCommand}.
+ */
 export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataBearer {}
 
 /**

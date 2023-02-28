@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1EnableRegionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link EnableRegionCommand}.
+ */
 export interface EnableRegionCommandInput extends EnableRegionRequest {}
+/**
+ * The output of {@link EnableRegionCommand}.
+ */
 export interface EnableRegionCommandOutput extends __MetadataBearer {}
 
 /**

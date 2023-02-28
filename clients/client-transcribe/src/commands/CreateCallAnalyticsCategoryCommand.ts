@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
+/**
+ * The input for {@link CreateCallAnalyticsCategoryCommand}.
+ */
 export interface CreateCallAnalyticsCategoryCommandInput extends CreateCallAnalyticsCategoryRequest {}
+/**
+ * The output of {@link CreateCallAnalyticsCategoryCommand}.
+ */
 export interface CreateCallAnalyticsCategoryCommandOutput
   extends CreateCallAnalyticsCategoryResponse,
     __MetadataBearer {}

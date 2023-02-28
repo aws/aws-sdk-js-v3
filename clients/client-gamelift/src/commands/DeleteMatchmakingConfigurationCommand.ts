@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteMatchmakingConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteMatchmakingConfigurationCommand}.
+ */
 export interface DeleteMatchmakingConfigurationCommandInput extends DeleteMatchmakingConfigurationInput {}
+/**
+ * The output of {@link DeleteMatchmakingConfigurationCommand}.
+ */
 export interface DeleteMatchmakingConfigurationCommandOutput
   extends DeleteMatchmakingConfigurationOutput,
     __MetadataBearer {}

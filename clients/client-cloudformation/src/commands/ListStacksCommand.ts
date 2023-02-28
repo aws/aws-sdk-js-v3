@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryListStacksCommand, serializeAws_queryListStacksCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListStacksCommand}.
+ */
 export interface ListStacksCommandInput extends ListStacksInput {}
+/**
+ * The output of {@link ListStacksCommand}.
+ */
 export interface ListStacksCommandOutput extends ListStacksOutput, __MetadataBearer {}
 
 /**

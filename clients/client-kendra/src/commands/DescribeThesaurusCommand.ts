@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeThesaurusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeThesaurusCommand}.
+ */
 export interface DescribeThesaurusCommandInput extends DescribeThesaurusRequest {}
+/**
+ * The output of {@link DescribeThesaurusCommand}.
+ */
 export interface DescribeThesaurusCommandOutput extends DescribeThesaurusResponse, __MetadataBearer {}
 
 /**

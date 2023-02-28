@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListApplicationDPUSizesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListApplicationDPUSizesCommand}.
+ */
 export interface ListApplicationDPUSizesCommandInput extends ListApplicationDPUSizesInput {}
+/**
+ * The output of {@link ListApplicationDPUSizesCommand}.
+ */
 export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPUSizesOutput, __MetadataBearer {}
 
 /**

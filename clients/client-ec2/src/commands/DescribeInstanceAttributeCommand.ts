@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeInstanceAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeInstanceAttributeCommand}.
+ */
 export interface DescribeInstanceAttributeCommandInput extends DescribeInstanceAttributeRequest {}
+/**
+ * The output of {@link DescribeInstanceAttributeCommand}.
+ */
 export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribute, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0UpdateEventDestinationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateEventDestinationCommand}.
+ */
 export interface UpdateEventDestinationCommandInput extends UpdateEventDestinationRequest {}
+/**
+ * The output of {@link UpdateEventDestinationCommand}.
+ */
 export interface UpdateEventDestinationCommandOutput extends UpdateEventDestinationResult, __MetadataBearer {}
 
 /**

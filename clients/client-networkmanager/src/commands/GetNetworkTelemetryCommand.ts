@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetNetworkTelemetryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetNetworkTelemetryCommand}.
+ */
 export interface GetNetworkTelemetryCommandInput extends GetNetworkTelemetryRequest {}
+/**
+ * The output of {@link GetNetworkTelemetryCommand}.
+ */
 export interface GetNetworkTelemetryCommandOutput extends GetNetworkTelemetryResponse, __MetadataBearer {}
 
 /**

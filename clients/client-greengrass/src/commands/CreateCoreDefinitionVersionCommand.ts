@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateCoreDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateCoreDefinitionVersionCommand}.
+ */
 export interface CreateCoreDefinitionVersionCommandInput extends CreateCoreDefinitionVersionRequest {}
+/**
+ * The output of {@link CreateCoreDefinitionVersionCommand}.
+ */
 export interface CreateCoreDefinitionVersionCommandOutput
   extends CreateCoreDefinitionVersionResponse,
     __MetadataBearer {}

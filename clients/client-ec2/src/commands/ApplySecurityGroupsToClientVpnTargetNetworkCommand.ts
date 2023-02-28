@@ -25,8 +25,14 @@ import {
   serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ApplySecurityGroupsToClientVpnTargetNetworkCommand}.
+ */
 export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandInput
   extends ApplySecurityGroupsToClientVpnTargetNetworkRequest {}
+/**
+ * The output of {@link ApplySecurityGroupsToClientVpnTargetNetworkCommand}.
+ */
 export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
   extends ApplySecurityGroupsToClientVpnTargetNetworkResult,
     __MetadataBearer {}
