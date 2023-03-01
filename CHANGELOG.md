@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.282.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.281.0...v3.282.0) (2023-03-01)
+
+
+### Features
+
+* **client-codecatalyst:** Published Dev Environments StopDevEnvironmentSession API ([6458cf1](https://github.com/aws/aws-sdk-js-v3/commit/6458cf1e94868d9a18b7dbc0f5cc3c1bc4b3e5e2))
+* **client-pricing:** This release adds 2 new APIs - ListPriceLists which returns a list of applicable price lists, and GetPriceListFileUrl which outputs a URL to retrieve your price lists from the generated file from ListPriceLists ([f7201bf](https://github.com/aws/aws-sdk-js-v3/commit/f7201bf1e0a66f5fe2a12b176468731e5a079fea))
+* **client-s3outposts:** S3 on Outposts introduces a new API ListOutpostsWithS3, with this API you can list all your Outposts with S3 capacity. ([9b55483](https://github.com/aws/aws-sdk-js-v3/commit/9b55483d81e70d5d116d5ca96318dc739390a312))
+* **clients:** update client endpoints as of 2023-03-01 ([a52821d](https://github.com/aws/aws-sdk-js-v3/commit/a52821d98440006777ada31bd69bd8eeee3f6121))
+* **protocol-http:** use lowercase keys in Fields class ([#4450](https://github.com/aws/aws-sdk-js-v3/issues/4450)) ([e0db41d](https://github.com/aws/aws-sdk-js-v3/commit/e0db41d8eb512018662524a1b8f7c0655186492d))
+
+
+
+
+
 # [3.281.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.280.0...v3.281.0) (2023-02-28)
 
 

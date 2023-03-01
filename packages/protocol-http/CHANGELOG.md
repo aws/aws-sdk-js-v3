@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.282.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.281.0...v3.282.0) (2023-03-01)
+
+
+### Features
+
+* **protocol-http:** use lowercase keys in Fields class ([#4450](https://github.com/aws/aws-sdk-js-v3/issues/4450)) ([e0db41d](https://github.com/aws/aws-sdk-js-v3/commit/e0db41d8eb512018662524a1b8f7c0655186492d))
+
+
+
+
+
 # [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
 
 **Note:** Version bump only for package @aws-sdk/protocol-http

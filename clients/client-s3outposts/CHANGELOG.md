@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.282.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.281.0...v3.282.0) (2023-03-01)
+
+
+### Features
+
+* **client-s3outposts:** S3 on Outposts introduces a new API ListOutpostsWithS3, with this API you can list all your Outposts with S3 capacity. ([9b55483](https://github.com/aws/aws-sdk-js-v3/commit/9b55483d81e70d5d116d5ca96318dc739390a312))
+
+
+
+
+
 # [3.281.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.280.0...v3.281.0) (2023-02-28)
 
 **Note:** Version bump only for package @aws-sdk/client-s3outposts
