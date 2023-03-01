@@ -93,6 +93,10 @@ import {
 } from "./commands/StartDevEnvironmentSessionCommand";
 import { StopDevEnvironmentCommandInput, StopDevEnvironmentCommandOutput } from "./commands/StopDevEnvironmentCommand";
 import {
+  StopDevEnvironmentSessionCommandInput,
+  StopDevEnvironmentSessionCommandOutput,
+} from "./commands/StopDevEnvironmentSessionCommand";
+import {
   UpdateDevEnvironmentCommandInput,
   UpdateDevEnvironmentCommandOutput,
 } from "./commands/UpdateDevEnvironmentCommand";
@@ -128,6 +132,7 @@ export type ServiceInputTypes =
   | StartDevEnvironmentCommandInput
   | StartDevEnvironmentSessionCommandInput
   | StopDevEnvironmentCommandInput
+  | StopDevEnvironmentSessionCommandInput
   | UpdateDevEnvironmentCommandInput
   | VerifySessionCommandInput;
 
@@ -154,6 +159,7 @@ export type ServiceOutputTypes =
   | StartDevEnvironmentCommandOutput
   | StartDevEnvironmentSessionCommandOutput
   | StopDevEnvironmentCommandOutput
+  | StopDevEnvironmentSessionCommandOutput
   | UpdateDevEnvironmentCommandOutput
   | VerifySessionCommandOutput;
 
@@ -379,6 +385,10 @@ export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientReso
  *             <li>
  *                <p>
  *                   <a>StopDevEnvironment</a>, which stops a specified Dev Environment and puts it into an stopped state.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StopDevEnvironmentSession</a>, which stops a session for a specified Dev Environment.</p>
  *             </li>
  *             <li>
  *                <p>

@@ -21,5 +21,6 @@ export * from "./ListSpacesCommand";
 export * from "./StartDevEnvironmentCommand";
 export * from "./StartDevEnvironmentSessionCommand";
 export * from "./StopDevEnvironmentCommand";
+export * from "./StopDevEnvironmentSessionCommand";
 export * from "./UpdateDevEnvironmentCommand";
 export * from "./VerifySessionCommand";

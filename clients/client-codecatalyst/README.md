@@ -95,6 +95,10 @@ and the billing plan for the space.</p>
 </li>
 <li>
 <p>
+<a>StopDevEnvironmentSession</a>, which stops a session for a specified Dev Environment.</p>
+</li>
+<li>
+<p>
 <a>UpdateDevEnvironment</a>, which changes one or more values for a Dev Environment.</p>
 </li>
 <li>
@@ -487,6 +491,14 @@ StopDevEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/stopdevenvironmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/stopdevenvironmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/stopdevenvironmentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopDevEnvironmentSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/stopdevenvironmentsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/stopdevenvironmentsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/stopdevenvironmentsessioncommandoutput.html)
 
 </details>
 <details>

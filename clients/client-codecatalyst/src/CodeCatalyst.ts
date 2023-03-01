@@ -101,6 +101,11 @@ import {
   StopDevEnvironmentCommandOutput,
 } from "./commands/StopDevEnvironmentCommand";
 import {
+  StopDevEnvironmentSessionCommand,
+  StopDevEnvironmentSessionCommandInput,
+  StopDevEnvironmentSessionCommandOutput,
+} from "./commands/StopDevEnvironmentSessionCommand";
+import {
   UpdateDevEnvironmentCommand,
   UpdateDevEnvironmentCommandInput,
   UpdateDevEnvironmentCommandOutput,
@@ -198,6 +203,10 @@ import {
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>StopDevEnvironmentSession</a>, which stops a session for a specified Dev Environment.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>UpdateDevEnvironment</a>, which changes one or more values for a Dev Environment.</p>
  *             </li>
  *             <li>
@@ -259,7 +268,11 @@ export class CodeCatalyst extends CodeCatalystClient {
 
   /**
    * <p>Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development Dev Environment that you can use to quickly work on the code stored in the source repositories of your project.
-   *       By default, a Dev Environment is configured to have a 2 core processor, 4GB of RAM, and 16GB of persistent storage. </p>
+   *       </p>
+   *          <note>
+   *             <p>When created in the Amazon CodeCatalyst console, by default a Dev Environment is configured to have a 2 core processor, 4GB of RAM, and 16GB of persistent storage. None of these
+   *       defaults apply to a Dev Environment created programmatically.</p>
+   *          </note>
    */
   public createDevEnvironment(
     args: CreateDevEnvironmentCommandInput,
@@ -904,6 +917,38 @@ export class CodeCatalyst extends CodeCatalystClient {
     cb?: (err: any, data?: StopDevEnvironmentCommandOutput) => void
   ): Promise<StopDevEnvironmentCommandOutput> | void {
     const command = new StopDevEnvironmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops a session for a specified Dev Environment.</p>
+   */
+  public stopDevEnvironmentSession(
+    args: StopDevEnvironmentSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopDevEnvironmentSessionCommandOutput>;
+  public stopDevEnvironmentSession(
+    args: StopDevEnvironmentSessionCommandInput,
+    cb: (err: any, data?: StopDevEnvironmentSessionCommandOutput) => void
+  ): void;
+  public stopDevEnvironmentSession(
+    args: StopDevEnvironmentSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopDevEnvironmentSessionCommandOutput) => void
+  ): void;
+  public stopDevEnvironmentSession(
+    args: StopDevEnvironmentSessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDevEnvironmentSessionCommandOutput) => void),
+    cb?: (err: any, data?: StopDevEnvironmentSessionCommandOutput) => void
+  ): Promise<StopDevEnvironmentSessionCommandOutput> | void {
+    const command = new StopDevEnvironmentSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -63,12 +63,17 @@ export interface CreateAccessTokenResponse {
   /**
    * <p>The friendly name of the personal access token.</p>
    */
-  name?: string;
+  name: string | undefined;
 
   /**
    * <p>The date and time the personal access token expires, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>. If not specified, the default is one year from creation.</p>
    */
-  expiresTime?: Date;
+  expiresTime: Date | undefined;
+
+  /**
+   * <p>The system-generated unique ID of the access token.</p>
+   */
+  accessTokenId: string | undefined;
 }
 
 /**
@@ -492,9 +497,7 @@ export interface ListSpacesRequest {
  */
 export interface SpaceSummary {
   /**
-   * <p>
-   *             <i>We need to know what this is and the basic usage information so that third-party developers know how to use this data type.</i>
-   *          </p>
+   * <p>The name of the space.</p>
    */
   name: string | undefined;
 
@@ -571,12 +574,15 @@ export interface CreateProjectResponse {
  */
 export interface IdeConfiguration {
   /**
-   * <p>A link to the IDE runtime image.</p>
+   * <p>A link to the IDE runtime image. </p>
+   *          <note>
+   *             <p>This parameter is not required for <code>VSCode</code>.</p>
+   *          </note>
    */
   runtime?: string;
 
   /**
-   * <p>The name of the IDE.</p>
+   * <p>The name of the IDE. Valid values include <code>Cloud9</code>, <code>IntelliJ</code>, <code>PyCharm</code>, <code>GoLand</code>, and <code>VSCode</code>.</p>
    */
   name?: string;
 }
@@ -665,10 +671,11 @@ export interface CreateDevEnvironmentRequest {
   inactivityTimeoutMinutes?: number;
 
   /**
-   * <p>Information about the amount of storage allocated to the Dev Environment. By default, a
-   *       Dev Environment is configured to have 16GB of persistent storage.</p>
+   * <p>Information about the amount of storage allocated to the Dev Environment. </p>
    *          <note>
-   *             <p>Valid values for persistent storage are based on memory sizes in 16GB increments. Valid
+   *             <p>By default, a Dev Environment is configured to have 16GB of persistent storage when created from the Amazon CodeCatalyst console, but there is no default when programmatically
+   *         creating a Dev Environment.
+   *         Valid values for persistent storage are based on memory sizes in 16GB increments. Valid
    *         values are 16, 32, and 64.</p>
    *          </note>
    */
@@ -1186,6 +1193,50 @@ export interface StopDevEnvironmentResponse {
   status: DevEnvironmentStatus | string | undefined;
 }
 
+export interface StopDevEnvironmentSessionRequest {
+  /**
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+
+  /**
+   * <p>The system-generated unique ID of the Dev Environment. To obtain this ID, use <a>ListDevEnvironments</a>.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The system-generated unique ID of the Dev Environment session. This ID is returned by <a>StartDevEnvironmentSession</a>.</p>
+   */
+  sessionId: string | undefined;
+}
+
+export interface StopDevEnvironmentSessionResponse {
+  /**
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+
+  /**
+   * <p>The system-generated unique ID of the Dev Environment.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The system-generated unique ID of the Dev Environment session.</p>
+   */
+  sessionId: string | undefined;
+}
+
 export interface UpdateDevEnvironmentRequest {
   /**
    * <p>The name of the space.</p>
@@ -1597,7 +1648,7 @@ export interface ListSourceRepositoryBranchesResponse {
   /**
    * <p>Information about the source branches.</p>
    */
-  items?: ListSourceRepositoryBranchesItem[];
+  items: ListSourceRepositoryBranchesItem[] | undefined;
 }
 
 export interface GetSubscriptionRequest {
@@ -1963,6 +2014,20 @@ export const StopDevEnvironmentRequestFilterSensitiveLog = (obj: StopDevEnvironm
  * @internal
  */
 export const StopDevEnvironmentResponseFilterSensitiveLog = (obj: StopDevEnvironmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopDevEnvironmentSessionRequestFilterSensitiveLog = (obj: StopDevEnvironmentSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopDevEnvironmentSessionResponseFilterSensitiveLog = (obj: StopDevEnvironmentSessionResponse): any => ({
   ...obj,
 });
 

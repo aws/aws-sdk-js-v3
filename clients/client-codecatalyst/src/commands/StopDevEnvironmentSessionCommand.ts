@@ -15,50 +15,45 @@ import {
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import {
-  CreateDevEnvironmentRequest,
-  CreateDevEnvironmentRequestFilterSensitiveLog,
-  CreateDevEnvironmentResponse,
-  CreateDevEnvironmentResponseFilterSensitiveLog,
+  StopDevEnvironmentSessionRequest,
+  StopDevEnvironmentSessionRequestFilterSensitiveLog,
+  StopDevEnvironmentSessionResponse,
+  StopDevEnvironmentSessionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateDevEnvironmentCommand,
-  serializeAws_restJson1CreateDevEnvironmentCommand,
+  deserializeAws_restJson1StopDevEnvironmentSessionCommand,
+  serializeAws_restJson1StopDevEnvironmentSessionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
- * The input for {@link CreateDevEnvironmentCommand}.
+ * The input for {@link StopDevEnvironmentSessionCommand}.
  */
-export interface CreateDevEnvironmentCommandInput extends CreateDevEnvironmentRequest {}
+export interface StopDevEnvironmentSessionCommandInput extends StopDevEnvironmentSessionRequest {}
 /**
- * The output of {@link CreateDevEnvironmentCommand}.
+ * The output of {@link StopDevEnvironmentSessionCommand}.
  */
-export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentResponse, __MetadataBearer {}
+export interface StopDevEnvironmentSessionCommandOutput extends StopDevEnvironmentSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development Dev Environment that you can use to quickly work on the code stored in the source repositories of your project.
- *       </p>
- *          <note>
- *             <p>When created in the Amazon CodeCatalyst console, by default a Dev Environment is configured to have a 2 core processor, 4GB of RAM, and 16GB of persistent storage. None of these
- *       defaults apply to a Dev Environment created programmatically.</p>
- *          </note>
+ * <p>Stops a session for a specified Dev Environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, CreateDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, CreateDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, StopDevEnvironmentSessionCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
+ * // const { CodeCatalystClient, StopDevEnvironmentSessionCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
- * const command = new CreateDevEnvironmentCommand(input);
+ * const command = new StopDevEnvironmentSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link CreateDevEnvironmentCommandInput} for command's `input` shape.
- * @see {@link CreateDevEnvironmentCommandOutput} for command's `response` shape.
+ * @see {@link StopDevEnvironmentSessionCommandInput} for command's `input` shape.
+ * @see {@link StopDevEnvironmentSessionCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
  *
  */
-export class CreateDevEnvironmentCommand extends $Command<
-  CreateDevEnvironmentCommandInput,
-  CreateDevEnvironmentCommandOutput,
+export class StopDevEnvironmentSessionCommand extends $Command<
+  StopDevEnvironmentSessionCommandInput,
+  StopDevEnvironmentSessionCommandOutput,
   CodeCatalystClientResolvedConfig
 > {
   // Start section: command_properties
@@ -72,7 +67,7 @@ export class CreateDevEnvironmentCommand extends $Command<
     };
   }
 
-  constructor(readonly input: CreateDevEnvironmentCommandInput) {
+  constructor(readonly input: StopDevEnvironmentSessionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -85,23 +80,23 @@ export class CreateDevEnvironmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCatalystClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateDevEnvironmentCommandInput, CreateDevEnvironmentCommandOutput> {
+  ): Handler<StopDevEnvironmentSessionCommandInput, StopDevEnvironmentSessionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateDevEnvironmentCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, StopDevEnvironmentSessionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CodeCatalystClient";
-    const commandName = "CreateDevEnvironmentCommand";
+    const commandName = "StopDevEnvironmentSessionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDevEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDevEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: StopDevEnvironmentSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopDevEnvironmentSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +106,15 @@ export class CreateDevEnvironmentCommand extends $Command<
     );
   }
 
-  private serialize(input: CreateDevEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDevEnvironmentCommand(input, context);
+  private serialize(input: StopDevEnvironmentSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1StopDevEnvironmentSessionCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDevEnvironmentCommandOutput> {
-    return deserializeAws_restJson1CreateDevEnvironmentCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<StopDevEnvironmentSessionCommandOutput> {
+    return deserializeAws_restJson1StopDevEnvironmentSessionCommand(output, context);
   }
 
   // Start section: command_body_extra
