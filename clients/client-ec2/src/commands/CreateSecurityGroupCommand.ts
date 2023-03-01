@@ -67,6 +67,24 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  * @see {@link CreateSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To create a security group for a VPC
+ * ```javascript
+ * // This example creates a security group for the specified VPC.
+ * const input = {
+ *   "Description": "My security group",
+ *   "GroupName": "my-security-group",
+ *   "VpcId": "vpc-1a2b3c4d"
+ * };
+ * const command = new CreateSecurityGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GroupId": "sg-903004f8"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateSecurityGroupCommand extends $Command<
   CreateSecurityGroupCommandInput,

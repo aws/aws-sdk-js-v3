@@ -68,6 +68,37 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  * @see {@link PutItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ *
+ * @example To add an item to a table
+ * ```javascript
+ * // This example adds a new item to the Music table.
+ * const input = {
+ *   "Item": {
+ *     "AlbumTitle": {
+ *       "S": "Somewhat Famous"
+ *     },
+ *     "Artist": {
+ *       "S": "No One You Know"
+ *     },
+ *     "SongTitle": {
+ *       "S": "Call Me Today"
+ *     }
+ *   },
+ *   "ReturnConsumedCapacity": "TOTAL",
+ *   "TableName": "Music"
+ * };
+ * const command = new PutItemCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ConsumedCapacity": {
+ *     "CapacityUnits": 1,
+ *     "TableName": "Music"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommandOutput, DynamoDBClientResolvedConfig> {
   // Start section: command_properties

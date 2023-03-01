@@ -63,6 +63,33 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  * @see {@link UpdateConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
+ * @example To update a configuration template
+ * ```javascript
+ * // The following operation removes the configured CloudWatch custom health metrics configuration ConfigDocument from a saved configuration template named my-template:
+ * const input = {
+ *   "ApplicationName": "my-app",
+ *   "OptionsToRemove": [
+ *     {
+ *       "Namespace": "aws:elasticbeanstalk:healthreporting:system",
+ *       "OptionName": "ConfigDocument"
+ *     }
+ *   ],
+ *   "TemplateName": "my-template"
+ * };
+ * const command = new UpdateConfigurationTemplateCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationName": "my-app",
+ *   "DateCreated": "2015-08-20T22:39:31Z",
+ *   "DateUpdated": "2015-08-20T22:43:11Z",
+ *   "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+ *   "TemplateName": "my-template"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateConfigurationTemplateCommand extends $Command<
   UpdateConfigurationTemplateCommandInput,

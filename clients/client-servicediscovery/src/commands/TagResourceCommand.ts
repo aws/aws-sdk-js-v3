@@ -50,6 +50,27 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ *
+ * @example TagResource example
+ * ```javascript
+ * // This example adds "Department" and "Project" tags to a resource.
+ * const input = {
+ *   "ResourceARN": "arn:aws:servicediscovery:us-east-1:123456789012:namespace/ns-ylexjili4cdxy3xm",
+ *   "Tags": [
+ *     {
+ *       "Key": "Department",
+ *       "Value": "Engineering"
+ *     },
+ *     {
+ *       "Key": "Project",
+ *       "Value": "Zeta"
+ *     }
+ *   ]
+ * };
+ * const command = new TagResourceCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

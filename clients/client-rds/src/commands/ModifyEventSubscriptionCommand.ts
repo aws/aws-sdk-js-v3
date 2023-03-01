@@ -54,6 +54,28 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To change event notification subscription settings
+ * ```javascript
+ * // This example changes the specified setting for the specified event notification subscription.
+ * const input = {
+ *   "Enabled": true,
+ *   "EventCategories": [
+ *     "deletion",
+ *     "low storage"
+ *   ],
+ *   "SourceType": "db-instance",
+ *   "SubscriptionName": "mymysqleventsubscription"
+ * };
+ * const command = new ModifyEventSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EventSubscription": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ModifyEventSubscriptionCommand extends $Command<
   ModifyEventSubscriptionCommandInput,

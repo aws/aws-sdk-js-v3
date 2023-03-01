@@ -77,6 +77,51 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * @see {@link DescribeFileSystemsCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
+ *
+ * @example To describe an Amazon FSx file system
+ * ```javascript
+ * // This operation describes all of the Amazon FSx file systems in an account.
+ * const input = {};
+ * const command = new DescribeFileSystemsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "FileSystems": [
+ *     {
+ *       "CreationTime": "1481841524.0",
+ *       "DNSName": "fs-0498eed5fe91001ec.fsx.com",
+ *       "FileSystemId": "fs-0498eed5fe91001ec",
+ *       "KmsKeyId": "arn:aws:kms:us-east-1:012345678912:key/0ff3ea8d-130e-4133-877f-93908b6fdbd6",
+ *       "Lifecycle": "AVAILABLE",
+ *       "NetworkInterfaceIds": [
+ *         "eni-abcd1234"
+ *       ],
+ *       "OwnerId": "012345678912",
+ *       "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0498eed5fe91001ec",
+ *       "StorageCapacity": 300,
+ *       "SubnetIds": [
+ *         "subnet-1234abcd"
+ *       ],
+ *       "Tags": [
+ *         {
+ *           "Key": "Name",
+ *           "Value": "MyFileSystem"
+ *         }
+ *       ],
+ *       "VpcId": "vpc-ab1234cd",
+ *       "WindowsConfiguration": {
+ *         "ActiveDirectoryId": "d-1234abcd12",
+ *         "AutomaticBackupRetentionDays": 30,
+ *         "DailyAutomaticBackupStartTime": "05:00",
+ *         "ThroughputCapacity": 8,
+ *         "WeeklyMaintenanceStartTime": "1:05:00"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeFileSystemsCommand extends $Command<
   DescribeFileSystemsCommandInput,

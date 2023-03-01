@@ -56,6 +56,47 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  * @see {@link ListAllowedNodeTypeModificationsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ *
+ * @example ListAllowedNodeTypeModifications
+ * ```javascript
+ * // Lists all available node types that you can scale your Redis cluster's or replication group's current node type up to.
+ * const input = {
+ *   "ReplicationGroupId": "myreplgroup"
+ * };
+ * const command = new ListAllowedNodeTypeModificationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ScaleUpModifications": [
+ *     "cache.m4.10xlarge",
+ *     "cache.m4.2xlarge",
+ *     "cache.m4.4xlarge",
+ *     "cache.m4.xlarge",
+ *     "cache.r3.2xlarge",
+ *     "cache.r3.4xlarge",
+ *     "cache.r3.8xlarge",
+ *     "cache.r3.xlarge"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example ListAllowedNodeTypeModifications
+ * ```javascript
+ * // Lists all available node types that you can scale your Redis cluster's or replication group's current node type up to.
+ * const input = {
+ *   "CacheClusterId": "mycluster"
+ * };
+ * const command = new ListAllowedNodeTypeModificationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ScaleUpModifications": []
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListAllowedNodeTypeModificationsCommand extends $Command<
   ListAllowedNodeTypeModificationsCommandInput,

@@ -82,6 +82,60 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * @see {@link ModifyLoadBalancerAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ *
+ * @example To enable cross-zone load balancing
+ * ```javascript
+ * // This example enables cross-zone load balancing for the specified load balancer.
+ * const input = {
+ *   "LoadBalancerAttributes": {
+ *     "CrossZoneLoadBalancing": {
+ *       "Enabled": true
+ *     }
+ *   },
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new ModifyLoadBalancerAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LoadBalancerAttributes": {
+ *     "CrossZoneLoadBalancing": {
+ *       "Enabled": true
+ *     }
+ *   },
+ *   "LoadBalancerName": "my-load-balancer"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To enable connection draining
+ * ```javascript
+ * // This example enables connection draining for the specified load balancer.
+ * const input = {
+ *   "LoadBalancerAttributes": {
+ *     "ConnectionDraining": {
+ *       "Enabled": true,
+ *       "Timeout": 300
+ *     }
+ *   },
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new ModifyLoadBalancerAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LoadBalancerAttributes": {
+ *     "ConnectionDraining": {
+ *       "Enabled": true,
+ *       "Timeout": 300
+ *     }
+ *   },
+ *   "LoadBalancerName": "my-load-balancer"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ModifyLoadBalancerAttributesCommand extends $Command<
   ModifyLoadBalancerAttributesCommandInput,

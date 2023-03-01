@@ -51,6 +51,27 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  * @see {@link CreateEnvironmentEC2CommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
+ *
+ * @example CreateEnvironmentEC2
+ * ```javascript
+ * //
+ * const input = {
+ *   "name": "my-demo-environment",
+ *   "automaticStopTimeMinutes": 60,
+ *   "description": "This is my demonstration environment.",
+ *   "instanceType": "t2.micro",
+ *   "ownerArn": "arn:aws:iam::123456789012:user/MyDemoUser",
+ *   "subnetId": "subnet-6300cd1b"
+ * };
+ * const command = new CreateEnvironmentEC2Command(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateEnvironmentEC2Command extends $Command<
   CreateEnvironmentEC2CommandInput,

@@ -67,6 +67,165 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ *
+ * @example To create an HTTP load balancer in a VPC
+ * ```javascript
+ * // This example creates a load balancer with an HTTP listener in a VPC.
+ * const input = {
+ *   "Listeners": [
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 80,
+ *       "Protocol": "HTTP"
+ *     }
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "SecurityGroups": [
+ *     "sg-a61988c3"
+ *   ],
+ *   "Subnets": [
+ *     "subnet-15aaab61"
+ *   ]
+ * };
+ * const command = new CreateLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DNSName": "my-load-balancer-1234567890.us-west-2.elb.amazonaws.com"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To create an HTTP load balancer in EC2-Classic
+ * ```javascript
+ * // This example creates a load balancer with an HTTP listener in EC2-Classic.
+ * const input = {
+ *   "AvailabilityZones": [
+ *     "us-west-2a"
+ *   ],
+ *   "Listeners": [
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 80,
+ *       "Protocol": "HTTP"
+ *     }
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new CreateLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DNSName": "my-load-balancer-123456789.us-west-2.elb.amazonaws.com"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To create an HTTPS load balancer in a VPC
+ * ```javascript
+ * // This example creates a load balancer with an HTTPS listener in a VPC.
+ * const input = {
+ *   "Listeners": [
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 80,
+ *       "Protocol": "HTTP"
+ *     },
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 443,
+ *       "Protocol": "HTTPS",
+ *       "SSLCertificateId": "arn:aws:iam::123456789012:server-certificate/my-server-cert"
+ *     }
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "SecurityGroups": [
+ *     "sg-a61988c3"
+ *   ],
+ *   "Subnets": [
+ *     "subnet-15aaab61"
+ *   ]
+ * };
+ * const command = new CreateLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DNSName": "my-load-balancer-1234567890.us-west-2.elb.amazonaws.com"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To create an HTTPS load balancer in EC2-Classic
+ * ```javascript
+ * // This example creates a load balancer with an HTTPS listener in EC2-Classic.
+ * const input = {
+ *   "AvailabilityZones": [
+ *     "us-west-2a"
+ *   ],
+ *   "Listeners": [
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 80,
+ *       "Protocol": "HTTP"
+ *     },
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 443,
+ *       "Protocol": "HTTPS",
+ *       "SSLCertificateId": "arn:aws:iam::123456789012:server-certificate/my-server-cert"
+ *     }
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new CreateLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DNSName": "my-load-balancer-123456789.us-west-2.elb.amazonaws.com"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To create an internal load balancer
+ * ```javascript
+ * // This example creates an internal load balancer with an HTTP listener in a VPC.
+ * const input = {
+ *   "Listeners": [
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 80,
+ *       "Protocol": "HTTP"
+ *     }
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "Scheme": "internal",
+ *   "SecurityGroups": [
+ *     "sg-a61988c3"
+ *   ],
+ *   "Subnets": [
+ *     "subnet-15aaab61"
+ *   ]
+ * };
+ * const command = new CreateLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DNSName": "internal-my-load-balancer-123456789.us-west-2.elb.amazonaws.com"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateLoadBalancerCommand extends $Command<
   CreateLoadBalancerCommandInput,

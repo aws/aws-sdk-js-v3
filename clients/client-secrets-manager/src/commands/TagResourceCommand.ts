@@ -85,6 +85,27 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
+ *
+ * @example To add tags to a secret
+ * ```javascript
+ * // The following example shows how to attach two tags each with a Key and Value to a secret. There is no output from this API. To see the result, use the DescribeSecret operation.
+ * const input = {
+ *   "SecretId": "MyExampleSecret",
+ *   "Tags": [
+ *     {
+ *       "Key": "FirstTag",
+ *       "Value": "SomeValue"
+ *     },
+ *     {
+ *       "Key": "SecondTag",
+ *       "Value": "AnotherValue"
+ *     }
+ *   ]
+ * };
+ * const command = new TagResourceCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

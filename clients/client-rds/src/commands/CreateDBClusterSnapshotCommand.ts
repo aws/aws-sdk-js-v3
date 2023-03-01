@@ -55,6 +55,23 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * @see {@link CreateDBClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To create a DB cluster snapshot
+ * ```javascript
+ * // This example creates a DB cluster snapshot.
+ * const input = {
+ *   "DBClusterIdentifier": "mydbcluster",
+ *   "DBClusterSnapshotIdentifier": "mydbclustersnapshot"
+ * };
+ * const command = new CreateDBClusterSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterSnapshot": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateDBClusterSnapshotCommand extends $Command<
   CreateDBClusterSnapshotCommandInput,

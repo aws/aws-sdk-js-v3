@@ -77,6 +77,26 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  * @see {@link GetVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ *
+ * @example To retrieve vault lock-policy related attributes that are set on a vault
+ * ```javascript
+ * // The example retrieves the attributes from the lock-policy subresource set on the vault named examplevault.
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "examplevault"
+ * };
+ * const command = new GetVaultLockCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CreationDate": "exampledate",
+ *   "ExpirationDate": "exampledate",
+ *   "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Define-vault-lock\",\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"arn:aws:iam::999999999999:root\"},\"Action\":\"glacier:DeleteArchive\",\"Resource\":\"arn:aws:glacier:us-west-2:999999999999:vaults/examplevault\",\"Condition\":{\"NumericLessThanEquals\":{\"glacier:ArchiveAgeinDays\":\"365\"}}}]}",
+ *   "State": "InProgress"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetVaultLockCommand extends $Command<
   GetVaultLockCommandInput,

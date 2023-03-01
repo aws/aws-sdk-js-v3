@@ -56,6 +56,22 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * @see {@link DescribeEngineDefaultClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To list default parameters for a DB cluster engine
+ * ```javascript
+ * // This example lists default parameters for the specified DB cluster engine.
+ * const input = {
+ *   "DBParameterGroupFamily": "aurora5.6"
+ * };
+ * const command = new DescribeEngineDefaultClusterParametersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EngineDefaults": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeEngineDefaultClusterParametersCommand extends $Command<
   DescribeEngineDefaultClusterParametersCommandInput,

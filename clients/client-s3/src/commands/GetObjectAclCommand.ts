@@ -90,6 +90,60 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  * @see {@link GetObjectAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To retrieve object ACL
+ * ```javascript
+ * // The following example retrieves access control list (ACL) of an object.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new GetObjectAclCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Grants": [
+ *     {
+ *       "Grantee": {
+ *         "DisplayName": "owner-display-name",
+ *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc",
+ *         "Type": "CanonicalUser"
+ *       },
+ *       "Permission": "WRITE"
+ *     },
+ *     {
+ *       "Grantee": {
+ *         "DisplayName": "owner-display-name",
+ *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc",
+ *         "Type": "CanonicalUser"
+ *       },
+ *       "Permission": "WRITE_ACP"
+ *     },
+ *     {
+ *       "Grantee": {
+ *         "DisplayName": "owner-display-name",
+ *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc",
+ *         "Type": "CanonicalUser"
+ *       },
+ *       "Permission": "READ"
+ *     },
+ *     {
+ *       "Grantee": {
+ *         "DisplayName": "owner-display-name",
+ *         "ID": "852b113eexamplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc",
+ *         "Type": "CanonicalUser"
+ *       },
+ *       "Permission": "READ_ACP"
+ *     }
+ *   ],
+ *   "Owner": {
+ *     "DisplayName": "owner-display-name",
+ *     "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetObjectAclCommand extends $Command<
   GetObjectAclCommandInput,

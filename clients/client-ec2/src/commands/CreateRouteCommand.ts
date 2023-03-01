@@ -67,6 +67,19 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  * @see {@link CreateRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To create a route
+ * ```javascript
+ * // This example creates a route for the specified route table. The route matches all traffic (0.0.0.0/0) and routes it to the specified Internet gateway.
+ * const input = {
+ *   "DestinationCidrBlock": "0.0.0.0/0",
+ *   "GatewayId": "igw-c0a643a9",
+ *   "RouteTableId": "rtb-22574640"
+ * };
+ * const command = new CreateRouteCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class CreateRouteCommand extends $Command<
   CreateRouteCommandInput,

@@ -68,6 +68,17 @@ export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {
  * @see {@link DeleteBucketReplicationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To delete bucket replication configuration
+ * ```javascript
+ * // The following example deletes replication configuration set on bucket.
+ * const input = {
+ *   "Bucket": "example"
+ * };
+ * const command = new DeleteBucketReplicationCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteBucketReplicationCommand extends $Command<
   DeleteBucketReplicationCommandInput,

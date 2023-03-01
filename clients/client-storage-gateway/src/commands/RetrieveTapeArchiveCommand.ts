@@ -57,6 +57,23 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  * @see {@link RetrieveTapeArchiveCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To retrieve an archived tape from the VTS
+ * ```javascript
+ * // Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a gateway-VTL. Virtual tapes archived in the VTS are not associated with any gateway.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+ *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST0AA2AF"
+ * };
+ * const command = new RetrieveTapeArchiveCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST0AA2AF"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class RetrieveTapeArchiveCommand extends $Command<
   RetrieveTapeArchiveCommandInput,

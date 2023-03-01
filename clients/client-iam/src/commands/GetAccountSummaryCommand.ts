@@ -48,6 +48,47 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  * @see {@link GetAccountSummaryCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To get information about IAM entity quotas and usage in the current account
+ * ```javascript
+ * // The following command returns information about the IAM entity quotas and usage in the current AWS account.
+ * const input = undefined;
+ * const command = new GetAccountSummaryCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SummaryMap": {
+ *     "AccessKeysPerUserQuota": 2,
+ *     "AccountAccessKeysPresent": 1,
+ *     "AccountMFAEnabled": 0,
+ *     "AccountSigningCertificatesPresent": 0,
+ *     "AttachedPoliciesPerGroupQuota": 10,
+ *     "AttachedPoliciesPerRoleQuota": 10,
+ *     "AttachedPoliciesPerUserQuota": 10,
+ *     "GlobalEndpointTokenVersion": 2,
+ *     "GroupPolicySizeQuota": 5120,
+ *     "Groups": 15,
+ *     "GroupsPerUserQuota": 10,
+ *     "GroupsQuota": 100,
+ *     "MFADevices": 6,
+ *     "MFADevicesInUse": 3,
+ *     "Policies": 8,
+ *     "PoliciesQuota": 1000,
+ *     "PolicySizeQuota": 5120,
+ *     "PolicyVersionsInUse": 22,
+ *     "PolicyVersionsInUseQuota": 10000,
+ *     "ServerCertificates": 1,
+ *     "ServerCertificatesQuota": 20,
+ *     "SigningCertificatesPerUserQuota": 2,
+ *     "UserPolicySizeQuota": 2048,
+ *     "Users": 27,
+ *     "UsersQuota": 5000,
+ *     "VersionsPerPolicyQuota": 5
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetAccountSummaryCommand extends $Command<
   GetAccountSummaryCommandInput,

@@ -53,6 +53,17 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To list information about tags associated with a resource
+ * ```javascript
+ * // This example lists information about all tags associated with the specified DB option group.
+ * const input = {
+ *   "ResourceName": "arn:aws:rds:us-east-1:992648334831:og:mymysqloptiongroup"
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

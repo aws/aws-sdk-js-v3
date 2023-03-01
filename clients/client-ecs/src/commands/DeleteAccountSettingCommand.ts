@@ -51,6 +51,47 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  * @see {@link DeleteAccountSettingCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ *
+ * @example To delete your account setting
+ * ```javascript
+ * // This example deletes the account setting for your user for the specified resource type.
+ * const input = {
+ *   "name": "serviceLongArnFormat"
+ * };
+ * const command = new DeleteAccountSettingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "setting": {
+ *     "name": "serviceLongArnFormat",
+ *     "value": "enabled",
+ *     "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To delete the account settings for a specific IAM user or IAM role
+ * ```javascript
+ * // This example deletes the account setting for a specific IAM user or IAM role for the specified resource type. Only the root user can view or modify the account settings for another user.
+ * const input = {
+ *   "name": "containerInstanceLongArnFormat",
+ *   "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ * };
+ * const command = new DeleteAccountSettingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "setting": {
+ *     "name": "containerInstanceLongArnFormat",
+ *     "value": "enabled",
+ *     "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DeleteAccountSettingCommand extends $Command<
   DeleteAccountSettingCommandInput,

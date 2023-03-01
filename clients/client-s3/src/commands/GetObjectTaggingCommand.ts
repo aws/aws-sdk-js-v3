@@ -78,6 +78,57 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * @see {@link GetObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To retrieve tag set of a specific object version
+ * ```javascript
+ * // The following example retrieves tag set of an object. The request specifies object version.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "exampleobject",
+ *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+ * };
+ * const command = new GetObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TagSet": [
+ *     {
+ *       "Key": "Key1",
+ *       "Value": "Value1"
+ *     }
+ *   ],
+ *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To retrieve tag set of an object
+ * ```javascript
+ * // The following example retrieves tag set of an object.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new GetObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TagSet": [
+ *     {
+ *       "Key": "Key4",
+ *       "Value": "Value4"
+ *     },
+ *     {
+ *       "Key": "Key3",
+ *       "Value": "Value3"
+ *     }
+ *   ],
+ *   "VersionId": "null"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetObjectTaggingCommand extends $Command<
   GetObjectTaggingCommandInput,

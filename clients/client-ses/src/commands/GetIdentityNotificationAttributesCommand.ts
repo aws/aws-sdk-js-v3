@@ -57,6 +57,34 @@ export interface GetIdentityNotificationAttributesCommandOutput
  * @see {@link GetIdentityNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example GetIdentityNotificationAttributes
+ * ```javascript
+ * // The following example returns the notification attributes for an identity:
+ * const input = {
+ *   "Identities": [
+ *     "example.com"
+ *   ]
+ * };
+ * const command = new GetIdentityNotificationAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NotificationAttributes": {
+ *     "example.com": {
+ *       "BounceTopic": "arn:aws:sns:us-east-1:EXAMPLE65304:ExampleTopic",
+ *       "ComplaintTopic": "arn:aws:sns:us-east-1:EXAMPLE65304:ExampleTopic",
+ *       "DeliveryTopic": "arn:aws:sns:us-east-1:EXAMPLE65304:ExampleTopic",
+ *       "ForwardingEnabled": true,
+ *       "HeadersInBounceNotificationsEnabled": false,
+ *       "HeadersInComplaintNotificationsEnabled": false,
+ *       "HeadersInDeliveryNotificationsEnabled": false
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetIdentityNotificationAttributesCommand extends $Command<
   GetIdentityNotificationAttributesCommandInput,

@@ -53,6 +53,83 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResult, __Metad
  * @see {@link ListOfferingsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ *
+ * @example To get information about device offerings
+ * ```javascript
+ * // The following example returns information about available device offerings.
+ * const input = {
+ *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE="
+ * };
+ * const command = new ListOfferingsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "offerings": [
+ *     {
+ *       "type": "RECURRING",
+ *       "description": "iOS Unmetered Device Slot",
+ *       "id": "A53D4D73-A6F6-4B82-A0B0-12345EXAMPLE",
+ *       "platform": "IOS",
+ *       "recurringCharges": [
+ *         {
+ *           "cost": {
+ *             "amount": 250,
+ *             "currencyCode": "USD"
+ *           },
+ *           "frequency": "MONTHLY"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "type": "RECURRING",
+ *       "description": "Android Unmetered Device Slot",
+ *       "id": "8980F81C-00D7-469D-8EC6-12345EXAMPLE",
+ *       "platform": "ANDROID",
+ *       "recurringCharges": [
+ *         {
+ *           "cost": {
+ *             "amount": 250,
+ *             "currencyCode": "USD"
+ *           },
+ *           "frequency": "MONTHLY"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "type": "RECURRING",
+ *       "description": "Android Remote Access Unmetered Device Slot",
+ *       "id": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
+ *       "platform": "ANDROID",
+ *       "recurringCharges": [
+ *         {
+ *           "cost": {
+ *             "amount": 250,
+ *             "currencyCode": "USD"
+ *           },
+ *           "frequency": "MONTHLY"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "type": "RECURRING",
+ *       "description": "iOS Remote Access Unmetered Device Slot",
+ *       "id": "552B4DAD-A6C9-45C4-94FB-12345EXAMPLE",
+ *       "platform": "IOS",
+ *       "recurringCharges": [
+ *         {
+ *           "cost": {
+ *             "amount": 250,
+ *             "currencyCode": "USD"
+ *           },
+ *           "frequency": "MONTHLY"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListOfferingsCommand extends $Command<
   ListOfferingsCommandInput,

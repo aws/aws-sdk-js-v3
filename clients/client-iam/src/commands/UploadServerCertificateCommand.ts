@@ -73,6 +73,32 @@ export interface UploadServerCertificateCommandOutput extends UploadServerCertif
  * @see {@link UploadServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To upload a server certificate to your AWS account
+ * ```javascript
+ * // The following upload-server-certificate command uploads a server certificate to your AWS account:
+ * const input = {
+ *   "CertificateBody": "-----BEGIN CERTIFICATE-----<a very long certificate text string>-----END CERTIFICATE-----",
+ *   "Path": "/company/servercerts/",
+ *   "PrivateKey": "-----BEGIN DSA PRIVATE KEY-----<a very long private key string>-----END DSA PRIVATE KEY-----",
+ *   "ServerCertificateName": "ProdServerCert"
+ * };
+ * const command = new UploadServerCertificateCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ServerCertificateMetadata": {
+ *     "Arn": "arn:aws:iam::123456789012:server-certificate/company/servercerts/ProdServerCert",
+ *     "Expiration": "2012-05-08T01:02:03.004Z",
+ *     "Path": "/company/servercerts/",
+ *     "ServerCertificateId": "ASCA1111111111EXAMPLE",
+ *     "ServerCertificateName": "ProdServerCert",
+ *     "UploadDate": "2010-05-08T01:02:03.004Z"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UploadServerCertificateCommand extends $Command<
   UploadServerCertificateCommandInput,

@@ -60,6 +60,22 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  * @see {@link DeleteDBClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To delete a DB cluster snapshot.
+ * ```javascript
+ * // This example deletes the specified DB cluster snapshot.
+ * const input = {
+ *   "DBClusterSnapshotIdentifier": "mydbclustersnapshot"
+ * };
+ * const command = new DeleteDBClusterSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterSnapshot": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DeleteDBClusterSnapshotCommand extends $Command<
   DeleteDBClusterSnapshotCommandInput,

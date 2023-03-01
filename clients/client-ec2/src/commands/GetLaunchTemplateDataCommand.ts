@@ -57,6 +57,69 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * @see {@link GetLaunchTemplateDataCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To get the launch template data for an instance
+ * ```javascript
+ * // This example gets the launch template data for the specified instance.
+ * const input = {
+ *   "InstanceId": "0123d646e8048babc"
+ * };
+ * const command = new GetLaunchTemplateDataCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LaunchTemplateData": {
+ *     "BlockDeviceMappings": [
+ *       {
+ *         "DeviceName": "/dev/xvda",
+ *         "Ebs": {
+ *           "DeleteOnTermination": true,
+ *           "Encrypted": false,
+ *           "Iops": 100,
+ *           "SnapshotId": "snap-02594938353ef77d3",
+ *           "VolumeSize": 8,
+ *           "VolumeType": "gp2"
+ *         }
+ *       }
+ *     ],
+ *     "EbsOptimized": false,
+ *     "ImageId": "ami-32cf7b4a",
+ *     "InstanceType": "t2.medium",
+ *     "KeyName": "my-key-pair",
+ *     "Monitoring": {
+ *       "Enabled": false
+ *     },
+ *     "NetworkInterfaces": [
+ *       {
+ *         "AssociatePublicIpAddress": false,
+ *         "DeleteOnTermination": true,
+ *         "Description": "",
+ *         "DeviceIndex": 0,
+ *         "Groups": [
+ *           "sg-d14e1bb4"
+ *         ],
+ *         "Ipv6Addresses": [],
+ *         "NetworkInterfaceId": "eni-4338b5a9",
+ *         "PrivateIpAddress": "10.0.3.233",
+ *         "PrivateIpAddresses": [
+ *           {
+ *             "Primary": true,
+ *             "PrivateIpAddress": "10.0.3.233"
+ *           }
+ *         ],
+ *         "SubnetId": "subnet-5264e837"
+ *       }
+ *     ],
+ *     "Placement": {
+ *       "AvailabilityZone": "us-east-2b",
+ *       "GroupName": "",
+ *       "Tenancy": "default"
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetLaunchTemplateDataCommand extends $Command<
   GetLaunchTemplateDataCommandInput,

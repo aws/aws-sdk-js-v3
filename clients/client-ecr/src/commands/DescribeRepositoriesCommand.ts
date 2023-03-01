@@ -50,6 +50,31 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * @see {@link DescribeRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ *
+ * @example To describe all repositories in the current account
+ * ```javascript
+ * // The following example obtains a list and description of all repositories in the default registry to which the current user has access.
+ * const input = {};
+ * const command = new DescribeRepositoriesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "repositories": [
+ *     {
+ *       "registryId": "012345678910",
+ *       "repositoryArn": "arn:aws:ecr:us-west-2:012345678910:repository/ubuntu",
+ *       "repositoryName": "ubuntu"
+ *     },
+ *     {
+ *       "registryId": "012345678910",
+ *       "repositoryArn": "arn:aws:ecr:us-west-2:012345678910:repository/test",
+ *       "repositoryName": "test"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeRepositoriesCommand extends $Command<
   DescribeRepositoriesCommandInput,

@@ -71,6 +71,23 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  * @see {@link DeleteWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ *
+ * @example To delete a web ACL
+ * ```javascript
+ * // The following example deletes a web ACL with the ID example-46da-4444-5555-example.
+ * const input = {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "WebACLId": "example-46da-4444-5555-example"
+ * };
+ * const command = new DeleteWebACLCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DeleteWebACLCommand extends $Command<
   DeleteWebACLCommandInput,

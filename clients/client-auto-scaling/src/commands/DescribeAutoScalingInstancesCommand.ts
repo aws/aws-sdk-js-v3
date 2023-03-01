@@ -50,6 +50,34 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  * @see {@link DescribeAutoScalingInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To describe one or more Auto Scaling instances
+ * ```javascript
+ * // This example describes the specified Auto Scaling instance.
+ * const input = {
+ *   "InstanceIds": [
+ *     "i-4ba0837f"
+ *   ]
+ * };
+ * const command = new DescribeAutoScalingInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AutoScalingInstances": [
+ *     {
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "AvailabilityZone": "us-west-2c",
+ *       "HealthStatus": "HEALTHY",
+ *       "InstanceId": "i-4ba0837f",
+ *       "LaunchConfigurationName": "my-launch-config",
+ *       "LifecycleState": "InService",
+ *       "ProtectedFromScaleIn": false
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeAutoScalingInstancesCommand extends $Command<
   DescribeAutoScalingInstancesCommandInput,

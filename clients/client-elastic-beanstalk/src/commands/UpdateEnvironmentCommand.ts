@@ -58,6 +58,92 @@ export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, 
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
+ * @example To update an environment to a new version
+ * ```javascript
+ * // The following operation updates an environment named "my-env" to version "v2" of the application to which it belongs:
+ * const input = {
+ *   "EnvironmentName": "my-env",
+ *   "VersionLabel": "v2"
+ * };
+ * const command = new UpdateEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationName": "my-app",
+ *   "CNAME": "my-env.elasticbeanstalk.com",
+ *   "DateCreated": "2015-02-03T23:04:54.453Z",
+ *   "DateUpdated": "2015-02-03T23:12:29.119Z",
+ *   "EndpointURL": "awseb-e-i-AWSEBLoa-1RDLX6TC9VUAO-0123456789.us-west-2.elb.amazonaws.com",
+ *   "EnvironmentId": "e-szqipays4h",
+ *   "EnvironmentName": "my-env",
+ *   "Health": "Grey",
+ *   "SolutionStackName": "64bit Amazon Linux running Tomcat 7",
+ *   "Status": "Updating",
+ *   "Tier": {
+ *     "Name": "WebServer",
+ *     "Type": "Standard",
+ *     "Version": " "
+ *   },
+ *   "VersionLabel": "v2"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To configure option settings
+ * ```javascript
+ * // The following operation configures several options in the aws:elb:loadbalancer namespace:
+ * const input = {
+ *   "EnvironmentName": "my-env",
+ *   "OptionSettings": [
+ *     {
+ *       "Namespace": "aws:elb:healthcheck",
+ *       "OptionName": "Interval",
+ *       "Value": "15"
+ *     },
+ *     {
+ *       "Namespace": "aws:elb:healthcheck",
+ *       "OptionName": "Timeout",
+ *       "Value": "8"
+ *     },
+ *     {
+ *       "Namespace": "aws:elb:healthcheck",
+ *       "OptionName": "HealthyThreshold",
+ *       "Value": "2"
+ *     },
+ *     {
+ *       "Namespace": "aws:elb:healthcheck",
+ *       "OptionName": "UnhealthyThreshold",
+ *       "Value": "3"
+ *     }
+ *   ]
+ * };
+ * const command = new UpdateEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AbortableOperationInProgress": true,
+ *   "ApplicationName": "my-app",
+ *   "CNAME": "my-env.elasticbeanstalk.com",
+ *   "DateCreated": "2015-08-07T20:48:49.599Z",
+ *   "DateUpdated": "2015-08-12T18:15:23.804Z",
+ *   "EndpointURL": "awseb-e-w-AWSEBLoa-14XB83101Q4L-104QXY80921.sa-east-1.elb.amazonaws.com",
+ *   "EnvironmentId": "e-wtp2rpqsej",
+ *   "EnvironmentName": "my-env",
+ *   "Health": "Grey",
+ *   "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+ *   "Status": "Updating",
+ *   "Tier": {
+ *     "Name": "WebServer",
+ *     "Type": "Standard",
+ *     "Version": " "
+ *   },
+ *   "VersionLabel": "7f58-stage-150812_025409"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateEnvironmentCommand extends $Command<
   UpdateEnvironmentCommandInput,

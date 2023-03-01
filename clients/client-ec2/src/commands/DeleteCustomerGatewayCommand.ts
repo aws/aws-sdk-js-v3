@@ -46,6 +46,17 @@ export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To delete a customer gateway
+ * ```javascript
+ * // This example deletes the specified customer gateway.
+ * const input = {
+ *   "CustomerGatewayId": "cgw-0e11f167"
+ * };
+ * const command = new DeleteCustomerGatewayCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteCustomerGatewayCommand extends $Command<
   DeleteCustomerGatewayCommandInput,

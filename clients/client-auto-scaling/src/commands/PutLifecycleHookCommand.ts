@@ -92,6 +92,21 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  * @see {@link PutLifecycleHookCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To create a launch lifecycle hook
+ * ```javascript
+ * // This example creates a lifecycle hook for instance launch.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "DefaultResult": "CONTINUE",
+ *   "HeartbeatTimeout": 300,
+ *   "LifecycleHookName": "my-launch-lifecycle-hook",
+ *   "LifecycleTransition": "autoscaling:EC2_INSTANCE_LAUNCHING"
+ * };
+ * const command = new PutLifecycleHookCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class PutLifecycleHookCommand extends $Command<
   PutLifecycleHookCommandInput,

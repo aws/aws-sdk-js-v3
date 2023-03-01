@@ -58,6 +58,35 @@ export interface GetSizeConstraintSetCommandOutput extends GetSizeConstraintSetR
  * @see {@link GetSizeConstraintSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
+ *
+ * @example To get a size constraint set
+ * ```javascript
+ * // The following example returns the details of a size constraint match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
+ * const input = {
+ *   "SizeConstraintSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ * };
+ * const command = new GetSizeConstraintSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SizeConstraintSet": {
+ *     "Name": "MySampleSizeConstraintSet",
+ *     "SizeConstraintSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     "SizeConstraints": [
+ *       {
+ *         "ComparisonOperator": "GT",
+ *         "FieldToMatch": {
+ *           "Type": "QUERY_STRING"
+ *         },
+ *         "Size": 0,
+ *         "TextTransformation": "NONE"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetSizeConstraintSetCommand extends $Command<
   GetSizeConstraintSetCommandInput,

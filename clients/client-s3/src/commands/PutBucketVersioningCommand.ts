@@ -88,6 +88,21 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketVersioningCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example Set versioning configuration on a bucket
+ * ```javascript
+ * // The following example sets versioning configuration on bucket. The configuration enables versioning on the bucket.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "VersioningConfiguration": {
+ *     "MFADelete": "Disabled",
+ *     "Status": "Enabled"
+ *   }
+ * };
+ * const command = new PutBucketVersioningCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class PutBucketVersioningCommand extends $Command<
   PutBucketVersioningCommandInput,

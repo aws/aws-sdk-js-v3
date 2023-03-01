@@ -140,6 +140,603 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * @see {@link ChangeResourceRecordSetsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ *
+ * @example To create a basic resource record set
+ * ```javascript
+ * // The following example creates a resource record set that routes Internet traffic to a resource with an IP address of 192.0.2.44.
+ * const input = {
+ *   "ChangeBatch": {
+ *     "Changes": [
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "Name": "example.com",
+ *           "ResourceRecords": [
+ *             {
+ *               "Value": "192.0.2.44"
+ *             }
+ *           ],
+ *           "TTL": 60,
+ *           "Type": "A"
+ *         }
+ *       }
+ *     ],
+ *     "Comment": "Web server for example.com"
+ *   },
+ *   "HostedZoneId": "Z3M3LMPEXAMPLE"
+ * };
+ * const command = new ChangeResourceRecordSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeInfo": {
+ *     "Comment": "Web server for example.com",
+ *     "Id": "/change/C2682N5HXP0BZ4",
+ *     "Status": "PENDING",
+ *     "SubmittedAt": "2017-02-10T01:36:41.958Z"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To create weighted resource record sets
+ * ```javascript
+ * // The following example creates two weighted resource record sets. The resource with a Weight of 100 will get 1/3rd of traffic (100/100+200), and the other resource will get the rest of the traffic for example.com.
+ * const input = {
+ *   "ChangeBatch": {
+ *     "Changes": [
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "HealthCheckId": "abcdef11-2222-3333-4444-555555fedcba",
+ *           "Name": "example.com",
+ *           "ResourceRecords": [
+ *             {
+ *               "Value": "192.0.2.44"
+ *             }
+ *           ],
+ *           "SetIdentifier": "Seattle data center",
+ *           "TTL": 60,
+ *           "Type": "A",
+ *           "Weight": 100
+ *         }
+ *       },
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "HealthCheckId": "abcdef66-7777-8888-9999-000000fedcba",
+ *           "Name": "example.com",
+ *           "ResourceRecords": [
+ *             {
+ *               "Value": "192.0.2.45"
+ *             }
+ *           ],
+ *           "SetIdentifier": "Portland data center",
+ *           "TTL": 60,
+ *           "Type": "A",
+ *           "Weight": 200
+ *         }
+ *       }
+ *     ],
+ *     "Comment": "Web servers for example.com"
+ *   },
+ *   "HostedZoneId": "Z3M3LMPEXAMPLE"
+ * };
+ * const command = new ChangeResourceRecordSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeInfo": {
+ *     "Comment": "Web servers for example.com",
+ *     "Id": "/change/C2682N5HXP0BZ4",
+ *     "Status": "PENDING",
+ *     "SubmittedAt": "2017-02-10T01:36:41.958Z"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To create an alias resource record set
+ * ```javascript
+ * // The following example creates an alias resource record set that routes traffic to a CloudFront distribution.
+ * const input = {
+ *   "ChangeBatch": {
+ *     "Changes": [
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "AliasTarget": {
+ *             "DNSName": "d123rk29d0stfj.cloudfront.net",
+ *             "EvaluateTargetHealth": false,
+ *             "HostedZoneId": "Z2FDTNDATAQYW2"
+ *           },
+ *           "Name": "example.com",
+ *           "Type": "A"
+ *         }
+ *       }
+ *     ],
+ *     "Comment": "CloudFront distribution for example.com"
+ *   },
+ *   "HostedZoneId": "Z3M3LMPEXAMPLE"
+ * };
+ * const command = new ChangeResourceRecordSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeInfo": {
+ *     "Comment": "CloudFront distribution for example.com",
+ *     "Id": "/change/C2682N5HXP0BZ4",
+ *     "Status": "PENDING",
+ *     "SubmittedAt": "2017-02-10T01:36:41.958Z"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To create weighted alias resource record sets
+ * ```javascript
+ * // The following example creates two weighted alias resource record sets that route traffic to ELB load balancers. The resource with a Weight of 100 will get 1/3rd of traffic (100/100+200), and the other resource will get the rest of the traffic for example.com.
+ * const input = {
+ *   "ChangeBatch": {
+ *     "Changes": [
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "AliasTarget": {
+ *             "DNSName": "example-com-123456789.us-east-2.elb.amazonaws.com ",
+ *             "EvaluateTargetHealth": true,
+ *             "HostedZoneId": "Z3AADJGX6KTTL2"
+ *           },
+ *           "Name": "example.com",
+ *           "SetIdentifier": "Ohio region",
+ *           "Type": "A",
+ *           "Weight": 100
+ *         }
+ *       },
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "AliasTarget": {
+ *             "DNSName": "example-com-987654321.us-west-2.elb.amazonaws.com ",
+ *             "EvaluateTargetHealth": true,
+ *             "HostedZoneId": "Z1H1FL5HABSF5"
+ *           },
+ *           "Name": "example.com",
+ *           "SetIdentifier": "Oregon region",
+ *           "Type": "A",
+ *           "Weight": 200
+ *         }
+ *       }
+ *     ],
+ *     "Comment": "ELB load balancers for example.com"
+ *   },
+ *   "HostedZoneId": "Z3M3LMPEXAMPLE"
+ * };
+ * const command = new ChangeResourceRecordSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeInfo": {
+ *     "Comment": "ELB load balancers for example.com",
+ *     "Id": "/change/C2682N5HXP0BZ4",
+ *     "Status": "PENDING",
+ *     "SubmittedAt": "2017-02-10T01:36:41.958Z"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To create latency resource record sets
+ * ```javascript
+ * // The following example creates two latency resource record sets that route traffic to EC2 instances. Traffic for example.com is routed either to the Ohio region or the Oregon region, depending on the latency between the user and those regions.
+ * const input = {
+ *   "ChangeBatch": {
+ *     "Changes": [
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "HealthCheckId": "abcdef11-2222-3333-4444-555555fedcba",
+ *           "Name": "example.com",
+ *           "Region": "us-east-2",
+ *           "ResourceRecords": [
+ *             {
+ *               "Value": "192.0.2.44"
+ *             }
+ *           ],
+ *           "SetIdentifier": "Ohio region",
+ *           "TTL": 60,
+ *           "Type": "A"
+ *         }
+ *       },
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "HealthCheckId": "abcdef66-7777-8888-9999-000000fedcba",
+ *           "Name": "example.com",
+ *           "Region": "us-west-2",
+ *           "ResourceRecords": [
+ *             {
+ *               "Value": "192.0.2.45"
+ *             }
+ *           ],
+ *           "SetIdentifier": "Oregon region",
+ *           "TTL": 60,
+ *           "Type": "A"
+ *         }
+ *       }
+ *     ],
+ *     "Comment": "EC2 instances for example.com"
+ *   },
+ *   "HostedZoneId": "Z3M3LMPEXAMPLE"
+ * };
+ * const command = new ChangeResourceRecordSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeInfo": {
+ *     "Comment": "EC2 instances for example.com",
+ *     "Id": "/change/C2682N5HXP0BZ4",
+ *     "Status": "PENDING",
+ *     "SubmittedAt": "2017-02-10T01:36:41.958Z"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To create latency alias resource record sets
+ * ```javascript
+ * // The following example creates two latency alias resource record sets that route traffic for example.com to ELB load balancers. Requests are routed either to the Ohio region or the Oregon region, depending on the latency between the user and those regions.
+ * const input = {
+ *   "ChangeBatch": {
+ *     "Changes": [
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "AliasTarget": {
+ *             "DNSName": "example-com-123456789.us-east-2.elb.amazonaws.com ",
+ *             "EvaluateTargetHealth": true,
+ *             "HostedZoneId": "Z3AADJGX6KTTL2"
+ *           },
+ *           "Name": "example.com",
+ *           "Region": "us-east-2",
+ *           "SetIdentifier": "Ohio region",
+ *           "Type": "A"
+ *         }
+ *       },
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "AliasTarget": {
+ *             "DNSName": "example-com-987654321.us-west-2.elb.amazonaws.com ",
+ *             "EvaluateTargetHealth": true,
+ *             "HostedZoneId": "Z1H1FL5HABSF5"
+ *           },
+ *           "Name": "example.com",
+ *           "Region": "us-west-2",
+ *           "SetIdentifier": "Oregon region",
+ *           "Type": "A"
+ *         }
+ *       }
+ *     ],
+ *     "Comment": "ELB load balancers for example.com"
+ *   },
+ *   "HostedZoneId": "Z3M3LMPEXAMPLE"
+ * };
+ * const command = new ChangeResourceRecordSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeInfo": {
+ *     "Comment": "ELB load balancers for example.com",
+ *     "Id": "/change/C2682N5HXP0BZ4",
+ *     "Status": "PENDING",
+ *     "SubmittedAt": "2017-02-10T01:36:41.958Z"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To create failover resource record sets
+ * ```javascript
+ * // The following example creates primary and secondary failover resource record sets that route traffic to EC2 instances. Traffic is generally routed to the primary resource, in the Ohio region. If that resource is unavailable, traffic is routed to the secondary resource, in the Oregon region.
+ * const input = {
+ *   "ChangeBatch": {
+ *     "Changes": [
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "Failover": "PRIMARY",
+ *           "HealthCheckId": "abcdef11-2222-3333-4444-555555fedcba",
+ *           "Name": "example.com",
+ *           "ResourceRecords": [
+ *             {
+ *               "Value": "192.0.2.44"
+ *             }
+ *           ],
+ *           "SetIdentifier": "Ohio region",
+ *           "TTL": 60,
+ *           "Type": "A"
+ *         }
+ *       },
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "Failover": "SECONDARY",
+ *           "HealthCheckId": "abcdef66-7777-8888-9999-000000fedcba",
+ *           "Name": "example.com",
+ *           "ResourceRecords": [
+ *             {
+ *               "Value": "192.0.2.45"
+ *             }
+ *           ],
+ *           "SetIdentifier": "Oregon region",
+ *           "TTL": 60,
+ *           "Type": "A"
+ *         }
+ *       }
+ *     ],
+ *     "Comment": "Failover configuration for example.com"
+ *   },
+ *   "HostedZoneId": "Z3M3LMPEXAMPLE"
+ * };
+ * const command = new ChangeResourceRecordSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeInfo": {
+ *     "Comment": "Failover configuration for example.com",
+ *     "Id": "/change/C2682N5HXP0BZ4",
+ *     "Status": "PENDING",
+ *     "SubmittedAt": "2017-02-10T01:36:41.958Z"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To create failover alias resource record sets
+ * ```javascript
+ * // The following example creates primary and secondary failover alias resource record sets that route traffic to ELB load balancers. Traffic is generally routed to the primary resource, in the Ohio region. If that resource is unavailable, traffic is routed to the secondary resource, in the Oregon region.
+ * const input = {
+ *   "ChangeBatch": {
+ *     "Changes": [
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "AliasTarget": {
+ *             "DNSName": "example-com-123456789.us-east-2.elb.amazonaws.com ",
+ *             "EvaluateTargetHealth": true,
+ *             "HostedZoneId": "Z3AADJGX6KTTL2"
+ *           },
+ *           "Failover": "PRIMARY",
+ *           "Name": "example.com",
+ *           "SetIdentifier": "Ohio region",
+ *           "Type": "A"
+ *         }
+ *       },
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "AliasTarget": {
+ *             "DNSName": "example-com-987654321.us-west-2.elb.amazonaws.com ",
+ *             "EvaluateTargetHealth": true,
+ *             "HostedZoneId": "Z1H1FL5HABSF5"
+ *           },
+ *           "Failover": "SECONDARY",
+ *           "Name": "example.com",
+ *           "SetIdentifier": "Oregon region",
+ *           "Type": "A"
+ *         }
+ *       }
+ *     ],
+ *     "Comment": "Failover alias configuration for example.com"
+ *   },
+ *   "HostedZoneId": "Z3M3LMPEXAMPLE"
+ * };
+ * const command = new ChangeResourceRecordSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeInfo": {
+ *     "Comment": "Failover alias configuration for example.com",
+ *     "Id": "/change/C2682N5HXP0BZ4",
+ *     "Status": "PENDING",
+ *     "SubmittedAt": "2017-02-10T01:36:41.958Z"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To create geolocation resource record sets
+ * ```javascript
+ * // The following example creates four geolocation resource record sets that use IPv4 addresses to route traffic to resources such as web servers running on EC2 instances. Traffic is routed to one of four IP addresses, for North America (NA), for South America (SA), for Europe (EU), and for all other locations (*).
+ * const input = {
+ *   "ChangeBatch": {
+ *     "Changes": [
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "GeoLocation": {
+ *             "ContinentCode": "NA"
+ *           },
+ *           "Name": "example.com",
+ *           "ResourceRecords": [
+ *             {
+ *               "Value": "192.0.2.44"
+ *             }
+ *           ],
+ *           "SetIdentifier": "North America",
+ *           "TTL": 60,
+ *           "Type": "A"
+ *         }
+ *       },
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "GeoLocation": {
+ *             "ContinentCode": "SA"
+ *           },
+ *           "Name": "example.com",
+ *           "ResourceRecords": [
+ *             {
+ *               "Value": "192.0.2.45"
+ *             }
+ *           ],
+ *           "SetIdentifier": "South America",
+ *           "TTL": 60,
+ *           "Type": "A"
+ *         }
+ *       },
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "GeoLocation": {
+ *             "ContinentCode": "EU"
+ *           },
+ *           "Name": "example.com",
+ *           "ResourceRecords": [
+ *             {
+ *               "Value": "192.0.2.46"
+ *             }
+ *           ],
+ *           "SetIdentifier": "Europe",
+ *           "TTL": 60,
+ *           "Type": "A"
+ *         }
+ *       },
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "GeoLocation": {
+ *             "CountryCode": "*"
+ *           },
+ *           "Name": "example.com",
+ *           "ResourceRecords": [
+ *             {
+ *               "Value": "192.0.2.47"
+ *             }
+ *           ],
+ *           "SetIdentifier": "Other locations",
+ *           "TTL": 60,
+ *           "Type": "A"
+ *         }
+ *       }
+ *     ],
+ *     "Comment": "Geolocation configuration for example.com"
+ *   },
+ *   "HostedZoneId": "Z3M3LMPEXAMPLE"
+ * };
+ * const command = new ChangeResourceRecordSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeInfo": {
+ *     "Comment": "Geolocation configuration for example.com",
+ *     "Id": "/change/C2682N5HXP0BZ4",
+ *     "Status": "PENDING",
+ *     "SubmittedAt": "2017-02-10T01:36:41.958Z"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To create geolocation alias resource record sets
+ * ```javascript
+ * // The following example creates four geolocation alias resource record sets that route traffic to ELB load balancers. Traffic is routed to one of four IP addresses, for North America (NA), for South America (SA), for Europe (EU), and for all other locations (*).
+ * const input = {
+ *   "ChangeBatch": {
+ *     "Changes": [
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "AliasTarget": {
+ *             "DNSName": "example-com-123456789.us-east-2.elb.amazonaws.com ",
+ *             "EvaluateTargetHealth": true,
+ *             "HostedZoneId": "Z3AADJGX6KTTL2"
+ *           },
+ *           "GeoLocation": {
+ *             "ContinentCode": "NA"
+ *           },
+ *           "Name": "example.com",
+ *           "SetIdentifier": "North America",
+ *           "Type": "A"
+ *         }
+ *       },
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "AliasTarget": {
+ *             "DNSName": "example-com-234567890.sa-east-1.elb.amazonaws.com ",
+ *             "EvaluateTargetHealth": true,
+ *             "HostedZoneId": "Z2P70J7HTTTPLU"
+ *           },
+ *           "GeoLocation": {
+ *             "ContinentCode": "SA"
+ *           },
+ *           "Name": "example.com",
+ *           "SetIdentifier": "South America",
+ *           "Type": "A"
+ *         }
+ *       },
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "AliasTarget": {
+ *             "DNSName": "example-com-234567890.eu-central-1.elb.amazonaws.com ",
+ *             "EvaluateTargetHealth": true,
+ *             "HostedZoneId": "Z215JYRZR1TBD5"
+ *           },
+ *           "GeoLocation": {
+ *             "ContinentCode": "EU"
+ *           },
+ *           "Name": "example.com",
+ *           "SetIdentifier": "Europe",
+ *           "Type": "A"
+ *         }
+ *       },
+ *       {
+ *         "Action": "CREATE",
+ *         "ResourceRecordSet": {
+ *           "AliasTarget": {
+ *             "DNSName": "example-com-234567890.ap-southeast-1.elb.amazonaws.com ",
+ *             "EvaluateTargetHealth": true,
+ *             "HostedZoneId": "Z1LMS91P8CMLE5"
+ *           },
+ *           "GeoLocation": {
+ *             "CountryCode": "*"
+ *           },
+ *           "Name": "example.com",
+ *           "SetIdentifier": "Other locations",
+ *           "Type": "A"
+ *         }
+ *       }
+ *     ],
+ *     "Comment": "Geolocation alias configuration for example.com"
+ *   },
+ *   "HostedZoneId": "Z3M3LMPEXAMPLE"
+ * };
+ * const command = new ChangeResourceRecordSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeInfo": {
+ *     "Comment": "Geolocation alias configuration for example.com",
+ *     "Id": "/change/C2682N5HXP0BZ4",
+ *     "Status": "PENDING",
+ *     "SubmittedAt": "2017-02-10T01:36:41.958Z"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ChangeResourceRecordSetsCommand extends $Command<
   ChangeResourceRecordSetsCommandInput,

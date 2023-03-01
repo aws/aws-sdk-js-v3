@@ -50,6 +50,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
+ *
+ * @example To tag a resource
+ * ```javascript
+ * // This operation tags an Amazon FSx resource.
+ * const input = {
+ *   "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0498eed5fe91001ec",
+ *   "Tags": [
+ *     {
+ *       "Key": "Name",
+ *       "Value": "MyFileSystem"
+ *     }
+ *   ]
+ * };
+ * const command = new TagResourceCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

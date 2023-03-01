@@ -57,6 +57,17 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * @see {@link DescribeDBClustersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To list DB clusters
+ * ```javascript
+ * // This example lists settings for the specified DB cluster.
+ * const input = {
+ *   "DBClusterIdentifier": "mynewdbcluster"
+ * };
+ * const command = new DescribeDBClustersCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DescribeDBClustersCommand extends $Command<
   DescribeDBClustersCommandInput,

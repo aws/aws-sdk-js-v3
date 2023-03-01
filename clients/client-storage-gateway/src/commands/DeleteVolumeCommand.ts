@@ -62,6 +62,22 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __Metadat
  * @see {@link DeleteVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To delete a gateway volume
+ * ```javascript
+ * // Deletes the specified gateway volume that you previously created using the CreateCachediSCSIVolume or CreateStorediSCSIVolume API.
+ * const input = {
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * };
+ * const command = new DeleteVolumeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DeleteVolumeCommand extends $Command<
   DeleteVolumeCommandInput,

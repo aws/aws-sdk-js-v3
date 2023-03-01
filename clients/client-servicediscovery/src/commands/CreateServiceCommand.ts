@@ -91,6 +91,51 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ *
+ * @example Example: Create service
+ * ```javascript
+ * // Example: Create service
+ * const input = {
+ *   "CreatorRequestId": "567c1193-6b00-4308-bd57-ad38a8822d25",
+ *   "DnsConfig": {
+ *     "DnsRecords": [
+ *       {
+ *         "TTL": 60,
+ *         "Type": "A"
+ *       }
+ *     ],
+ *     "NamespaceId": "ns-ylexjili4cdxy3xm",
+ *     "RoutingPolicy": "MULTIVALUE"
+ *   },
+ *   "Name": "myservice",
+ *   "NamespaceId": "ns-ylexjili4cdxy3xm"
+ * };
+ * const command = new CreateServiceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Service": {
+ *     "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-p5zdwlg5uvvzjita",
+ *     "CreateDate": 1587081768.334,
+ *     "CreatorRequestId": "567c1193-6b00-4308-bd57-ad38a8822d25",
+ *     "DnsConfig": {
+ *       "DnsRecords": [
+ *         {
+ *           "TTL": 60,
+ *           "Type": "A"
+ *         }
+ *       ],
+ *       "NamespaceId": "ns-ylexjili4cdxy3xm",
+ *       "RoutingPolicy": "MULTIVALUE"
+ *     },
+ *     "Id": "srv-p5zdwlg5uvvzjita",
+ *     "Name": "myservice",
+ *     "NamespaceId": "ns-ylexjili4cdxy3xm"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateServiceCommand extends $Command<
   CreateServiceCommandInput,

@@ -58,6 +58,17 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  * @see {@link DeleteTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ *
+ * @example To delete a target group
+ * ```javascript
+ * // This example deletes the specified target group.
+ * const input = {
+ *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ * };
+ * const command = new DeleteTargetGroupCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteTargetGroupCommand extends $Command<
   DeleteTargetGroupCommandInput,

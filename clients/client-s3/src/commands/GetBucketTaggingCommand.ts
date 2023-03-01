@@ -79,6 +79,31 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  * @see {@link GetBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To get tag set associated with a bucket
+ * ```javascript
+ * // The following example returns tag set associated with a bucket
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new GetBucketTaggingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TagSet": [
+ *     {
+ *       "Key": "key1",
+ *       "Value": "value1"
+ *     },
+ *     {
+ *       "Key": "key2",
+ *       "Value": "value2"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetBucketTaggingCommand extends $Command<
   GetBucketTaggingCommandInput,

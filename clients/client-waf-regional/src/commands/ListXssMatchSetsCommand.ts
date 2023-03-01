@@ -58,6 +58,27 @@ export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse,
  * @see {@link ListXssMatchSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ *
+ * @example To list XSS match sets
+ * ```javascript
+ * // The following example returns an array of up to 100 XSS match sets.
+ * const input = {
+ *   "Limit": 100
+ * };
+ * const command = new ListXssMatchSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "XssMatchSets": [
+ *     {
+ *       "Name": "MySampleXssMatchSet",
+ *       "XssMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListXssMatchSetsCommand extends $Command<
   ListXssMatchSetsCommandInput,

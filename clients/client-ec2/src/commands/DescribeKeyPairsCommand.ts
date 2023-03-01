@@ -52,6 +52,29 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * @see {@link DescribeKeyPairsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To display a key pair
+ * ```javascript
+ * // This example displays the fingerprint for the specified key.
+ * const input = {
+ *   "KeyNames": [
+ *     "my-key-pair"
+ *   ]
+ * };
+ * const command = new DescribeKeyPairsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyPairs": [
+ *     {
+ *       "KeyFingerprint": "1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f",
+ *       "KeyName": "my-key-pair"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeKeyPairsCommand extends $Command<
   DescribeKeyPairsCommandInput,

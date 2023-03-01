@@ -51,6 +51,19 @@ export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyRes
  * @see {@link DeleteProjectPolicyCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
+ *
+ * @example DeleteProjectPolicy
+ * ```javascript
+ * // This operation deletes a revision of an existing project policy from an Amazon Rekognition Custom Labels project.
+ * const input = {
+ *   "PolicyName": "testPolicy1",
+ *   "PolicyRevisionId": "3b274c25e9203a56a99e00e3ff205fbc",
+ *   "ProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/SourceProject/1656557123456"
+ * };
+ * const command = new DeleteProjectPolicyCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteProjectPolicyCommand extends $Command<
   DeleteProjectPolicyCommandInput,

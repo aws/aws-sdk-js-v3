@@ -62,6 +62,34 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * @see {@link CreateDBInstanceReadReplicaCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To create a DB instance read replica.
+ * ```javascript
+ * // This example creates a DB instance read replica.
+ * const input = {
+ *   "AvailabilityZone": "us-east-1a",
+ *   "CopyTagsToSnapshot": true,
+ *   "DBInstanceClass": "db.t2.micro",
+ *   "DBInstanceIdentifier": "mydbreadreplica",
+ *   "PubliclyAccessible": true,
+ *   "SourceDBInstanceIdentifier": "mymysqlinstance",
+ *   "StorageType": "gp2",
+ *   "Tags": [
+ *     {
+ *       "Key": "mydbreadreplicakey",
+ *       "Value": "mydbreadreplicavalue"
+ *     }
+ *   ]
+ * };
+ * const command = new CreateDBInstanceReadReplicaCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstance": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateDBInstanceReadReplicaCommand extends $Command<
   CreateDBInstanceReadReplicaCommandInput,

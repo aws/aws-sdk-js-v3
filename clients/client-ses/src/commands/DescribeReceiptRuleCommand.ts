@@ -53,6 +53,36 @@ export interface DescribeReceiptRuleCommandOutput extends DescribeReceiptRuleRes
  * @see {@link DescribeReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example DescribeReceiptRule
+ * ```javascript
+ * // The following example returns the details of a receipt rule:
+ * const input = {
+ *   "RuleName": "MyRule",
+ *   "RuleSetName": "MyRuleSet"
+ * };
+ * const command = new DescribeReceiptRuleCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Rule": {
+ *     "Actions": [
+ *       {
+ *         "S3Action": {
+ *           "BucketName": "MyBucket",
+ *           "ObjectKeyPrefix": "email"
+ *         }
+ *       }
+ *     ],
+ *     "Enabled": true,
+ *     "Name": "MyRule",
+ *     "ScanEnabled": true,
+ *     "TlsPolicy": "Optional"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeReceiptRuleCommand extends $Command<
   DescribeReceiptRuleCommandInput,

@@ -51,6 +51,18 @@ export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {
  * @see {@link DeleteVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ *
+ * @example To delete the vault access policy
+ * ```javascript
+ * // The example deletes the access policy associated with the vault named examplevault.
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "examplevault"
+ * };
+ * const command = new DeleteVaultAccessPolicyCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteVaultAccessPolicyCommand extends $Command<
   DeleteVaultAccessPolicyCommandInput,

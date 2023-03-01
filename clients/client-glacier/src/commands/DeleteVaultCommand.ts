@@ -64,6 +64,18 @@ export interface DeleteVaultCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ *
+ * @example To delete a vault
+ * ```javascript
+ * // The example deletes a vault named my-vault:
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "my-vault"
+ * };
+ * const command = new DeleteVaultCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteVaultCommand extends $Command<
   DeleteVaultCommandInput,

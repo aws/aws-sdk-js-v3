@@ -68,6 +68,33 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  * @see {@link CopyProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
+ *
+ * @example CopyProjectVersion
+ * ```javascript
+ * // This operation copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project.
+ * const input = {
+ *   "DestinationProjectArn": "arn:aws:rekognition:us-east-1:555555555555:project/DestinationProject/1656705098765",
+ *   "KmsKeyId": "arn:1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "OutputConfig": {
+ *     "S3Bucket": "bucket-name",
+ *     "S3KeyPrefix": "path_to_folder"
+ *   },
+ *   "SourceProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/SourceProject/16565123456",
+ *   "SourceProjectVersionArn": "arn:aws:rekognition:us-east-1:111122223333:project/SourceProject/version/model_1/1656611123456",
+ *   "Tags": {
+ *     "key1": "val1"
+ *   },
+ *   "VersionName": "DestinationVersionName_cross_account"
+ * };
+ * const command = new CopyProjectVersionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ProjectVersionArn": "arn:aws:rekognition:us-east-1:555555555555:project/DestinationProject/version/DestinationVersionName_cross_account/16567050987651"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CopyProjectVersionCommand extends $Command<
   CopyProjectVersionCommandInput,

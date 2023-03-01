@@ -47,6 +47,18 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link DeletePolicyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To delete an Auto Scaling policy
+ * ```javascript
+ * // This example deletes the specified Auto Scaling policy.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "PolicyName": "my-step-scale-out-policy"
+ * };
+ * const command = new DeletePolicyCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeletePolicyCommand extends $Command<
   DeletePolicyCommandInput,

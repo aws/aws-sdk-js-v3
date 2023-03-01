@@ -50,6 +50,24 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
  * @see {@link GetRepositoryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ *
+ * @example To get the current policy for a repository
+ * ```javascript
+ * // This example obtains the repository policy for the repository named ubuntu.
+ * const input = {
+ *   "repositoryName": "ubuntu"
+ * };
+ * const command = new GetRepositoryPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "policyText": "{\n  \"Version\" : \"2008-10-17\",\n  \"Statement\" : [ {\n    \"Sid\" : \"new statement\",\n    \"Effect\" : \"Allow\",\n    \"Principal\" : {\n     \"AWS\" : \"arn:aws:iam::012345678901:role/CodeDeployDemo\"\n    },\n\"Action\" : [ \"ecr:GetDownloadUrlForLayer\", \"ecr:BatchGetImage\", \"ecr:BatchCheckLayerAvailability\" ]\n } ]\n}",
+ *   "registryId": "012345678901",
+ *   "repositoryName": "ubuntu"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetRepositoryPolicyCommand extends $Command<
   GetRepositoryPolicyCommandInput,

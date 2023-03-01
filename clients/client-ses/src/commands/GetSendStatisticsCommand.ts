@@ -48,6 +48,42 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  * @see {@link GetSendStatisticsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example GetSendStatistics
+ * ```javascript
+ * // The following example returns Amazon SES sending statistics:
+ * const input = undefined;
+ * const command = new GetSendStatisticsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SendDataPoints": [
+ *     {
+ *       "Bounces": 0,
+ *       "Complaints": 0,
+ *       "DeliveryAttempts": 5,
+ *       "Rejects": 0,
+ *       "Timestamp": "2016-07-13T22:43:00Z"
+ *     },
+ *     {
+ *       "Bounces": 0,
+ *       "Complaints": 0,
+ *       "DeliveryAttempts": 3,
+ *       "Rejects": 0,
+ *       "Timestamp": "2016-07-13T23:13:00Z"
+ *     },
+ *     {
+ *       "Bounces": 0,
+ *       "Complaints": 0,
+ *       "DeliveryAttempts": 1,
+ *       "Rejects": 0,
+ *       "Timestamp": "2016-07-13T21:13:00Z"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetSendStatisticsCommand extends $Command<
   GetSendStatisticsCommandInput,

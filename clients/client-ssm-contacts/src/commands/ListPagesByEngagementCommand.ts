@@ -50,6 +50,30 @@ export interface ListPagesByEngagementCommandOutput extends ListPagesByEngagemen
  * @see {@link ListPagesByEngagementCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
+ *
+ * @example To list pages to contact channels started from an engagement.
+ * ```javascript
+ * // The following list-pages-by-engagement example lists the pages that occurred while engaging the defined engagement plan.
+ * const input = {
+ *   "EngagementId": "arn:aws:ssm-contacts:us-east-2:111122223333:engagement/akuam/78a29753-3674-4ac5-9f83-0468563567f0"
+ * };
+ * const command = new ListPagesByEngagementCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Pages": [
+ *     {
+ *       "ContactArn": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/akuam",
+ *       "EngagementArn": "arn:aws:ssm-contacts:us-east-2:111122223333:engagement/akuam/78a29753-3674-4ac5-9f83-0468563567f0",
+ *       "PageArn": "arn:aws:ssm-contacts:us-east-2:111122223333:page/akuam/ad0052bd-e606-498a-861b-25726292eb93",
+ *       "Sender": "cli",
+ *       "SentTime": "2021-05-18T18:40:27.245000+00:00"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListPagesByEngagementCommand extends $Command<
   ListPagesByEngagementCommandInput,

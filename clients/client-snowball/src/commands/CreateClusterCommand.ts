@@ -51,6 +51,40 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ *
+ * @example To create a cluster
+ * ```javascript
+ * // Creates an empty cluster. Each cluster supports five nodes. You use the CreateJob action separately to create the jobs for each of these nodes. The cluster does not ship until these five node jobs have been created.
+ * const input = {
+ *   "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
+ *   "Description": "MyCluster",
+ *   "JobType": "LOCAL_USE",
+ *   "KmsKeyARN": "arn:aws:kms:us-east-1:123456789012:key/abcd1234-12ab-34cd-56ef-123456123456",
+ *   "Notification": {
+ *     "JobStatesToNotify": [],
+ *     "NotifyAll": false
+ *   },
+ *   "Resources": {
+ *     "S3Resources": [
+ *       {
+ *         "BucketArn": "arn:aws:s3:::MyBucket",
+ *         "KeyRange": {}
+ *       }
+ *     ]
+ *   },
+ *   "RoleARN": "arn:aws:iam::123456789012:role/snowball-import-S3-role",
+ *   "ShippingOption": "SECOND_DAY",
+ *   "SnowballType": "EDGE"
+ * };
+ * const command = new CreateClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ClusterId": "CID123e4567-e89b-12d3-a456-426655440000"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,

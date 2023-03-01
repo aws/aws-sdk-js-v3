@@ -67,6 +67,29 @@ export interface GetIdentityVerificationAttributesCommandOutput
  * @see {@link GetIdentityVerificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example GetIdentityVerificationAttributes
+ * ```javascript
+ * // The following example returns the verification status and the verification token for a domain identity:
+ * const input = {
+ *   "Identities": [
+ *     "example.com"
+ *   ]
+ * };
+ * const command = new GetIdentityVerificationAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VerificationAttributes": {
+ *     "example.com": {
+ *       "VerificationStatus": "Success",
+ *       "VerificationToken": "EXAMPLE3VYb9EDI2nTOQRi/Tf6MI/6bD6THIGiP1MVY="
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetIdentityVerificationAttributesCommand extends $Command<
   GetIdentityVerificationAttributesCommandInput,

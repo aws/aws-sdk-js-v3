@@ -44,6 +44,15 @@ export interface DeleteAccountPasswordPolicyCommandOutput extends __MetadataBear
  * @see {@link DeleteAccountPasswordPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To delete the current account password policy
+ * ```javascript
+ * // The following command removes the password policy from the current AWS account:
+ * const input = undefined;
+ * const command = new DeleteAccountPasswordPolicyCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteAccountPasswordPolicyCommand extends $Command<
   DeleteAccountPasswordPolicyCommandInput,

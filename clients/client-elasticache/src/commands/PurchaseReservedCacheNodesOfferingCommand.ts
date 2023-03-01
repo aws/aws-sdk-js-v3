@@ -55,6 +55,17 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
  * @see {@link PurchaseReservedCacheNodesOfferingCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ *
+ * @example PurchaseReservedCacheNodesOfferings
+ * ```javascript
+ * // Allows you to purchase a reserved cache node offering.
+ * const input = {
+ *   "ReservedCacheNodesOfferingId": "1ef01f5b-94ff-433f-a530-61a56bfc8e7a"
+ * };
+ * const command = new PurchaseReservedCacheNodesOfferingCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
   PurchaseReservedCacheNodesOfferingCommandInput,

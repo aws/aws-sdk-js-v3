@@ -51,6 +51,29 @@ export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironm
  * @see {@link UpdateEnvironmentMembershipCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
+ *
+ * @example UpdateEnvironmentMembership
+ * ```javascript
+ * //
+ * const input = {
+ *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
+ *   "permissions": "read-only",
+ *   "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser"
+ * };
+ * const command = new UpdateEnvironmentMembershipCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "membership": {
+ *     "environmentId": "8d9967e2f0624182b74e7690ad69eb31",
+ *     "permissions": "read-only",
+ *     "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser",
+ *     "userId": "AIDAJ3BA6O2FMJWCWXHEX"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateEnvironmentMembershipCommand extends $Command<
   UpdateEnvironmentMembershipCommandInput,

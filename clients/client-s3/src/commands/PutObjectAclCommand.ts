@@ -229,6 +229,21 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * @see {@link PutObjectAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To grant permissions using object ACL
+ * ```javascript
+ * // The following example adds grants to an object ACL. The first permission grants user1 and user2 FULL_CONTROL and the AllUsers group READ permission.
+ * const input = {
+ *   "AccessControlPolicy": {},
+ *   "Bucket": "examplebucket",
+ *   "GrantFullControl": "emailaddress=user1@example.com,emailaddress=user2@example.com",
+ *   "GrantRead": "uri=http://acs.amazonaws.com/groups/global/AllUsers",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new PutObjectAclCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class PutObjectAclCommand extends $Command<
   PutObjectAclCommandInput,

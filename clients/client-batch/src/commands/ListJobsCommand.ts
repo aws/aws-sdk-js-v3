@@ -64,6 +64,49 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
+ *
+ * @example To list running jobs
+ * ```javascript
+ * // This example lists the running jobs in the HighPriority job queue.
+ * const input = {
+ *   "jobQueue": "HighPriority"
+ * };
+ * const command = new ListJobsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "jobSummaryList": [
+ *     {
+ *       "jobId": "e66ff5fd-a1ff-4640-b1a2-0b0a142f49bb",
+ *       "jobName": "example"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To list submitted jobs
+ * ```javascript
+ * // This example lists jobs in the HighPriority job queue that are in the SUBMITTED job status.
+ * const input = {
+ *   "jobQueue": "HighPriority",
+ *   "jobStatus": "SUBMITTED"
+ * };
+ * const command = new ListJobsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "jobSummaryList": [
+ *     {
+ *       "jobId": "68f0c163-fbd4-44e6-9fd1-25b14a434786",
+ *       "jobName": "example"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsCommandOutput, BatchClientResolvedConfig> {
   // Start section: command_properties

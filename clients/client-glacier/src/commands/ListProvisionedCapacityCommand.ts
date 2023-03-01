@@ -51,6 +51,33 @@ export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCap
  * @see {@link ListProvisionedCapacityCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ *
+ * @example To list the provisioned capacity units for an account
+ * ```javascript
+ * // The example lists the provisioned capacity units for an account.
+ * const input = {
+ *   "accountId": "-"
+ * };
+ * const command = new ListProvisionedCapacityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ProvisionedCapacityList": [
+ *     {
+ *       "CapacityId": "zSaq7NzHFQDANTfQkDen4V7z",
+ *       "ExpirationDate": "2016-12-12T00:00:00.000Z",
+ *       "StartDate": "2016-11-11T20:11:51.095Z"
+ *     },
+ *     {
+ *       "CapacityId": "yXaq7NzHFQNADTfQkDen4V7z",
+ *       "ExpirationDate": "2017-01-15T00:00:00.000Z",
+ *       "StartDate": "2016-12-13T20:11:51.095Z"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListProvisionedCapacityCommand extends $Command<
   ListProvisionedCapacityCommandInput,

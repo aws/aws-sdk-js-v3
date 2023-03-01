@@ -59,6 +59,34 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  * @see {@link DeregisterInstancesFromLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ *
+ * @example To deregister instances from a load balancer
+ * ```javascript
+ * // This example deregisters the specified instance from the specified load balancer.
+ * const input = {
+ *   "Instances": [
+ *     {
+ *       "InstanceId": "i-d6f6fae3"
+ *     }
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new DeregisterInstancesFromLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Instances": [
+ *     {
+ *       "InstanceId": "i-207d9717"
+ *     },
+ *     {
+ *       "InstanceId": "i-afefb49b"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
   DeregisterInstancesFromLoadBalancerCommandInput,

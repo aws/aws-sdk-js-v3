@@ -61,6 +61,23 @@ export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecyc
  * @see {@link DescribeLifecycleHookTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To describe the available types of lifecycle hooks
+ * ```javascript
+ * // This example describes the available lifecycle hook types.
+ * const input = undefined;
+ * const command = new DescribeLifecycleHookTypesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LifecycleHookTypes": [
+ *     "autoscaling:EC2_INSTANCE_LAUNCHING",
+ *     "autoscaling:EC2_INSTANCE_TERMINATING"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeLifecycleHookTypesCommand extends $Command<
   DescribeLifecycleHookTypesCommandInput,

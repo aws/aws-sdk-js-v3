@@ -54,6 +54,77 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * @see {@link DescribeTargetHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ *
+ * @example To describe the health of the targets for a target group
+ * ```javascript
+ * // This example describes the health of the targets for the specified target group. One target is healthy but the other is not specified in an action, so it can't receive traffic from the load balancer.
+ * const input = {
+ *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ * };
+ * const command = new DescribeTargetHealthCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TargetHealthDescriptions": [
+ *     {
+ *       "Target": {
+ *         "Id": "i-0f76fade",
+ *         "Port": 80
+ *       },
+ *       "TargetHealth": {
+ *         "Description": "Given target group is not configured to receive traffic from ELB",
+ *         "Reason": "Target.NotInUse",
+ *         "State": "unused"
+ *       }
+ *     },
+ *     {
+ *       "HealthCheckPort": "80",
+ *       "Target": {
+ *         "Id": "i-0f76fade",
+ *         "Port": 80
+ *       },
+ *       "TargetHealth": {
+ *         "State": "healthy"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To describe the health of a target
+ * ```javascript
+ * // This example describes the health of the specified target. This target is healthy.
+ * const input = {
+ *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *   "Targets": [
+ *     {
+ *       "Id": "i-0f76fade",
+ *       "Port": 80
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeTargetHealthCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TargetHealthDescriptions": [
+ *     {
+ *       "HealthCheckPort": "80",
+ *       "Target": {
+ *         "Id": "i-0f76fade",
+ *         "Port": 80
+ *       },
+ *       "TargetHealth": {
+ *         "State": "healthy"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeTargetHealthCommand extends $Command<
   DescribeTargetHealthCommandInput,

@@ -141,6 +141,25 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  * @see {@link ReEncryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ *
+ * @example To reencrypt data
+ * ```javascript
+ * // The following example reencrypts data with the specified KMS key.
+ * const input = {
+ *   "CiphertextBlob": "<binary data>",
+ *   "DestinationKeyId": "0987dcba-09fe-87dc-65ba-ab0987654321"
+ * };
+ * const command = new ReEncryptCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CiphertextBlob": "<binary data>",
+ *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   "SourceKeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

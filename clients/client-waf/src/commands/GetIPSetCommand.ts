@@ -55,6 +55,31 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * @see {@link GetIPSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
+ *
+ * @example To get an IP set
+ * ```javascript
+ * // The following example returns the details of an IP match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
+ * const input = {
+ *   "IPSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ * };
+ * const command = new GetIPSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "IPSet": {
+ *     "IPSetDescriptors": [
+ *       {
+ *         "Type": "IPV4",
+ *         "Value": "192.0.2.44/32"
+ *       }
+ *     ],
+ *     "IPSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     "Name": "MyIPSetFriendlyName"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetCommandOutput, WAFClientResolvedConfig> {
   // Start section: command_properties

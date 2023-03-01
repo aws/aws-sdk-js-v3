@@ -55,6 +55,29 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ *
+ * @example To add tags to a load balancer
+ * ```javascript
+ * // This example adds the specified tags to the specified load balancer.
+ * const input = {
+ *   "ResourceArns": [
+ *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+ *   ],
+ *   "Tags": [
+ *     {
+ *       "Key": "project",
+ *       "Value": "lima"
+ *     },
+ *     {
+ *       "Key": "department",
+ *       "Value": "digital-media"
+ *     }
+ *   ]
+ * };
+ * const command = new AddTagsCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class AddTagsCommand extends $Command<
   AddTagsCommandInput,

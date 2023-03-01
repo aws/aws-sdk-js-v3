@@ -54,6 +54,45 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
  * @see {@link ModifyTargetGroupAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ *
+ * @example To modify the deregistration delay timeout
+ * ```javascript
+ * // This example sets the deregistration delay timeout to the specified value for the specified target group.
+ * const input = {
+ *   "Attributes": [
+ *     {
+ *       "Key": "deregistration_delay.timeout_seconds",
+ *       "Value": "600"
+ *     }
+ *   ],
+ *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ * };
+ * const command = new ModifyTargetGroupAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Attributes": [
+ *     {
+ *       "Key": "stickiness.enabled",
+ *       "Value": "false"
+ *     },
+ *     {
+ *       "Key": "deregistration_delay.timeout_seconds",
+ *       "Value": "600"
+ *     },
+ *     {
+ *       "Key": "stickiness.type",
+ *       "Value": "lb_cookie"
+ *     },
+ *     {
+ *       "Key": "stickiness.lb_cookie.duration_seconds",
+ *       "Value": "86400"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ModifyTargetGroupAttributesCommand extends $Command<
   ModifyTargetGroupAttributesCommandInput,

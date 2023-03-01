@@ -50,6 +50,17 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
+ * @example To delete an application
+ * ```javascript
+ * // The following operation deletes an application named my-app:
+ * const input = {
+ *   "ApplicationName": "my-app"
+ * };
+ * const command = new DeleteApplicationCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteApplicationCommand extends $Command<
   DeleteApplicationCommandInput,

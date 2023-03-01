@@ -57,6 +57,24 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  * @see {@link CreatePrivateDnsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ *
+ * @example Example: Create private DNS namespace
+ * ```javascript
+ * // Example: Create private DNS namespace
+ * const input = {
+ *   "CreatorRequestId": "eedd6892-50f3-41b2-8af9-611d6e1d1a8c",
+ *   "Name": "example.com",
+ *   "Vpc": "vpc-1c56417b"
+ * };
+ * const command = new CreatePrivateDnsNamespaceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OperationId": "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9302yzd"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreatePrivateDnsNamespaceCommand extends $Command<
   CreatePrivateDnsNamespaceCommandInput,

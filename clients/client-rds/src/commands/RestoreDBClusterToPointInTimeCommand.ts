@@ -71,6 +71,24 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * @see {@link RestoreDBClusterToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To restore a DB cluster to a point in time.
+ * ```javascript
+ * // The following example restores a DB cluster to a new DB cluster at a point in time from the source DB cluster.
+ * const input = {
+ *   "DBClusterIdentifier": "sample-restored-cluster1",
+ *   "RestoreToTime": "2016-09-13T18:45:00Z",
+ *   "SourceDBClusterIdentifier": "sample-cluster1"
+ * };
+ * const command = new RestoreDBClusterToPointInTimeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBCluster": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class RestoreDBClusterToPointInTimeCommand extends $Command<
   RestoreDBClusterToPointInTimeCommandInput,

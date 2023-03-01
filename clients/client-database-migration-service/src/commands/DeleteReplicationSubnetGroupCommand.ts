@@ -56,6 +56,17 @@ export interface DeleteReplicationSubnetGroupCommandOutput
  * @see {@link DeleteReplicationSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ *
+ * @example Delete Replication Subnet Group
+ * ```javascript
+ * // Deletes a replication subnet group.
+ * const input = {
+ *   "ReplicationSubnetGroupIdentifier": "us-west-2ab-vpc-215ds366"
+ * };
+ * const command = new DeleteReplicationSubnetGroupCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteReplicationSubnetGroupCommand extends $Command<
   DeleteReplicationSubnetGroupCommandInput,

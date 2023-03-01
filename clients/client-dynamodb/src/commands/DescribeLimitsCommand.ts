@@ -119,6 +119,23 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * @see {@link DescribeLimitsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ *
+ * @example To determine capacity limits per table and account, in the current AWS region
+ * ```javascript
+ * // The following example returns the maximum read and write capacity units per table, and for the AWS account, in the current AWS region.
+ * const input = {};
+ * const command = new DescribeLimitsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AccountMaxReadCapacityUnits": 20000,
+ *   "AccountMaxWriteCapacityUnits": 20000,
+ *   "TableMaxReadCapacityUnits": 10000,
+ *   "TableMaxWriteCapacityUnits": 10000
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeLimitsCommand extends $Command<
   DescribeLimitsCommandInput,

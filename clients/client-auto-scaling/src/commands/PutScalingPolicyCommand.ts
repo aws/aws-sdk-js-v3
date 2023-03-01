@@ -59,6 +59,41 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To add a scaling policy to an Auto Scaling group
+ * ```javascript
+ * // This example adds the specified policy to the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "PolicyName": "alb1000-target-tracking-scaling-policy",
+ *   "PolicyType": "TargetTrackingScaling",
+ *   "TargetTrackingConfiguration": {
+ *     "PredefinedMetricSpecification": {
+ *       "PredefinedMetricType": "ALBRequestCountPerTarget",
+ *       "ResourceLabel": "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff"
+ *     },
+ *     "TargetValue": 1000
+ *   }
+ * };
+ * const command = new PutScalingPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Alarms": [
+ *     {
+ *       "AlarmARN": "arn:aws:cloudwatch:us-west-2:123456789012:alarm:TargetTracking-my-asg-AlarmHigh-fc0e4183-23ac-497e-9992-691c9980c38e",
+ *       "AlarmName": "TargetTracking-my-asg-AlarmHigh-fc0e4183-23ac-497e-9992-691c9980c38e"
+ *     },
+ *     {
+ *       "AlarmARN": "arn:aws:cloudwatch:us-west-2:123456789012:alarm:TargetTracking-my-asg-AlarmLow-61a39305-ed0c-47af-bd9e-471a352ee1a2",
+ *       "AlarmName": "TargetTracking-my-asg-AlarmLow-61a39305-ed0c-47af-bd9e-471a352ee1a2"
+ *     }
+ *   ],
+ *   "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:228f02c2-c665-4bfd-aaac-8b04080bea3c:autoScalingGroupName/my-auto-scaling-group:policyName/alb1000-target-tracking-scaling-policy"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class PutScalingPolicyCommand extends $Command<
   PutScalingPolicyCommandInput,

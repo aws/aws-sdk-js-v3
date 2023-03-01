@@ -62,6 +62,25 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * @see {@link SubmitJobCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
+ *
+ * @example To submit a job to a queue
+ * ```javascript
+ * // This example submits a simple container job called example to the HighPriority job queue.
+ * const input = {
+ *   "jobDefinition": "sleep60",
+ *   "jobName": "example",
+ *   "jobQueue": "HighPriority"
+ * };
+ * const command = new SubmitJobCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "jobId": "876da822-4198-45f2-a252-6cea32512ea8",
+ *   "jobName": "example"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class SubmitJobCommand extends $Command<
   SubmitJobCommandInput,

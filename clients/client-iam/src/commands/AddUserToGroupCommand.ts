@@ -45,6 +45,18 @@ export interface AddUserToGroupCommandOutput extends __MetadataBearer {}
  * @see {@link AddUserToGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To add a user to an IAM group
+ * ```javascript
+ * // The following command adds an IAM user named Bob to the IAM group named Admins:
+ * const input = {
+ *   "GroupName": "Admins",
+ *   "UserName": "Bob"
+ * };
+ * const command = new AddUserToGroupCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class AddUserToGroupCommand extends $Command<
   AddUserToGroupCommandInput,

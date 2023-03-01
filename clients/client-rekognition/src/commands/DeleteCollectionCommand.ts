@@ -54,6 +54,22 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * @see {@link DeleteCollectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
+ *
+ * @example To delete a collection
+ * ```javascript
+ * // This operation deletes a Rekognition collection.
+ * const input = {
+ *   "CollectionId": "myphotos"
+ * };
+ * const command = new DeleteCollectionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "StatusCode": 200
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DeleteCollectionCommand extends $Command<
   DeleteCollectionCommandInput,

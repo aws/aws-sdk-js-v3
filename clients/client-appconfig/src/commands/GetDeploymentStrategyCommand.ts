@@ -54,6 +54,28 @@ export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, 
  * @see {@link GetDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ *
+ * @example To retrieve details of a deployment strategy
+ * ```javascript
+ * // The following get-deployment-strategy example lists the details of the specified deployment strategy.
+ * const input = {
+ *   "DeploymentStrategyId": "1225qzk"
+ * };
+ * const command = new GetDeploymentStrategyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DeploymentDurationInMinutes": 15,
+ *   "FinalBakeTimeInMinutes": 0,
+ *   "GrowthFactor": 25,
+ *   "GrowthType": "LINEAR",
+ *   "Id": "1225qzk",
+ *   "Name": "Example-Deployment",
+ *   "ReplicateTo": "SSM_DOCUMENT"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetDeploymentStrategyCommand extends $Command<
   GetDeploymentStrategyCommandInput,

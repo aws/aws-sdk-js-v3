@@ -52,6 +52,17 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  * @see {@link EnableKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ *
+ * @example To enable a KMS key
+ * ```javascript
+ * // The following example enables the specified KMS key.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new EnableKeyCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

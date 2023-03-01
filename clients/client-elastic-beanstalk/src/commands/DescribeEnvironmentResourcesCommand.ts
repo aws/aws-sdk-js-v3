@@ -52,6 +52,46 @@ export interface DescribeEnvironmentResourcesCommandOutput
  * @see {@link DescribeEnvironmentResourcesCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
+ * @example To view information about the AWS resources in your environment
+ * ```javascript
+ * // The following operation retrieves information about resources in an environment named my-env:
+ * const input = {
+ *   "EnvironmentName": "my-env"
+ * };
+ * const command = new DescribeEnvironmentResourcesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EnvironmentResources": {
+ *     "AutoScalingGroups": [
+ *       {
+ *         "Name": "awseb-e-qu3fyyjyjs-stack-AWSEBAutoScalingGroup-QSB2ZO88SXZT"
+ *       }
+ *     ],
+ *     "EnvironmentName": "my-env",
+ *     "Instances": [
+ *       {
+ *         "Id": "i-0c91c786"
+ *       }
+ *     ],
+ *     "LaunchConfigurations": [
+ *       {
+ *         "Name": "awseb-e-qu3fyyjyjs-stack-AWSEBAutoScalingLaunchConfiguration-1UUVQIBC96TQ2"
+ *       }
+ *     ],
+ *     "LoadBalancers": [
+ *       {
+ *         "Name": "awseb-e-q-AWSEBLoa-1EEPZ0K98BIF0"
+ *       }
+ *     ],
+ *     "Queues": [],
+ *     "Triggers": []
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeEnvironmentResourcesCommand extends $Command<
   DescribeEnvironmentResourcesCommandInput,

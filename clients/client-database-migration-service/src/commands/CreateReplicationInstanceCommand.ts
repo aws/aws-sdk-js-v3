@@ -59,6 +59,87 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  * @see {@link CreateReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ *
+ * @example Create replication instance
+ * ```javascript
+ * // Creates the replication instance using the specified parameters.
+ * const input = {
+ *   "AllocatedStorage": 123,
+ *   "AutoMinorVersionUpgrade": true,
+ *   "AvailabilityZone": "",
+ *   "EngineVersion": "",
+ *   "KmsKeyId": "",
+ *   "MultiAZ": true,
+ *   "PreferredMaintenanceWindow": "",
+ *   "PubliclyAccessible": true,
+ *   "ReplicationInstanceClass": "",
+ *   "ReplicationInstanceIdentifier": "",
+ *   "ReplicationSubnetGroupIdentifier": "",
+ *   "Tags": [
+ *     {
+ *       "Key": "string",
+ *       "Value": "string"
+ *     }
+ *   ],
+ *   "VpcSecurityGroupIds": []
+ * };
+ * const command = new CreateReplicationInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReplicationInstance": {
+ *     "AllocatedStorage": 5,
+ *     "AutoMinorVersionUpgrade": true,
+ *     "EngineVersion": "1.5.0",
+ *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+ *     "PendingModifiedValues": {},
+ *     "PreferredMaintenanceWindow": "sun:06:00-sun:14:00",
+ *     "PubliclyAccessible": true,
+ *     "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *     "ReplicationInstanceClass": "dms.t2.micro",
+ *     "ReplicationInstanceIdentifier": "test-rep-1",
+ *     "ReplicationInstanceStatus": "creating",
+ *     "ReplicationSubnetGroup": {
+ *       "ReplicationSubnetGroupDescription": "default",
+ *       "ReplicationSubnetGroupIdentifier": "default",
+ *       "SubnetGroupStatus": "Complete",
+ *       "Subnets": [
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1d"
+ *           },
+ *           "SubnetIdentifier": "subnet-f6dd91af",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1b"
+ *           },
+ *           "SubnetIdentifier": "subnet-3605751d",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1c"
+ *           },
+ *           "SubnetIdentifier": "subnet-c2daefb5",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1e"
+ *           },
+ *           "SubnetIdentifier": "subnet-85e90cb8",
+ *           "SubnetStatus": "Active"
+ *         }
+ *       ],
+ *       "VpcId": "vpc-6741a603"
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateReplicationInstanceCommand extends $Command<
   CreateReplicationInstanceCommandInput,

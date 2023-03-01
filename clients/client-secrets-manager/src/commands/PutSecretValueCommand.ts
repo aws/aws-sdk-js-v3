@@ -77,6 +77,29 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  * @see {@link PutSecretValueCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
+ *
+ * @example To store a secret value in a new version of a secret
+ * ```javascript
+ * // The following example shows how to create a new version of the secret. Alternatively, you can use the update-secret command.
+ * const input = {
+ *   "ClientRequestToken": "EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE",
+ *   "SecretId": "MyTestDatabaseSecret",
+ *   "SecretString": "{\"username\":\"david\",\"password\":\"EXAMPLE-PASSWORD\"}"
+ * };
+ * const command = new PutSecretValueCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   "Name": "MyTestDatabaseSecret",
+ *   "VersionId": "EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE",
+ *   "VersionStages": [
+ *     "AWSCURRENT"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class PutSecretValueCommand extends $Command<
   PutSecretValueCommandInput,

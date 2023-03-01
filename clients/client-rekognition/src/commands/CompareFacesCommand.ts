@@ -100,6 +100,56 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  * @see {@link CompareFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
+ *
+ * @example To compare two images
+ * ```javascript
+ * // This operation compares the largest face detected in the source image with each face detected in the target image.
+ * const input = {
+ *   "SimilarityThreshold": 90,
+ *   "SourceImage": {
+ *     "S3Object": {
+ *       "Bucket": "mybucket",
+ *       "Name": "mysourceimage"
+ *     }
+ *   },
+ *   "TargetImage": {
+ *     "S3Object": {
+ *       "Bucket": "mybucket",
+ *       "Name": "mytargetimage"
+ *     }
+ *   }
+ * };
+ * const command = new CompareFacesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "FaceMatches": [
+ *     {
+ *       "Face": {
+ *         "BoundingBox": {
+ *           "Height": 0.33481481671333313,
+ *           "Left": 0.31888890266418457,
+ *           "Top": 0.4933333396911621,
+ *           "Width": 0.25
+ *         },
+ *         "Confidence": 99.9991226196289
+ *       },
+ *       "Similarity": 100
+ *     }
+ *   ],
+ *   "SourceImageFace": {
+ *     "BoundingBox": {
+ *       "Height": 0.33481481671333313,
+ *       "Left": 0.31888890266418457,
+ *       "Top": 0.4933333396911621,
+ *       "Width": 0.25
+ *     },
+ *     "Confidence": 99.9991226196289
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CompareFacesCommand extends $Command<
   CompareFacesCommandInput,

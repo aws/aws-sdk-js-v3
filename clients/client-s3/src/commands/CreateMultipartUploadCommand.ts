@@ -318,6 +318,25 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  * @see {@link CreateMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To initiate a multipart upload
+ * ```javascript
+ * // The following example initiates a multipart upload.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "largeobject"
+ * };
+ * const command = new CreateMultipartUploadCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Bucket": "examplebucket",
+ *   "Key": "largeobject",
+ *   "UploadId": "ibZBv_75gd9r8lH_gqXatLdxMVpAlj6ZQjEs.OwyF3953YdwbcQnMA2BLGn8Lx12fQNICtMw5KyteFeHw.Sjng--"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateMultipartUploadCommand extends $Command<
   CreateMultipartUploadCommandInput,

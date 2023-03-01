@@ -50,6 +50,52 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * @see {@link DescribeJobsCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
+ *
+ * @example To describe a specific job
+ * ```javascript
+ * // This example describes a job with the specified job ID.
+ * const input = {
+ *   "jobs": [
+ *     "24fa2d7a-64c4-49d2-8b47-f8da4fbde8e9"
+ *   ]
+ * };
+ * const command = new DescribeJobsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "jobs": [
+ *     {
+ *       "container": {
+ *         "command": [
+ *           "sleep",
+ *           "60"
+ *         ],
+ *         "containerInstanceArn": "arn:aws:ecs:us-east-1:012345678910:container-instance/5406d7cd-58bd-4b8f-9936-48d7c6b1526c",
+ *         "environment": [],
+ *         "exitCode": 0,
+ *         "image": "busybox",
+ *         "memory": 128,
+ *         "mountPoints": [],
+ *         "ulimits": [],
+ *         "vcpus": 1,
+ *         "volumes": []
+ *       },
+ *       "createdAt": 1480460782010,
+ *       "dependsOn": [],
+ *       "jobDefinition": "sleep60",
+ *       "jobId": "24fa2d7a-64c4-49d2-8b47-f8da4fbde8e9",
+ *       "jobName": "example",
+ *       "jobQueue": "arn:aws:batch:us-east-1:012345678910:job-queue/HighPriority",
+ *       "parameters": {},
+ *       "startedAt": 1480460816500,
+ *       "status": "SUCCEEDED",
+ *       "stoppedAt": 1480460880699
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeJobsCommand extends $Command<
   DescribeJobsCommandInput,

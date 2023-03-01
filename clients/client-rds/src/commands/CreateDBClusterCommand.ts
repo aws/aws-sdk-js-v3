@@ -59,6 +59,34 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * @see {@link CreateDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To create a DB cluster
+ * ```javascript
+ * // This example creates a DB cluster.
+ * const input = {
+ *   "AvailabilityZones": [
+ *     "us-east-1a"
+ *   ],
+ *   "BackupRetentionPeriod": 1,
+ *   "DBClusterIdentifier": "mydbcluster",
+ *   "DBClusterParameterGroupName": "mydbclusterparametergroup",
+ *   "DatabaseName": "myauroradb",
+ *   "Engine": "aurora",
+ *   "EngineVersion": "5.6.10a",
+ *   "MasterUserPassword": "mypassword",
+ *   "MasterUsername": "myuser",
+ *   "Port": 3306,
+ *   "StorageEncrypted": true
+ * };
+ * const command = new CreateDBClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBCluster": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateDBClusterCommand extends $Command<
   CreateDBClusterCommandInput,

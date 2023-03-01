@@ -55,6 +55,36 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * @see {@link ListStreamsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
  *
+ *
+ * @example To list all of the stream ARNs
+ * ```javascript
+ * // The following example lists all of the stream ARNs.
+ * const input = {};
+ * const command = new ListStreamsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Streams": [
+ *     {
+ *       "StreamArn": "arn:aws:dynamodb:us-wesst-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252",
+ *       "StreamLabel": "2015-05-20T20:51:10.252",
+ *       "TableName": "Forum"
+ *     },
+ *     {
+ *       "StreamArn": "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:50:02.714",
+ *       "StreamLabel": "2015-05-20T20:50:02.714",
+ *       "TableName": "Forum"
+ *     },
+ *     {
+ *       "StreamArn": "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-19T23:03:50.641",
+ *       "StreamLabel": "2015-05-19T23:03:50.641",
+ *       "TableName": "Forum"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListStreamsCommand extends $Command<
   ListStreamsCommandInput,

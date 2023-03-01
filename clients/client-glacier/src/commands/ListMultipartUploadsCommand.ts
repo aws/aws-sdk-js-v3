@@ -75,6 +75,46 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * @see {@link ListMultipartUploadsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ *
+ * @example To list all the in-progress multipart uploads for a vault
+ * ```javascript
+ * // The example lists all the in-progress multipart uploads for the vault named examplevault.
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "examplevault"
+ * };
+ * const command = new ListMultipartUploadsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "null",
+ *   "UploadsList": [
+ *     {
+ *       "ArchiveDescription": "archive 1",
+ *       "CreationDate": "2012-03-19T23:20:59.130Z",
+ *       "MultipartUploadId": "xsQdFIRsfJr20CW2AbZBKpRZAFTZSJIMtL2hYf8mvp8dM0m4RUzlaqoEye6g3h3ecqB_zqwB7zLDMeSWhwo65re4C4Ev",
+ *       "PartSizeInBytes": 4194304,
+ *       "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
+ *     },
+ *     {
+ *       "ArchiveDescription": "archive 2",
+ *       "CreationDate": "2012-04-01T15:00:00.000Z",
+ *       "MultipartUploadId": "nPyGOnyFcx67qqX7E-0tSGiRi88hHMOwOxR-_jNyM6RjVMFfV29lFqZ3rNsSaWBugg6OP92pRtufeHdQH7ClIpSF6uJc",
+ *       "PartSizeInBytes": 4194304,
+ *       "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
+ *     },
+ *     {
+ *       "ArchiveDescription": "archive 3",
+ *       "CreationDate": "2012-03-20T17:03:43.221Z",
+ *       "MultipartUploadId": "qt-RBst_7yO8gVIonIBsAxr2t-db0pE4s8MNeGjKjGdNpuU-cdSAcqG62guwV9r5jh5mLyFPzFEitTpNE7iQfHiu1XoV",
+ *       "PartSizeInBytes": 4194304,
+ *       "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListMultipartUploadsCommand extends $Command<
   ListMultipartUploadsCommandInput,

@@ -51,6 +51,17 @@ export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To delete a snapshot
+ * ```javascript
+ * // This example deletes a snapshot with the snapshot ID of ``snap-1234567890abcdef0``. If the command succeeds, no output is returned.
+ * const input = {
+ *   "SnapshotId": "snap-1234567890abcdef0"
+ * };
+ * const command = new DeleteSnapshotCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteSnapshotCommand extends $Command<
   DeleteSnapshotCommandInput,

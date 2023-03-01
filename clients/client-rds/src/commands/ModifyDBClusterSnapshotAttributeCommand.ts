@@ -70,6 +70,30 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * @see {@link ModifyDBClusterSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To add or remove access to a manual DB cluster snapshot
+ * ```javascript
+ * // The following example gives two AWS accounts access to a manual DB cluster snapshot and ensures that the DB cluster snapshot is private by removing the value "all".
+ * const input = {
+ *   "AttributeName": "restore",
+ *   "DBClusterSnapshotIdentifier": "manual-cluster-snapshot1",
+ *   "ValuesToAdd": [
+ *     "123451234512",
+ *     "123456789012"
+ *   ],
+ *   "ValuesToRemove": [
+ *     "all"
+ *   ]
+ * };
+ * const command = new ModifyDBClusterSnapshotAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterSnapshotAttributesResult": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
   ModifyDBClusterSnapshotAttributeCommandInput,

@@ -105,6 +105,36 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  * @see {@link TerminateInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To terminate an EC2 instance
+ * ```javascript
+ * // This example terminates the specified EC2 instance.
+ * const input = {
+ *   "InstanceIds": [
+ *     "i-1234567890abcdef0"
+ *   ]
+ * };
+ * const command = new TerminateInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TerminatingInstances": [
+ *     {
+ *       "CurrentState": {
+ *         "Code": 32,
+ *         "Name": "shutting-down"
+ *       },
+ *       "InstanceId": "i-1234567890abcdef0",
+ *       "PreviousState": {
+ *         "Code": 16,
+ *         "Name": "running"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class TerminateInstancesCommand extends $Command<
   TerminateInstancesCommandInput,

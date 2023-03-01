@@ -83,6 +83,33 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * @see {@link CreateIPSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ *
+ * @example To create an IP set
+ * ```javascript
+ * // The following example creates an IP match set named MyIPSetFriendlyName.
+ * const input = {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "Name": "MyIPSetFriendlyName"
+ * };
+ * const command = new CreateIPSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "IPSet": {
+ *     "IPSetDescriptors": [
+ *       {
+ *         "Type": "IPV4",
+ *         "Value": "192.0.2.44/32"
+ *       }
+ *     ],
+ *     "IPSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     "Name": "MyIPSetFriendlyName"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateIPSetCommand extends $Command<
   CreateIPSetCommandInput,

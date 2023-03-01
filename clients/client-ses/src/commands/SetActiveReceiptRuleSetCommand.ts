@@ -56,6 +56,17 @@ export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRu
  * @see {@link SetActiveReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example SetActiveReceiptRuleSet
+ * ```javascript
+ * // The following example sets the active receipt rule set:
+ * const input = {
+ *   "RuleSetName": "RuleSetToActivate"
+ * };
+ * const command = new SetActiveReceiptRuleSetCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class SetActiveReceiptRuleSetCommand extends $Command<
   SetActiveReceiptRuleSetCommandInput,

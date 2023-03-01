@@ -71,6 +71,64 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  * @see {@link UpdateSecretVersionStageCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
+ *
+ * @example To add a staging label attached to a version of a secret
+ * ```javascript
+ * // The following example shows you how to add a staging label to a version of a secret. You can review the results by running the operation ListSecretVersionIds and viewing the VersionStages response field for the affected version.
+ * const input = {
+ *   "MoveToVersionId": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
+ *   "SecretId": "MyTestDatabaseSecret",
+ *   "VersionStage": "STAGINGLABEL1"
+ * };
+ * const command = new UpdateSecretVersionStageCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   "Name": "MyTestDatabaseSecret"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To delete a staging label attached to a version of a secret
+ * ```javascript
+ * // The following example shows you how to delete a staging label that is attached to a version of a secret. You can review the results by running the operation ListSecretVersionIds and viewing the VersionStages response field for the affected version.
+ * const input = {
+ *   "RemoveFromVersionId": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
+ *   "SecretId": "MyTestDatabaseSecret",
+ *   "VersionStage": "STAGINGLABEL1"
+ * };
+ * const command = new UpdateSecretVersionStageCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   "Name": "MyTestDatabaseSecret"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To move a staging label from one version of a secret to another
+ * ```javascript
+ * // The following example shows you how to move a staging label that is attached to one version of a secret to a different version. You can review the results by running the operation ListSecretVersionIds and viewing the VersionStages response field for the affected version.
+ * const input = {
+ *   "MoveToVersionId": "EXAMPLE2-90ab-cdef-fedc-ba987SECRET2",
+ *   "RemoveFromVersionId": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
+ *   "SecretId": "MyTestDatabaseSecret",
+ *   "VersionStage": "AWSCURRENT"
+ * };
+ * const command = new UpdateSecretVersionStageCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   "Name": "MyTestDatabaseSecret"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateSecretVersionStageCommand extends $Command<
   UpdateSecretVersionStageCommandInput,

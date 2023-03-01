@@ -55,6 +55,57 @@ export interface DescribeComputeEnvironmentsCommandOutput
  * @see {@link DescribeComputeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
+ *
+ * @example To describe a compute environment
+ * ```javascript
+ * // This example describes the P2OnDemand compute environment.
+ * const input = {
+ *   "computeEnvironments": [
+ *     "P2OnDemand"
+ *   ]
+ * };
+ * const command = new DescribeComputeEnvironmentsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "computeEnvironments": [
+ *     {
+ *       "type": "MANAGED",
+ *       "computeEnvironmentArn": "arn:aws:batch:us-east-1:012345678910:compute-environment/P2OnDemand",
+ *       "computeEnvironmentName": "P2OnDemand",
+ *       "computeResources": {
+ *         "type": "EC2",
+ *         "desiredvCpus": 48,
+ *         "ec2KeyPair": "id_rsa",
+ *         "instanceRole": "ecsInstanceRole",
+ *         "instanceTypes": [
+ *           "p2"
+ *         ],
+ *         "maxvCpus": 128,
+ *         "minvCpus": 0,
+ *         "securityGroupIds": [
+ *           "sg-cf5093b2"
+ *         ],
+ *         "subnets": [
+ *           "subnet-220c0e0a",
+ *           "subnet-1a95556d",
+ *           "subnet-978f6dce"
+ *         ],
+ *         "tags": {
+ *           "Name": "Batch Instance - P2OnDemand"
+ *         }
+ *       },
+ *       "ecsClusterArn": "arn:aws:ecs:us-east-1:012345678910:cluster/P2OnDemand_Batch_2c06f29d-d1fe-3a49-879d-42394c86effc",
+ *       "serviceRole": "arn:aws:iam::012345678910:role/AWSBatchServiceRole",
+ *       "state": "ENABLED",
+ *       "status": "VALID",
+ *       "statusReason": "ComputeEnvironment Healthy"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeComputeEnvironmentsCommand extends $Command<
   DescribeComputeEnvironmentsCommandInput,

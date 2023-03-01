@@ -63,6 +63,24 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * @see {@link ModifyDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To change DB parameter group settings
+ * ```javascript
+ * // This example immediately changes the specified setting for the specified DB parameter group.
+ * const input = {
+ *   "DBParameterGroupName": "mymysqlparametergroup",
+ *   "Parameters": [
+ *     {
+ *       "ApplyMethod": "immediate",
+ *       "ParameterName": "time_zone",
+ *       "ParameterValue": "America/Phoenix"
+ *     }
+ *   ]
+ * };
+ * const command = new ModifyDBParameterGroupCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class ModifyDBParameterGroupCommand extends $Command<
   ModifyDBParameterGroupCommandInput,

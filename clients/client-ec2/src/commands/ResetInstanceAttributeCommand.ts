@@ -53,6 +53,18 @@ export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link ResetInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To reset the sourceDestCheck attribute
+ * ```javascript
+ * // This example resets the sourceDestCheck attribute for the specified instance.
+ * const input = {
+ *   "Attribute": "sourceDestCheck",
+ *   "InstanceId": "i-1234567890abcdef0"
+ * };
+ * const command = new ResetInstanceAttributeCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class ResetInstanceAttributeCommand extends $Command<
   ResetInstanceAttributeCommandInput,

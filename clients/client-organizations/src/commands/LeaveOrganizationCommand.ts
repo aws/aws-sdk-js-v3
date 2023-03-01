@@ -108,6 +108,15 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  * @see {@link LeaveOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
+ *
+ * @example To leave an organization as a member account
+ * ```javascript
+ * // TThe following example shows how to remove your member account from an organization:
+ * const input = undefined;
+ * const command = new LeaveOrganizationCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class LeaveOrganizationCommand extends $Command<
   LeaveOrganizationCommandInput,

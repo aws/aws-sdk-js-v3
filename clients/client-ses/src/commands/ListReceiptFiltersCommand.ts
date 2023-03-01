@@ -54,6 +54,28 @@ export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersRespo
  * @see {@link ListReceiptFiltersCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example ListReceiptFilters
+ * ```javascript
+ * // The following example lists the IP address filters that are associated with an AWS account:
+ * const input = undefined;
+ * const command = new ListReceiptFiltersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Filters": [
+ *     {
+ *       "IpFilter": {
+ *         "Cidr": "1.2.3.4/24",
+ *         "Policy": "Block"
+ *       },
+ *       "Name": "MyFilter"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListReceiptFiltersCommand extends $Command<
   ListReceiptFiltersCommandInput,

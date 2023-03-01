@@ -76,6 +76,17 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
  * @see {@link DeleteImportedKeyMaterialCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ *
+ * @example To delete imported key material
+ * ```javascript
+ * // The following example deletes the imported key material from the specified KMS key.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new DeleteImportedKeyMaterialCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteImportedKeyMaterialCommand extends $Command<
   DeleteImportedKeyMaterialCommandInput,

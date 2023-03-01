@@ -51,6 +51,30 @@ export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFin
  * @see {@link AddAttributesToFindingsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ *
+ * @example Add attributes to findings
+ * ```javascript
+ * // Assigns attributes (key and value pairs) to the findings that are specified by the ARNs of the findings.
+ * const input = {
+ *   "attributes": [
+ *     {
+ *       "key": "Example",
+ *       "value": "example"
+ *     }
+ *   ],
+ *   "findingArns": [
+ *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-8l1VIE0D/run/0-Z02cjjug/finding/0-T8yM9mEU"
+ *   ]
+ * };
+ * const command = new AddAttributesToFindingsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failedItems": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class AddAttributesToFindingsCommand extends $Command<
   AddAttributesToFindingsCommandInput,

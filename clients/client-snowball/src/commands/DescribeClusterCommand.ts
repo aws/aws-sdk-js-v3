@@ -51,6 +51,44 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
  * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ *
+ * @example To describe a cluster
+ * ```javascript
+ * // Returns information about a specific cluster including shipping information, cluster status, and other important metadata.
+ * const input = {
+ *   "ClusterId": "CID123e4567-e89b-12d3-a456-426655440000"
+ * };
+ * const command = new DescribeClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ClusterMetadata": {
+ *     "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
+ *     "ClusterId": "CID123e4567-e89b-12d3-a456-426655440000",
+ *     "ClusterState": "Pending",
+ *     "CreationDate": "1480475517.0",
+ *     "Description": "MyCluster",
+ *     "JobType": "LOCAL_USE",
+ *     "KmsKeyARN": "arn:aws:kms:us-east-1:123456789012:key/abcd1234-12ab-34cd-56ef-123456123456",
+ *     "Notification": {
+ *       "JobStatesToNotify": [],
+ *       "NotifyAll": false
+ *     },
+ *     "Resources": {
+ *       "S3Resources": [
+ *         {
+ *           "BucketArn": "arn:aws:s3:::MyBucket",
+ *           "KeyRange": {}
+ *         }
+ *       ]
+ *     },
+ *     "RoleARN": "arn:aws:iam::123456789012:role/snowball-import-S3-role",
+ *     "ShippingOption": "SECOND_DAY"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeClusterCommand extends $Command<
   DescribeClusterCommandInput,

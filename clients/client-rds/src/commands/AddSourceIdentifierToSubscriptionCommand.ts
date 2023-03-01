@@ -52,6 +52,23 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * @see {@link AddSourceIdentifierToSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To add a source identifier to an event notification subscription
+ * ```javascript
+ * // This example add a source identifier to an event notification subscription.
+ * const input = {
+ *   "SourceIdentifier": "mymysqlinstance",
+ *   "SubscriptionName": "mymysqleventsubscription"
+ * };
+ * const command = new AddSourceIdentifierToSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EventSubscription": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class AddSourceIdentifierToSubscriptionCommand extends $Command<
   AddSourceIdentifierToSubscriptionCommandInput,

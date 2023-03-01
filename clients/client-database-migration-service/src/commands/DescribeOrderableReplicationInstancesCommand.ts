@@ -58,6 +58,24 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
  * @see {@link DescribeOrderableReplicationInstancesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ *
+ * @example Describe orderable replication instances
+ * ```javascript
+ * // Returns information about the replication instance types that can be created in the specified region.
+ * const input = {
+ *   "Marker": "",
+ *   "MaxRecords": 123
+ * };
+ * const command = new DescribeOrderableReplicationInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "",
+ *   "OrderableReplicationInstances": []
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeOrderableReplicationInstancesCommand extends $Command<
   DescribeOrderableReplicationInstancesCommandInput,

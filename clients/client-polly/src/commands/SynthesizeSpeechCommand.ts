@@ -59,6 +59,31 @@ export interface SynthesizeSpeechCommandOutput
  * @see {@link SynthesizeSpeechCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
+ *
+ * @example To synthesize speech
+ * ```javascript
+ * // Synthesizes plain text or SSML into a file of human-like speech.
+ * const input = {
+ *   "LexiconNames": [
+ *     "example"
+ *   ],
+ *   "OutputFormat": "mp3",
+ *   "SampleRate": "8000",
+ *   "Text": "All Gaul is divided into three parts",
+ *   "TextType": "text",
+ *   "VoiceId": "Joanna"
+ * };
+ * const command = new SynthesizeSpeechCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AudioStream": "TEXT",
+ *   "ContentType": "audio/mpeg",
+ *   "RequestCharacters": 37
+ * }
+ * *\/
+ * ```
+ *
  */
 export class SynthesizeSpeechCommand extends $Command<
   SynthesizeSpeechCommandInput,

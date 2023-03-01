@@ -53,6 +53,17 @@ export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvi
  * @see {@link DeleteComputeEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
+ *
+ * @example To delete a compute environment
+ * ```javascript
+ * // This example deletes the P2OnDemand compute environment.
+ * const input = {
+ *   "computeEnvironment": "P2OnDemand"
+ * };
+ * const command = new DeleteComputeEnvironmentCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteComputeEnvironmentCommand extends $Command<
   DeleteComputeEnvironmentCommandInput,

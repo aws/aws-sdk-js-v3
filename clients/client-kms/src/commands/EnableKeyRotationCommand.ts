@@ -85,6 +85,17 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  * @see {@link EnableKeyRotationCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ *
+ * @example To enable automatic rotation of key material
+ * ```javascript
+ * // The following example enables automatic annual rotation of the key material for the specified KMS key.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new EnableKeyRotationCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class EnableKeyRotationCommand extends $Command<
   EnableKeyRotationCommandInput,

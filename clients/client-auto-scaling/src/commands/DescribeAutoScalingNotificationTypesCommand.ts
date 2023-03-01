@@ -50,6 +50,26 @@ export interface DescribeAutoScalingNotificationTypesCommandOutput
  * @see {@link DescribeAutoScalingNotificationTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To describe the Auto Scaling notification types
+ * ```javascript
+ * // This example describes the available notification types.
+ * const input = undefined;
+ * const command = new DescribeAutoScalingNotificationTypesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AutoScalingNotificationTypes": [
+ *     "autoscaling:EC2_INSTANCE_LAUNCH",
+ *     "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+ *     "autoscaling:EC2_INSTANCE_TERMINATE",
+ *     "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+ *     "autoscaling:TEST_NOTIFICATION"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeAutoScalingNotificationTypesCommand extends $Command<
   DescribeAutoScalingNotificationTypesCommandInput,

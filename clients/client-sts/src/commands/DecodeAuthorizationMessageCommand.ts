@@ -86,6 +86,22 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  * @see {@link DecodeAuthorizationMessageCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
+ *
+ * @example To decode information about an authorization status of a request
+ * ```javascript
+ * //
+ * const input = {
+ *   "EncodedMessage": "<encoded-message>"
+ * };
+ * const command = new DecodeAuthorizationMessageCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DecodedMessage": "{\"allowed\": \"false\",\"explicitDeny\": \"false\",\"matchedStatements\": \"\",\"failures\": \"\",\"context\": {\"principal\": {\"id\": \"AIDACKCEVSQ6C2EXAMPLE\",\"name\": \"Bob\",\"arn\": \"arn:aws:iam::123456789012:user/Bob\"},\"action\": \"ec2:StopInstances\",\"resource\": \"arn:aws:ec2:us-east-1:123456789012:instance/i-dd01c9bd\",\"conditions\": [{\"item\": {\"key\": \"ec2:Tenancy\",\"values\": [\"default\"]},{\"item\": {\"key\": \"ec2:ResourceTag/elasticbeanstalk:environment-name\",\"values\": [\"Default-Environment\"]}},(Additional items ...)]}}"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DecodeAuthorizationMessageCommand extends $Command<
   DecodeAuthorizationMessageCommandInput,

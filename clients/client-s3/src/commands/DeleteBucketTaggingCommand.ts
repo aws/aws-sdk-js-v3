@@ -61,6 +61,17 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To delete bucket tags
+ * ```javascript
+ * // The following example deletes bucket tags.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new DeleteBucketTaggingCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteBucketTaggingCommand extends $Command<
   DeleteBucketTaggingCommandInput,

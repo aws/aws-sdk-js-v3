@@ -50,6 +50,26 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ *
+ * @example To create a new project
+ * ```javascript
+ * // The following example creates a new project named MyProject.
+ * const input = {
+ *   "name": "MyProject"
+ * };
+ * const command = new CreateProjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "project": {
+ *     "name": "MyProject",
+ *     "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
+ *     "created": "1472660939.152"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,

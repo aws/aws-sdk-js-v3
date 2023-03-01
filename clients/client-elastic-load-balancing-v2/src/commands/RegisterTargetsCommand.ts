@@ -63,6 +63,46 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * @see {@link RegisterTargetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ *
+ * @example To register targets with a target group
+ * ```javascript
+ * // This example registers the specified instances with the specified target group.
+ * const input = {
+ *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *   "Targets": [
+ *     {
+ *       "Id": "i-80c8dd94"
+ *     },
+ *     {
+ *       "Id": "i-ceddcd4d"
+ *     }
+ *   ]
+ * };
+ * const command = new RegisterTargetsCommand(input);
+ * await client.send(command);
+ * ```
+ *
+ *
+ * @example To register targets with a target group using port overrides
+ * ```javascript
+ * // This example registers the specified instance with the specified target group using multiple ports. This enables you to register ECS containers on the same instance as targets in the target group.
+ * const input = {
+ *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-targets/3bb63f11dfb0faf9",
+ *   "Targets": [
+ *     {
+ *       "Id": "i-80c8dd94",
+ *       "Port": 80
+ *     },
+ *     {
+ *       "Id": "i-80c8dd94",
+ *       "Port": 766
+ *     }
+ *   ]
+ * };
+ * const command = new RegisterTargetsCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class RegisterTargetsCommand extends $Command<
   RegisterTargetsCommandInput,

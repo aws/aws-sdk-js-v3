@@ -50,6 +50,24 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * @see {@link CopyDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To copy a DB cluster parameter group
+ * ```javascript
+ * // This example copies a DB cluster parameter group.
+ * const input = {
+ *   "SourceDBClusterParameterGroupIdentifier": "mydbclusterparametergroup",
+ *   "TargetDBClusterParameterGroupDescription": "My DB cluster parameter group copy",
+ *   "TargetDBClusterParameterGroupIdentifier": "mydbclusterparametergroup-copy"
+ * };
+ * const command = new CopyDBClusterParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterParameterGroup": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CopyDBClusterParameterGroupCommand extends $Command<
   CopyDBClusterParameterGroupCommandInput,

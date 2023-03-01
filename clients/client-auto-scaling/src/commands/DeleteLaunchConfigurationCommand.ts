@@ -47,6 +47,17 @@ export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer
  * @see {@link DeleteLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To delete a launch configuration
+ * ```javascript
+ * // This example deletes the specified launch configuration.
+ * const input = {
+ *   "LaunchConfigurationName": "my-launch-config"
+ * };
+ * const command = new DeleteLaunchConfigurationCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteLaunchConfigurationCommand extends $Command<
   DeleteLaunchConfigurationCommandInput,

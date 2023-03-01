@@ -65,6 +65,99 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * @see {@link RestoreDBInstanceFromDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To restore a DB instance from a DB snapshot.
+ * ```javascript
+ * // The following example restores a DB instance from a DB snapshot.
+ * const input = {
+ *   "DBInstanceIdentifier": "mysqldb-restored",
+ *   "DBSnapshotIdentifier": "rds:mysqldb-2014-04-22-08-15"
+ * };
+ * const command = new RestoreDBInstanceFromDBSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstance": {
+ *     "AllocatedStorage": 200,
+ *     "AutoMinorVersionUpgrade": true,
+ *     "AvailabilityZone": "us-west-2b",
+ *     "BackupRetentionPeriod": 7,
+ *     "CACertificateIdentifier": "rds-ca-2015",
+ *     "CopyTagsToSnapshot": false,
+ *     "DBInstanceArn": "arn:aws:rds:us-west-2:123456789012:db:mysqldb-restored",
+ *     "DBInstanceClass": "db.t2.small",
+ *     "DBInstanceIdentifier": "mysqldb-restored",
+ *     "DBInstanceStatus": "available",
+ *     "DBName": "sample",
+ *     "DBParameterGroups": [
+ *       {
+ *         "DBParameterGroupName": "default.mysql5.6",
+ *         "ParameterApplyStatus": "in-sync"
+ *       }
+ *     ],
+ *     "DBSecurityGroups": [],
+ *     "DBSubnetGroup": {
+ *       "DBSubnetGroupDescription": "default",
+ *       "DBSubnetGroupName": "default",
+ *       "SubnetGroupStatus": "Complete",
+ *       "Subnets": [
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-west-2a"
+ *           },
+ *           "SubnetIdentifier": "subnet-77e8db03",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-west-2b"
+ *           },
+ *           "SubnetIdentifier": "subnet-c39989a1",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-west-2c"
+ *           },
+ *           "SubnetIdentifier": "subnet-4b267b0d",
+ *           "SubnetStatus": "Active"
+ *         }
+ *       ],
+ *       "VpcId": "vpc-c1c5b3a3"
+ *     },
+ *     "DbInstancePort": 0,
+ *     "DbiResourceId": "db-VNZUCCBTEDC4WR7THXNJO72HVQ",
+ *     "DomainMemberships": [],
+ *     "Engine": "mysql",
+ *     "EngineVersion": "5.6.27",
+ *     "LicenseModel": "general-public-license",
+ *     "MasterUsername": "mymasteruser",
+ *     "MonitoringInterval": 0,
+ *     "MultiAZ": false,
+ *     "OptionGroupMemberships": [
+ *       {
+ *         "OptionGroupName": "default:mysql-5-6",
+ *         "Status": "in-sync"
+ *       }
+ *     ],
+ *     "PendingModifiedValues": {},
+ *     "PreferredBackupWindow": "12:58-13:28",
+ *     "PreferredMaintenanceWindow": "tue:10:16-tue:10:46",
+ *     "PubliclyAccessible": true,
+ *     "ReadReplicaDBInstanceIdentifiers": [],
+ *     "StorageEncrypted": false,
+ *     "StorageType": "gp2",
+ *     "VpcSecurityGroups": [
+ *       {
+ *         "Status": "active",
+ *         "VpcSecurityGroupId": "sg-e5e5b0d2"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
   RestoreDBInstanceFromDBSnapshotCommandInput,

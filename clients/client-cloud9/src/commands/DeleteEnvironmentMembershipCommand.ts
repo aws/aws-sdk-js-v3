@@ -50,6 +50,18 @@ export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironm
  * @see {@link DeleteEnvironmentMembershipCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
+ *
+ * @example DeleteEnvironmentMembership
+ * ```javascript
+ * //
+ * const input = {
+ *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
+ *   "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser"
+ * };
+ * const command = new DeleteEnvironmentMembershipCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteEnvironmentMembershipCommand extends $Command<
   DeleteEnvironmentMembershipCommandInput,

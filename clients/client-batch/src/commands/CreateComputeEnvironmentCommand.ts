@@ -128,6 +128,96 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  * @see {@link CreateComputeEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
+ *
+ * @example To create a managed EC2 compute environment
+ * ```javascript
+ * // This example creates a managed compute environment with specific C4 instance types that are launched on demand. The compute environment is called C4OnDemand.
+ * const input = {
+ *   "type": "MANAGED",
+ *   "computeEnvironmentName": "C4OnDemand",
+ *   "computeResources": {
+ *     "type": "EC2",
+ *     "desiredvCpus": 48,
+ *     "ec2KeyPair": "id_rsa",
+ *     "instanceRole": "ecsInstanceRole",
+ *     "instanceTypes": [
+ *       "c4.large",
+ *       "c4.xlarge",
+ *       "c4.2xlarge",
+ *       "c4.4xlarge",
+ *       "c4.8xlarge"
+ *     ],
+ *     "maxvCpus": 128,
+ *     "minvCpus": 0,
+ *     "securityGroupIds": [
+ *       "sg-cf5093b2"
+ *     ],
+ *     "subnets": [
+ *       "subnet-220c0e0a",
+ *       "subnet-1a95556d",
+ *       "subnet-978f6dce"
+ *     ],
+ *     "tags": {
+ *       "Name": "Batch Instance - C4OnDemand"
+ *     }
+ *   },
+ *   "serviceRole": "arn:aws:iam::012345678910:role/AWSBatchServiceRole",
+ *   "state": "ENABLED"
+ * };
+ * const command = new CreateComputeEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "computeEnvironmentArn": "arn:aws:batch:us-east-1:012345678910:compute-environment/C4OnDemand",
+ *   "computeEnvironmentName": "C4OnDemand"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To create a managed EC2 Spot compute environment
+ * ```javascript
+ * // This example creates a managed compute environment with the M4 instance type that is launched when the Spot bid price is at or below 20% of the On-Demand price for the instance type. The compute environment is called M4Spot.
+ * const input = {
+ *   "type": "MANAGED",
+ *   "computeEnvironmentName": "M4Spot",
+ *   "computeResources": {
+ *     "type": "SPOT",
+ *     "bidPercentage": 20,
+ *     "desiredvCpus": 4,
+ *     "ec2KeyPair": "id_rsa",
+ *     "instanceRole": "ecsInstanceRole",
+ *     "instanceTypes": [
+ *       "m4"
+ *     ],
+ *     "maxvCpus": 128,
+ *     "minvCpus": 0,
+ *     "securityGroupIds": [
+ *       "sg-cf5093b2"
+ *     ],
+ *     "spotIamFleetRole": "arn:aws:iam::012345678910:role/aws-ec2-spot-fleet-role",
+ *     "subnets": [
+ *       "subnet-220c0e0a",
+ *       "subnet-1a95556d",
+ *       "subnet-978f6dce"
+ *     ],
+ *     "tags": {
+ *       "Name": "Batch Instance - M4Spot"
+ *     }
+ *   },
+ *   "serviceRole": "arn:aws:iam::012345678910:role/AWSBatchServiceRole",
+ *   "state": "ENABLED"
+ * };
+ * const command = new CreateComputeEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "computeEnvironmentArn": "arn:aws:batch:us-east-1:012345678910:compute-environment/M4Spot",
+ *   "computeEnvironmentName": "M4Spot"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateComputeEnvironmentCommand extends $Command<
   CreateComputeEnvironmentCommandInput,

@@ -69,6 +69,24 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * @see {@link CreateDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To create a DB parameter group.
+ * ```javascript
+ * // This example creates a DB parameter group.
+ * const input = {
+ *   "DBParameterGroupFamily": "mysql5.6",
+ *   "DBParameterGroupName": "mymysqlparametergroup",
+ *   "Description": "My MySQL parameter group"
+ * };
+ * const command = new CreateDBParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBParameterGroup": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateDBParameterGroupCommand extends $Command<
   CreateDBParameterGroupCommandInput,

@@ -51,6 +51,32 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
  * @see {@link DescribeAddressCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ *
+ * @example To describe an address for a job
+ * ```javascript
+ * // This operation describes an address for a job.
+ * const input = {
+ *   "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b"
+ * };
+ * const command = new DescribeAddressCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Address": {
+ *     "AddressId": "ADID5643ec50-3eec-4eb3-9be6-9374c10eb51b",
+ *     "City": "Seattle",
+ *     "Company": "My Company",
+ *     "Country": "US",
+ *     "Name": "My Name",
+ *     "PhoneNumber": "425-555-5555",
+ *     "PostalCode": "98101",
+ *     "StateOrProvince": "WA",
+ *     "Street1": "123 Main Street"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeAddressCommand extends $Command<
   DescribeAddressCommandInput,

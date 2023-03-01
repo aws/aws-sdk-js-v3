@@ -64,6 +64,20 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  * @see {@link GetChangeTokenCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ *
+ * @example To get a change token
+ * ```javascript
+ * // The following example returns a change token to use for a create, update or delete operation.
+ * const input = {};
+ * const command = new GetChangeTokenCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetChangeTokenCommand extends $Command<
   GetChangeTokenCommandInput,

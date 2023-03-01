@@ -51,6 +51,40 @@ export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, 
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
+ * @example To create a new environment for an application
+ * ```javascript
+ * // The following operation creates a new environment for version v1 of a java application named my-app:
+ * const input = {
+ *   "ApplicationName": "my-app",
+ *   "CNAMEPrefix": "my-app",
+ *   "EnvironmentName": "my-env",
+ *   "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+ *   "VersionLabel": "v1"
+ * };
+ * const command = new CreateEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationName": "my-app",
+ *   "CNAME": "my-app.elasticbeanstalk.com",
+ *   "DateCreated": "2015-02-03T23:04:54.479Z",
+ *   "DateUpdated": "2015-02-03T23:04:54.479Z",
+ *   "EnvironmentId": "e-izqpassy4h",
+ *   "EnvironmentName": "my-env",
+ *   "Health": "Grey",
+ *   "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+ *   "Status": "Launching",
+ *   "Tier": {
+ *     "Name": "WebServer",
+ *     "Type": "Standard",
+ *     "Version": " "
+ *   },
+ *   "VersionLabel": "v1"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateEnvironmentCommand extends $Command<
   CreateEnvironmentCommandInput,

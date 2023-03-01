@@ -58,6 +58,27 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * @see {@link ListIPSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ *
+ * @example To list IP sets
+ * ```javascript
+ * // The following example returns an array of up to 100 IP match sets.
+ * const input = {
+ *   "Limit": 100
+ * };
+ * const command = new ListIPSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "IPSets": [
+ *     {
+ *       "IPSetId": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *       "Name": "MyIPSetFriendlyName"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListIPSetsCommand extends $Command<
   ListIPSetsCommandInput,

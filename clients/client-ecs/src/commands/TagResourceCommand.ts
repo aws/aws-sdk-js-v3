@@ -53,6 +53,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ *
+ * @example To tag a cluster.
+ * ```javascript
+ * // This example tags the 'dev' cluster with key 'team' and value 'dev'.
+ * const input = {
+ *   "resourceArn": "arn:aws:ecs:region:aws_account_id:cluster/dev",
+ *   "tags": [
+ *     {
+ *       "key": "team",
+ *       "value": "dev"
+ *     }
+ *   ]
+ * };
+ * const command = new TagResourceCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

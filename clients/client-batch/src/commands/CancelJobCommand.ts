@@ -53,6 +53,18 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
+ *
+ * @example To cancel a job
+ * ```javascript
+ * // This example cancels a job with the specified job ID.
+ * const input = {
+ *   "jobId": "1d828f65-7a4d-42e8-996d-3b900ed59dc4",
+ *   "reason": "Cancelling job."
+ * };
+ * const command = new CancelJobCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class CancelJobCommand extends $Command<
   CancelJobCommandInput,

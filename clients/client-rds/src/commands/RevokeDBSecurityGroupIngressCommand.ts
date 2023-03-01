@@ -61,6 +61,23 @@ export interface RevokeDBSecurityGroupIngressCommandOutput
  * @see {@link RevokeDBSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To revoke ingress for a DB security group
+ * ```javascript
+ * // This example revokes ingress for the specified CIDR block associated with the specified DB security group.
+ * const input = {
+ *   "CIDRIP": "203.0.113.5/32",
+ *   "DBSecurityGroupName": "mydbsecuritygroup"
+ * };
+ * const command = new RevokeDBSecurityGroupIngressCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSecurityGroup": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class RevokeDBSecurityGroupIngressCommand extends $Command<
   RevokeDBSecurityGroupIngressCommandInput,

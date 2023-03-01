@@ -65,6 +65,36 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  * @see {@link StartInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To start a stopped EC2 instance
+ * ```javascript
+ * // This example starts the specified EC2 instance.
+ * const input = {
+ *   "InstanceIds": [
+ *     "i-1234567890abcdef0"
+ *   ]
+ * };
+ * const command = new StartInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "StartingInstances": [
+ *     {
+ *       "CurrentState": {
+ *         "Code": 0,
+ *         "Name": "pending"
+ *       },
+ *       "InstanceId": "i-1234567890abcdef0",
+ *       "PreviousState": {
+ *         "Code": 80,
+ *         "Name": "stopped"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class StartInstancesCommand extends $Command<
   StartInstancesCommandInput,

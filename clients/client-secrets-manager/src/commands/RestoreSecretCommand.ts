@@ -58,6 +58,23 @@ export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __Met
  * @see {@link RestoreSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
+ *
+ * @example To restore a previously deleted secret
+ * ```javascript
+ * // The following example shows how to restore a secret that you previously scheduled for deletion.
+ * const input = {
+ *   "SecretId": "MyTestDatabaseSecret"
+ * };
+ * const command = new RestoreSecretCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   "Name": "MyTestDatabaseSecret"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class RestoreSecretCommand extends $Command<
   RestoreSecretCommandInput,

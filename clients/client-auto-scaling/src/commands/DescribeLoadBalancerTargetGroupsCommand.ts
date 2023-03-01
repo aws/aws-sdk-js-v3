@@ -76,6 +76,27 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
  * @see {@link DescribeLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To describe the target groups for an Auto Scaling group
+ * ```javascript
+ * // This example describes the target groups attached to the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group"
+ * };
+ * const command = new DescribeLoadBalancerTargetGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LoadBalancerTargetGroups": [
+ *     {
+ *       "LoadBalancerTargetGroupARN": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *       "State": "Added"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
   DescribeLoadBalancerTargetGroupsCommandInput,

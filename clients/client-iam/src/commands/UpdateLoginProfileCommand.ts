@@ -51,6 +51,18 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateLoginProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To change the password for an IAM user
+ * ```javascript
+ * // The following command creates or changes the password for the IAM user named Bob.
+ * const input = {
+ *   "Password": "SomeKindOfPassword123!@#",
+ *   "UserName": "Bob"
+ * };
+ * const command = new UpdateLoginProfileCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class UpdateLoginProfileCommand extends $Command<
   UpdateLoginProfileCommandInput,

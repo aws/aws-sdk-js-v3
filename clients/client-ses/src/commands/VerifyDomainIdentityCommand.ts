@@ -56,6 +56,22 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
  * @see {@link VerifyDomainIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example VerifyDomainIdentity
+ * ```javascript
+ * // The following example starts the domain verification process with Amazon SES:
+ * const input = {
+ *   "Domain": "example.com"
+ * };
+ * const command = new VerifyDomainIdentityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VerificationToken": "eoEmxw+YaYhb3h3iVJHuXMJXqeu1q1/wwmvjuEXAMPLE"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class VerifyDomainIdentityCommand extends $Command<
   VerifyDomainIdentityCommandInput,

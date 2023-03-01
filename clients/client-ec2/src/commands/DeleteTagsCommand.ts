@@ -46,6 +46,25 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To delete a tag from a resource
+ * ```javascript
+ * // This example deletes the tag Stack=test from the specified image.
+ * const input = {
+ *   "Resources": [
+ *     "ami-78a54011"
+ *   ],
+ *   "Tags": [
+ *     {
+ *       "Key": "Stack",
+ *       "Value": "test"
+ *     }
+ *   ]
+ * };
+ * const command = new DeleteTagsCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteTagsCommand extends $Command<
   DeleteTagsCommandInput,

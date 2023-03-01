@@ -53,6 +53,23 @@ export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOut
  * @see {@link UpdateVTLDeviceTypeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To update a VTL device type
+ * ```javascript
+ * // Updates the type of medium changer in a gateway-VTL after a gateway-VTL is activated.
+ * const input = {
+ *   "DeviceType": "Medium Changer",
+ *   "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001"
+ * };
+ * const command = new UpdateVTLDeviceTypeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateVTLDeviceTypeCommand extends $Command<
   UpdateVTLDeviceTypeCommandInput,

@@ -50,6 +50,90 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * @see {@link DescribeVolumesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To describe all volumes
+ * ```javascript
+ * // This example describes all of your volumes in the default region.
+ * const input = {};
+ * const command = new DescribeVolumesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NextToken": "",
+ *   "Volumes": [
+ *     {
+ *       "Attachments": [
+ *         {
+ *           "AttachTime": "2013-12-18T22:35:00.000Z",
+ *           "DeleteOnTermination": true,
+ *           "Device": "/dev/sda1",
+ *           "InstanceId": "i-1234567890abcdef0",
+ *           "State": "attached",
+ *           "VolumeId": "vol-049df61146c4d7901"
+ *         }
+ *       ],
+ *       "AvailabilityZone": "us-east-1a",
+ *       "CreateTime": "2013-12-18T22:35:00.084Z",
+ *       "Size": 8,
+ *       "SnapshotId": "snap-1234567890abcdef0",
+ *       "State": "in-use",
+ *       "VolumeId": "vol-049df61146c4d7901",
+ *       "VolumeType": "standard"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To describe volumes that are attached to a specific instance
+ * ```javascript
+ * // This example describes all volumes that are both attached to the instance with the ID i-1234567890abcdef0 and set to delete when the instance terminates.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "attachment.instance-id",
+ *       "Values": [
+ *         "i-1234567890abcdef0"
+ *       ]
+ *     },
+ *     {
+ *       "Name": "attachment.delete-on-termination",
+ *       "Values": [
+ *         "true"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeVolumesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Volumes": [
+ *     {
+ *       "Attachments": [
+ *         {
+ *           "AttachTime": "2013-12-18T22:35:00.000Z",
+ *           "DeleteOnTermination": true,
+ *           "Device": "/dev/sda1",
+ *           "InstanceId": "i-1234567890abcdef0",
+ *           "State": "attached",
+ *           "VolumeId": "vol-049df61146c4d7901"
+ *         }
+ *       ],
+ *       "AvailabilityZone": "us-east-1a",
+ *       "CreateTime": "2013-12-18T22:35:00.084Z",
+ *       "Size": 8,
+ *       "SnapshotId": "snap-1234567890abcdef0",
+ *       "State": "in-use",
+ *       "VolumeId": "vol-049df61146c4d7901",
+ *       "VolumeType": "standard"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeVolumesCommand extends $Command<
   DescribeVolumesCommandInput,

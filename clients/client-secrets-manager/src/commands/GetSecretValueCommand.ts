@@ -66,6 +66,29 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  * @see {@link GetSecretValueCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
+ *
+ * @example To retrieve the encrypted secret value of a secret
+ * ```javascript
+ * // The following example shows how to retrieve a secret string value.
+ * const input = {
+ *   "SecretId": "MyTestDatabaseSecret"
+ * };
+ * const command = new GetSecretValueCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   "CreatedDate": 1523477145.713,
+ *   "Name": "MyTestDatabaseSecret",
+ *   "SecretString": "{\n  \"username\":\"david\",\n  \"password\":\"EXAMPLE-PASSWORD\"\n}\n",
+ *   "VersionId": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
+ *   "VersionStages": [
+ *     "AWSPREVIOUS"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetSecretValueCommand extends $Command<
   GetSecretValueCommandInput,

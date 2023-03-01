@@ -51,6 +51,23 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  * @see {@link DeregisterInstanceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ *
+ * @example Example: Deregister a service instance
+ * ```javascript
+ * // Example: Deregister a service instance
+ * const input = {
+ *   "InstanceId": "myservice-53",
+ *   "ServiceId": "srv-p5zdwlg5uvvzjita"
+ * };
+ * const command = new DeregisterInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OperationId": "4yejorelbukcjzpnr6tlmrghsjwpngf4-k98rnaiq"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DeregisterInstanceCommand extends $Command<
   DeregisterInstanceCommandInput,

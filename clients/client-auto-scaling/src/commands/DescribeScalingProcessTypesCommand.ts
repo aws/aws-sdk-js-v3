@@ -46,6 +46,45 @@ export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType,
  * @see {@link DescribeScalingProcessTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To describe the Auto Scaling process types
+ * ```javascript
+ * // This example describes the Auto Scaling process types.
+ * const input = undefined;
+ * const command = new DescribeScalingProcessTypesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Processes": [
+ *     {
+ *       "ProcessName": "AZRebalance"
+ *     },
+ *     {
+ *       "ProcessName": "AddToLoadBalancer"
+ *     },
+ *     {
+ *       "ProcessName": "AlarmNotification"
+ *     },
+ *     {
+ *       "ProcessName": "HealthCheck"
+ *     },
+ *     {
+ *       "ProcessName": "Launch"
+ *     },
+ *     {
+ *       "ProcessName": "ReplaceUnhealthy"
+ *     },
+ *     {
+ *       "ProcessName": "ScheduledActions"
+ *     },
+ *     {
+ *       "ProcessName": "Terminate"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeScalingProcessTypesCommand extends $Command<
   DescribeScalingProcessTypesCommandInput,

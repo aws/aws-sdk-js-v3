@@ -334,6 +334,24 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * @see {@link RestoreObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To restore an archived object
+ * ```javascript
+ * // The following example restores for one day an archived copy of an object back into Amazon S3 bucket.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "archivedobjectkey",
+ *   "RestoreRequest": {
+ *     "Days": 1,
+ *     "GlacierJobParameters": {
+ *       "Tier": "Expedited"
+ *     }
+ *   }
+ * };
+ * const command = new RestoreObjectCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class RestoreObjectCommand extends $Command<
   RestoreObjectCommandInput,

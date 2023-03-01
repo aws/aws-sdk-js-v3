@@ -58,6 +58,27 @@ export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjection
  * @see {@link ListSqlInjectionMatchSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ *
+ * @example To list SQL injection match sets
+ * ```javascript
+ * // The following example returns an array of up to 100 SQL injection match sets.
+ * const input = {
+ *   "Limit": 100
+ * };
+ * const command = new ListSqlInjectionMatchSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SqlInjectionMatchSets": [
+ *     {
+ *       "Name": "MySQLInjectionMatchSet",
+ *       "SqlInjectionMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListSqlInjectionMatchSetsCommand extends $Command<
   ListSqlInjectionMatchSetsCommandInput,

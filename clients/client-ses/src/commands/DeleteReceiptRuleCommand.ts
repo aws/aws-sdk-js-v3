@@ -53,6 +53,18 @@ export interface DeleteReceiptRuleCommandOutput extends DeleteReceiptRuleRespons
  * @see {@link DeleteReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example DeleteReceiptRule
+ * ```javascript
+ * // The following example deletes a receipt rule:
+ * const input = {
+ *   "RuleName": "MyRule",
+ *   "RuleSetName": "MyRuleSet"
+ * };
+ * const command = new DeleteReceiptRuleCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteReceiptRuleCommand extends $Command<
   DeleteReceiptRuleCommandInput,

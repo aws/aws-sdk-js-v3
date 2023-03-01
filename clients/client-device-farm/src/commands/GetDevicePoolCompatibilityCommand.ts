@@ -50,6 +50,25 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  * @see {@link GetDevicePoolCompatibilityCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ *
+ * @example To get information about the compatibility of a device pool
+ * ```javascript
+ * // The following example returns information about the compatibility of a specific device pool, given its ARN.
+ * const input = {
+ *   "appArn": "arn:aws:devicefarm:us-west-2::app:123-456-EXAMPLE-GUID",
+ *   "devicePoolArn": "arn:aws:devicefarm:us-west-2::devicepool:123-456-EXAMPLE-GUID",
+ *   "testType": "APPIUM_PYTHON"
+ * };
+ * const command = new GetDevicePoolCompatibilityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "compatibleDevices": [],
+ *   "incompatibleDevices": []
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetDevicePoolCompatibilityCommand extends $Command<
   GetDevicePoolCompatibilityCommandInput,

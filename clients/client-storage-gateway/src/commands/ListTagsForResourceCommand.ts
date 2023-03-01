@@ -51,6 +51,31 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To list tags that have been added to a resource
+ * ```javascript
+ * // Lists the tags that have been added to the specified resource.
+ * const input = {
+ *   "Limit": 1,
+ *   "Marker": "1",
+ *   "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "1",
+ *   "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B",
+ *   "Tags": [
+ *     {
+ *       "Key": "Dev Gatgeway Region",
+ *       "Value": "East Coast"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

@@ -73,6 +73,23 @@ export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataB
  * @see {@link CreateVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ *
+ * @example To create a new vault
+ * ```javascript
+ * // The following example creates a new vault named my-vault.
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "my-vault"
+ * };
+ * const command = new CreateVaultCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "location": "/111122223333/vaults/my-vault"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateVaultCommand extends $Command<
   CreateVaultCommandInput,

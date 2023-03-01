@@ -65,6 +65,44 @@ export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __Met
  * @see {@link DescribeVoicesCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
+ *
+ * @example To describe available voices
+ * ```javascript
+ * // Returns the list of voices that are available for use when requesting speech synthesis. Displayed languages are those within the specified language code. If no language code is specified, voices for all available languages are displayed.
+ * const input = {
+ *   "LanguageCode": "en-GB"
+ * };
+ * const command = new DescribeVoicesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Voices": [
+ *     {
+ *       "Gender": "Female",
+ *       "Id": "Emma",
+ *       "LanguageCode": "en-GB",
+ *       "LanguageName": "British English",
+ *       "Name": "Emma"
+ *     },
+ *     {
+ *       "Gender": "Male",
+ *       "Id": "Brian",
+ *       "LanguageCode": "en-GB",
+ *       "LanguageName": "British English",
+ *       "Name": "Brian"
+ *     },
+ *     {
+ *       "Gender": "Female",
+ *       "Id": "Amy",
+ *       "LanguageCode": "en-GB",
+ *       "LanguageName": "British English",
+ *       "Name": "Amy"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeVoicesCommand extends $Command<
   DescribeVoicesCommandInput,

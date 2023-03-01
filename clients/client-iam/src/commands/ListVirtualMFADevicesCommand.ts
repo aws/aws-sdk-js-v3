@@ -59,6 +59,27 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  * @see {@link ListVirtualMFADevicesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To list virtual MFA devices
+ * ```javascript
+ * // The following command lists the virtual MFA devices that have been configured for the current account.
+ * const input = {};
+ * const command = new ListVirtualMFADevicesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VirtualMFADevices": [
+ *     {
+ *       "SerialNumber": "arn:aws:iam::123456789012:mfa/ExampleMFADevice"
+ *     },
+ *     {
+ *       "SerialNumber": "arn:aws:iam::123456789012:mfa/Juan"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListVirtualMFADevicesCommand extends $Command<
   ListVirtualMFADevicesCommandInput,

@@ -64,6 +64,22 @@ export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotSched
  * @see {@link DeleteSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To delete a snapshot of a volume
+ * ```javascript
+ * // This action enables you to delete a snapshot schedule for a volume.
+ * const input = {
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * };
+ * const command = new DeleteSnapshotScheduleCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DeleteSnapshotScheduleCommand extends $Command<
   DeleteSnapshotScheduleCommandInput,

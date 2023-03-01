@@ -52,6 +52,32 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * @see {@link DescribeOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
+ *
+ * @example To get information about an organization
+ * ```javascript
+ * // The following example shows how to request information about the current user's organization:/n/n
+ * const input = undefined;
+ * const command = new DescribeOrganizationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Organization": {
+ *     "Arn": "arn:aws:organizations::111111111111:organization/o-exampleorgid",
+ *     "AvailablePolicyTypes": [
+ *       {
+ *         "Status": "ENABLED",
+ *         "Type": "SERVICE_CONTROL_POLICY"
+ *       }
+ *     ],
+ *     "FeatureSet": "ALL",
+ *     "Id": "o-exampleorgid",
+ *     "MasterAccountArn": "arn:aws:organizations::111111111111:account/o-exampleorgid/111111111111",
+ *     "MasterAccountEmail": "bill@example.com"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeOrganizationCommand extends $Command<
   DescribeOrganizationCommandInput,

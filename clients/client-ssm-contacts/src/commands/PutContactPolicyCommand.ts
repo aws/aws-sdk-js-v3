@@ -52,6 +52,18 @@ export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, _
  * @see {@link PutContactPolicyCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
+ *
+ * @example To share a contact and engagements
+ * ```javascript
+ * // The following put-contact-policy example adds a resource policy to the contact Akua that shares the contact and related engagements with the principal.
+ * const input = {
+ *   "ContactArn": "arn:aws:ssm-contacts:us-east-1:111122223333:contact/akuam",
+ *   "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"ExampleResourcePolicy\",\"Action\":[\"ssm-contacts:GetContact\",\"ssm-contacts:StartEngagement\",\"ssm-contacts:DescribeEngagement\",\"ssm-contacts:ListPagesByEngagement\",\"ssm-contacts:StopEngagement\"],\"Principal\":{\"AWS\":\"222233334444\"},\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:ssm-contacts:*:111122223333:contact/akuam\",\"arn:aws:ssm-contacts:*:111122223333:engagement/akuam/*\"]}]}"
+ * };
+ * const command = new PutContactPolicyCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class PutContactPolicyCommand extends $Command<
   PutContactPolicyCommandInput,

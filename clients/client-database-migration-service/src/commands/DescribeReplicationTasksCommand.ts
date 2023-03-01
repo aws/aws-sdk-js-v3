@@ -55,6 +55,33 @@ export interface DescribeReplicationTasksCommandOutput extends DescribeReplicati
  * @see {@link DescribeReplicationTasksCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ *
+ * @example Describe replication tasks
+ * ```javascript
+ * // Returns information about replication tasks for your account in the current region.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "string",
+ *       "Values": [
+ *         "string",
+ *         "string"
+ *       ]
+ *     }
+ *   ],
+ *   "Marker": "",
+ *   "MaxRecords": 123
+ * };
+ * const command = new DescribeReplicationTasksCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "",
+ *   "ReplicationTasks": []
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeReplicationTasksCommand extends $Command<
   DescribeReplicationTasksCommandInput,

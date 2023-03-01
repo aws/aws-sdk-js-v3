@@ -52,6 +52,41 @@ export interface RenewOfferingCommandOutput extends RenewOfferingResult, __Metad
  * @see {@link RenewOfferingCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ *
+ * @example To renew a device slot offering
+ * ```javascript
+ * // The following example renews a specific device slot offering.
+ * const input = {
+ *   "offeringId": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
+ *   "quantity": 1
+ * };
+ * const command = new RenewOfferingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "offeringTransaction": {
+ *     "cost": {
+ *       "amount": 250,
+ *       "currencyCode": "USD"
+ *     },
+ *     "createdOn": "1472648880",
+ *     "offeringStatus": {
+ *       "type": "RENEW",
+ *       "effectiveOn": "1472688000",
+ *       "offering": {
+ *         "type": "RECURRING",
+ *         "description": "Android Remote Access Unmetered Device Slot",
+ *         "id": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
+ *         "platform": "ANDROID"
+ *       },
+ *       "quantity": 1
+ *     },
+ *     "transactionId": "e90f1405-8c35-4561-be43-12345EXAMPLE"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class RenewOfferingCommand extends $Command<
   RenewOfferingCommandInput,

@@ -60,6 +60,54 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  * @see {@link GetCallerIdentityCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
+ *
+ * @example To get details about a calling IAM user
+ * ```javascript
+ * // This example shows a request and response made with the credentials for a user named Alice in the AWS account 123456789012.
+ * const input = {};
+ * const command = new GetCallerIdentityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Account": "123456789012",
+ *   "Arn": "arn:aws:iam::123456789012:user/Alice",
+ *   "UserId": "AKIAI44QH8DHBEXAMPLE"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To get details about a calling user federated with AssumeRole
+ * ```javascript
+ * // This example shows a request and response made with temporary credentials created by AssumeRole. The name of the assumed role is my-role-name, and the RoleSessionName is set to my-role-session-name.
+ * const input = {};
+ * const command = new GetCallerIdentityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Account": "123456789012",
+ *   "Arn": "arn:aws:sts::123456789012:assumed-role/my-role-name/my-role-session-name",
+ *   "UserId": "AKIAI44QH8DHBEXAMPLE:my-role-session-name"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To get details about a calling user federated with GetFederationToken
+ * ```javascript
+ * // This example shows a request and response made with temporary credentials created by using GetFederationToken. The Name parameter is set to my-federated-user-name.
+ * const input = {};
+ * const command = new GetCallerIdentityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Account": "123456789012",
+ *   "Arn": "arn:aws:sts::123456789012:federated-user/my-federated-user-name",
+ *   "UserId": "123456789012:my-federated-user-name"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetCallerIdentityCommand extends $Command<
   GetCallerIdentityCommandInput,

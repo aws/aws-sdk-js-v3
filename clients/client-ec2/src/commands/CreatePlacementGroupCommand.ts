@@ -59,6 +59,18 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  * @see {@link CreatePlacementGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To create a placement group
+ * ```javascript
+ * // This example creates a placement group with the specified name.
+ * const input = {
+ *   "GroupName": "my-cluster",
+ *   "Strategy": "cluster"
+ * };
+ * const command = new CreatePlacementGroupCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class CreatePlacementGroupCommand extends $Command<
   CreatePlacementGroupCommandInput,

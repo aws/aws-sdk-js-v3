@@ -74,6 +74,41 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  * @see {@link ModifySpotFleetRequestCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To increase the target capacity of a Spot fleet request
+ * ```javascript
+ * // This example increases the target capacity of the specified Spot fleet request.
+ * const input = {
+ *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE",
+ *   "TargetCapacity": 20
+ * };
+ * const command = new ModifySpotFleetRequestCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Return": true
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To decrease the target capacity of a Spot fleet request
+ * ```javascript
+ * // This example decreases the target capacity of the specified Spot fleet request without terminating any Spot Instances as a result.
+ * const input = {
+ *   "ExcessCapacityTerminationPolicy": "NoTermination ",
+ *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE",
+ *   "TargetCapacity": 10
+ * };
+ * const command = new ModifySpotFleetRequestCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Return": true
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ModifySpotFleetRequestCommand extends $Command<
   ModifySpotFleetRequestCommandInput,

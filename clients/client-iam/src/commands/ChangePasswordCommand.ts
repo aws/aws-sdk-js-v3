@@ -52,6 +52,18 @@ export interface ChangePasswordCommandOutput extends __MetadataBearer {}
  * @see {@link ChangePasswordCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To change the password for your IAM user
+ * ```javascript
+ * // The following command changes the password for the current IAM user.
+ * const input = {
+ *   "NewPassword": "]35d/{pB9Fo9wJ",
+ *   "OldPassword": "3s0K_;xh4~8XXI"
+ * };
+ * const command = new ChangePasswordCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class ChangePasswordCommand extends $Command<
   ChangePasswordCommandInput,

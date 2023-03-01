@@ -55,6 +55,69 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
  * @see {@link DescribeReplicationGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ *
+ * @example DescribeReplicationGroups
+ * ```javascript
+ * // Returns information about the replication group myreplgroup.
+ * const input = {};
+ * const command = new DescribeReplicationGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "",
+ *   "ReplicationGroups": [
+ *     {
+ *       "AutomaticFailover": "enabled",
+ *       "Description": "Test cluster",
+ *       "MemberClusters": [
+ *         "clustered-redis-0001-001",
+ *         "clustered-redis-0001-002",
+ *         "clustered-redis-0002-001",
+ *         "clustered-redis-0002-002"
+ *       ],
+ *       "NodeGroups": [
+ *         {
+ *           "NodeGroupId": "0001",
+ *           "NodeGroupMembers": [
+ *             {
+ *               "CacheClusterId": "clustered-redis-0001-001",
+ *               "CacheNodeId": "0001",
+ *               "PreferredAvailabilityZone": "us-east-1e"
+ *             },
+ *             {
+ *               "CacheClusterId": "clustered-redis-0001-002",
+ *               "CacheNodeId": "0001",
+ *               "PreferredAvailabilityZone": "us-east-1c"
+ *             }
+ *           ],
+ *           "Status": "available"
+ *         },
+ *         {
+ *           "NodeGroupId": "0002",
+ *           "NodeGroupMembers": [
+ *             {
+ *               "CacheClusterId": "clustered-redis-0002-001",
+ *               "CacheNodeId": "0001",
+ *               "PreferredAvailabilityZone": "us-east-1c"
+ *             },
+ *             {
+ *               "CacheClusterId": "clustered-redis-0002-002",
+ *               "CacheNodeId": "0001",
+ *               "PreferredAvailabilityZone": "us-east-1b"
+ *             }
+ *           ],
+ *           "Status": "available"
+ *         }
+ *       ],
+ *       "PendingModifiedValues": {},
+ *       "ReplicationGroupId": "clustered-redis",
+ *       "Status": "available"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeReplicationGroupsCommand extends $Command<
   DescribeReplicationGroupsCommandInput,

@@ -57,6 +57,28 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  * @see {@link AttachLoadBalancerToSubnetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ *
+ * @example To attach subnets to a load balancer
+ * ```javascript
+ * // This example adds the specified subnet to the set of configured subnets for the specified load balancer.
+ * const input = {
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "Subnets": [
+ *     "subnet-0ecac448"
+ *   ]
+ * };
+ * const command = new AttachLoadBalancerToSubnetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Subnets": [
+ *     "subnet-15aaab61",
+ *     "subnet-0ecac448"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class AttachLoadBalancerToSubnetsCommand extends $Command<
   AttachLoadBalancerToSubnetsCommandInput,

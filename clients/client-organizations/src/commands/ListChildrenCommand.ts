@@ -62,6 +62,32 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  * @see {@link ListChildrenCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
+ *
+ * @example To retrieve a list of all of the child accounts and OUs in a parent root or OU
+ * ```javascript
+ * // The following example shows how to request a list of the child OUs in a parent root or OU:/n/n
+ * const input = {
+ *   "ChildType": "ORGANIZATIONAL_UNIT",
+ *   "ParentId": "ou-examplerootid111-exampleouid111"
+ * };
+ * const command = new ListChildrenCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Children": [
+ *     {
+ *       "Id": "ou-examplerootid111-exampleouid111",
+ *       "Type": "ORGANIZATIONAL_UNIT"
+ *     },
+ *     {
+ *       "Id": "ou-examplerootid111-exampleouid222",
+ *       "Type": "ORGANIZATIONAL_UNIT"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListChildrenCommand extends $Command<
   ListChildrenCommandInput,

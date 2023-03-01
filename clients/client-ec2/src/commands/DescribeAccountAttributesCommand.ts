@@ -87,6 +87,102 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To describe a single attribute for your AWS account
+ * ```javascript
+ * // This example describes the supported-platforms attribute for your AWS account.
+ * const input = {
+ *   "AttributeNames": [
+ *     "supported-platforms"
+ *   ]
+ * };
+ * const command = new DescribeAccountAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AccountAttributes": [
+ *     {
+ *       "AttributeName": "supported-platforms",
+ *       "AttributeValues": [
+ *         {
+ *           "AttributeValue": "EC2"
+ *         },
+ *         {
+ *           "AttributeValue": "VPC"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To describe all attributes for your AWS account
+ * ```javascript
+ * // This example describes the attributes for your AWS account.
+ * const input = undefined;
+ * const command = new DescribeAccountAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AccountAttributes": [
+ *     {
+ *       "AttributeName": "supported-platforms",
+ *       "AttributeValues": [
+ *         {
+ *           "AttributeValue": "EC2"
+ *         },
+ *         {
+ *           "AttributeValue": "VPC"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "AttributeName": "vpc-max-security-groups-per-interface",
+ *       "AttributeValues": [
+ *         {
+ *           "AttributeValue": "5"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "AttributeName": "max-elastic-ips",
+ *       "AttributeValues": [
+ *         {
+ *           "AttributeValue": "5"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "AttributeName": "max-instances",
+ *       "AttributeValues": [
+ *         {
+ *           "AttributeValue": "20"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "AttributeName": "vpc-max-elastic-ips",
+ *       "AttributeValues": [
+ *         {
+ *           "AttributeValue": "5"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "AttributeName": "default-vpc",
+ *       "AttributeValues": [
+ *         {
+ *           "AttributeValue": "none"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeAccountAttributesCommand extends $Command<
   DescribeAccountAttributesCommandInput,

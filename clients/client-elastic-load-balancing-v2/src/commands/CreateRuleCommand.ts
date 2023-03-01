@@ -56,6 +56,57 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ *
+ * @example To create a rule
+ * ```javascript
+ * // This example creates a rule that forwards requests to the specified target group if the URL contains the specified pattern (for example, /img/*).
+ * const input = {
+ *   "Actions": [
+ *     {
+ *       "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *       "Type": "forward"
+ *     }
+ *   ],
+ *   "Conditions": [
+ *     {
+ *       "Field": "path-pattern",
+ *       "Values": [
+ *         "/img/*"
+ *       ]
+ *     }
+ *   ],
+ *   "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2",
+ *   "Priority": 10
+ * };
+ * const command = new CreateRuleCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Rules": [
+ *     {
+ *       "Actions": [
+ *         {
+ *           "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *           "Type": "forward"
+ *         }
+ *       ],
+ *       "Conditions": [
+ *         {
+ *           "Field": "path-pattern",
+ *           "Values": [
+ *             "/img/*"
+ *           ]
+ *         }
+ *       ],
+ *       "IsDefault": false,
+ *       "Priority": "10",
+ *       "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateRuleCommand extends $Command<
   CreateRuleCommandInput,

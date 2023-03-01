@@ -56,6 +56,30 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  * @see {@link CreateTapesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To create a virtual tape
+ * ```javascript
+ * // Creates one or more virtual tapes.
+ * const input = {
+ *   "ClientToken": "77777",
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+ *   "NumTapesToCreate": 3,
+ *   "TapeBarcodePrefix": "TEST",
+ *   "TapeSizeInBytes": 107374182400
+ * };
+ * const command = new CreateTapesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TapeARNs": [
+ *     "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST38A29D",
+ *     "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST3AA29F",
+ *     "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST3BA29E"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateTapesCommand extends $Command<
   CreateTapesCommandInput,

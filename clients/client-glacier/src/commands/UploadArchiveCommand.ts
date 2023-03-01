@@ -90,6 +90,28 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * @see {@link UploadArchiveCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ *
+ * @example To upload an archive
+ * ```javascript
+ * // The example adds an archive to a vault.
+ * const input = {
+ *   "accountId": "-",
+ *   "archiveDescription": "",
+ *   "body": "example-data-to-upload",
+ *   "checksum": "",
+ *   "vaultName": "my-vault"
+ * };
+ * const command = new UploadArchiveCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "archiveId": "kKB7ymWJVpPSwhGP6ycSOAekp9ZYe_--zM_mw6k76ZFGEIWQX-ybtRDvc2VkPSDtfKmQrj0IRQLSGsNuDp-AJVlu2ccmDSyDUmZwKbwbpAdGATGDiB3hHO0bjbGehXTcApVud_wyDw",
+ *   "checksum": "969fb39823836d81f0cc028195fcdbcbbe76cdde932d4646fa7de5f21e18aa67",
+ *   "location": "/0123456789012/vaults/my-vault/archives/kKB7ymWJVpPSwhGP6ycSOAekp9ZYe_--zM_mw6k76ZFGEIWQX-ybtRDvc2VkPSDtfKmQrj0IRQLSGsNuDp-AJVlu2ccmDSyDUmZwKbwbpAdGATGDiB3hHO0bjbGehXTcApVud_wyDw"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UploadArchiveCommand extends $Command<
   UploadArchiveCommandInput,

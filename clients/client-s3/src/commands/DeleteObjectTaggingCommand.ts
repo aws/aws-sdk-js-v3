@@ -71,6 +71,41 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  * @see {@link DeleteObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To remove tag set from an object
+ * ```javascript
+ * // The following example removes tag set associated with the specified object. If the bucket is versioning enabled, the operation removes tag set from the latest object version.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new DeleteObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VersionId": "null"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To remove tag set from an object version
+ * ```javascript
+ * // The following example removes tag set associated with the specified object version. The request specifies both the object key and object version.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg",
+ *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+ * };
+ * const command = new DeleteObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DeleteObjectTaggingCommand extends $Command<
   DeleteObjectTaggingCommandInput,

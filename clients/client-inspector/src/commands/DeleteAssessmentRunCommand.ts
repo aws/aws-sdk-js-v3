@@ -46,6 +46,17 @@ export interface DeleteAssessmentRunCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ *
+ * @example Delete assessment run
+ * ```javascript
+ * // Deletes the assessment run that is specified by the ARN of the assessment run.
+ * const input = {
+ *   "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T/run/0-11LMTAVe"
+ * };
+ * const command = new DeleteAssessmentRunCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteAssessmentRunCommand extends $Command<
   DeleteAssessmentRunCommandInput,

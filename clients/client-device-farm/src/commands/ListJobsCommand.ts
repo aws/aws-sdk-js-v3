@@ -47,6 +47,17 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ *
+ * @example To get information about jobs
+ * ```javascript
+ * // The following example returns information about jobs in a specific project.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
+ * };
+ * const command = new ListJobsCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class ListJobsCommand extends $Command<
   ListJobsCommandInput,

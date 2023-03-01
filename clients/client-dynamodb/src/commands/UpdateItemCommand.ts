@@ -56,6 +56,57 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  * @see {@link UpdateItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ *
+ * @example To update an item in a table
+ * ```javascript
+ * // This example updates an item in the Music table. It adds a new attribute (Year) and modifies the AlbumTitle attribute.  All of the attributes in the item, as they appear after the update, are returned in the response.
+ * const input = {
+ *   "ExpressionAttributeNames": {
+ *     "#AT": "AlbumTitle",
+ *     "#Y": "Year"
+ *   },
+ *   "ExpressionAttributeValues": {
+ *     ":t": {
+ *       "S": "Louder Than Ever"
+ *     },
+ *     ":y": {
+ *       "N": "2015"
+ *     }
+ *   },
+ *   "Key": {
+ *     "Artist": {
+ *       "S": "Acme Band"
+ *     },
+ *     "SongTitle": {
+ *       "S": "Happy Day"
+ *     }
+ *   },
+ *   "ReturnValues": "ALL_NEW",
+ *   "TableName": "Music",
+ *   "UpdateExpression": "SET #Y = :y, #AT = :t"
+ * };
+ * const command = new UpdateItemCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Attributes": {
+ *     "AlbumTitle": {
+ *       "S": "Louder Than Ever"
+ *     },
+ *     "Artist": {
+ *       "S": "Acme Band"
+ *     },
+ *     "SongTitle": {
+ *       "S": "Happy Day"
+ *     },
+ *     "Year": {
+ *       "N": "2015"
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateItemCommand extends $Command<
   UpdateItemCommandInput,

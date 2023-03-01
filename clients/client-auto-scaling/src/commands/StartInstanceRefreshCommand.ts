@@ -73,6 +73,33 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  * @see {@link StartInstanceRefreshCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To start an instance refresh
+ * ```javascript
+ * // This example starts an instance refresh for the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "DesiredConfiguration": {
+ *     "LaunchTemplate": {
+ *       "LaunchTemplateName": "my-template-for-auto-scaling",
+ *       "Version": "$Latest"
+ *     }
+ *   },
+ *   "Preferences": {
+ *     "InstanceWarmup": 400,
+ *     "MinHealthyPercentage": 90,
+ *     "SkipMatching": true
+ *   }
+ * };
+ * const command = new StartInstanceRefreshCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InstanceRefreshId": "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class StartInstanceRefreshCommand extends $Command<
   StartInstanceRefreshCommandInput,

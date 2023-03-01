@@ -61,6 +61,27 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ *
+ * @example To describe the tags for a file system
+ * ```javascript
+ * // This operation describes all of a file system's tags.
+ * const input = {
+ *   "FileSystemId": "fs-01234567"
+ * };
+ * const command = new DescribeTagsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Tags": [
+ *     {
+ *       "Key": "Name",
+ *       "Value": "MyFileSystem"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,

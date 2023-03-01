@@ -73,6 +73,20 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
  * @see {@link AttachLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To attach a target group to an Auto Scaling group
+ * ```javascript
+ * // This example attaches the specified target group to the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "TargetGroupARNs": [
+ *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ *   ]
+ * };
+ * const command = new AttachLoadBalancerTargetGroupsCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class AttachLoadBalancerTargetGroupsCommand extends $Command<
   AttachLoadBalancerTargetGroupsCommandInput,

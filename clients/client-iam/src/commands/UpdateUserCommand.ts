@@ -54,6 +54,18 @@ export interface UpdateUserCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To change an IAM user's name
+ * ```javascript
+ * // The following command changes the name of the IAM user Bob to Robert. It does not change the user's path.
+ * const input = {
+ *   "NewUserName": "Robert",
+ *   "UserName": "Bob"
+ * };
+ * const command = new UpdateUserCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class UpdateUserCommand extends $Command<
   UpdateUserCommandInput,

@@ -53,6 +53,27 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  * @see {@link UpdateOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
+ *
+ * @example To rename an organizational unit
+ * ```javascript
+ * // The following example shows how to rename an OU. The output confirms the new name:/n/n
+ * const input = {
+ *   "Name": "AccountingOU",
+ *   "OrganizationalUnitId": "ou-examplerootid111-exampleouid111"
+ * };
+ * const command = new UpdateOrganizationalUnitCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OrganizationalUnit": {
+ *     "Arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
+ *     "Id": "ou-examplerootid111-exampleouid111",
+ *     "Name": "AccountingOU"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateOrganizationalUnitCommand extends $Command<
   UpdateOrganizationalUnitCommandInput,

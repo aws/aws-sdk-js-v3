@@ -50,6 +50,21 @@ export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInst
  * @see {@link DescribeReservedDBInstancesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To list information about reserved DB instances
+ * ```javascript
+ * // This example lists information for all reserved DB instances for the specified DB instance class, duration, product, offering type, and availability zone settings.
+ * const input = {
+ *   "DBInstanceClass": "db.t2.micro",
+ *   "Duration": "1y",
+ *   "MultiAZ": false,
+ *   "OfferingType": "No Upfront",
+ *   "ProductDescription": "mysql"
+ * };
+ * const command = new DescribeReservedDBInstancesCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DescribeReservedDBInstancesCommand extends $Command<
   DescribeReservedDBInstancesCommandInput,

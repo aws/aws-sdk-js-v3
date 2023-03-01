@@ -54,6 +54,33 @@ export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointType
  * @see {@link DescribeEndpointTypesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ *
+ * @example Describe endpoint types
+ * ```javascript
+ * // Returns information about the type of endpoints available.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "string",
+ *       "Values": [
+ *         "string",
+ *         "string"
+ *       ]
+ *     }
+ *   ],
+ *   "Marker": "",
+ *   "MaxRecords": 123
+ * };
+ * const command = new DescribeEndpointTypesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "",
+ *   "SupportedEndpointTypes": []
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeEndpointTypesCommand extends $Command<
   DescribeEndpointTypesCommandInput,

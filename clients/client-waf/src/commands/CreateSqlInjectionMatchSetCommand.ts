@@ -79,6 +79,35 @@ export interface CreateSqlInjectionMatchSetCommandOutput extends CreateSqlInject
  * @see {@link CreateSqlInjectionMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
+ *
+ * @example To create a SQL injection match set
+ * ```javascript
+ * // The following example creates a SQL injection match set named MySQLInjectionMatchSet.
+ * const input = {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "Name": "MySQLInjectionMatchSet"
+ * };
+ * const command = new CreateSqlInjectionMatchSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "SqlInjectionMatchSet": {
+ *     "Name": "MySQLInjectionMatchSet",
+ *     "SqlInjectionMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     "SqlInjectionMatchTuples": [
+ *       {
+ *         "FieldToMatch": {
+ *           "Type": "QUERY_STRING"
+ *         },
+ *         "TextTransformation": "URL_DECODE"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateSqlInjectionMatchSetCommand extends $Command<
   CreateSqlInjectionMatchSetCommandInput,

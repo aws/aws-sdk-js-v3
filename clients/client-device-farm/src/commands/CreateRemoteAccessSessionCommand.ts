@@ -50,6 +50,27 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * @see {@link CreateRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ *
+ * @example To create a remote access session
+ * ```javascript
+ * // The following example creates a remote access session named MySession.
+ * const input = {
+ *   "name": "MySession",
+ *   "configuration": {
+ *     "billingMethod": "METERED"
+ *   },
+ *   "deviceArn": "arn:aws:devicefarm:us-west-2::device:123EXAMPLE",
+ *   "projectArn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
+ * };
+ * const command = new CreateRemoteAccessSessionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "remoteAccessSession": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateRemoteAccessSessionCommand extends $Command<
   CreateRemoteAccessSessionCommandInput,

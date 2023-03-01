@@ -54,6 +54,23 @@ export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResul
  * @see {@link ListUniqueProblemsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ *
+ * @example To get information about unique problems
+ * ```javascript
+ * // The following example returns information about unique problems, given a specific Device Farm project.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
+ *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE"
+ * };
+ * const command = new ListUniqueProblemsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "uniqueProblems": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListUniqueProblemsCommand extends $Command<
   ListUniqueProblemsCommandInput,

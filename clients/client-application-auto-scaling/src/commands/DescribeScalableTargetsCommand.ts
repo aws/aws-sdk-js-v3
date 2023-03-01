@@ -56,6 +56,37 @@ export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTa
  * @see {@link DescribeScalableTargetsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
+ *
+ * @example To describe scalable targets
+ * ```javascript
+ * // This example describes the scalable targets for the ECS service namespace.
+ * const input = {
+ *   "ServiceNamespace": "ecs"
+ * };
+ * const command = new DescribeScalableTargetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ScalableTargets": [
+ *     {
+ *       "CreationTime": "2019-05-06T11:21:46.199Z",
+ *       "MaxCapacity": 10,
+ *       "MinCapacity": 1,
+ *       "ResourceId": "service/default/web-app",
+ *       "RoleARN": "arn:aws:iam::012345678910:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService",
+ *       "ScalableDimension": "ecs:service:DesiredCount",
+ *       "ServiceNamespace": "ecs",
+ *       "SuspendedState": {
+ *         "DynamicScalingInSuspended": false,
+ *         "DynamicScalingOutSuspended": false,
+ *         "ScheduledScalingSuspended": false
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeScalableTargetsCommand extends $Command<
   DescribeScalableTargetsCommandInput,

@@ -56,6 +56,63 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  * @see {@link DeclineHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
+ *
+ * @example To decline a handshake sent from the master account
+ * ```javascript
+ * // The following example shows Susan declining an invitation to join Bill's organization. The DeclineHandshake operation returns a handshake object, showing that the state is now DECLINED:
+ * const input = {
+ *   "HandshakeId": "h-examplehandshakeid111"
+ * };
+ * const command = new DeclineHandshakeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Handshake": {
+ *     "Action": "INVITE",
+ *     "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
+ *     "ExpirationTimestamp": "2016-12-15T19:27:58Z",
+ *     "Id": "h-examplehandshakeid111",
+ *     "Parties": [
+ *       {
+ *         "Id": "222222222222",
+ *         "Type": "ACCOUNT"
+ *       },
+ *       {
+ *         "Id": "o-exampleorgid",
+ *         "Type": "ORGANIZATION"
+ *       }
+ *     ],
+ *     "RequestedTimestamp": "2016-11-30T19:27:58Z",
+ *     "Resources": [
+ *       {
+ *         "Resources": [
+ *           {
+ *             "Type": "MASTER_EMAIL",
+ *             "Value": "bill@example.com"
+ *           },
+ *           {
+ *             "Type": "MASTER_NAME",
+ *             "Value": "Master Account"
+ *           }
+ *         ],
+ *         "Type": "ORGANIZATION",
+ *         "Value": "o-exampleorgid"
+ *       },
+ *       {
+ *         "Type": "ACCOUNT",
+ *         "Value": "222222222222"
+ *       },
+ *       {
+ *         "Type": "NOTES",
+ *         "Value": "This is an invitation to Susan's account to join the Bill's organization."
+ *       }
+ *     ],
+ *     "State": "DECLINED"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DeclineHandshakeCommand extends $Command<
   DeclineHandshakeCommandInput,

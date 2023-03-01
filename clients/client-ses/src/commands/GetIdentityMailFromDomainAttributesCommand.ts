@@ -55,6 +55,30 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  * @see {@link GetIdentityMailFromDomainAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example GetIdentityMailFromDomainAttributes
+ * ```javascript
+ * // The following example returns the custom MAIL FROM attributes for an identity:
+ * const input = {
+ *   "Identities": [
+ *     "example.com"
+ *   ]
+ * };
+ * const command = new GetIdentityMailFromDomainAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "MailFromDomainAttributes": {
+ *     "example.com": {
+ *       "BehaviorOnMXFailure": "UseDefaultValue",
+ *       "MailFromDomain": "bounces.example.com",
+ *       "MailFromDomainStatus": "Success"
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetIdentityMailFromDomainAttributesCommand extends $Command<
   GetIdentityMailFromDomainAttributesCommandInput,

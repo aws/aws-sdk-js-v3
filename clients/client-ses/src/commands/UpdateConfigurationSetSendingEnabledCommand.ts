@@ -53,6 +53,18 @@ export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __Met
  * @see {@link UpdateConfigurationSetSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example UpdateConfigurationSetReputationMetricsEnabled
+ * ```javascript
+ * // Set the sending enabled flag for a specific configuration set.
+ * const input = {
+ *   "ConfigurationSetName": "foo",
+ *   "Enabled": true
+ * };
+ * const command = new UpdateConfigurationSetSendingEnabledCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
   UpdateConfigurationSetSendingEnabledCommandInput,

@@ -47,6 +47,22 @@ export interface GetTestCommandOutput extends GetTestResult, __MetadataBearer {}
  * @see {@link GetTestCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ *
+ * @example To get information about a specific test
+ * ```javascript
+ * // The following example gets information about a specific test.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:test:EXAMPLE-GUID-123-456"
+ * };
+ * const command = new GetTestCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "test": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetTestCommand extends $Command<
   GetTestCommandInput,

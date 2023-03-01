@@ -67,6 +67,27 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  * @see {@link VerifyMacCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ *
+ * @example To verify an HMAC
+ * ```javascript
+ * // This example verifies an HMAC for a particular message, HMAC KMS keys, and MAC algorithm. A value of 'true' in the MacValid value in the response indicates that the HMAC is valid.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "Mac": "<HMAC_TAG>",
+ *   "MacAlgorithm": "HMAC_SHA_384",
+ *   "Message": "Hello World"
+ * };
+ * const command = new VerifyMacCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "MacAlgorithm": "HMAC_SHA_384",
+ *   "MacValid": true
+ * }
+ * *\/
+ * ```
+ *
  */
 export class VerifyMacCommand extends $Command<VerifyMacCommandInput, VerifyMacCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

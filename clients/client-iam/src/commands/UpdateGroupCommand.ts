@@ -56,6 +56,18 @@ export interface UpdateGroupCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To rename an IAM group
+ * ```javascript
+ * // The following command changes the name of the IAM group Test to Test-1.
+ * const input = {
+ *   "GroupName": "Test",
+ *   "NewGroupName": "Test-1"
+ * };
+ * const command = new UpdateGroupCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class UpdateGroupCommand extends $Command<
   UpdateGroupCommandInput,

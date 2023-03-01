@@ -50,6 +50,71 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * @see {@link ListAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ *
+ * @example To view your effective account settings
+ * ```javascript
+ * // This example displays the effective account settings for your account.
+ * const input = {
+ *   "effectiveSettings": true
+ * };
+ * const command = new ListAccountSettingsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "settings": [
+ *     {
+ *       "name": "containerInstanceLongArnFormat",
+ *       "value": "disabled",
+ *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *     },
+ *     {
+ *       "name": "serviceLongArnFormat",
+ *       "value": "enabled",
+ *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *     },
+ *     {
+ *       "name": "taskLongArnFormat",
+ *       "value": "disabled",
+ *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To view the effective account settings for a specific IAM user or IAM role
+ * ```javascript
+ * // This example displays the effective account settings for the specified user or role.
+ * const input = {
+ *   "effectiveSettings": true,
+ *   "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ * };
+ * const command = new ListAccountSettingsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "settings": [
+ *     {
+ *       "name": "containerInstanceLongArnFormat",
+ *       "value": "disabled",
+ *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *     },
+ *     {
+ *       "name": "serviceLongArnFormat",
+ *       "value": "enabled",
+ *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *     },
+ *     {
+ *       "name": "taskLongArnFormat",
+ *       "value": "disabled",
+ *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListAccountSettingsCommand extends $Command<
   ListAccountSettingsCommandInput,

@@ -50,6 +50,27 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ *
+ * @example To list the tags for a cluster.
+ * ```javascript
+ * // This example lists the tags for the 'dev' cluster.
+ * const input = {
+ *   "resourceArn": "arn:aws:ecs:region:aws_account_id:cluster/dev"
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "tags": [
+ *     {
+ *       "key": "team",
+ *       "value": "dev"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

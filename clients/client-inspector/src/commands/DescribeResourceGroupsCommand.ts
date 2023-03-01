@@ -51,6 +51,36 @@ export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGro
  * @see {@link DescribeResourceGroupsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ *
+ * @example Describe resource groups
+ * ```javascript
+ * // Describes the resource groups that are specified by the ARNs of the resource groups.
+ * const input = {
+ *   "resourceGroupArns": [
+ *     "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-PyGXopAI"
+ *   ]
+ * };
+ * const command = new DescribeResourceGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failedItems": {},
+ *   "resourceGroups": [
+ *     {
+ *       "arn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-PyGXopAI",
+ *       "createdAt": "1458074191.098",
+ *       "tags": [
+ *         {
+ *           "key": "Name",
+ *           "value": "example"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeResourceGroupsCommand extends $Command<
   DescribeResourceGroupsCommandInput,

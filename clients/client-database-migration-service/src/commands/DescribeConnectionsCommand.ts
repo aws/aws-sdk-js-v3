@@ -55,6 +55,41 @@ export interface DescribeConnectionsCommandOutput extends DescribeConnectionsRes
  * @see {@link DescribeConnectionsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ *
+ * @example Describe connections
+ * ```javascript
+ * // Describes the status of the connections that have been made between the replication instance and an endpoint. Connections are created when you test an endpoint.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "string",
+ *       "Values": [
+ *         "string",
+ *         "string"
+ *       ]
+ *     }
+ *   ],
+ *   "Marker": "",
+ *   "MaxRecords": 123
+ * };
+ * const command = new DescribeConnectionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Connections": [
+ *     {
+ *       "EndpointArn": "arn:aws:dms:us-east-arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
+ *       "EndpointIdentifier": "testsrc1",
+ *       "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *       "ReplicationInstanceIdentifier": "test",
+ *       "Status": "successful"
+ *     }
+ *   ],
+ *   "Marker": ""
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeConnectionsCommand extends $Command<
   DescribeConnectionsCommandInput,

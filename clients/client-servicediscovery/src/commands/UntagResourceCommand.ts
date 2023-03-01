@@ -50,6 +50,21 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ *
+ * @example UntagResource example
+ * ```javascript
+ * // This example removes the "Department" and "Project" tags from a resource.
+ * const input = {
+ *   "ResourceARN": "arn:aws:servicediscovery:us-east-1:123456789012:namespace/ns-ylexjili4cdxy3xm",
+ *   "TagKeys": [
+ *     "Project",
+ *     "Department"
+ *   ]
+ * };
+ * const command = new UntagResourceCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

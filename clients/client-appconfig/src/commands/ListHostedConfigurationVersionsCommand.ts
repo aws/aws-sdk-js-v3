@@ -51,6 +51,30 @@ export interface ListHostedConfigurationVersionsCommandOutput extends HostedConf
  * @see {@link ListHostedConfigurationVersionsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ *
+ * @example To list the available hosted configuration versions
+ * ```javascript
+ * // The following list-hosted-configuration-versions example lists the configurations versions hosted in the AWS AppConfig hosted configuration store for the specified application and configuration profile.
+ * const input = {
+ *   "ApplicationId": "339ohji",
+ *   "ConfigurationProfileId": "ur8hx2f"
+ * };
+ * const command = new ListHostedConfigurationVersionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Items": [
+ *     {
+ *       "ApplicationId": "339ohji",
+ *       "ConfigurationProfileId": "ur8hx2f",
+ *       "ContentType": "application/json",
+ *       "VersionNumber": 1
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListHostedConfigurationVersionsCommand extends $Command<
   ListHostedConfigurationVersionsCommandInput,

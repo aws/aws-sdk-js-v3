@@ -62,6 +62,32 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  * @see {@link ListPoliciesForTargetCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
+ *
+ * @example To retrieve a list policies attached to a root, OU, or account
+ * ```javascript
+ * // The following example shows how to get a list of all service control policies (SCPs) of the type specified by the Filter parameter, that are directly attached to an account. The returned list does not include policies that apply to the account because of inheritance from its location in an OU hierarchy:/n/n
+ * const input = {
+ *   "Filter": "SERVICE_CONTROL_POLICY",
+ *   "TargetId": "444444444444"
+ * };
+ * const command = new ListPoliciesForTargetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Policies": [
+ *     {
+ *       "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid222",
+ *       "AwsManaged": false,
+ *       "Description": "Enables account admins to delegate permissions for any EC2 actions to users and roles in their accounts.",
+ *       "Id": "p-examplepolicyid222",
+ *       "Name": "AllowAllEC2Actions",
+ *       "Type": "SERVICE_CONTROL_POLICY"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListPoliciesForTargetCommand extends $Command<
   ListPoliciesForTargetCommandInput,

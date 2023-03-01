@@ -70,6 +70,29 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
+ *
+ * @example To create a new cluster
+ * ```javascript
+ * // The following example creates an Amazon EKS cluster called prod.
+ * const input = {
+ *   "version": "1.10",
+ *   "name": "prod",
+ *   "clientRequestToken": "1d2129a1-3d38-460a-9756-e5b91fddb951",
+ *   "resourcesVpcConfig": {
+ *     "securityGroupIds": [
+ *       "sg-6979fe18"
+ *     ],
+ *     "subnetIds": [
+ *       "subnet-6782e71e",
+ *       "subnet-e7e761ac"
+ *     ]
+ *   },
+ *   "roleArn": "arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-J7ONKE3BQ4PI"
+ * };
+ * const command = new CreateClusterCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,

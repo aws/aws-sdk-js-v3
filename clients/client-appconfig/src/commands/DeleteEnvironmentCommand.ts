@@ -46,6 +46,18 @@ export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ *
+ * @example To delete an environment
+ * ```javascript
+ * // The following delete-environment example deletes the specified application environment.
+ * const input = {
+ *   "ApplicationId": "339ohji",
+ *   "EnvironmentId": "54j1r29"
+ * };
+ * const command = new DeleteEnvironmentCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteEnvironmentCommand extends $Command<
   DeleteEnvironmentCommandInput,

@@ -51,6 +51,26 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To remove tags from a resource
+ * ```javascript
+ * // Lists the iSCSI stored volumes of a gateway. Removes one or more tags from the specified resource.
+ * const input = {
+ *   "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B",
+ *   "TagKeys": [
+ *     "Dev Gatgeway Region",
+ *     "East Coast"
+ *   ]
+ * };
+ * const command = new RemoveTagsFromResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class RemoveTagsFromResourceCommand extends $Command<
   RemoveTagsFromResourceCommandInput,

@@ -51,6 +51,28 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  * @see {@link PreviewAgentsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ *
+ * @example Preview agents
+ * ```javascript
+ * // Previews the agents installed on the EC2 instances that are part of the specified assessment target.
+ * const input = {
+ *   "maxResults": 123,
+ *   "previewAgentsArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
+ * };
+ * const command = new PreviewAgentsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "agentPreviews": [
+ *     {
+ *       "agentId": "i-49113b93"
+ *     }
+ *   ],
+ *   "nextToken": "1"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class PreviewAgentsCommand extends $Command<
   PreviewAgentsCommandInput,

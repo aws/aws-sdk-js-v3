@@ -52,6 +52,31 @@ export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, _
  * @see {@link UpdateDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ *
+ * @example To update a device pool
+ * ```javascript
+ * // The following example updates the specified device pool with a new name and description. It also enables remote access of devices in the device pool.
+ * const input = {
+ *   "name": "NewName",
+ *   "arn": "arn:aws:devicefarm:us-west-2::devicepool:082d10e5-d7d7-48a5-ba5c-12345EXAMPLE",
+ *   "description": "NewDescription",
+ *   "rules": [
+ *     {
+ *       "value": "True",
+ *       "attribute": "REMOTE_ACCESS_ENABLED",
+ *       "operator": "EQUALS"
+ *     }
+ *   ]
+ * };
+ * const command = new UpdateDevicePoolCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "devicePool": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateDevicePoolCommand extends $Command<
   UpdateDevicePoolCommandInput,

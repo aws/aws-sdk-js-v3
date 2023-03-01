@@ -57,6 +57,18 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  * @see {@link ResetDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To reset the values of a DB parameter group
+ * ```javascript
+ * // This example resets all parameters for the specified DB parameter group to their default values.
+ * const input = {
+ *   "DBParameterGroupName": "mydbparametergroup",
+ *   "ResetAllParameters": true
+ * };
+ * const command = new ResetDBParameterGroupCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class ResetDBParameterGroupCommand extends $Command<
   ResetDBParameterGroupCommandInput,

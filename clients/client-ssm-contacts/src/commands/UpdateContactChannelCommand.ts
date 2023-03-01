@@ -50,6 +50,21 @@ export interface UpdateContactChannelCommandOutput extends UpdateContactChannelR
  * @see {@link UpdateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
+ *
+ * @example To update a contact channel
+ * ```javascript
+ * // The following update-contact-channel example updates the name and delivery address of a contact channel.
+ * const input = {
+ *   "ContactChannelId": "arn:aws:ssm-contacts:us-east-2:111122223333:contact-channel/akuam/49f3c24d-5f9f-4638-ae25-3f49e04229ad",
+ *   "DeliveryAddress": {
+ *     "SimpleAddress": "+15005550198"
+ *   },
+ *   "Name": "akuas voice channel"
+ * };
+ * const command = new UpdateContactChannelCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class UpdateContactChannelCommand extends $Command<
   UpdateContactChannelCommandInput,

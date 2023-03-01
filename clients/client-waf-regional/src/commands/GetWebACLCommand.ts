@@ -55,6 +55,38 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * @see {@link GetWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ *
+ * @example To get a web ACL
+ * ```javascript
+ * // The following example returns the details of a web ACL with the ID createwebacl-1472061481310.
+ * const input = {
+ *   "WebACLId": "createwebacl-1472061481310"
+ * };
+ * const command = new GetWebACLCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "WebACL": {
+ *     "DefaultAction": {
+ *       "Type": "ALLOW"
+ *     },
+ *     "MetricName": "CreateExample",
+ *     "Name": "CreateExample",
+ *     "Rules": [
+ *       {
+ *         "Action": {
+ *           "Type": "ALLOW"
+ *         },
+ *         "Priority": 1,
+ *         "RuleId": "WAFRule-1-Example"
+ *       }
+ *     ],
+ *     "WebACLId": "createwebacl-1472061481310"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetWebACLCommand extends $Command<
   GetWebACLCommandInput,

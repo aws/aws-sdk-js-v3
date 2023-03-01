@@ -52,6 +52,32 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * @see {@link ModifyCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ *
+ * @example ModifyCacheParameterGroup
+ * ```javascript
+ * // Modifies one or more parameter values in the specified parameter group. You cannot modify any default parameter group.
+ * const input = {
+ *   "CacheParameterGroupName": "custom-mem1-4",
+ *   "ParameterNameValues": [
+ *     {
+ *       "ParameterName": "binding_protocol",
+ *       "ParameterValue": "ascii"
+ *     },
+ *     {
+ *       "ParameterName": "chunk_size",
+ *       "ParameterValue": "96"
+ *     }
+ *   ]
+ * };
+ * const command = new ModifyCacheParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CacheParameterGroupName": "custom-mem1-4"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ModifyCacheParameterGroupCommand extends $Command<
   ModifyCacheParameterGroupCommandInput,

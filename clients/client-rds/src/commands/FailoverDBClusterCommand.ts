@@ -66,6 +66,23 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * @see {@link FailoverDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To perform a failover for a DB cluster
+ * ```javascript
+ * // This example performs a failover for the specified DB cluster to the specified DB instance.
+ * const input = {
+ *   "DBClusterIdentifier": "myaurorainstance-cluster",
+ *   "TargetDBInstanceIdentifier": "myaurorareplica"
+ * };
+ * const command = new FailoverDBClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBCluster": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class FailoverDBClusterCommand extends $Command<
   FailoverDBClusterCommandInput,

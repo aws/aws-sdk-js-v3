@@ -43,6 +43,17 @@ export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
  * @see {@link EnableVolumeIOCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To enable I/O for a volume
+ * ```javascript
+ * // This example enables I/O on volume ``vol-1234567890abcdef0``.
+ * const input = {
+ *   "VolumeId": "vol-1234567890abcdef0"
+ * };
+ * const command = new EnableVolumeIOCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class EnableVolumeIOCommand extends $Command<
   EnableVolumeIOCommandInput,

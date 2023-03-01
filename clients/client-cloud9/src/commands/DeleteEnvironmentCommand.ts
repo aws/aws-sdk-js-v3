@@ -51,6 +51,17 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResult,
  * @see {@link DeleteEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
+ *
+ * @example DeleteEnvironment
+ * ```javascript
+ * //
+ * const input = {
+ *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
+ * };
+ * const command = new DeleteEnvironmentCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteEnvironmentCommand extends $Command<
   DeleteEnvironmentCommandInput,

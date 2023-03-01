@@ -53,6 +53,35 @@ export interface DescribeNotificationConfigurationsCommandOutput
  * @see {@link DescribeNotificationConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To describe Auto Scaling notification configurations
+ * ```javascript
+ * // This example describes the notification configurations for the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupNames": [
+ *     "my-auto-scaling-group"
+ *   ]
+ * };
+ * const command = new DescribeNotificationConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NotificationConfigurations": [
+ *     {
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "NotificationType": "autoscaling:TEST_NOTIFICATION",
+ *       "TopicARN": "arn:aws:sns:us-west-2:123456789012:my-sns-topic-2"
+ *     },
+ *     {
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "NotificationType": "autoscaling:TEST_NOTIFICATION",
+ *       "TopicARN": "arn:aws:sns:us-west-2:123456789012:my-sns-topic"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeNotificationConfigurationsCommand extends $Command<
   DescribeNotificationConfigurationsCommandInput,

@@ -55,6 +55,32 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  * @see {@link DeleteLaunchTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To delete a launch template version
+ * ```javascript
+ * // This example deletes the specified launch template version.
+ * const input = {
+ *   "LaunchTemplateId": "lt-0abcd290751193123",
+ *   "Versions": [
+ *     "1"
+ *   ]
+ * };
+ * const command = new DeleteLaunchTemplateVersionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SuccessfullyDeletedLaunchTemplateVersions": [
+ *     {
+ *       "LaunchTemplateId": "lt-0abcd290751193123",
+ *       "LaunchTemplateName": "my-template",
+ *       "VersionNumber": 1
+ *     }
+ *   ],
+ *   "UnsuccessfullyDeletedLaunchTemplateVersions": []
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DeleteLaunchTemplateVersionsCommand extends $Command<
   DeleteLaunchTemplateVersionsCommandInput,

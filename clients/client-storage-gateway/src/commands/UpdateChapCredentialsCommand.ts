@@ -58,6 +58,26 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  * @see {@link UpdateChapCredentialsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To update CHAP credentials for an iSCSI target
+ * ```javascript
+ * // Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target.
+ * const input = {
+ *   "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
+ *   "SecretToAuthenticateInitiator": "111111111111",
+ *   "SecretToAuthenticateTarget": "222222222222",
+ *   "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+ * };
+ * const command = new UpdateChapCredentialsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
+ *   "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateChapCredentialsCommand extends $Command<
   UpdateChapCredentialsCommandInput,

@@ -71,6 +71,39 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * @see {@link ListPartsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ *
+ * @example To list the parts of an archive that have been uploaded in a multipart upload
+ * ```javascript
+ * // The example lists all the parts of a multipart upload.
+ * const input = {
+ *   "accountId": "-",
+ *   "uploadId": "OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE",
+ *   "vaultName": "examplevault"
+ * };
+ * const command = new ListPartsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ArchiveDescription": "archive description",
+ *   "CreationDate": "2012-03-20T17:03:43.221Z",
+ *   "Marker": "null",
+ *   "MultipartUploadId": "OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE",
+ *   "PartSizeInBytes": 4194304,
+ *   "Parts": [
+ *     {
+ *       "RangeInBytes": "0-4194303",
+ *       "SHA256TreeHash": "01d34dabf7be316472c93b1ef80721f5d4"
+ *     },
+ *     {
+ *       "RangeInBytes": "4194304-8388607",
+ *       "SHA256TreeHash": "0195875365afda349fc21c84c099987164"
+ *     }
+ *   ],
+ *   "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/demo1-vault"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListPartsCommand extends $Command<
   ListPartsCommandInput,

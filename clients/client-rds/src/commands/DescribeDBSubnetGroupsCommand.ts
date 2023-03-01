@@ -52,6 +52,17 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * @see {@link DescribeDBSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To list information about DB subnet groups
+ * ```javascript
+ * // This example lists information about the specified DB subnet group.
+ * const input = {
+ *   "DBSubnetGroupName": "mydbsubnetgroup"
+ * };
+ * const command = new DescribeDBSubnetGroupsCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DescribeDBSubnetGroupsCommand extends $Command<
   DescribeDBSubnetGroupsCommandInput,

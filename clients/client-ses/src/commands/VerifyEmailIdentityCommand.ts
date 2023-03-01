@@ -53,6 +53,17 @@ export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityRes
  * @see {@link VerifyEmailIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example VerifyEmailIdentity
+ * ```javascript
+ * // The following example starts the email address verification process with Amazon SES:
+ * const input = {
+ *   "EmailAddress": "user@example.com"
+ * };
+ * const command = new VerifyEmailIdentityCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class VerifyEmailIdentityCommand extends $Command<
   VerifyEmailIdentityCommandInput,

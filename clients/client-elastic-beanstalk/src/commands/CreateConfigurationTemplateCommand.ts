@@ -73,6 +73,28 @@ export interface CreateConfigurationTemplateCommandOutput extends ConfigurationS
  * @see {@link CreateConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
+ * @example To create a configuration template
+ * ```javascript
+ * // The following operation creates a configuration template named my-app-v1 from the settings applied to an environment with the id e-rpqsewtp2j:
+ * const input = {
+ *   "ApplicationName": "my-app",
+ *   "EnvironmentId": "e-rpqsewtp2j",
+ *   "TemplateName": "my-app-v1"
+ * };
+ * const command = new CreateConfigurationTemplateCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationName": "my-app",
+ *   "DateCreated": "2015-08-12T18:40:39Z",
+ *   "DateUpdated": "2015-08-12T18:40:39Z",
+ *   "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+ *   "TemplateName": "my-app-v1"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateConfigurationTemplateCommand extends $Command<
   CreateConfigurationTemplateCommandInput,

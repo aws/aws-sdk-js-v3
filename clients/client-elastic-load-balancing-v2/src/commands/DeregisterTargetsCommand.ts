@@ -55,6 +55,22 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * @see {@link DeregisterTargetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ *
+ * @example To deregister a target from a target group
+ * ```javascript
+ * // This example deregisters the specified instance from the specified target group.
+ * const input = {
+ *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *   "Targets": [
+ *     {
+ *       "Id": "i-0f76fade"
+ *     }
+ *   ]
+ * };
+ * const command = new DeregisterTargetsCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeregisterTargetsCommand extends $Command<
   DeregisterTargetsCommandInput,

@@ -160,6 +160,29 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * @see {@link HeadObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To retrieve metadata of an object without returning the object itself
+ * ```javascript
+ * // The following example retrieves an object metadata.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new HeadObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AcceptRanges": "bytes",
+ *   "ContentLength": "3191",
+ *   "ContentType": "image/jpeg",
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "LastModified": "Thu, 15 Dec 2016 01:19:41 GMT",
+ *   "Metadata": {},
+ *   "VersionId": "null"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class HeadObjectCommand extends $Command<
   HeadObjectCommandInput,

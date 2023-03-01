@@ -51,6 +51,17 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  * @see {@link DescribeDBParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To list information about DB parameter groups
+ * ```javascript
+ * // This example lists information about the specified DB parameter group.
+ * const input = {
+ *   "DBParameterGroupName": "mymysqlparametergroup"
+ * };
+ * const command = new DescribeDBParameterGroupsCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DescribeDBParameterGroupsCommand extends $Command<
   DescribeDBParameterGroupsCommandInput,

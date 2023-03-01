@@ -76,6 +76,37 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ *
+ * @example UpdateService Example
+ * ```javascript
+ * // This example submits a request to replace the DnsConfig and HealthCheckConfig settings of a specified service.
+ * const input = {
+ *   "Id": "srv-e4anhexample0004",
+ *   "Service": {
+ *     "DnsConfig": {
+ *       "DnsRecords": [
+ *         {
+ *           "TTL": 60,
+ *           "Type": "A"
+ *         }
+ *       ]
+ *     },
+ *     "HealthCheckConfig": {
+ *       "FailureThreshold": 2,
+ *       "ResourcePath": "/",
+ *       "Type": "HTTP"
+ *     }
+ *   }
+ * };
+ * const command = new UpdateServiceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OperationId": "m35hsdrkxwjffm3xef4bxyy6vc3ewakx-jdn3y5g5"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateServiceCommand extends $Command<
   UpdateServiceCommandInput,

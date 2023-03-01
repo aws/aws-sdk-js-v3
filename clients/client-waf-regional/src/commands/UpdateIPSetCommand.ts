@@ -123,6 +123,32 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * @see {@link UpdateIPSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ *
+ * @example To update an IP set
+ * ```javascript
+ * // The following example deletes an IPSetDescriptor object in an IP match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
+ * const input = {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "IPSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *   "Updates": [
+ *     {
+ *       "Action": "DELETE",
+ *       "IPSetDescriptor": {
+ *         "Type": "IPV4",
+ *         "Value": "192.0.2.44/32"
+ *       }
+ *     }
+ *   ]
+ * };
+ * const command = new UpdateIPSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateIPSetCommand extends $Command<
   UpdateIPSetCommandInput,

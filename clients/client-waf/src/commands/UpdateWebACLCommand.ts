@@ -129,6 +129,38 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * @see {@link UpdateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
+ *
+ * @example To update a Web ACL
+ * ```javascript
+ * // The following example deletes an ActivatedRule object in a WebACL with the ID webacl-1472061481310.
+ * const input = {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "DefaultAction": {
+ *     "Type": "ALLOW"
+ *   },
+ *   "Updates": [
+ *     {
+ *       "Action": "DELETE",
+ *       "ActivatedRule": {
+ *         "Action": {
+ *           "Type": "ALLOW"
+ *         },
+ *         "Priority": 1,
+ *         "RuleId": "WAFRule-1-Example"
+ *       }
+ *     }
+ *   ],
+ *   "WebACLId": "webacl-1472061481310"
+ * };
+ * const command = new UpdateWebACLCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateWebACLCommand extends $Command<
   UpdateWebACLCommandInput,

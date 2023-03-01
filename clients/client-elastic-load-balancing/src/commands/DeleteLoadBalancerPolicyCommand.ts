@@ -54,6 +54,18 @@ export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalance
  * @see {@link DeleteLoadBalancerPolicyCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ *
+ * @example To delete a policy from your load balancer
+ * ```javascript
+ * // This example deletes the specified policy from the specified load balancer. The policy must not be enabled on any listener.
+ * const input = {
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "PolicyName": "my-duration-cookie-policy"
+ * };
+ * const command = new DeleteLoadBalancerPolicyCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteLoadBalancerPolicyCommand extends $Command<
   DeleteLoadBalancerPolicyCommandInput,

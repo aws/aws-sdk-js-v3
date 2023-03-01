@@ -59,6 +59,22 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  * @see {@link DescribeDBSnapshotAttributesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To list DB snapshot attributes
+ * ```javascript
+ * // This example lists attributes for the specified DB snapshot.
+ * const input = {
+ *   "DBSnapshotIdentifier": "mydbsnapshot"
+ * };
+ * const command = new DescribeDBSnapshotAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSnapshotAttributesResult": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeDBSnapshotAttributesCommand extends $Command<
   DescribeDBSnapshotAttributesCommandInput,

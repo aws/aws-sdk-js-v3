@@ -49,6 +49,20 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  * @see {@link GetAccountSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example GetAccountSendingEnabled
+ * ```javascript
+ * // The following example returns if sending status for an account is enabled. (true / false):
+ * const input = undefined;
+ * const command = new GetAccountSendingEnabledCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Enabled": true
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetAccountSendingEnabledCommand extends $Command<
   GetAccountSendingEnabledCommandInput,

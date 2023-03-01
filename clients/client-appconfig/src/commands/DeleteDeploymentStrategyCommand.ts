@@ -46,6 +46,17 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  * @see {@link DeleteDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ *
+ * @example To delete a deployment strategy
+ * ```javascript
+ * // The following delete-deployment-strategy example deletes the specified deployment strategy.
+ * const input = {
+ *   "DeploymentStrategyId": "1225qzk"
+ * };
+ * const command = new DeleteDeploymentStrategyCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteDeploymentStrategyCommand extends $Command<
   DeleteDeploymentStrategyCommandInput,

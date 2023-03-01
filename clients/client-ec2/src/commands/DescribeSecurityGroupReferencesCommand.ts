@@ -52,6 +52,30 @@ export interface DescribeSecurityGroupReferencesCommandOutput
  * @see {@link DescribeSecurityGroupReferencesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To describe security group references
+ * ```javascript
+ * // This example describes the security group references for the specified security group.
+ * const input = {
+ *   "GroupId": [
+ *     "sg-903004f8"
+ *   ]
+ * };
+ * const command = new DescribeSecurityGroupReferencesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SecurityGroupReferenceSet": [
+ *     {
+ *       "GroupId": "sg-903004f8",
+ *       "ReferencingVpcId": "vpc-1a2b3c4d",
+ *       "VpcPeeringConnectionId": "pcx-b04deed9"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeSecurityGroupReferencesCommand extends $Command<
   DescribeSecurityGroupReferencesCommandInput,

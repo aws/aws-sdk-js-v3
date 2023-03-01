@@ -52,6 +52,95 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  * @see {@link DescribeNetworkInterfaceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To describe the attachment attribute of a network interface
+ * ```javascript
+ * // This example describes the attachment attribute of the specified network interface.
+ * const input = {
+ *   "Attribute": "attachment",
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * };
+ * const command = new DescribeNetworkInterfaceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Attachment": {
+ *     "AttachTime": "2015-05-21T20:02:20.000Z",
+ *     "AttachmentId": "eni-attach-43348162",
+ *     "DeleteOnTermination": true,
+ *     "DeviceIndex": 0,
+ *     "InstanceId": "i-1234567890abcdef0",
+ *     "InstanceOwnerId": "123456789012",
+ *     "Status": "attached"
+ *   },
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To describe the description attribute of a network interface
+ * ```javascript
+ * // This example describes the description attribute of the specified network interface.
+ * const input = {
+ *   "Attribute": "description",
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * };
+ * const command = new DescribeNetworkInterfaceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Description": {
+ *     "Value": "My description"
+ *   },
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To describe the groupSet attribute of a network interface
+ * ```javascript
+ * // This example describes the groupSet attribute of the specified network interface.
+ * const input = {
+ *   "Attribute": "groupSet",
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * };
+ * const command = new DescribeNetworkInterfaceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Groups": [
+ *     {
+ *       "GroupId": "sg-903004f8",
+ *       "GroupName": "my-security-group"
+ *     }
+ *   ],
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To describe the sourceDestCheck attribute of a network interface
+ * ```javascript
+ * // This example describes the sourceDestCheck attribute of the specified network interface.
+ * const input = {
+ *   "Attribute": "sourceDestCheck",
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * };
+ * const command = new DescribeNetworkInterfaceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NetworkInterfaceId": "eni-686ea200",
+ *   "SourceDestCheck": {
+ *     "Value": true
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeNetworkInterfaceAttributeCommand extends $Command<
   DescribeNetworkInterfaceAttributeCommandInput,

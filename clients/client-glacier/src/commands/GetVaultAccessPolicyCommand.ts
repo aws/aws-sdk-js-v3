@@ -55,6 +55,25 @@ export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyO
  * @see {@link GetVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ *
+ * @example To  get the access-policy set on the vault
+ * ```javascript
+ * // The example retrieves the access-policy set on the vault named example-vault.
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "example-vault"
+ * };
+ * const command = new GetVaultAccessPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "policy": {
+ *     "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Define-owner-access-rights\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::999999999999:root\"},\"Action\":\"glacier:DeleteArchive\",\"Resource\":\"arn:aws:glacier:us-west-2:999999999999:vaults/examplevault\"}]}"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetVaultAccessPolicyCommand extends $Command<
   GetVaultAccessPolicyCommandInput,

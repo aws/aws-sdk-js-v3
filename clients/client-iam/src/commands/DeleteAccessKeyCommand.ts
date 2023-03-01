@@ -49,6 +49,18 @@ export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To delete an access key for an IAM user
+ * ```javascript
+ * // The following command deletes one access key (access key ID and secret access key) assigned to the IAM user named Bob.
+ * const input = {
+ *   "AccessKeyId": "AKIDPMS9RO4H3FEXAMPLE",
+ *   "UserName": "Bob"
+ * };
+ * const command = new DeleteAccessKeyCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteAccessKeyCommand extends $Command<
   DeleteAccessKeyCommandInput,

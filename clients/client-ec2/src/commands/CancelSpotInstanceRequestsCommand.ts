@@ -54,6 +54,29 @@ export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInsta
  * @see {@link CancelSpotInstanceRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To cancel Spot Instance requests
+ * ```javascript
+ * // This example cancels a Spot Instance request.
+ * const input = {
+ *   "SpotInstanceRequestIds": [
+ *     "sir-08b93456"
+ *   ]
+ * };
+ * const command = new CancelSpotInstanceRequestsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CancelledSpotInstanceRequests": [
+ *     {
+ *       "SpotInstanceRequestId": "sir-08b93456",
+ *       "State": "cancelled"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CancelSpotInstanceRequestsCommand extends $Command<
   CancelSpotInstanceRequestsCommandInput,

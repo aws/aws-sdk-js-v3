@@ -62,6 +62,24 @@ export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, _
  * @see {@link GetConsoleOutputCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To get the console output
+ * ```javascript
+ * // This example gets the console output for the specified instance.
+ * const input = {
+ *   "InstanceId": "i-1234567890abcdef0"
+ * };
+ * const command = new GetConsoleOutputCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InstanceId": "i-1234567890abcdef0",
+ *   "Output": "...",
+ *   "Timestamp": "2018-05-25T21:23:53.000Z"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetConsoleOutputCommand extends $Command<
   GetConsoleOutputCommandInput,

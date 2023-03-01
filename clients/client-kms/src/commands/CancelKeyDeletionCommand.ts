@@ -62,6 +62,22 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  * @see {@link CancelKeyDeletionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ *
+ * @example To cancel deletion of a KMS key
+ * ```javascript
+ * // The following example cancels deletion of the specified KMS key.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new CancelKeyDeletionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CancelKeyDeletionCommand extends $Command<
   CancelKeyDeletionCommandInput,

@@ -58,6 +58,51 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  * @see {@link CreateLaunchTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To create a launch template version
+ * ```javascript
+ * // This example creates a new launch template version based on version 1 of the specified launch template and specifies a different AMI ID.
+ * const input = {
+ *   "LaunchTemplateData": {
+ *     "ImageId": "ami-c998b6b2"
+ *   },
+ *   "LaunchTemplateId": "lt-0abcd290751193123",
+ *   "SourceVersion": "1",
+ *   "VersionDescription": "WebVersion2"
+ * };
+ * const command = new CreateLaunchTemplateVersionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LaunchTemplateVersion": {
+ *     "CreateTime": "2017-12-01T13:35:46.000Z",
+ *     "CreatedBy": "arn:aws:iam::123456789012:root",
+ *     "DefaultVersion": false,
+ *     "LaunchTemplateData": {
+ *       "ImageId": "ami-c998b6b2",
+ *       "InstanceType": "t2.micro",
+ *       "NetworkInterfaces": [
+ *         {
+ *           "AssociatePublicIpAddress": true,
+ *           "DeviceIndex": 0,
+ *           "Ipv6Addresses": [
+ *             {
+ *               "Ipv6Address": "2001:db8:1234:1a00::123"
+ *             }
+ *           ],
+ *           "SubnetId": "subnet-7b16de0c"
+ *         }
+ *       ]
+ *     },
+ *     "LaunchTemplateId": "lt-0abcd290751193123",
+ *     "LaunchTemplateName": "my-template",
+ *     "VersionDescription": "WebVersion2",
+ *     "VersionNumber": 2
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateLaunchTemplateVersionCommand extends $Command<
   CreateLaunchTemplateVersionCommandInput,

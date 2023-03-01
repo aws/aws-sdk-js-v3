@@ -50,6 +50,48 @@ export interface ListDevicePoolsCommandOutput extends ListDevicePoolsResult, __M
  * @see {@link ListDevicePoolsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ *
+ * @example To get information about device pools
+ * ```javascript
+ * // The following example returns information about the private device pools in a specific project.
+ * const input = {
+ *   "type": "PRIVATE",
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
+ * };
+ * const command = new ListDevicePoolsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "devicePools": [
+ *     {
+ *       "name": "Top Devices",
+ *       "arn": "arn:aws:devicefarm:us-west-2::devicepool:082d10e5-d7d7-48a5-ba5c-12345EXAMPLE",
+ *       "description": "Top devices",
+ *       "rules": [
+ *         {
+ *           "value": "[\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\"]",
+ *           "attribute": "ARN",
+ *           "operator": "IN"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "name": "My Android Device Pool",
+ *       "arn": "arn:aws:devicefarm:us-west-2:123456789101:devicepool:5e01a8c7-c861-4c0a-b1d5-5ec6e6c6dd23/bf96e75a-28f6-4e61-b6a7-12345EXAMPLE",
+ *       "description": "Samsung Galaxy Android devices",
+ *       "rules": [
+ *         {
+ *           "value": "[\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\"]",
+ *           "attribute": "ARN",
+ *           "operator": "IN"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListDevicePoolsCommand extends $Command<
   ListDevicePoolsCommandInput,

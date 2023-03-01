@@ -180,6 +180,26 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * @see {@link UploadPartCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To upload a part
+ * ```javascript
+ * // The following example uploads part 1 of a multipart upload. The example specifies a file name for the part data. The Upload ID is same that is returned by the initiate multipart upload.
+ * const input = {
+ *   "Body": "fileToUpload",
+ *   "Bucket": "examplebucket",
+ *   "Key": "examplelargeobject",
+ *   "PartNumber": "1",
+ *   "UploadId": "xadcOB_7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
+ * };
+ * const command = new UploadPartCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\""
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UploadPartCommand extends $Command<
   UploadPartCommandInput,

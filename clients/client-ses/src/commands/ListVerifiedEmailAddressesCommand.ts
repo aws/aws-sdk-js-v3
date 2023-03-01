@@ -49,6 +49,23 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  * @see {@link ListVerifiedEmailAddressesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example ListVerifiedEmailAddresses
+ * ```javascript
+ * // The following example lists all email addresses that have been submitted for verification with Amazon SES:
+ * const input = undefined;
+ * const command = new ListVerifiedEmailAddressesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VerifiedEmailAddresses": [
+ *     "user1@example.com",
+ *     "user2@example.com"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListVerifiedEmailAddressesCommand extends $Command<
   ListVerifiedEmailAddressesCommandInput,

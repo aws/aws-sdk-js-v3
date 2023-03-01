@@ -83,6 +83,36 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  * @see {@link ListResourceTagsCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ *
+ * @example To list tags for a KMS key
+ * ```javascript
+ * // The following example lists tags for a KMS key.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new ListResourceTagsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Tags": [
+ *     {
+ *       "TagKey": "CostCenter",
+ *       "TagValue": "87654"
+ *     },
+ *     {
+ *       "TagKey": "CreatedBy",
+ *       "TagValue": "ExampleUser"
+ *     },
+ *     {
+ *       "TagKey": "Purpose",
+ *       "TagValue": "Test"
+ *     }
+ *   ],
+ *   "Truncated": false
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListResourceTagsCommand extends $Command<
   ListResourceTagsCommandInput,

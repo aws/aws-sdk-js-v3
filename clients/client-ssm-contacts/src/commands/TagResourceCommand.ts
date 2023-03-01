@@ -51,6 +51,23 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
+ *
+ * @example To tag a contact
+ * ```javascript
+ * // The following tag-resource example tags a specified contact with the provided tag key value pair.
+ * const input = {
+ *   "ResourceARN": "arn:aws:ssm-contacts:us-east-1:111122223333:contact/akuam",
+ *   "Tags": [
+ *     {
+ *       "Key": "group1",
+ *       "Value": "1"
+ *     }
+ *   ]
+ * };
+ * const command = new TagResourceCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

@@ -89,6 +89,29 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  * @see {@link CreateConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ *
+ * @example To create a configuration profile
+ * ```javascript
+ * // The following create-configuration-profile example creates a configuration profile using a configuration stored in Parameter Store, a capability of Systems Manager.
+ * const input = {
+ *   "ApplicationId": "339ohji",
+ *   "LocationUri": "ssm-parameter://Example-Parameter",
+ *   "Name": "Example-Configuration-Profile",
+ *   "RetrievalRoleArn": "arn:aws:iam::111122223333:role/Example-App-Config-Role"
+ * };
+ * const command = new CreateConfigurationProfileCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationId": "339ohji",
+ *   "Id": "ur8hx2f",
+ *   "LocationUri": "ssm-parameter://Example-Parameter",
+ *   "Name": "Example-Configuration-Profile",
+ *   "RetrievalRoleArn": "arn:aws:iam::111122223333:role/Example-App-Config-Role"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateConfigurationProfileCommand extends $Command<
   CreateConfigurationProfileCommandInput,

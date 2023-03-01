@@ -58,6 +58,18 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
  * @see {@link UpdateAccountPasswordPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To set or change the current account password policy
+ * ```javascript
+ * // The following command sets the password policy to require a minimum length of eight characters and to require one or more numbers in the password:
+ * const input = {
+ *   "MinimumPasswordLength": 8,
+ *   "RequireNumbers": true
+ * };
+ * const command = new UpdateAccountPasswordPolicyCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class UpdateAccountPasswordPolicyCommand extends $Command<
   UpdateAccountPasswordPolicyCommandInput,

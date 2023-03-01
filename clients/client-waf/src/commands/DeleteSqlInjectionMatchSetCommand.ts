@@ -74,6 +74,23 @@ export interface DeleteSqlInjectionMatchSetCommandOutput extends DeleteSqlInject
  * @see {@link DeleteSqlInjectionMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
+ *
+ * @example To delete a SQL injection match set
+ * ```javascript
+ * // The following example deletes a SQL injection match set  with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
+ * const input = {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "SqlInjectionMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ * };
+ * const command = new DeleteSqlInjectionMatchSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DeleteSqlInjectionMatchSetCommand extends $Command<
   DeleteSqlInjectionMatchSetCommandInput,

@@ -73,6 +73,23 @@ export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetRespo
  * @see {@link DeleteByteMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ *
+ * @example To delete a byte match set
+ * ```javascript
+ * // The following example deletes a byte match set with the ID exampleIDs3t-46da-4fdb-b8d5-abc321j569j5.
+ * const input = {
+ *   "ByteMatchSetId": "exampleIDs3t-46da-4fdb-b8d5-abc321j569j5",
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ * };
+ * const command = new DeleteByteMatchSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DeleteByteMatchSetCommand extends $Command<
   DeleteByteMatchSetCommandInput,

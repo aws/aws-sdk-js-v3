@@ -63,6 +63,30 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  * @see {@link CreateCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To create a customer gateway
+ * ```javascript
+ * // This example creates a customer gateway with the specified IP address for its outside interface.
+ * const input = {
+ *   "BgpAsn": 65534,
+ *   "PublicIp": "12.1.2.3",
+ *   "Type": "ipsec.1"
+ * };
+ * const command = new CreateCustomerGatewayCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CustomerGateway": {
+ *     "BgpAsn": "65534",
+ *     "CustomerGatewayId": "cgw-0e11f167",
+ *     "IpAddress": "12.1.2.3",
+ *     "State": "available",
+ *     "Type": "ipsec.1"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateCustomerGatewayCommand extends $Command<
   CreateCustomerGatewayCommandInput,

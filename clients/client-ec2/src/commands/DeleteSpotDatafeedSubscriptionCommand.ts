@@ -48,6 +48,15 @@ export interface DeleteSpotDatafeedSubscriptionCommandOutput extends __MetadataB
  * @see {@link DeleteSpotDatafeedSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To cancel a Spot Instance data feed subscription
+ * ```javascript
+ * // This example deletes a Spot data feed subscription for the account.
+ * const input = undefined;
+ * const command = new DeleteSpotDatafeedSubscriptionCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteSpotDatafeedSubscriptionCommand extends $Command<
   DeleteSpotDatafeedSubscriptionCommandInput,

@@ -52,6 +52,27 @@ export interface PutAccountSettingDefaultCommandOutput extends PutAccountSetting
  * @see {@link PutAccountSettingDefaultCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ *
+ * @example To modify the default account settings for all IAM users or roles on an account
+ * ```javascript
+ * // This example modifies the default account setting for the specified resource for all IAM users or roles on an account. These changes apply to the entire AWS account, unless an IAM user or role explicitly overrides these settings for themselves.
+ * const input = {
+ *   "name": "serviceLongArnFormat",
+ *   "value": "enabled"
+ * };
+ * const command = new PutAccountSettingDefaultCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "setting": {
+ *     "name": "serviceLongArnFormat",
+ *     "value": "enabled",
+ *     "principalArn": "arn:aws:iam::<aws_account_id>:root"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class PutAccountSettingDefaultCommand extends $Command<
   PutAccountSettingDefaultCommandInput,

@@ -54,6 +54,53 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
  * @see {@link DescribeReportDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
  *
+ *
+ * @example To list the AWS Cost and Usage reports for the account.
+ * ```javascript
+ * // The following example lists the AWS Cost and Usage reports for the account.
+ * const input = {
+ *   "MaxResults": 5
+ * };
+ * const command = new DescribeReportDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReportDefinitions": [
+ *     {
+ *       "AdditionalArtifacts": [
+ *         "QUICKSIGHT"
+ *       ],
+ *       "AdditionalSchemaElements": [
+ *         "RESOURCES"
+ *       ],
+ *       "Compression": "GZIP",
+ *       "Format": "textORcsv",
+ *       "ReportName": "ExampleReport",
+ *       "S3Bucket": "example-s3-bucket",
+ *       "S3Prefix": "exampleprefix",
+ *       "S3Region": "us-east-1",
+ *       "TimeUnit": "HOURLY"
+ *     },
+ *     {
+ *       "AdditionalArtifacts": [
+ *         "QUICKSIGHT"
+ *       ],
+ *       "AdditionalSchemaElements": [
+ *         "RESOURCES"
+ *       ],
+ *       "Compression": "GZIP",
+ *       "Format": "textORcsv",
+ *       "ReportName": "ExampleReport2",
+ *       "S3Bucket": "example-s3-bucket",
+ *       "S3Prefix": "exampleprefix",
+ *       "S3Region": "us-east-1",
+ *       "TimeUnit": "HOURLY"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeReportDefinitionsCommand extends $Command<
   DescribeReportDefinitionsCommandInput,

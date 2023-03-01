@@ -55,6 +55,28 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  * @see {@link CreateLoginProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To create an instance profile
+ * ```javascript
+ * // The following command changes IAM user Bob's password and sets the flag that required Bob to change the password the next time he signs in.
+ * const input = {
+ *   "Password": "h]6EszR}vJ*m",
+ *   "PasswordResetRequired": true,
+ *   "UserName": "Bob"
+ * };
+ * const command = new CreateLoginProfileCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LoginProfile": {
+ *     "CreateDate": "2015-03-10T20:55:40.274Z",
+ *     "PasswordResetRequired": true,
+ *     "UserName": "Bob"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateLoginProfileCommand extends $Command<
   CreateLoginProfileCommandInput,

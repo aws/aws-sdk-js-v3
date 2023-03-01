@@ -69,6 +69,44 @@ export interface PutSlotTypeCommandOutput extends PutSlotTypeResponse, __Metadat
  * @see {@link PutSlotTypeCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
+ *
+ * @example To Create a Slot Type
+ * ```javascript
+ * // This example shows how to create a slot type that describes pizza sauces.
+ * const input = {
+ *   "name": "PizzaSauceType",
+ *   "description": "Available pizza sauces",
+ *   "enumerationValues": [
+ *     {
+ *       "value": "red"
+ *     },
+ *     {
+ *       "value": "white"
+ *     }
+ *   ]
+ * };
+ * const command = new PutSlotTypeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "version": "$LATEST",
+ *   "name": "DocPizzaSauceType",
+ *   "checksum": "cfd00ed1-775d-4357-947c-aca7e73b44ba",
+ *   "createdDate": 1494356442.23,
+ *   "description": "Available pizza sauces",
+ *   "enumerationValues": [
+ *     {
+ *       "value": "red"
+ *     },
+ *     {
+ *       "value": "white"
+ *     }
+ *   ],
+ *   "lastUpdatedDate": 1494356442.23
+ * }
+ * *\/
+ * ```
+ *
  */
 export class PutSlotTypeCommand extends $Command<
   PutSlotTypeCommandInput,

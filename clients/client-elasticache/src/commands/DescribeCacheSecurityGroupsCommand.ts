@@ -53,6 +53,17 @@ export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityG
  * @see {@link DescribeCacheSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ *
+ * @example DescribeCacheSecurityGroups
+ * ```javascript
+ * // Returns a list of cache security group descriptions. If a cache security group name is specified, the list contains only the description of that group.
+ * const input = {
+ *   "CacheSecurityGroupName": "my-sec-group"
+ * };
+ * const command = new DescribeCacheSecurityGroupsCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DescribeCacheSecurityGroupsCommand extends $Command<
   DescribeCacheSecurityGroupsCommandInput,

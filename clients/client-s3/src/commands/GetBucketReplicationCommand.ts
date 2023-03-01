@@ -79,6 +79,34 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  * @see {@link GetBucketReplicationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To get replication configuration set on a bucket
+ * ```javascript
+ * // The following example returns replication configuration set on a bucket.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new GetBucketReplicationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReplicationConfiguration": {
+ *     "Role": "arn:aws:iam::acct-id:role/example-role",
+ *     "Rules": [
+ *       {
+ *         "Destination": {
+ *           "Bucket": "arn:aws:s3:::destination-bucket"
+ *         },
+ *         "ID": "MWIwNTkwZmItMTE3MS00ZTc3LWJkZDEtNzRmODQwYzc1OTQy",
+ *         "Prefix": "Tax",
+ *         "Status": "Enabled"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetBucketReplicationCommand extends $Command<
   GetBucketReplicationCommandInput,

@@ -73,6 +73,31 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To create an event notification subscription
+ * ```javascript
+ * // This example creates an event notification subscription.
+ * const input = {
+ *   "Enabled": true,
+ *   "EventCategories": [
+ *     "availability"
+ *   ],
+ *   "SnsTopicArn": "arn:aws:sns:us-east-1:992648334831:MyDemoSNSTopic",
+ *   "SourceIds": [
+ *     "mymysqlinstance"
+ *   ],
+ *   "SourceType": "db-instance",
+ *   "SubscriptionName": "mymysqleventsubscription"
+ * };
+ * const command = new CreateEventSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EventSubscription": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateEventSubscriptionCommand extends $Command<
   CreateEventSubscriptionCommandInput,

@@ -54,6 +54,31 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  * @see {@link GetOperationCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ *
+ * @example Example: Get operation result
+ * ```javascript
+ * // Example: Get operation result
+ * const input = {
+ *   "OperationId": "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9302yzd"
+ * };
+ * const command = new GetOperationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Operation": {
+ *     "CreateDate": 1587055860.121,
+ *     "Id": "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9302yzd",
+ *     "Status": "SUCCESS",
+ *     "Targets": {
+ *       "NAMESPACE": "ns-ylexjili4cdxy3xm"
+ *     },
+ *     "Type": "CREATE_NAMESPACE",
+ *     "UpdateDate": 1587055900.469
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetOperationCommand extends $Command<
   GetOperationCommandInput,

@@ -50,6 +50,18 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * @see {@link ListArtifactsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ *
+ * @example To list artifacts for a resource
+ * ```javascript
+ * // The following example lists screenshot artifacts for a specific run.
+ * const input = {
+ *   "type": "SCREENSHOT",
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:run:EXAMPLE-GUID-123-456"
+ * };
+ * const command = new ListArtifactsCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class ListArtifactsCommand extends $Command<
   ListArtifactsCommandInput,

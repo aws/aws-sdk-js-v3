@@ -50,6 +50,29 @@ export interface ListConfigurationProfilesCommandOutput extends ConfigurationPro
  * @see {@link ListConfigurationProfilesCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ *
+ * @example To list the available configuration profiles
+ * ```javascript
+ * // The following list-configuration-profiles example lists the available configuration profiles for the specified application.
+ * const input = {
+ *   "ApplicationId": "339ohji"
+ * };
+ * const command = new ListConfigurationProfilesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Items": [
+ *     {
+ *       "ApplicationId": "339ohji",
+ *       "Id": "ur8hx2f",
+ *       "LocationUri": "ssm-parameter://Example-Parameter",
+ *       "Name": "Example-Configuration-Profile"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListConfigurationProfilesCommand extends $Command<
   ListConfigurationProfilesCommandInput,

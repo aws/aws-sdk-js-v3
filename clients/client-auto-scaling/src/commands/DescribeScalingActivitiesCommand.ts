@@ -58,6 +58,34 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
  * @see {@link DescribeScalingActivitiesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To describe the scaling activities for an Auto Scaling group
+ * ```javascript
+ * // This example describes the scaling activities for the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group"
+ * };
+ * const command = new DescribeScalingActivitiesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Activities": [
+ *     {
+ *       "ActivityId": "f9f2d65b-f1f2-43e7-b46d-d86756459699",
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "Cause": "At 2013-08-19T20:53:25Z a user request created an AutoScalingGroup changing the desired capacity from 0 to 1.  At 2013-08-19T20:53:29Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 0 to 1.",
+ *       "Description": "Launching a new EC2 instance: i-4ba0837f",
+ *       "Details": "details",
+ *       "EndTime": "2013-08-19T20:54:02Z",
+ *       "Progress": 100,
+ *       "StartTime": "2013-08-19T20:53:29.930Z",
+ *       "StatusCode": "Successful"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeScalingActivitiesCommand extends $Command<
   DescribeScalingActivitiesCommandInput,

@@ -88,6 +88,19 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  * @see {@link AbortMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To abort a multipart upload
+ * ```javascript
+ * // The following example aborts a multipart upload.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "bigobject",
+ *   "UploadId": "xadcOB_7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
+ * };
+ * const command = new AbortMultipartUploadCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class AbortMultipartUploadCommand extends $Command<
   AbortMultipartUploadCommandInput,

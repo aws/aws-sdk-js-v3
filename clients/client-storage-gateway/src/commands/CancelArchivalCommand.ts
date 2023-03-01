@@ -51,6 +51,23 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  * @see {@link CancelArchivalCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To cancel virtual tape archiving
+ * ```javascript
+ * // Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
+ * };
+ * const command = new CancelArchivalCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CancelArchivalCommand extends $Command<
   CancelArchivalCommandInput,

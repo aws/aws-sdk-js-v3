@@ -104,6 +104,44 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * @see {@link RunInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To launch an instance
+ * ```javascript
+ * // This example launches an instance using the specified AMI, instance type, security group, subnet, block device mapping, and tags.
+ * const input = {
+ *   "BlockDeviceMappings": [
+ *     {
+ *       "DeviceName": "/dev/sdh",
+ *       "Ebs": {
+ *         "VolumeSize": 100
+ *       }
+ *     }
+ *   ],
+ *   "ImageId": "ami-abc12345",
+ *   "InstanceType": "t2.micro",
+ *   "KeyName": "my-key-pair",
+ *   "MaxCount": 1,
+ *   "MinCount": 1,
+ *   "SecurityGroupIds": [
+ *     "sg-1a2b3c4d"
+ *   ],
+ *   "SubnetId": "subnet-6e7f829e",
+ *   "TagSpecifications": [
+ *     {
+ *       "ResourceType": "instance",
+ *       "Tags": [
+ *         {
+ *           "Key": "Purpose",
+ *           "Value": "test"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new RunInstancesCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class RunInstancesCommand extends $Command<
   RunInstancesCommandInput,

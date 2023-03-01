@@ -77,6 +77,43 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  * @see {@link CreateTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ *
+ * @example To create a target group
+ * ```javascript
+ * // This example creates a target group that you can use to route traffic to targets using HTTP on port 80. This target group uses the default health check configuration.
+ * const input = {
+ *   "Name": "my-targets",
+ *   "Port": 80,
+ *   "Protocol": "HTTP",
+ *   "VpcId": "vpc-3ac0fb5f"
+ * };
+ * const command = new CreateTargetGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TargetGroups": [
+ *     {
+ *       "HealthCheckIntervalSeconds": 30,
+ *       "HealthCheckPath": "/",
+ *       "HealthCheckPort": "traffic-port",
+ *       "HealthCheckProtocol": "HTTP",
+ *       "HealthCheckTimeoutSeconds": 5,
+ *       "HealthyThresholdCount": 5,
+ *       "Matcher": {
+ *         "HttpCode": "200"
+ *       },
+ *       "Port": 80,
+ *       "Protocol": "HTTP",
+ *       "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *       "TargetGroupName": "my-targets",
+ *       "UnhealthyThresholdCount": 2,
+ *       "VpcId": "vpc-3ac0fb5f"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateTargetGroupCommand extends $Command<
   CreateTargetGroupCommandInput,

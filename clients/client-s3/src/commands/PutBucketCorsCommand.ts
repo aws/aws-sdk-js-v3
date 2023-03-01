@@ -101,6 +101,51 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketCorsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To set cors configuration on a bucket.
+ * ```javascript
+ * // The following example enables PUT, POST, and DELETE requests from www.example.com, and enables GET requests from any domain.
+ * const input = {
+ *   "Bucket": "",
+ *   "CORSConfiguration": {
+ *     "CORSRules": [
+ *       {
+ *         "AllowedHeaders": [
+ *           "*"
+ *         ],
+ *         "AllowedMethods": [
+ *           "PUT",
+ *           "POST",
+ *           "DELETE"
+ *         ],
+ *         "AllowedOrigins": [
+ *           "http://www.example.com"
+ *         ],
+ *         "ExposeHeaders": [
+ *           "x-amz-server-side-encryption"
+ *         ],
+ *         "MaxAgeSeconds": 3000
+ *       },
+ *       {
+ *         "AllowedHeaders": [
+ *           "Authorization"
+ *         ],
+ *         "AllowedMethods": [
+ *           "GET"
+ *         ],
+ *         "AllowedOrigins": [
+ *           "*"
+ *         ],
+ *         "MaxAgeSeconds": 3000
+ *       }
+ *     ]
+ *   },
+ *   "ContentMD5": ""
+ * };
+ * const command = new PutBucketCorsCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class PutBucketCorsCommand extends $Command<
   PutBucketCorsCommandInput,

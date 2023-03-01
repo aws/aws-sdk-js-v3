@@ -105,6 +105,34 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  * @see {@link GetBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To get lifecycle configuration on a bucket
+ * ```javascript
+ * // The following example retrieves lifecycle configuration on set on a bucket.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new GetBucketLifecycleConfigurationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Rules": [
+ *     {
+ *       "ID": "Rule for TaxDocs/",
+ *       "Prefix": "TaxDocs",
+ *       "Status": "Enabled",
+ *       "Transitions": [
+ *         {
+ *           "Days": 365,
+ *           "StorageClass": "STANDARD_IA"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetBucketLifecycleConfigurationCommand extends $Command<
   GetBucketLifecycleConfigurationCommandInput,

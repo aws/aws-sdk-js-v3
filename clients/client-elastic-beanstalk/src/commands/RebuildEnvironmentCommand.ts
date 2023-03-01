@@ -46,6 +46,17 @@ export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
  * @see {@link RebuildEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
+ * @example To rebuild an environment
+ * ```javascript
+ * // The following operation terminates and recreates the resources in an environment named my-env:
+ * const input = {
+ *   "EnvironmentName": "my-env"
+ * };
+ * const command = new RebuildEnvironmentCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class RebuildEnvironmentCommand extends $Command<
   RebuildEnvironmentCommandInput,

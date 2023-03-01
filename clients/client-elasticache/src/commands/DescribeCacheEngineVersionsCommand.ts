@@ -51,6 +51,181 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
  * @see {@link DescribeCacheEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ *
+ * @example DescribeCacheEngineVersions
+ * ```javascript
+ * // Lists the details for up to 25 Memcached and Redis cache engine versions.
+ * const input = {};
+ * const command = new DescribeCacheEngineVersionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CacheEngineVersions": [
+ *     {
+ *       "CacheEngineDescription": "memcached",
+ *       "CacheEngineVersionDescription": "memcached version 1.4.14",
+ *       "CacheParameterGroupFamily": "memcached1.4",
+ *       "Engine": "memcached",
+ *       "EngineVersion": "1.4.14"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "memcached",
+ *       "CacheEngineVersionDescription": "memcached version 1.4.24",
+ *       "CacheParameterGroupFamily": "memcached1.4",
+ *       "Engine": "memcached",
+ *       "EngineVersion": "1.4.24"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "memcached",
+ *       "CacheEngineVersionDescription": "memcached version 1.4.33",
+ *       "CacheParameterGroupFamily": "memcached1.4",
+ *       "Engine": "memcached",
+ *       "EngineVersion": "1.4.33"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "memcached",
+ *       "CacheEngineVersionDescription": "memcached version 1.4.5",
+ *       "CacheParameterGroupFamily": "memcached1.4",
+ *       "Engine": "memcached",
+ *       "EngineVersion": "1.4.5"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 2.6.13",
+ *       "CacheParameterGroupFamily": "redis2.6",
+ *       "Engine": "redis",
+ *       "EngineVersion": "2.6.13"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 2.8.19",
+ *       "CacheParameterGroupFamily": "redis2.8",
+ *       "Engine": "redis",
+ *       "EngineVersion": "2.8.19"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 2.8.21",
+ *       "CacheParameterGroupFamily": "redis2.8",
+ *       "Engine": "redis",
+ *       "EngineVersion": "2.8.21"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 2.8.22 R5",
+ *       "CacheParameterGroupFamily": "redis2.8",
+ *       "Engine": "redis",
+ *       "EngineVersion": "2.8.22"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 2.8.23 R4",
+ *       "CacheParameterGroupFamily": "redis2.8",
+ *       "Engine": "redis",
+ *       "EngineVersion": "2.8.23"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 2.8.24 R3",
+ *       "CacheParameterGroupFamily": "redis2.8",
+ *       "Engine": "redis",
+ *       "EngineVersion": "2.8.24"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 2.8.6",
+ *       "CacheParameterGroupFamily": "redis2.8",
+ *       "Engine": "redis",
+ *       "EngineVersion": "2.8.6"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 3.2.4",
+ *       "CacheParameterGroupFamily": "redis3.2",
+ *       "Engine": "redis",
+ *       "EngineVersion": "3.2.4"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example DescribeCacheEngineVersions
+ * ```javascript
+ * // Lists the details for up to 50 Redis cache engine versions.
+ * const input = {
+ *   "DefaultOnly": false,
+ *   "Engine": "redis",
+ *   "MaxRecords": 50
+ * };
+ * const command = new DescribeCacheEngineVersionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CacheEngineVersions": [
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 2.6.13",
+ *       "CacheParameterGroupFamily": "redis2.6",
+ *       "Engine": "redis",
+ *       "EngineVersion": "2.6.13"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 2.8.19",
+ *       "CacheParameterGroupFamily": "redis2.8",
+ *       "Engine": "redis",
+ *       "EngineVersion": "2.8.19"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 2.8.21",
+ *       "CacheParameterGroupFamily": "redis2.8",
+ *       "Engine": "redis",
+ *       "EngineVersion": "2.8.21"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 2.8.22 R5",
+ *       "CacheParameterGroupFamily": "redis2.8",
+ *       "Engine": "redis",
+ *       "EngineVersion": "2.8.22"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 2.8.23 R4",
+ *       "CacheParameterGroupFamily": "redis2.8",
+ *       "Engine": "redis",
+ *       "EngineVersion": "2.8.23"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 2.8.24 R3",
+ *       "CacheParameterGroupFamily": "redis2.8",
+ *       "Engine": "redis",
+ *       "EngineVersion": "2.8.24"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 2.8.6",
+ *       "CacheParameterGroupFamily": "redis2.8",
+ *       "Engine": "redis",
+ *       "EngineVersion": "2.8.6"
+ *     },
+ *     {
+ *       "CacheEngineDescription": "Redis",
+ *       "CacheEngineVersionDescription": "redis version 3.2.4",
+ *       "CacheParameterGroupFamily": "redis3.2",
+ *       "Engine": "redis",
+ *       "EngineVersion": "3.2.4"
+ *     }
+ *   ],
+ *   "Marker": ""
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeCacheEngineVersionsCommand extends $Command<
   DescribeCacheEngineVersionsCommandInput,

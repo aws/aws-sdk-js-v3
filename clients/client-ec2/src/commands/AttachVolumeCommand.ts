@@ -71,6 +71,28 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * @see {@link AttachVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To attach a volume to an instance
+ * ```javascript
+ * // This example attaches a volume (``vol-1234567890abcdef0``) to an instance (``i-01474ef662b89480``) as ``/dev/sdf``.
+ * const input = {
+ *   "Device": "/dev/sdf",
+ *   "InstanceId": "i-01474ef662b89480",
+ *   "VolumeId": "vol-1234567890abcdef0"
+ * };
+ * const command = new AttachVolumeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AttachTime": "2016-08-29T18:52:32.724Z",
+ *   "Device": "/dev/sdf",
+ *   "InstanceId": "i-01474ef662b89480",
+ *   "State": "attaching",
+ *   "VolumeId": "vol-1234567890abcdef0"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class AttachVolumeCommand extends $Command<
   AttachVolumeCommandInput,

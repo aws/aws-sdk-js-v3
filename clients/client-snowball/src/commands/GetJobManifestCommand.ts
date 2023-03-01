@@ -65,6 +65,28 @@ export interface GetJobManifestCommandOutput extends GetJobManifestResult, __Met
  * @see {@link GetJobManifestCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ *
+ * @example To get the manifest for a job you've created for AWS Snowball
+ * ```javascript
+ * // Returns a link to an Amazon S3 presigned URL for the manifest file associated with the specified JobId value. You can access the manifest file for up to 60 minutes after this request has been made. To access the manifest file after 60 minutes have passed, you'll have to make another call to the GetJobManifest action.
+ * //
+ * // The manifest is an encrypted file that you can download after your job enters the WithCustomer status. The manifest is decrypted by using the UnlockCode code value, when you pass both values to the Snowball through the Snowball client when the client is started for the first time.
+ * //
+ * // As a best practice, we recommend that you don't save a copy of an UnlockCode value in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
+ * //
+ * // The credentials of a given job, including its manifest file and unlock code, expire 90 days after the job is created.
+ * const input = {
+ *   "JobId": "JID123e4567-e89b-12d3-a456-426655440000"
+ * };
+ * const command = new GetJobManifestCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ManifestURI": "https://awsie-frosty-manifests-prod.s3.amazonaws.com/JID123e4567-e89b-12d3-a456-426655440000_manifest.bin?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20161224T005115Z&X-Amz-SignedHeaders=..."
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetJobManifestCommand extends $Command<
   GetJobManifestCommandInput,

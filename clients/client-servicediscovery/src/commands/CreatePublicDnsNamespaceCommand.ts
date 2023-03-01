@@ -59,6 +59,24 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  * @see {@link CreatePublicDnsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ *
+ * @example CreatePublicDnsNamespace example
+ * ```javascript
+ * // This example creates a public namespace based on DNS.
+ * const input = {
+ *   "CreatorRequestId": "example-creator-request-id-0003",
+ *   "Description": "Example.com AWS Cloud Map Public DNS Namespace",
+ *   "Name": "example-public-dns.com"
+ * };
+ * const command = new CreatePublicDnsNamespaceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OperationId": "dns2voqozuhfet5kzxoxg-a-response-example"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreatePublicDnsNamespaceCommand extends $Command<
   CreatePublicDnsNamespaceCommandInput,

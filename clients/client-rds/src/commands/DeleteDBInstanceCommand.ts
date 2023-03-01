@@ -72,6 +72,23 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * @see {@link DeleteDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To delete a DB instance.
+ * ```javascript
+ * // This example deletes the specified DB instance.
+ * const input = {
+ *   "DBInstanceIdentifier": "mymysqlinstance",
+ *   "SkipFinalSnapshot": true
+ * };
+ * const command = new DeleteDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstance": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DeleteDBInstanceCommand extends $Command<
   DeleteDBInstanceCommandInput,

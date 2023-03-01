@@ -52,6 +52,17 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * @see {@link DescribePendingMaintenanceActionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To list information about pending maintenance actions
+ * ```javascript
+ * // This example lists information for all pending maintenance actions for the specified DB instance.
+ * const input = {
+ *   "ResourceIdentifier": "arn:aws:rds:us-east-1:992648334831:db:mymysqlinstance"
+ * };
+ * const command = new DescribePendingMaintenanceActionsCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DescribePendingMaintenanceActionsCommand extends $Command<
   DescribePendingMaintenanceActionsCommandInput,

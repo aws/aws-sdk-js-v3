@@ -55,6 +55,45 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * @see {@link DescribeAvailabilityZonesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To describe your Availability Zones
+ * ```javascript
+ * // This example describes the Availability Zones that are available to you. The response includes Availability Zones only for the current region.
+ * const input = undefined;
+ * const command = new DescribeAvailabilityZonesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AvailabilityZones": [
+ *     {
+ *       "Messages": [],
+ *       "RegionName": "us-east-1",
+ *       "State": "available",
+ *       "ZoneName": "us-east-1b"
+ *     },
+ *     {
+ *       "Messages": [],
+ *       "RegionName": "us-east-1",
+ *       "State": "available",
+ *       "ZoneName": "us-east-1c"
+ *     },
+ *     {
+ *       "Messages": [],
+ *       "RegionName": "us-east-1",
+ *       "State": "available",
+ *       "ZoneName": "us-east-1d"
+ *     },
+ *     {
+ *       "Messages": [],
+ *       "RegionName": "us-east-1",
+ *       "State": "available",
+ *       "ZoneName": "us-east-1e"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeAvailabilityZonesCommand extends $Command<
   DescribeAvailabilityZonesCommandInput,

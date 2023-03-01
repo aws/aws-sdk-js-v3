@@ -58,6 +58,25 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * @see {@link UpdateGatewayInformationCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To update a gateway's metadata
+ * ```javascript
+ * // Updates a gateway's metadata, which includes the gateway's name and time zone.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   "GatewayName": "MyGateway2",
+ *   "GatewayTimezone": "GMT-12:00"
+ * };
+ * const command = new UpdateGatewayInformationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   "GatewayName": ""
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateGatewayInformationCommand extends $Command<
   UpdateGatewayInformationCommandInput,

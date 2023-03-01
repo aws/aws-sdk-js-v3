@@ -52,6 +52,23 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
  * @see {@link PurchaseReservedDBInstancesOfferingCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To purchase a reserved DB instance offering
+ * ```javascript
+ * // This example purchases a reserved DB instance offering that matches the specified settings.
+ * const input = {
+ *   "ReservedDBInstanceId": "myreservationid",
+ *   "ReservedDBInstancesOfferingId": "fb29428a-646d-4390-850e-5fe89926e727"
+ * };
+ * const command = new PurchaseReservedDBInstancesOfferingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReservedDBInstance": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
   PurchaseReservedDBInstancesOfferingCommandInput,

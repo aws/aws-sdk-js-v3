@@ -49,6 +49,18 @@ export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer 
  * @see {@link DeleteSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To delete a signing certificate for an IAM user
+ * ```javascript
+ * // The following command deletes the specified signing certificate for the IAM user named Anika.
+ * const input = {
+ *   "CertificateId": "TA7SMP42TDN5Z26OBPJE7EXAMPLE",
+ *   "UserName": "Anika"
+ * };
+ * const command = new DeleteSigningCertificateCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteSigningCertificateCommand extends $Command<
   DeleteSigningCertificateCommandInput,

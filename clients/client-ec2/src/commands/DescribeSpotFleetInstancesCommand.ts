@@ -50,6 +50,29 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  * @see {@link DescribeSpotFleetInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To describe the Spot Instances associated with a Spot fleet
+ * ```javascript
+ * // This example lists the Spot Instances associated with the specified Spot fleet.
+ * const input = {
+ *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
+ * };
+ * const command = new DescribeSpotFleetInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ActiveInstances": [
+ *     {
+ *       "InstanceId": "i-1234567890abcdef0",
+ *       "InstanceType": "m3.medium",
+ *       "SpotInstanceRequestId": "sir-08b93456"
+ *     }
+ *   ],
+ *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeSpotFleetInstancesCommand extends $Command<
   DescribeSpotFleetInstancesCommandInput,

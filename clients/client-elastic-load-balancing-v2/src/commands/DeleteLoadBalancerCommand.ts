@@ -60,6 +60,17 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutpu
  * @see {@link DeleteLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ *
+ * @example To delete a load balancer
+ * ```javascript
+ * // This example deletes the specified load balancer.
+ * const input = {
+ *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+ * };
+ * const command = new DeleteLoadBalancerCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteLoadBalancerCommand extends $Command<
   DeleteLoadBalancerCommandInput,

@@ -67,6 +67,62 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  * @see {@link DescribeSpotInstanceRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To describe a Spot Instance request
+ * ```javascript
+ * // This example describes the specified Spot Instance request.
+ * const input = {
+ *   "SpotInstanceRequestIds": [
+ *     "sir-08b93456"
+ *   ]
+ * };
+ * const command = new DescribeSpotInstanceRequestsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SpotInstanceRequests": [
+ *     {
+ *       "CreateTime": "2014-04-30T18:14:55.000Z",
+ *       "InstanceId": "i-1234567890abcdef0",
+ *       "LaunchSpecification": {
+ *         "BlockDeviceMappings": [
+ *           {
+ *             "DeviceName": "/dev/sda1",
+ *             "Ebs": {
+ *               "DeleteOnTermination": true,
+ *               "VolumeSize": 8,
+ *               "VolumeType": "standard"
+ *             }
+ *           }
+ *         ],
+ *         "EbsOptimized": false,
+ *         "ImageId": "ami-7aba833f",
+ *         "InstanceType": "m1.small",
+ *         "KeyName": "my-key-pair",
+ *         "SecurityGroups": [
+ *           {
+ *             "GroupId": "sg-e38f24a7",
+ *             "GroupName": "my-security-group"
+ *           }
+ *         ]
+ *       },
+ *       "LaunchedAvailabilityZone": "us-west-1b",
+ *       "ProductDescription": "Linux/UNIX",
+ *       "SpotInstanceRequestId": "sir-08b93456",
+ *       "SpotPrice": "0.010000",
+ *       "State": "active",
+ *       "Status": {
+ *         "Code": "fulfilled",
+ *         "Message": "Your Spot request is fulfilled.",
+ *         "UpdateTime": "2014-04-30T18:16:21.000Z"
+ *       },
+ *       "Type": "one-time"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeSpotInstanceRequestsCommand extends $Command<
   DescribeSpotInstanceRequestsCommandInput,

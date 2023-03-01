@@ -52,6 +52,23 @@ export interface CreateReceiptFilterCommandOutput extends CreateReceiptFilterRes
  * @see {@link CreateReceiptFilterCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example CreateReceiptFilter
+ * ```javascript
+ * // The following example creates a new IP address filter:
+ * const input = {
+ *   "Filter": {
+ *     "IpFilter": {
+ *       "Cidr": "1.2.3.4/24",
+ *       "Policy": "Allow"
+ *     },
+ *     "Name": "MyFilter"
+ *   }
+ * };
+ * const command = new CreateReceiptFilterCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class CreateReceiptFilterCommand extends $Command<
   CreateReceiptFilterCommandInput,

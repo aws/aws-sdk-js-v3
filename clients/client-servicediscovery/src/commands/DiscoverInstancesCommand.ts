@@ -52,6 +52,36 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  * @see {@link DiscoverInstancesCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ *
+ * @example Example: Discover registered instances
+ * ```javascript
+ * // Example: Discover registered instances
+ * const input = {
+ *   "HealthStatus": "ALL",
+ *   "MaxResults": 10,
+ *   "NamespaceName": "example.com",
+ *   "ServiceName": "myservice"
+ * };
+ * const command = new DiscoverInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Instances": [
+ *     {
+ *       "Attributes": {
+ *         "AWS_INSTANCE_IPV4": "172.2.1.3",
+ *         "AWS_INSTANCE_PORT": "808"
+ *       },
+ *       "HealthStatus": "UNKNOWN",
+ *       "InstanceId": "myservice-53",
+ *       "NamespaceName": "example.com",
+ *       "ServiceName": "myservice"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DiscoverInstancesCommand extends $Command<
   DiscoverInstancesCommandInput,

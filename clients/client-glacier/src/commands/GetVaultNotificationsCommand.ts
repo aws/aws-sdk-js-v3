@@ -65,6 +65,29 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  * @see {@link GetVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ *
+ * @example To get the notification-configuration for the specified vault
+ * ```javascript
+ * // The example retrieves the notification-configuration for the vault named my-vault.
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "my-vault"
+ * };
+ * const command = new GetVaultNotificationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "vaultNotificationConfig": {
+ *     "Events": [
+ *       "InventoryRetrievalCompleted",
+ *       "ArchiveRetrievalCompleted"
+ *     ],
+ *     "SNSTopic": "arn:aws:sns:us-west-2:0123456789012:my-vault"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetVaultNotificationsCommand extends $Command<
   GetVaultNotificationsCommandInput,

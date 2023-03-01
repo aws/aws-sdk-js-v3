@@ -56,6 +56,59 @@ export interface DescribeHandshakeCommandOutput extends DescribeHandshakeRespons
  * @see {@link DescribeHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
+ *
+ * @example To get information about a handshake
+ * ```javascript
+ * // The following example shows you how to request details about a handshake. The handshake ID comes either from the original call to "InviteAccountToOrganization", or from a call to "ListHandshakesForAccount" or "ListHandshakesForOrganization":
+ * const input = {
+ *   "HandshakeId": "h-examplehandshakeid111"
+ * };
+ * const command = new DescribeHandshakeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Handshake": {
+ *     "Action": "INVITE",
+ *     "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
+ *     "ExpirationTimestamp": "2016-11-30T17:24:58.046Z",
+ *     "Id": "h-examplehandshakeid111",
+ *     "Parties": [
+ *       {
+ *         "Id": "o-exampleorgid",
+ *         "Type": "ORGANIZATION"
+ *       },
+ *       {
+ *         "Id": "333333333333",
+ *         "Type": "ACCOUNT"
+ *       }
+ *     ],
+ *     "RequestedTimestamp": "2016-11-30T17:24:58.046Z",
+ *     "Resources": [
+ *       {
+ *         "Resources": [
+ *           {
+ *             "Type": "MASTER_EMAIL",
+ *             "Value": "bill@example.com"
+ *           },
+ *           {
+ *             "Type": "MASTER_NAME",
+ *             "Value": "Master Account"
+ *           }
+ *         ],
+ *         "Type": "ORGANIZATION",
+ *         "Value": "o-exampleorgid"
+ *       },
+ *       {
+ *         "Type": "ACCOUNT",
+ *         "Value": "333333333333"
+ *       }
+ *     ],
+ *     "State": "OPEN"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeHandshakeCommand extends $Command<
   DescribeHandshakeCommandInput,

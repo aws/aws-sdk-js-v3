@@ -59,6 +59,19 @@ export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link PutUserPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To attach a policy to an IAM user
+ * ```javascript
+ * // The following command attaches a policy to the IAM user named Bob.
+ * const input = {
+ *   "PolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"*\",\"Resource\":\"*\"}}",
+ *   "PolicyName": "AllAccessPolicy",
+ *   "UserName": "Bob"
+ * };
+ * const command = new PutUserPolicyCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class PutUserPolicyCommand extends $Command<
   PutUserPolicyCommandInput,

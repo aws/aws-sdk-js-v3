@@ -47,6 +47,20 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ *
+ * @example To tag an application
+ * ```javascript
+ * // The following tag-resource example tags an application resource.
+ * const input = {
+ *   "ResourceArn": "arn:aws:appconfig:us-east-1:111122223333:application/339ohji",
+ *   "Tags": {
+ *     "group1": "1"
+ *   }
+ * };
+ * const command = new TagResourceCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

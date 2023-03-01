@@ -55,6 +55,27 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @see {@link ListRulesCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
+ *
+ * @example To list rules
+ * ```javascript
+ * // The following example returns an array of up to 100 rules.
+ * const input = {
+ *   "Limit": 100
+ * };
+ * const command = new ListRulesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Rules": [
+ *     {
+ *       "Name": "WAFByteHeaderRule",
+ *       "RuleId": "WAFRule-1-Example"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListRulesCommand extends $Command<ListRulesCommandInput, ListRulesCommandOutput, WAFClientResolvedConfig> {
   // Start section: command_properties

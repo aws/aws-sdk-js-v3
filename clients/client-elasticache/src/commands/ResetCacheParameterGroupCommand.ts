@@ -53,6 +53,23 @@ export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGro
  * @see {@link ResetCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ *
+ * @example ResetCacheParameterGroup
+ * ```javascript
+ * // Modifies the parameters of a cache parameter group to the engine or system default value.
+ * const input = {
+ *   "CacheParameterGroupName": "custom-mem1-4",
+ *   "ResetAllParameters": true
+ * };
+ * const command = new ResetCacheParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CacheParameterGroupName": "custom-mem1-4"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ResetCacheParameterGroupCommand extends $Command<
   ResetCacheParameterGroupCommandInput,

@@ -58,6 +58,24 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  * @see {@link CreateTapeWithBarcodeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To create a virtual tape using a barcode
+ * ```javascript
+ * // Creates a virtual tape by using your own barcode.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+ *   "TapeBarcode": "TEST12345",
+ *   "TapeSizeInBytes": 107374182400
+ * };
+ * const command = new CreateTapeWithBarcodeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST12345"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateTapeWithBarcodeCommand extends $Command<
   CreateTapeWithBarcodeCommandInput,

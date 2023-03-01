@@ -58,6 +58,22 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ *
+ * @example List tags for resource
+ * ```javascript
+ * // Lists all tags for an AWS DMS resource.
+ * const input = {
+ *   "ResourceArn": ""
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TagList": []
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

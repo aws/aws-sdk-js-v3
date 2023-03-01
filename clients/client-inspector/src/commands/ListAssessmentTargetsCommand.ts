@@ -52,6 +52,25 @@ export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTarget
  * @see {@link ListAssessmentTargetsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ *
+ * @example List assessment targets
+ * ```javascript
+ * // Lists the ARNs of the assessment targets within this AWS account.
+ * const input = {
+ *   "maxResults": 123
+ * };
+ * const command = new ListAssessmentTargetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "assessmentTargetArns": [
+ *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
+ *   ],
+ *   "nextToken": "1"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListAssessmentTargetsCommand extends $Command<
   ListAssessmentTargetsCommandInput,

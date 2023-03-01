@@ -58,6 +58,36 @@ export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __Metadat
  * @see {@link GetSlotTypeCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
+ *
+ * @example To get information about a slot type
+ * ```javascript
+ * // This example shows how to get information about a slot type.
+ * const input = {
+ *   "version": "$LATEST",
+ *   "name": "DocPizzaCrustType"
+ * };
+ * const command = new GetSlotTypeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "version": "$LATEST",
+ *   "name": "DocPizzaCrustType",
+ *   "checksum": "210b3d5a-90a3-4b22-ac7e-f50c2c71095f",
+ *   "createdDate": 1494359274.403,
+ *   "description": "Available crust types",
+ *   "enumerationValues": [
+ *     {
+ *       "value": "thick"
+ *     },
+ *     {
+ *       "value": "thin"
+ *     }
+ *   ],
+ *   "lastUpdatedDate": 1494359274.403
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetSlotTypeCommand extends $Command<
   GetSlotTypeCommandInput,

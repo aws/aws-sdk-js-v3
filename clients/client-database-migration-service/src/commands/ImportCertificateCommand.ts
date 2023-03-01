@@ -54,6 +54,23 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @see {@link ImportCertificateCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ *
+ * @example Import certificate
+ * ```javascript
+ * // Uploads the specified certificate.
+ * const input = {
+ *   "CertificateIdentifier": "",
+ *   "CertificatePem": ""
+ * };
+ * const command = new ImportCertificateCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Certificate": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ImportCertificateCommand extends $Command<
   ImportCertificateCommandInput,

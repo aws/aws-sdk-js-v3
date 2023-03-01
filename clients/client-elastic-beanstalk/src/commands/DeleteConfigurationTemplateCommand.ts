@@ -53,6 +53,18 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  * @see {@link DeleteConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
+ * @example To delete a configuration template
+ * ```javascript
+ * // The following operation deletes a configuration template named my-template for an application named my-app:
+ * const input = {
+ *   "ApplicationName": "my-app",
+ *   "TemplateName": "my-template"
+ * };
+ * const command = new DeleteConfigurationTemplateCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteConfigurationTemplateCommand extends $Command<
   DeleteConfigurationTemplateCommandInput,

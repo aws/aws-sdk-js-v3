@@ -61,6 +61,41 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ *
+ * @example AddTagsToResource
+ * ```javascript
+ * // Adds up to 10 tags, key/value pairs, to a cluster or snapshot resource.
+ * const input = {
+ *   "ResourceName": "arn:aws:elasticache:us-east-1:1234567890:cluster:my-mem-cluster",
+ *   "Tags": [
+ *     {
+ *       "Key": "APIVersion",
+ *       "Value": "20150202"
+ *     },
+ *     {
+ *       "Key": "Service",
+ *       "Value": "ElastiCache"
+ *     }
+ *   ]
+ * };
+ * const command = new AddTagsToResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TagList": [
+ *     {
+ *       "Key": "APIVersion",
+ *       "Value": "20150202"
+ *     },
+ *     {
+ *       "Key": "Service",
+ *       "Value": "ElastiCache"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class AddTagsToResourceCommand extends $Command<
   AddTagsToResourceCommandInput,

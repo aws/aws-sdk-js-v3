@@ -46,6 +46,17 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  * @see {@link StopAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ *
+ * @example Stop assessment run
+ * ```javascript
+ * // Stops the assessment run that is specified by the ARN of the assessment run.
+ * const input = {
+ *   "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T/run/0-11LMTAVe"
+ * };
+ * const command = new StopAssessmentRunCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class StopAssessmentRunCommand extends $Command<
   StopAssessmentRunCommandInput,

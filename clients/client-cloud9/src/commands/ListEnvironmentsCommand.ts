@@ -50,6 +50,23 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResult, _
  * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
+ *
+ * @example ListEnvironments
+ * ```javascript
+ * //
+ * const input = {};
+ * const command = new ListEnvironmentsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "environmentIds": [
+ *     "349c86d4579e4e7298d500ff57a6b2EX",
+ *     "45a3da47af0840f2b0c0824f5ee232EX"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListEnvironmentsCommand extends $Command<
   ListEnvironmentsCommandInput,

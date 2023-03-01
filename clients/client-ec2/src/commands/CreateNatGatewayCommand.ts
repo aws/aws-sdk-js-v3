@@ -59,6 +59,34 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  * @see {@link CreateNatGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To create a NAT gateway
+ * ```javascript
+ * // This example creates a NAT gateway in subnet subnet-1a2b3c4d and associates an Elastic IP address with the allocation ID eipalloc-37fc1a52 with the NAT gateway.
+ * const input = {
+ *   "AllocationId": "eipalloc-37fc1a52",
+ *   "SubnetId": "subnet-1a2b3c4d"
+ * };
+ * const command = new CreateNatGatewayCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NatGateway": {
+ *     "CreateTime": "2015-12-17T12:45:26.732Z",
+ *     "NatGatewayAddresses": [
+ *       {
+ *         "AllocationId": "eipalloc-37fc1a52"
+ *       }
+ *     ],
+ *     "NatGatewayId": "nat-08d48af2a8e83edfd",
+ *     "State": "pending",
+ *     "SubnetId": "subnet-1a2b3c4d",
+ *     "VpcId": "vpc-1122aabb"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateNatGatewayCommand extends $Command<
   CreateNatGatewayCommandInput,

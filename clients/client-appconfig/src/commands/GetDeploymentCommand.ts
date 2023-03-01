@@ -50,6 +50,83 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  * @see {@link GetDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ *
+ * @example To retrieve deployment details
+ * ```javascript
+ * // The following get-deployment example lists details of the deployment to the application in the specified environment and deployment.
+ * const input = {
+ *   "ApplicationId": "339ohji",
+ *   "DeploymentNumber": 1,
+ *   "EnvironmentId": "54j1r29"
+ * };
+ * const command = new GetDeploymentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationId": "339ohji",
+ *   "CompletedAt": "2021-09-17T21:59:03.888000+00:00",
+ *   "ConfigurationLocationUri": "ssm-parameter://Example-Parameter",
+ *   "ConfigurationName": "Example-Configuration-Profile",
+ *   "ConfigurationProfileId": "ur8hx2f",
+ *   "ConfigurationVersion": "1",
+ *   "DeploymentDurationInMinutes": 15,
+ *   "DeploymentNumber": 1,
+ *   "DeploymentStrategyId": "1225qzk",
+ *   "EnvironmentId": "54j1r29",
+ *   "EventLog": [
+ *     {
+ *       "Description": "Deployment completed",
+ *       "EventType": "DEPLOYMENT_COMPLETED",
+ *       "OccurredAt": "2021-09-17T21:59:03.888000+00:00",
+ *       "TriggeredBy": "APPCONFIG"
+ *     },
+ *     {
+ *       "Description": "Deployment bake time started",
+ *       "EventType": "BAKE_TIME_STARTED",
+ *       "OccurredAt": "2021-09-17T21:58:57.722000+00:00",
+ *       "TriggeredBy": "APPCONFIG"
+ *     },
+ *     {
+ *       "Description": "Configuration available to 100.00% of clients",
+ *       "EventType": "PERCENTAGE_UPDATED",
+ *       "OccurredAt": "2021-09-17T21:55:56.816000+00:00",
+ *       "TriggeredBy": "APPCONFIG"
+ *     },
+ *     {
+ *       "Description": "Configuration available to 75.00% of clients",
+ *       "EventType": "PERCENTAGE_UPDATED",
+ *       "OccurredAt": "2021-09-17T21:52:56.567000+00:00",
+ *       "TriggeredBy": "APPCONFIG"
+ *     },
+ *     {
+ *       "Description": "Configuration available to 50.00% of clients",
+ *       "EventType": "PERCENTAGE_UPDATED",
+ *       "OccurredAt": "2021-09-17T21:49:55.737000+00:00",
+ *       "TriggeredBy": "APPCONFIG"
+ *     },
+ *     {
+ *       "Description": "Configuration available to 25.00% of clients",
+ *       "EventType": "PERCENTAGE_UPDATED",
+ *       "OccurredAt": "2021-09-17T21:46:55.187000+00:00",
+ *       "TriggeredBy": "APPCONFIG"
+ *     },
+ *     {
+ *       "Description": "Deployment started",
+ *       "EventType": "DEPLOYMENT_STARTED",
+ *       "OccurredAt": "2021-09-17T21:43:54.205000+00:00",
+ *       "TriggeredBy": "USER"
+ *     }
+ *   ],
+ *   "FinalBakeTimeInMinutes": 0,
+ *   "GrowthFactor": 25,
+ *   "GrowthType": "LINEAR",
+ *   "PercentageComplete": 100,
+ *   "StartedAt": "2021-09-17T21:43:54.205000+00:00",
+ *   "State": "COMPLETE"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetDeploymentCommand extends $Command<
   GetDeploymentCommandInput,

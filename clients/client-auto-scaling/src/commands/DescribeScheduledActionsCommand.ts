@@ -53,6 +53,34 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  * @see {@link DescribeScheduledActionsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To describe scheduled actions
+ * ```javascript
+ * // This example describes the scheduled actions for the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group"
+ * };
+ * const command = new DescribeScheduledActionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ScheduledUpdateGroupActions": [
+ *     {
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "DesiredCapacity": 4,
+ *       "MaxSize": 6,
+ *       "MinSize": 2,
+ *       "Recurrence": "30 0 1 12 0",
+ *       "ScheduledActionARN": "arn:aws:autoscaling:us-west-2:123456789012:scheduledUpdateGroupAction:8e86b655-b2e6-4410-8f29-b4f094d6871c:autoScalingGroupName/my-auto-scaling-group:scheduledActionName/my-scheduled-action",
+ *       "ScheduledActionName": "my-scheduled-action",
+ *       "StartTime": "2016-12-01T00:30:00Z",
+ *       "Time": "2016-12-01T00:30:00Z"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeScheduledActionsCommand extends $Command<
   DescribeScheduledActionsCommandInput,

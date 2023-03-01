@@ -45,6 +45,17 @@ export interface DeleteDhcpOptionsCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To delete a DHCP options set
+ * ```javascript
+ * // This example deletes the specified DHCP options set.
+ * const input = {
+ *   "DhcpOptionsId": "dopt-d9070ebb"
+ * };
+ * const command = new DeleteDhcpOptionsCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteDhcpOptionsCommand extends $Command<
   DeleteDhcpOptionsCommandInput,

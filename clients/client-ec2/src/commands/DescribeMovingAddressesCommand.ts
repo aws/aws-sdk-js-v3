@@ -50,6 +50,25 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * @see {@link DescribeMovingAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To describe your moving addresses
+ * ```javascript
+ * // This example describes all of your moving Elastic IP addresses.
+ * const input = undefined;
+ * const command = new DescribeMovingAddressesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "MovingAddressStatuses": [
+ *     {
+ *       "MoveStatus": "MovingToVpc",
+ *       "PublicIp": "198.51.100.0"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeMovingAddressesCommand extends $Command<
   DescribeMovingAddressesCommandInput,

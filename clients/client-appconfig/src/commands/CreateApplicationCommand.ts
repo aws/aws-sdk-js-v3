@@ -54,6 +54,25 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ *
+ * @example To create an application
+ * ```javascript
+ * // The following create-application example creates an application in AWS AppConfig.
+ * const input = {
+ *   "Description": "An application used for creating an example.",
+ *   "Name": "example-application"
+ * };
+ * const command = new CreateApplicationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Description": "An application used for creating an example.",
+ *   "Id": "339ohji",
+ *   "Name": "example-application"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,

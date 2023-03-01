@@ -51,6 +51,17 @@ export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, _
  * @see {@link DeleteDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ *
+ * @example To delete a device pool
+ * ```javascript
+ * // The following example deletes a specific device pool.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2::devicepool:123-456-EXAMPLE-GUID"
+ * };
+ * const command = new DeleteDevicePoolCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteDevicePoolCommand extends $Command<
   DeleteDevicePoolCommandInput,

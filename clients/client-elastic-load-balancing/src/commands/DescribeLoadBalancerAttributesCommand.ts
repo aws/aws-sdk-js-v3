@@ -56,6 +56,36 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  * @see {@link DescribeLoadBalancerAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ *
+ * @example To describe the attributes of a load balancer
+ * ```javascript
+ * // This example describes the attributes of the specified load balancer.
+ * const input = {
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new DescribeLoadBalancerAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LoadBalancerAttributes": {
+ *     "AccessLog": {
+ *       "Enabled": false
+ *     },
+ *     "ConnectionDraining": {
+ *       "Enabled": false,
+ *       "Timeout": 300
+ *     },
+ *     "ConnectionSettings": {
+ *       "IdleTimeout": 60
+ *     },
+ *     "CrossZoneLoadBalancing": {
+ *       "Enabled": false
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeLoadBalancerAttributesCommand extends $Command<
   DescribeLoadBalancerAttributesCommandInput,

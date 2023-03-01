@@ -50,6 +50,28 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @see {@link GetUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To get information about an IAM user
+ * ```javascript
+ * // The following command gets information about the IAM user named Bob.
+ * const input = {
+ *   "UserName": "Bob"
+ * };
+ * const command = new GetUserCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "User": {
+ *     "Arn": "arn:aws:iam::123456789012:user/Bob",
+ *     "CreateDate": "2012-09-21T23:03:13Z",
+ *     "Path": "/",
+ *     "UserId": "AKIAIOSFODNN7EXAMPLE",
+ *     "UserName": "Bob"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties

@@ -62,6 +62,33 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  * @see {@link ListOrganizationalUnitsForParentCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
+ *
+ * @example To retrieve a list of all of the child OUs in a parent root or OU
+ * ```javascript
+ * // The following example shows how to get a list of OUs in a specified root:/n/n
+ * const input = {
+ *   "ParentId": "r-examplerootid111"
+ * };
+ * const command = new ListOrganizationalUnitsForParentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OrganizationalUnits": [
+ *     {
+ *       "Arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examlerootid111-exampleouid111",
+ *       "Id": "ou-examplerootid111-exampleouid111",
+ *       "Name": "Development"
+ *     },
+ *     {
+ *       "Arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examlerootid111-exampleouid222",
+ *       "Id": "ou-examplerootid111-exampleouid222",
+ *       "Name": "Production"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListOrganizationalUnitsForParentCommand extends $Command<
   ListOrganizationalUnitsForParentCommandInput,

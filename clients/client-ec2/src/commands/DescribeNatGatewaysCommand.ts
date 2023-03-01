@@ -50,6 +50,45 @@ export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysRes
  * @see {@link DescribeNatGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To describe a NAT gateway
+ * ```javascript
+ * // This example describes the NAT gateway for the specified VPC.
+ * const input = {
+ *   "Filter": [
+ *     {
+ *       "Name": "vpc-id",
+ *       "Values": [
+ *         "vpc-1a2b3c4d"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeNatGatewaysCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NatGateways": [
+ *     {
+ *       "CreateTime": "2015-12-01T12:26:55.983Z",
+ *       "NatGatewayAddresses": [
+ *         {
+ *           "AllocationId": "eipalloc-89c620ec",
+ *           "NetworkInterfaceId": "eni-9dec76cd",
+ *           "PrivateIp": "10.0.0.149",
+ *           "PublicIp": "198.11.222.333"
+ *         }
+ *       ],
+ *       "NatGatewayId": "nat-05dba92075d71c408",
+ *       "State": "available",
+ *       "SubnetId": "subnet-847e4dc2",
+ *       "VpcId": "vpc-1a2b3c4d"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeNatGatewaysCommand extends $Command<
   DescribeNatGatewaysCommandInput,

@@ -67,6 +67,27 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  * @see {@link DescribeVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ *
+ * @example To retrieve information about a vault
+ * ```javascript
+ * // The example retrieves data about a vault named my-vault.
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "my-vault"
+ * };
+ * const command = new DescribeVaultCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CreationDate": "2016-09-23T19:27:18.665Z",
+ *   "NumberOfArchives": 0,
+ *   "SizeInBytes": 0,
+ *   "VaultARN": "arn:aws:glacier:us-west-2:111122223333:vaults/my-vault",
+ *   "VaultName": "my-vault"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeVaultCommand extends $Command<
   DescribeVaultCommandInput,

@@ -58,6 +58,22 @@ export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __Met
  * @see {@link DisableGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To disable a gateway when it is no longer functioning
+ * ```javascript
+ * // Disables a gateway when the gateway is no longer functioning. Use this operation for a gateway-VTL that is not reachable or not functioning.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * };
+ * const command = new DisableGatewayCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DisableGatewayCommand extends $Command<
   DisableGatewayCommandInput,

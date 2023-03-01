@@ -56,6 +56,37 @@ export interface DescribeListenersCommandOutput extends DescribeListenersOutput,
  * @see {@link DescribeListenersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ *
+ * @example To describe a listener
+ * ```javascript
+ * // This example describes the specified listener.
+ * const input = {
+ *   "ListenerArns": [
+ *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2"
+ *   ]
+ * };
+ * const command = new DescribeListenersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Listeners": [
+ *     {
+ *       "DefaultActions": [
+ *         {
+ *           "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *           "Type": "forward"
+ *         }
+ *       ],
+ *       "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2",
+ *       "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+ *       "Port": 80,
+ *       "Protocol": "HTTP"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeListenersCommand extends $Command<
   DescribeListenersCommandInput,

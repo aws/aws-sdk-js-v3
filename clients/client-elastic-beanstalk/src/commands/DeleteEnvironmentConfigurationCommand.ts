@@ -53,6 +53,18 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  * @see {@link DeleteEnvironmentConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
+ * @example To delete a draft configuration
+ * ```javascript
+ * // The following operation deletes a draft configuration for an environment named my-env:
+ * const input = {
+ *   "ApplicationName": "my-app",
+ *   "EnvironmentName": "my-env"
+ * };
+ * const command = new DeleteEnvironmentConfigurationCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteEnvironmentConfigurationCommand extends $Command<
   DeleteEnvironmentConfigurationCommandInput,

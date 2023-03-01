@@ -51,6 +51,26 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * @see {@link CreateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ *
+ * @example To create a new repository
+ * ```javascript
+ * // This example creates a repository called nginx-web-app inside the project-a namespace in the default registry for an account.
+ * const input = {
+ *   "repositoryName": "project-a/nginx-web-app"
+ * };
+ * const command = new CreateRepositoryCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "repository": {
+ *     "registryId": "012345678901",
+ *     "repositoryArn": "arn:aws:ecr:us-west-2:012345678901:repository/project-a/nginx-web-app",
+ *     "repositoryName": "project-a/nginx-web-app"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateRepositoryCommand extends $Command<
   CreateRepositoryCommandInput,

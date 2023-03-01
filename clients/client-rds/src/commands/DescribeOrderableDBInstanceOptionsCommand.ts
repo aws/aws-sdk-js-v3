@@ -52,6 +52,21 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * @see {@link DescribeOrderableDBInstanceOptionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To list information about orderable DB instance options
+ * ```javascript
+ * // This example lists information for all orderable DB instance options for the specified DB engine, engine version, DB instance class, license model, and VPC settings.
+ * const input = {
+ *   "DBInstanceClass": "db.t2.micro",
+ *   "Engine": "mysql",
+ *   "EngineVersion": "5.6.27",
+ *   "LicenseModel": "general-public-license",
+ *   "Vpc": true
+ * };
+ * const command = new DescribeOrderableDBInstanceOptionsCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
   DescribeOrderableDBInstanceOptionsCommandInput,

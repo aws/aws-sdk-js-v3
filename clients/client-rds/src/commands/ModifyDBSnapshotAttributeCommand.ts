@@ -66,6 +66,26 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  * @see {@link ModifyDBSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To change DB snapshot attributes
+ * ```javascript
+ * // This example adds the specified attribute for the specified DB snapshot.
+ * const input = {
+ *   "AttributeName": "restore",
+ *   "DBSnapshotIdentifier": "mydbsnapshot",
+ *   "ValuesToAdd": [
+ *     "all"
+ *   ]
+ * };
+ * const command = new ModifyDBSnapshotAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSnapshotAttributesResult": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ModifyDBSnapshotAttributeCommand extends $Command<
   ModifyDBSnapshotAttributeCommandInput,

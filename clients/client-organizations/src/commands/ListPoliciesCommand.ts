@@ -60,6 +60,47 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * @see {@link ListPoliciesCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
+ *
+ * @example To retrieve a list policies in the organization
+ * ```javascript
+ * // The following example shows how to get a list of service control policies (SCPs):/n/n
+ * const input = {
+ *   "Filter": "SERVICE_CONTROL_POLICY"
+ * };
+ * const command = new ListPoliciesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Policies": [
+ *     {
+ *       "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
+ *       "AwsManaged": false,
+ *       "Description": "Enables account admins to delegate permissions for any S3 actions to users and roles in their accounts.",
+ *       "Id": "p-examplepolicyid111",
+ *       "Name": "AllowAllS3Actions",
+ *       "Type": "SERVICE_CONTROL_POLICY"
+ *     },
+ *     {
+ *       "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid222",
+ *       "AwsManaged": false,
+ *       "Description": "Enables account admins to delegate permissions for any EC2 actions to users and roles in their accounts.",
+ *       "Id": "p-examplepolicyid222",
+ *       "Name": "AllowAllEC2Actions",
+ *       "Type": "SERVICE_CONTROL_POLICY"
+ *     },
+ *     {
+ *       "Arn": "arn:aws:organizations::aws:policy/service_control_policy/p-FullAWSAccess",
+ *       "AwsManaged": true,
+ *       "Description": "Allows access to every operation",
+ *       "Id": "p-FullAWSAccess",
+ *       "Name": "FullAWSAccess",
+ *       "Type": "SERVICE_CONTROL_POLICY"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListPoliciesCommand extends $Command<
   ListPoliciesCommandInput,

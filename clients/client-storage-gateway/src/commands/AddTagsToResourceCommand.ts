@@ -74,6 +74,28 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput,
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To add tags to resource
+ * ```javascript
+ * // Adds one or more tags to the specified resource.
+ * const input = {
+ *   "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B",
+ *   "Tags": [
+ *     {
+ *       "Key": "Dev Gatgeway Region",
+ *       "Value": "East Coast"
+ *     }
+ *   ]
+ * };
+ * const command = new AddTagsToResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class AddTagsToResourceCommand extends $Command<
   AddTagsToResourceCommandInput,

@@ -59,6 +59,25 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  * @see {@link UpdateSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To update a volume snapshot schedule
+ * ```javascript
+ * // Updates a snapshot schedule configured for a gateway volume.
+ * const input = {
+ *   "Description": "Hourly snapshot",
+ *   "RecurrenceInHours": 1,
+ *   "StartAt": 0,
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * };
+ * const command = new UpdateSnapshotScheduleCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateSnapshotScheduleCommand extends $Command<
   UpdateSnapshotScheduleCommandInput,

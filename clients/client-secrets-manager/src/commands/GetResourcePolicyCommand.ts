@@ -60,6 +60,24 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
+ *
+ * @example To retrieve the resource-based policy attached to a secret
+ * ```javascript
+ * // The following example shows how to retrieve the resource-based policy that is attached to a secret.
+ * const input = {
+ *   "SecretId": "MyTestDatabaseSecret"
+ * };
+ * const command = new GetResourcePolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   "Name": "MyTestDatabaseSecret",
+ *   "ResourcePolicy": "{\n\"Version\":\"2012-10-17\",\n\"Statement\":[{\n\"Effect\":\"Allow\",\n\"Principal\":{\n\"AWS\":\"arn:aws:iam::123456789012:root\"\n},\n\"Action\":\"secretsmanager:GetSecretValue\",\n\"Resource\":\"*\"\n}]\n}"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetResourcePolicyCommand extends $Command<
   GetResourcePolicyCommandInput,

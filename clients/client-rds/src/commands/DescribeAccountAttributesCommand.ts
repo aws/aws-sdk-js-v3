@@ -51,6 +51,15 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To list account attributes
+ * ```javascript
+ * // This example lists account attributes.
+ * const input = {};
+ * const command = new DescribeAccountAttributesCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DescribeAccountAttributesCommand extends $Command<
   DescribeAccountAttributesCommandInput,

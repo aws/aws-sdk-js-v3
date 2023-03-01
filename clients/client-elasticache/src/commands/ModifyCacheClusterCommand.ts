@@ -52,6 +52,46 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  * @see {@link ModifyCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ *
+ * @example ModifyCacheCluster
+ * ```javascript
+ * // Copies a snapshot to a specified name.
+ * const input = {
+ *   "ApplyImmediately": true,
+ *   "CacheClusterId": "redis-cluster",
+ *   "SnapshotRetentionLimit": 14
+ * };
+ * const command = new ModifyCacheClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CacheCluster": {
+ *     "AutoMinorVersionUpgrade": true,
+ *     "CacheClusterCreateTime": "2016-12-22T16:27:56.078Z",
+ *     "CacheClusterId": "redis-cluster",
+ *     "CacheClusterStatus": "available",
+ *     "CacheNodeType": "cache.r3.large",
+ *     "CacheParameterGroup": {
+ *       "CacheNodeIdsToReboot": [],
+ *       "CacheParameterGroupName": "default.redis3.2",
+ *       "ParameterApplyStatus": "in-sync"
+ *     },
+ *     "CacheSecurityGroups": [],
+ *     "CacheSubnetGroupName": "default",
+ *     "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
+ *     "Engine": "redis",
+ *     "EngineVersion": "3.2.4",
+ *     "NumCacheNodes": 1,
+ *     "PendingModifiedValues": {},
+ *     "PreferredAvailabilityZone": "us-east-1e",
+ *     "PreferredMaintenanceWindow": "fri:09:00-fri:10:00",
+ *     "SnapshotRetentionLimit": 14,
+ *     "SnapshotWindow": "07:00-08:00"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ModifyCacheClusterCommand extends $Command<
   ModifyCacheClusterCommandInput,

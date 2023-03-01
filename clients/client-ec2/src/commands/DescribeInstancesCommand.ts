@@ -61,6 +61,55 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * @see {@link DescribeInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To describe an Amazon EC2 instance
+ * ```javascript
+ * // This example describes the specified instance.
+ * const input = {
+ *   "InstanceIds": [
+ *     "i-1234567890abcdef0"
+ *   ]
+ * };
+ * const command = new DescribeInstancesCommand(input);
+ * await client.send(command);
+ * ```
+ *
+ *
+ * @example To describe the instances with a specific instance type
+ * ```javascript
+ * // This example describes the instances with the t2.micro instance type.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "instance-type",
+ *       "Values": [
+ *         "t2.micro"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeInstancesCommand(input);
+ * await client.send(command);
+ * ```
+ *
+ *
+ * @example To describe the instances with a specific tag
+ * ```javascript
+ * // This example describes the instances with the Purpose=test tag.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "tag:Purpose",
+ *       "Values": [
+ *         "test"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeInstancesCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DescribeInstancesCommand extends $Command<
   DescribeInstancesCommandInput,

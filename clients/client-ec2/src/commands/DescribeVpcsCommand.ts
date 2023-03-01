@@ -47,6 +47,39 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  * @see {@link DescribeVpcsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To describe a VPC
+ * ```javascript
+ * // This example describes the specified VPC.
+ * const input = {
+ *   "VpcIds": [
+ *     "vpc-a01106c2"
+ *   ]
+ * };
+ * const command = new DescribeVpcsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Vpcs": [
+ *     {
+ *       "CidrBlock": "10.0.0.0/16",
+ *       "DhcpOptionsId": "dopt-7a8b9c2d",
+ *       "InstanceTenancy": "default",
+ *       "IsDefault": false,
+ *       "State": "available",
+ *       "Tags": [
+ *         {
+ *           "Key": "Name",
+ *           "Value": "MyVPC"
+ *         }
+ *       ],
+ *       "VpcId": "vpc-a01106c2"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeVpcsCommand extends $Command<
   DescribeVpcsCommandInput,

@@ -54,6 +54,36 @@ export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMe
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
+ * @example To change an application's description
+ * ```javascript
+ * // The following operation updates the description of an application named my-app:
+ * const input = {
+ *   "ApplicationName": "my-app",
+ *   "Description": "my Elastic Beanstalk application"
+ * };
+ * const command = new UpdateApplicationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Application": {
+ *     "ApplicationName": "my-app",
+ *     "ConfigurationTemplates": [],
+ *     "DateCreated": "2015-08-13T19:15:50.449Z",
+ *     "DateUpdated": "2015-08-20T22:34:56.195Z",
+ *     "Description": "my Elastic Beanstalk application",
+ *     "Versions": [
+ *       "2fba-stage-150819_234450",
+ *       "bf07-stage-150820_214945",
+ *       "93f8",
+ *       "fd7c-stage-150820_000431",
+ *       "22a0-stage-150819_185942"
+ *     ]
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateApplicationCommand extends $Command<
   UpdateApplicationCommandInput,

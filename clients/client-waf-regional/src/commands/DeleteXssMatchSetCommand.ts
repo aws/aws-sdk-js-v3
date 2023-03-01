@@ -74,6 +74,23 @@ export interface DeleteXssMatchSetCommandOutput extends DeleteXssMatchSetRespons
  * @see {@link DeleteXssMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ *
+ * @example To delete an XSS match set
+ * ```javascript
+ * // The following example deletes an XSS match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
+ * const input = {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "XssMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ * };
+ * const command = new DeleteXssMatchSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DeleteXssMatchSetCommand extends $Command<
   DeleteXssMatchSetCommandInput,

@@ -52,6 +52,32 @@ export interface DescribeCustomerGatewaysCommandOutput extends DescribeCustomerG
  * @see {@link DescribeCustomerGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To describe a customer gateway
+ * ```javascript
+ * // This example describes the specified customer gateway.
+ * const input = {
+ *   "CustomerGatewayIds": [
+ *     "cgw-0e11f167"
+ *   ]
+ * };
+ * const command = new DescribeCustomerGatewaysCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CustomerGateways": [
+ *     {
+ *       "BgpAsn": "65534",
+ *       "CustomerGatewayId": "cgw-0e11f167",
+ *       "IpAddress": "12.1.2.3",
+ *       "State": "available",
+ *       "Type": "ipsec.1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeCustomerGatewaysCommand extends $Command<
   DescribeCustomerGatewaysCommandInput,

@@ -47,6 +47,22 @@ export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
  * @see {@link GetJobCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ *
+ * @example To get information about a job
+ * ```javascript
+ * // The following example returns information about a specific job.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2::job:123-456-EXAMPLE-GUID"
+ * };
+ * const command = new GetJobCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "job": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOutput, DeviceFarmClientResolvedConfig> {
   // Start section: command_properties

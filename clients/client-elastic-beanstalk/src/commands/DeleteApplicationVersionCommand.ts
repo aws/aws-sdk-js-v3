@@ -49,6 +49,19 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
  * @see {@link DeleteApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
+ * @example To delete an application version
+ * ```javascript
+ * // The following operation deletes an application version named 22a0-stage-150819_182129 for an application named my-app:
+ * const input = {
+ *   "ApplicationName": "my-app",
+ *   "DeleteSourceBundle": true,
+ *   "VersionLabel": "22a0-stage-150819_182129"
+ * };
+ * const command = new DeleteApplicationVersionCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteApplicationVersionCommand extends $Command<
   DeleteApplicationVersionCommandInput,

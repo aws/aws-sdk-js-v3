@@ -56,6 +56,44 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * @see {@link ListTaskDefinitionFamiliesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ *
+ * @example To list your registered task definition families
+ * ```javascript
+ * // This example lists all of your registered task definition families.
+ * const input = {};
+ * const command = new ListTaskDefinitionFamiliesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "families": [
+ *     "node-js-app",
+ *     "web-timer",
+ *     "hpcc",
+ *     "hpcc-c4-8xlarge"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To filter your registered task definition families
+ * ```javascript
+ * // This example lists the task definition revisions that start with "hpcc".
+ * const input = {
+ *   "familyPrefix": "hpcc"
+ * };
+ * const command = new ListTaskDefinitionFamiliesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "families": [
+ *     "hpcc",
+ *     "hpcc-c4-8xlarge"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListTaskDefinitionFamiliesCommand extends $Command<
   ListTaskDefinitionFamiliesCommandInput,

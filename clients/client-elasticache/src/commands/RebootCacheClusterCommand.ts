@@ -60,6 +60,50 @@ export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResul
  * @see {@link RebootCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ *
+ * @example RebootCacheCluster
+ * ```javascript
+ * // Reboots the specified nodes in the names cluster.
+ * const input = {
+ *   "CacheClusterId": "custom-mem1-4  ",
+ *   "CacheNodeIdsToReboot": [
+ *     "0001",
+ *     "0002"
+ *   ]
+ * };
+ * const command = new RebootCacheClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CacheCluster": {
+ *     "AutoMinorVersionUpgrade": true,
+ *     "CacheClusterCreateTime": "2016-12-21T21:59:43.794Z",
+ *     "CacheClusterId": "my-mem-cluster",
+ *     "CacheClusterStatus": "rebooting cache cluster nodes",
+ *     "CacheNodeType": "cache.t2.medium",
+ *     "CacheParameterGroup": {
+ *       "CacheNodeIdsToReboot": [],
+ *       "CacheParameterGroupName": "default.memcached1.4",
+ *       "ParameterApplyStatus": "in-sync"
+ *     },
+ *     "CacheSecurityGroups": [],
+ *     "CacheSubnetGroupName": "default",
+ *     "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
+ *     "ConfigurationEndpoint": {
+ *       "Address": "my-mem-cluster.abcdef.cfg.use1.cache.amazonaws.com",
+ *       "Port": 11211
+ *     },
+ *     "Engine": "memcached",
+ *     "EngineVersion": "1.4.24",
+ *     "NumCacheNodes": 2,
+ *     "PendingModifiedValues": {},
+ *     "PreferredAvailabilityZone": "Multiple",
+ *     "PreferredMaintenanceWindow": "wed:06:00-wed:07:00"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class RebootCacheClusterCommand extends $Command<
   RebootCacheClusterCommandInput,

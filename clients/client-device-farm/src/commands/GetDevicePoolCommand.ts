@@ -50,6 +50,22 @@ export interface GetDevicePoolCommandOutput extends GetDevicePoolResult, __Metad
  * @see {@link GetDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ *
+ * @example To get information about a device pool
+ * ```javascript
+ * // The following example returns information about a specific device pool, given a project ARN.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
+ * };
+ * const command = new GetDevicePoolCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "devicePool": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetDevicePoolCommand extends $Command<
   GetDevicePoolCommandInput,

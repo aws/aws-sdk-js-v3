@@ -50,6 +50,30 @@ export interface ListApplicationsCommandOutput extends Applications, __MetadataB
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ *
+ * @example To list the available applications
+ * ```javascript
+ * // The following list-applications example lists the available applications in your AWS account.
+ * const input = {};
+ * const command = new ListApplicationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Items": [
+ *     {
+ *       "Description": "An application used for creating an example.",
+ *       "Id": "339ohji",
+ *       "Name": "test-application"
+ *     },
+ *     {
+ *       "Id": "rwalwu7",
+ *       "Name": "Test-Application"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListApplicationsCommand extends $Command<
   ListApplicationsCommandInput,

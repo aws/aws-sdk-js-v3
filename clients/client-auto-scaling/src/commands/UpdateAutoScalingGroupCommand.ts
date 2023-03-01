@@ -88,6 +88,24 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To update an Auto Scaling group
+ * ```javascript
+ * // This example updates multiple properties at the same time.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "LaunchTemplate": {
+ *     "LaunchTemplateName": "my-template-for-auto-scaling",
+ *     "Version": "2"
+ *   },
+ *   "MaxSize": 5,
+ *   "MinSize": 1,
+ *   "NewInstancesProtectedFromScaleIn": true
+ * };
+ * const command = new UpdateAutoScalingGroupCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class UpdateAutoScalingGroupCommand extends $Command<
   UpdateAutoScalingGroupCommandInput,

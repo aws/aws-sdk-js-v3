@@ -56,6 +56,35 @@ export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckO
  * @see {@link ConfigureHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ *
+ * @example To specify the health check settings for your backend EC2 instances
+ * ```javascript
+ * // This example specifies the health check settings used to evaluate the health of your backend EC2 instances.
+ * const input = {
+ *   "HealthCheck": {
+ *     "HealthyThreshold": 2,
+ *     "Interval": 30,
+ *     "Target": "HTTP:80/png",
+ *     "Timeout": 3,
+ *     "UnhealthyThreshold": 2
+ *   },
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new ConfigureHealthCheckCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "HealthCheck": {
+ *     "HealthyThreshold": 2,
+ *     "Interval": 30,
+ *     "Target": "HTTP:80/png",
+ *     "Timeout": 3,
+ *     "UnhealthyThreshold": 2
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ConfigureHealthCheckCommand extends $Command<
   ConfigureHealthCheckCommandInput,

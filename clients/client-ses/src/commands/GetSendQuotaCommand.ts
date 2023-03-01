@@ -43,6 +43,22 @@ export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __Metad
  * @see {@link GetSendQuotaCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example GetSendQuota
+ * ```javascript
+ * // The following example returns the Amazon SES sending limits for an AWS account:
+ * const input = undefined;
+ * const command = new GetSendQuotaCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Max24HourSend": 200,
+ *   "MaxSendRate": 1,
+ *   "SentLast24Hours": 1
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetSendQuotaCommand extends $Command<
   GetSendQuotaCommandInput,

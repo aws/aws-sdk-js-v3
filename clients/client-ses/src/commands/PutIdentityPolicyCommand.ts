@@ -60,6 +60,19 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  * @see {@link PutIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example PutIdentityPolicy
+ * ```javascript
+ * // The following example adds a sending authorization policy to an identity:
+ * const input = {
+ *   "Identity": "example.com",
+ *   "Policy": "{\"Version\":\"2008-10-17\",\"Statement\":[{\"Sid\":\"stmt1469123904194\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::123456789012:root\"},\"Action\":[\"ses:SendEmail\",\"ses:SendRawEmail\"],\"Resource\":\"arn:aws:ses:us-east-1:EXAMPLE65304:identity/example.com\"}]}",
+ *   "PolicyName": "MyPolicy"
+ * };
+ * const command = new PutIdentityPolicyCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class PutIdentityPolicyCommand extends $Command<
   PutIdentityPolicyCommandInput,

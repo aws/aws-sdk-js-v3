@@ -101,6 +101,45 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  * @see {@link CreateDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To create a DHCP options set
+ * ```javascript
+ * // This example creates a DHCP options set.
+ * const input = {
+ *   "DhcpConfigurations": [
+ *     {
+ *       "Key": "domain-name-servers",
+ *       "Values": [
+ *         "10.2.5.1",
+ *         "10.2.5.2"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new CreateDhcpOptionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DhcpOptions": {
+ *     "DhcpConfigurations": [
+ *       {
+ *         "Key": "domain-name-servers",
+ *         "Values": [
+ *           {
+ *             "Value": "10.2.5.2"
+ *           },
+ *           {
+ *             "Value": "10.2.5.1"
+ *           }
+ *         ]
+ *       }
+ *     ],
+ *     "DhcpOptionsId": "dopt-d9070ebb"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateDhcpOptionsCommand extends $Command<
   CreateDhcpOptionsCommandInput,

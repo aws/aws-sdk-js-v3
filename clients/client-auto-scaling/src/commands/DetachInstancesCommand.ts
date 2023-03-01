@@ -59,6 +59,37 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  * @see {@link DetachInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To detach an instance from an Auto Scaling group
+ * ```javascript
+ * // This example detaches the specified instance from the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "InstanceIds": [
+ *     "i-93633f9b"
+ *   ],
+ *   "ShouldDecrementDesiredCapacity": true
+ * };
+ * const command = new DetachInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Activities": [
+ *     {
+ *       "ActivityId": "5091cb52-547a-47ce-a236-c9ccbc2cb2c9",
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "Cause": "At 2015-04-12T15:02:16Z instance i-93633f9b was detached in response to a user request, shrinking the capacity from 2 to 1.",
+ *       "Description": "Detaching EC2 instance: i-93633f9b",
+ *       "Details": "details",
+ *       "Progress": 50,
+ *       "StartTime": "2015-04-12T15:02:16.179Z",
+ *       "StatusCode": "InProgress"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DetachInstancesCommand extends $Command<
   DetachInstancesCommandInput,

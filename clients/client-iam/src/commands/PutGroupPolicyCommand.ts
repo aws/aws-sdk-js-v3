@@ -59,6 +59,19 @@ export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link PutGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To add a policy to a group
+ * ```javascript
+ * // The following command adds a policy named AllPerms to the IAM group named Admins.
+ * const input = {
+ *   "GroupName": "Admins",
+ *   "PolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"*\",\"Resource\":\"*\"}}",
+ *   "PolicyName": "AllPerms"
+ * };
+ * const command = new PutGroupPolicyCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class PutGroupPolicyCommand extends $Command<
   PutGroupPolicyCommandInput,

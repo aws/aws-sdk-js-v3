@@ -50,6 +50,61 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  * @see {@link ModifyCacheSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ *
+ * @example ModifyCacheSubnetGroup
+ * ```javascript
+ * // Modifies an existing ElastiCache subnet group.
+ * const input = {
+ *   "CacheSubnetGroupName": "my-sn-grp",
+ *   "SubnetIds": [
+ *     "subnet-bcde2345"
+ *   ]
+ * };
+ * const command = new ModifyCacheSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CacheSubnetGroup": {
+ *     "CacheSubnetGroupDescription": "My subnet group.",
+ *     "CacheSubnetGroupName": "my-sn-grp",
+ *     "Subnets": [
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-east-1c"
+ *         },
+ *         "SubnetIdentifier": "subnet-a1b2c3d4"
+ *       },
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-east-1e"
+ *         },
+ *         "SubnetIdentifier": "subnet-1a2b3c4d"
+ *       },
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-east-1e"
+ *         },
+ *         "SubnetIdentifier": "subnet-bcde2345"
+ *       },
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-east-1c"
+ *         },
+ *         "SubnetIdentifier": "subnet-1234abcd"
+ *       },
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-east-1b"
+ *         },
+ *         "SubnetIdentifier": "subnet-abcd1234"
+ *       }
+ *     ],
+ *     "VpcId": "vpc-91280df6"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ModifyCacheSubnetGroupCommand extends $Command<
   ModifyCacheSubnetGroupCommandInput,

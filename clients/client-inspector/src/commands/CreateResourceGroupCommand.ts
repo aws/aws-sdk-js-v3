@@ -53,6 +53,27 @@ export interface CreateResourceGroupCommandOutput extends CreateResourceGroupRes
  * @see {@link CreateResourceGroupCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ *
+ * @example Create resource group
+ * ```javascript
+ * // Creates a resource group using the specified set of tags (key and value pairs) that are used to select the EC2 instances to be included in an Amazon Inspector assessment target. The created resource group is then used to create an Amazon Inspector assessment target.
+ * const input = {
+ *   "resourceGroupTags": [
+ *     {
+ *       "key": "Name",
+ *       "value": "example"
+ *     }
+ *   ]
+ * };
+ * const command = new CreateResourceGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "resourceGroupArn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-AB6DMKnv"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateResourceGroupCommand extends $Command<
   CreateResourceGroupCommandInput,

@@ -52,6 +52,48 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  * @see {@link ListTaskDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ *
+ * @example To list your registered task definitions
+ * ```javascript
+ * // This example lists all of your registered task definitions.
+ * const input = {};
+ * const command = new ListTaskDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "taskDefinitionArns": [
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/sleep300:2",
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/sleep360:1",
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:3",
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:4",
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:5",
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:6"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To list the registered task definitions in a family
+ * ```javascript
+ * // This example lists the task definition revisions of a specified family.
+ * const input = {
+ *   "familyPrefix": "wordpress"
+ * };
+ * const command = new ListTaskDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "taskDefinitionArns": [
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:3",
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:4",
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:5",
+ *     "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/wordpress:6"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListTaskDefinitionsCommand extends $Command<
   ListTaskDefinitionsCommandInput,

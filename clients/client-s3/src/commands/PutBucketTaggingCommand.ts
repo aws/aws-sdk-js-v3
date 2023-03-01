@@ -120,6 +120,29 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example Set tags on a bucket
+ * ```javascript
+ * // The following example sets tags on a bucket. Any existing tags are replaced.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Tagging": {
+ *     "TagSet": [
+ *       {
+ *         "Key": "Key1",
+ *         "Value": "Value1"
+ *       },
+ *       {
+ *         "Key": "Key2",
+ *         "Value": "Value2"
+ *       }
+ *     ]
+ *   }
+ * };
+ * const command = new PutBucketTaggingCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class PutBucketTaggingCommand extends $Command<
   PutBucketTaggingCommandInput,

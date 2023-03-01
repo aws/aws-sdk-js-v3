@@ -101,6 +101,18 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ *
+ * @example To create an alias
+ * ```javascript
+ * // The following example creates an alias for the specified KMS key.
+ * const input = {
+ *   "AliasName": "alias/ExampleAlias",
+ *   "TargetKeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new CreateAliasCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class CreateAliasCommand extends $Command<
   CreateAliasCommandInput,

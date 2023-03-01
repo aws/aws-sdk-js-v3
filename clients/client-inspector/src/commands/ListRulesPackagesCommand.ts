@@ -50,6 +50,28 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  * @see {@link ListRulesPackagesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ *
+ * @example List rules packages
+ * ```javascript
+ * // Lists all available Amazon Inspector rules packages.
+ * const input = {
+ *   "maxResults": 123
+ * };
+ * const command = new ListRulesPackagesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "nextToken": "1",
+ *   "rulesPackageArns": [
+ *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
+ *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
+ *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
+ *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListRulesPackagesCommand extends $Command<
   ListRulesPackagesCommandInput,

@@ -56,6 +56,30 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
  * @see {@link UpdateSecurityGroupRuleDescriptionsEgressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To update an outbound security group rule description
+ * ```javascript
+ * // This example updates the description for the specified security group rule.
+ * const input = {
+ *   "GroupId": "sg-123abc12",
+ *   "IpPermissions": [
+ *     {
+ *       "FromPort": 80,
+ *       "IpProtocol": "tcp",
+ *       "IpRanges": [
+ *         {
+ *           "CidrIp": "203.0.113.0/24",
+ *           "Description": "Outbound HTTP access to server 2"
+ *         }
+ *       ],
+ *       "ToPort": 80
+ *     }
+ *   ]
+ * };
+ * const command = new UpdateSecurityGroupRuleDescriptionsEgressCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command<
   UpdateSecurityGroupRuleDescriptionsEgressCommandInput,

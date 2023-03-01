@@ -50,6 +50,17 @@ export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataB
  * @see {@link ListDevicesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ *
+ * @example To get information about devices
+ * ```javascript
+ * // The following example returns information about the available devices in a specific project.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
+ * };
+ * const command = new ListDevicesCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class ListDevicesCommand extends $Command<
   ListDevicesCommandInput,

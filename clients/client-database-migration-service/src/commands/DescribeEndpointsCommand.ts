@@ -54,6 +54,33 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @see {@link DescribeEndpointsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ *
+ * @example Describe endpoints
+ * ```javascript
+ * // Returns information about the endpoints for your account in the current region.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "string",
+ *       "Values": [
+ *         "string",
+ *         "string"
+ *       ]
+ *     }
+ *   ],
+ *   "Marker": "",
+ *   "MaxRecords": 123
+ * };
+ * const command = new DescribeEndpointsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Endpoints": [],
+ *   "Marker": ""
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeEndpointsCommand extends $Command<
   DescribeEndpointsCommandInput,

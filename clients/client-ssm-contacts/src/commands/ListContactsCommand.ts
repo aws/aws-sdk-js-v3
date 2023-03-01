@@ -50,6 +50,45 @@ export interface ListContactsCommandOutput extends ListContactsResult, __Metadat
  * @see {@link ListContactsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
+ *
+ * @example To list all escalation plans and contacts
+ * ```javascript
+ * // The following list-contacts example lists the contacts and escalation plans in your account.
+ * const input = {};
+ * const command = new ListContactsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Contacts": [
+ *     {
+ *       "Alias": "akuam",
+ *       "ContactArn": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/akuam",
+ *       "DisplayName": "Akua Mansa",
+ *       "Type": "PERSONAL"
+ *     },
+ *     {
+ *       "Alias": "alejr",
+ *       "ContactArn": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/alejr",
+ *       "DisplayName": "Alejandro Rosalez",
+ *       "Type": "PERSONAL"
+ *     },
+ *     {
+ *       "Alias": "anasi",
+ *       "ContactArn": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/anasi",
+ *       "DisplayName": "Ana Carolina Silva",
+ *       "Type": "PERSONAL"
+ *     },
+ *     {
+ *       "Alias": "example_escalation",
+ *       "ContactArn": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/example_escalation",
+ *       "DisplayName": "Example Escalation",
+ *       "Type": "ESCALATION"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListContactsCommand extends $Command<
   ListContactsCommandInput,

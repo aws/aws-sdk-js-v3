@@ -48,6 +48,19 @@ export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateAssessmentTargetCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ *
+ * @example Update assessment target
+ * ```javascript
+ * // Updates the assessment target that is specified by the ARN of the assessment target.
+ * const input = {
+ *   "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX",
+ *   "assessmentTargetName": "Example",
+ *   "resourceGroupArn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-yNbgL5Pt"
+ * };
+ * const command = new UpdateAssessmentTargetCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class UpdateAssessmentTargetCommand extends $Command<
   UpdateAssessmentTargetCommandInput,

@@ -54,6 +54,51 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * @see {@link DescribeLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ *
+ * @example To describe a load balancer
+ * ```javascript
+ * // This example describes the specified load balancer.
+ * const input = {
+ *   "LoadBalancerArns": [
+ *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+ *   ]
+ * };
+ * const command = new DescribeLoadBalancersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LoadBalancers": [
+ *     {
+ *       "AvailabilityZones": [
+ *         {
+ *           "SubnetId": "subnet-8360a9e7",
+ *           "ZoneName": "us-west-2a"
+ *         },
+ *         {
+ *           "SubnetId": "subnet-b7d581c0",
+ *           "ZoneName": "us-west-2b"
+ *         }
+ *       ],
+ *       "CanonicalHostedZoneId": "Z2P70J7EXAMPLE",
+ *       "CreatedTime": "2016-03-25T21:26:12.920Z",
+ *       "DNSName": "my-load-balancer-424835706.us-west-2.elb.amazonaws.com",
+ *       "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+ *       "LoadBalancerName": "my-load-balancer",
+ *       "Scheme": "internet-facing",
+ *       "SecurityGroups": [
+ *         "sg-5943793c"
+ *       ],
+ *       "State": {
+ *         "Code": "active"
+ *       },
+ *       "Type": "application",
+ *       "VpcId": "vpc-3ac0fb5f"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeLoadBalancersCommand extends $Command<
   DescribeLoadBalancersCommandInput,

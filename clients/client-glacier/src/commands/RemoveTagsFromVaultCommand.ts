@@ -48,6 +48,22 @@ export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
  * @see {@link RemoveTagsFromVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ *
+ * @example To remove tags from a vault
+ * ```javascript
+ * // The example removes two tags from the vault named examplevault.
+ * const input = {
+ *   "TagKeys": [
+ *     "examplekey1",
+ *     "examplekey2"
+ *   ],
+ *   "accountId": "-",
+ *   "vaultName": "examplevault"
+ * };
+ * const command = new RemoveTagsFromVaultCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class RemoveTagsFromVaultCommand extends $Command<
   RemoveTagsFromVaultCommandInput,

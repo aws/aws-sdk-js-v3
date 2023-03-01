@@ -50,6 +50,64 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * @see {@link ModifyNetworkInterfaceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To modify the attachment attribute of a network interface
+ * ```javascript
+ * // This example modifies the attachment attribute of the specified network interface.
+ * const input = {
+ *   "Attachment": {
+ *     "AttachmentId": "eni-attach-43348162",
+ *     "DeleteOnTermination": false
+ *   },
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * };
+ * const command = new ModifyNetworkInterfaceAttributeCommand(input);
+ * await client.send(command);
+ * ```
+ *
+ *
+ * @example To modify the description attribute of a network interface
+ * ```javascript
+ * // This example modifies the description attribute of the specified network interface.
+ * const input = {
+ *   "Description": {
+ *     "Value": "My description"
+ *   },
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * };
+ * const command = new ModifyNetworkInterfaceAttributeCommand(input);
+ * await client.send(command);
+ * ```
+ *
+ *
+ * @example To modify the groupSet attribute of a network interface
+ * ```javascript
+ * // This example command modifies the groupSet attribute of the specified network interface.
+ * const input = {
+ *   "Groups": [
+ *     "sg-903004f8",
+ *     "sg-1a2b3c4d"
+ *   ],
+ *   "NetworkInterfaceId": "eni-686ea200"
+ * };
+ * const command = new ModifyNetworkInterfaceAttributeCommand(input);
+ * await client.send(command);
+ * ```
+ *
+ *
+ * @example To modify the sourceDestCheck attribute of a network interface
+ * ```javascript
+ * // This example command modifies the sourceDestCheck attribute of the specified network interface.
+ * const input = {
+ *   "NetworkInterfaceId": "eni-686ea200",
+ *   "SourceDestCheck": {
+ *     "Value": false
+ *   }
+ * };
+ * const command = new ModifyNetworkInterfaceAttributeCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class ModifyNetworkInterfaceAttributeCommand extends $Command<
   ModifyNetworkInterfaceAttributeCommandInput,

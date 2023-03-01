@@ -157,6 +157,151 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * @see {@link PutObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To upload an object
+ * ```javascript
+ * // The following example uploads an object to a versioning-enabled bucket. The source file is specified using Windows file syntax. S3 returns VersionId of the newly created object.
+ * const input = {
+ *   "Body": "HappyFace.jpg",
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "VersionId": "tpf3zF08nBplQK1XLOefGskR7mGDwcDk"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To upload object and specify user-defined metadata
+ * ```javascript
+ * // The following example creates an object. The request also specifies optional metadata. If the bucket is versioning enabled, S3 returns version ID in response.
+ * const input = {
+ *   "Body": "filetoupload",
+ *   "Bucket": "examplebucket",
+ *   "Key": "exampleobject",
+ *   "Metadata": {
+ *     "metadata1": "value1",
+ *     "metadata2": "value2"
+ *   }
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "VersionId": "pSKidl4pHBiNwukdbcPXAIs.sshFFOc0"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To upload an object (specify optional headers)
+ * ```javascript
+ * // The following example uploads an object. The request specifies optional request headers to directs S3 to use specific storage class and use server-side encryption.
+ * const input = {
+ *   "Body": "HappyFace.jpg",
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg",
+ *   "ServerSideEncryption": "AES256",
+ *   "StorageClass": "STANDARD_IA"
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "ServerSideEncryption": "AES256",
+ *   "VersionId": "CG612hodqujkf8FaaNfp8U..FIhLROcp"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To create an object.
+ * ```javascript
+ * // The following example creates an object. If the bucket is versioning enabled, S3 returns version ID in response.
+ * const input = {
+ *   "Body": "filetoupload",
+ *   "Bucket": "examplebucket",
+ *   "Key": "objectkey"
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "VersionId": "Bvq0EDKxOcXLJXNo_Lkz37eM3R4pfzyQ"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To upload an object and specify server-side encryption and object tags
+ * ```javascript
+ * // The following example uploads and object. The request specifies the optional server-side encryption option. The request also specifies optional object tags. If the bucket is versioning enabled, S3 returns version ID in response.
+ * const input = {
+ *   "Body": "filetoupload",
+ *   "Bucket": "examplebucket",
+ *   "Key": "exampleobject",
+ *   "ServerSideEncryption": "AES256",
+ *   "Tagging": "key1=value1&key2=value2"
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "ServerSideEncryption": "AES256",
+ *   "VersionId": "Ri.vC6qVlA4dEnjgRV4ZHsHoFIjqEMNt"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To upload an object and specify optional tags
+ * ```javascript
+ * // The following example uploads an object. The request specifies optional object tags. The bucket is versioned, therefore S3 returns version ID of the newly created object.
+ * const input = {
+ *   "Body": "c:\\HappyFace.jpg",
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg",
+ *   "Tagging": "key1=value1&key2=value2"
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "VersionId": "psM2sYY4.o1501dSx8wMvnkOzSBB.V4a"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To upload an object and specify canned ACL.
+ * ```javascript
+ * // The following example uploads and object. The request specifies optional canned ACL (access control list) to all READ access to authenticated users. If the bucket is versioning enabled, S3 returns version ID in response.
+ * const input = {
+ *   "ACL": "authenticated-read",
+ *   "Body": "filetoupload",
+ *   "Bucket": "examplebucket",
+ *   "Key": "exampleobject"
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "VersionId": "Kirh.unyZwjQ69YxcQLA8z4F5j3kJJKr"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectCommandOutput, S3ClientResolvedConfig> {
   // Start section: command_properties

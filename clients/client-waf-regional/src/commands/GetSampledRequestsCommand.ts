@@ -62,6 +62,51 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  * @see {@link GetSampledRequestsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ *
+ * @example To get a sampled requests
+ * ```javascript
+ * // The following example returns detailed information about 100 requests --a sample-- that AWS WAF randomly selects from among the first 5,000 requests that your AWS resource received between the time period 2016-09-27T15:50Z to 2016-09-27T15:50Z.
+ * const input = {
+ *   "MaxItems": 100,
+ *   "RuleId": "WAFRule-1-Example",
+ *   "TimeWindow": {
+ *     "EndTime": "2016-09-27T15:50Z",
+ *     "StartTime": "2016-09-27T15:50Z"
+ *   },
+ *   "WebAclId": "createwebacl-1472061481310"
+ * };
+ * const command = new GetSampledRequestsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "PopulationSize": 50,
+ *   "SampledRequests": [
+ *     {
+ *       "Action": "BLOCK",
+ *       "Request": {
+ *         "ClientIP": "192.0.2.44",
+ *         "Country": "US",
+ *         "HTTPVersion": "HTTP/1.1",
+ *         "Headers": [
+ *           {
+ *             "Name": "User-Agent",
+ *             "Value": "BadBot "
+ *           }
+ *         ],
+ *         "Method": "HEAD"
+ *       },
+ *       "Timestamp": "2016-09-27T14:55Z",
+ *       "Weight": 1
+ *     }
+ *   ],
+ *   "TimeWindow": {
+ *     "EndTime": "2016-09-27T15:50Z",
+ *     "StartTime": "2016-09-27T14:50Z"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetSampledRequestsCommand extends $Command<
   GetSampledRequestsCommandInput,

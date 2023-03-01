@@ -155,6 +155,29 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  * @see {@link SendRawEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example SendRawEmail
+ * ```javascript
+ * // The following example sends an email with an attachment:
+ * const input = {
+ *   "Destinations": [],
+ *   "FromArn": "",
+ *   "RawMessage": {
+ *     "Data": "From: sender@example.com\\nTo: recipient@example.com\\nSubject: Test email (contains an attachment)\\nMIME-Version: 1.0\\nContent-type: Multipart/Mixed; boundary=\"NextPart\"\\n\\n--NextPart\\nContent-Type: text/plain\\n\\nThis is the message body.\\n\\n--NextPart\\nContent-Type: text/plain;\\nContent-Disposition: attachment; filename=\"attachment.txt\"\\n\\nThis is the text in the attachment.\\n\\n--NextPart--"
+ *   },
+ *   "ReturnPathArn": "",
+ *   "Source": "",
+ *   "SourceArn": ""
+ * };
+ * const command = new SendRawEmailCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "MessageId": "EXAMPLEf3f73d99b-c63fb06f-d263-41f8-a0fb-d0dc67d56c07-000000"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class SendRawEmailCommand extends $Command<
   SendRawEmailCommandInput,

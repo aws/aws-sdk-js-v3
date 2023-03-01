@@ -56,6 +56,32 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  * @see {@link DescribeMountTargetsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ *
+ * @example To describe the mount targets for a file system
+ * ```javascript
+ * // This operation describes all of a file system's mount targets.
+ * const input = {
+ *   "FileSystemId": "fs-01234567"
+ * };
+ * const command = new DescribeMountTargetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "MountTargets": [
+ *     {
+ *       "FileSystemId": "fs-01234567",
+ *       "IpAddress": "192.0.0.2",
+ *       "LifeCycleState": "available",
+ *       "MountTargetId": "fsmt-12340abc",
+ *       "NetworkInterfaceId": "eni-cedf6789",
+ *       "OwnerId": "012345678912",
+ *       "SubnetId": "subnet-1234abcd"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeMountTargetsCommand extends $Command<
   DescribeMountTargetsCommandInput,

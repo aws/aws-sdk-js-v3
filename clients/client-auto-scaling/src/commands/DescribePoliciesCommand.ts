@@ -50,6 +50,41 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  * @see {@link DescribePoliciesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To describe scaling policies
+ * ```javascript
+ * // This example describes the policies for the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group"
+ * };
+ * const command = new DescribePoliciesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ScalingPolicies": [
+ *     {
+ *       "AdjustmentType": "ChangeInCapacity",
+ *       "Alarms": [],
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:2233f3d7-6290-403b-b632-93c553560106:autoScalingGroupName/my-auto-scaling-group:policyName/ScaleIn",
+ *       "PolicyName": "ScaleIn",
+ *       "ScalingAdjustment": -1
+ *     },
+ *     {
+ *       "AdjustmentType": "PercentChangeInCapacity",
+ *       "Alarms": [],
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "Cooldown": 60,
+ *       "MinAdjustmentStep": 2,
+ *       "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:2b435159-cf77-4e89-8c0e-d63b497baad7:autoScalingGroupName/my-auto-scaling-group:policyName/ScalePercentChange",
+ *       "PolicyName": "ScalePercentChange",
+ *       "ScalingAdjustment": 25
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribePoliciesCommand extends $Command<
   DescribePoliciesCommandInput,

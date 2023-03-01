@@ -60,6 +60,30 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ *
+ * @example To create a new cluster
+ * ```javascript
+ * // This example creates a cluster in your default region.
+ * const input = {
+ *   "clusterName": "my_cluster"
+ * };
+ * const command = new CreateClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "cluster": {
+ *     "activeServicesCount": 0,
+ *     "clusterArn": "arn:aws:ecs:us-east-1:012345678910:cluster/my_cluster",
+ *     "clusterName": "my_cluster",
+ *     "pendingTasksCount": 0,
+ *     "registeredContainerInstancesCount": 0,
+ *     "runningTasksCount": 0,
+ *     "status": "ACTIVE"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,

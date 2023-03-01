@@ -54,6 +54,32 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * @see {@link PutReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
  *
+ *
+ * @example To create a report named ExampleReport.
+ * ```javascript
+ * // The following example creates a AWS Cost and Usage report named ExampleReport.
+ * const input = {
+ *   "ReportDefinition": {
+ *     "AdditionalArtifacts": [
+ *       "REDSHIFT",
+ *       "QUICKSIGHT"
+ *     ],
+ *     "AdditionalSchemaElements": [
+ *       "RESOURCES"
+ *     ],
+ *     "Compression": "ZIP",
+ *     "Format": "textORcsv",
+ *     "ReportName": "ExampleReport",
+ *     "S3Bucket": "example-s3-bucket",
+ *     "S3Prefix": "exampleprefix",
+ *     "S3Region": "us-east-1",
+ *     "TimeUnit": "DAILY"
+ *   }
+ * };
+ * const command = new PutReportDefinitionCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class PutReportDefinitionCommand extends $Command<
   PutReportDefinitionCommandInput,

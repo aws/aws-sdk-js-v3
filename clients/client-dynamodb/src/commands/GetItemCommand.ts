@@ -54,6 +54,40 @@ export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
  * @see {@link GetItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ *
+ * @example To read an item from a table
+ * ```javascript
+ * // This example retrieves an item from the Music table. The table has a partition key and a sort key (Artist and SongTitle), so you must specify both of these attributes.
+ * const input = {
+ *   "Key": {
+ *     "Artist": {
+ *       "S": "Acme Band"
+ *     },
+ *     "SongTitle": {
+ *       "S": "Happy Day"
+ *     }
+ *   },
+ *   "TableName": "Music"
+ * };
+ * const command = new GetItemCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Item": {
+ *     "AlbumTitle": {
+ *       "S": "Songs About Life"
+ *     },
+ *     "Artist": {
+ *       "S": "Acme Band"
+ *     },
+ *     "SongTitle": {
+ *       "S": "Happy Day"
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommandOutput, DynamoDBClientResolvedConfig> {
   // Start section: command_properties

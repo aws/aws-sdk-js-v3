@@ -54,6 +54,20 @@ export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBala
  * @see {@link DeleteLoadBalancerListenersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ *
+ * @example To delete a listener from your load balancer
+ * ```javascript
+ * // This example deletes the listener for the specified port from the specified load balancer.
+ * const input = {
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "LoadBalancerPorts": [
+ *     80
+ *   ]
+ * };
+ * const command = new DeleteLoadBalancerListenersCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteLoadBalancerListenersCommand extends $Command<
   DeleteLoadBalancerListenersCommandInput,

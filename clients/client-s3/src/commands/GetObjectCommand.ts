@@ -213,6 +213,55 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  * @see {@link GetObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
+ * @example To retrieve a byte range of an object
+ * ```javascript
+ * // The following example retrieves an object for an S3 bucket. The request specifies the range header to retrieve a specific byte range.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "SampleFile.txt",
+ *   "Range": "bytes=0-9"
+ * };
+ * const command = new GetObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AcceptRanges": "bytes",
+ *   "ContentLength": "10",
+ *   "ContentRange": "bytes 0-9/43",
+ *   "ContentType": "text/plain",
+ *   "ETag": "\"0d94420ffd0bc68cd3d152506b97a9cc\"",
+ *   "LastModified": "Thu, 09 Oct 2014 22:57:28 GMT",
+ *   "Metadata": {},
+ *   "VersionId": "null"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To retrieve an object
+ * ```javascript
+ * // The following example retrieves an object for an S3 bucket.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new GetObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AcceptRanges": "bytes",
+ *   "ContentLength": "3191",
+ *   "ContentType": "image/jpeg",
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "LastModified": "Thu, 15 Dec 2016 01:19:41 GMT",
+ *   "Metadata": {},
+ *   "TagCount": 2,
+ *   "VersionId": "null"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectCommandOutput, S3ClientResolvedConfig> {
   // Start section: command_properties

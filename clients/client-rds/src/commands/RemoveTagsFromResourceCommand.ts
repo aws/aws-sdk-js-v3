@@ -49,6 +49,20 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To remove tags from a resource
+ * ```javascript
+ * // This example removes the specified tag associated with the specified DB option group.
+ * const input = {
+ *   "ResourceName": "arn:aws:rds:us-east-1:992648334831:og:mydboptiongroup",
+ *   "TagKeys": [
+ *     "MyKey"
+ *   ]
+ * };
+ * const command = new RemoveTagsFromResourceCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class RemoveTagsFromResourceCommand extends $Command<
   RemoveTagsFromResourceCommandInput,

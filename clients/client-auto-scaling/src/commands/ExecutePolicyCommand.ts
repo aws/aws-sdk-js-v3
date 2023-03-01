@@ -46,6 +46,20 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link ExecutePolicyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ *
+ * @example To execute a scaling policy
+ * ```javascript
+ * // This example executes the specified policy.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "BreachThreshold": 50,
+ *   "MetricValue": 59,
+ *   "PolicyName": "my-step-scale-out-policy"
+ * };
+ * const command = new ExecutePolicyCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class ExecutePolicyCommand extends $Command<
   ExecutePolicyCommandInput,

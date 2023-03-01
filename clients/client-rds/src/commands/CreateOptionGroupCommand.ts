@@ -51,6 +51,25 @@ export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult,
  * @see {@link CreateOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To create an option group
+ * ```javascript
+ * // This example creates an option group.
+ * const input = {
+ *   "EngineName": "MySQL",
+ *   "MajorEngineVersion": "5.6",
+ *   "OptionGroupDescription": "My MySQL 5.6 option group",
+ *   "OptionGroupName": "mymysqloptiongroup"
+ * };
+ * const command = new CreateOptionGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OptionGroup": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateOptionGroupCommand extends $Command<
   CreateOptionGroupCommandInput,

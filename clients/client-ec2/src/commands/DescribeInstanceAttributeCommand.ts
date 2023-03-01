@@ -57,6 +57,86 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * @see {@link DescribeInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To describe the instance type
+ * ```javascript
+ * // This example describes the instance type of the specified instance.
+ * //
+ * const input = {
+ *   "Attribute": "instanceType",
+ *   "InstanceId": "i-1234567890abcdef0"
+ * };
+ * const command = new DescribeInstanceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InstanceId": "i-1234567890abcdef0",
+ *   "InstanceType": {
+ *     "Value": "t1.micro"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To describe the disableApiTermination attribute
+ * ```javascript
+ * // This example describes the ``disableApiTermination`` attribute of the specified instance.
+ * //
+ * const input = {
+ *   "Attribute": "disableApiTermination",
+ *   "InstanceId": "i-1234567890abcdef0"
+ * };
+ * const command = new DescribeInstanceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DisableApiTermination": {
+ *     "Value": "false"
+ *   },
+ *   "InstanceId": "i-1234567890abcdef0"
+ * }
+ * *\/
+ * ```
+ *
+ *
+ * @example To describe the block device mapping for an instance
+ * ```javascript
+ * // This example describes the ``blockDeviceMapping`` attribute of the specified instance.
+ * //
+ * const input = {
+ *   "Attribute": "blockDeviceMapping",
+ *   "InstanceId": "i-1234567890abcdef0"
+ * };
+ * const command = new DescribeInstanceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "BlockDeviceMappings": [
+ *     {
+ *       "DeviceName": "/dev/sda1",
+ *       "Ebs": {
+ *         "AttachTime": "2013-05-17T22:42:34.000Z",
+ *         "DeleteOnTermination": true,
+ *         "Status": "attached",
+ *         "VolumeId": "vol-049df61146c4d7901"
+ *       }
+ *     },
+ *     {
+ *       "DeviceName": "/dev/sdf",
+ *       "Ebs": {
+ *         "AttachTime": "2013-09-10T23:07:00.000Z",
+ *         "DeleteOnTermination": false,
+ *         "Status": "attached",
+ *         "VolumeId": "vol-049df61146c4d7901"
+ *       }
+ *     }
+ *   ],
+ *   "InstanceId": "i-1234567890abcdef0"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeInstanceAttributeCommand extends $Command<
   DescribeInstanceAttributeCommandInput,

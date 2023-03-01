@@ -67,6 +67,18 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * @see {@link ResetDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ *
+ * @example To reset the values of a DB cluster parameter group
+ * ```javascript
+ * // This example resets all parameters for the specified DB cluster parameter group to their default values.
+ * const input = {
+ *   "DBClusterParameterGroupName": "mydbclusterparametergroup",
+ *   "ResetAllParameters": true
+ * };
+ * const command = new ResetDBClusterParameterGroupCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class ResetDBClusterParameterGroupCommand extends $Command<
   ResetDBClusterParameterGroupCommandInput,

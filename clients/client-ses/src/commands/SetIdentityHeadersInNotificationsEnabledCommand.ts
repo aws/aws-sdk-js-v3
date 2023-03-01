@@ -58,6 +58,19 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
  * @see {@link SetIdentityHeadersInNotificationsEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
+ * @example SetIdentityHeadersInNotificationsEnabled
+ * ```javascript
+ * // The following example configures Amazon SES to include the original email headers in the Amazon SNS bounce notifications for an identity:
+ * const input = {
+ *   "Enabled": true,
+ *   "Identity": "user@example.com",
+ *   "NotificationType": "Bounce"
+ * };
+ * const command = new SetIdentityHeadersInNotificationsEnabledCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
   SetIdentityHeadersInNotificationsEnabledCommandInput,

@@ -60,6 +60,31 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * @see {@link ListGatewaysCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To lists region specific gateways per AWS account
+ * ```javascript
+ * // Lists gateways owned by an AWS account in a specified region as requested. Results are sorted by gateway ARN up to a maximum of 100 gateways.
+ * const input = {
+ *   "Limit": 2,
+ *   "Marker": "1"
+ * };
+ * const command = new ListGatewaysCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Gateways": [
+ *     {
+ *       "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *     },
+ *     {
+ *       "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-23A4567C"
+ *     }
+ *   ],
+ *   "Marker": "1"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListGatewaysCommand extends $Command<
   ListGatewaysCommandInput,

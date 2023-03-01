@@ -59,6 +59,53 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  * @see {@link CreateLaunchTemplateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To create a launch template
+ * ```javascript
+ * // This example creates a launch template that specifies the subnet in which to launch the instance, assigns a public IP address and an IPv6 address to the instance, and creates a tag for the instance.
+ * const input = {
+ *   "LaunchTemplateData": {
+ *     "ImageId": "ami-8c1be5f6",
+ *     "InstanceType": "t2.small",
+ *     "NetworkInterfaces": [
+ *       {
+ *         "AssociatePublicIpAddress": true,
+ *         "DeviceIndex": 0,
+ *         "Ipv6AddressCount": 1,
+ *         "SubnetId": "subnet-7b16de0c"
+ *       }
+ *     ],
+ *     "TagSpecifications": [
+ *       {
+ *         "ResourceType": "instance",
+ *         "Tags": [
+ *           {
+ *             "Key": "Name",
+ *             "Value": "webserver"
+ *           }
+ *         ]
+ *       }
+ *     ]
+ *   },
+ *   "LaunchTemplateName": "my-template",
+ *   "VersionDescription": "WebVersion1"
+ * };
+ * const command = new CreateLaunchTemplateCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LaunchTemplate": {
+ *     "CreateTime": "2017-11-27T09:13:24.000Z",
+ *     "CreatedBy": "arn:aws:iam::123456789012:root",
+ *     "DefaultVersionNumber": 1,
+ *     "LatestVersionNumber": 1,
+ *     "LaunchTemplateId": "lt-01238c059e3466abc",
+ *     "LaunchTemplateName": "my-template"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class CreateLaunchTemplateCommand extends $Command<
   CreateLaunchTemplateCommandInput,

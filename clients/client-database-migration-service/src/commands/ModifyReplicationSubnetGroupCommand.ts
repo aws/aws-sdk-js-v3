@@ -56,6 +56,24 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  * @see {@link ModifyReplicationSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ *
+ * @example Modify replication subnet group
+ * ```javascript
+ * // Modifies the settings for the specified replication subnet group.
+ * const input = {
+ *   "ReplicationSubnetGroupDescription": "",
+ *   "ReplicationSubnetGroupIdentifier": "",
+ *   "SubnetIds": []
+ * };
+ * const command = new ModifyReplicationSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReplicationSubnetGroup": {}
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ModifyReplicationSubnetGroupCommand extends $Command<
   ModifyReplicationSubnetGroupCommandInput,

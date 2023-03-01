@@ -49,6 +49,32 @@ export interface ListRoleTagsCommandOutput extends ListRoleTagsResponse, __Metad
  * @see {@link ListRoleTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ *
+ * @example To list the tags attached to an IAM role
+ * ```javascript
+ * // The following example shows how to list the tags attached to a role.
+ * const input = {
+ *   "RoleName": "taggedrole1"
+ * };
+ * const command = new ListRoleTagsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "IsTruncated": false,
+ *   "Tags": [
+ *     {
+ *       "Key": "Dept",
+ *       "Value": "12345"
+ *     },
+ *     {
+ *       "Key": "Team",
+ *       "Value": "Accounting"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListRoleTagsCommand extends $Command<
   ListRoleTagsCommandInput,

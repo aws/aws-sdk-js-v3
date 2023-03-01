@@ -47,6 +47,19 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  * @see {@link DeleteOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
+ *
+ * @example To delete an organization unit
+ * ```javascript
+ * // The following example shows how to delete an OU. The example assumes that you previously removed all accounts and other OUs from the OU:
+ * //
+ * //
+ * const input = {
+ *   "OrganizationalUnitId": "ou-examplerootid111-exampleouid111"
+ * };
+ * const command = new DeleteOrganizationalUnitCommand(input);
+ * await client.send(command);
+ * ```
+ *
  */
 export class DeleteOrganizationalUnitCommand extends $Command<
   DeleteOrganizationalUnitCommandInput,

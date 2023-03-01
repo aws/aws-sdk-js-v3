@@ -55,6 +55,44 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  * @see {@link DescribeRulesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ *
+ * @example To describe a rule
+ * ```javascript
+ * // This example describes the specified rule.
+ * const input = {
+ *   "RuleArns": [
+ *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee"
+ *   ]
+ * };
+ * const command = new DescribeRulesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Rules": [
+ *     {
+ *       "Actions": [
+ *         {
+ *           "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *           "Type": "forward"
+ *         }
+ *       ],
+ *       "Conditions": [
+ *         {
+ *           "Field": "path-pattern",
+ *           "Values": [
+ *             "/img/*"
+ *           ]
+ *         }
+ *       ],
+ *       "IsDefault": false,
+ *       "Priority": "10",
+ *       "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeRulesCommand extends $Command<
   DescribeRulesCommandInput,

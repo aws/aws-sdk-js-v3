@@ -101,6 +101,34 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  * @see {@link UpdateXssMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
+ *
+ * @example To update an XSS match set
+ * ```javascript
+ * // The following example deletes an XssMatchTuple object (filters) in an XssMatchSet with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
+ * const input = {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "Updates": [
+ *     {
+ *       "Action": "DELETE",
+ *       "XssMatchTuple": {
+ *         "FieldToMatch": {
+ *           "Type": "QUERY_STRING"
+ *         },
+ *         "TextTransformation": "URL_DECODE"
+ *       }
+ *     }
+ *   ],
+ *   "XssMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ * };
+ * const command = new UpdateXssMatchSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateXssMatchSetCommand extends $Command<
   UpdateXssMatchSetCommandInput,

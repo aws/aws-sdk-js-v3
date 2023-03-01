@@ -52,6 +52,26 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  * @see {@link ListTagsForVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ *
+ * @example To list the tags for a vault
+ * ```javascript
+ * // The example lists all the tags attached to the vault examplevault.
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "examplevault"
+ * };
+ * const command = new ListTagsForVaultCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Tags": {
+ *     "date": "july2015",
+ *     "id": "1234"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListTagsForVaultCommand extends $Command<
   ListTagsForVaultCommandInput,

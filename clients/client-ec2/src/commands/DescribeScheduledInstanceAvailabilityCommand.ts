@@ -56,6 +56,55 @@ export interface DescribeScheduledInstanceAvailabilityCommandOutput
  * @see {@link DescribeScheduledInstanceAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
+ * @example To describe an available schedule
+ * ```javascript
+ * // This example describes a schedule that occurs every week on Sunday, starting on the specified date. Note that the output contains a single schedule as an example.
+ * const input = {
+ *   "FirstSlotStartTimeRange": {
+ *     "EarliestTime": "2016-01-31T00:00:00Z",
+ *     "LatestTime": "2016-01-31T04:00:00Z"
+ *   },
+ *   "Recurrence": {
+ *     "Frequency": "Weekly",
+ *     "Interval": 1,
+ *     "OccurrenceDays": [
+ *       1
+ *     ]
+ *   }
+ * };
+ * const command = new DescribeScheduledInstanceAvailabilityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ScheduledInstanceAvailabilitySet": [
+ *     {
+ *       "AvailabilityZone": "us-west-2b",
+ *       "AvailableInstanceCount": 20,
+ *       "FirstSlotStartTime": "2016-01-31T00:00:00Z",
+ *       "HourlyPrice": "0.095",
+ *       "InstanceType": "c4.large",
+ *       "MaxTermDurationInDays": 366,
+ *       "MinTermDurationInDays": 366,
+ *       "NetworkPlatform": "EC2-VPC",
+ *       "Platform": "Linux/UNIX",
+ *       "PurchaseToken": "eyJ2IjoiMSIsInMiOjEsImMiOi...",
+ *       "Recurrence": {
+ *         "Frequency": "Weekly",
+ *         "Interval": 1,
+ *         "OccurrenceDaySet": [
+ *           1
+ *         ],
+ *         "OccurrenceRelativeToEnd": false
+ *       },
+ *       "SlotDurationInHours": 23,
+ *       "TotalScheduledInstanceHours": 1219
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeScheduledInstanceAvailabilityCommand extends $Command<
   DescribeScheduledInstanceAvailabilityCommandInput,

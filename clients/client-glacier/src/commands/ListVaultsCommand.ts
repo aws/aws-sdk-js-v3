@@ -68,6 +68,33 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  * @see {@link ListVaultsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ *
+ * @example To list all vaults owned by the calling user's account
+ * ```javascript
+ * // The example lists all vaults owned by the specified AWS account.
+ * const input = {
+ *   "accountId": "-",
+ *   "limit": "",
+ *   "marker": ""
+ * };
+ * const command = new ListVaultsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VaultList": [
+ *     {
+ *       "CreationDate": "2015-04-06T21:23:45.708Z",
+ *       "LastInventoryDate": "2015-04-07T00:26:19.028Z",
+ *       "NumberOfArchives": 1,
+ *       "SizeInBytes": 3178496,
+ *       "VaultARN": "arn:aws:glacier:us-west-2:0123456789012:vaults/my-vault",
+ *       "VaultName": "my-vault"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class ListVaultsCommand extends $Command<
   ListVaultsCommandInput,

@@ -53,6 +53,42 @@ export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __Metad
  * @see {@link DescribeTapesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ *
+ * @example To describe virtual tape(s) associated with gateway
+ * ```javascript
+ * // Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a TapeARN is not specified, returns a description of all virtual tapes.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+ *   "Limit": 2,
+ *   "Marker": "1",
+ *   "TapeARNs": [
+ *     "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST04A2A1",
+ *     "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST05A2A0"
+ *   ]
+ * };
+ * const command = new DescribeTapesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "1",
+ *   "Tapes": [
+ *     {
+ *       "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST04A2A1",
+ *       "TapeBarcode": "TEST04A2A1",
+ *       "TapeSizeInBytes": 107374182400,
+ *       "TapeStatus": "AVAILABLE"
+ *     },
+ *     {
+ *       "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST05A2A0",
+ *       "TapeBarcode": "TEST05A2A0",
+ *       "TapeSizeInBytes": 107374182400,
+ *       "TapeStatus": "AVAILABLE"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  */
 export class DescribeTapesCommand extends $Command<
   DescribeTapesCommandInput,

@@ -76,6 +76,58 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * @see {@link UpdateTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ *
+ * @example To modify a table's provisioned throughput
+ * ```javascript
+ * // This example increases the provisioned read and write capacity on the Music table.
+ * const input = {
+ *   "ProvisionedThroughput": {
+ *     "ReadCapacityUnits": 10,
+ *     "WriteCapacityUnits": 10
+ *   },
+ *   "TableName": "MusicCollection"
+ * };
+ * const command = new UpdateTableCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TableDescription": {
+ *     "AttributeDefinitions": [
+ *       {
+ *         "AttributeName": "Artist",
+ *         "AttributeType": "S"
+ *       },
+ *       {
+ *         "AttributeName": "SongTitle",
+ *         "AttributeType": "S"
+ *       }
+ *     ],
+ *     "CreationDateTime": "1421866952.062",
+ *     "ItemCount": 0,
+ *     "KeySchema": [
+ *       {
+ *         "AttributeName": "Artist",
+ *         "KeyType": "HASH"
+ *       },
+ *       {
+ *         "AttributeName": "SongTitle",
+ *         "KeyType": "RANGE"
+ *       }
+ *     ],
+ *     "ProvisionedThroughput": {
+ *       "LastIncreaseDateTime": "1421874759.194",
+ *       "NumberOfDecreasesToday": 1,
+ *       "ReadCapacityUnits": 1,
+ *       "WriteCapacityUnits": 1
+ *     },
+ *     "TableName": "MusicCollection",
+ *     "TableSizeBytes": 0,
+ *     "TableStatus": "UPDATING"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  */
 export class UpdateTableCommand extends $Command<
   UpdateTableCommandInput,
