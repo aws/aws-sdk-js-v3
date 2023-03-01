@@ -247,9 +247,25 @@ GetAttributeValues
 </details>
 <details>
 <summary>
+GetPriceListFileUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/classes/getpricelistfileurlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getpricelistfileurlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getpricelistfileurlcommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetProducts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/classes/getproductscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getproductscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getproductscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListPriceLists
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/classes/listpricelistscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/listpricelistscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/listpricelistscommandoutput.html)
 
 </details>

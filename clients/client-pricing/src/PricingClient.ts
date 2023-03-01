@@ -51,7 +51,12 @@ import {
 
 import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand";
 import { GetAttributeValuesCommandInput, GetAttributeValuesCommandOutput } from "./commands/GetAttributeValuesCommand";
+import {
+  GetPriceListFileUrlCommandInput,
+  GetPriceListFileUrlCommandOutput,
+} from "./commands/GetPriceListFileUrlCommand";
 import { GetProductsCommandInput, GetProductsCommandOutput } from "./commands/GetProductsCommand";
+import { ListPriceListsCommandInput, ListPriceListsCommandOutput } from "./commands/ListPriceListsCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -60,12 +65,19 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
-export type ServiceInputTypes = DescribeServicesCommandInput | GetAttributeValuesCommandInput | GetProductsCommandInput;
+export type ServiceInputTypes =
+  | DescribeServicesCommandInput
+  | GetAttributeValuesCommandInput
+  | GetPriceListFileUrlCommandInput
+  | GetProductsCommandInput
+  | ListPriceListsCommandInput;
 
 export type ServiceOutputTypes =
   | DescribeServicesCommandOutput
   | GetAttributeValuesCommandOutput
-  | GetProductsCommandOutput;
+  | GetPriceListFileUrlCommandOutput
+  | GetProductsCommandOutput
+  | ListPriceListsCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

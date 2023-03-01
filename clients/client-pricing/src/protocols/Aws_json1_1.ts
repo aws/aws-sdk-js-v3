@@ -15,8 +15,14 @@ import {
 
 import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "../commands/DescribeServicesCommand";
 import { GetAttributeValuesCommandInput, GetAttributeValuesCommandOutput } from "../commands/GetAttributeValuesCommand";
-import { GetProductsCommandInput, GetProductsCommandOutput } from "../commands/GetProductsCommand";
 import {
+  GetPriceListFileUrlCommandInput,
+  GetPriceListFileUrlCommandOutput,
+} from "../commands/GetPriceListFileUrlCommand";
+import { GetProductsCommandInput, GetProductsCommandOutput } from "../commands/GetProductsCommand";
+import { ListPriceListsCommandInput, ListPriceListsCommandOutput } from "../commands/ListPriceListsCommand";
+import {
+  AccessDeniedException,
   AttributeValue,
   DescribeServicesRequest,
   DescribeServicesResponse,
@@ -24,12 +30,17 @@ import {
   Filter,
   GetAttributeValuesRequest,
   GetAttributeValuesResponse,
+  GetPriceListFileUrlRequest,
+  GetPriceListFileUrlResponse,
   GetProductsRequest,
   GetProductsResponse,
   InternalErrorException,
   InvalidNextTokenException,
   InvalidParameterException,
+  ListPriceListsRequest,
+  ListPriceListsResponse,
   NotFoundException,
+  PriceList,
   Service,
 } from "../models/models_0";
 import { PricingServiceException as __BaseException } from "../models/PricingServiceException";
@@ -60,6 +71,19 @@ export const serializeAws_json1_1GetAttributeValuesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetPriceListFileUrlCommand = async (
+  input: GetPriceListFileUrlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSPriceListService.GetPriceListFileUrl",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetPriceListFileUrlRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetProductsCommand = async (
   input: GetProductsCommandInput,
   context: __SerdeContext
@@ -70,6 +94,19 @@ export const serializeAws_json1_1GetProductsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetProductsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListPriceListsCommand = async (
+  input: ListPriceListsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSPriceListService.ListPriceLists",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListPriceListsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -179,6 +216,56 @@ const deserializeAws_json1_1GetAttributeValuesCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1GetPriceListFileUrlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPriceListFileUrlCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetPriceListFileUrlCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetPriceListFileUrlResponse(data, context);
+  const response: GetPriceListFileUrlCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetPriceListFileUrlCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPriceListFileUrlCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pricing#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalErrorException":
+    case "com.amazonaws.pricing#InternalErrorException":
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.pricing#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.pricing#NotFoundException":
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1GetProductsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -230,6 +317,75 @@ const deserializeAws_json1_1GetProductsCommandError = async (
         errorCode,
       });
   }
+};
+
+export const deserializeAws_json1_1ListPriceListsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPriceListsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListPriceListsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListPriceListsResponse(data, context);
+  const response: ListPriceListsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListPriceListsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPriceListsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.pricing#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ExpiredNextTokenException":
+    case "com.amazonaws.pricing#ExpiredNextTokenException":
+      throw await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(parsedOutput, context);
+    case "InternalErrorException":
+    case "com.amazonaws.pricing#InternalErrorException":
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.pricing#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.pricing#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.pricing#NotFoundException":
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ExpiredNextTokenExceptionResponse = async (
@@ -334,6 +490,16 @@ const serializeAws_json1_1GetAttributeValuesRequest = (
   };
 };
 
+const serializeAws_json1_1GetPriceListFileUrlRequest = (
+  input: GetPriceListFileUrlRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FileFormat != null && { FileFormat: input.FileFormat }),
+    ...(input.PriceListArn != null && { PriceListArn: input.PriceListArn }),
+  };
+};
+
 const serializeAws_json1_1GetProductsRequest = (input: GetProductsRequest, context: __SerdeContext): any => {
   return {
     ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
@@ -342,6 +508,23 @@ const serializeAws_json1_1GetProductsRequest = (input: GetProductsRequest, conte
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
   };
+};
+
+const serializeAws_json1_1ListPriceListsRequest = (input: ListPriceListsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CurrencyCode != null && { CurrencyCode: input.CurrencyCode }),
+    ...(input.EffectiveDate != null && { EffectiveDate: Math.round(input.EffectiveDate.getTime() / 1000) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.RegionCode != null && { RegionCode: input.RegionCode }),
+    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
+  };
+};
+
+const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
 };
 
 const deserializeAws_json1_1AttributeNameList = (output: any, context: __SerdeContext): string[] => {
@@ -394,6 +577,18 @@ const deserializeAws_json1_1ExpiredNextTokenException = (
   } as any;
 };
 
+const deserializeAws_json1_1FileFormats = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1GetAttributeValuesResponse = (
   output: any,
   context: __SerdeContext
@@ -404,6 +599,15 @@ const deserializeAws_json1_1GetAttributeValuesResponse = (
         ? deserializeAws_json1_1AttributeValueList(output.AttributeValues, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1GetPriceListFileUrlResponse = (
+  output: any,
+  context: __SerdeContext
+): GetPriceListFileUrlResponse => {
+  return {
+    Url: __expectString(output.Url),
   } as any;
 };
 
@@ -440,9 +644,26 @@ const deserializeAws_json1_1InvalidParameterException = (
   } as any;
 };
 
+const deserializeAws_json1_1ListPriceListsResponse = (output: any, context: __SerdeContext): ListPriceListsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    PriceLists: output.PriceLists != null ? deserializeAws_json1_1PriceLists(output.PriceLists, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1PriceList = (output: any, context: __SerdeContext): PriceList => {
+  return {
+    CurrencyCode: __expectString(output.CurrencyCode),
+    FileFormats:
+      output.FileFormats != null ? deserializeAws_json1_1FileFormats(output.FileFormats, context) : undefined,
+    PriceListArn: __expectString(output.PriceListArn),
+    RegionCode: __expectString(output.RegionCode),
   } as any;
 };
 
@@ -457,6 +678,18 @@ const deserializeAws_json1_1PriceListJsonItems = (
         return null as any;
       }
       return new __LazyJsonString(entry);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1PriceLists = (output: any, context: __SerdeContext): PriceList[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PriceList(entry, context);
     });
   return retVal;
 };
