@@ -73,7 +73,7 @@ export interface CreateEndpointRequest {
    *             network, choose <code>CustomerOwnedIp</code>.  If you choose
    *                 <code>CustomerOwnedIp</code>, you must also provide the customer-owned IP address
    *             pool (CoIP pool).</p>
-   *         <note>
+   *          <note>
    *             <p>
    *                <code>Private</code> is the default access type value.</p>
    *          </note>
@@ -132,6 +132,27 @@ export class ResourceNotFoundException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request was denied due to request throttling.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -274,6 +295,69 @@ export interface ListEndpointsResult {
   NextToken?: string;
 }
 
+export interface ListOutpostsWithS3Request {
+  /**
+   * <p>When you can get additional results from the <code>ListOutpostsWithS3</code> call, a
+   *                 <code>NextToken</code> parameter is returned in the output. You can then pass in a
+   *             subsequent command to the <code>NextToken</code> parameter to continue listing
+   *             additional Outposts.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of Outposts to return. The limit is 100.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Contains the details for the Outpost object.</p>
+ */
+export interface Outpost {
+  /**
+   * <p>Specifies the unique Amazon Resource Name (ARN) for the outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>Specifies the unique identifier for the outpost.</p>
+   */
+  OutpostId?: string;
+
+  /**
+   * <p>Returns the Amazon Web Services account ID of the outpost owner. Useful for comparing owned versus shared outposts.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The Amazon S3 capacity of the outpost in bytes.</p>
+   */
+  CapacityInBytes?: number;
+}
+
+export interface ListOutpostsWithS3Result {
+  /**
+   * <p>Returns the list of Outposts that have the following characteristics:</p>
+   *          <ul>
+   *             <li>
+   *                <p>outposts that have S3 provisioned</p>
+   *             </li>
+   *             <li>
+   *                <p>outposts that are <code>Active</code> (not pending any provisioning nor decommissioned)</p>
+   *             </li>
+   *             <li>
+   *                <p>outposts to which the the calling Amazon Web Services account has access</p>
+   *             </li>
+   *          </ul>
+   */
+  Outposts?: Outpost[];
+
+  /**
+   * <p>Returns a token that you can use to call <code>ListOutpostsWithS3</code> again and receive additional results, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
 export interface ListSharedEndpointsRequest {
   /**
    * <p>If a previous response from this operation included a <code>NextToken</code> value, you
@@ -351,6 +435,27 @@ export const ListEndpointsRequestFilterSensitiveLog = (obj: ListEndpointsRequest
  * @internal
  */
 export const ListEndpointsResultFilterSensitiveLog = (obj: ListEndpointsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOutpostsWithS3RequestFilterSensitiveLog = (obj: ListOutpostsWithS3Request): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutpostFilterSensitiveLog = (obj: Outpost): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOutpostsWithS3ResultFilterSensitiveLog = (obj: ListOutpostsWithS3Result): any => ({
   ...obj,
 });
 

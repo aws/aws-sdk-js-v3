@@ -14,59 +14,48 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  ListEndpointsRequest,
-  ListEndpointsRequestFilterSensitiveLog,
-  ListEndpointsResult,
-  ListEndpointsResultFilterSensitiveLog,
+  ListOutpostsWithS3Request,
+  ListOutpostsWithS3RequestFilterSensitiveLog,
+  ListOutpostsWithS3Result,
+  ListOutpostsWithS3ResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListEndpointsCommand,
-  serializeAws_restJson1ListEndpointsCommand,
+  deserializeAws_restJson1ListOutpostsWithS3Command,
+  serializeAws_restJson1ListOutpostsWithS3Command,
 } from "../protocols/Aws_restJson1";
 import { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
 
 /**
- * The input for {@link ListEndpointsCommand}.
+ * The input for {@link ListOutpostsWithS3Command}.
  */
-export interface ListEndpointsCommandInput extends ListEndpointsRequest {}
+export interface ListOutpostsWithS3CommandInput extends ListOutpostsWithS3Request {}
 /**
- * The output of {@link ListEndpointsCommand}.
+ * The output of {@link ListOutpostsWithS3Command}.
  */
-export interface ListEndpointsCommandOutput extends ListEndpointsResult, __MetadataBearer {}
+export interface ListOutpostsWithS3CommandOutput extends ListOutpostsWithS3Result, __MetadataBearer {}
 
 /**
- * <p>Lists endpoints associated with the specified Outpost. </p>
- *          <p>Related actions include:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html">CreateEndpoint</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Lists the Outposts with S3 on Outposts capacity for your Amazon Web Services account.
+ *             Includes S3 on Outposts that you have access to as the Outposts owner, or as a shared user
+ *             from Resource Access Manager (RAM). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3OutpostsClient, ListEndpointsCommand } from "@aws-sdk/client-s3outposts"; // ES Modules import
- * // const { S3OutpostsClient, ListEndpointsCommand } = require("@aws-sdk/client-s3outposts"); // CommonJS import
+ * import { S3OutpostsClient, ListOutpostsWithS3Command } from "@aws-sdk/client-s3outposts"; // ES Modules import
+ * // const { S3OutpostsClient, ListOutpostsWithS3Command } = require("@aws-sdk/client-s3outposts"); // CommonJS import
  * const client = new S3OutpostsClient(config);
- * const command = new ListEndpointsCommand(input);
+ * const command = new ListOutpostsWithS3Command(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListEndpointsCommandInput} for command's `input` shape.
- * @see {@link ListEndpointsCommandOutput} for command's `response` shape.
+ * @see {@link ListOutpostsWithS3CommandInput} for command's `input` shape.
+ * @see {@link ListOutpostsWithS3CommandOutput} for command's `response` shape.
  * @see {@link S3OutpostsClientResolvedConfig | config} for S3OutpostsClient's `config` shape.
  *
  */
-export class ListEndpointsCommand extends $Command<
-  ListEndpointsCommandInput,
-  ListEndpointsCommandOutput,
+export class ListOutpostsWithS3Command extends $Command<
+  ListOutpostsWithS3CommandInput,
+  ListOutpostsWithS3CommandOutput,
   S3OutpostsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -81,7 +70,7 @@ export class ListEndpointsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListEndpointsCommandInput) {
+  constructor(readonly input: ListOutpostsWithS3CommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -94,21 +83,23 @@ export class ListEndpointsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3OutpostsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListEndpointsCommandInput, ListEndpointsCommandOutput> {
+  ): Handler<ListOutpostsWithS3CommandInput, ListOutpostsWithS3CommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListEndpointsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListOutpostsWithS3Command.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "S3OutpostsClient";
-    const commandName = "ListEndpointsCommand";
+    const commandName = "ListOutpostsWithS3Command";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEndpointsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: ListOutpostsWithS3RequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListOutpostsWithS3ResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +109,12 @@ export class ListEndpointsCommand extends $Command<
     );
   }
 
-  private serialize(input: ListEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEndpointsCommand(input, context);
+  private serialize(input: ListOutpostsWithS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListOutpostsWithS3Command(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEndpointsCommandOutput> {
-    return deserializeAws_restJson1ListEndpointsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOutpostsWithS3CommandOutput> {
+    return deserializeAws_restJson1ListOutpostsWithS3Command(output, context);
   }
 
   // Start section: command_body_extra

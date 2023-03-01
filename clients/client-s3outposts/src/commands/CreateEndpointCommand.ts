@@ -36,12 +36,12 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResult, __Met
 
 /**
  * <p>Creates an endpoint and associates it with the specified Outpost.</p>
- *         <note>
+ *          <note>
  *             <p>It can take up to 5 minutes for this action to finish.</p>
  *          </note>
- *         <p></p>
- *         <p>Related actions include:</p>
- *         <ul>
+ *          <p></p>
+ *          <p>Related actions include:</p>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a>

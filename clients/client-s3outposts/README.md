@@ -232,6 +232,14 @@ ListEndpoints
 </details>
 <details>
 <summary>
+ListOutpostsWithS3
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/classes/listoutpostswiths3command.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/interfaces/listoutpostswiths3commandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3outposts/interfaces/listoutpostswiths3commandoutput.html)
+
+</details>
+<details>
+<summary>
 ListSharedEndpoints
 </summary>
 
