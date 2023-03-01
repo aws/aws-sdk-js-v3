@@ -70,6 +70,10 @@ const {
     }
 
     await generateClients(models || globs || DEFAULT_CODE_GEN_INPUT_DIR, batchSize);
+
+    require("../api-examples/get-examples");
+    require("../api-examples/merge-examples");
+
     if (!noPrivateClients) {
       await generateGenericClient();
       await generateProtocolTests();
