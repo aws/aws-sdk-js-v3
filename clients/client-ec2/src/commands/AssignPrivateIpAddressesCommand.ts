@@ -65,7 +65,6 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * @see {@link AssignPrivateIpAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To assign a specific secondary private IP address to an interface
  * ```javascript
  * // This example assigns the specified secondary private IP address to the specified network interface.
@@ -78,7 +77,6 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * const command = new AssignPrivateIpAddressesCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To assign secondary private IP addresses that Amazon EC2 selects to an interface
  * ```javascript

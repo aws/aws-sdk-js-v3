@@ -55,7 +55,6 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @see {@link ListRulesCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To list rules
  * ```javascript
  * // The following example returns an array of up to 100 rules.

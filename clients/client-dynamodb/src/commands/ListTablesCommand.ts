@@ -52,7 +52,6 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  * @see {@link ListTablesCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
- *
  * @example To list tables
  * ```javascript
  * // This example lists all of the tables associated with the current AWS account and endpoint.

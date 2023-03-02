@@ -50,7 +50,6 @@ export interface GetContactCommandOutput extends GetContactResult, __MetadataBea
  * @see {@link GetContactCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example Example 1: To describe a contact plan
  * ```javascript
  * // The following get-contact example describes a contact.
@@ -105,7 +104,6 @@ export interface GetContactCommandOutput extends GetContactResult, __MetadataBea
  * }
  * *\/
  * ```
- *
  *
  * @example Example 2: To describe an escalation plan
  * ```javascript

@@ -50,7 +50,6 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
- *
  * @example To cancel a job for a Snowball device
  * ```javascript
  * // This operation cancels a job. You can only cancel a job before its JobState value changes to PreparingAppliance.

@@ -43,7 +43,6 @@ export interface UntagUserCommandOutput extends __MetadataBearer {}
  * @see {@link UntagUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To remove a tag from an IAM user
  * ```javascript
  * // The following example shows how to remove tags that are attached to a user named 'anika'.

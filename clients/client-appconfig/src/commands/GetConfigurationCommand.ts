@@ -66,7 +66,6 @@ export interface GetConfigurationCommandOutput extends Configuration, __Metadata
  * @see {@link GetConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To retrieve configuration details
  * ```javascript
  * // The following get-configuration example returns the configuration details of the example application. On subsequent calls to get-configuration, use the client-configuration-version parameter to only update the configuration of your application if the version has changed. Only updating the configuration when the version has changed avoids excess charges incurred by calling get-configuration.

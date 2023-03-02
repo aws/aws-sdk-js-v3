@@ -51,7 +51,6 @@ export interface GetContactPolicyCommandOutput extends GetContactPolicyResult, _
  * @see {@link GetContactPolicyCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To list the resource policies of a contact
  * ```javascript
  * // The following get-contact-policy example lists the resource policies associated with the specified contact.

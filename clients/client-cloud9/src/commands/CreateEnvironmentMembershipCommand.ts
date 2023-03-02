@@ -50,7 +50,6 @@ export interface CreateEnvironmentMembershipCommandOutput extends CreateEnvironm
  * @see {@link CreateEnvironmentMembershipCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
- *
  * @example CreateEnvironmentMembership
  * ```javascript
  * //

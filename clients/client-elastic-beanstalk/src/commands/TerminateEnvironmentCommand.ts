@@ -50,7 +50,6 @@ export interface TerminateEnvironmentCommandOutput extends EnvironmentDescriptio
  * @see {@link TerminateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To terminate an environment
  * ```javascript
  * // The following operation terminates an Elastic Beanstalk environment named my-env:

@@ -82,7 +82,6 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * @see {@link CreateFileSystemFromBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
- *
  * @example To create a new file system from backup
  * ```javascript
  * // This operation creates a new file system from backup.

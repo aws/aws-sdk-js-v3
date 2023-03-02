@@ -55,7 +55,6 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * @see {@link CreateLoadBalancerPolicyCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To create a policy that enables Proxy Protocol on a load balancer
  * ```javascript
  * // This example creates a policy that enables Proxy Protocol on the specified load balancer.
@@ -74,7 +73,6 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * await client.send(command);
  * ```
  *
- *
  * @example To create a public key policy
  * ```javascript
  * // This example creates a public key policy.
@@ -92,7 +90,6 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * const command = new CreateLoadBalancerPolicyCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To create a backend server authentication policy
  * ```javascript

@@ -52,7 +52,6 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  * @see {@link ListTagsForVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To list the tags for a vault
  * ```javascript
  * // The example lists all the tags attached to the vault examplevault.

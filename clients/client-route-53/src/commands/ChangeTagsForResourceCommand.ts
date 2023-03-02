@@ -52,7 +52,6 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * @see {@link ChangeTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
- *
  * @example To add or remove tags from a hosted zone or health check
  * ```javascript
  * // The following example adds two tags and removes one tag from the hosted zone with ID Z3M3LMPEXAMPLE.

@@ -52,7 +52,6 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  * @see {@link CreateContactCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To create a contact
  * ```javascript
  * // The following create-contact example creates a contact in your environment with a blank plan. The plan can be updated after creating contact channels. Use the create-contact-channel operation with the output ARN of this command. After you have created contact channels for this contact use update-contact to update the plan.

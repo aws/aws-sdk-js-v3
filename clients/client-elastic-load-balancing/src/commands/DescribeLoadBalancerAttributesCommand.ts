@@ -56,7 +56,6 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  * @see {@link DescribeLoadBalancerAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To describe the attributes of a load balancer
  * ```javascript
  * // This example describes the attributes of the specified load balancer.

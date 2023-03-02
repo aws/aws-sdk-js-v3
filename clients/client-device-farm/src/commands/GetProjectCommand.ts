@@ -50,7 +50,6 @@ export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBea
  * @see {@link GetProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about a project
  * ```javascript
  * // The following example gets information about a specific project.

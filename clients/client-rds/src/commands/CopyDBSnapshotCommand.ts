@@ -57,7 +57,6 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * @see {@link CopyDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To copy a DB snapshot
  * ```javascript
  * // This example copies a DB snapshot.

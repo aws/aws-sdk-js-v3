@@ -50,7 +50,6 @@ export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * @see {@link UpdateDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To update a deployment strategy
  * ```javascript
  * // The following update-deployment-strategy example updates final bake time to 20 minutes in the specified deployment strategy. ::

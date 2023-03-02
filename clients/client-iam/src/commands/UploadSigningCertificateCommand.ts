@@ -69,7 +69,6 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  * @see {@link UploadSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To upload a signing certificate for an IAM user
  * ```javascript
  * // The following command uploads a signing certificate for the IAM user named Bob.

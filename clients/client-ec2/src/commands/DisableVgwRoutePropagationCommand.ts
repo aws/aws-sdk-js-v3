@@ -49,7 +49,6 @@ export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBeare
  * @see {@link DisableVgwRoutePropagationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To disable route propagation
  * ```javascript
  * // This example disables the specified virtual private gateway from propagating static routes to the specified route table.

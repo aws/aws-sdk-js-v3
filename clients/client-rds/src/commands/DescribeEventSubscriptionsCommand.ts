@@ -52,7 +52,6 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * @see {@link DescribeEventSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To list information about DB event notification subscriptions
  * ```javascript
  * // This example lists information for the specified DB event notification subscription.

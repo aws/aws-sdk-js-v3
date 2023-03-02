@@ -47,7 +47,6 @@ export interface MoveAccountCommandOutput extends __MetadataBearer {}
  * @see {@link MoveAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To move an OU or account to another OU or the root
  * ```javascript
  * // The following example shows how to move a member account from the root to an OU:/n/n

@@ -65,7 +65,6 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  * @see {@link GetVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To get the notification-configuration for the specified vault
  * ```javascript
  * // The example retrieves the notification-configuration for the vault named my-vault.

@@ -50,7 +50,6 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * @see {@link CopyDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To copy a DB cluster parameter group
  * ```javascript
  * // This example copies a DB cluster parameter group.

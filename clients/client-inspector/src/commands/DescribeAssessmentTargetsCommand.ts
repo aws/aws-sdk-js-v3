@@ -51,7 +51,6 @@ export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessme
  * @see {@link DescribeAssessmentTargetsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Describte assessment targets
  * ```javascript
  * // Describes the assessment targets that are specified by the ARNs of the assessment targets.

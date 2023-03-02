@@ -54,7 +54,6 @@ export interface DescribeCacheCommandOutput extends DescribeCacheOutput, __Metad
  * @see {@link DescribeCacheCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To describe cache information
  * ```javascript
  * // Returns information about the cache of a gateway.

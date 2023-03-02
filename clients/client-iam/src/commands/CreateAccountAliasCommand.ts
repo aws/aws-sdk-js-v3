@@ -48,7 +48,6 @@ export interface CreateAccountAliasCommandOutput extends __MetadataBearer {}
  * @see {@link CreateAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To create an account alias
  * ```javascript
  * // The following command associates the alias examplecorp to your AWS account.

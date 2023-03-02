@@ -56,7 +56,6 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  * @see {@link UpdateItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
- *
  * @example To update an item in a table
  * ```javascript
  * // This example updates an item in the Music table. It adds a new attribute (Year) and modifies the AlbumTitle attribute.  All of the attributes in the item, as they appear after the update, are returned in the response.

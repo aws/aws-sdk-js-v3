@@ -53,7 +53,6 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileRespo
  * @see {@link GetInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To get information about an instance profile
  * ```javascript
  * // The following command gets information about the instance profile named ExampleInstanceProfile.

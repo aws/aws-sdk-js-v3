@@ -58,7 +58,6 @@ export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __Met
  * @see {@link ListLocalDisksCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To list the gateway's local disks
  * ```javascript
  * // The request returns a list of all disks, specifying which are configured as working storage, cache storage, or stored volume or not configured at all.

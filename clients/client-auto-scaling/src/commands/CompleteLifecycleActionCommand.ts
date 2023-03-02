@@ -87,7 +87,6 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  * @see {@link CompleteLifecycleActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To complete the lifecycle action
  * ```javascript
  * // This example notifies Auto Scaling that the specified lifecycle action is complete so that it can finish launching or terminating the instance.

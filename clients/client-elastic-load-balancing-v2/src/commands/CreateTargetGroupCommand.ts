@@ -77,7 +77,6 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  * @see {@link CreateTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To create a target group
  * ```javascript
  * // This example creates a target group that you can use to route traffic to targets using HTTP on port 80. This target group uses the default health check configuration.

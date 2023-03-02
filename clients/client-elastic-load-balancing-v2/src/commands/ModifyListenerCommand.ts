@@ -61,7 +61,6 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  * @see {@link ModifyListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To change the default action for a listener
  * ```javascript
  * // This example changes the default action for the specified listener.
@@ -95,7 +94,6 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  * }
  * *\/
  * ```
- *
  *
  * @example To change the server certificate
  * ```javascript

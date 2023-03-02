@@ -56,7 +56,6 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @see {@link CreateTagsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
- *
  * @example To create a new tag
  * ```javascript
  * // This operation creates a new tag for an EFS file system.

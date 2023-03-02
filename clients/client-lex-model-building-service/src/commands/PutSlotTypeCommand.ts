@@ -69,7 +69,6 @@ export interface PutSlotTypeCommandOutput extends PutSlotTypeResponse, __Metadat
  * @see {@link PutSlotTypeCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
- *
  * @example To Create a Slot Type
  * ```javascript
  * // This example shows how to create a slot type that describes pizza sauces.

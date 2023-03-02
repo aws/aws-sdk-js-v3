@@ -50,7 +50,6 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  * @see {@link DescribePoliciesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To describe scaling policies
  * ```javascript
  * // This example describes the policies for the specified Auto Scaling group.

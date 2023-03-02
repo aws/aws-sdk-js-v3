@@ -52,7 +52,6 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  * @see {@link DescribeEnvironmentMembershipsCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
- *
  * @example DescribeEnvironmentMemberships1
  * ```javascript
  * // The following example gets information about all of the environment members for the specified development environment.
@@ -81,7 +80,6 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  * *\/
  * ```
  *
- *
  * @example DescribeEnvironmentMemberships2
  * ```javascript
  * // The following example gets information about the owner of the specified development environment.
@@ -106,7 +104,6 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  * }
  * *\/
  * ```
- *
  *
  * @example DescribeEnvironmentMemberships3
  * ```javascript

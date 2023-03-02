@@ -56,7 +56,6 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  * @see {@link ModifyReplicationSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Modify replication subnet group
  * ```javascript
  * // Modifies the settings for the specified replication subnet group.

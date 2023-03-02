@@ -91,7 +91,6 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  * @see {@link ListPoliciesGrantingServiceAccessCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To list policies that allow access to a service
  * ```javascript
  * // The following operation lists policies that allow ExampleUser01 to access IAM or EC2.

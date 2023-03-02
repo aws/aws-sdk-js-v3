@@ -50,7 +50,6 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * @see {@link ModifyDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To change DB subnet group settings
  * ```javascript
  * // This example changes the specified setting for the specified DB subnet group.

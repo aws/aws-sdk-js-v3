@@ -64,7 +64,6 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  * @see {@link DescribeAdjustmentTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To describe the Amazon EC2 Auto Scaling adjustment types
  * ```javascript
  * // This example describes the available adjustment types.

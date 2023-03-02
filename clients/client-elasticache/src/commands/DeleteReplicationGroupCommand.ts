@@ -58,7 +58,6 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  * @see {@link DeleteReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DeleteReplicationGroup
  * ```javascript
  * // Deletes the Amazon ElastiCache replication group my-redis-rg.

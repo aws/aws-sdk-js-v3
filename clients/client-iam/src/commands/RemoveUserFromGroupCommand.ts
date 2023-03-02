@@ -45,7 +45,6 @@ export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
  * @see {@link RemoveUserFromGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To remove a user from an IAM group
  * ```javascript
  * // The following command removes the user named Bob from the IAM group named Admins.

@@ -137,7 +137,6 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * @see {@link GetFederationTokenCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
- *
  * @example To get temporary credentials for a role by using GetFederationToken
  * ```javascript
  * //

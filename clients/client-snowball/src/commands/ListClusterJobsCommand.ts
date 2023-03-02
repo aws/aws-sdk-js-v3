@@ -52,7 +52,6 @@ export interface ListClusterJobsCommandOutput extends ListClusterJobsResult, __M
  * @see {@link ListClusterJobsCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
- *
  * @example To get a list of jobs in a cluster that you've created for AWS Snowball
  * ```javascript
  * // Returns an array of JobListEntry objects of the specified length. Each JobListEntry object is for a job in the specified cluster and contains a job's state, a job's ID, and other information.

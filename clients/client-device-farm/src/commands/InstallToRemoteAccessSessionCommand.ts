@@ -54,7 +54,6 @@ export interface InstallToRemoteAccessSessionCommandOutput
  * @see {@link InstallToRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To install to a remote access session
  * ```javascript
  * // The following example installs a specific app to a device in a specific remote access session.

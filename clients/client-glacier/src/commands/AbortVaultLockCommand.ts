@@ -58,7 +58,6 @@ export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
  * @see {@link AbortVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To abort a vault lock
  * ```javascript
  * // The example aborts the vault locking process if the vault lock is not in the Locked state for the vault named examplevault.

@@ -50,7 +50,6 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
  * @see {@link DescribeOptionGroupOptionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To list information about DB option group options
  * ```javascript
  * // This example lists information for all option group options for the specified DB engine.

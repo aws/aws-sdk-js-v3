@@ -50,7 +50,6 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * @see {@link ListNamespacesCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example Example: List namespaces
  * ```javascript
  * // Example: List namespaces

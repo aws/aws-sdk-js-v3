@@ -67,7 +67,6 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  * @see {@link ScanCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
- *
  * @example To scan a table
  * ```javascript
  * // This example scans the entire Music table, and then narrows the results to songs by the artist "No One You Know". For each item, only the album title and song title are returned.

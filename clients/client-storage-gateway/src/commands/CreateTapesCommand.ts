@@ -56,7 +56,6 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  * @see {@link CreateTapesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To create a virtual tape
  * ```javascript
  * // Creates one or more virtual tapes.

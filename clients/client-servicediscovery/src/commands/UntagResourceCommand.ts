@@ -50,7 +50,6 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example UntagResource example
  * ```javascript
  * // This example removes the "Department" and "Project" tags from a resource.

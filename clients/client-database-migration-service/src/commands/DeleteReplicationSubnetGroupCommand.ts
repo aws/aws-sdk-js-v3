@@ -56,7 +56,6 @@ export interface DeleteReplicationSubnetGroupCommandOutput
  * @see {@link DeleteReplicationSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Delete Replication Subnet Group
  * ```javascript
  * // Deletes a replication subnet group.

@@ -70,7 +70,6 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * @see {@link CopyBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
- *
  * @example To copy a backup
  * ```javascript
  * // This operation copies an Amazon FSx backup.

@@ -73,7 +73,6 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
  * @see {@link AttachLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To attach a target group to an Auto Scaling group
  * ```javascript
  * // This example attaches the specified target group to the specified Auto Scaling group.

@@ -55,7 +55,6 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
  * @see {@link ModifyTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To modify the health check configuration for a target group
  * ```javascript
  * // This example changes the configuration of the health checks used to evaluate the health of the targets for the specified target group.

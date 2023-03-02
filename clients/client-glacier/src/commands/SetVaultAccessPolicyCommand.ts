@@ -50,7 +50,6 @@ export interface SetVaultAccessPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link SetVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To set the access-policy on a vault
  * ```javascript
  * // The example configures an access policy for the vault named examplevault.

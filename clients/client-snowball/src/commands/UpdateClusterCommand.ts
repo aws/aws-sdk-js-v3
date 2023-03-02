@@ -53,7 +53,6 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
- *
  * @example To update a cluster
  * ```javascript
  * // This action allows you to update certain parameters for a cluster. Once the cluster changes to a different state, usually within 60 minutes of it being created, this action is no longer available.

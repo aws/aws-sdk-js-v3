@@ -52,7 +52,6 @@ export interface DescribeCustomerGatewaysCommandOutput extends DescribeCustomerG
  * @see {@link DescribeCustomerGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe a customer gateway
  * ```javascript
  * // This example describes the specified customer gateway.

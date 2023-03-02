@@ -88,7 +88,6 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To update an Auto Scaling group
  * ```javascript
  * // This example updates multiple properties at the same time.

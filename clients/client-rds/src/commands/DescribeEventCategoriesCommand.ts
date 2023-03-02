@@ -56,7 +56,6 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To list event categories.
  * ```javascript
  * // This example lists all DB instance event categories.

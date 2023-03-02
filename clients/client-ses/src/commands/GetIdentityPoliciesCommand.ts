@@ -61,7 +61,6 @@ export interface GetIdentityPoliciesCommandOutput extends GetIdentityPoliciesRes
  * @see {@link GetIdentityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example GetIdentityPolicies
  * ```javascript
  * // The following example returns a sending authorization policy for an identity:

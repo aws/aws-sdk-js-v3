@@ -50,7 +50,6 @@ export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHo
  * @see {@link DescribeLifecycleHooksCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To describe your lifecycle hooks
  * ```javascript
  * // This example describes the lifecycle hooks for the specified Auto Scaling group.

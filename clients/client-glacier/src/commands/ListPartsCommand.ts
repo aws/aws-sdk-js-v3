@@ -71,7 +71,6 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * @see {@link ListPartsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To list the parts of an archive that have been uploaded in a multipart upload
  * ```javascript
  * // The example lists all the parts of a multipart upload.

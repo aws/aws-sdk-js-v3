@@ -51,7 +51,6 @@ export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenan
  * @see {@link UpdateMaintenanceStartTimeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To update a gateway's maintenance start time
  * ```javascript
  * // Updates a gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is in your gateway's time zone.

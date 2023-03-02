@@ -67,7 +67,6 @@ export interface GetIdentityVerificationAttributesCommandOutput
  * @see {@link GetIdentityVerificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example GetIdentityVerificationAttributes
  * ```javascript
  * // The following example returns the verification status and the verification token for a domain identity:

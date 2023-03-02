@@ -45,7 +45,6 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
  * @see {@link SwapEnvironmentCNAMEsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To swap environment CNAMES
  * ```javascript
  * // The following operation swaps the assigned subdomains of two environments:

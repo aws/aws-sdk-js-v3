@@ -48,6 +48,8 @@ export interface DeleteSolFunctionPackageCommandOutput extends __MetadataBearer 
  * @see {@link DeleteSolFunctionPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
+ * @example Delete a function package```javascript/* Optional.empty *\/some code here```
+ *
  */
 export class DeleteSolFunctionPackageCommand extends $Command<
   DeleteSolFunctionPackageCommandInput,

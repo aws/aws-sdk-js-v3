@@ -42,7 +42,6 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To delete a tag from an Auto Scaling group
  * ```javascript
  * // This example deletes the specified tag from the specified Auto Scaling group.

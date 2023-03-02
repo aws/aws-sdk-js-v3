@@ -52,7 +52,6 @@ export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __M
  * @see {@link DescribePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To get information about a policy
  * ```javascript
  * // The following example shows how to request information about a policy:/n/n

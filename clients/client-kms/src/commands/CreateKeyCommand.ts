@@ -213,7 +213,6 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * @see {@link CreateKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To create a KMS key
  * ```javascript
  * // The following example creates a symmetric KMS key for encryption and decryption. No parameters are required for this operation.
@@ -243,7 +242,6 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * }
  * *\/
  * ```
- *
  *
  * @example To create an asymmetric RSA KMS key for encryption and decryption
  * ```javascript
@@ -279,7 +277,6 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * *\/
  * ```
  *
- *
  * @example To create an asymmetric elliptic curve KMS key for signing and verification
  * ```javascript
  * // This example creates a KMS key that contains an asymmetric elliptic curve (ECC) key pair for signing and verification. The key usage is required even though "SIGN_VERIFY" is the only valid value for ECC KMS keys. The key spec and key usage can't be changed after the key is created.
@@ -313,7 +310,6 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * *\/
  * ```
  *
- *
  * @example To create an HMAC KMS key
  * ```javascript
  * // This example creates a 384-bit symmetric HMAC KMS key. The GENERATE_VERIFY_MAC key usage value is required even though it's the only valid value for HMAC KMS keys. The key spec and key usage can't be changed after the key is created.
@@ -346,7 +342,6 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * }
  * *\/
  * ```
- *
  *
  * @example To create a multi-Region primary KMS key
  * ```javascript
@@ -388,7 +383,6 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * *\/
  * ```
  *
- *
  * @example To create a KMS key for imported key material
  * ```javascript
  * // This example creates a KMS key with no key material. When the operation is complete, you can import your own key material into the KMS key. To create this KMS key, set the Origin parameter to EXTERNAL.
@@ -420,7 +414,6 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * }
  * *\/
  * ```
- *
  *
  * @example To create a KMS key in an AWS CloudHSM key store
  * ```javascript
@@ -456,7 +449,6 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * }
  * *\/
  * ```
- *
  *
  * @example To create a KMS key in an external key store
  * ```javascript

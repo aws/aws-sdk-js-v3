@@ -52,7 +52,6 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  * @see {@link DescribeGatewayInformationCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To describe metadata about the gateway
  * ```javascript
  * // Returns metadata about a gateway such as its name, network interfaces, configured time zone, and the state (whether the gateway is running or not).

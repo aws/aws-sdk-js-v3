@@ -50,7 +50,6 @@ export interface GetConfigurationProfileCommandOutput extends ConfigurationProfi
  * @see {@link GetConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To retrieve configuration profile details
  * ```javascript
  * // The following get-configuration-profile example returns the details of the specified configuration profile.

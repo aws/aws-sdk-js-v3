@@ -62,7 +62,6 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __Metadat
  * @see {@link DeleteVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To delete a gateway volume
  * ```javascript
  * // Deletes the specified gateway volume that you previously created using the CreateCachediSCSIVolume or CreateStorediSCSIVolume API.

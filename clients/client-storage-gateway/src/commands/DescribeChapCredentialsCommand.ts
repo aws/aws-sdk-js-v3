@@ -52,7 +52,6 @@ export interface DescribeChapCredentialsCommandOutput extends DescribeChapCreden
  * @see {@link DescribeChapCredentialsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To describe CHAP credetnitals for an iSCSI
  * ```javascript
  * // Returns an array of Challenge-Handshake Authentication Protocol (CHAP) credentials information for a specified iSCSI target, one for each target-initiator pair.

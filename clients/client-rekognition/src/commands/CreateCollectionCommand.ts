@@ -64,7 +64,6 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * @see {@link CreateCollectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
- *
  * @example To create a collection
  * ```javascript
  * // This operation creates a Rekognition collection for storing image data.

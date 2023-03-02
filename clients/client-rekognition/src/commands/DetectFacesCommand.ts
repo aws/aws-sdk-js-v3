@@ -68,7 +68,6 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  * @see {@link DetectFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
- *
  * @example To detect faces in an image
  * ```javascript
  * // This operation detects faces in an image stored in an AWS S3 bucket.

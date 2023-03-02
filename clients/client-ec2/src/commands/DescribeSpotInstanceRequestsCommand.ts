@@ -67,7 +67,6 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  * @see {@link DescribeSpotInstanceRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe a Spot Instance request
  * ```javascript
  * // This example describes the specified Spot Instance request.

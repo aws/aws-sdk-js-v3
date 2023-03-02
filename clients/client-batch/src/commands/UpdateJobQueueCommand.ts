@@ -50,7 +50,6 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  * @see {@link UpdateJobQueueCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example To update a job queue
  * ```javascript
  * // This example disables a job queue so that it can be deleted.

@@ -52,7 +52,6 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  * @see {@link ListTaskDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To list your registered task definitions
  * ```javascript
  * // This example lists all of your registered task definitions.
@@ -72,7 +71,6 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  * }
  * *\/
  * ```
- *
  *
  * @example To list the registered task definitions in a family
  * ```javascript

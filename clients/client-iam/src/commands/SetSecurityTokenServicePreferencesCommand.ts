@@ -66,7 +66,6 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  * @see {@link SetSecurityTokenServicePreferencesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To delete an access key for an IAM user
  * ```javascript
  * // The following command sets the STS global endpoint token to version 2. Version 2 tokens are valid in all Regions.

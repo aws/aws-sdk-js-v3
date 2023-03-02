@@ -213,7 +213,6 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  * @see {@link GetObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To retrieve a byte range of an object
  * ```javascript
  * // The following example retrieves an object for an S3 bucket. The request specifies the range header to retrieve a specific byte range.
@@ -237,7 +236,6 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  * }
  * *\/
  * ```
- *
  *
  * @example To retrieve an object
  * ```javascript

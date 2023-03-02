@@ -51,7 +51,6 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example ListTagsForResource Example
  * ```javascript
  * // This demonstrates calling the ListTagsForResource action.

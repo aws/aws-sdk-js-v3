@@ -59,7 +59,6 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  * @see {@link DisableKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To disable a KMS key
  * ```javascript
  * // The following example disables the specified KMS key.

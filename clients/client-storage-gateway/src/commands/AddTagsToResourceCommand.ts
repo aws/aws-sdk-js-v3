@@ -74,7 +74,6 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput,
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To add tags to resource
  * ```javascript
  * // Adds one or more tags to the specified resource.

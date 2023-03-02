@@ -77,7 +77,6 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  * @see {@link GenerateMacCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To generate an HMAC for a message
  * ```javascript
  * // This example generates an HMAC for a message, an HMAC KMS key, and a MAC algorithm. The algorithm must be supported by the specified HMAC KMS key.

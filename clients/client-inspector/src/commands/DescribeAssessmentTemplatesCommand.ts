@@ -53,7 +53,6 @@ export interface DescribeAssessmentTemplatesCommandOutput
  * @see {@link DescribeAssessmentTemplatesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Describte assessment templates
  * ```javascript
  * // Describes the assessment templates that are specified by the ARNs of the assessment templates.

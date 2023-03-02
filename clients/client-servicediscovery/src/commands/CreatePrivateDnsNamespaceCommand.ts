@@ -57,7 +57,6 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  * @see {@link CreatePrivateDnsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example Example: Create private DNS namespace
  * ```javascript
  * // Example: Create private DNS namespace

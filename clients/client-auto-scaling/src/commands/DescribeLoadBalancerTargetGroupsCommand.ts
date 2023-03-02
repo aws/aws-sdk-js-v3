@@ -76,7 +76,6 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
  * @see {@link DescribeLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To describe the target groups for an Auto Scaling group
  * ```javascript
  * // This example describes the target groups attached to the specified Auto Scaling group.

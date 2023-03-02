@@ -51,7 +51,6 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
  * @see {@link DescribeContainerInstancesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To describe container instance
  * ```javascript
  * // This example provides a description of the specified container instance in your default region, using the container instance UUID as an identifier.

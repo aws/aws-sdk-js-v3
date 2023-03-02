@@ -78,7 +78,6 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
- *
  * @example To apply a target tracking scaling policy with a predefined metric specification
  * ```javascript
  * // The following example applies a target tracking scaling policy with a predefined metric specification to an Amazon ECS service called web-app in the default cluster. The policy keeps the average CPU utilization of the service at 75 percent, with scale-out and scale-in cooldown periods of 60 seconds.

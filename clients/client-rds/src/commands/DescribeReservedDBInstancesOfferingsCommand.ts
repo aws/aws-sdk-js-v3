@@ -52,7 +52,6 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
  * @see {@link DescribeReservedDBInstancesOfferingsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To list information about reserved DB instance offerings
  * ```javascript
  * // This example lists information for all reserved DB instance offerings for the specified DB instance class, duration, product, offering type, and availability zone settings.

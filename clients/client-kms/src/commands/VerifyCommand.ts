@@ -82,7 +82,6 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  * @see {@link VerifyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To use an asymmetric KMS key to verify a digital signature
  * ```javascript
  * // This operation uses the public key in an elliptic curve (ECC) asymmetric key to verify a digital signature within AWS KMS.
@@ -103,7 +102,6 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  * }
  * *\/
  * ```
- *
  *
  * @example To use an asymmetric KMS key to verify a digital signature on a message digest
  * ```javascript

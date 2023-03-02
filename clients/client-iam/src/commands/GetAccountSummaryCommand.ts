@@ -48,7 +48,6 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  * @see {@link GetAccountSummaryCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To get information about IAM entity quotas and usage in the current account
  * ```javascript
  * // The following command returns information about the IAM entity quotas and usage in the current AWS account.

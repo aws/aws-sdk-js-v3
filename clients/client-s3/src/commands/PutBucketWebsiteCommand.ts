@@ -167,7 +167,6 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketWebsiteCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example Set website configuration on a bucket
  * ```javascript
  * // The following example adds website configuration to a bucket.

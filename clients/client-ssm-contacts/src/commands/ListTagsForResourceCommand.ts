@@ -50,7 +50,6 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To list tags for a contact
  * ```javascript
  * // The following list-tags-for-resource example lists the tags of the specified contact.

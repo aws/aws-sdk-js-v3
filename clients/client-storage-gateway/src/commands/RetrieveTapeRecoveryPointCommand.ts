@@ -61,7 +61,6 @@ export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeReco
  * @see {@link RetrieveTapeRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To retrieve the recovery point of a virtual tape
  * ```javascript
  * // Retrieves the recovery point for the specified virtual tape.

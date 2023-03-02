@@ -52,7 +52,6 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
  * @see {@link PurchaseReservedDBInstancesOfferingCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To purchase a reserved DB instance offering
  * ```javascript
  * // This example purchases a reserved DB instance offering that matches the specified settings.

@@ -48,7 +48,6 @@ export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateAssessmentTargetCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Update assessment target
  * ```javascript
  * // Updates the assessment target that is specified by the ARN of the assessment target.

@@ -59,7 +59,6 @@ export interface ListSigningCertificatesCommandOutput extends ListSigningCertifi
  * @see {@link ListSigningCertificatesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To list the signing certificates for an IAM user
  * ```javascript
  * // The following command lists the signing certificates for the IAM user named Bob.

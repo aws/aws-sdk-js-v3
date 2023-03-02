@@ -50,7 +50,6 @@ export interface UpdateApplicationCommandOutput extends Application, __MetadataB
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To update an application
  * ```javascript
  * // The following update-application example updates the name of the specified application.

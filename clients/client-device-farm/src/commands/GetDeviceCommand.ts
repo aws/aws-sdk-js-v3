@@ -47,7 +47,6 @@ export interface GetDeviceCommandOutput extends GetDeviceResult, __MetadataBeare
  * @see {@link GetDeviceCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about a device
  * ```javascript
  * // The following example returns information about a specific device.

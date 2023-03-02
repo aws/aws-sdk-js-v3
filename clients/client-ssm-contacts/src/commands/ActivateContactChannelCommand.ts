@@ -51,7 +51,6 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  * @see {@link ActivateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example Activate a contact's contact channel
  * ```javascript
  * // The following activate-contact-channel example activates a contact channel and makes it usable as part of an incident.

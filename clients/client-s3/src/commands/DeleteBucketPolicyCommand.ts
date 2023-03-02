@@ -74,7 +74,6 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To delete bucket policy
  * ```javascript
  * // The following example deletes bucket policy on the specified bucket.

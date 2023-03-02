@@ -50,7 +50,6 @@ export interface ListTagsForResourceCommandOutput extends ResourceTags, __Metada
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To list the tags of an application
  * ```javascript
  * // The following list-tags-for-resource example lists the tags of a specified application.

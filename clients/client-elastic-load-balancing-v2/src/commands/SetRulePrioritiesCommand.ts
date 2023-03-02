@@ -56,7 +56,6 @@ export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput,
  * @see {@link SetRulePrioritiesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To set the rule priority
  * ```javascript
  * // This example sets the priority of the specified rule.

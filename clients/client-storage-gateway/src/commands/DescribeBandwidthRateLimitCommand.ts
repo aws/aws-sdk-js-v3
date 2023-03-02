@@ -58,7 +58,6 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  * @see {@link DescribeBandwidthRateLimitCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To describe the bandwidth rate limits of a gateway
  * ```javascript
  * // Returns a value for a bandwidth rate limit if set. If not set, then only the gateway ARN is returned.

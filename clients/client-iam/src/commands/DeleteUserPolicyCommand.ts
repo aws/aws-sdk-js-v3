@@ -50,7 +50,6 @@ export interface DeleteUserPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteUserPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To remove a policy from an IAM user
  * ```javascript
  * // The following delete-user-policy command removes the specified policy from the IAM user named Juan:

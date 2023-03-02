@@ -52,7 +52,6 @@ export interface StopDeploymentCommandOutput extends Deployment, __MetadataBeare
  * @see {@link StopDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To stop configuration deployment
  * ```javascript
  * // The following stop-deployment example stops the deployment of an application configuration to the specified environment.

@@ -56,7 +56,6 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  * @see {@link EnterStandbyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To move instances into standby mode
  * ```javascript
  * // This example puts the specified instance into standby mode.

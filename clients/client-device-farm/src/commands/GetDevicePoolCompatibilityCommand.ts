@@ -50,7 +50,6 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  * @see {@link GetDevicePoolCompatibilityCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about the compatibility of a device pool
  * ```javascript
  * // The following example returns information about the compatibility of a specific device pool, given its ARN.

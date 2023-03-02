@@ -54,7 +54,6 @@ export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRa
  * @see {@link DeleteBandwidthRateLimitCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To delete bandwidth rate limits of gateway
  * ```javascript
  * // Deletes the bandwidth rate limits of a gateway; either the upload or download limit, or both.

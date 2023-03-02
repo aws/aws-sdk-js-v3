@@ -58,7 +58,6 @@ export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
  * @see {@link CompleteVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To complete a vault lock
  * ```javascript
  * // The example completes the vault locking process by transitioning the vault lock from the InProgress state to the Locked state.

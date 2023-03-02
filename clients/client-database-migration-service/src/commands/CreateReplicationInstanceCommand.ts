@@ -59,7 +59,6 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  * @see {@link CreateReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Create replication instance
  * ```javascript
  * // Creates the replication instance using the specified parameters.

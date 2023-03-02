@@ -96,7 +96,6 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  * @see {@link UpdateByteMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To update a byte match set
  * ```javascript
  * // The following example deletes a ByteMatchTuple object (filters) in an byte match set with the ID exampleIDs3t-46da-4fdb-b8d5-abc321j569j5.

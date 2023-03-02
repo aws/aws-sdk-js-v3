@@ -131,7 +131,6 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  * @see {@link BatchWriteItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
- *
  * @example To add multiple items to a table
  * ```javascript
  * // This example adds three new items to the Music table using a batch of three PutItem requests.

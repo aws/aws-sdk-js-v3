@@ -69,7 +69,6 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * @see {@link CreateDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To create a DB parameter group.
  * ```javascript
  * // This example creates a DB parameter group.

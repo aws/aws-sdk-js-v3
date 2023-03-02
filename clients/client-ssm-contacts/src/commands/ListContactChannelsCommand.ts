@@ -50,7 +50,6 @@ export interface ListContactChannelsCommandOutput extends ListContactChannelsRes
  * @see {@link ListContactChannelsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To list the contact channels of a contact
  * ```javascript
  * // The following list-contact-channels example lists the available contact channels of the specified contact.

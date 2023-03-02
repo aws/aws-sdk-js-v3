@@ -51,7 +51,6 @@ export interface ListEventSubscriptionsCommandOutput extends ListEventSubscripti
  * @see {@link ListEventSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example List event subscriptions
  * ```javascript
  * // Lists all the event subscriptions for the assessment template that is specified by the ARN of the assessment template.

@@ -50,7 +50,6 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * @see {@link DescribeDBEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To list DB engine version settings
  * ```javascript
  * // This example lists settings for the specified DB engine version.

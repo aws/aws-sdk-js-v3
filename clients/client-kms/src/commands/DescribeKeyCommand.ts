@@ -132,7 +132,6 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * @see {@link DescribeKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To get details about a KMS key
  * ```javascript
  * // The following example gets metadata for a symmetric encryption KMS key.
@@ -164,7 +163,6 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * }
  * *\/
  * ```
- *
  *
  * @example To get details about an RSA asymmetric KMS key
  * ```javascript
@@ -202,7 +200,6 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * }
  * *\/
  * ```
- *
  *
  * @example To get details about a multi-Region key
  * ```javascript
@@ -256,7 +253,6 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * *\/
  * ```
  *
- *
  * @example To get details about an HMAC KMS key
  * ```javascript
  * // The following example gets the metadata of an HMAC KMS key.
@@ -287,7 +283,6 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * }
  * *\/
  * ```
- *
  *
  * @example To get details about a KMS key in an AWS CloudHSM key store
  * ```javascript
@@ -322,7 +317,6 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * }
  * *\/
  * ```
- *
  *
  * @example To get details about a KMS key in an external key store
  * ```javascript

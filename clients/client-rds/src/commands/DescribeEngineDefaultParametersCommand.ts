@@ -52,7 +52,6 @@ export interface DescribeEngineDefaultParametersCommandOutput
  * @see {@link DescribeEngineDefaultParametersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To list default parameters for a DB engine
  * ```javascript
  * // This example lists default parameters for the specified DB engine.

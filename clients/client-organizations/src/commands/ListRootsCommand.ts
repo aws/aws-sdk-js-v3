@@ -64,7 +64,6 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  * @see {@link ListRootsCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To retrieve a list of roots in the organization
  * ```javascript
  * // The following example shows how to get the list of the roots in the current organization:/n/n

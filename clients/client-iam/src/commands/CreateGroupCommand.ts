@@ -49,7 +49,6 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @see {@link CreateGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To create an IAM group
  * ```javascript
  * // The following command creates an IAM group named Admins.

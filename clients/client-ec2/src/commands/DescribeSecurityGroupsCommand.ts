@@ -59,7 +59,6 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * @see {@link DescribeSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe a security group
  * ```javascript
  * // This example describes the specified security group.
@@ -71,7 +70,6 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * const command = new DescribeSecurityGroupsCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To describe a tagged security group
  * ```javascript

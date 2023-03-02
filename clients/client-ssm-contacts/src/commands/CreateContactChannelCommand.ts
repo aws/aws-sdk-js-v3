@@ -50,7 +50,6 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  * @see {@link CreateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To create a contact channel
  * ```javascript
  * // Creates a contact channel of type SMS for the contact Akua Mansa. Contact channels can be created of type SMS, EMAIL, or VOICE.

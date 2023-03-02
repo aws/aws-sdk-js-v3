@@ -58,7 +58,6 @@ export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMat
  * @see {@link GetSqlInjectionMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
- *
  * @example To get a SQL injection match set
  * ```javascript
  * // The following example returns the details of a SQL injection match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.

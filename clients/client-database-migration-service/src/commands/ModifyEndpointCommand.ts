@@ -61,7 +61,6 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  * @see {@link ModifyEndpointCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Modify endpoint
  * ```javascript
  * // Modifies the specified endpoint.

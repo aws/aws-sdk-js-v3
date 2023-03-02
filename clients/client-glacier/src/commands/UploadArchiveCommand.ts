@@ -90,7 +90,6 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * @see {@link UploadArchiveCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To upload an archive
  * ```javascript
  * // The example adds an archive to a vault.

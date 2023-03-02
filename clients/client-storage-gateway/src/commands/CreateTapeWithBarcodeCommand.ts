@@ -58,7 +58,6 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  * @see {@link CreateTapeWithBarcodeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To create a virtual tape using a barcode
  * ```javascript
  * // Creates a virtual tape by using your own barcode.

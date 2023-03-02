@@ -53,7 +53,6 @@ export interface DescribeNotificationConfigurationsCommandOutput
  * @see {@link DescribeNotificationConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To describe Auto Scaling notification configurations
  * ```javascript
  * // This example describes the notification configurations for the specified Auto Scaling group.

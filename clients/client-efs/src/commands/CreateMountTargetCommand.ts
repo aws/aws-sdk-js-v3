@@ -189,7 +189,6 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  * @see {@link CreateMountTargetCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
- *
  * @example To create a new mount target
  * ```javascript
  * // This operation creates a new mount target for an EFS file system.

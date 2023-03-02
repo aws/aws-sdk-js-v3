@@ -55,7 +55,6 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
  * @see {@link PurchaseReservedCacheNodesOfferingCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example PurchaseReservedCacheNodesOfferings
  * ```javascript
  * // Allows you to purchase a reserved cache node offering.

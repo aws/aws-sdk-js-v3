@@ -53,7 +53,6 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * @see {@link BatchGetImageCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
- *
  * @example To obtain multiple images in a single request
  * ```javascript
  * // This example obtains information for an image with a specified image digest ID from the repository named ubuntu in the current account.

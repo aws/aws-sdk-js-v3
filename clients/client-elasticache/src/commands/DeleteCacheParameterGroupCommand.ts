@@ -50,7 +50,6 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
  * @see {@link DeleteCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DeleteCacheParameterGroup
  * ```javascript
  * // Deletes the Amazon ElastiCache parameter group custom-mem1-4.

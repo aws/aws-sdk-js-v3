@@ -55,7 +55,6 @@ export interface HeadBucketCommandOutput extends __MetadataBearer {}
  * @see {@link HeadBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To determine if bucket exists
  * ```javascript
  * // This operation checks to see if a bucket exists.

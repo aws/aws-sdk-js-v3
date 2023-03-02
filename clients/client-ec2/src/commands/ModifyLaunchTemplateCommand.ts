@@ -52,7 +52,6 @@ export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateR
  * @see {@link ModifyLaunchTemplateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To change the default version of a launch template
  * ```javascript
  * // This example specifies version 2 as the default version of the specified launch template.

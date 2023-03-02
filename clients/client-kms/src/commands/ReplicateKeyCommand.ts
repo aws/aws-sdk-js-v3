@@ -132,7 +132,6 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * @see {@link ReplicateKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To replicate a multi-Region key in a different AWS Region
  * ```javascript
  * // This example creates a multi-Region replica key in us-west-2 of a multi-Region primary key in us-east-1.

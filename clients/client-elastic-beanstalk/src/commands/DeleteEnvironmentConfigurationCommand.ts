@@ -53,7 +53,6 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  * @see {@link DeleteEnvironmentConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To delete a draft configuration
  * ```javascript
  * // The following operation deletes a draft configuration for an environment named my-env:

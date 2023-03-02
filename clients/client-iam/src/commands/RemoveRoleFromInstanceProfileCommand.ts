@@ -57,7 +57,6 @@ export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBe
  * @see {@link RemoveRoleFromInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To remove a role from an instance profile
  * ```javascript
  * // The following command removes the role named Test-Role from the instance profile named ExampleInstanceProfile.

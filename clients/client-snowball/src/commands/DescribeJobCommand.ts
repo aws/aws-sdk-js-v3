@@ -51,7 +51,6 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * @see {@link DescribeJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
- *
  * @example To describe a job you've created for AWS Snowball
  * ```javascript
  * // This operation describes a job you've created for AWS Snowball.

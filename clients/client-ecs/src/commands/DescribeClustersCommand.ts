@@ -50,7 +50,6 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @see {@link DescribeClustersCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To describe a cluster
  * ```javascript
  * // This example provides a description of the specified cluster in your default region.

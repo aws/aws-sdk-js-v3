@@ -51,7 +51,6 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To tag a contact
  * ```javascript
  * // The following tag-resource example tags a specified contact with the provided tag key value pair.

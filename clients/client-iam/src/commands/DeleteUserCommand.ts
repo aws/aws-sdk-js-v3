@@ -74,7 +74,6 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To delete an IAM user
  * ```javascript
  * // The following command removes the IAM user named Bob from the current account.

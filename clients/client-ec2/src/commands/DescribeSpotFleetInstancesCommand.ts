@@ -50,7 +50,6 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  * @see {@link DescribeSpotFleetInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe the Spot Instances associated with a Spot fleet
  * ```javascript
  * // This example lists the Spot Instances associated with the specified Spot fleet.

@@ -52,7 +52,6 @@ export interface ListContainerInstancesCommandOutput extends ListContainerInstan
  * @see {@link ListContainerInstancesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To list your available container instances in a cluster
  * ```javascript
  * // This example lists all of your available container instances in the specified cluster in your default region.

@@ -53,7 +53,6 @@ export interface DescribeTerminationPolicyTypesCommandOutput
  * @see {@link DescribeTerminationPolicyTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To describe termination policy types
  * ```javascript
  * // This example describes the available termination policy types.

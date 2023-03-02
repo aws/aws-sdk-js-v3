@@ -53,6 +53,8 @@ export interface ValidateSolFunctionPackageContentCommandOutput
  * @see {@link ValidateSolFunctionPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
+ * @example Validate a Function Package content```javascript/* Optional.empty *\/some code here```
+ *
  */
 export class ValidateSolFunctionPackageContentCommand extends $Command<
   ValidateSolFunctionPackageContentCommandInput,

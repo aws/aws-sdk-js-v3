@@ -51,7 +51,6 @@ export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer 
  * @see {@link AddCacheCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To add a cache
  * ```javascript
  * // The following example shows a request that activates a gateway-stored volume.

@@ -52,7 +52,6 @@ export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, _
  * @see {@link PutContactPolicyCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To share a contact and engagements
  * ```javascript
  * // The following put-contact-policy example adds a resource policy to the contact Akua that shares the contact and related engagements with the principal.

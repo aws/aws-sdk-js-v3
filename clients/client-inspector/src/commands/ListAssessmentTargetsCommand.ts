@@ -52,7 +52,6 @@ export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTarget
  * @see {@link ListAssessmentTargetsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example List assessment targets
  * ```javascript
  * // Lists the ARNs of the assessment targets within this AWS account.

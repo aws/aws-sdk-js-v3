@@ -50,7 +50,6 @@ export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To delete a policy from an IAM group
  * ```javascript
  * // The following command deletes the policy named ExamplePolicy from the group named Admins:

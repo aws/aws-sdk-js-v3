@@ -57,7 +57,6 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  * @see {@link AttachLoadBalancerToSubnetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To attach subnets to a load balancer
  * ```javascript
  * // This example adds the specified subnet to the set of configured subnets for the specified load balancer.

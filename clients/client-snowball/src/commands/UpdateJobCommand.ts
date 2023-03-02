@@ -49,7 +49,6 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  * @see {@link UpdateJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
- *
  * @example To update a job
  * ```javascript
  * // This action allows you to update certain parameters for a job. Once the job changes to a different job state, usually within 60 minutes of the job being created, this action is no longer available.

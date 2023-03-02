@@ -57,7 +57,6 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * @see {@link DescribeScalingPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
- *
  * @example To describe scaling policies
  * ```javascript
  * // This example describes the scaling policies for the ECS service namespace.

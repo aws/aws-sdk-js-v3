@@ -56,7 +56,6 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
- *
  * @example To delete tags for an EFS file system
  * ```javascript
  * // This operation deletes tags for an EFS file system.

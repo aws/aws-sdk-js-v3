@@ -91,7 +91,6 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * @see {@link SendEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example SendEmail
  * ```javascript
  * // The following example sends a formatted email:

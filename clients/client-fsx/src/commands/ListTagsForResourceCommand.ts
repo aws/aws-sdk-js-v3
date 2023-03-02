@@ -73,7 +73,6 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
- *
  * @example To list tags for a resource
  * ```javascript
  * // This operation lists tags for an Amazon FSx resource.

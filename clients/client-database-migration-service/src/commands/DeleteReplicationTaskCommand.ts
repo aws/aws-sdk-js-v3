@@ -54,7 +54,6 @@ export interface DeleteReplicationTaskCommandOutput extends DeleteReplicationTas
  * @see {@link DeleteReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Delete Replication Task
  * ```javascript
  * // Deletes the specified replication task.

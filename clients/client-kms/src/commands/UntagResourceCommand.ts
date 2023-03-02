@@ -86,7 +86,6 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To remove tags from a KMS key
  * ```javascript
  * // The following example removes tags from a KMS key.

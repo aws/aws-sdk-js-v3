@@ -51,7 +51,6 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  * @see {@link DownloadDBLogFilePortionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To list information about DB log files
  * ```javascript
  * // This example lists information for the specified log file for the specified DB instance.

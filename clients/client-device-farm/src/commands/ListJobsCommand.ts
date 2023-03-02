@@ -47,7 +47,6 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about jobs
  * ```javascript
  * // The following example returns information about jobs in a specific project.

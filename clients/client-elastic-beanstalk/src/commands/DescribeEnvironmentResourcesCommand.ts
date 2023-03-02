@@ -52,7 +52,6 @@ export interface DescribeEnvironmentResourcesCommandOutput
  * @see {@link DescribeEnvironmentResourcesCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To view information about the AWS resources in your environment
  * ```javascript
  * // The following operation retrieves information about resources in an environment named my-env:

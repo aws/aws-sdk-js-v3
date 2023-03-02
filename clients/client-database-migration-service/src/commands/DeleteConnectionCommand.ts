@@ -54,7 +54,6 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * @see {@link DeleteConnectionCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Delete Connection
  * ```javascript
  * // Deletes the connection between the replication instance and the endpoint.

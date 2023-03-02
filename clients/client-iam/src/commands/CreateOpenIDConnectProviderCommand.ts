@@ -90,7 +90,6 @@ export interface CreateOpenIDConnectProviderCommandOutput
  * @see {@link CreateOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To create an instance profile
  * ```javascript
  * // The following example defines a new OIDC provider in IAM with a client ID of my-application-id and pointing at the server with a URL of https://server.example.com.

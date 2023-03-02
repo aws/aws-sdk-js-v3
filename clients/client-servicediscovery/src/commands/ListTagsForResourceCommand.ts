@@ -50,7 +50,6 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example ListTagsForResource example
  * ```javascript
  * // This example lists the tags of a resource.

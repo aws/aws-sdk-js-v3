@@ -72,7 +72,6 @@ export interface RegisterInstancesWithLoadBalancerCommandOutput extends Register
  * @see {@link RegisterInstancesWithLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To register instances with a load balancer
  * ```javascript
  * // This example registers the specified instance with the specified load balancer.

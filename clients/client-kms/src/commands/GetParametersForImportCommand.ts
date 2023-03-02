@@ -83,7 +83,6 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  * @see {@link GetParametersForImportCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To retrieve the public key and import token for a KMS key
  * ```javascript
  * // The following example retrieves the public key and import token for the specified KMS key.

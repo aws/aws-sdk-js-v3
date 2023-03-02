@@ -180,7 +180,6 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * @see {@link UploadPartCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To upload a part
  * ```javascript
  * // The following example uploads part 1 of a multipart upload. The example specifies a file name for the part data. The Upload ID is same that is returned by the initiate multipart upload.

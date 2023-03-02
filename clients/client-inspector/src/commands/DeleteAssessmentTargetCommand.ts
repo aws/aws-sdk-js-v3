@@ -46,7 +46,6 @@ export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteAssessmentTargetCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Delete assessment target
  * ```javascript
  * // Deletes the assessment target that is specified by the ARN of the assessment target.

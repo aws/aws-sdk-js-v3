@@ -140,7 +140,6 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * @see {@link ChangeResourceRecordSetsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
- *
  * @example To create a basic resource record set
  * ```javascript
  * // The following example creates a resource record set that routes Internet traffic to a resource with an IP address of 192.0.2.44.
@@ -178,7 +177,6 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * }
  * *\/
  * ```
- *
  *
  * @example To create weighted resource record sets
  * ```javascript
@@ -237,7 +235,6 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * *\/
  * ```
  *
- *
  * @example To create an alias resource record set
  * ```javascript
  * // The following example creates an alias resource record set that routes traffic to a CloudFront distribution.
@@ -274,7 +271,6 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * }
  * *\/
  * ```
- *
  *
  * @example To create weighted alias resource record sets
  * ```javascript
@@ -328,7 +324,6 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * }
  * *\/
  * ```
- *
  *
  * @example To create latency resource record sets
  * ```javascript
@@ -387,7 +382,6 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * *\/
  * ```
  *
- *
  * @example To create latency alias resource record sets
  * ```javascript
  * // The following example creates two latency alias resource record sets that route traffic for example.com to ELB load balancers. Requests are routed either to the Ohio region or the Oregon region, depending on the latency between the user and those regions.
@@ -440,7 +434,6 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * }
  * *\/
  * ```
- *
  *
  * @example To create failover resource record sets
  * ```javascript
@@ -499,7 +492,6 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * *\/
  * ```
  *
- *
  * @example To create failover alias resource record sets
  * ```javascript
  * // The following example creates primary and secondary failover alias resource record sets that route traffic to ELB load balancers. Traffic is generally routed to the primary resource, in the Ohio region. If that resource is unavailable, traffic is routed to the secondary resource, in the Oregon region.
@@ -552,7 +544,6 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * }
  * *\/
  * ```
- *
  *
  * @example To create geolocation resource record sets
  * ```javascript
@@ -646,7 +637,6 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * }
  * *\/
  * ```
- *
  *
  * @example To create geolocation alias resource record sets
  * ```javascript

@@ -73,7 +73,6 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
- *
  * @example To delete a rule
  * ```javascript
  * // The following example deletes a rule with the ID WAFRule-1-Example.

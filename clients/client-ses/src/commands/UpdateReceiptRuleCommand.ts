@@ -53,7 +53,6 @@ export interface UpdateReceiptRuleCommandOutput extends UpdateReceiptRuleRespons
  * @see {@link UpdateReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example UpdateReceiptRule
  * ```javascript
  * // The following example updates a receipt rule to use an Amazon S3 action:

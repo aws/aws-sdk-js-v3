@@ -50,7 +50,6 @@ export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To remove a policy from an IAM role
  * ```javascript
  * // The following command removes the policy named ExamplePolicy from the role named Test-Role.

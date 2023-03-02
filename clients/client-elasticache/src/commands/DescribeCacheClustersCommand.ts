@@ -65,7 +65,6 @@ export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage,
  * @see {@link DescribeCacheClustersCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DescribeCacheClusters
  * ```javascript
  * // Lists the details for up to 50 cache clusters.
@@ -106,7 +105,6 @@ export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage,
  * }
  * *\/
  * ```
- *
  *
  * @example DescribeCacheClusters
  * ```javascript

@@ -53,7 +53,6 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To tag a cluster.
  * ```javascript
  * // This example tags the 'dev' cluster with key 'team' and value 'dev'.

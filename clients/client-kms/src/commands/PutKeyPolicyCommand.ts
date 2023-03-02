@@ -57,7 +57,6 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link PutKeyPolicyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To attach a key policy to a KMS key
  * ```javascript
  * // The following example attaches a key policy to the specified KMS key.

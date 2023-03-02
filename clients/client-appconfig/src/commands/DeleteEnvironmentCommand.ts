@@ -46,7 +46,6 @@ export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To delete an environment
  * ```javascript
  * // The following delete-environment example deletes the specified application environment.

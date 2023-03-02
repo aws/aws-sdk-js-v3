@@ -51,7 +51,6 @@ export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesRes
  * @see {@link ListProjectPoliciesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
- *
  * @example ListProjectPolicies
  * ```javascript
  * // This operation lists the project policies that are attached to an Amazon Rekognition Custom Labels project.

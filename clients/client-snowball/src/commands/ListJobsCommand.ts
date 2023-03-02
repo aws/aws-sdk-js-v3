@@ -51,7 +51,6 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
- *
  * @example To get a list of jobs that you've created for AWS Snowball
  * ```javascript
  * // Returns an array of JobListEntry objects of the specified length. Each JobListEntry object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs. Calling this API action in one of the US regions will return jobs from the list of all jobs associated with this account in all US regions.

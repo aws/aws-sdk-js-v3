@@ -54,7 +54,6 @@ export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResul
  * @see {@link ListUniqueProblemsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about unique problems
  * ```javascript
  * // The following example returns information about unique problems, given a specific Device Farm project.

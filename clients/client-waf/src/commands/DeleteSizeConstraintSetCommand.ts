@@ -73,7 +73,6 @@ export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstrai
  * @see {@link DeleteSizeConstraintSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To delete a size constraint set
  * ```javascript
  * // The following example deletes a size constraint set  with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.

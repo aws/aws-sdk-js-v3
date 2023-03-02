@@ -57,7 +57,6 @@ export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage,
  * @see {@link DescribeSourceRegionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To describe source regions
  * ```javascript
  * // To list the AWS regions where a Read Replica can be created.

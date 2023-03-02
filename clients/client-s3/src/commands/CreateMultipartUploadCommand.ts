@@ -318,7 +318,6 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  * @see {@link CreateMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To initiate a multipart upload
  * ```javascript
  * // The following example initiates a multipart upload.

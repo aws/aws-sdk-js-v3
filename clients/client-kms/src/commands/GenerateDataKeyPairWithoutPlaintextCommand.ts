@@ -114,7 +114,6 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  * @see {@link GenerateDataKeyPairWithoutPlaintextCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To generate an asymmetric data key pair without a plaintext key
  * ```javascript
  * // This example returns an asymmetric elliptic curve (ECC) data key pair. The private key is encrypted under the symmetric encryption KMS key that you specify. This operation doesn't return a plaintext (unencrypted) private key.

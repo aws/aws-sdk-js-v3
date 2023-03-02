@@ -62,7 +62,6 @@ export interface SetLoadBalancerPoliciesOfListenerCommandOutput
  * @see {@link SetLoadBalancerPoliciesOfListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To replace the policies associated with a listener
  * ```javascript
  * // This example replaces the policies that are currently associated with the specified listener.

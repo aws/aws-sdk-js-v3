@@ -85,7 +85,6 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  * @see {@link RemoveAccountFromOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To remove an account from an organization as the master account
  * ```javascript
  * // The following example shows you how to remove an account from an organization:

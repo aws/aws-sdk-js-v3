@@ -58,7 +58,6 @@ export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse,
  * @see {@link ListXssMatchSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To list XSS match sets
  * ```javascript
  * // The following example returns an array of up to 100 XSS match sets.

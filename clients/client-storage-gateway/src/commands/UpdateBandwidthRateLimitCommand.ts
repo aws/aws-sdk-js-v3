@@ -61,7 +61,6 @@ export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRa
  * @see {@link UpdateBandwidthRateLimitCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To update the bandwidth rate limits of a gateway
  * ```javascript
  * // Updates the bandwidth rate limits of a gateway. Both the upload and download bandwidth rate limit can be set, or either one of the two. If a new limit is not set, the existing rate limit remains.

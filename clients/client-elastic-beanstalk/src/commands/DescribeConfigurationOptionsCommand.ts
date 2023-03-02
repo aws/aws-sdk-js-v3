@@ -53,7 +53,6 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  * @see {@link DescribeConfigurationOptionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To view configuration options for an environment
  * ```javascript
  * // The following operation retrieves descriptions of all available configuration options for an environment named my-env:

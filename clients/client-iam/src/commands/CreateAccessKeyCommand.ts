@@ -63,7 +63,6 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
  * @see {@link CreateAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To create an access key for an IAM user
  * ```javascript
  * // The following command creates an access key (access key ID and secret access key) for the IAM user named Bob.

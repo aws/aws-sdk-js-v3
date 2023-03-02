@@ -162,7 +162,6 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * @see {@link CompleteMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To complete multipart upload
  * ```javascript
  * // The following example completes a multipart upload.

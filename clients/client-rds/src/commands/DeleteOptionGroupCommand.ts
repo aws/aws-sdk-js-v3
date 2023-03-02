@@ -45,7 +45,6 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To delete an option group.
  * ```javascript
  * // This example deletes the specified option group.

@@ -55,7 +55,6 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * @see {@link RunScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To launch a Scheduled Instance in a VPC
  * ```javascript
  * // This example launches the specified Scheduled Instance in a VPC.
@@ -91,7 +90,6 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * }
  * *\/
  * ```
- *
  *
  * @example To launch a Scheduled Instance in EC2-Classic
  * ```javascript

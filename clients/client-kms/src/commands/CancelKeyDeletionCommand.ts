@@ -62,7 +62,6 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  * @see {@link CancelKeyDeletionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To cancel deletion of a KMS key
  * ```javascript
  * // The following example cancels deletion of the specified KMS key.

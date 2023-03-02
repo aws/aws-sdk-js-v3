@@ -101,7 +101,6 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To create an alias
  * ```javascript
  * // The following example creates an alias for the specified KMS key.

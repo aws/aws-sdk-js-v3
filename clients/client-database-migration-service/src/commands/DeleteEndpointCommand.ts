@@ -59,7 +59,6 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * @see {@link DeleteEndpointCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Delete Endpoint
  * ```javascript
  * // Deletes the specified endpoint. All tasks associated with the endpoint must be deleted before you can delete the endpoint.

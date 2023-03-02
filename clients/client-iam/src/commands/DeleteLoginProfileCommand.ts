@@ -57,7 +57,6 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteLoginProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To delete a password for an IAM user
  * ```javascript
  * // The following command deletes the password for the IAM user named Bob.

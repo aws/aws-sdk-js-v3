@@ -45,7 +45,6 @@ export interface DetachNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * @see {@link DetachNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To detach a network interface from an instance
  * ```javascript
  * // This example detaches the specified network interface from its attached instance.

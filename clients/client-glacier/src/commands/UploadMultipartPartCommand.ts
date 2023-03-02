@@ -109,7 +109,6 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  * @see {@link UploadMultipartPartCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To upload the first part of an archive
  * ```javascript
  * // The example uploads the first 1 MiB (1024 x 1024 bytes) part of an archive.

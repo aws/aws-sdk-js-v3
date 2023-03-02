@@ -53,7 +53,6 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example To cancel a job
  * ```javascript
  * // This example cancels a job with the specified job ID.

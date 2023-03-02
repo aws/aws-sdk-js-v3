@@ -68,7 +68,6 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  * @see {@link PutBotCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
- *
  * @example To create a bot
  * ```javascript
  * // This example shows how to create a bot for ordering pizzas.

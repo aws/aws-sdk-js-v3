@@ -55,7 +55,6 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
  * @see {@link DescribeSchemasCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Describe schemas
  * ```javascript
  * // Returns information about the schema for the specified endpoint.

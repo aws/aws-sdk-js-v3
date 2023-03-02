@@ -58,7 +58,6 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  * @see {@link DescribeTableStatisticsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Describe table statistics
  * ```javascript
  * // Returns table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted.

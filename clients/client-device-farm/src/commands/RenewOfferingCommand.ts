@@ -52,7 +52,6 @@ export interface RenewOfferingCommandOutput extends RenewOfferingResult, __Metad
  * @see {@link RenewOfferingCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To renew a device slot offering
  * ```javascript
  * // The following example renews a specific device slot offering.

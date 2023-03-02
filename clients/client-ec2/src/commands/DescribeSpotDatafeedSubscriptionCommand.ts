@@ -53,7 +53,6 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
  * @see {@link DescribeSpotDatafeedSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe the datafeed for your AWS account
  * ```javascript
  * // This example describes the Spot Instance datafeed subscription for your AWS account.

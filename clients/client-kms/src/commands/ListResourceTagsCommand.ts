@@ -83,7 +83,6 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  * @see {@link ListResourceTagsCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To list tags for a KMS key
  * ```javascript
  * // The following example lists tags for a KMS key.

@@ -58,7 +58,6 @@ export interface GetXssMatchSetCommandOutput extends GetXssMatchSetResponse, __M
  * @see {@link GetXssMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To get an XSS match set
  * ```javascript
  * // The following example returns the details of an XSS match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.

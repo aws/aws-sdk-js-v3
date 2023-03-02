@@ -51,7 +51,6 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResul
  * @see {@link GetAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about account settings
  * ```javascript
  * // The following example returns information about your Device Farm account settings.

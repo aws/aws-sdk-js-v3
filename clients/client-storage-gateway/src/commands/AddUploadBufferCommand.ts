@@ -56,7 +56,6 @@ export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __M
  * @see {@link AddUploadBufferCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To add upload buffer on local disk
  * ```javascript
  * // Configures one or more gateway local disks as upload buffer for a specified gateway.

@@ -57,7 +57,6 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  * @see {@link ModifyReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Modify replication instance
  * ```javascript
  * // Modifies the replication instance to apply new settings. You can change one or more parameters by specifying these parameters and the new values in the request. Some settings are applied during the maintenance window.

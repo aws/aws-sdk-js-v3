@@ -71,7 +71,6 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  * @see {@link DeleteObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To remove tag set from an object
  * ```javascript
  * // The following example removes tag set associated with the specified object. If the bucket is versioning enabled, the operation removes tag set from the latest object version.
@@ -87,7 +86,6 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  * }
  * *\/
  * ```
- *
  *
  * @example To remove tag set from an object version
  * ```javascript

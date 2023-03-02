@@ -51,7 +51,6 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * @see {@link ListTasksCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To list the tasks in a cluster
  * ```javascript
  * // This example lists all of the tasks in a cluster.
@@ -69,7 +68,6 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * }
  * *\/
  * ```
- *
  *
  * @example To list the tasks on a particular container instance
  * ```javascript

@@ -79,7 +79,6 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  * @see {@link GetBucketReplicationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To get replication configuration set on a bucket
  * ```javascript
  * // The following example returns replication configuration set on a bucket.

@@ -72,7 +72,6 @@ export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimA
  * @see {@link GetIdentityDkimAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example GetIdentityDkimAttributes
  * ```javascript
  * // The following example retrieves the Amazon SES Easy DKIM attributes for a list of identities:

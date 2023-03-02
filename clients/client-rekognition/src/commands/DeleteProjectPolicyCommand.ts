@@ -51,7 +51,6 @@ export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyRes
  * @see {@link DeleteProjectPolicyCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
- *
  * @example DeleteProjectPolicy
  * ```javascript
  * // This operation deletes a revision of an existing project policy from an Amazon Rekognition Custom Labels project.

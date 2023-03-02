@@ -50,7 +50,6 @@ export interface ListSuitesCommandOutput extends ListSuitesResult, __MetadataBea
  * @see {@link ListSuitesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about suites
  * ```javascript
  * // The following example returns information about suites, given a specific Device Farm job.

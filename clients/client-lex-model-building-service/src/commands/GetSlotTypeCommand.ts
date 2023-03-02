@@ -58,7 +58,6 @@ export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __Metadat
  * @see {@link GetSlotTypeCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
- *
  * @example To get information about a slot type
  * ```javascript
  * // This example shows how to get information about a slot type.

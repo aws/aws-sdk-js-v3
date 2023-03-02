@@ -57,7 +57,6 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  * @see {@link GetKeyPolicyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To retrieve a key policy
  * ```javascript
  * // The following example retrieves the key policy for the specified KMS key.

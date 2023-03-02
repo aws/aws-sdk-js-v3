@@ -77,7 +77,6 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * @see {@link AssociateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To associate an Elastic IP address in EC2-VPC
  * ```javascript
  * // This example associates the specified Elastic IP address with the specified instance in a VPC.
@@ -94,7 +93,6 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * *\/
  * ```
  *
- *
  * @example To associate an Elastic IP address with a network interface
  * ```javascript
  * // This example associates the specified Elastic IP address with the specified network interface.
@@ -110,7 +108,6 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * }
  * *\/
  * ```
- *
  *
  * @example To associate an Elastic IP address in EC2-Classic
  * ```javascript

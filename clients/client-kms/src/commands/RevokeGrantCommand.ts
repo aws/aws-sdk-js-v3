@@ -88,7 +88,6 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  * @see {@link RevokeGrantCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To revoke a grant
  * ```javascript
  * // The following example revokes a grant.

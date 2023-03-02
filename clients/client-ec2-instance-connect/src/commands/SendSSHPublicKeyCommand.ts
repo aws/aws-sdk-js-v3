@@ -57,7 +57,6 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  * @see {@link SendSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link EC2InstanceConnectClientResolvedConfig | config} for EC2InstanceConnectClient's `config` shape.
  *
- *
  * @example To push an SSH key to an EC2 instance
  * ```javascript
  * // The following example pushes a sample SSH public key to the EC2 instance i-abcd1234 in AZ us-west-2b for use by the instance OS user ec2-user.

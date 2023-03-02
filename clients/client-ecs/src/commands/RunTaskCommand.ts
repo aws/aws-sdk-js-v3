@@ -74,7 +74,6 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * @see {@link RunTaskCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To run a task on your default cluster
  * ```javascript
  * // This example runs the specified task definition on your default cluster.

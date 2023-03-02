@@ -50,7 +50,6 @@ export interface CreateDevicePoolCommandOutput extends CreateDevicePoolResult, _
  * @see {@link CreateDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To create a new device pool
  * ```javascript
  * // The following example creates a new device pool named MyDevicePool inside an existing project.

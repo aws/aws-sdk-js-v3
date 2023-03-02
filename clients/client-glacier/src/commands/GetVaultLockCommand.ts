@@ -77,7 +77,6 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  * @see {@link GetVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To retrieve vault lock-policy related attributes that are set on a vault
  * ```javascript
  * // The example retrieves the attributes from the lock-policy subresource set on the vault named examplevault.

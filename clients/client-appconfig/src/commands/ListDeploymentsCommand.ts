@@ -50,7 +50,6 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  * @see {@link ListDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To list the available deployments
  * ```javascript
  * // The following list-deployments example lists the available deployments in your AWS account for the specified application and environment.

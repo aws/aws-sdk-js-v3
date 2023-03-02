@@ -64,7 +64,6 @@ export interface DeleteVaultCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To delete a vault
  * ```javascript
  * // The example deletes a vault named my-vault:

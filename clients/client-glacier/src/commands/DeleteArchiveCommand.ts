@@ -71,7 +71,6 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteArchiveCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To delete an archive
  * ```javascript
  * // The example deletes the archive specified by the archive ID.

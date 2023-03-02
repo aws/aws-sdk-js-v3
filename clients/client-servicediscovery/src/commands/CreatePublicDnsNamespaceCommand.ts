@@ -59,7 +59,6 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  * @see {@link CreatePublicDnsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example CreatePublicDnsNamespace example
  * ```javascript
  * // This example creates a public namespace based on DNS.

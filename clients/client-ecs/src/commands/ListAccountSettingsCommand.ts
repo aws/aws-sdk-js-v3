@@ -50,7 +50,6 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * @see {@link ListAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To view your effective account settings
  * ```javascript
  * // This example displays the effective account settings for your account.
@@ -81,7 +80,6 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * }
  * *\/
  * ```
- *
  *
  * @example To view the effective account settings for a specific IAM user or IAM role
  * ```javascript

@@ -59,7 +59,6 @@ export interface GetBucketRequestPaymentCommandOutput extends GetBucketRequestPa
  * @see {@link GetBucketRequestPaymentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To get bucket versioning configuration
  * ```javascript
  * // The following example retrieves bucket versioning configuration.

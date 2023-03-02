@@ -74,7 +74,6 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  * @see {@link GetChangeTokenStatusCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To get the change token status
  * ```javascript
  * // The following example returns the status of a change token with the ID abcd12f2-46da-4fdb-b8d5-fbd4c466928f.

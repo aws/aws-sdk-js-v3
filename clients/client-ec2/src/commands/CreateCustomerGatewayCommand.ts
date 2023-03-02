@@ -63,7 +63,6 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  * @see {@link CreateCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To create a customer gateway
  * ```javascript
  * // This example creates a customer gateway with the specified IP address for its outside interface.

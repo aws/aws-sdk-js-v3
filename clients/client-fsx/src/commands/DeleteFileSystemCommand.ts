@@ -72,7 +72,6 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  * @see {@link DeleteFileSystemCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
- *
  * @example To delete a file system
  * ```javascript
  * // This operation deletes an Amazon FSx file system.

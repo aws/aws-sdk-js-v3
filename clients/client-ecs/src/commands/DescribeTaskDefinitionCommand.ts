@@ -57,7 +57,6 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * @see {@link DescribeTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To describe a task definition
  * ```javascript
  * // This example provides a description of the specified task definition.

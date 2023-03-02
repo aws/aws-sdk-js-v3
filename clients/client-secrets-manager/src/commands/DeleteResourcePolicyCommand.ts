@@ -58,7 +58,6 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
- *
  * @example To delete the resource-based policy attached to a secret
  * ```javascript
  * // The following example shows how to delete the resource-based policy that is attached to a secret.

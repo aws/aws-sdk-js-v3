@@ -53,7 +53,6 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  * @see {@link CreateCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example CreateCacheCluster
  * ```javascript
  * // Creates a Memcached cluster with 2 nodes.
@@ -94,7 +93,6 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  * }
  * *\/
  * ```
- *
  *
  * @example CreateCacheCluster
  * ```javascript

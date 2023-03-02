@@ -64,7 +64,6 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * @see {@link DescribeTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
- *
  * @example To describe a table
  * ```javascript
  * // This example describes the Music table.

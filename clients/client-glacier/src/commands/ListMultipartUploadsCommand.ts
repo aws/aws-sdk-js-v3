@@ -75,7 +75,6 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * @see {@link ListMultipartUploadsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To list all the in-progress multipart uploads for a vault
  * ```javascript
  * // The example lists all the in-progress multipart uploads for the vault named examplevault.

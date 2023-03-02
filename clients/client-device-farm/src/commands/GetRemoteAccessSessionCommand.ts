@@ -50,7 +50,6 @@ export interface GetRemoteAccessSessionCommandOutput extends GetRemoteAccessSess
  * @see {@link GetRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get a remote access session
  * ```javascript
  * // The following example gets a specific remote access session.

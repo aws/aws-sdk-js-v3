@@ -53,7 +53,6 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  * @see {@link DescribeSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To describe snapshot schedule for gateway volume
  * ```javascript
  * // Describes the snapshot schedule for the specified gateway volume including intervals at which snapshots are automatically initiated.

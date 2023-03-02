@@ -56,7 +56,6 @@ export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __Met
  * @see {@link DeleteListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To delete a listener
  * ```javascript
  * // This example deletes the specified listener.

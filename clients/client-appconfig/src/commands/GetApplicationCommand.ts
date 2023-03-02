@@ -50,7 +50,6 @@ export interface GetApplicationCommandOutput extends Application, __MetadataBear
  * @see {@link GetApplicationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To list details of an application
  * ```javascript
  * // The following get-application example lists the details of the specified application.

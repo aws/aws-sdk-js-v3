@@ -56,7 +56,6 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  * @see {@link ListAllowedNodeTypeModificationsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example ListAllowedNodeTypeModifications
  * ```javascript
  * // Lists all available node types that you can scale your Redis cluster's or replication group's current node type up to.
@@ -80,7 +79,6 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  * }
  * *\/
  * ```
- *
  *
  * @example ListAllowedNodeTypeModifications
  * ```javascript

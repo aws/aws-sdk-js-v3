@@ -53,7 +53,6 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To list information about tags associated with a resource
  * ```javascript
  * // This example lists information about all tags associated with the specified DB option group.

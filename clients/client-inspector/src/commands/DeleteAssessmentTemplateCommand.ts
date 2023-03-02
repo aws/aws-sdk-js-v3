@@ -46,7 +46,6 @@ export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer 
  * @see {@link DeleteAssessmentTemplateCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Delete assessment template
  * ```javascript
  * // Deletes the assessment template that is specified by the ARN of the assessment template.

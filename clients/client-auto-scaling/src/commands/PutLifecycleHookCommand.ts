@@ -92,7 +92,6 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  * @see {@link PutLifecycleHookCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To create a launch lifecycle hook
  * ```javascript
  * // This example creates a lifecycle hook for instance launch.

@@ -53,7 +53,6 @@ export interface DeleteReceiptRuleCommandOutput extends DeleteReceiptRuleRespons
  * @see {@link DeleteReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example DeleteReceiptRule
  * ```javascript
  * // The following example deletes a receipt rule:

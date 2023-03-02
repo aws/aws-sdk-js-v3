@@ -57,7 +57,6 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  * @see {@link ActivateGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To activate the gateway
  * ```javascript
  * // Activates the gateway you previously deployed on your host.

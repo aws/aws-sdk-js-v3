@@ -51,7 +51,6 @@ export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFin
  * @see {@link AddAttributesToFindingsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Add attributes to findings
  * ```javascript
  * // Assigns attributes (key and value pairs) to the findings that are specified by the ARNs of the findings.

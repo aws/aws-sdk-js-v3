@@ -63,7 +63,6 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  * @see {@link CreateSubnetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To create a subnet
  * ```javascript
  * // This example creates a subnet in the specified VPC with the specified CIDR block. We recommend that you let us select an Availability Zone for you.

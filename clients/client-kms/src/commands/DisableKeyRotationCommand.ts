@@ -77,7 +77,6 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  * @see {@link DisableKeyRotationCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To disable automatic rotation of key material
  * ```javascript
  * // The following example disables automatic annual rotation of the key material for the specified KMS key.

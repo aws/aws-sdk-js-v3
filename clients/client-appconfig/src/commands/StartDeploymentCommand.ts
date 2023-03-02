@@ -50,7 +50,6 @@ export interface StartDeploymentCommandOutput extends Deployment, __MetadataBear
  * @see {@link StartDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To start a configuration deployment
  * ```javascript
  * // The following start-deployment example starts a deployment to the application using the specified environment, deployment strategy, and configuration profile.

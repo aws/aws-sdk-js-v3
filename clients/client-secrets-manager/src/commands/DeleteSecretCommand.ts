@@ -78,7 +78,6 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  * @see {@link DeleteSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
- *
  * @example To delete a secret
  * ```javascript
  * // The following example shows how to delete a secret. The secret stays in your account in a deprecated and inaccessible state until the recovery window ends. After the date and time in the DeletionDate response field has passed, you can no longer recover this secret with restore-secret.

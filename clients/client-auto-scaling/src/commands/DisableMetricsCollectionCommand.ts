@@ -45,7 +45,6 @@ export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer 
  * @see {@link DisableMetricsCollectionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To disable metrics collection for an Auto Scaling group
  * ```javascript
  * // This example disables collecting data for the GroupDesiredCapacity metric for the specified Auto Scaling group.

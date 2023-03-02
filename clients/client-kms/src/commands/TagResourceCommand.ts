@@ -91,7 +91,6 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To tag a KMS key
  * ```javascript
  * // The following example tags a KMS key.

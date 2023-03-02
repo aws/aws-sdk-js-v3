@@ -65,7 +65,6 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  * @see {@link ListParentsCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To retrieve a list of all of the parents of a child OU or account
  * ```javascript
  * // The following example shows how to list the root or OUs that contain account 444444444444:/n/n

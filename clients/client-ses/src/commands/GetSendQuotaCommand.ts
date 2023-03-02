@@ -43,7 +43,6 @@ export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __Metad
  * @see {@link GetSendQuotaCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example GetSendQuota
  * ```javascript
  * // The following example returns the Amazon SES sending limits for an AWS account:

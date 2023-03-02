@@ -73,7 +73,6 @@ export interface DescribeJobCommandOutput extends GlacierJobDescription, __Metad
  * @see {@link DescribeJobCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To get information about a previously initiated job
  * ```javascript
  * // The example returns information about the previously initiated job specified by the job ID.

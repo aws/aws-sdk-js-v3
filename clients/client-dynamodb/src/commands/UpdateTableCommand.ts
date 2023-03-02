@@ -76,7 +76,6 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * @see {@link UpdateTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
- *
  * @example To modify a table's provisioned throughput
  * ```javascript
  * // This example increases the provisioned read and write capacity on the Music table.

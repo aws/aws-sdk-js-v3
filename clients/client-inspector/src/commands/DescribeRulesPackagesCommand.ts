@@ -51,7 +51,6 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  * @see {@link DescribeRulesPackagesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Describe rules packages
  * ```javascript
  * // Describes the rules packages that are specified by the ARNs of the rules packages.

@@ -77,7 +77,6 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To create an Internet-facing load balancer
  * ```javascript
  * // This example creates an Internet-facing load balancer and enables the Availability Zones for the specified subnets.
@@ -123,7 +122,6 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  * }
  * *\/
  * ```
- *
  *
  * @example To create an internal load balancer
  * ```javascript

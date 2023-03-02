@@ -55,7 +55,6 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * @see {@link GetWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To get a web ACL
  * ```javascript
  * // The following example returns the details of a web ACL with the ID createwebacl-1472061481310.

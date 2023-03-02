@@ -51,7 +51,6 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To list tags that have been added to a resource
  * ```javascript
  * // Lists the tags that have been added to the specified resource.

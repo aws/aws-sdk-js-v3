@@ -50,7 +50,6 @@ export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrateg
  * @see {@link ListDeploymentStrategiesCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To list the available deployment strategies
  * ```javascript
  * // The following list-deployment-strategies example lists the available deployment strategies in your AWS account.

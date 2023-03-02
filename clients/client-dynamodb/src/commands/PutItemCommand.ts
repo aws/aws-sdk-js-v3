@@ -68,7 +68,6 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  * @see {@link PutItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
- *
  * @example To add an item to a table
  * ```javascript
  * // This example adds a new item to the Music table.

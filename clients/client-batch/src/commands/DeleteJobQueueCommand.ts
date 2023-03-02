@@ -53,7 +53,6 @@ export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __M
  * @see {@link DeleteJobQueueCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example To delete a job queue
  * ```javascript
  * // This example deletes the GPGPU job queue.

@@ -55,7 +55,6 @@ export interface DescribeConnectionsCommandOutput extends DescribeConnectionsRes
  * @see {@link DescribeConnectionsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Describe connections
  * ```javascript
  * // Describes the status of the connections that have been made between the replication instance and an endpoint. Connections are created when you test an endpoint.

@@ -71,7 +71,6 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To create a snapshot
  * ```javascript
  * // This example creates a snapshot of the volume with a volume ID of ``vol-1234567890abcdef0`` and a short description to identify the snapshot.

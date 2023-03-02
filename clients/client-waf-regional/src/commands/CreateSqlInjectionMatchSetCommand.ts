@@ -79,7 +79,6 @@ export interface CreateSqlInjectionMatchSetCommandOutput extends CreateSqlInject
  * @see {@link CreateSqlInjectionMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
- *
  * @example To create a SQL injection match set
  * ```javascript
  * // The following example creates a SQL injection match set named MySQLInjectionMatchSet.

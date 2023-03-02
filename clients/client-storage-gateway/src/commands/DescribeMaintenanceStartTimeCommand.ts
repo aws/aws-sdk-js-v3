@@ -53,7 +53,6 @@ export interface DescribeMaintenanceStartTimeCommandOutput
  * @see {@link DescribeMaintenanceStartTimeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To describe gateway's maintenance start time
  * ```javascript
  * // Returns your gateway's weekly maintenance start time including the day and time of the week.

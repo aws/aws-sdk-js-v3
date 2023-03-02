@@ -59,7 +59,6 @@ export interface SynthesizeSpeechCommandOutput
  * @see {@link SynthesizeSpeechCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
- *
  * @example To synthesize speech
  * ```javascript
  * // Synthesizes plain text or SSML into a file of human-like speech.

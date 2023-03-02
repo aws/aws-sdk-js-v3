@@ -50,7 +50,6 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To create a new project
  * ```javascript
  * // The following example creates a new project named MyProject.

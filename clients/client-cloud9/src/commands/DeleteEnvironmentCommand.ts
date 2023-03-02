@@ -51,7 +51,6 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResult,
  * @see {@link DeleteEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
- *
  * @example DeleteEnvironment
  * ```javascript
  * //

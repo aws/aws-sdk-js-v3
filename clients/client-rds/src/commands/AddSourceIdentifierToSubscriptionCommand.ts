@@ -52,7 +52,6 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * @see {@link AddSourceIdentifierToSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To add a source identifier to an event notification subscription
  * ```javascript
  * // This example add a source identifier to an event notification subscription.

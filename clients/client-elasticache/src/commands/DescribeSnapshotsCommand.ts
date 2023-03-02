@@ -56,7 +56,6 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DescribeSnapshots
  * ```javascript
  * // Returns information about the snapshot mysnapshot. By default.

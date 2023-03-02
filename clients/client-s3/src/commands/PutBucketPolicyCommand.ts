@@ -72,7 +72,6 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example Set bucket policy
  * ```javascript
  * // The following example sets a permission policy on a bucket.

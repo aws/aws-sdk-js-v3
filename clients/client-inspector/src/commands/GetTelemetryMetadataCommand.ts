@@ -51,7 +51,6 @@ export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataR
  * @see {@link GetTelemetryMetadataCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Get telemetry metadata
  * ```javascript
  * // Information about the data that is collected for the specified assessment run.

@@ -81,7 +81,6 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * @see {@link CreateDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To create a DB cluster parameter group
  * ```javascript
  * // This example creates a DB cluster parameter group.

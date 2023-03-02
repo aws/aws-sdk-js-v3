@@ -93,7 +93,6 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  * @see {@link RegisterInstanceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example Example: Register Instance
  * ```javascript
  * // Example: Register Instance

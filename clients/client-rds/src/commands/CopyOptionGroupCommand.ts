@@ -50,7 +50,6 @@ export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __M
  * @see {@link CopyOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To copy an option group
  * ```javascript
  * // This example copies an option group.

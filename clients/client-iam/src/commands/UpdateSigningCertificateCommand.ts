@@ -52,7 +52,6 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  * @see {@link UpdateSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To change the active status of a signing certificate for an IAM user
  * ```javascript
  * // The following command changes the status of a signing certificate for a user named Bob to Inactive.

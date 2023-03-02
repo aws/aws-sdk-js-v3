@@ -162,7 +162,6 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  * @see {@link DetectLabelsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
- *
  * @example To detect labels
  * ```javascript
  * // This operation detects labels in the supplied image

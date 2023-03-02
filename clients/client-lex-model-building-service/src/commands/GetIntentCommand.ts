@@ -57,7 +57,6 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  * @see {@link GetIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
- *
  * @example To get a information about an intent
  * ```javascript
  * // This example shows how to get information about an intent.

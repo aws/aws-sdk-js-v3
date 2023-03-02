@@ -68,7 +68,6 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  * @see {@link ListVaultsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To list all vaults owned by the calling user's account
  * ```javascript
  * // The example lists all vaults owned by the specified AWS account.

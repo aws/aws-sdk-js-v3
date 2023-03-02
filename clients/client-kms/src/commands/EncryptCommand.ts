@@ -156,7 +156,6 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  * @see {@link EncryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To encrypt data
  * ```javascript
  * // The following example encrypts data with the specified KMS key.

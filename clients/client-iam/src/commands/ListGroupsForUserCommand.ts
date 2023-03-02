@@ -52,7 +52,6 @@ export interface ListGroupsForUserCommandOutput extends ListGroupsForUserRespons
  * @see {@link ListGroupsForUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To list the groups that an IAM user belongs to
  * ```javascript
  * // The following command displays the groups that the IAM user named Bob belongs to.

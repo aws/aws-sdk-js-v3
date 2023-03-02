@@ -50,7 +50,6 @@ export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, _
  * @see {@link ListPageReceiptsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To list page receipts
  * ```javascript
  * // The following command-name example lists whether a page was received or not by a contact.

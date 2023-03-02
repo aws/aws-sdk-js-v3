@@ -61,7 +61,6 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
- *
  * @example To add a resource-based policy to a secret
  * ```javascript
  * // The following example shows how to add a resource-based policy to a secret.

@@ -68,7 +68,6 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  * @see {@link CopyProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
- *
  * @example CopyProjectVersion
  * ```javascript
  * // This operation copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project.

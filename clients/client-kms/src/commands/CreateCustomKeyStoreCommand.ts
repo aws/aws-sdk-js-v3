@@ -137,7 +137,6 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * @see {@link CreateCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To create an AWS CloudHSM key store
  * ```javascript
  * // This example creates a custom key store that is associated with an AWS CloudHSM cluster.
@@ -155,7 +154,6 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * }
  * *\/
  * ```
- *
  *
  * @example To create an external key store with VPC endpoint service connectivity
  * ```javascript
@@ -180,7 +178,6 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * }
  * *\/
  * ```
- *
  *
  * @example To create an external key store with public endpoint connectivity
  * ```javascript

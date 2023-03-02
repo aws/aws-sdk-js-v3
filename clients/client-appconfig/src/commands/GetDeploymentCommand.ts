@@ -50,7 +50,6 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  * @see {@link GetDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To retrieve deployment details
  * ```javascript
  * // The following get-deployment example lists details of the deployment to the application in the specified environment and deployment.

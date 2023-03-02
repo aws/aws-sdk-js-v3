@@ -51,7 +51,6 @@ export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCap
  * @see {@link ListProvisionedCapacityCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To list the provisioned capacity units for an account
  * ```javascript
  * // The example lists the provisioned capacity units for an account.

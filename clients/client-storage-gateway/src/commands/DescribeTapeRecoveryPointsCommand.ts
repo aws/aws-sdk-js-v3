@@ -56,7 +56,6 @@ export interface DescribeTapeRecoveryPointsCommandOutput extends DescribeTapeRec
  * @see {@link DescribeTapeRecoveryPointsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To describe virtual tape recovery points
  * ```javascript
  * // Returns a list of virtual tape recovery points that are available for the specified gateway-VTL.

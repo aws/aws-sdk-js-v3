@@ -105,7 +105,6 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  * @see {@link ScheduleKeyDeletionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To schedule a KMS key for deletion
  * ```javascript
  * // The following example schedules the specified KMS key for deletion.

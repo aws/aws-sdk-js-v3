@@ -101,7 +101,6 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To create a rule
  * ```javascript
  * // The following example creates a rule named WAFByteHeaderRule.

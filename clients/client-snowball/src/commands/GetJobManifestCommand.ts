@@ -65,7 +65,6 @@ export interface GetJobManifestCommandOutput extends GetJobManifestResult, __Met
  * @see {@link GetJobManifestCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
- *
  * @example To get the manifest for a job you've created for AWS Snowball
  * ```javascript
  * // Returns a link to an Amazon S3 presigned URL for the manifest file associated with the specified JobId value. You can access the manifest file for up to 60 minutes after this request has been made. To access the manifest file after 60 minutes have passed, you'll have to make another call to the GetJobManifest action.

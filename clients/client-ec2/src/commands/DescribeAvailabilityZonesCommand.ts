@@ -55,7 +55,6 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * @see {@link DescribeAvailabilityZonesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe your Availability Zones
  * ```javascript
  * // This example describes the Availability Zones that are available to you. The response includes Availability Zones only for the current region.

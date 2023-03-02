@@ -46,7 +46,6 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  * @see {@link UnsubscribeFromEventCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Unsubscribe from event
  * ```javascript
  * // Disables the process of sending Amazon Simple Notification Service (SNS) notifications about a specified event to a specified SNS topic.

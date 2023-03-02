@@ -51,7 +51,6 @@ export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsRespo
  * @see {@link ListAssessmentRunsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example List assessment runs
  * ```javascript
  * // Lists the assessment runs that correspond to the assessment templates that are specified by the ARNs of the assessment templates.

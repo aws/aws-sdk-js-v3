@@ -51,7 +51,6 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  * @see {@link PreviewAgentsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Preview agents
  * ```javascript
  * // Previews the agents installed on the EC2 instances that are part of the specified assessment target.

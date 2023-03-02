@@ -108,7 +108,6 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  * @see {@link DescribeCustomKeyStoresCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To get detailed information about custom key stores in the account and Region
  * ```javascript
  * // This example gets detailed information about all AWS KMS custom key stores in an AWS account and Region. To get all key stores, do not enter a custom key store name or ID.
@@ -121,7 +120,6 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  * }
  * *\/
  * ```
- *
  *
  * @example To get detailed information about an AWS CloudHSM key store by specifying its friendly name
  * ```javascript
@@ -147,7 +145,6 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  * }
  * *\/
  * ```
- *
  *
  * @example To get detailed information about an external key store by specifying its ID
  * ```javascript
@@ -177,7 +174,6 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  * }
  * *\/
  * ```
- *
  *
  * @example To get detailed information about an external key store VPC endpoint connectivity by specifying its friendly name
  * ```javascript

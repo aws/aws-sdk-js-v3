@@ -54,6 +54,10 @@ export interface InstantiateSolNetworkInstanceCommandOutput
  * @see {@link InstantiateSolNetworkInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
+ * @example Instantiate a Sol Network Instance```javascript/* Optional.empty *\/some code here```
+ *
+ * @example Instantiate a Sol Network Instance with Overrides```javascript/* Optional.empty *\/some code here```
+ *
  */
 export class InstantiateSolNetworkInstanceCommand extends $Command<
   InstantiateSolNetworkInstanceCommandInput,

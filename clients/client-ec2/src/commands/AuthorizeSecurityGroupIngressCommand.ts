@@ -66,7 +66,6 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  * @see {@link AuthorizeSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To add a rule that allows inbound SSH traffic from an IPv4 address range
  * ```javascript
  * // This example enables inbound traffic on TCP port 22 (SSH). The rule includes a description to help you identify it later.
@@ -90,7 +89,6 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  * await client.send(command);
  * ```
  *
- *
  * @example To add a rule that allows inbound HTTP traffic from another security group
  * ```javascript
  * // This example enables inbound traffic on TCP port 80 from the specified security group. The group must be in the same VPC or a peer VPC. Incoming traffic is allowed based on the private IP addresses of instances that are associated with the specified security group.
@@ -113,7 +111,6 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  * const command = new AuthorizeSecurityGroupIngressCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To add a rule that allows inbound RDP traffic from an IPv6 address range
  * ```javascript

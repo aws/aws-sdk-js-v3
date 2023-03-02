@@ -55,7 +55,6 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
  * @see {@link DetachLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To detach a load balancer from an Auto Scaling group
  * ```javascript
  * // This example detaches the specified load balancer from the specified Auto Scaling group.

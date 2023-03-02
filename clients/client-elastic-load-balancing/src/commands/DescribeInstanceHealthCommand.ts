@@ -54,7 +54,6 @@ export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointSta
  * @see {@link DescribeInstanceHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To describe the health of the instances for a load balancer
  * ```javascript
  * // This example describes the health of the instances for the specified load balancer.

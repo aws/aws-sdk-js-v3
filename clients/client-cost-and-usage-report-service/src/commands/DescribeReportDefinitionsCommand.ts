@@ -54,7 +54,6 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
  * @see {@link DescribeReportDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
  *
- *
  * @example To list the AWS Cost and Usage reports for the account.
  * ```javascript
  * // The following example lists the AWS Cost and Usage reports for the account.

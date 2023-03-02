@@ -50,7 +50,6 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  * @see {@link ModifyCacheSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example ModifyCacheSubnetGroup
  * ```javascript
  * // Modifies an existing ElastiCache subnet group.

@@ -100,7 +100,6 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  * @see {@link CompareFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
- *
  * @example To compare two images
  * ```javascript
  * // This operation compares the largest face detected in the source image with each face detected in the target image.

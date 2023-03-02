@@ -57,7 +57,6 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  * @see {@link CreateLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To create a launch configuration
  * ```javascript
  * // This example creates a launch configuration.

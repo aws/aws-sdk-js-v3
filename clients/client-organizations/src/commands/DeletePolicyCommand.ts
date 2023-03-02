@@ -48,7 +48,6 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link DeletePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To delete a policy
  * ```javascript
  * // The following example shows how to delete a policy from an organization. The example assumes that you previously detached the policy from all entities:

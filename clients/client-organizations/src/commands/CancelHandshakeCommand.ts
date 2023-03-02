@@ -55,7 +55,6 @@ export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, _
  * @see {@link CancelHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To cancel a handshake sent to a member account
  * ```javascript
  * // Bill previously sent an invitation to Susan's account to join his organization. He changes his mind and decides to cancel the invitation before Susan accepts it. The following example shows Bill's cancellation:

@@ -51,7 +51,6 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * @see {@link DescribeJobDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example To describe active job definitions
  * ```javascript
  * // This example describes all of your active job definitions.

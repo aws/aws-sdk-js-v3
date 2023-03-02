@@ -43,7 +43,6 @@ export interface UntagRoleCommandOutput extends __MetadataBearer {}
  * @see {@link UntagRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To remove a tag from an IAM role
  * ```javascript
  * // The following example shows how to remove a tag with the key 'Dept' from a role named 'taggedrole'.

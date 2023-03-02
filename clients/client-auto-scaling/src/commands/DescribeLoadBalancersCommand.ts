@@ -72,7 +72,6 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * @see {@link DescribeLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To describe the load balancers for an Auto Scaling group
  * ```javascript
  * // This example describes the load balancers attached to the specified Auto Scaling group.

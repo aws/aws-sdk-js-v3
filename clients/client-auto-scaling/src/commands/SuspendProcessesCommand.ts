@@ -51,7 +51,6 @@ export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
  * @see {@link SuspendProcessesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To suspend Auto Scaling processes
  * ```javascript
  * // This example suspends the specified scaling process for the specified Auto Scaling group.

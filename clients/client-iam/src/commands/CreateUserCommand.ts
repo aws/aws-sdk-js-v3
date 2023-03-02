@@ -49,7 +49,6 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @see {@link CreateUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To create an IAM user
  * ```javascript
  * // The following create-user command creates an IAM user named Bob in the current account.

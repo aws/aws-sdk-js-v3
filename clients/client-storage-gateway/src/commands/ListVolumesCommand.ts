@@ -59,7 +59,6 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  * @see {@link ListVolumesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To list the iSCSI stored volumes of a gateway
  * ```javascript
  * // Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN up to a maximum of 100 volumes.

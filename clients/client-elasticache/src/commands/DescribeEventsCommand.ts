@@ -55,7 +55,6 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DescribeEvents
  * ```javascript
  * // Describes all the cache-cluster events for the past 120 minutes.
@@ -103,7 +102,6 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * }
  * *\/
  * ```
- *
  *
  * @example DescribeEvents
  * ```javascript

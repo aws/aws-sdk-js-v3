@@ -56,7 +56,6 @@ export interface DescribeRefreshSchemasStatusCommandOutput
  * @see {@link DescribeRefreshSchemasStatusCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Describe refresh schema status
  * ```javascript
  * // Returns the status of the refresh-schemas operation.

@@ -157,7 +157,6 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * @see {@link PutObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To upload an object
  * ```javascript
  * // The following example uploads an object to a versioning-enabled bucket. The source file is specified using Windows file syntax. S3 returns VersionId of the newly created object.
@@ -175,7 +174,6 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * }
  * *\/
  * ```
- *
  *
  * @example To upload object and specify user-defined metadata
  * ```javascript
@@ -199,7 +197,6 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * *\/
  * ```
  *
- *
  * @example To upload an object (specify optional headers)
  * ```javascript
  * // The following example uploads an object. The request specifies optional request headers to directs S3 to use specific storage class and use server-side encryption.
@@ -221,7 +218,6 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * *\/
  * ```
  *
- *
  * @example To create an object.
  * ```javascript
  * // The following example creates an object. If the bucket is versioning enabled, S3 returns version ID in response.
@@ -239,7 +235,6 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * }
  * *\/
  * ```
- *
  *
  * @example To upload an object and specify server-side encryption and object tags
  * ```javascript
@@ -262,7 +257,6 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * *\/
  * ```
  *
- *
  * @example To upload an object and specify optional tags
  * ```javascript
  * // The following example uploads an object. The request specifies optional object tags. The bucket is versioned, therefore S3 returns version ID of the newly created object.
@@ -281,7 +275,6 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * }
  * *\/
  * ```
- *
  *
  * @example To upload an object and specify canned ACL.
  * ```javascript

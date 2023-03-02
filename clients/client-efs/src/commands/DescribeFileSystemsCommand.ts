@@ -69,7 +69,6 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * @see {@link DescribeFileSystemsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
- *
  * @example To describe an EFS file system
  * ```javascript
  * // This operation describes all of the EFS file systems in an account.

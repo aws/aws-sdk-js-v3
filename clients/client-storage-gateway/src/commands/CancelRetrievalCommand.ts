@@ -52,7 +52,6 @@ export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __M
  * @see {@link CancelRetrievalCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To cancel virtual tape retrieval
  * ```javascript
  * // Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after the retrieval process is initiated.

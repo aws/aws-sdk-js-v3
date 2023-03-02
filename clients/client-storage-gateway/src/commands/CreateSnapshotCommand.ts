@@ -77,7 +77,6 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To create a snapshot of a gateway volume
  * ```javascript
  * // Initiates an ad-hoc snapshot of a gateway volume.

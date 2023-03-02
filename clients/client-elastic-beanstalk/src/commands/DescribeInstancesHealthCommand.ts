@@ -52,7 +52,6 @@ export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesH
  * @see {@link DescribeInstancesHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To view environment health
  * ```javascript
  * // The following operation retrieves health information for instances in an environment named my-env:

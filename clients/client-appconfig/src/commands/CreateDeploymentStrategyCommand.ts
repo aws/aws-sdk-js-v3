@@ -53,7 +53,6 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * @see {@link CreateDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To create a deployment strategy
  * ```javascript
  * // The following create-deployment-strategy example creates a deployment strategy called Example-Deployment that takes 15 minutes and deploys the configuration to 25% of the application at a time. The strategy is also copied to an SSM Document.

@@ -155,7 +155,6 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  * @see {@link SendRawEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example SendRawEmail
  * ```javascript
  * // The following example sends an email with an attachment:

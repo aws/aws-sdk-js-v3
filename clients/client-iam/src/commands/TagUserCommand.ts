@@ -85,7 +85,6 @@ export interface TagUserCommandOutput extends __MetadataBearer {}
  * @see {@link TagUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To add a tag key and value to an IAM user
  * ```javascript
  * // The following example shows how to add tags to an existing user.

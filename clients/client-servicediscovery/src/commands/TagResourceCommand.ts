@@ -50,7 +50,6 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example TagResource example
  * ```javascript
  * // This example adds "Department" and "Project" tags to a resource.

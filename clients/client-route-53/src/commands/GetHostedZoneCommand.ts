@@ -52,7 +52,6 @@ export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __Met
  * @see {@link GetHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
- *
  * @example To get information about a hosted zone
  * ```javascript
  * // The following example gets information about the Z3M3LMPEXAMPLE hosted zone.

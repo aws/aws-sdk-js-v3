@@ -49,7 +49,6 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @see {@link ListGroupsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To list the IAM groups for the current account
  * ```javascript
  * // The following command lists the IAM groups in the current account:

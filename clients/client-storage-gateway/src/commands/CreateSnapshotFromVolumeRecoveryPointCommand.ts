@@ -72,7 +72,6 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
  * @see {@link CreateSnapshotFromVolumeRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To create a snapshot of a gateway volume
  * ```javascript
  * // Initiates a snapshot of a gateway from a volume recovery point.

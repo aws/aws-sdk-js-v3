@@ -52,7 +52,6 @@ export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPol
  * @see {@link GetDataRetrievalPolicyCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To get the current data retrieval policy for an account
  * ```javascript
  * // The example returns the current data retrieval policy for the account.

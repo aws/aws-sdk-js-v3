@@ -77,7 +77,6 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * @see {@link ModifyDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To change DB cluster parameter group settings
  * ```javascript
  * // This example immediately changes the specified setting for the specified DB cluster parameter group.

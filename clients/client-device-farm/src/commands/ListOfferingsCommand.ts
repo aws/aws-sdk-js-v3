@@ -53,7 +53,6 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResult, __Metad
  * @see {@link ListOfferingsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about device offerings
  * ```javascript
  * // The following example returns information about available device offerings.

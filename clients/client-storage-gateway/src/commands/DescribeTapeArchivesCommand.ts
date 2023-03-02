@@ -54,7 +54,6 @@ export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesO
  * @see {@link DescribeTapeArchivesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To describe virtual tapes in the VTS
  * ```javascript
  * // Returns a description of specified virtual tapes in the virtual tape shelf (VTS).

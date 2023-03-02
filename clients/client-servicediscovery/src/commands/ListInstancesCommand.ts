@@ -51,7 +51,6 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @see {@link ListInstancesCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example Example: List service instances
  * ```javascript
  * // Example: List service instances

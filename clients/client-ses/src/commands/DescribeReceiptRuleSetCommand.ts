@@ -52,7 +52,6 @@ export interface DescribeReceiptRuleSetCommandOutput extends DescribeReceiptRule
  * @see {@link DescribeReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example DescribeReceiptRuleSet
  * ```javascript
  * // The following example returns the metadata and receipt rules of a receipt rule set:

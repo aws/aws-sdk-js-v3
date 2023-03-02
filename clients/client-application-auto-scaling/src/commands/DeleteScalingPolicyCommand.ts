@@ -59,7 +59,6 @@ export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyRes
  * @see {@link DeleteScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
- *
  * @example To delete a scaling policy
  * ```javascript
  * // This example deletes a scaling policy for the Amazon ECS service called web-app, which is running in the default cluster.

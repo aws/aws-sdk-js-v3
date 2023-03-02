@@ -50,7 +50,6 @@ export interface PurchaseProvisionedCapacityCommandOutput extends PurchaseProvis
  * @see {@link PurchaseProvisionedCapacityCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To purchases a provisioned capacity unit for an AWS account
  * ```javascript
  * // The example purchases provisioned capacity unit for an AWS account.

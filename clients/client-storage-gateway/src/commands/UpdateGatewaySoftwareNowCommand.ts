@@ -65,7 +65,6 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * @see {@link UpdateGatewaySoftwareNowCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To update a gateway's VM software
  * ```javascript
  * // Updates the gateway virtual machine (VM) software. The request immediately triggers the software update.

@@ -61,7 +61,6 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
  * @see {@link AttachLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To attach a load balancer to an Auto Scaling group
  * ```javascript
  * // This example attaches the specified load balancer to the specified Auto Scaling group.

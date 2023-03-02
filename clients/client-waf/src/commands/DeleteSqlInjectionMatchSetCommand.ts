@@ -74,7 +74,6 @@ export interface DeleteSqlInjectionMatchSetCommandOutput extends DeleteSqlInject
  * @see {@link DeleteSqlInjectionMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To delete a SQL injection match set
  * ```javascript
  * // The following example deletes a SQL injection match set  with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.

@@ -60,7 +60,6 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To create a new cluster
  * ```javascript
  * // This example creates a cluster in your default region.

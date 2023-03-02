@@ -48,7 +48,6 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  * @see {@link GetSendStatisticsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example GetSendStatistics
  * ```javascript
  * // The following example returns Amazon SES sending statistics:

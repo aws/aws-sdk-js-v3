@@ -58,7 +58,6 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * @see {@link UpdateGatewayInformationCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To update a gateway's metadata
  * ```javascript
  * // Updates a gateway's metadata, which includes the gateway's name and time zone.

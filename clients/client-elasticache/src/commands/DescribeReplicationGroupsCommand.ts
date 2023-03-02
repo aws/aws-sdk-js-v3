@@ -55,7 +55,6 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
  * @see {@link DescribeReplicationGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DescribeReplicationGroups
  * ```javascript
  * // Returns information about the replication group myreplgroup.

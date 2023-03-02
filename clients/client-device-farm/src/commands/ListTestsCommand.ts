@@ -47,7 +47,6 @@ export interface ListTestsCommandOutput extends ListTestsResult, __MetadataBeare
  * @see {@link ListTestsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about tests
  * ```javascript
  * // The following example returns information about tests, given a specific Device Farm project.

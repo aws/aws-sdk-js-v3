@@ -70,7 +70,6 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * @see {@link RestoreDBClusterFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To restore an Amazon Aurora DB cluster from a DB cluster snapshot
  * ```javascript
  * // The following example restores an Amazon Aurora DB cluster from a DB cluster snapshot.

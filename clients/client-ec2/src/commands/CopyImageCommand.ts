@@ -65,7 +65,6 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  * @see {@link CopyImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To copy an AMI to another region
  * ```javascript
  * // This example copies the specified AMI from the us-east-1 region to the current region.

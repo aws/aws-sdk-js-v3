@@ -52,7 +52,6 @@ export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStoredi
  * @see {@link DescribeStorediSCSIVolumesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To describe the volumes of a gateway
  * ```javascript
  * // Returns the description of the gateway volumes specified in the request belonging to the same gateway.

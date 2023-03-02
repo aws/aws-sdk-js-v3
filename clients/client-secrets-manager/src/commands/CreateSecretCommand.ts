@@ -85,7 +85,6 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  * @see {@link CreateSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
- *
  * @example To create a basic secret
  * ```javascript
  * // The following example shows how to create a secret. The credentials stored in the encrypted secret value are retrieved from a file on disk named mycreds.json.

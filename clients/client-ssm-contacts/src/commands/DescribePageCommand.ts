@@ -50,7 +50,6 @@ export interface DescribePageCommandOutput extends DescribePageResult, __Metadat
  * @see {@link DescribePageCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To list the details of a page to a contact channel
  * ```javascript
  * // The following describe-page example lists details of a page to a contact channel. The page will include the subject and content provided.

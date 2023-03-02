@@ -57,7 +57,6 @@ export interface ReorderReceiptRuleSetCommandOutput extends ReorderReceiptRuleSe
  * @see {@link ReorderReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example ReorderReceiptRuleSet
  * ```javascript
  * // The following example reorders the receipt rules within a receipt rule set:

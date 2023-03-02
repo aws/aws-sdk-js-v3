@@ -54,7 +54,6 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * @see {@link DescribeTargetHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To describe the health of the targets for a target group
  * ```javascript
  * // This example describes the health of the targets for the specified target group. One target is healthy but the other is not specified in an action, so it can't receive traffic from the load balancer.
@@ -91,7 +90,6 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * }
  * *\/
  * ```
- *
  *
  * @example To describe the health of a target
  * ```javascript

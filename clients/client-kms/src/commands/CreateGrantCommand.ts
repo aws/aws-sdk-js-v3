@@ -111,7 +111,6 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * @see {@link CreateGrantCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To create a grant
  * ```javascript
  * // The following example creates a grant that allows the specified IAM role to encrypt data with the specified KMS key.

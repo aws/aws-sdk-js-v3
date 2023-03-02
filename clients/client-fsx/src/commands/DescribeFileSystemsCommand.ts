@@ -77,7 +77,6 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * @see {@link DescribeFileSystemsCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
- *
  * @example To describe an Amazon FSx file system
  * ```javascript
  * // This operation describes all of the Amazon FSx file systems in an account.

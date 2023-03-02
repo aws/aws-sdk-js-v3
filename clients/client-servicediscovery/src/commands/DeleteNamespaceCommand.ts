@@ -51,7 +51,6 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * @see {@link DeleteNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example Example: Delete namespace
  * ```javascript
  * // Example: Delete namespace

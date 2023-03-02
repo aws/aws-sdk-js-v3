@@ -52,7 +52,6 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  * @see {@link SendActivationCodeCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To send an activation code
  * ```javascript
  * // The following send-activation-code example sends an activation code and message to the specified contact channel.

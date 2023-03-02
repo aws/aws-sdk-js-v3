@@ -67,7 +67,6 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  * @see {@link DescribeMountTargetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
- *
  * @example To describe the security groups for a mount target
  * ```javascript
  * // This operation describes all of the security groups for a file system's mount target.

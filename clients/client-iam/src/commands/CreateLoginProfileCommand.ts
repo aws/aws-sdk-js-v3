@@ -55,7 +55,6 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  * @see {@link CreateLoginProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To create an instance profile
  * ```javascript
  * // The following command changes IAM user Bob's password and sets the flag that required Bob to change the password the next time he signs in.

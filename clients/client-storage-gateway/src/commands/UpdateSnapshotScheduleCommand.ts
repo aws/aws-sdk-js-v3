@@ -59,7 +59,6 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  * @see {@link UpdateSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To update a volume snapshot schedule
  * ```javascript
  * // Updates a snapshot schedule configured for a gateway volume.

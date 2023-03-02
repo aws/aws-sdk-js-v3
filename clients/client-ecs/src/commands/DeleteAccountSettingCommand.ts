@@ -51,7 +51,6 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  * @see {@link DeleteAccountSettingCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To delete your account setting
  * ```javascript
  * // This example deletes the account setting for your user for the specified resource type.
@@ -70,7 +69,6 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  * }
  * *\/
  * ```
- *
  *
  * @example To delete the account settings for a specific IAM user or IAM role
  * ```javascript

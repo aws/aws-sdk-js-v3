@@ -53,6 +53,8 @@ export interface GetSolNetworkPackageDescriptorCommandOutput
  * @see {@link GetSolNetworkPackageDescriptorCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
+ * @example Get the descriptor of a Network Pacakge```javascript/* Optional.empty *\/some code here```
+ *
  */
 export class GetSolNetworkPackageDescriptorCommand extends $Command<
   GetSolNetworkPackageDescriptorCommandInput,

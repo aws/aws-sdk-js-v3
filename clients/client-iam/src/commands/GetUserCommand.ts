@@ -50,7 +50,6 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @see {@link GetUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To get information about an IAM user
  * ```javascript
  * // The following command gets information about the IAM user named Bob.

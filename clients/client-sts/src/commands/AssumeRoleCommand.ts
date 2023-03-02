@@ -135,7 +135,6 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  * @see {@link AssumeRoleCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
- *
  * @example To assume a role
  * ```javascript
  * //

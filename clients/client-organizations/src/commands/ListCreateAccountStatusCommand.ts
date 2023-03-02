@@ -61,7 +61,6 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  * @see {@link ListCreateAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To get a list of completed account creation requests made in the organization
  * ```javascript
  * // The following example shows a user requesting a list of only the completed account creation requests made for the current organization:
@@ -87,7 +86,6 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  * }
  * *\/
  * ```
- *
  *
  * @example To get a list of all account creation requests made in the organization
  * ```javascript

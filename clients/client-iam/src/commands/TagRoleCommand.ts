@@ -86,7 +86,6 @@ export interface TagRoleCommandOutput extends __MetadataBearer {}
  * @see {@link TagRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To add a tag key and value to an IAM role
  * ```javascript
  * // The following example shows how to add tags to an existing role.

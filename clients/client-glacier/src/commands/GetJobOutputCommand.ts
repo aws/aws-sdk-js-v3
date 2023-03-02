@@ -89,7 +89,6 @@ export interface GetJobOutputCommandOutput extends __WithSdkStreamMixin<GetJobOu
  * @see {@link GetJobOutputCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To get the output of a previously initiated job
  * ```javascript
  * // The example downloads the output of a previously initiated inventory retrieval job that is identified by the job ID.

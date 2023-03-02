@@ -64,7 +64,6 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  * @see {@link ListAccountsForParentCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To retrieve a list of all of the accounts in a root or OU
  * ```javascript
  * // The following example shows how to request a list of the accounts in an OU:/n/n

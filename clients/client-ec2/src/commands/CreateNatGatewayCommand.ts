@@ -59,7 +59,6 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  * @see {@link CreateNatGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To create a NAT gateway
  * ```javascript
  * // This example creates a NAT gateway in subnet subnet-1a2b3c4d and associates an Elastic IP address with the allocation ID eipalloc-37fc1a52 with the NAT gateway.

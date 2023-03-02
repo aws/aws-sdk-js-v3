@@ -50,7 +50,6 @@ export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironm
  * @see {@link DeleteEnvironmentMembershipCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
- *
  * @example DeleteEnvironmentMembership
  * ```javascript
  * //

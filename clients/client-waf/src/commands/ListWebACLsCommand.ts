@@ -58,7 +58,6 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  * @see {@link ListWebACLsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To list Web ACLs
  * ```javascript
  * // The following example returns an array of up to 100 web ACLs.

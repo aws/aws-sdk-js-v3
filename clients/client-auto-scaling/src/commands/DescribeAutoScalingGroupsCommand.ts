@@ -56,7 +56,6 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * @see {@link DescribeAutoScalingGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To describe an Auto Scaling group
  * ```javascript
  * // This example describes the specified Auto Scaling group.

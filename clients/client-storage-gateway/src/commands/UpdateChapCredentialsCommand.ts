@@ -58,7 +58,6 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  * @see {@link UpdateChapCredentialsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To update CHAP credentials for an iSCSI target
  * ```javascript
  * // Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target.

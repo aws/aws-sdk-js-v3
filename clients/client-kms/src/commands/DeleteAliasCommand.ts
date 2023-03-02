@@ -92,7 +92,6 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteAliasCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To delete an alias
  * ```javascript
  * // The following example deletes the specified alias.

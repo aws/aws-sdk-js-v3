@@ -52,7 +52,6 @@ export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInsta
  * @see {@link ConfirmProductInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To confirm the product instance
  * ```javascript
  * // This example determines whether the specified product code is associated with the specified instance.

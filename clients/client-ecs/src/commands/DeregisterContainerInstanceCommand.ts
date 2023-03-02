@@ -65,7 +65,6 @@ export interface DeregisterContainerInstanceCommandOutput
  * @see {@link DeregisterContainerInstanceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To deregister a container instance from a cluster
  * ```javascript
  * // This example deregisters a container instance from the specified cluster in your default region. If there are still tasks running on the container instance, you must either stop those tasks before deregistering, or use the force option.

@@ -73,7 +73,6 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  * @see {@link StartInstanceRefreshCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To start an instance refresh
  * ```javascript
  * // This example starts an instance refresh for the specified Auto Scaling group.

@@ -52,7 +52,6 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * @see {@link ListIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example ListIdentities
  * ```javascript
  * // The following example lists the email address identities that have been submitted for verification with Amazon SES:

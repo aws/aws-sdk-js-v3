@@ -52,7 +52,6 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  * @see {@link DeleteIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example DeleteIdentity
  * ```javascript
  * // The following example deletes an identity from the list of identities that have been submitted for verification with Amazon SES:

@@ -57,7 +57,6 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  * @see {@link CancelInstanceRefreshCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To cancel an instance refresh
  * ```javascript
  * // This example cancels an instance refresh operation in progress.

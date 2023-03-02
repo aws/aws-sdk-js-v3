@@ -56,7 +56,6 @@ export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRu
  * @see {@link SetActiveReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example SetActiveReceiptRuleSet
  * ```javascript
  * // The following example sets the active receipt rule set:

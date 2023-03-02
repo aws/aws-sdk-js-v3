@@ -51,7 +51,6 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
  * @see {@link DescribeCacheEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DescribeCacheEngineVersions
  * ```javascript
  * // Lists the details for up to 25 Memcached and Redis cache engine versions.
@@ -149,7 +148,6 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
  * }
  * *\/
  * ```
- *
  *
  * @example DescribeCacheEngineVersions
  * ```javascript

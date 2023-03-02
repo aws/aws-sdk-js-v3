@@ -45,7 +45,6 @@ export interface DeleteRouteTableCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To delete a route table
  * ```javascript
  * // This example deletes the specified route table.

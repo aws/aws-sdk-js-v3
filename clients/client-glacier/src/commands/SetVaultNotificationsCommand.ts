@@ -82,7 +82,6 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  * @see {@link SetVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To configure a vault to post a message to an Amazon SNS topic when jobs complete
  * ```javascript
  * // The example sets the examplevault notification configuration.

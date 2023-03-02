@@ -47,7 +47,6 @@ export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To delete an account alias
  * ```javascript
  * // The following command removes the alias mycompany from the current AWS account:

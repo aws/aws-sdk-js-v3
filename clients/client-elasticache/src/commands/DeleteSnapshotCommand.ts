@@ -55,7 +55,6 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DeleteSnapshot
  * ```javascript
  * // Deletes the Redis snapshot snapshot-20160822.

@@ -143,7 +143,6 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * @see {@link GenerateDataKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To generate a data key
  * ```javascript
  * // The following example generates a 256-bit symmetric data encryption key (data key) in two formats. One is the unencrypted (plainext) data key, and the other is the data key encrypted with the specified KMS key.

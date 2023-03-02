@@ -58,7 +58,6 @@ export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjection
  * @see {@link ListSqlInjectionMatchSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To list SQL injection match sets
  * ```javascript
  * // The following example returns an array of up to 100 SQL injection match sets.

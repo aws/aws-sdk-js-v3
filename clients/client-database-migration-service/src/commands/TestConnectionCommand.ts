@@ -54,7 +54,6 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * @see {@link TestConnectionCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Test conection
  * ```javascript
  * // Tests the connection between the replication instance and the endpoint.

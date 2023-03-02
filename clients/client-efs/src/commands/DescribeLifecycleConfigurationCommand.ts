@@ -60,7 +60,6 @@ export interface DescribeLifecycleConfigurationCommandOutput
  * @see {@link DescribeLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
- *
  * @example To describe the lifecycle configuration for a file system
  * ```javascript
  * // This operation describes a file system's LifecycleConfiguration. EFS lifecycle management uses the LifecycleConfiguration object to identify which files to move to the EFS Infrequent Access (IA) storage class.

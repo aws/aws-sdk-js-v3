@@ -55,7 +55,6 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To add tags to a load balancer
  * ```javascript
  * // This example adds the specified tags to the specified load balancer.

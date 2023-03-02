@@ -62,7 +62,6 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  * @see {@link ListPoliciesForTargetCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To retrieve a list policies attached to a root, OU, or account
  * ```javascript
  * // The following example shows how to get a list of all service control policies (SCPs) of the type specified by the Filter parameter, that are directly attached to an account. The returned list does not include policies that apply to the account because of inheritance from its location in an OU hierarchy:/n/n

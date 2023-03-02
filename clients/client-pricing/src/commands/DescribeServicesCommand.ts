@@ -56,7 +56,6 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @see {@link DescribeServicesCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
  *
- *
  * @example To retrieve a list of services and service codes
  * ```javascript
  * // Retrieves the service for the given Service Code.

@@ -54,7 +54,6 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * @see {@link DeleteReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
  *
- *
  * @example To delete the AWS Cost and Usage report named ExampleReport.
  * ```javascript
  * // The following example deletes the AWS Cost and Usage report named ExampleReport.

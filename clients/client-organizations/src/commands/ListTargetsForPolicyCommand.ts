@@ -61,7 +61,6 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * @see {@link ListTargetsForPolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To retrieve a list of roots, OUs, and accounts to which a policy is attached
  * ```javascript
  * // The following example shows how to get the list of roots, OUs, and accounts to which the specified policy is attached:/n/n

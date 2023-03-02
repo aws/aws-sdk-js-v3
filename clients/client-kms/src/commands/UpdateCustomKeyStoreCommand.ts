@@ -142,7 +142,6 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * @see {@link UpdateCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To edit the friendly name of a custom key store
  * ```javascript
  * // This example changes the friendly name of the AWS KMS custom key store to the name that you specify. This operation does not return any data. To verify that the operation worked, use the DescribeCustomKeyStores operation.
@@ -153,7 +152,6 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * const command = new UpdateCustomKeyStoreCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To edit the password of an AWS CloudHSM key store
  * ```javascript
@@ -166,7 +164,6 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * await client.send(command);
  * ```
  *
- *
  * @example To associate the custom key store with a different, but related, AWS CloudHSM cluster.
  * ```javascript
  * // This example changes the AWS CloudHSM cluster that is associated with an AWS CloudHSM key store to a related cluster, such as a different backup of the same cluster. This operation does not return any data. To verify that the operation worked, use the DescribeCustomKeyStores operation.
@@ -177,7 +174,6 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * const command = new UpdateCustomKeyStoreCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To update the proxy authentication credential of an external key store
  * ```javascript
@@ -193,7 +189,6 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * await client.send(command);
  * ```
  *
- *
  * @example To edit the proxy URI path of an external key store.
  * ```javascript
  * // This example updates the proxy URI path for an external key store
@@ -204,7 +199,6 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * const command = new UpdateCustomKeyStoreCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To update the proxy connectivity of an external key store to VPC_ENDPOINT_SERVICE
  * ```javascript

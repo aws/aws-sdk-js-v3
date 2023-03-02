@@ -60,7 +60,6 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  * @see {@link EnablePolicyTypeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To enable a policy type in a root
  * ```javascript
  * // The following example shows how to enable the service control policy (SCP) policy type in a root. The output shows a root object with a PolicyTypes response element showing that SCPs are now enabled:/n/n

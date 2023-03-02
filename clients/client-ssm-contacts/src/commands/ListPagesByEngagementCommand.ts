@@ -50,7 +50,6 @@ export interface ListPagesByEngagementCommandOutput extends ListPagesByEngagemen
  * @see {@link ListPagesByEngagementCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To list pages to contact channels started from an engagement.
  * ```javascript
  * // The following list-pages-by-engagement example lists the pages that occurred while engaging the defined engagement plan.

@@ -61,7 +61,6 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * @see {@link CreateEndpointCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Create endpoint
  * ```javascript
  * // Creates an endpoint using the provided settings.

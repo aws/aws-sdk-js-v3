@@ -60,7 +60,6 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutpu
  * @see {@link DeleteLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To delete a load balancer
  * ```javascript
  * // This example deletes the specified load balancer.

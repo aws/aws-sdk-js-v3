@@ -56,7 +56,6 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  * @see {@link DeclineHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To decline a handshake sent from the master account
  * ```javascript
  * // The following example shows Susan declining an invitation to join Bill's organization. The DeclineHandshake operation returns a handshake object, showing that the state is now DECLINED:

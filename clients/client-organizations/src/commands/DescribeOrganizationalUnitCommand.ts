@@ -52,7 +52,6 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  * @see {@link DescribeOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To get information about an organizational unit
  * ```javascript
  * // The following example shows how to request details about an OU:/n/n

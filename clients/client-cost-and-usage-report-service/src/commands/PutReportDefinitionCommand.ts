@@ -54,7 +54,6 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * @see {@link PutReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
  *
- *
  * @example To create a report named ExampleReport.
  * ```javascript
  * // The following example creates a AWS Cost and Usage report named ExampleReport.

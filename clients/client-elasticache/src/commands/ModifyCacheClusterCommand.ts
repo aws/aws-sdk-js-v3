@@ -52,7 +52,6 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  * @see {@link ModifyCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example ModifyCacheCluster
  * ```javascript
  * // Copies a snapshot to a specified name.

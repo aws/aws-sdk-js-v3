@@ -59,7 +59,6 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * @see {@link CreateDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To create a DB cluster
  * ```javascript
  * // This example creates a DB cluster.

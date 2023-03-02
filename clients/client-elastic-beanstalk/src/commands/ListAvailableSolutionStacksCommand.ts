@@ -51,7 +51,6 @@ export interface ListAvailableSolutionStacksCommandOutput
  * @see {@link ListAvailableSolutionStacksCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To view solution stacks
  * ```javascript
  * // The following operation lists solution stacks for all currently available platform configurations and any that you have used in the past:

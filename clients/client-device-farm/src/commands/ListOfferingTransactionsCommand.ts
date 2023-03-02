@@ -53,7 +53,6 @@ export interface ListOfferingTransactionsCommandOutput extends ListOfferingTrans
  * @see {@link ListOfferingTransactionsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about device offering transactions
  * ```javascript
  * // The following example returns information about Device Farm offering transactions.

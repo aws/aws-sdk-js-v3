@@ -51,7 +51,6 @@ export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentR
  * @see {@link DescribeAssessmentRunsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Describte assessment runs
  * ```javascript
  * // Describes the assessment runs that are specified by the ARNs of the assessment runs.

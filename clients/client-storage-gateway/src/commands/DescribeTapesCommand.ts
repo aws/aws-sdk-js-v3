@@ -53,7 +53,6 @@ export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __Metad
  * @see {@link DescribeTapesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To describe virtual tape(s) associated with gateway
  * ```javascript
  * // Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a TapeARN is not specified, returns a description of all virtual tapes.

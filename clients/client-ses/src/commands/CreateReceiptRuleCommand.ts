@@ -53,7 +53,6 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  * @see {@link CreateReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example CreateReceiptRule
  * ```javascript
  * // The following example creates a new receipt rule:

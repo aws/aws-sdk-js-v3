@@ -54,7 +54,6 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * @see {@link DeleteCollectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
- *
  * @example To delete a collection
  * ```javascript
  * // This operation deletes a Rekognition collection.

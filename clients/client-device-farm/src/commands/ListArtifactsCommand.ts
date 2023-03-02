@@ -50,7 +50,6 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * @see {@link ListArtifactsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To list artifacts for a resource
  * ```javascript
  * // The following example lists screenshot artifacts for a specific run.

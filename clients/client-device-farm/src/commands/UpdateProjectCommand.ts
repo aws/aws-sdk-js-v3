@@ -51,7 +51,6 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To update a device pool
  * ```javascript
  * // The following example updates the specified project with a new name.

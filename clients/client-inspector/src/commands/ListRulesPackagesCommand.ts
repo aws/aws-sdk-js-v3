@@ -50,7 +50,6 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  * @see {@link ListRulesPackagesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example List rules packages
  * ```javascript
  * // Lists all available Amazon Inspector rules packages.

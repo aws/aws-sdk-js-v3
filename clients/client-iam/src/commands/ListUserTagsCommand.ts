@@ -48,7 +48,6 @@ export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __Metad
  * @see {@link ListUserTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To list the tags attached to an IAM user
  * ```javascript
  * // The following example shows how to list the tags attached to a user.

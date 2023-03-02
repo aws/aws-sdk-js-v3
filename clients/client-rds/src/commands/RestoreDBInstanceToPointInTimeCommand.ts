@@ -61,7 +61,6 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * @see {@link RestoreDBInstanceToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To restore a DB instance to a point in time.
  * ```javascript
  * // The following example restores a DB instance to a new DB instance at a point in time from the source DB instance.

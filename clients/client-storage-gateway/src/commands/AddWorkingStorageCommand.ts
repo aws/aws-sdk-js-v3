@@ -62,7 +62,6 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  * @see {@link AddWorkingStorageCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To add storage on local disk
  * ```javascript
  * // Configures one or more gateway local disks as working storage for a gateway. (Working storage is also referred to as upload buffer.)

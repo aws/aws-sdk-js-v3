@@ -50,7 +50,6 @@ export interface UpdateContactCommandOutput extends UpdateContactResult, __Metad
  * @see {@link UpdateContactCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To update the engagement plan of contact
  * ```javascript
  * // The following update-contact example updates the engagement plan of the contact Akua to include the three types of contacts channels. This is done after creating contact channels for Akua.

@@ -52,7 +52,6 @@ export interface TerminateJobCommandOutput extends TerminateJobResponse, __Metad
  * @see {@link TerminateJobCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example To terminate a job
  * ```javascript
  * // This example terminates a job with the specified job ID.

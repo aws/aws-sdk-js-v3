@@ -64,7 +64,6 @@ export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotSched
  * @see {@link DeleteSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To delete a snapshot of a volume
  * ```javascript
  * // This action enables you to delete a snapshot schedule for a volume.

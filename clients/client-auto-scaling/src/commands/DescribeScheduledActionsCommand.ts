@@ -53,7 +53,6 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  * @see {@link DescribeScheduledActionsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To describe scheduled actions
  * ```javascript
  * // This example describes the scheduled actions for the specified Auto Scaling group.

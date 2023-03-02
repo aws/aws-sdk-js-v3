@@ -50,7 +50,6 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * @see {@link ListProjectsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about a Device Farm project
  * ```javascript
  * // The following example returns information about the specified project in Device Farm.

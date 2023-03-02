@@ -59,7 +59,6 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  * @see {@link ReleaseAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To release an Elastic IP address for EC2-VPC
  * ```javascript
  * // This example releases an Elastic IP address for use with instances in a VPC.
@@ -69,7 +68,6 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  * const command = new ReleaseAddressCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To release an Elastic IP addresses for EC2-Classic
  * ```javascript

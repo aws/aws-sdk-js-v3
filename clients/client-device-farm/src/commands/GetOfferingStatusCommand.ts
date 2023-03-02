@@ -53,7 +53,6 @@ export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult,
  * @see {@link GetOfferingStatusCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get status information about device offerings
  * ```javascript
  * // The following example returns information about Device Farm offerings available to your account.

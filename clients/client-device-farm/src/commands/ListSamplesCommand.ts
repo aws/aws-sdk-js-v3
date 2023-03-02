@@ -50,7 +50,6 @@ export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataB
  * @see {@link ListSamplesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about samples
  * ```javascript
  * // The following example returns information about samples, given a specific Device Farm project.

@@ -50,7 +50,6 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * @see {@link DescribeRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
- *
  * @example To describe all repositories in the current account
  * ```javascript
  * // The following example obtains a list and description of all repositories in the default registry to which the current user has access.

@@ -51,7 +51,6 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * @see {@link RemoveTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To remove tags from a load balancer
  * ```javascript
  * // This example removes the specified tag from the specified load balancer.

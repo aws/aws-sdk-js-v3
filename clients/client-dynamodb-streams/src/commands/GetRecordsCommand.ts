@@ -60,7 +60,6 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * @see {@link GetRecordsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
  *
- *
  * @example To retrieve all the stream records from a shard
  * ```javascript
  * // The following example retrieves all the stream records from a shard.

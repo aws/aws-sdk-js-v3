@@ -50,7 +50,6 @@ export interface CreateUploadCommandOutput extends CreateUploadResult, __Metadat
  * @see {@link CreateUploadCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To create a new test package upload
  * ```javascript
  * // The following example creates a new Appium Python test package upload inside an existing project.

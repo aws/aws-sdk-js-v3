@@ -56,7 +56,6 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  * @see {@link GetRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To get information about an IAM role
  * ```javascript
  * // The following command gets information about the role named Test-Role.

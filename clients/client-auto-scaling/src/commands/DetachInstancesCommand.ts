@@ -59,7 +59,6 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  * @see {@link DetachInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To detach an instance from an Auto Scaling group
  * ```javascript
  * // This example detaches the specified instance from the specified Auto Scaling group.

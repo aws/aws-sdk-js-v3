@@ -129,7 +129,6 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * @see {@link UpdateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
- *
  * @example To update a Web ACL
  * ```javascript
  * // The following example deletes an ActivatedRule object in a WebACL with the ID webacl-1472061481310.

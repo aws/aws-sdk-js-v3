@@ -109,7 +109,6 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  * @see {@link GetSessionTokenCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
- *
  * @example To get temporary credentials for an IAM user or an AWS account
  * ```javascript
  * //

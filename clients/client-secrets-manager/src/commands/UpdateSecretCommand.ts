@@ -76,7 +76,6 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  * @see {@link UpdateSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
- *
  * @example To update the description of a secret
  * ```javascript
  * // The following example shows how to modify the description of a secret.
@@ -95,7 +94,6 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  * *\/
  * ```
  *
- *
  * @example To update the KMS key associated with a secret
  * ```javascript
  * // This example shows how to update the KMS customer managed key (CMK) used to encrypt the secret value. The KMS CMK must be in the same region as the secret.
@@ -112,7 +110,6 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  * }
  * *\/
  * ```
- *
  *
  * @example To create a new version of the encrypted secret value
  * ```javascript

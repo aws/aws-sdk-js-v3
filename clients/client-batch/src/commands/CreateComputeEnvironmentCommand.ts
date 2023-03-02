@@ -128,7 +128,6 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  * @see {@link CreateComputeEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example To create a managed EC2 compute environment
  * ```javascript
  * // This example creates a managed compute environment with specific C4 instance types that are launched on demand. The compute environment is called C4OnDemand.
@@ -173,7 +172,6 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  * }
  * *\/
  * ```
- *
  *
  * @example To create a managed EC2 Spot compute environment
  * ```javascript

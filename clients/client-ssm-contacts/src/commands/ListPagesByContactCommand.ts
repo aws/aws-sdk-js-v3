@@ -50,7 +50,6 @@ export interface ListPagesByContactCommandOutput extends ListPagesByContactResul
  * @see {@link ListPagesByContactCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To list pages by contact
  * ```javascript
  * // The following list-pages-by-contact example lists all pages to the specified contact.

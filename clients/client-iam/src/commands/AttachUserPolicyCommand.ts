@@ -52,7 +52,6 @@ export interface AttachUserPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link AttachUserPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To attach a managed policy to an IAM user
  * ```javascript
  * // The following command attaches the AWS managed policy named AdministratorAccess to the IAM user named Alice.

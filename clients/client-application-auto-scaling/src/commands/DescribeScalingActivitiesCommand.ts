@@ -58,7 +58,6 @@ export interface DescribeScalingActivitiesCommandOutput extends DescribeScalingA
  * @see {@link DescribeScalingActivitiesCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
- *
  * @example To describe scaling activities for a scalable target
  * ```javascript
  * // This example describes the scaling activities for an Amazon ECS service called web-app that is running in the default cluster.

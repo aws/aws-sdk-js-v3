@@ -59,7 +59,6 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * @see {@link DescribeDBClusterSnapshotAttributesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To list DB cluster snapshot attributes
  * ```javascript
  * // This example lists attributes for the specified DB cluster snapshot.

@@ -47,7 +47,6 @@ export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
  * @see {@link GetJobCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about a job
  * ```javascript
  * // The following example returns information about a specific job.

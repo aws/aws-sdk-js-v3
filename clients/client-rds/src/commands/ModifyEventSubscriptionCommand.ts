@@ -54,7 +54,6 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To change event notification subscription settings
  * ```javascript
  * // This example changes the specified setting for the specified event notification subscription.

@@ -67,7 +67,6 @@ export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIV
  * @see {@link CreateCachediSCSIVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To create a cached iSCSI volume
  * ```javascript
  * // Creates a cached volume on a specified cached gateway.

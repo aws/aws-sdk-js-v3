@@ -64,7 +64,6 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  * @see {@link ListSecretsCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
- *
  * @example To list the secrets in your account
  * ```javascript
  * // The following example shows how to list all of the secrets in your account.

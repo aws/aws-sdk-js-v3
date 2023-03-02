@@ -53,7 +53,6 @@ export interface DescribeIamInstanceProfileAssociationsCommandOutput
  * @see {@link DescribeIamInstanceProfileAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe an IAM instance profile association
  * ```javascript
  * // This example describes the specified IAM instance profile association.

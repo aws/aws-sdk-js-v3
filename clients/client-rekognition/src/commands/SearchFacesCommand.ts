@@ -65,7 +65,6 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  * @see {@link SearchFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
- *
  * @example To delete a face
  * ```javascript
  * // This operation searches for matching faces in the collection the supplied face belongs to.

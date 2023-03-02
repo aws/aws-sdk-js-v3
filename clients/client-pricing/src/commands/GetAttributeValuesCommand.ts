@@ -53,7 +53,6 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * @see {@link GetAttributeValuesCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
  *
- *
  * @example To retrieve a list of attribute values
  * ```javascript
  * // This operation returns a list of values available for the given attribute.

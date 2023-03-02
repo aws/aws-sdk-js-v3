@@ -66,7 +66,6 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateKeyDescriptionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To update the description of a KMS key
  * ```javascript
  * // The following example updates the description of the specified KMS key.

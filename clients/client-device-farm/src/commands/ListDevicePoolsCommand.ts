@@ -50,7 +50,6 @@ export interface ListDevicePoolsCommandOutput extends ListDevicePoolsResult, __M
  * @see {@link ListDevicePoolsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about device pools
  * ```javascript
  * // The following example returns information about the private device pools in a specific project.

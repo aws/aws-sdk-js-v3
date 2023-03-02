@@ -50,7 +50,6 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  * @see {@link GetTaskProtectionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To get the protection status of a task
  * ```javascript
  * // In this example, we get the protection status for a single task.

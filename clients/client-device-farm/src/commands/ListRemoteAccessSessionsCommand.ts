@@ -50,7 +50,6 @@ export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessS
  * @see {@link ListRemoteAccessSessionsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about a remote access session
  * ```javascript
  * // The following example returns information about a specific Device Farm remote access session.

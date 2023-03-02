@@ -50,7 +50,6 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To untag a cluster.
  * ```javascript
  * // This example deletes the 'team' tag from the 'dev' cluster.

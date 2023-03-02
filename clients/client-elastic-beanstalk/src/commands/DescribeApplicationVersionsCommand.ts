@@ -52,7 +52,6 @@ export interface DescribeApplicationVersionsCommandOutput
  * @see {@link DescribeApplicationVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To view information about an application version
  * ```javascript
  * // The following operation retrieves information about an application version labeled v2:

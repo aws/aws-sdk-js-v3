@@ -51,7 +51,6 @@ export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, 
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To create a new environment for an application
  * ```javascript
  * // The following operation creates a new environment for version v1 of a java application named my-app:

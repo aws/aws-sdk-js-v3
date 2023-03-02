@@ -62,7 +62,6 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @see {@link CreateAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To create an Auto Scaling group
  * ```javascript
  * // This example creates an Auto Scaling group.
@@ -80,7 +79,6 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * const command = new CreateAutoScalingGroupCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To create an Auto Scaling group with an attached target group
  * ```javascript
@@ -103,7 +101,6 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * const command = new CreateAutoScalingGroupCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To create an Auto Scaling group with a mixed instances policy
  * ```javascript

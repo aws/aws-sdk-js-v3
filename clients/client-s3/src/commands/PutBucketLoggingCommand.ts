@@ -121,7 +121,6 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketLoggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example Set logging configuration for a bucket
  * ```javascript
  * // The following example sets logging policy on a bucket. For the Log Delivery group to deliver logs to the destination bucket, it needs permission for the READ_ACP action which the policy grants.

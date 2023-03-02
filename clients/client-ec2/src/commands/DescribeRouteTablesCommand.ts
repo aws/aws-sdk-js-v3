@@ -53,7 +53,6 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  * @see {@link DescribeRouteTablesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe a route table
  * ```javascript
  * // This example describes the specified route table.

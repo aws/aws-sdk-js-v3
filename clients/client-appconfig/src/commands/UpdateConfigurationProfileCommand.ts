@@ -50,7 +50,6 @@ export interface UpdateConfigurationProfileCommandOutput extends ConfigurationPr
  * @see {@link UpdateConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To update a configuration profile
  * ```javascript
  * // The following update-configuration-profile example updates the description of the specified configuration profile.

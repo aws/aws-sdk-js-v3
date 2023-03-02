@@ -51,7 +51,6 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
  * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
- *
  * @example To describe a cluster
  * ```javascript
  * // Returns information about a specific cluster including shipping information, cluster status, and other important metadata.

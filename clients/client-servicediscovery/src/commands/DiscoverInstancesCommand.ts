@@ -52,7 +52,6 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  * @see {@link DiscoverInstancesCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example Example: Discover registered instances
  * ```javascript
  * // Example: Discover registered instances

@@ -54,7 +54,6 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  * @see {@link GetBotCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
- *
  * @example To get information about a bot
  * ```javascript
  * // This example shows how to get configuration information for a bot.

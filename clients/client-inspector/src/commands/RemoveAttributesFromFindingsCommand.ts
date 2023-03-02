@@ -53,7 +53,6 @@ export interface RemoveAttributesFromFindingsCommandOutput
  * @see {@link RemoveAttributesFromFindingsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Remove attributes from findings
  * ```javascript
  * // Removes entire attributes (key and value pairs) from the findings that are specified by the ARNs of the findings where an attribute with the specified key exists.

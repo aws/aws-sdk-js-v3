@@ -67,7 +67,6 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To copy a snapshot
  * ```javascript
  * // This example copies a snapshot with the snapshot ID of ``snap-066877671789bd71b`` from the ``us-west-2`` region to the ``us-east-1`` region and adds a short description to identify the snapshot.

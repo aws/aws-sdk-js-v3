@@ -51,7 +51,6 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
- *
  * @example To create a cluster
  * ```javascript
  * // Creates an empty cluster. Each cluster supports five nodes. You use the CreateJob action separately to create the jobs for each of these nodes. The cluster does not ship until these five node jobs have been created.

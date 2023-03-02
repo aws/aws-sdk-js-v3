@@ -50,7 +50,6 @@ export interface DescribeEnvironmentsCommandOutput extends EnvironmentDescriptio
  * @see {@link DescribeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To view information about an environment
  * ```javascript
  * // The following operation retrieves information about an environment named my-env:

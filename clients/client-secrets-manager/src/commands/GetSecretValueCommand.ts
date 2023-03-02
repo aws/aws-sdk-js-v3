@@ -66,7 +66,6 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  * @see {@link GetSecretValueCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
- *
  * @example To retrieve the encrypted secret value of a secret
  * ```javascript
  * // The following example shows how to retrieve a secret string value.

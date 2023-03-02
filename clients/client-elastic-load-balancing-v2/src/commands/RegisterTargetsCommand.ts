@@ -63,7 +63,6 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * @see {@link RegisterTargetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To register targets with a target group
  * ```javascript
  * // This example registers the specified instances with the specified target group.
@@ -81,7 +80,6 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * const command = new RegisterTargetsCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To register targets with a target group using port overrides
  * ```javascript

@@ -60,7 +60,6 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  * @see {@link ListSecretVersionIdsCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
- *
  * @example To list all of the secret versions associated with a secret
  * ```javascript
  * // The following example shows how to retrieve a list of all of the versions of a secret, including those without any staging labels.

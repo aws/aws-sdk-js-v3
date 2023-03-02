@@ -52,7 +52,6 @@ export interface ListClustersCommandOutput extends ListClustersResult, __Metadat
  * @see {@link ListClustersCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
- *
  * @example To get a list of clusters that you've created for AWS Snowball
  * ```javascript
  * // Returns an array of ClusterListEntry objects of the specified length. Each ClusterListEntry object contains a cluster's state, a cluster's ID, and other important status information.

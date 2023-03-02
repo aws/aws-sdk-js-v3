@@ -57,7 +57,6 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * @see {@link DeleteBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
- *
  * @example To delete a backup
  * ```javascript
  * // This operation deletes an Amazon FSx file system backup.

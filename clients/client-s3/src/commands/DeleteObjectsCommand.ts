@@ -102,7 +102,6 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  * @see {@link DeleteObjectsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To delete multiple objects from a versioned bucket
  * ```javascript
  * // The following example deletes objects from a bucket. The bucket is versioned, and the request does not specify the object version to delete. In this case, all versions remain in the bucket and S3 adds a delete marker.
@@ -139,7 +138,6 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  * }
  * *\/
  * ```
- *
  *
  * @example To delete multiple object versions from a versioned bucket
  * ```javascript

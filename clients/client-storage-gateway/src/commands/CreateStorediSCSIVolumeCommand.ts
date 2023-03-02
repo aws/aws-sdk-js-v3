@@ -61,7 +61,6 @@ export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIV
  * @see {@link CreateStorediSCSIVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To create a stored iSCSI volume
  * ```javascript
  * // Creates a stored volume on a specified stored gateway.

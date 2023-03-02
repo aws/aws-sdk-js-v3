@@ -46,7 +46,6 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  * @see {@link StopAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Stop assessment run
  * ```javascript
  * // Stops the assessment run that is specified by the ARN of the assessment run.

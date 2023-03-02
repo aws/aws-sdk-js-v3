@@ -83,7 +83,6 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * @see {@link CreateIPSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To create an IP set
  * ```javascript
  * // The following example creates an IP match set named MyIPSetFriendlyName.

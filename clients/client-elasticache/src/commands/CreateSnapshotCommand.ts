@@ -54,7 +54,6 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example CreateSnapshot - NonClustered Redis, no read-replicas
  * ```javascript
  * // Creates a snapshot of a non-clustered Redis cluster that has only one node.
@@ -97,7 +96,6 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * *\/
  * ```
  *
- *
  * @example CreateSnapshot - NonClustered Redis, 2 read-replicas
  * ```javascript
  * // Creates a snapshot of a non-clustered Redis cluster that has only three nodes, primary and two read-replicas. CacheClusterId must be a specific node in the cluster.
@@ -139,7 +137,6 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * }
  * *\/
  * ```
- *
  *
  * @example CreateSnapshot-clustered Redis
  * ```javascript

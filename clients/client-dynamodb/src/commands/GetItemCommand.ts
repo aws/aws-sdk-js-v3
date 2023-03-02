@@ -54,7 +54,6 @@ export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
  * @see {@link GetItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
- *
  * @example To read an item from a table
  * ```javascript
  * // This example retrieves an item from the Music table. The table has a partition key and a sort key (Artist and SongTitle), so you must specify both of these attributes.

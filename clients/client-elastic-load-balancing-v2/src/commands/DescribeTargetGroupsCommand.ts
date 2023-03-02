@@ -57,7 +57,6 @@ export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsO
  * @see {@link DescribeTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To describe a target group
  * ```javascript
  * // This example describes the specified target group.

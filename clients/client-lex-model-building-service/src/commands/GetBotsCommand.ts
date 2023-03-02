@@ -68,7 +68,6 @@ export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer 
  * @see {@link GetBotsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
- *
  * @example To get a list of bots
  * ```javascript
  * // This example shows how to get a list of all of the bots in your account.

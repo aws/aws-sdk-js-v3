@@ -45,7 +45,6 @@ export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link ModifyVpcAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To modify the enableDnsSupport attribute
  * ```javascript
  * // This example modifies the enableDnsSupport attribute. This attribute indicates whether DNS resolution is enabled for the VPC. If this attribute is true, the Amazon DNS server resolves DNS hostnames for instances in the VPC to their corresponding IP addresses; otherwise, it does not.
@@ -58,7 +57,6 @@ export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
  * const command = new ModifyVpcAttributeCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To modify the enableDnsHostnames attribute
  * ```javascript

@@ -78,7 +78,6 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  * @see {@link CreateListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To create an HTTP listener
  * ```javascript
  * // This example creates an HTTP listener for the specified load balancer that forwards requests to the specified target group.
@@ -114,7 +113,6 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  * }
  * *\/
  * ```
- *
  *
  * @example To create an HTTPS listener
  * ```javascript

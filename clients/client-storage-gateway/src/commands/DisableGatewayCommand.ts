@@ -58,7 +58,6 @@ export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __Met
  * @see {@link DisableGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To disable a gateway when it is no longer functioning
  * ```javascript
  * // Disables a gateway when the gateway is no longer functioning. Use this operation for a gateway-VTL that is not reachable or not functioning.

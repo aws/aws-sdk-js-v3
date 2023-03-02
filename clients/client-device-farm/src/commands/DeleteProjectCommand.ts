@@ -51,7 +51,6 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To delete a project
  * ```javascript
  * // The following example deletes a specific project.

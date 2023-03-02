@@ -55,7 +55,6 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  * @see {@link CreateJobQueueCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example To create a job queue with a single compute environment
  * ```javascript
  * // This example creates a job queue called LowPriority that uses the M4Spot compute environment.
@@ -79,7 +78,6 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  * }
  * *\/
  * ```
- *
  *
  * @example To create a job queue with multiple compute environments
  * ```javascript

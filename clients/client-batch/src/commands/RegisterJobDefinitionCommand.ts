@@ -50,7 +50,6 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  * @see {@link RegisterJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example To register a job definition
  * ```javascript
  * // This example registers a job definition for a simple container job.
@@ -85,7 +84,6 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  * }
  * *\/
  * ```
- *
  *
  * @example RegisterJobDefinition with tags
  * ```javascript

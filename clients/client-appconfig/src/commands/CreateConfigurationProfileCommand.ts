@@ -89,7 +89,6 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  * @see {@link CreateConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To create a configuration profile
  * ```javascript
  * // The following create-configuration-profile example creates a configuration profile using a configuration stored in Parameter Store, a capability of Systems Manager.

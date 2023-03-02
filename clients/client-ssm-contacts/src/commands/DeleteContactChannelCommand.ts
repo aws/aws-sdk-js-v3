@@ -53,7 +53,6 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  * @see {@link DeleteContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To delete a contact channel
  * ```javascript
  * // The following delete-contact-channel example deletes a contact channel. Deleting a contact channel ensures the contact channel will not be paged during an incident.

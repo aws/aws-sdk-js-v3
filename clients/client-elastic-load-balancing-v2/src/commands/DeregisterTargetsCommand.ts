@@ -55,7 +55,6 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * @see {@link DeregisterTargetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To deregister a target from a target group
  * ```javascript
  * // This example deregisters the specified instance from the specified target group.

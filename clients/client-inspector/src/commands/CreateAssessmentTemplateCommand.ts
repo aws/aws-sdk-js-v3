@@ -53,7 +53,6 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  * @see {@link CreateAssessmentTemplateCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Create assessment template
  * ```javascript
  * // Creates an assessment template for the assessment target that is specified by the ARN of the assessment target.

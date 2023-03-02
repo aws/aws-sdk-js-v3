@@ -56,7 +56,6 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * @see {@link ListTaskDefinitionFamiliesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To list your registered task definition families
  * ```javascript
  * // This example lists all of your registered task definition families.
@@ -74,7 +73,6 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * }
  * *\/
  * ```
- *
  *
  * @example To filter your registered task definition families
  * ```javascript

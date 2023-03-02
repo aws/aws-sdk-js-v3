@@ -50,7 +50,6 @@ export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
  * @see {@link StopRunCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To stop a test run
  * ```javascript
  * // The following example stops a specific test run.

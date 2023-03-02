@@ -55,7 +55,6 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * @see {@link PutLexiconCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
- *
  * @example To save a lexicon
  * ```javascript
  * // Stores a pronunciation lexicon in an AWS Region.

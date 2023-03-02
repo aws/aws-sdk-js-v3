@@ -51,7 +51,6 @@ export interface DescribeEngagementCommandOutput extends DescribeEngagementResul
  * @see {@link DescribeEngagementCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To describe the details of an engagement
  * ```javascript
  * // The following describe-engagement example lists the details of an engagement to a contact or escalation plan. The subject and content are sent to the contact channels.

@@ -65,7 +65,6 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  * @see {@link StartInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To start a stopped EC2 instance
  * ```javascript
  * // This example starts the specified EC2 instance.

@@ -64,7 +64,6 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  * @see {@link GetChangeTokenCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To get a change token
  * ```javascript
  * // The following example returns a change token to use for a create, update or delete operation.

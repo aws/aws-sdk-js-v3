@@ -51,7 +51,6 @@ export interface DeactivateContactChannelCommandOutput extends DeactivateContact
  * @see {@link DeactivateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To deactivate a contact channel
  * ```javascript
  * // The following ``deactivate-contact-channel`` example deactivates a contact channel. Deactivating a contact channel means the contact channel will no longer be paged during an incident. You can also reactivate a contact channel at any time using the activate-contact-channel operation.

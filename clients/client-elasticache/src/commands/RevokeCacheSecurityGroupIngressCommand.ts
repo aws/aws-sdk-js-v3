@@ -54,7 +54,6 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  * @see {@link RevokeCacheSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DescribeCacheSecurityGroups
  * ```javascript
  * // Returns a list of cache security group descriptions. If a cache security group name is specified, the list contains only the description of that group.

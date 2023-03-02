@@ -57,7 +57,6 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  * @see {@link SetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To associate a security group with a load balancer
  * ```javascript
  * // This example associates the specified security group with the specified load balancer.

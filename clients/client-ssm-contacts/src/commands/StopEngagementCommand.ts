@@ -51,7 +51,6 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  * @see {@link StopEngagementCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To stop an engagement
  * ```javascript
  * // The following stop-engagement example stops an engagement from paging further contacts and contact channels.

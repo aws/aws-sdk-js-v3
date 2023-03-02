@@ -54,7 +54,6 @@ export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBala
  * @see {@link DeleteLoadBalancerListenersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To delete a listener from your load balancer
  * ```javascript
  * // This example deletes the listener for the specified port from the specified load balancer.

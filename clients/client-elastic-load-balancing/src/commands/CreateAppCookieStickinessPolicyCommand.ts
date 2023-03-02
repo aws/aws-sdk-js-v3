@@ -64,7 +64,6 @@ export interface CreateAppCookieStickinessPolicyCommandOutput
  * @see {@link CreateAppCookieStickinessPolicyCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To generate a stickiness policy for your load balancer
  * ```javascript
  * // This example generates a stickiness policy that follows the sticky session lifetimes of the application-generated cookie.

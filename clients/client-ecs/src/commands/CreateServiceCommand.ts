@@ -126,7 +126,6 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To create a new service
  * ```javascript
  * // This example creates a service in your default region called ``ecs-simple-service``. The service uses the ``hello_world`` task definition and it maintains 10 copies of that task.
@@ -181,7 +180,6 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * }
  * *\/
  * ```
- *
  *
  * @example To create a new service behind a load balancer
  * ```javascript

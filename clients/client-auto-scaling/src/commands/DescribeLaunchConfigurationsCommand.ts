@@ -50,7 +50,6 @@ export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigu
  * @see {@link DescribeLaunchConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To describe Auto Scaling launch configurations
  * ```javascript
  * // This example describes the specified launch configuration.

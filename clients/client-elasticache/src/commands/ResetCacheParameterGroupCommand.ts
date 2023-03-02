@@ -53,7 +53,6 @@ export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGro
  * @see {@link ResetCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example ResetCacheParameterGroup
  * ```javascript
  * // Modifies the parameters of a cache parameter group to the engine or system default value.

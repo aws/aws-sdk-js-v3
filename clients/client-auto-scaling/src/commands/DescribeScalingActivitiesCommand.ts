@@ -58,7 +58,6 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
  * @see {@link DescribeScalingActivitiesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To describe the scaling activities for an Auto Scaling group
  * ```javascript
  * // This example describes the scaling activities for the specified Auto Scaling group.

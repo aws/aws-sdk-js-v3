@@ -54,7 +54,6 @@ export interface StopReplicationTaskCommandOutput extends StopReplicationTaskRes
  * @see {@link StopReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Stop replication task
  * ```javascript
  * // Stops the replication task.

@@ -59,7 +59,6 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  * @see {@link DeregisterInstancesFromLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To deregister instances from a load balancer
  * ```javascript
  * // This example deregisters the specified instance from the specified load balancer.

@@ -120,7 +120,6 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  * @see {@link GenerateDataKeyPairCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To generate an RSA key pair for encryption and decryption
  * ```javascript
  * // This example generates an RSA data key pair for encryption and decryption. The operation returns a plaintext public key and private key, and a copy of the private key that is encrypted under a symmetric encryption KMS key that you specify.

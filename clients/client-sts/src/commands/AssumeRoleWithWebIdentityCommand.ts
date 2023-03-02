@@ -182,7 +182,6 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  * @see {@link AssumeRoleWithWebIdentityCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
- *
  * @example To assume a role as an OpenID Connect-federated user
  * ```javascript
  * //

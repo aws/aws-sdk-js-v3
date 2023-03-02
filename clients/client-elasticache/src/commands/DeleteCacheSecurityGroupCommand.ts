@@ -48,7 +48,6 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
  * @see {@link DeleteCacheSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DeleteCacheSecurityGroup
  * ```javascript
  * // Deletes a cache security group.

@@ -81,7 +81,6 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  * @see {@link CreateSizeConstraintSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
- *
  * @example To create a size constraint
  * ```javascript
  * // The following example creates size constraint set named MySampleSizeConstraintSet.

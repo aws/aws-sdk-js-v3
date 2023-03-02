@@ -52,7 +52,6 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  * @see {@link DescribeDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe a DHCP options set
  * ```javascript
  * // This example describes the specified DHCP options set.

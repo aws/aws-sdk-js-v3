@@ -60,7 +60,6 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  * @see {@link CreateOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To create a new organization unit
  * ```javascript
  * // The following example shows how to create an OU that is named AccountingOU. The new OU is directly under the root.:

@@ -54,7 +54,6 @@ export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, 
  * @see {@link GetDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To retrieve details of a deployment strategy
  * ```javascript
  * // The following get-deployment-strategy example lists the details of the specified deployment strategy.

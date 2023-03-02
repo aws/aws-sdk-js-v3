@@ -102,7 +102,6 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  * @see {@link GetKeyRotationStatusCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To retrieve the rotation status for a KMS key
  * ```javascript
  * // The following example retrieves the status of automatic annual rotation of the key material for the specified KMS key.

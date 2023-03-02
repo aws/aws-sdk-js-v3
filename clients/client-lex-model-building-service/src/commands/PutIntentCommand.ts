@@ -111,7 +111,6 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  * @see {@link PutIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
- *
  * @example To create an intent
  * ```javascript
  * // This example shows how to create an intent for ordering pizzas.

@@ -73,7 +73,6 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To create an event notification subscription
  * ```javascript
  * // This example creates an event notification subscription.

@@ -90,7 +90,6 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  * @see {@link GetObjectAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To retrieve object ACL
  * ```javascript
  * // The following example retrieves access control list (ACL) of an object.

@@ -85,7 +85,6 @@ export interface ListJobsCommandOutput extends ListJobsOutput, __MetadataBearer 
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To list jobs for a vault
  * ```javascript
  * // The example lists jobs for the vault named my-vault.

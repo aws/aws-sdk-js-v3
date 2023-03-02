@@ -49,7 +49,6 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  * @see {@link CreateOrUpdateTagsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To create or update tags for an Auto Scaling group
  * ```javascript
  * // This example adds two tags to the specified Auto Scaling group.

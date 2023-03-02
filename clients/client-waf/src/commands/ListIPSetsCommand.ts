@@ -58,7 +58,6 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * @see {@link ListIPSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To list IP sets
  * ```javascript
  * // The following example returns an array of up to 100 IP match sets.

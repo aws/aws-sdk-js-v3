@@ -56,7 +56,6 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  * @see {@link ListVolumeRecoveryPointsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To list recovery points for a gateway
  * ```javascript
  * // Lists the recovery points for a specified gateway in which all data of the volume is consistent and can be used to create a snapshot.

@@ -51,7 +51,6 @@ export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataB
  * @see {@link CreateRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To create an IAM role
  * ```javascript
  * // The following command creates a role named Test-Role and attaches a trust policy that you must convert from JSON to a string. Upon success, the response includes the same policy as a URL-encoded JSON string.

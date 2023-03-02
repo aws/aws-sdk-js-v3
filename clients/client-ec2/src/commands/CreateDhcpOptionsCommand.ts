@@ -101,7 +101,6 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  * @see {@link CreateDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To create a DHCP options set
  * ```javascript
  * // This example creates a DHCP options set.

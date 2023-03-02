@@ -50,7 +50,6 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  * @see {@link AcceptPageCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To accept a page during and engagement
  * ```javascript
  * // The following accept-page operation uses an accept code sent to the contact channel to accept a page.

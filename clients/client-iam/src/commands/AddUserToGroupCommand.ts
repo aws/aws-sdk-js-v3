@@ -45,7 +45,6 @@ export interface AddUserToGroupCommandOutput extends __MetadataBearer {}
  * @see {@link AddUserToGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To add a user to an IAM group
  * ```javascript
  * // The following command adds an IAM user named Bob to the IAM group named Admins:

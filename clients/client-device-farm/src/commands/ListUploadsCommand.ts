@@ -50,7 +50,6 @@ export interface ListUploadsCommandOutput extends ListUploadsResult, __MetadataB
  * @see {@link ListUploadsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about uploads
  * ```javascript
  * // The following example returns information about uploads, given a specific Device Farm project.

@@ -54,7 +54,6 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  * @see {@link GetOperationCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example Example: Get operation result
  * ```javascript
  * // Example: Get operation result

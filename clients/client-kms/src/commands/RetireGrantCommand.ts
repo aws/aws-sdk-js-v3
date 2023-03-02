@@ -90,7 +90,6 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  * @see {@link RetireGrantCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To retire a grant
  * ```javascript
  * // The following example retires a grant.

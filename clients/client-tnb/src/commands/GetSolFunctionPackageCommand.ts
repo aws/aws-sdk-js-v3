@@ -51,6 +51,8 @@ export interface GetSolFunctionPackageCommandOutput extends GetSolFunctionPackag
  * @see {@link GetSolFunctionPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
+ * @example Describe a function package with correct vnfPkgId```javascript/* Optional.empty *\/some code here```
+ *
  */
 export class GetSolFunctionPackageCommand extends $Command<
   GetSolFunctionPackageCommandInput,

@@ -50,7 +50,6 @@ export interface ListContactsCommandOutput extends ListContactsResult, __Metadat
  * @see {@link ListContactsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To list all escalation plans and contacts
  * ```javascript
  * // The following list-contacts example lists the contacts and escalation plans in your account.

@@ -50,7 +50,6 @@ export interface UpdateEnvironmentCommandOutput extends Environment, __MetadataB
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To update an environment
  * ```javascript
  * // The following update-environment example updates an environment's description.

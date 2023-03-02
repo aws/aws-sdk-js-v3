@@ -55,7 +55,6 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  * @see {@link BatchDeleteImageCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
- *
  * @example To delete multiple images
  * ```javascript
  * // This example deletes images with the tags precise and trusty in a repository called ubuntu in the default registry for an account.

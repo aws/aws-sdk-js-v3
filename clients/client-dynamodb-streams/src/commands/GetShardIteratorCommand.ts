@@ -57,7 +57,6 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * @see {@link GetShardIteratorCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
  *
- *
  * @example To obtain a shard iterator for the provided stream ARN and shard ID
  * ```javascript
  * // The following example returns a shard iterator for the provided stream ARN and shard ID.

@@ -58,7 +58,6 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
  * @see {@link DescribeSpotFleetRequestHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe Spot fleet history
  * ```javascript
  * // This example returns the history for the specified Spot fleet starting at the specified time.

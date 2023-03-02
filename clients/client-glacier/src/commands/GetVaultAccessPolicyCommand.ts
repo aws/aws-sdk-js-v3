@@ -55,7 +55,6 @@ export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyO
  * @see {@link GetVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To  get the access-policy set on the vault
  * ```javascript
  * // The example retrieves the access-policy set on the vault named example-vault.

@@ -67,7 +67,6 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
  * @see {@link SetLoadBalancerPoliciesForBackendServerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To replace the policies associated with a port for a backend instance
  * ```javascript
  * // This example replaces the policies that are currently associated with the specified port.

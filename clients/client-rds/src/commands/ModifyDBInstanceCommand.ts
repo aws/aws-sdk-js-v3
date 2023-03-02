@@ -54,7 +54,6 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * @see {@link ModifyDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To change DB instance settings
  * ```javascript
  * // This example immediately changes the specified settings for the specified DB instance.

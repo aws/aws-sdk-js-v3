@@ -51,7 +51,6 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  * @see {@link DescribeReservedCacheNodesCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DescribeReservedCacheNodes
  * ```javascript
  * // Returns information about reserved cache nodes for this account, or about a specified reserved cache node. If the account has no reserved cache nodes, the operation returns an empty list, as shown here.

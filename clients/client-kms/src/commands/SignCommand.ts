@@ -98,7 +98,6 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  * @see {@link SignCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To digitally sign a message with an asymmetric KMS key.
  * ```javascript
  * // This operation uses the private key in an asymmetric elliptic curve (ECC) KMS key to generate a digital signature for a given message.
@@ -118,7 +117,6 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  * }
  * *\/
  * ```
- *
  *
  * @example To digitally sign a message digest with an asymmetric KMS key.
  * ```javascript

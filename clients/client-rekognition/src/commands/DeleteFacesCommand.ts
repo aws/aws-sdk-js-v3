@@ -53,7 +53,6 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  * @see {@link DeleteFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
- *
  * @example To delete a face
  * ```javascript
  * // This operation deletes one or more faces from a Rekognition collection.

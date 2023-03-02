@@ -55,7 +55,6 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To delete an empty cluster
  * ```javascript
  * // This example deletes an empty cluster in your default region.

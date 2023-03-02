@@ -58,7 +58,6 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  * @see {@link DescribeSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
- *
  * @example To retrieve the details of a secret
  * ```javascript
  * // The following example shows how to get the details about a secret.

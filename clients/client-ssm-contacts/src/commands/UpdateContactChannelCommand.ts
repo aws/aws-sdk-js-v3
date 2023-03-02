@@ -50,7 +50,6 @@ export interface UpdateContactChannelCommandOutput extends UpdateContactChannelR
  * @see {@link UpdateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To update a contact channel
  * ```javascript
  * // The following update-contact-channel example updates the name and delivery address of a contact channel.

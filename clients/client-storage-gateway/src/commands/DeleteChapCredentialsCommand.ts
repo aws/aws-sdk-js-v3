@@ -52,7 +52,6 @@ export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredential
  * @see {@link DeleteChapCredentialsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To delete CHAP credentials
  * ```javascript
  * // Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target and initiator pair.

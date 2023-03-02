@@ -84,7 +84,6 @@ export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWit
  * @see {@link AssociateVPCWithHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
- *
  * @example To associate a VPC with a hosted zone
  * ```javascript
  * // The following example associates the VPC with ID vpc-1a2b3c4d with the hosted zone with ID Z3M3LMPEXAMPLE.

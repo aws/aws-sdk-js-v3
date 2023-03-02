@@ -52,7 +52,6 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  * @see {@link EnableKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To enable a KMS key
  * ```javascript
  * // The following example enables the specified KMS key.

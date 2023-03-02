@@ -53,7 +53,6 @@ export interface DeleteContactCommandOutput extends DeleteContactResult, __Metad
  * @see {@link DeleteContactCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To delete a contact
  * ```javascript
  * // The following delete-contact example deletes a contact. The contact will no longer be reachable from any escalation plan that refers to them.

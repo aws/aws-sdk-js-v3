@@ -55,7 +55,6 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
  * @see {@link CreateSpotDatafeedSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To create a Spot Instance datafeed
  * ```javascript
  * // This example creates a Spot Instance data feed for your AWS account.

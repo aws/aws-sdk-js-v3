@@ -72,7 +72,6 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link ModifySubnetAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To change a subnet's public IP addressing behavior
  * ```javascript
  * // This example modifies the specified subnet so that all instances launched into this subnet are assigned a public IP address.

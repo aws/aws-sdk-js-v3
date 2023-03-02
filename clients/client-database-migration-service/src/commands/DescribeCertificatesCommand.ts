@@ -54,7 +54,6 @@ export interface DescribeCertificatesCommandOutput extends DescribeCertificatesR
  * @see {@link DescribeCertificatesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Describe certificates
  * ```javascript
  * // Provides a description of the certificate.

@@ -53,7 +53,6 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  * @see {@link DeleteLifecycleHookCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To delete a lifecycle hook
  * ```javascript
  * // This example deletes the specified lifecycle hook.

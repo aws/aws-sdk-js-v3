@@ -56,7 +56,6 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  * @see {@link PutNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To add an Auto Scaling notification
  * ```javascript
  * // This example adds the specified notification to the specified Auto Scaling group.

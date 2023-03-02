@@ -94,7 +94,6 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  * @see {@link ListGrantsCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To list grants for a KMS key
  * ```javascript
  * // The following example lists grants for the specified KMS key.

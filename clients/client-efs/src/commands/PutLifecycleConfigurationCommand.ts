@@ -96,7 +96,6 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  * @see {@link PutLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
- *
  * @example Creates a new lifecycleconfiguration object for a file system
  * ```javascript
  * // This operation enables lifecycle management on a file system by creating a new LifecycleConfiguration object. A LifecycleConfiguration object defines when files in an Amazon EFS file system are automatically transitioned to the lower-cost EFS Infrequent Access (IA) storage class. A LifecycleConfiguration applies to all files in a file system.

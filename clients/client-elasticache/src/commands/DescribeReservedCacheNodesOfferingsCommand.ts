@@ -53,7 +53,6 @@ export interface DescribeReservedCacheNodesOfferingsCommandOutput
  * @see {@link DescribeReservedCacheNodesOfferingsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DescribeReseredCacheNodeOfferings
  * ```javascript
  * // Lists available reserved cache node offerings.
@@ -326,7 +325,6 @@ export interface DescribeReservedCacheNodesOfferingsCommandOutput
  * *\/
  * ```
  *
- *
  * @example DescribeReseredCacheNodeOfferings
  * ```javascript
  * // Lists available reserved cache node offerings for cache.r3.large nodes with a 3 year commitment.
@@ -346,7 +344,6 @@ export interface DescribeReservedCacheNodesOfferingsCommandOutput
  * }
  * *\/
  * ```
- *
  *
  * @example DescribeReseredCacheNodeOfferings
  * ```javascript

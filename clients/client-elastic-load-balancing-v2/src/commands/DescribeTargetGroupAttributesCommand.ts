@@ -77,7 +77,6 @@ export interface DescribeTargetGroupAttributesCommandOutput
  * @see {@link DescribeTargetGroupAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To describe target group attributes
  * ```javascript
  * // This example describes the attributes of the specified target group.

@@ -46,7 +46,6 @@ export interface DeleteInternetGatewayCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To delete an Internet gateway
  * ```javascript
  * // This example deletes the specified Internet gateway.

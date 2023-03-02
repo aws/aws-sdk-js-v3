@@ -50,7 +50,6 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  * @see {@link DescribeAutoScalingInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To describe one or more Auto Scaling instances
  * ```javascript
  * // This example describes the specified Auto Scaling instance.

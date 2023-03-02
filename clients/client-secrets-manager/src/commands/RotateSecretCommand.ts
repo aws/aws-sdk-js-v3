@@ -65,7 +65,6 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  * @see {@link RotateSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
- *
  * @example To configure rotation for a secret
  * ```javascript
  * // The following example configures rotation for a secret using a cron expression. The first rotation happens immediately after the changes are stored in the secret. The rotation schedule is the first and 15th day of every month. The rotation window begins at 4:00 PM UTC and ends at 6:00 PM.
@@ -87,7 +86,6 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  * }
  * *\/
  * ```
- *
  *
  * @example To request an immediate rotation for a secret
  * ```javascript

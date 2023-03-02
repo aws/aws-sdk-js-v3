@@ -51,7 +51,6 @@ export interface ListAssessmentRunAgentsCommandOutput extends ListAssessmentRunA
  * @see {@link ListAssessmentRunAgentsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example List assessment run agents
  * ```javascript
  * // Lists the agents of the assessment runs that are specified by the ARNs of the assessment runs.

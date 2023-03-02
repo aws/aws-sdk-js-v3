@@ -51,7 +51,6 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
  * @see {@link DescribeAddressCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
- *
  * @example To describe an address for a job
  * ```javascript
  * // This operation describes an address for a job.

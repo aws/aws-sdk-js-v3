@@ -50,7 +50,6 @@ export interface GetContactChannelCommandOutput extends GetContactChannelResult,
  * @see {@link GetContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To list the details of a contact channel
  * ```javascript
  * // The following get-contact-channel example lists the details of a contact channel.

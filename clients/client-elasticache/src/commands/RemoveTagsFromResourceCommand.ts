@@ -53,7 +53,6 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example RemoveTagsFromResource
  * ```javascript
  * // Removes tags identified by a list of tag keys from the list of tags on the specified resource.

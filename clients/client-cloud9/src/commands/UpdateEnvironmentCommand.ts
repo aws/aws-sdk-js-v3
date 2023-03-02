@@ -50,7 +50,6 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResult,
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
- *
  * @example UpdateEnvironment
  * ```javascript
  * //

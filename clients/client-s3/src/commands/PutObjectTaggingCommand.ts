@@ -142,7 +142,6 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  * @see {@link PutObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To add tags to an existing object
  * ```javascript
  * // The following example adds tags to an existing object.

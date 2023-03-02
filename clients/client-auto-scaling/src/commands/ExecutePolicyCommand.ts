@@ -46,7 +46,6 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link ExecutePolicyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To execute a scaling policy
  * ```javascript
  * // This example executes the specified policy.

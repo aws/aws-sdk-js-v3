@@ -68,7 +68,6 @@ export interface GetSlotTypesCommandOutput extends GetSlotTypesResponse, __Metad
  * @see {@link GetSlotTypesCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
- *
  * @example To get a list of slot types
  * ```javascript
  * // This example shows how to get a list of all of the slot types in your account.

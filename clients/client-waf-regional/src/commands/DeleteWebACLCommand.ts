@@ -71,7 +71,6 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  * @see {@link DeleteWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
- *
  * @example To delete a web ACL
  * ```javascript
  * // The following example deletes a web ACL with the ID example-46da-4444-5555-example.

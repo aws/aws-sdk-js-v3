@@ -92,7 +92,6 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe a snapshot
  * ```javascript
  * // This example describes a snapshot with the snapshot ID of ``snap-1234567890abcdef0``.
@@ -121,7 +120,6 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * }
  * *\/
  * ```
- *
  *
  * @example To describe snapshots using filters
  * ```javascript

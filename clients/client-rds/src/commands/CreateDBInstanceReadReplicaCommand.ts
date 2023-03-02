@@ -62,7 +62,6 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * @see {@link CreateDBInstanceReadReplicaCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To create a DB instance read replica.
  * ```javascript
  * // This example creates a DB instance read replica.

@@ -56,7 +56,6 @@ export interface DescribeHandshakeCommandOutput extends DescribeHandshakeRespons
  * @see {@link DescribeHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To get information about a handshake
  * ```javascript
  * // The following example shows you how to request details about a handshake. The handshake ID comes either from the original call to "InviteAccountToOrganization", or from a call to "ListHandshakesForAccount" or "ListHandshakesForOrganization":

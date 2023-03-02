@@ -59,7 +59,6 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To add a scaling policy to an Auto Scaling group
  * ```javascript
  * // This example adds the specified policy to the specified Auto Scaling group.

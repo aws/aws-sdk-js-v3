@@ -140,7 +140,6 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  * @see {@link IndexFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
- *
  * @example To add a face to a collection
  * ```javascript
  * // This operation detects faces in an image and adds them to the specified Rekognition collection.

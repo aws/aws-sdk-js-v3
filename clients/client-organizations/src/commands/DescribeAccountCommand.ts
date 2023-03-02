@@ -52,7 +52,6 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  * @see {@link DescribeAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To get the details about an account
  * ```javascript
  * // The following example shows a user in the master account (111111111111) asking for details about account 555555555555:

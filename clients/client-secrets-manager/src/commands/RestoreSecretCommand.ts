@@ -58,7 +58,6 @@ export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __Met
  * @see {@link RestoreSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
- *
  * @example To restore a previously deleted secret
  * ```javascript
  * // The following example shows how to restore a secret that you previously scheduled for deletion.

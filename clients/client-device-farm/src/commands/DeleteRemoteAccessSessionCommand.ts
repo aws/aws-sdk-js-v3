@@ -50,7 +50,6 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
  * @see {@link DeleteRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To delete a specific remote access session
  * ```javascript
  * // The following example deletes a specific remote access session.

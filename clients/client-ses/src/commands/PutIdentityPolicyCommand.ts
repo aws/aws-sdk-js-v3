@@ -60,7 +60,6 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  * @see {@link PutIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example PutIdentityPolicy
  * ```javascript
  * // The following example adds a sending authorization policy to an identity:

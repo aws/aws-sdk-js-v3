@@ -51,7 +51,6 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  * @see {@link CreateDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To create a DB snapshot.
  * ```javascript
  * // This example creates a DB snapshot.

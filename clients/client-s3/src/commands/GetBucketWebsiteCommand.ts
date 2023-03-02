@@ -70,7 +70,6 @@ export interface GetBucketWebsiteCommandOutput extends GetBucketWebsiteOutput, _
  * @see {@link GetBucketWebsiteCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To get bucket website configuration
  * ```javascript
  * // The following example retrieves website configuration of a bucket.

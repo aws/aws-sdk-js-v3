@@ -65,7 +65,6 @@ export interface DeleteBucketCorsCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteBucketCorsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To delete cors configuration on a bucket.
  * ```javascript
  * // The following example deletes CORS configuration on a bucket.

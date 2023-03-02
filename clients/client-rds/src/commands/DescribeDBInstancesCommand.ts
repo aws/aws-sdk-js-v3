@@ -53,7 +53,6 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * @see {@link DescribeDBInstancesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To list DB instance settings
  * ```javascript
  * // This example lists settings for the specified DB instance.

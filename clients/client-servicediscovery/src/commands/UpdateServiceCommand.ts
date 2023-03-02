@@ -76,7 +76,6 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example UpdateService Example
  * ```javascript
  * // This example submits a request to replace the DnsConfig and HealthCheckConfig settings of a specified service.

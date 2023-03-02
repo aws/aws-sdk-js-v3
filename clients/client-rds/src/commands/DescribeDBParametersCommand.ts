@@ -46,7 +46,6 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  * @see {@link DescribeDBParametersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To list information about DB parameters
  * ```javascript
  * // This example lists information for up to the first 20 system parameters for the specified DB parameter group.

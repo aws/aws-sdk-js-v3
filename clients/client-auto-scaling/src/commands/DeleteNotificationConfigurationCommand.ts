@@ -48,7 +48,6 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
  * @see {@link DeleteNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To delete an Auto Scaling notification
  * ```javascript
  * // This example deletes the specified notification from the specified Auto Scaling group.

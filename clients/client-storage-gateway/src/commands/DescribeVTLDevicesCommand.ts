@@ -53,7 +53,6 @@ export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutpu
  * @see {@link DescribeVTLDevicesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To describe virtual tape library (VTL) devices of a single gateway
  * ```javascript
  * // Returns a description of virtual tape library (VTL) devices for the specified gateway.

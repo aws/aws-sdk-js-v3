@@ -52,7 +52,6 @@ export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataB
  * @see {@link ExitStandbyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To move instances out of standby mode
  * ```javascript
  * // This example moves the specified instance out of standby mode.

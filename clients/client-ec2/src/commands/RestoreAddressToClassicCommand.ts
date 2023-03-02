@@ -53,7 +53,6 @@ export interface RestoreAddressToClassicCommandOutput extends RestoreAddressToCl
  * @see {@link RestoreAddressToClassicCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To restore an address to EC2-Classic
  * ```javascript
  * // This example restores the specified Elastic IP address to the EC2-Classic platform.

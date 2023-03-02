@@ -54,7 +54,6 @@ export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferO
  * @see {@link DescribeUploadBufferCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To describe upload buffer of gateway
  * ```javascript
  * // Returns information about the upload buffer of a gateway including disk IDs and the amount of upload buffer space allocated/used.
@@ -75,7 +74,6 @@ export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferO
  * }
  * *\/
  * ```
- *
  *
  * @example To describe upload buffer of a gateway
  * ```javascript

@@ -54,7 +54,6 @@ export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBe
  * @see {@link PutScheduledUpdateGroupActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To add a scheduled action to an Auto Scaling group
  * ```javascript
  * // This example adds the specified scheduled action to the specified Auto Scaling group.

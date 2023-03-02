@@ -83,7 +83,6 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  * @see {@link InitiateMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To initiate a multipart upload
  * ```javascript
  * // The example initiates a multipart upload to a vault named my-vault with a part size of 1 MiB (1024 x 1024 bytes) per file.

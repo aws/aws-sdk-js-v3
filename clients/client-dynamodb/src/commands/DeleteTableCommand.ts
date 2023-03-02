@@ -72,7 +72,6 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * @see {@link DeleteTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
- *
  * @example To delete a table
  * ```javascript
  * // This example deletes the Music table.

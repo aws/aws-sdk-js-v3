@@ -64,7 +64,6 @@ export interface PutRolePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link PutRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To attach a permissions policy to an IAM role
  * ```javascript
  * // The following command adds a permissions policy to the role named Test-Role.

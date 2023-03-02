@@ -46,7 +46,6 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
  * @see {@link SetTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Set tags for resource
  * ```javascript
  * // Sets tags (key and value pairs) to the assessment template that is specified by the ARN of the assessment template.

@@ -51,7 +51,6 @@ export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, _
  * @see {@link DeleteDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To delete a device pool
  * ```javascript
  * // The following example deletes a specific device pool.

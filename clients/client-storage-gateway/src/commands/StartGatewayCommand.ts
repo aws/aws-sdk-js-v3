@@ -62,7 +62,6 @@ export interface StartGatewayCommandOutput extends StartGatewayOutput, __Metadat
  * @see {@link StartGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To start a gateway service
  * ```javascript
  * // Starts a gateway service that was previously shut down.

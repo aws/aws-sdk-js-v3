@@ -105,7 +105,6 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  * @see {@link TerminateInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To terminate an EC2 instance
  * ```javascript
  * // This example terminates the specified EC2 instance.

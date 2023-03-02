@@ -74,7 +74,6 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * @see {@link CreateReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example CreateCacheReplicationGroup
  * ```javascript
  * // Creates a Redis replication group with 3 nodes.
@@ -108,7 +107,6 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * }
  * *\/
  * ```
- *
  *
  * @example CreateReplicationGroup
  * ```javascript

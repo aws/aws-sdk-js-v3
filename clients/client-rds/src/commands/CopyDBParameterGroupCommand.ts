@@ -50,7 +50,6 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * @see {@link CopyDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To copy a DB parameter group
  * ```javascript
  * // This example copies a DB parameter group.

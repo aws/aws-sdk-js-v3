@@ -55,7 +55,6 @@ export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetRes
  * @see {@link CloneReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example CloneReceiptRuleSet
  * ```javascript
  * // The following example creates a receipt rule set by cloning an existing one:

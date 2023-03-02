@@ -58,7 +58,6 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * @see {@link ModifyDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To change DB cluster settings
  * ```javascript
  * // This example changes the specified settings for the specified DB cluster.

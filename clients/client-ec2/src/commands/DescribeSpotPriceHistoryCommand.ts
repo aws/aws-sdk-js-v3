@@ -54,7 +54,6 @@ export interface DescribeSpotPriceHistoryCommandOutput extends DescribeSpotPrice
  * @see {@link DescribeSpotPriceHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe Spot price history for Linux/UNIX (Amazon VPC)
  * ```javascript
  * // This example returns the Spot Price history for m1.xlarge, Linux/UNIX (Amazon VPC) instances for a particular day in January.

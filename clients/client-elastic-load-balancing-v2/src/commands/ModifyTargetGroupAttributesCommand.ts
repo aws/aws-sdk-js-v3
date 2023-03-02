@@ -54,7 +54,6 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
  * @see {@link ModifyTargetGroupAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To modify the deregistration delay timeout
  * ```javascript
  * // This example sets the deregistration delay timeout to the specified value for the specified target group.

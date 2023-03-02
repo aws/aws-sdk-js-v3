@@ -65,7 +65,6 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  * @see {@link ModifyReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example ModifyReplicationGroup
  * ```javascript
  * //

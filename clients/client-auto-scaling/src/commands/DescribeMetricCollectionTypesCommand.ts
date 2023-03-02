@@ -50,7 +50,6 @@ export interface DescribeMetricCollectionTypesCommandOutput
  * @see {@link DescribeMetricCollectionTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To describe the Auto Scaling metric collection types
  * ```javascript
  * // This example describes the available metric collection types.

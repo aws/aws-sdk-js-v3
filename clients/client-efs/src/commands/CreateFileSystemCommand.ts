@@ -98,7 +98,6 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  * @see {@link CreateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
- *
  * @example To create a new file system
  * ```javascript
  * // This operation creates a new, encrypted file system with automatic backups enabled, and the default generalpurpose performance mode.

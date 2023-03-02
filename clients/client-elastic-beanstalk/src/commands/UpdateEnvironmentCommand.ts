@@ -58,7 +58,6 @@ export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, 
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To update an environment to a new version
  * ```javascript
  * // The following operation updates an environment named "my-env" to version "v2" of the application to which it belongs:
@@ -89,7 +88,6 @@ export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, 
  * }
  * *\/
  * ```
- *
  *
  * @example To configure option settings
  * ```javascript

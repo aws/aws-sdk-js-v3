@@ -50,7 +50,6 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  * @see {@link DeleteRepositoryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
- *
  * @example To delete the policy associated with a repository
  * ```javascript
  * // This example deletes the policy associated with the repository named ubuntu in the current account.

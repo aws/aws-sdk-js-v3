@@ -48,7 +48,6 @@ export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBeare
  * @see {@link DeleteRunCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To delete a run
  * ```javascript
  * // The following example deletes a specific test run.

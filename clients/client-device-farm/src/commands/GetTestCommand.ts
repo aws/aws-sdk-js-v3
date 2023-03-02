@@ -47,7 +47,6 @@ export interface GetTestCommandOutput extends GetTestResult, __MetadataBearer {}
  * @see {@link GetTestCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about a specific test
  * ```javascript
  * // The following example gets information about a specific test.

@@ -62,7 +62,6 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  * @see {@link AllocateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To allocate an Elastic IP address for EC2-VPC
  * ```javascript
  * // This example allocates an Elastic IP address to use with an instance in a VPC.
@@ -79,7 +78,6 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  * }
  * *\/
  * ```
- *
  *
  * @example To allocate an Elastic IP address for EC2-Classic
  * ```javascript

@@ -57,7 +57,6 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To create an environment
  * ```javascript
  * // The following create-environment example creates an AWS AppConfig environment named Example-Environment using the application you created using create-application

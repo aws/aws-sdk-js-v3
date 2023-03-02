@@ -50,7 +50,6 @@ export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsR
  * @see {@link DescribeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
- *
  * @example DescribeEnvironments
  * ```javascript
  * //

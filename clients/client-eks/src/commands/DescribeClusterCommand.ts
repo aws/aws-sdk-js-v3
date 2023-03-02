@@ -58,7 +58,6 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
- *
  * @example To describe a cluster
  * ```javascript
  * // This example command provides a description of the specified cluster in your default region.

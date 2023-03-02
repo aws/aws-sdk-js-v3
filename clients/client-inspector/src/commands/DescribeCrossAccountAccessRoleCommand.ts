@@ -51,7 +51,6 @@ export interface DescribeCrossAccountAccessRoleCommandOutput
  * @see {@link DescribeCrossAccountAccessRoleCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
- *
  * @example Describte cross account access role
  * ```javascript
  * // Describes the IAM role that enables Amazon Inspector to access your AWS account.

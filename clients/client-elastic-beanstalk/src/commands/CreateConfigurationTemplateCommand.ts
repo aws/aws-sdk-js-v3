@@ -73,7 +73,6 @@ export interface CreateConfigurationTemplateCommandOutput extends ConfigurationS
  * @see {@link CreateConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To create a configuration template
  * ```javascript
  * // The following operation creates a configuration template named my-app-v1 from the settings applied to an environment with the id e-rpqsewtp2j:

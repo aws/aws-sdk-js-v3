@@ -50,7 +50,6 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @see {@link DescribeServicesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To describe a service
  * ```javascript
  * // This example provides descriptive information about the service named ``ecs-simple-service``.

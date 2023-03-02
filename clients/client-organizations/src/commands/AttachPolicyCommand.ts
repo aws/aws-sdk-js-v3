@@ -70,7 +70,6 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link AttachPolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To attach a policy to an OU
  * ```javascript
  * // The following example shows how to attach a service control policy (SCP) to an OU:
@@ -82,7 +81,6 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * const command = new AttachPolicyCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To attach a policy to an account
  * ```javascript

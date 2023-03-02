@@ -53,7 +53,6 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To describe the tags assigned to a load balancer
  * ```javascript
  * // This example describes the tags assigned to the specified load balancer.

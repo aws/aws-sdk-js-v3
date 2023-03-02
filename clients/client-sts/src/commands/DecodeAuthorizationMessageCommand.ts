@@ -86,7 +86,6 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  * @see {@link DecodeAuthorizationMessageCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
- *
  * @example To decode information about an authorization status of a request
  * ```javascript
  * //

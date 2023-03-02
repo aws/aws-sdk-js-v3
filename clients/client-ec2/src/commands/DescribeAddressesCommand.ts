@@ -55,7 +55,6 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * @see {@link DescribeAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe your Elastic IP addresses
  * ```javascript
  * // This example describes your Elastic IP addresses.
@@ -84,7 +83,6 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * }
  * *\/
  * ```
- *
  *
  * @example To describe your Elastic IP addresses for EC2-VPC
  * ```javascript
@@ -118,7 +116,6 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * }
  * *\/
  * ```
- *
  *
  * @example To describe your Elastic IP addresses for EC2-Classic
  * ```javascript

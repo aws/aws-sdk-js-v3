@@ -50,7 +50,6 @@ export interface DeleteUploadCommandOutput extends DeleteUploadResult, __Metadat
  * @see {@link DeleteUploadCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To delete a specific upload
  * ```javascript
  * // The following example deletes a specific upload.

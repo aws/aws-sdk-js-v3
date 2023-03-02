@@ -56,7 +56,6 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @see {@link ListImagesCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
- *
  * @example To list all images in a repository
  * ```javascript
  * // This example lists all of the images in the repository named ubuntu in the default registry in the current account.

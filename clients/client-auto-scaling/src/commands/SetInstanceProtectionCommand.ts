@@ -57,7 +57,6 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
  * @see {@link SetInstanceProtectionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To enable instance protection for an instance
  * ```javascript
  * // This example enables instance protection for the specified instance.
@@ -71,7 +70,6 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
  * const command = new SetInstanceProtectionCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To disable instance protection for an instance
  * ```javascript

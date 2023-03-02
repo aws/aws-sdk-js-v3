@@ -58,7 +58,6 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * @see {@link DescribeStreamCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
  *
- *
  * @example To describe a stream with a given stream ARN
  * ```javascript
  * // The following example describes a stream with a given stream ARN.

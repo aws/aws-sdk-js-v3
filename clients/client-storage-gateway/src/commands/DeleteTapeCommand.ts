@@ -51,7 +51,6 @@ export interface DeleteTapeCommandOutput extends DeleteTapeOutput, __MetadataBea
  * @see {@link DeleteTapeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To delete a virtual tape
  * ```javascript
  * // This example deletes the specified virtual tape.

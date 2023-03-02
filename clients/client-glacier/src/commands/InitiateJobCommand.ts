@@ -54,7 +54,6 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * @see {@link InitiateJobCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To initiate an inventory-retrieval job
  * ```javascript
  * // The example initiates an inventory-retrieval job for the vault named examplevault.

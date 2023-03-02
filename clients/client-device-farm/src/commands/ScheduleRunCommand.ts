@@ -50,7 +50,6 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  * @see {@link ScheduleRunCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To schedule a test run
  * ```javascript
  * // The following example schedules a test run named MyRun.

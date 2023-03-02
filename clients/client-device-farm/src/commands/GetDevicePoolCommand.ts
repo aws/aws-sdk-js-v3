@@ -50,7 +50,6 @@ export interface GetDevicePoolCommandOutput extends GetDevicePoolResult, __Metad
  * @see {@link GetDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about a device pool
  * ```javascript
  * // The following example returns information about a specific device pool, given a project ARN.

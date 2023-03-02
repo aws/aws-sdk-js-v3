@@ -67,7 +67,6 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
  * @see {@link AuthorizeDBSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To authorize DB security group integress
  * ```javascript
  * // This example authorizes access to the specified security group by the specified CIDR block.

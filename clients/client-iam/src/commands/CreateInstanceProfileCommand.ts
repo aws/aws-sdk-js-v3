@@ -54,7 +54,6 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * @see {@link CreateInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To create an instance profile
  * ```javascript
  * // The following command creates an instance profile named Webserver that is ready to have a role attached and then be associated with an EC2 instance.

@@ -50,7 +50,6 @@ export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
  * @see {@link AddTagsToVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To add tags to a vault
  * ```javascript
  * // The example adds two tags to a my-vault.

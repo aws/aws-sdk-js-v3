@@ -105,7 +105,6 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  * @see {@link GenerateServiceLastAccessedDetailsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To generate a service last accessed data report for a policy
  * ```javascript
  * // The following operation generates a report for the policy: ExamplePolicy1

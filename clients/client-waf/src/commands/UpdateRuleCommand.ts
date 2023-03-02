@@ -99,7 +99,6 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * @see {@link UpdateRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To update a rule
  * ```javascript
  * // The following example deletes a Predicate object in a rule with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.

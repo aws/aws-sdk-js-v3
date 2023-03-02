@@ -57,7 +57,6 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @see {@link GetAuthorizationTokenCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
- *
  * @example To obtain an authorization token
  * ```javascript
  * // This example gets an authorization token for your default registry.

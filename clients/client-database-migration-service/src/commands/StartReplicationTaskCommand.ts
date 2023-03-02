@@ -57,7 +57,6 @@ export interface StartReplicationTaskCommandOutput extends StartReplicationTaskR
  * @see {@link StartReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Start replication task
  * ```javascript
  * // Starts the replication task.

@@ -56,7 +56,6 @@ export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __M
  * @see {@link RefreshSchemasCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Refresh schema
  * ```javascript
  * // Populates the schema for the specified endpoint. This is an asynchronous operation and can take several minutes. You can check the status of this operation by calling the describe-refresh-schemas-status operation.

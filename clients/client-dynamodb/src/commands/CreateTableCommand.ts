@@ -62,7 +62,6 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * @see {@link CreateTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
- *
  * @example To create a table
  * ```javascript
  * // This example creates a table named Music.

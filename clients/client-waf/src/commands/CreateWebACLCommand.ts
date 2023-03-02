@@ -89,7 +89,6 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * @see {@link CreateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To create a web ACL
  * ```javascript
  * // The following example creates a web ACL named CreateExample.

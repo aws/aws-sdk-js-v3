@@ -123,7 +123,6 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * @see {@link UpdateIPSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To update an IP set
  * ```javascript
  * // The following example deletes an IPSetDescriptor object in an IP match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.

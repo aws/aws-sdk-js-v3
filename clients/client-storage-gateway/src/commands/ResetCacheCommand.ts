@@ -62,7 +62,6 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  * @see {@link ResetCacheCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To reset cache disks in error status
  * ```javascript
  * // Resets all cache disks that have encountered a error and makes the disks available for reconfiguration as cache storage.

@@ -134,7 +134,6 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * @see {@link DecryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To decrypt data
  * ```javascript
  * // The following example decrypts data that was encrypted with a KMS key.

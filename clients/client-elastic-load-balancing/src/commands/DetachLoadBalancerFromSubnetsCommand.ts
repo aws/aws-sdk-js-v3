@@ -59,7 +59,6 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
  * @see {@link DetachLoadBalancerFromSubnetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To detach a load balancer from a subnet
  * ```javascript
  * // This example detaches the specified load balancer from the specified subnet.

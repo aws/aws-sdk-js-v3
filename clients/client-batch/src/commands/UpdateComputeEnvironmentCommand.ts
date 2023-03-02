@@ -50,7 +50,6 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  * @see {@link UpdateComputeEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example To update a compute environment
  * ```javascript
  * // This example disables the P2OnDemand compute environment so it can be deleted.

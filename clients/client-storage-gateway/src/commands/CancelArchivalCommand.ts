@@ -51,7 +51,6 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  * @see {@link CancelArchivalCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To cancel virtual tape archiving
  * ```javascript
  * // Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated.

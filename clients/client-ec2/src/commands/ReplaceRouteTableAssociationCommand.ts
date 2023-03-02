@@ -56,7 +56,6 @@ export interface ReplaceRouteTableAssociationCommandOutput
  * @see {@link ReplaceRouteTableAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To replace the route table associated with a subnet
  * ```javascript
  * // This example associates the specified route table with the subnet for the specified route table association.

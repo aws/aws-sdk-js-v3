@@ -65,7 +65,6 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  * @see {@link CreateCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example CreateCacheParameterGroup
  * ```javascript
  * // Creates the Amazon ElastiCache parameter group custom-redis2-8.

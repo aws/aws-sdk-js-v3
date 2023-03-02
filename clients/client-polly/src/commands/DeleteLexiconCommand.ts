@@ -53,7 +53,6 @@ export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __Metad
  * @see {@link DeleteLexiconCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
- *
  * @example To delete a lexicon
  * ```javascript
  * // Deletes a specified pronunciation lexicon stored in an AWS Region.

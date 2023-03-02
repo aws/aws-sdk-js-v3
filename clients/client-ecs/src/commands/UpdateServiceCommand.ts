@@ -172,7 +172,6 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To change the task definition used in a service
  * ```javascript
  * // This example updates the my-http-service service to use the amazon-ecs-sample task definition.
@@ -183,7 +182,6 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * const command = new UpdateServiceCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To change the number of tasks in a service
  * ```javascript

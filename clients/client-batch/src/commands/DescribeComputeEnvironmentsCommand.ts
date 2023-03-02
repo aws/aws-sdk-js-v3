@@ -55,7 +55,6 @@ export interface DescribeComputeEnvironmentsCommandOutput
  * @see {@link DescribeComputeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example To describe a compute environment
  * ```javascript
  * // This example describes the P2OnDemand compute environment.

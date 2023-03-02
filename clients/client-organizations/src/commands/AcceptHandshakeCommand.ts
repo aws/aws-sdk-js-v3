@@ -80,7 +80,6 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  * @see {@link AcceptHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To accept a handshake from another account
  * ```javascript
  * // Bill is the owner of an organization, and he invites Juan's account (222222222222) to join his organization. The following example shows Juan's account accepting the handshake and thus agreeing to the invitation.

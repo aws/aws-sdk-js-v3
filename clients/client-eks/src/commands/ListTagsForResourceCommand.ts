@@ -50,7 +50,6 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
- *
  * @example To list tags for a cluster
  * ```javascript
  * // This example lists all of the tags for the `beta` cluster.

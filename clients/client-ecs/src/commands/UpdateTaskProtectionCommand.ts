@@ -76,7 +76,6 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * @see {@link UpdateTaskProtectionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To set task scale-in protection for a task for 60 minutes
  * ```javascript
  * // This example enables scale-in protection for a task for 60 minutes.
@@ -104,7 +103,6 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * *\/
  * ```
  *
- *
  * @example To set task scale-in protection for the default time period in minutes
  * ```javascript
  * // This example enables task scale-in protection for a task, without specifying the expiresInMinutes parameter, for the default protection period of 120 minutes.
@@ -130,7 +128,6 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * }
  * *\/
  * ```
- *
  *
  * @example To remove task scale-in protection
  * ```javascript

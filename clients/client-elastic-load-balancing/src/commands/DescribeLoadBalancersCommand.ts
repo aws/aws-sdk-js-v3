@@ -54,7 +54,6 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeAccessPoints
  * @see {@link DescribeLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To describe one of your load balancers
  * ```javascript
  * // This example describes the specified load balancer.

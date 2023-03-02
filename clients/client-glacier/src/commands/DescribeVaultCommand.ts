@@ -67,7 +67,6 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  * @see {@link DescribeVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To retrieve information about a vault
  * ```javascript
  * // The example retrieves data about a vault named my-vault.

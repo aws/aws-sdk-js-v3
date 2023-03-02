@@ -50,7 +50,6 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  * @see {@link DescribeJobQueuesCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example To describe a job queue
  * ```javascript
  * // This example describes the HighPriority job queue.

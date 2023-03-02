@@ -141,7 +141,6 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  * @see {@link ReEncryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To reencrypt data
  * ```javascript
  * // The following example reencrypts data with the specified KMS key.

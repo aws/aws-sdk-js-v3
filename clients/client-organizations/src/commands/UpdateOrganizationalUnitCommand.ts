@@ -53,7 +53,6 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  * @see {@link UpdateOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To rename an organizational unit
  * ```javascript
  * // The following example shows how to rename an OU. The output confirms the new name:/n/n

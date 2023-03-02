@@ -50,7 +50,6 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * @see {@link CreateDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To create a DB subnet group.
  * ```javascript
  * // This example creates a DB subnet group.

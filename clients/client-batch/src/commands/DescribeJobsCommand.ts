@@ -50,7 +50,6 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * @see {@link DescribeJobsCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example To describe a specific job
  * ```javascript
  * // This example describes a job with the specified job ID.

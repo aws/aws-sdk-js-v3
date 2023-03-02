@@ -107,7 +107,6 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateAliasCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To update an alias
  * ```javascript
  * // The following example updates the specified alias to refer to the specified KMS key.

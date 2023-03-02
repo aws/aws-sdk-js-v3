@@ -54,7 +54,6 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  * @see {@link AttachInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To attach an instance to an Auto Scaling group
  * ```javascript
  * // This example attaches the specified instance to the specified Auto Scaling group.

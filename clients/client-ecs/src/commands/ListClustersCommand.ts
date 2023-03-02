@@ -50,7 +50,6 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * @see {@link ListClustersCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To list your available clusters
  * ```javascript
  * // This example lists all of your available clusters in your default region.

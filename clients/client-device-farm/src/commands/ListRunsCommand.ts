@@ -47,7 +47,6 @@ export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer 
  * @see {@link ListRunsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about a test run
  * ```javascript
  * // The following example returns information about a specific test run.

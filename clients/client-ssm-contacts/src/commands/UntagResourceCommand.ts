@@ -50,7 +50,6 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To remove tags from a contact
  * ```javascript
  * // The following untag-resource example removes the group1 tag from the specified contact.

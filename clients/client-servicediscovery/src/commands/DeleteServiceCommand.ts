@@ -51,7 +51,6 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * @see {@link DeleteServiceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example Example: Delete service
  * ```javascript
  * // Example: Delete service

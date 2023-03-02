@@ -136,7 +136,6 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * @see {@link PutBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example Put bucket lifecycle
  * ```javascript
  * // The following example replaces existing lifecycle configuration, if any, on the specified bucket.

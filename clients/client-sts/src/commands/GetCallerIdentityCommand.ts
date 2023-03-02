@@ -60,7 +60,6 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  * @see {@link GetCallerIdentityCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
- *
  * @example To get details about a calling IAM user
  * ```javascript
  * // This example shows a request and response made with the credentials for a user named Alice in the AWS account 123456789012.
@@ -76,7 +75,6 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  * *\/
  * ```
  *
- *
  * @example To get details about a calling user federated with AssumeRole
  * ```javascript
  * // This example shows a request and response made with temporary credentials created by AssumeRole. The name of the assumed role is my-role-name, and the RoleSessionName is set to my-role-session-name.
@@ -91,7 +89,6 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  * }
  * *\/
  * ```
- *
  *
  * @example To get details about a calling user federated with GetFederationToken
  * ```javascript

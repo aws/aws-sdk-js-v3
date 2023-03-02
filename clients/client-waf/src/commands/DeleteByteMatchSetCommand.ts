@@ -73,7 +73,6 @@ export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetRespo
  * @see {@link DeleteByteMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To delete a byte match set
  * ```javascript
  * // The following example deletes a byte match set with the ID exampleIDs3t-46da-4fdb-b8d5-abc321j569j5.

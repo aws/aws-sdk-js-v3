@@ -124,7 +124,6 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * @see {@link CreateAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To create a new account that is automatically part of the organization
  * ```javascript
  * // The owner of an organization creates a member account in the organization. The following example shows that when the organization owner creates the member account, the account is preconfigured with the name "Production Account" and an owner email address of susan@example.com.  An IAM role is automatically created using the default name because the roleName parameter is not used. AWS Organizations sends Susan a "Welcome to AWS" email:

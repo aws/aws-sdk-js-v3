@@ -55,7 +55,6 @@ export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To describe tags
  * ```javascript
  * // This example describes the tags for the specified Auto Scaling group.

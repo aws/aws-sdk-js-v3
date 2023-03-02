@@ -51,7 +51,6 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  * @see {@link StartEngagementCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example Example 1: To page a contact's contact channels
  * ```javascript
  * // The following start-engagement pages contact's contact channels. Sender, subject, public-subject, and public-content are all free from fields. Incident Manager sends the subject and content to the provided VOICE or EMAIL contact channels. Incident Manager sends the public-subject and public-content to the provided SMS contact channels. Sender is used to track who started the engagement.
@@ -71,7 +70,6 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  * }
  * *\/
  * ```
- *
  *
  * @example Example 2: To page a contact in the provided escalation plan.
  * ```javascript

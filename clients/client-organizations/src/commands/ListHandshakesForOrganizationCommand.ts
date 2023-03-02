@@ -69,7 +69,6 @@ export interface ListHandshakesForOrganizationCommandOutput
  * @see {@link ListHandshakesForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To retrieve a list of the handshakes associated with an organization
  * ```javascript
  * // The following example shows you how to get a list of handshakes associated with the current organization:

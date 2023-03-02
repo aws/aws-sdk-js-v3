@@ -59,7 +59,6 @@ export interface DeregisterScalableTargetCommandOutput extends DeregisterScalabl
  * @see {@link DeregisterScalableTargetCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
- *
  * @example To deregister a scalable target
  * ```javascript
  * // This example deregisters a scalable target for an Amazon ECS service called web-app that is running in the default cluster.

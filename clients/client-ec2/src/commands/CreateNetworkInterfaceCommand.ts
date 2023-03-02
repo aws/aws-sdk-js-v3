@@ -55,7 +55,6 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  * @see {@link CreateNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To create a network interface
  * ```javascript
  * // This example creates a network interface for the specified subnet.

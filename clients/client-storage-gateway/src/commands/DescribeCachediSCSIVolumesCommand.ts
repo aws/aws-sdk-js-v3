@@ -55,7 +55,6 @@ export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachedi
  * @see {@link DescribeCachediSCSIVolumesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To describe gateway cached iSCSI volumes
  * ```javascript
  * // Returns a description of the gateway cached iSCSI volumes specified in the request.

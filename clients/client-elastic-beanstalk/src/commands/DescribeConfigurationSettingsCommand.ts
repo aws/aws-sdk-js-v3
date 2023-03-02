@@ -66,7 +66,6 @@ export interface DescribeConfigurationSettingsCommandOutput
  * @see {@link DescribeConfigurationSettingsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To view configurations settings for an environment
  * ```javascript
  * // The following operation retrieves configuration settings for an environment named my-env:

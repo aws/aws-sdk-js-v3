@@ -66,7 +66,6 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * @see {@link CreateApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To create a new application
  * ```javascript
  * // The following operation creates a new version (v1) of an application named my-app:

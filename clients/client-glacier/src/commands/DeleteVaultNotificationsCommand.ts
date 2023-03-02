@@ -57,7 +57,6 @@ export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer 
  * @see {@link DeleteVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To delete the notification configuration set for a vault
  * ```javascript
  * // The example deletes the notification configuration set for the vault named examplevault.

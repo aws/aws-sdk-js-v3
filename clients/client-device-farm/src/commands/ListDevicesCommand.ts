@@ -50,7 +50,6 @@ export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataB
  * @see {@link ListDevicesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about devices
  * ```javascript
  * // The following example returns information about the available devices in a specific project.

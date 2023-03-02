@@ -101,7 +101,6 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  * @see {@link UpdateXssMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
- *
  * @example To update an XSS match set
  * ```javascript
  * // The following example deletes an XssMatchTuple object (filters) in an XssMatchSet with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.

@@ -47,7 +47,6 @@ export interface GetUploadCommandOutput extends GetUploadResult, __MetadataBeare
  * @see {@link GetUploadCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To get information about a specific upload
  * ```javascript
  * // The following example gets information about a specific upload.

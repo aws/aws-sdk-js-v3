@@ -178,7 +178,6 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  * @see {@link AssumeRoleWithSAMLCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
- *
  * @example To assume a role using a SAML assertion
  * ```javascript
  * //

@@ -56,7 +56,6 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * @see {@link GetInstancesHealthStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example GetInstancesHealthStatus example
  * ```javascript
  * // This example gets the current health status of one or more instances that are associate with a specified service.

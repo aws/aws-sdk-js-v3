@@ -67,7 +67,6 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * @see {@link RegisterTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To register a task definition
  * ```javascript
  * // This example registers a task definition to the specified family.

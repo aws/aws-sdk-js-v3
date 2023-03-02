@@ -65,7 +65,6 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * @see {@link RestoreDBInstanceFromDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To restore a DB instance from a DB snapshot.
  * ```javascript
  * // The following example restores a DB instance from a DB snapshot.

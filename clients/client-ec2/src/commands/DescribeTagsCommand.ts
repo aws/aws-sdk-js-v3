@@ -49,7 +49,6 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe the tags for a single resource
  * ```javascript
  * // This example describes the tags for the specified instance.

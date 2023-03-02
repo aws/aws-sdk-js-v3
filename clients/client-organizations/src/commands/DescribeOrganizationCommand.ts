@@ -52,7 +52,6 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * @see {@link DescribeOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To get information about an organization
  * ```javascript
  * // The following example shows how to request information about the current user's organization:/n/n

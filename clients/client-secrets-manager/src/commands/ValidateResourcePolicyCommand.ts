@@ -71,7 +71,6 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  * @see {@link ValidateResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
- *
  * @example To validate a resource-based policy to a secret
  * ```javascript
  * // The following example shows how to validate a resource-based policy to a secret.

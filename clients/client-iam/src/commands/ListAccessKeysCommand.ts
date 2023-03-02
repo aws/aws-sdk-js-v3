@@ -64,7 +64,6 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  * @see {@link ListAccessKeysCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To list the access key IDs for an IAM user
  * ```javascript
  * // The following command lists the access keys IDs for the IAM user named Alice.

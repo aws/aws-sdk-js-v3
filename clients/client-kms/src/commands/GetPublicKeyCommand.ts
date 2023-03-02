@@ -98,7 +98,6 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  * @see {@link GetPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To download the public key of an asymmetric KMS key
  * ```javascript
  * // This example gets the public key of an asymmetric RSA KMS key used for encryption and decryption. The operation returns the key spec, key usage, and encryption or signing algorithms to help you use the public key correctly outside of AWS KMS.

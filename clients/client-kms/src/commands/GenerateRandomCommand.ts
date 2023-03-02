@@ -64,7 +64,6 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  * @see {@link GenerateRandomCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To generate random data
  * ```javascript
  * // The following example generates 32 bytes of random data.

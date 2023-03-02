@@ -86,7 +86,6 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  * @see {@link SearchFacesByImageCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
- *
  * @example To search for faces matching a supplied image
  * ```javascript
  * // This operation searches for faces in a Rekognition collection that match the largest face in an S3 bucket stored image.

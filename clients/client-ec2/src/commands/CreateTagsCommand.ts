@@ -50,7 +50,6 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @see {@link CreateTagsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To add a tag to a resource
  * ```javascript
  * // This example adds the tag Stack=production to the specified image, or overwrites an existing tag for the AMI where the tag key is Stack.

@@ -53,7 +53,6 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, _
  * @see {@link PurchaseOfferingCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To purchase a device slot offering
  * ```javascript
  * // The following example purchases a specific device slot offering.

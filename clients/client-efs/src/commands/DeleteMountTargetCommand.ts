@@ -75,7 +75,6 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteMountTargetCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
- *
  * @example To delete a mount target
  * ```javascript
  * // This operation deletes a mount target.

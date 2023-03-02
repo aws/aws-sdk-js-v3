@@ -58,7 +58,6 @@ export interface ListSizeConstraintSetsCommandOutput extends ListSizeConstraintS
  * @see {@link ListSizeConstraintSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
- *
  * @example To list a size constraint sets
  * ```javascript
  * // The following example returns an array of up to 100 size contraint match sets.

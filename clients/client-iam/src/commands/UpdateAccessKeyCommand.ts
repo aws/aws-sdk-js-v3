@@ -56,7 +56,6 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To activate or deactivate an access key for an IAM user
  * ```javascript
  * // The following command deactivates the specified access key (access key ID and secret access key) for the IAM user named Bob.

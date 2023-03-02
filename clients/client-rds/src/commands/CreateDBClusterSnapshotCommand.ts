@@ -55,7 +55,6 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * @see {@link CreateDBClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To create a DB cluster snapshot
  * ```javascript
  * // This example creates a DB cluster snapshot.

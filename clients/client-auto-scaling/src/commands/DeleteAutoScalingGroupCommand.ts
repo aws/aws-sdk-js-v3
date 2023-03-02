@@ -59,7 +59,6 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To delete an Auto Scaling group
  * ```javascript
  * // This example deletes the specified Auto Scaling group.
@@ -69,7 +68,6 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * const command = new DeleteAutoScalingGroupCommand(input);
  * await client.send(command);
  * ```
- *
  *
  * @example To delete an Auto Scaling group and all its instances
  * ```javascript

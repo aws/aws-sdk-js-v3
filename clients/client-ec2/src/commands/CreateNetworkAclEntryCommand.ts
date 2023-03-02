@@ -52,7 +52,6 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * @see {@link CreateNetworkAclEntryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To create a network ACL entry
  * ```javascript
  * // This example creates an entry for the specified network ACL. The rule allows ingress traffic from anywhere (0.0.0.0/0) on UDP port 53 (DNS) into any associated subnet.

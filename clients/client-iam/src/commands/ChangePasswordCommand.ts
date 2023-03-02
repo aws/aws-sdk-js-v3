@@ -52,7 +52,6 @@ export interface ChangePasswordCommandOutput extends __MetadataBearer {}
  * @see {@link ChangePasswordCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To change the password for your IAM user
  * ```javascript
  * // The following command changes the password for the current IAM user.

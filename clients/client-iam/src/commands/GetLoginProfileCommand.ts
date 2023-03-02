@@ -59,7 +59,6 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  * @see {@link GetLoginProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To get password information for an IAM user
  * ```javascript
  * // The following command gets information about the password for the IAM user named Anika.

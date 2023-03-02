@@ -53,7 +53,6 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * @see {@link DetachVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To detach a volume from an instance
  * ```javascript
  * // This example detaches the volume (``vol-049df61146c4d7901``) from the instance it is attached to.

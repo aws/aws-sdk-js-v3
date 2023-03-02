@@ -53,7 +53,6 @@ export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvi
  * @see {@link DeleteComputeEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example To delete a compute environment
  * ```javascript
  * // This example deletes the P2OnDemand compute environment.

@@ -105,7 +105,6 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * @see {@link CreateBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
- *
  * @example To create a new backup
  * ```javascript
  * // This operation creates a new backup.

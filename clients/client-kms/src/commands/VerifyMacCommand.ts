@@ -67,7 +67,6 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  * @see {@link VerifyMacCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To verify an HMAC
  * ```javascript
  * // This example verifies an HMAC for a particular message, HMAC KMS keys, and MAC algorithm. A value of 'true' in the MacValid value in the response indicates that the HMAC is valid.

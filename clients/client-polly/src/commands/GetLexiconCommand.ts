@@ -51,7 +51,6 @@ export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBea
  * @see {@link GetLexiconCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
- *
  * @example To retrieve a lexicon
  * ```javascript
  * // Returns the content of the specified pronunciation lexicon stored in an AWS Region.

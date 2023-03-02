@@ -45,7 +45,6 @@ export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteNetworkAclEntryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To delete a network ACL entry
  * ```javascript
  * // This example deletes ingress rule number 100 from the specified network ACL.

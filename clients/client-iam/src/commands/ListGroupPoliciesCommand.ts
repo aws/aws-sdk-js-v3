@@ -58,7 +58,6 @@ export interface ListGroupPoliciesCommandOutput extends ListGroupPoliciesRespons
  * @see {@link ListGroupPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To list the in-line policies for an IAM group
  * ```javascript
  * // The following command lists the names of in-line policies that are embedded in the IAM group named Admins.

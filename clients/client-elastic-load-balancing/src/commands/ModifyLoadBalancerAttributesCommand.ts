@@ -82,7 +82,6 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * @see {@link ModifyLoadBalancerAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To enable cross-zone load balancing
  * ```javascript
  * // This example enables cross-zone load balancing for the specified load balancer.
@@ -107,7 +106,6 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * }
  * *\/
  * ```
- *
  *
  * @example To enable connection draining
  * ```javascript

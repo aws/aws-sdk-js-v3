@@ -56,7 +56,6 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  * @see {@link DescribeSSLPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To describe a policy used for SSL negotiation
  * ```javascript
  * // This example describes the specified policy used for SSL negotiation.

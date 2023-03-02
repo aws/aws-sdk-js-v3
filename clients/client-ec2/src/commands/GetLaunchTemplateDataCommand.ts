@@ -57,7 +57,6 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * @see {@link GetLaunchTemplateDataCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To get the launch template data for an instance
  * ```javascript
  * // This example gets the launch template data for the specified instance.

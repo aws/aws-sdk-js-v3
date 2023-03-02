@@ -51,7 +51,6 @@ export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult,
  * @see {@link CreateOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To create an option group
  * ```javascript
  * // This example creates an option group.

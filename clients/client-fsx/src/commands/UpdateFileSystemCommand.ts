@@ -202,7 +202,6 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * @see {@link UpdateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
- *
  * @example To update an existing file system
  * ```javascript
  * // This operation updates an existing file system.

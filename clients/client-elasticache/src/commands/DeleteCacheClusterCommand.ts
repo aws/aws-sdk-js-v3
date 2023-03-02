@@ -78,7 +78,6 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  * @see {@link DeleteCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DeleteCacheCluster
  * ```javascript
  * // Deletes an Amazon ElastiCache cluster.

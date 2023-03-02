@@ -50,7 +50,6 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * @see {@link ListOperationsCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example ListOperations Example
  * ```javascript
  * // This example gets the operations that have a STATUS of either PENDING or SUCCESS.

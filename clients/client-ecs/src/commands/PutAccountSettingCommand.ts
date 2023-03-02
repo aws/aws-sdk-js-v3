@@ -73,7 +73,6 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * @see {@link PutAccountSettingCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To modify your account settings
  * ```javascript
  * // This example modifies your account settings to opt in to the new ARN and resource ID format for Amazon ECS services. If you’re using this command as the root user, then changes apply to the entire AWS account, unless an IAM user or role explicitly overrides these settings for themselves.
@@ -93,7 +92,6 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * }
  * *\/
  * ```
- *
  *
  * @example To modify the account settings for a specific IAM user or IAM role
  * ```javascript

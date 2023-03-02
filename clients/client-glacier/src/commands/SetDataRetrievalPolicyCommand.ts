@@ -50,7 +50,6 @@ export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link SetDataRetrievalPolicyCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To set and then enact a data retrieval policy
  * ```javascript
  * // The example sets and then enacts a data retrieval policy.

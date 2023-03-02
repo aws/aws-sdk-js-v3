@@ -61,7 +61,6 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
  * @see {@link EnableAvailabilityZonesForLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To enable an Availability Zone for a load balancer
  * ```javascript
  * // This example adds the specified Availability Zone to the specified load balancer.

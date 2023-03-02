@@ -60,7 +60,6 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
  * @see {@link SetLoadBalancerListenerSSLCertificateCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To update the SSL certificate for an HTTPS listener
  * ```javascript
  * // This example replaces the existing SSL certificate for the specified HTTPS listener.

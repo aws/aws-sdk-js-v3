@@ -53,7 +53,6 @@ export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOut
  * @see {@link UpdateVTLDeviceTypeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To update a VTL device type
  * ```javascript
  * // Updates the type of medium changer in a gateway-VTL after a gateway-VTL is activated.

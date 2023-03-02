@@ -53,7 +53,6 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * @see {@link UpdatePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To update the details of a policy
  * ```javascript
  * // The following example shows how to rename a policy and give it a new description and new content. The output confirms the new name and description text:/n/n
@@ -80,7 +79,6 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * }
  * *\/
  * ```
- *
  *
  * @example To update the content of a policy
  * ```javascript

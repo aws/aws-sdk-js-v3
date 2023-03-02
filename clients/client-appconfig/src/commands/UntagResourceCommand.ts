@@ -45,7 +45,6 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To remove a tag from an application
  * ```javascript
  * // The following untag-resource example removes the group1 tag from the specified application.

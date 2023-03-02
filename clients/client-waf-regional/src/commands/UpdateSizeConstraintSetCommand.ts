@@ -100,7 +100,6 @@ export interface UpdateSizeConstraintSetCommandOutput extends UpdateSizeConstrai
  * @see {@link UpdateSizeConstraintSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
- *
  * @example To update a size constraint set
  * ```javascript
  * // The following example deletes a SizeConstraint object (filters) in a size constraint set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.

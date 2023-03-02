@@ -52,7 +52,6 @@ export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, _
  * @see {@link UpdateDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
- *
  * @example To update a device pool
  * ```javascript
  * // The following example updates the specified device pool with a new name and description. It also enables remote access of devices in the device pool.

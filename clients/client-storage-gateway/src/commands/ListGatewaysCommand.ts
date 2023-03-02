@@ -60,7 +60,6 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * @see {@link ListGatewaysCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To lists region specific gateways per AWS account
  * ```javascript
  * // Lists gateways owned by an AWS account in a specified region as requested. Results are sorted by gateway ARN up to a maximum of 100 gateways.

@@ -51,7 +51,6 @@ export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswor
  * @see {@link GetAccountPasswordPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To see the current account password policy
  * ```javascript
  * // The following command displays details about the password policy for the current AWS account.

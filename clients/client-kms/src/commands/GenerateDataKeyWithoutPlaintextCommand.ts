@@ -123,7 +123,6 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  * @see {@link GenerateDataKeyWithoutPlaintextCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To generate an encrypted data key
  * ```javascript
  * // The following example generates an encrypted copy of a 256-bit symmetric data encryption key (data key). The data key is encrypted with the specified KMS key.

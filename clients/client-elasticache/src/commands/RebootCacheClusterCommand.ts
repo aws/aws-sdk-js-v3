@@ -60,7 +60,6 @@ export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResul
  * @see {@link RebootCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example RebootCacheCluster
  * ```javascript
  * // Reboots the specified nodes in the names cluster.

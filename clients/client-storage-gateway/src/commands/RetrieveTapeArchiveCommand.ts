@@ -57,7 +57,6 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  * @see {@link RetrieveTapeArchiveCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To retrieve an archived tape from the VTS
  * ```javascript
  * // Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a gateway-VTL. Virtual tapes archived in the VTS are not associated with any gateway.

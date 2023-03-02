@@ -53,7 +53,6 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
  * @see {@link UpdateConfigurationSetReputationMetricsEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example UpdateConfigurationSetReputationMetricsEnabled
  * ```javascript
  * // Set the reputationMetricsEnabled flag for a specific configuration set.

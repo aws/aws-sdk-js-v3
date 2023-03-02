@@ -50,7 +50,6 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  * @see {@link ModifyOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To modify an option group
  * ```javascript
  * // The following example adds an option to an option group.

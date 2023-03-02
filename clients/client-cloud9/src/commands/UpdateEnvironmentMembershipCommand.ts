@@ -51,7 +51,6 @@ export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironm
  * @see {@link UpdateEnvironmentMembershipCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
- *
  * @example UpdateEnvironmentMembership
  * ```javascript
  * //

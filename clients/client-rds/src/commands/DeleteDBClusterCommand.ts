@@ -58,7 +58,6 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * @see {@link DeleteDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To delete a DB cluster.
  * ```javascript
  * // This example deletes the specified DB cluster.

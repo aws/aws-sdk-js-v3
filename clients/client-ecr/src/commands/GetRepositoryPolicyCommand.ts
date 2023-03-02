@@ -50,7 +50,6 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
  * @see {@link GetRepositoryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
- *
  * @example To get the current policy for a repository
  * ```javascript
  * // This example obtains the repository policy for the repository named ubuntu.

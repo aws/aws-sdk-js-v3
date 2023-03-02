@@ -54,7 +54,6 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
  * @see {@link CreateHttpNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example CreateHttpNamespace example
  * ```javascript
  * // This example creates an HTTP namespace.

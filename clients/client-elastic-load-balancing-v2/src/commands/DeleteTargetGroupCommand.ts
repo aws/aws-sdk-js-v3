@@ -58,7 +58,6 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  * @see {@link DeleteTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To delete a target group
  * ```javascript
  * // This example deletes the specified target group.

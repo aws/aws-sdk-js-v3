@@ -68,7 +68,6 @@ export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataB
  * @see {@link GetIntentsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
- *
  * @example To get a list of intents
  * ```javascript
  * // This example shows how to get a list of all of the intents in your account.

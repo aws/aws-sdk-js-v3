@@ -55,7 +55,6 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * @see {@link ListStreamsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
  *
- *
  * @example To list all of the stream ARNs
  * ```javascript
  * // The following example lists all of the stream ARNs.

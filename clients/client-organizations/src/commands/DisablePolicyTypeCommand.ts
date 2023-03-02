@@ -60,7 +60,6 @@ export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeRespons
  * @see {@link DisablePolicyTypeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To disable a policy type in a root
  * ```javascript
  * // The following example shows how to disable the service control policy (SCP) policy type in a root. The response shows that the PolicyTypes response element no longer includes SERVICE_CONTROL_POLICY:/n/n

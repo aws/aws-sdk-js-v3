@@ -45,7 +45,6 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To delete a DB parameter group
  * ```javascript
  * // The following example deletes a DB parameter group.

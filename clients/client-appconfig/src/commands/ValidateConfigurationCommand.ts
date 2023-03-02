@@ -45,7 +45,6 @@ export interface ValidateConfigurationCommandOutput extends __MetadataBearer {}
  * @see {@link ValidateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To validate a configuration
  * ```javascript
  * // The following validate-configuration example uses the validators in a configuration profile to validate a configuration.

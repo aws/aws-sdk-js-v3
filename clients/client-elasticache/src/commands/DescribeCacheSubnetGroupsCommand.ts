@@ -53,7 +53,6 @@ export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroup
  * @see {@link DescribeCacheSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DescribeCacheSubnetGroups
  * ```javascript
  * // Describes up to 25 cache subnet groups.

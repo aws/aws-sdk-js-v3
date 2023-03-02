@@ -52,7 +52,6 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * @see {@link ModifyCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example ModifyCacheParameterGroup
  * ```javascript
  * // Modifies one or more parameter values in the specified parameter group. You cannot modify any default parameter group.

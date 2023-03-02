@@ -61,7 +61,6 @@ export interface RevokeDBSecurityGroupIngressCommandOutput
  * @see {@link RevokeDBSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To revoke ingress for a DB security group
  * ```javascript
  * // This example revokes ingress for the specified CIDR block associated with the specified DB security group.

@@ -56,7 +56,6 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * @see {@link SetSubnetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To enable Availability Zones for a load balancer
  * ```javascript
  * // This example enables the Availability Zones for the specified subnets for the specified load balancer.

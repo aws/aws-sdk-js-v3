@@ -51,7 +51,6 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  * @see {@link DeregisterInstanceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example Example: Deregister a service instance
  * ```javascript
  * // Example: Deregister a service instance

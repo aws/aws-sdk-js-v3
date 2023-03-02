@@ -70,7 +70,6 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
- *
  * @example To create a new cluster
  * ```javascript
  * // The following example creates an Amazon EKS cluster called prod.

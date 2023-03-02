@@ -95,7 +95,6 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * @see {@link CreateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
- *
  * @example To create a new file system
  * ```javascript
  * // This operation creates a new Amazon FSx for Windows File Server file system.

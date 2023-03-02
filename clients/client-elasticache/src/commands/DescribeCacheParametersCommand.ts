@@ -51,7 +51,6 @@ export interface DescribeCacheParametersCommandOutput extends CacheParameterGrou
  * @see {@link DescribeCacheParametersCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DescribeCacheParameters
  * ```javascript
  * // Lists up to 100 user parameter values for the parameter group custom.redis2.8.

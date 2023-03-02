@@ -56,7 +56,6 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  * @see {@link DescribeMountTargetsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
- *
  * @example To describe the mount targets for a file system
  * ```javascript
  * // This operation describes all of a file system's mount targets.

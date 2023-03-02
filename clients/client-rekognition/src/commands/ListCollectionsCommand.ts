@@ -56,7 +56,6 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * @see {@link ListCollectionsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
- *
  * @example To list the collections
  * ```javascript
  * // This operation returns a list of Rekognition collections.

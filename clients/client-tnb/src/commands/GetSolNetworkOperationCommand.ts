@@ -51,6 +51,10 @@ export interface GetSolNetworkOperationCommandOutput extends GetSolNetworkOperat
  * @see {@link GetSolNetworkOperationCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
+ * @example Get Sol Network Instantiate operation```javascript/* Optional.empty *\/some code here```
+ *
+ * @example Get Sol Network Instantiate operation which has a failure```javascript/* Optional.empty *\/some code here```
+ *
  */
 export class GetSolNetworkOperationCommand extends $Command<
   GetSolNetworkOperationCommandInput,

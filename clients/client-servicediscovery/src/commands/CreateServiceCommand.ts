@@ -91,7 +91,6 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example Example: Create service
  * ```javascript
  * // Example: Create service

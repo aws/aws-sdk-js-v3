@@ -196,7 +196,6 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * @see {@link CreateBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To create a bucket in a specific region
  * ```javascript
  * // The following example creates a bucket. The request specifies an AWS region where to create the bucket.
@@ -214,7 +213,6 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * }
  * *\/
  * ```
- *
  *
  * @example To create a bucket
  * ```javascript

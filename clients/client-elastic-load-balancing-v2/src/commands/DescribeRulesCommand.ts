@@ -55,7 +55,6 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  * @see {@link DescribeRulesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To describe a rule
  * ```javascript
  * // This example describes the specified rule.

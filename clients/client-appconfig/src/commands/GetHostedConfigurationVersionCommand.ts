@@ -50,7 +50,6 @@ export interface GetHostedConfigurationVersionCommandOutput extends HostedConfig
  * @see {@link GetHostedConfigurationVersionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To retrieve hosted configuration details
  * ```javascript
  * // The following get-hosted-configuration-version example retrieves the configuration details of the AWS AppConfig hosted configuration.

@@ -53,7 +53,6 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  * @see {@link CreateAddressCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
- *
  * @example To create an address for a job
  * ```javascript
  * // This operation creates an address for a job. Addresses are validated at the time of creation. The address you provide must be located within the serviceable area of your region. If the address is invalid or unsupported, then an exception is thrown.

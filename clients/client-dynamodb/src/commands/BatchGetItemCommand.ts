@@ -96,7 +96,6 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  * @see {@link BatchGetItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
- *
  * @example To retrieve multiple items from a table
  * ```javascript
  * // This example reads multiple items from the Music table using a batch of three GetItem requests.  Only the AlbumTitle attribute is returned.

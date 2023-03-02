@@ -52,7 +52,6 @@ export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttr
  * @see {@link DescribeVolumeAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe a volume attribute
  * ```javascript
  * // This example describes the ``autoEnableIo`` attribute of the volume with the ID ``vol-049df61146c4d7901``.

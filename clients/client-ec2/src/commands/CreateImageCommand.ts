@@ -63,7 +63,6 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  * @see {@link CreateImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To create an AMI from an Amazon EBS-backed instance
  * ```javascript
  * // This example creates an AMI from the specified instance and adds an EBS volume with the device name /dev/sdh and an instance store volume with the device name /dev/sdc.

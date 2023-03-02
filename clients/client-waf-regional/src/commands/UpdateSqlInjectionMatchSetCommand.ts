@@ -99,7 +99,6 @@ export interface UpdateSqlInjectionMatchSetCommandOutput extends UpdateSqlInject
  * @see {@link UpdateSqlInjectionMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
- *
  * @example To update a SQL injection match set
  * ```javascript
  * // The following example deletes a SqlInjectionMatchTuple object (filters) in a SQL injection match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.

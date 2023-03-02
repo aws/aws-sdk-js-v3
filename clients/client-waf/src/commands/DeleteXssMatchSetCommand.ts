@@ -74,7 +74,6 @@ export interface DeleteXssMatchSetCommandOutput extends DeleteXssMatchSetRespons
  * @see {@link DeleteXssMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
- *
  * @example To delete an XSS match set
  * ```javascript
  * // The following example deletes an XSS match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.

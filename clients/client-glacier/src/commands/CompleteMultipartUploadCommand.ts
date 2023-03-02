@@ -87,7 +87,6 @@ export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOut
  * @see {@link CompleteMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To complete a multipart upload
  * ```javascript
  * // The example completes a multipart upload for a 3 MiB archive.

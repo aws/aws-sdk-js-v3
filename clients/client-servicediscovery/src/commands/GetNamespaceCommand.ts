@@ -50,7 +50,6 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  * @see {@link GetNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
- *
  * @example GetNamespace example
  * ```javascript
  * // This example gets information about a specified namespace.

@@ -50,7 +50,6 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example UntagResource Example
  * ```javascript
  * // This demonstrates calling the UntagResource action.

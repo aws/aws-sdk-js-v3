@@ -51,7 +51,6 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To remove tags from a resource
  * ```javascript
  * // Lists the iSCSI stored volumes of a gateway. Removes one or more tags from the specified resource.

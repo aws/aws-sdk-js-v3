@@ -56,7 +56,6 @@ export interface DescribeListenersCommandOutput extends DescribeListenersOutput,
  * @see {@link DescribeListenersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To describe a listener
  * ```javascript
  * // This example describes the specified listener.

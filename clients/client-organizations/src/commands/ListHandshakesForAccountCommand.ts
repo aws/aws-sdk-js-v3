@@ -64,7 +64,6 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  * @see {@link ListHandshakesForAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To retrieve a list of the handshakes sent to an account
  * ```javascript
  * // The following example shows you how to get a list of handshakes that are associated with the account of the credentials used to call the operation:

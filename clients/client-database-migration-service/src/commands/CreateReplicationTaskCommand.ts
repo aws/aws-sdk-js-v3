@@ -54,7 +54,6 @@ export interface CreateReplicationTaskCommandOutput extends CreateReplicationTas
  * @see {@link CreateReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Create replication task
  * ```javascript
  * // Creates a replication task using the specified parameters.

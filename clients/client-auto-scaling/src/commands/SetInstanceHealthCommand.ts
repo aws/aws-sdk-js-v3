@@ -47,7 +47,6 @@ export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
  * @see {@link SetInstanceHealthCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To set the health status of an instance
  * ```javascript
  * // This example sets the health status of the specified instance to Unhealthy.

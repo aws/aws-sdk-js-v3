@@ -62,7 +62,6 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
  * @see {@link PutProjectPolicyCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
- *
  * @example PutProjectPolicy
  * ```javascript
  * // This operation attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting AWS account.

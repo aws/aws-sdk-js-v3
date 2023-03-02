@@ -52,7 +52,6 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * @see {@link DescribeKeyPairsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To display a key pair
  * ```javascript
  * // This example displays the fingerprint for the specified key.

@@ -113,7 +113,6 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  * @see {@link ImportKeyMaterialCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To import key material into a KMS key
  * ```javascript
  * // The following example imports key material into the specified KMS key.

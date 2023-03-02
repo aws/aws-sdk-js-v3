@@ -64,7 +64,6 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example To list running jobs
  * ```javascript
  * // This example lists the running jobs in the HighPriority job queue.
@@ -84,7 +83,6 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * }
  * *\/
  * ```
- *
  *
  * @example To list submitted jobs
  * ```javascript

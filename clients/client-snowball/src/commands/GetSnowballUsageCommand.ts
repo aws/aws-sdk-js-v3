@@ -53,7 +53,6 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  * @see {@link GetSnowballUsageCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
- *
  * @example To see your Snowball service limit and the number of Snowballs you have in use
  * ```javascript
  * // Returns information about the Snowball service limit for your account, and also the number of Snowballs your account has in use.

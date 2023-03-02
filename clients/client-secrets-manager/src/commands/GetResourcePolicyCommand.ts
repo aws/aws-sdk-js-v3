@@ -60,7 +60,6 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
- *
  * @example To retrieve the resource-based policy attached to a secret
  * ```javascript
  * // The following example shows how to retrieve the resource-based policy that is attached to a secret.

@@ -53,7 +53,6 @@ export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePas
  * @see {@link SetLocalConsolePasswordCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To set a password for your VM
  * ```javascript
  * // Sets the password for your VM local console.

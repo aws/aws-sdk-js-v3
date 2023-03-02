@@ -72,7 +72,6 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * @see {@link DeleteDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To delete a DB instance.
  * ```javascript
  * // This example deletes the specified DB instance.

@@ -58,7 +58,6 @@ export interface CreateReplicationSubnetGroupCommandOutput
  * @see {@link CreateReplicationSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
- *
  * @example Create replication subnet group
  * ```javascript
  * // Creates a replication subnet group given a list of the subnet IDs in a VPC.

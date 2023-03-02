@@ -51,7 +51,6 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * @see {@link ListServicesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
- *
  * @example To list the services in a cluster
  * ```javascript
  * // This example lists the services running in the default cluster for an account.

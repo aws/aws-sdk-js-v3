@@ -59,7 +59,6 @@ export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link PutUserPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To attach a policy to an IAM user
  * ```javascript
  * // The following command attaches a policy to the IAM user named Bob.

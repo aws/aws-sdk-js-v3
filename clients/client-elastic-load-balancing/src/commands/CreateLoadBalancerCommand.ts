@@ -67,7 +67,6 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
- *
  * @example To create an HTTP load balancer in a VPC
  * ```javascript
  * // This example creates a load balancer with an HTTP listener in a VPC.
@@ -97,7 +96,6 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * *\/
  * ```
  *
- *
  * @example To create an HTTP load balancer in EC2-Classic
  * ```javascript
  * // This example creates a load balancer with an HTTP listener in EC2-Classic.
@@ -123,7 +121,6 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * }
  * *\/
  * ```
- *
  *
  * @example To create an HTTPS load balancer in a VPC
  * ```javascript
@@ -161,7 +158,6 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * *\/
  * ```
  *
- *
  * @example To create an HTTPS load balancer in EC2-Classic
  * ```javascript
  * // This example creates a load balancer with an HTTPS listener in EC2-Classic.
@@ -194,7 +190,6 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * }
  * *\/
  * ```
- *
  *
  * @example To create an internal load balancer
  * ```javascript

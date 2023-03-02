@@ -90,7 +90,6 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * @see {@link ListAliasesCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To list aliases
  * ```javascript
  * // The following example lists aliases.

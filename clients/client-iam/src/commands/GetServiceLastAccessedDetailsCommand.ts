@@ -103,7 +103,6 @@ export interface GetServiceLastAccessedDetailsCommandOutput
  * @see {@link GetServiceLastAccessedDetailsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To get details from a previously-generated report
  * ```javascript
  * // The following operation gets details about the report with the job ID: examplef-1305-c245-eba4-71fe298bcda7

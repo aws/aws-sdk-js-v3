@@ -56,7 +56,6 @@ export interface UpdateGroupCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To rename an IAM group
  * ```javascript
  * // The following command changes the name of the IAM group Test to Test-1.

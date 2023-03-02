@@ -51,7 +51,6 @@ export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGr
  * @see {@link CreateCacheSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example CreateCacheSubnet
  * ```javascript
  * // Creates a new cache subnet group.

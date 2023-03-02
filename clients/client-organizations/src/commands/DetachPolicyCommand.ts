@@ -59,7 +59,6 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link DetachPolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To detach a policy from a root, OU, or account
  * ```javascript
  * // The following example shows how to detach a policy from an OU:/n/n

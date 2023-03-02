@@ -75,7 +75,6 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * @see {@link DescribeBackupsCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
- *
  * @example To describe Amazon FSx backups
  * ```javascript
  * // This operation describes all of the Amazon FSx backups in an account.

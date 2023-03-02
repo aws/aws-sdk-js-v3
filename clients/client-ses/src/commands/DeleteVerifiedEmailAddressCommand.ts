@@ -49,7 +49,6 @@ export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBeare
  * @see {@link DeleteVerifiedEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example DeleteVerifiedEmailAddress
  * ```javascript
  * // The following example deletes an email address from the list of identities that have been submitted for verification with Amazon SES:

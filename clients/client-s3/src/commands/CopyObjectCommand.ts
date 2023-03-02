@@ -235,7 +235,6 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  * @see {@link CopyObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To copy an object
  * ```javascript
  * // The following example copies an object from one bucket to another.

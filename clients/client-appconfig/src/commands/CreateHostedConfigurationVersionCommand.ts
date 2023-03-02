@@ -51,7 +51,6 @@ export interface CreateHostedConfigurationVersionCommandOutput extends HostedCon
  * @see {@link CreateHostedConfigurationVersionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To create a hosted configuration version
  * ```javascript
  * // The following create-hosted-configuration-version example creates a new configuration in the AWS AppConfig configuration store.

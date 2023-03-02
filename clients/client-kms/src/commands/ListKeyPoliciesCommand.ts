@@ -71,7 +71,6 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  * @see {@link ListKeyPoliciesCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To list key policies for a KMS key
  * ```javascript
  * // The following example lists key policies for the specified KMS key.

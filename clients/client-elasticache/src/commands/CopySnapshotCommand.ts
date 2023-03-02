@@ -137,7 +137,6 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example CopySnapshot
  * ```javascript
  * // Copies a snapshot to a specified name.

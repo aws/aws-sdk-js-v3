@@ -60,7 +60,6 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * @see {@link CreateOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To create a new organization with all features enabled
  * ```javascript
  * // Bill wants to create an organization using credentials from account 111111111111. The following example shows that the account becomes the master account in the new organization. Because he does not specify a feature set, the new organization defaults to all features enabled and service control policies enabled on the root:
@@ -88,7 +87,6 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * }
  * *\/
  * ```
- *
  *
  * @example To create a new organization with consolidated billing features only
  * ```javascript

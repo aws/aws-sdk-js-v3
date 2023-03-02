@@ -67,7 +67,6 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  * @see {@link ModifyMountTargetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
- *
  * @example To modify the security groups associated with a mount target for a file system
  * ```javascript
  * // This operation modifies the security groups associated with a mount target for a file system.

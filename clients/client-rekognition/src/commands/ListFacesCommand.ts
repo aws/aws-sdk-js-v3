@@ -52,7 +52,6 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  * @see {@link ListFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
- *
  * @example To list the faces in a collection
  * ```javascript
  * // This operation lists the faces in a Rekognition collection.

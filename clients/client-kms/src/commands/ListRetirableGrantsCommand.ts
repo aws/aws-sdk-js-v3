@@ -92,7 +92,6 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  * @see {@link ListRetirableGrantsCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To list grants that the specified principal can retire
  * ```javascript
  * // The following example lists the grants that the specified principal (identity) can retire.

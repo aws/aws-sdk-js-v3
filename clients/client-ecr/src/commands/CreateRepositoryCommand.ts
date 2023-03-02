@@ -51,7 +51,6 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * @see {@link CreateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
- *
  * @example To create a new repository
  * ```javascript
  * // This example creates a repository called nginx-web-app inside the project-a namespace in the default registry for an account.

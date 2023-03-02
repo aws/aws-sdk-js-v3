@@ -60,7 +60,6 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * @see {@link ListPoliciesCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To retrieve a list policies in the organization
  * ```javascript
  * // The following example shows how to get a list of service control policies (SCPs):/n/n

@@ -67,7 +67,6 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  * @see {@link DeleteGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
- *
  * @example To delete a gatgeway
  * ```javascript
  * // This operation deletes the gateway, but not the gateway's VM from the host computer.

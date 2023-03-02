@@ -50,7 +50,6 @@ export interface DescribeAutoScalingNotificationTypesCommandOutput
  * @see {@link DescribeAutoScalingNotificationTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To describe the Auto Scaling notification types
  * ```javascript
  * // This example describes the available notification types.

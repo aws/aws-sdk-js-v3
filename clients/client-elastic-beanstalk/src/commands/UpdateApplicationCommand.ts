@@ -54,7 +54,6 @@ export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMe
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To change an application's description
  * ```javascript
  * // The following operation updates the description of an application named my-app:

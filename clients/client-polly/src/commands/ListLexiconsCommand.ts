@@ -50,7 +50,6 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  * @see {@link ListLexiconsCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
- *
  * @example To list all lexicons in a region
  * ```javascript
  * // Returns a list of pronunciation lexicons stored in an AWS Region.

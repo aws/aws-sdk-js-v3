@@ -76,7 +76,6 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * @see {@link ListKeysCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To list KMS keys
  * ```javascript
  * // The following example lists KMS keys.

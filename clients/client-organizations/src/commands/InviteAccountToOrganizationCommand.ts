@@ -77,7 +77,6 @@ export interface InviteAccountToOrganizationCommandOutput
  * @see {@link InviteAccountToOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To invite an account to join an organization
  * ```javascript
  * // The following example shows the admin of the master account owned by bill@example.com inviting the account owned by juan@example.com to join an organization.

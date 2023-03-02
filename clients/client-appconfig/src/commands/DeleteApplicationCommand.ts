@@ -46,7 +46,6 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
- *
  * @example To delete an application
  * ```javascript
  * // The following delete-application example deletes the specified application.

@@ -229,7 +229,6 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * @see {@link PutObjectAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
  * @example To grant permissions using object ACL
  * ```javascript
  * // The following example adds grants to an object ACL. The first permission grants user1 and user2 FULL_CONTROL and the AllUsers group READ permission.

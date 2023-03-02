@@ -48,7 +48,6 @@ export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateAssumeRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To update the trust policy for an IAM role
  * ```javascript
  * // The following command updates the role trust policy for the role named Test-Role:

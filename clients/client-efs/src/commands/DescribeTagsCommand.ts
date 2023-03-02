@@ -61,7 +61,6 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
- *
  * @example To describe the tags for a file system
  * ```javascript
  * // This operation describes all of a file system's tags.

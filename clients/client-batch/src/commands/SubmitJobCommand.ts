@@ -62,7 +62,6 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * @see {@link SubmitJobCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
- *
  * @example To submit a job to a queue
  * ```javascript
  * // This example submits a simple container job called example to the HighPriority job queue.

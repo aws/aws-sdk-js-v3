@@ -50,7 +50,6 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResult, __M
  * @see {@link ListEngagementsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
- *
  * @example To list all engagements
  * ```javascript
  * // The following list-engagements example lists engagements to escalation plans and contacts. You can also list engagements for a single incident.

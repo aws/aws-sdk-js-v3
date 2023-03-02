@@ -62,7 +62,6 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  * @see {@link ListOrganizationalUnitsForParentCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
- *
  * @example To retrieve a list of all of the child OUs in a parent root or OU
  * ```javascript
  * // The following example shows how to get a list of OUs in a specified root:/n/n

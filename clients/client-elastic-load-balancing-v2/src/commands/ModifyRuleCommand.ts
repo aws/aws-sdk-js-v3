@@ -55,7 +55,6 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  * @see {@link ModifyRuleCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To modify a rule
  * ```javascript
  * // This example modifies the condition for the specified rule.

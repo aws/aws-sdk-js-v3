@@ -59,7 +59,6 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * @see {@link ModifyLoadBalancerAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To enable deletion protection
  * ```javascript
  * // This example enables deletion protection for the specified load balancer.
@@ -102,7 +101,6 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * *\/
  * ```
  *
- *
  * @example To change the idle timeout
  * ```javascript
  * // This example changes the idle timeout value for the specified load balancer.
@@ -144,7 +142,6 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * }
  * *\/
  * ```
- *
  *
  * @example To enable access logs
  * ```javascript

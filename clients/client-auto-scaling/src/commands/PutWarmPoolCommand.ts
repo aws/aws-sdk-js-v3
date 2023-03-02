@@ -56,7 +56,6 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  * @see {@link PutWarmPoolCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To create a warm pool for an Auto Scaling group
  * ```javascript
  * // This example creates a warm pool for the specified Auto Scaling group.

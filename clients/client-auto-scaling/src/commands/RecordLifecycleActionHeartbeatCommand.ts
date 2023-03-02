@@ -88,7 +88,6 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  * @see {@link RecordLifecycleActionHeartbeatCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To record a lifecycle action heartbeat
  * ```javascript
  * // This example records a lifecycle action heartbeat to keep the instance in a pending state.

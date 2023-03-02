@@ -56,7 +56,6 @@ export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTa
  * @see {@link DescribeScalableTargetsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
- *
  * @example To describe scalable targets
  * ```javascript
  * // This example describes the scalable targets for the ECS service namespace.

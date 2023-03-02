@@ -56,7 +56,6 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
- *
  * @example To create a rule
  * ```javascript
  * // This example creates a rule that forwards requests to the specified target group if the URL contains the specified pattern (for example, /img/*).

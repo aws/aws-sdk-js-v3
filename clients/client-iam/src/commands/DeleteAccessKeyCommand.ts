@@ -49,7 +49,6 @@ export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To delete an access key for an IAM user
  * ```javascript
  * // The following command deletes one access key (access key ID and secret access key) assigned to the IAM user named Bob.

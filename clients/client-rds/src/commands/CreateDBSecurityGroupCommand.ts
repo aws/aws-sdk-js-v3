@@ -58,7 +58,6 @@ export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGrou
  * @see {@link CreateDBSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
- *
  * @example To create a DB security group.
  * ```javascript
  * // This example creates a DB security group.

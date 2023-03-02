@@ -57,7 +57,6 @@ export interface GetIdentityNotificationAttributesCommandOutput
  * @see {@link GetIdentityNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
- *
  * @example GetIdentityNotificationAttributes
  * ```javascript
  * // The following example returns the notification attributes for an identity:

@@ -79,7 +79,6 @@ export interface CreateXssMatchSetCommandOutput extends CreateXssMatchSetRespons
  * @see {@link CreateXssMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
- *
  * @example To create an XSS match set
  * ```javascript
  * // The following example creates an XSS match set named MySampleXssMatchSet.

@@ -84,7 +84,6 @@ export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput,
  * @see {@link InitiateVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
- *
  * @example To initiate the vault locking process
  * ```javascript
  * // The example initiates the vault locking process for the vault named my-vault.

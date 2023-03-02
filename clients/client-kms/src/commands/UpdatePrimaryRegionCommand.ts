@@ -109,7 +109,6 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  * @see {@link UpdatePrimaryRegionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
- *
  * @example To update the primary Region of a multi-Region KMS key
  * ```javascript
  * // The following UpdatePrimaryRegion example changes the multi-Region replica key in the eu-central-1 Region to the primary key. The current primary key in the us-west-1 Region becomes a replica key.

@@ -53,7 +53,6 @@ export interface DescribeEngineDefaultParametersCommandOutput
  * @see {@link DescribeEngineDefaultParametersCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
- *
  * @example DescribeEngineDefaultParameters
  * ```javascript
  * // Returns the default engine and system parameter information for the specified cache engine.

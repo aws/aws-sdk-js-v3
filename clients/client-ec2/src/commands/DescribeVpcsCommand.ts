@@ -47,7 +47,6 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  * @see {@link DescribeVpcsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
- *
  * @example To describe a VPC
  * ```javascript
  * // This example describes the specified VPC.

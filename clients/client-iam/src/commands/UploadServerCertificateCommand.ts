@@ -73,7 +73,6 @@ export interface UploadServerCertificateCommandOutput extends UploadServerCertif
  * @see {@link UploadServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
- *
  * @example To upload a server certificate to your AWS account
  * ```javascript
  * // The following upload-server-certificate command uploads a server certificate to your AWS account:

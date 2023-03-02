@@ -61,7 +61,6 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput
  * @see {@link DetachLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
- *
  * @example To detach a target group from an Auto Scaling group
  * ```javascript
  * // This example detaches the specified target group from the specified Auto Scaling group

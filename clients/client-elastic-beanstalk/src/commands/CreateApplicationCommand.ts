@@ -51,7 +51,6 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- *
  * @example To create a new application
  * ```javascript
  * // The following operation creates a new application named my-app:

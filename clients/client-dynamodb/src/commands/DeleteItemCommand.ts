@@ -60,7 +60,6 @@ export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBea
  * @see {@link DeleteItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
- *
  * @example To delete an item
  * ```javascript
  * // This example deletes an item from the Music table.
