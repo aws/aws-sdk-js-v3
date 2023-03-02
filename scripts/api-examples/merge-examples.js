@@ -122,9 +122,9 @@ module.exports = {
       for (const [operation, examples] of Object.entries(examplesFile.examples)) {
         const commandFile = join(commandsFolder, operation + "Command.ts");
         if (existsSync(commandFile)) {
-          for (const example of examples) {
-            let buffer = [];
+          let buffer = [];
 
+          for (const example of examples) {
             buffer.push(
               ...`@example ${example.title}
 \`\`\`javascript
@@ -145,18 +145,27 @@ ${JSON.stringify(example.output, null, 2)}
 \`\`\`
 `.split("\n")
             );
-            const final = `${buffer.map((line) => " " + `* ${line}`.trim()).join("\n")}
- */`;
-            const file = readFileSync(commandFile, "utf-8");
-            const contents = file.replace(
-              `*/\nexport class ${operation}Command`,
-              `${final}
-export class ${operation}Command`
-            );
-            writeFileSync(commandFile, contents, "utf-8");
           }
+
+          const final = `${buffer.map((line) => " " + `* ${line}`.trim()).join("\n")}
+ */`;
+          const file = readFileSync(commandFile, "utf-8");
+
+          if (file.includes(`@example ${examples[0].title}`)) {
+            continue;
+          }
+          const contents = file.replace(
+            ` */\nexport class ${operation}Command`,
+            `${final}
+export class ${operation}Command`
+          );
+          writeFileSync(commandFile, contents, "utf-8");
         }
       }
     }
   },
 };
+
+if (process.argv.includes("--service")) {
+  module.exports.merge(void 0, process.argv[process.argv.indexOf("--service") + 1]);
+}
