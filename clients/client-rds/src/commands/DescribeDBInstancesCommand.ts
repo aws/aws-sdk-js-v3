@@ -61,6 +61,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * };
  * const command = new DescribeDBInstancesCommand(input);
  * await client.send(command);
+ * // example id: describe-db-instances-0e11a8c5-4ec3-4463-8cbf-f7254d04c4fc
  * ```
  *
  */

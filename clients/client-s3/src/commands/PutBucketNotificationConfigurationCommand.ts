@@ -120,6 +120,7 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  * };
  * const command = new PutBucketNotificationConfigurationCommand(input);
  * await client.send(command);
+ * // example id: set-notification-configuration-for-a-bucket-1482270296426
  * ```
  *
  */

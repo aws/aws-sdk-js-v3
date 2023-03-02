@@ -86,6 +86,7 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-a-list-of-all-of-the-OUs-in-a-parent-container
  * ```
  *
  */

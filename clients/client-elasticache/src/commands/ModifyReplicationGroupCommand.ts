@@ -136,6 +136,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  *   }
  * }
  * *\/
+ * // example id: modifyreplicationgroup-1483039689581
  * ```
  *
  */

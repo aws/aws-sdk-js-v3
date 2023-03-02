@@ -60,6 +60,7 @@ export interface GetSuiteCommandOutput extends GetSuiteResult, __MetadataBearer 
  *   "suite": {}
  * }
  * *\/
+ * // example id: to-get-information-about-a-test-suite-1471016525008
  * ```
  *
  */

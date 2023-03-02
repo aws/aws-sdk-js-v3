@@ -56,6 +56,7 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePolicyCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-delete-policy-1
  * ```
  *
  */

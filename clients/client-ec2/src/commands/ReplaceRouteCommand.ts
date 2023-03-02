@@ -57,6 +57,7 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ReplaceRouteCommand(input);
  * await client.send(command);
+ * // example id: ec2-replace-route-1
  * ```
  *
  */

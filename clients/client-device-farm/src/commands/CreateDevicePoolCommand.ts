@@ -66,6 +66,7 @@ export interface CreateDevicePoolCommandOutput extends CreateDevicePoolResult, _
  *   "devicePool": {}
  * }
  * *\/
+ * // example id: createdevicepool-example-1470862210860
  * ```
  *
  */

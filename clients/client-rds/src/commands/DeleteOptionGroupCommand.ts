@@ -53,6 +53,7 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteOptionGroupCommand(input);
  * await client.send(command);
+ * // example id: delete-db-option-group-578be2be-3095-431a-9ea4-9a3c3b0daef4
  * ```
  *
  */

@@ -323,48 +323,7 @@ export interface DescribeReservedCacheNodesOfferingsCommandOutput
  *   ]
  * }
  * *\/
- * ```
- *
- * @example DescribeReseredCacheNodeOfferings
- * ```javascript
- * // Lists available reserved cache node offerings for cache.r3.large nodes with a 3 year commitment.
- * const input = {
- *   "CacheNodeType": "cache.r3.large",
- *   "Duration": "3",
- *   "MaxRecords": 25,
- *   "OfferingType": "Light Utilization",
- *   "ReservedCacheNodesOfferingId": ""
- * };
- * const command = new DescribeReservedCacheNodesOfferingsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Marker": "",
- *   "ReservedCacheNodesOfferings": []
- * }
- * *\/
- * ```
- *
- * @example DescribeReseredCacheNodeOfferings
- * ```javascript
- * // Lists available reserved cache node offerings.
- * const input = {
- *   "CacheNodeType": "",
- *   "Duration": "",
- *   "Marker": "",
- *   "MaxRecords": 25,
- *   "OfferingType": "",
- *   "ProductDescription": "",
- *   "ReservedCacheNodesOfferingId": "438012d3-4052-4cc7-b2e3-8d3372e0e706"
- * };
- * const command = new DescribeReservedCacheNodesOfferingsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Marker": "",
- *   "ReservedCacheNodesOfferings": []
- * }
- * *\/
+ * // example id: describereseredcachenodeofferings-1481742869998
  * ```
  *
  */

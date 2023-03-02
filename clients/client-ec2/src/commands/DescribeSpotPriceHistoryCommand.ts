@@ -89,6 +89,7 @@ export interface DescribeSpotPriceHistoryCommandOutput extends DescribeSpotPrice
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-spot-price-history-1
  * ```
  *
  */

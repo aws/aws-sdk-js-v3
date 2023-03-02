@@ -71,6 +71,7 @@ export interface CreateResourceGroupCommandOutput extends CreateResourceGroupRes
  *   "resourceGroupArn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-AB6DMKnv"
  * }
  * *\/
+ * // example id: create-resource-group-1481064169037
  * ```
  *
  */

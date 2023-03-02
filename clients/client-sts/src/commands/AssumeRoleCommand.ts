@@ -179,6 +179,7 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *   "PackedPolicySize": 8
  * }
  * *\/
+ * // example id: to-assume-a-role-1480532402212
  * ```
  *
  */

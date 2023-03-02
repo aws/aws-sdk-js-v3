@@ -73,6 +73,7 @@ export interface DescribeSecurityGroupReferencesCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: to-describe-security-group-references-1529354312088
  * ```
  *
  */

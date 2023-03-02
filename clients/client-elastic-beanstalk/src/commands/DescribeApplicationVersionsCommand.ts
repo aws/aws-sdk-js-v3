@@ -91,6 +91,7 @@ export interface DescribeApplicationVersionsCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: to-view-information-about-an-application-version-1456269947428
  * ```
  *
  */

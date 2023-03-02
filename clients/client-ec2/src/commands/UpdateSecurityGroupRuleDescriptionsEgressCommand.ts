@@ -77,6 +77,7 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
  * };
  * const command = new UpdateSecurityGroupRuleDescriptionsEgressCommand(input);
  * await client.send(command);
+ * // example id: to-update-an-outbound-security-group-rule-description-1529360481544
  * ```
  *
  */

@@ -179,6 +179,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *   }
  * }
  * *\/
+ * // example id: to-create-a-new-service-1472512584282
  * ```
  *
  * @example To create a new service behind a load balancer
@@ -239,6 +240,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *   }
  * }
  * *\/
+ * // example id: to-create-a-new-service-behind-a-load-balancer-1472512484823
  * ```
  *
  */

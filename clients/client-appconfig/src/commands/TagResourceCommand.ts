@@ -58,6 +58,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagResourceCommand(input);
  * await client.send(command);
+ * // example id: to-tag-an-application-1632330350645
  * ```
  *
  */

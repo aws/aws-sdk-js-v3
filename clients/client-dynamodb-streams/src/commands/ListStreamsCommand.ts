@@ -82,6 +82,7 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  *   ]
  * }
  * *\/
+ * // example id: to-list-all-of-the-stream-arns--1473459534285
  * ```
  *
  */

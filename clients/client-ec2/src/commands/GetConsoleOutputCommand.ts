@@ -77,6 +77,7 @@ export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, _
  *   "Timestamp": "2018-05-25T21:23:53.000Z"
  * }
  * *\/
+ * // example id: to-get-the-console-output-1529355683194
  * ```
  *
  */

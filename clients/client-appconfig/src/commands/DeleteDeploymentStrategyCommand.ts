@@ -54,6 +54,7 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteDeploymentStrategyCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-deployment-strategy-1632265473708
  * ```
  *
  */

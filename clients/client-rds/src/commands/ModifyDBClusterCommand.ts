@@ -76,6 +76,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   "DBCluster": {}
  * }
  * *\/
+ * // example id: modify-db-cluster-a370ee1b-768d-450a-853b-707cb1ab663d
  * ```
  *
  */

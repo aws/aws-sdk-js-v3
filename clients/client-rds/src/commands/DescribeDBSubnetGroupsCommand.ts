@@ -60,6 +60,7 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * };
  * const command = new DescribeDBSubnetGroupsCommand(input);
  * await client.send(command);
+ * // example id: describe-db-subnet-groups-1d97b340-682f-4dd6-9653-8ed72a8d1221
  * ```
  *
  */

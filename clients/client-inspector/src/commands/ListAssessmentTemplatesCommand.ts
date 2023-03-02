@@ -71,6 +71,7 @@ export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemp
  *   "nextToken": "1"
  * }
  * *\/
+ * // example id: list-assessment-templates-1481066623520
  * ```
  *
  */

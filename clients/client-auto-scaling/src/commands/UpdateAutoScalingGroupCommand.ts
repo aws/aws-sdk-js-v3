@@ -103,6 +103,7 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAutoScalingGroupCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-update-auto-scaling-group-1
  * ```
  *
  */

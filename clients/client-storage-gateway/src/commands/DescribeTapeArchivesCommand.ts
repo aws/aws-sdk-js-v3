@@ -88,6 +88,7 @@ export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesO
  *   ]
  * }
  * *\/
+ * // example id: to-describe-virtual-tapes-in-the-vts-1471473188198
  * ```
  *
  */

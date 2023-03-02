@@ -77,6 +77,7 @@ export interface DescribeLifecycleConfigurationCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: to-describe-the-lifecycle-configuration-for-a-file-system-1551200664502
  * ```
  *
  */

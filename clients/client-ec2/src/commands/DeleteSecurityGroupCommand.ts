@@ -60,6 +60,7 @@ export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSecurityGroupCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-security-group-1529024952972
  * ```
  *
  */

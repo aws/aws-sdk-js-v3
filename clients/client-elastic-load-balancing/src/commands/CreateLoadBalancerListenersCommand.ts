@@ -72,6 +72,7 @@ export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBala
  * };
  * const command = new CreateLoadBalancerListenersCommand(input);
  * await client.send(command);
+ * // example id: elb-create-load-balancer-listeners-1
  * ```
  *
  * @example To create an HTTPS listener for a load balancer
@@ -91,6 +92,7 @@ export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBala
  * };
  * const command = new CreateLoadBalancerListenersCommand(input);
  * await client.send(command);
+ * // example id: elb-create-load-balancer-listeners-2
  * ```
  *
  */

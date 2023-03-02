@@ -104,72 +104,7 @@ export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage,
  *   ]
  * }
  * *\/
- * ```
- *
- * @example DescribeCacheClusters
- * ```javascript
- * // Lists the details for the cache cluster my-mem-cluster.
- * const input = {
- *   "CacheClusterId": "my-mem-cluster",
- *   "ShowCacheNodeInfo": true
- * };
- * const command = new DescribeCacheClustersCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CacheClusters": [
- *     {
- *       "AutoMinorVersionUpgrade": true,
- *       "CacheClusterCreateTime": "2016-12-21T21:59:43.794Z",
- *       "CacheClusterId": "my-mem-cluster",
- *       "CacheClusterStatus": "available",
- *       "CacheNodeType": "cache.t2.medium",
- *       "CacheNodes": [
- *         {
- *           "CacheNodeCreateTime": "2016-12-21T21:59:43.794Z",
- *           "CacheNodeId": "0001",
- *           "CacheNodeStatus": "available",
- *           "CustomerAvailabilityZone": "us-east-1b",
- *           "Endpoint": {
- *             "Address": "my-mem-cluster.ameaqx.0001.use1.cache.amazonaws.com",
- *             "Port": 11211
- *           },
- *           "ParameterGroupStatus": "in-sync"
- *         },
- *         {
- *           "CacheNodeCreateTime": "2016-12-21T21:59:43.794Z",
- *           "CacheNodeId": "0002",
- *           "CacheNodeStatus": "available",
- *           "CustomerAvailabilityZone": "us-east-1a",
- *           "Endpoint": {
- *             "Address": "my-mem-cluster.ameaqx.0002.use1.cache.amazonaws.com",
- *             "Port": 11211
- *           },
- *           "ParameterGroupStatus": "in-sync"
- *         }
- *       ],
- *       "CacheParameterGroup": {
- *         "CacheNodeIdsToReboot": [],
- *         "CacheParameterGroupName": "default.memcached1.4",
- *         "ParameterApplyStatus": "in-sync"
- *       },
- *       "CacheSecurityGroups": [],
- *       "CacheSubnetGroupName": "default",
- *       "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
- *       "ConfigurationEndpoint": {
- *         "Address": "my-mem-cluster.ameaqx.cfg.use1.cache.amazonaws.com",
- *         "Port": 11211
- *       },
- *       "Engine": "memcached",
- *       "EngineVersion": "1.4.24",
- *       "NumCacheNodes": 2,
- *       "PendingModifiedValues": {},
- *       "PreferredAvailabilityZone": "Multiple",
- *       "PreferredMaintenanceWindow": "wed:06:00-wed:07:00"
- *     }
- *   ]
- * }
- * *\/
+ * // example id: describecacheclusters-1475012269754
  * ```
  *
  */

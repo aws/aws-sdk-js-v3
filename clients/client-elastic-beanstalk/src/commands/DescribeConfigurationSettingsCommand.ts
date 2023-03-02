@@ -116,6 +116,7 @@ export interface DescribeConfigurationSettingsCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: to-view-configurations-settings-for-an-environment-1456276924537
  * ```
  *
  */

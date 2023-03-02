@@ -92,6 +92,7 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  *   ]
  * }
  * *\/
+ * // example id: list-vaults-1481753006990
  * ```
  *
  */

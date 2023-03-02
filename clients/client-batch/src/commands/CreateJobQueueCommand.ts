@@ -77,6 +77,7 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  *   "jobQueueName": "LowPriority"
  * }
  * *\/
+ * // example id: to-create-a-job-queue-with-a-single-compute-environment-1481152967946
  * ```
  *
  * @example To create a job queue with multiple compute environments
@@ -105,6 +106,7 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  *   "jobQueueName": "HighPriority"
  * }
  * *\/
+ * // example id: to-create-a-job-queue-with-multiple-compute-environments-1481153027051
  * ```
  *
  */

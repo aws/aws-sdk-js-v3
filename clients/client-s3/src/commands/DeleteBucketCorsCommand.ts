@@ -73,6 +73,7 @@ export interface DeleteBucketCorsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBucketCorsCommand(input);
  * await client.send(command);
+ * // example id: to-delete-cors-configuration-on-a-bucket-1483042856112
  * ```
  *
  */

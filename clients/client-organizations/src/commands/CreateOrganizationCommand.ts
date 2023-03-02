@@ -86,6 +86,7 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  *   }
  * }
  * *\/
+ * // example id: to-create-a-new-organization-with-all-features enabled
  * ```
  *
  * @example To create a new organization with consolidated billing features only
@@ -111,6 +112,7 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  *   }
  * }
  * *\/
+ * // example id: to-create-a-new-organization-with-consolidated-billing-features-only
  * ```
  *
  */

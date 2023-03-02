@@ -140,6 +140,7 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketTaggingCommand(input);
  * await client.send(command);
+ * // example id: set-tags-on-a-bucket-1482346269066
  * ```
  *
  */

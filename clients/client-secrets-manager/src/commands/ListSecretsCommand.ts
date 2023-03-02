@@ -98,6 +98,7 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  *   ]
  * }
  * *\/
+ * // example id: to-list-the-secrets-in-your-account-1524001246087
  * ```
  *
  */

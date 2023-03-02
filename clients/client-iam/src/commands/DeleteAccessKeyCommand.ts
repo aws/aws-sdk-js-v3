@@ -58,6 +58,7 @@ export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAccessKeyCommand(input);
  * await client.send(command);
+ * // example id: 61a785a7-d30a-415a-ae18-ab9236e56871
  * ```
  *
  */

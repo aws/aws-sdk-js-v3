@@ -71,6 +71,7 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * };
  * const command = new CreateLoadBalancerPolicyCommand(input);
  * await client.send(command);
+ * // example id: elb-create-load-balancer-policy-1
  * ```
  *
  * @example To create a public key policy
@@ -89,6 +90,7 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * };
  * const command = new CreateLoadBalancerPolicyCommand(input);
  * await client.send(command);
+ * // example id: elb-create-load-balancer-policy-2
  * ```
  *
  * @example To create a backend server authentication policy
@@ -107,6 +109,7 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * };
  * const command = new CreateLoadBalancerPolicyCommand(input);
  * await client.send(command);
+ * // example id: elb-create-load-balancer-policy-3
  * ```
  *
  */

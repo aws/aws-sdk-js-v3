@@ -61,6 +61,7 @@ export interface DeleteContactCommandOutput extends DeleteContactResult, __Metad
  * };
  * const command = new DeleteContactCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-contact-1630361093863
  * ```
  *
  */

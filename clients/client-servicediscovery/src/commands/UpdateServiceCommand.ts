@@ -104,6 +104,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *   "OperationId": "m35hsdrkxwjffm3xef4bxyy6vc3ewakx-jdn3y5g5"
  * }
  * *\/
+ * // example id: updateservice-example-1590117830880
  * ```
  *
  */

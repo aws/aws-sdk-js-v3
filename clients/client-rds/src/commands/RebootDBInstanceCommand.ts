@@ -73,6 +73,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  *   "DBInstance": {}
  * }
  * *\/
+ * // example id: reboot-db-instance-b9ce8a0a-2920-451d-a1f3-01d288aa7366
  * ```
  *
  */

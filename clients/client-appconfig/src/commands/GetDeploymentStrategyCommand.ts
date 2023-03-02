@@ -73,6 +73,7 @@ export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, 
  *   "ReplicateTo": "SSM_DOCUMENT"
  * }
  * *\/
+ * // example id: to-retrieve-details-of-a-deployment-strategy-1632266385805
  * ```
  *
  */

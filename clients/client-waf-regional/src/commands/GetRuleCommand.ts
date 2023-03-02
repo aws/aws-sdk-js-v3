@@ -79,6 +79,7 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  *   }
  * }
  * *\/
+ * // example id: getrule-1474659238790
  * ```
  *
  */

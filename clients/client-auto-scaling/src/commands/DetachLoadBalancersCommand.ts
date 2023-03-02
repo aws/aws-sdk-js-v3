@@ -66,6 +66,7 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
  * };
  * const command = new DetachLoadBalancersCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-detach-load-balancers-1
  * ```
  *
  */

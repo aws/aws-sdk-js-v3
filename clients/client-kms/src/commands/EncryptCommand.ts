@@ -171,6 +171,7 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
  * }
  * *\/
+ * // example id: to-encrypt-data-1478906026012
  * ```
  *
  */

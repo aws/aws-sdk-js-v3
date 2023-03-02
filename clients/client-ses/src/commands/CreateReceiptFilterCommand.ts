@@ -66,6 +66,7 @@ export interface CreateReceiptFilterCommandOutput extends CreateReceiptFilterRes
  * };
  * const command = new CreateReceiptFilterCommand(input);
  * await client.send(command);
+ * // example id: createreceiptfilter-1469122681253
  * ```
  *
  */

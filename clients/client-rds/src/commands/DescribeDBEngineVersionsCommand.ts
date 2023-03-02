@@ -62,6 +62,7 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * };
  * const command = new DescribeDBEngineVersionsCommand(input);
  * await client.send(command);
+ * // example id: describe-db-engine-versions-8e698cf2-2162-425a-a854-111cdaceb52b
  * ```
  *
  */

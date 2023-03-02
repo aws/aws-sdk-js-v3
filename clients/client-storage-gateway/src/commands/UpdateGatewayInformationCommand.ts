@@ -74,6 +74,7 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  *   "GatewayName": ""
  * }
  * *\/
+ * // example id: to-update-a-gateways-metadata-1472151688693
  * ```
  *
  */

@@ -137,6 +137,7 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  *   }
  * }
  * *\/
+ * // example id: create-replication-instance-1481746705295
  * ```
  *
  */

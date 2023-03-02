@@ -84,6 +84,7 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  *   }
  * }
  * *\/
+ * // example id: ec2-create-nat-gateway-1
  * ```
  *
  */

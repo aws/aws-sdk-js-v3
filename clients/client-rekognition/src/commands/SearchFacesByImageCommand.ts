@@ -129,6 +129,7 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  *   "SearchedFaceConfidence": 99.9991226196289
  * }
  * *\/
+ * // example id: to-search-for-faces-matching-a-supplied-image-1482175994491
  * ```
  *
  */

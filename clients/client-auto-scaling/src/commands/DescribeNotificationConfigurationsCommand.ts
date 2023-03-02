@@ -79,6 +79,7 @@ export interface DescribeNotificationConfigurationsCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-notification-configurations-1
  * ```
  *
  */

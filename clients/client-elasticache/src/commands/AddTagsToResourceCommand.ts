@@ -93,6 +93,7 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  *   ]
  * }
  * *\/
+ * // example id: addtagstoresource-1482430264385
  * ```
  *
  */

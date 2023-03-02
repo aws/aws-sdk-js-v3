@@ -137,6 +137,7 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  *   }
  * }
  * *\/
+ * // example id: ec2-create-dhcp-options-1
  * ```
  *
  */

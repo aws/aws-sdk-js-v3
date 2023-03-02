@@ -79,6 +79,7 @@ export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataB
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-exit-standby-1
  * ```
  *
  */

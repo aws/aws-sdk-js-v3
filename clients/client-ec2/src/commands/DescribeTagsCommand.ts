@@ -82,6 +82,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-tags-1
  * ```
  *
  */

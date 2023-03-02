@@ -90,6 +90,7 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  *   ]
  * }
  * *\/
+ * // example id: 15571463-ebea-411a-a021-1c76bd2a3625
  * ```
  *
  */

@@ -75,6 +75,7 @@ export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamIn
  *   }
  * }
  * *\/
+ * // example id: to-associate-an-iam-instance-profile-with-an-instance-1528928429850
  * ```
  *
  */

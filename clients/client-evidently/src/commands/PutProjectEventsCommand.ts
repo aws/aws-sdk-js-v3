@@ -51,8 +51,6 @@ export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse,
  * @see {@link PutProjectEventsCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
  *
- * @example Post evaluation Event for Project```javascript/* Optional[] *\/some code here```
- *
  */
 export class PutProjectEventsCommand extends $Command<
   PutProjectEventsCommandInput,

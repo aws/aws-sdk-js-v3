@@ -75,6 +75,7 @@ export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessme
  *   "failedItems": {}
  * }
  * *\/
+ * // example id: describte-assessment-targets-1481064527735
  * ```
  *
  */

@@ -64,6 +64,7 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  * };
  * const command = new RevokeCacheSecurityGroupIngressCommand(input);
  * await client.send(command);
+ * // example id: describecachesecuritygroups-1483047200801
  * ```
  *
  */

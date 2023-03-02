@@ -111,6 +111,7 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  *   ]
  * }
  * *\/
+ * // example id: elbv2-create-target-group-1
  * ```
  *
  */

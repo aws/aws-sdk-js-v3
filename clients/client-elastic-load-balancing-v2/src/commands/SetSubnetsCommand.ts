@@ -82,6 +82,7 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  *   ]
  * }
  * *\/
+ * // example id: elbv2-set-subnets-1
  * ```
  *
  */

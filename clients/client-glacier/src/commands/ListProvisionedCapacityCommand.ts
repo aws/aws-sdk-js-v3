@@ -75,6 +75,7 @@ export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCap
  *   ]
  * }
  * *\/
+ * // example id: to-list-the-provisioned-capacity-units-for-an-account-1481923656130
  * ```
  *
  */

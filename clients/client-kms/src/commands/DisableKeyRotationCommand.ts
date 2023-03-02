@@ -85,6 +85,7 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisableKeyRotationCommand(input);
  * await client.send(command);
+ * // example id: to-disable-automatic-rotation-of-key-material-1478624396092
  * ```
  *
  */

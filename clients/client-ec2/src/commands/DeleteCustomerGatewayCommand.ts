@@ -54,6 +54,7 @@ export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCustomerGatewayCommand(input);
  * await client.send(command);
+ * // example id: ec2-delete-customer-gateway-1
  * ```
  *
  */

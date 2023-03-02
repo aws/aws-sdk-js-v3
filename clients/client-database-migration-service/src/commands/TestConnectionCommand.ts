@@ -68,6 +68,7 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  *   "Connection": {}
  * }
  * *\/
+ * // example id: test-conection-1481763017636
  * ```
  *
  */

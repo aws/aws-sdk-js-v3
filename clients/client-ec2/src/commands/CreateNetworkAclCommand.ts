@@ -87,6 +87,7 @@ export interface CreateNetworkAclCommandOutput extends CreateNetworkAclResult, _
  *   }
  * }
  * *\/
+ * // example id: ec2-create-network-acl-1
  * ```
  *
  */

@@ -88,6 +88,7 @@ export interface GetBucketWebsiteCommandOutput extends GetBucketWebsiteOutput, _
  *   }
  * }
  * *\/
+ * // example id: to-get-bucket-website-configuration-1483037016926
  * ```
  *
  */

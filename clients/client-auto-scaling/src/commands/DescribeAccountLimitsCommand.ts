@@ -63,6 +63,7 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  *   "NumberOfLaunchConfigurations": 5
  * }
  * *\/
+ * // example id: autoscaling-describe-account-limits-1
  * ```
  *
  */

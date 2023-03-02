@@ -78,6 +78,7 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  *   }
  * }
  * *\/
+ * // example id: to-update-the-details-of-a-policy
  * ```
  *
  * @example To update the content of a policy
@@ -104,6 +105,7 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  *   }
  * }
  * *\/
+ * // example id: to-update-the-content-of-a-policy
  * ```
  *
  */

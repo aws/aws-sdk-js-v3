@@ -112,6 +112,7 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  *   }
  * }
  * *\/
+ * // example id: 4c21eeb1-f1da-4a08-8c44-297fc8d0ea88
  * ```
  *
  */

@@ -90,6 +90,7 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  *   "VolumeId": "vol-1234567890abcdef0"
  * }
  * *\/
+ * // example id: to-attach-a-volume-to-an-instance-1472499213109
  * ```
  *
  */

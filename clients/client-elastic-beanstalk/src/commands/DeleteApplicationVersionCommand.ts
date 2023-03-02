@@ -59,6 +59,7 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteApplicationVersionCommand(input);
  * await client.send(command);
+ * // example id: to-delete-an-application-version-1456269792956
  * ```
  *
  */

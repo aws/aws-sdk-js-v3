@@ -83,6 +83,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  *   }
  * }
  * *\/
+ * // example id: delete-endpoint-1481752425530
  * ```
  *
  */

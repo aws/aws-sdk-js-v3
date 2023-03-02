@@ -65,6 +65,7 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
  * }
  * *\/
+ * // example id: to-cancel-virtual-tape-archiving-1471294865203
  * ```
  *
  */

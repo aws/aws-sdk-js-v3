@@ -62,6 +62,7 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  * };
  * const command = new DescribeDBLogFilesCommand(input);
  * await client.send(command);
+ * // example id: describe-db-log-files-5f002d8d-5c1d-44c2-b5f4-bd284c0f1285
  * ```
  *
  */

@@ -82,6 +82,7 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-policies-1
  * ```
  *
  */

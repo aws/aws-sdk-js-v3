@@ -83,6 +83,7 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ModifySubnetAttributeCommand(input);
  * await client.send(command);
+ * // example id: ec2-modify-subnet-attribute-1
  * ```
  *
  */

@@ -76,6 +76,7 @@ export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteBucketReplicationCommand(input);
  * await client.send(command);
+ * // example id: to-delete-bucket-replication-configuration-1483043684668
  * ```
  *
  */

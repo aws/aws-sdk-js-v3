@@ -61,6 +61,7 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * };
  * const command = new ListTagsForResourceCommand(input);
  * await client.send(command);
+ * // example id: list-tags-for-resource-8401f3c2-77cd-4f90-bfd5-b523f0adcc2f
  * ```
  *
  */

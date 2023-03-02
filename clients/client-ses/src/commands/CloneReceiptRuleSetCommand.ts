@@ -64,6 +64,7 @@ export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetRes
  * };
  * const command = new CloneReceiptRuleSetCommand(input);
  * await client.send(command);
+ * // example id: clonereceiptruleset-1469055039770
  * ```
  *
  */

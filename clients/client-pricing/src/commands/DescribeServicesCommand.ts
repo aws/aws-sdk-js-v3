@@ -84,6 +84,7 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-service-metadata
  * ```
  *
  */

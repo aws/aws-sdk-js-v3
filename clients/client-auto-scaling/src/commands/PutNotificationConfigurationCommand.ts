@@ -68,6 +68,7 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  * };
  * const command = new PutNotificationConfigurationCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-put-notification-configuration-1
  * ```
  *
  */

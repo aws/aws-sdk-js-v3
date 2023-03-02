@@ -60,6 +60,7 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * };
  * const command = new DescribeEventSubscriptionsCommand(input);
  * await client.send(command);
+ * // example id: describe-event-subscriptions-11184a82-e58a-4d0c-b558-f3a7489e0850
  * ```
  *
  */

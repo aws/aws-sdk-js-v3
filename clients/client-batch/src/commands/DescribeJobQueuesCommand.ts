@@ -80,6 +80,7 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  *   ]
  * }
  * *\/
+ * // example id: to-describe-a-job-queue-1481153995804
  * ```
  *
  */

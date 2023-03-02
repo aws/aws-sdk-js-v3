@@ -71,6 +71,7 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  *   "ReplicationSubnetGroup": {}
  * }
  * *\/
+ * // example id: modify-replication-subnet-group-1481762275392
  * ```
  *
  */

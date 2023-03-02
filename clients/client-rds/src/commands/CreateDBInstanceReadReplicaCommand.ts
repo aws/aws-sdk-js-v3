@@ -87,6 +87,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *   "DBInstance": {}
  * }
  * *\/
+ * // example id: create-db-instance-read-replica-81b41cd5-2871-4dae-bc59-3e264449d5fe
  * ```
  *
  */

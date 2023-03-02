@@ -86,6 +86,7 @@ export interface DescribeScalingActivitiesCommandOutput extends DescribeScalingA
  *   ]
  * }
  * *\/
+ * // example id: to-describe-scaling-activities-for-a-scalable-target-1470864398629
  * ```
  *
  */

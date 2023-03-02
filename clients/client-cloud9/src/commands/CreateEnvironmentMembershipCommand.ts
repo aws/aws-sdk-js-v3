@@ -70,6 +70,7 @@ export interface CreateEnvironmentMembershipCommandOutput extends CreateEnvironm
  *   }
  * }
  * *\/
+ * // example id: createenvironmentmembership-1516822583452
  * ```
  *
  */

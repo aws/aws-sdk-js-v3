@@ -62,6 +62,7 @@ export interface UpdateContactChannelCommandOutput extends UpdateContactChannelR
  * };
  * const command = new UpdateContactChannelCommand(input);
  * await client.send(command);
+ * // example id: to-update-a-contact-channel-1630437610256
  * ```
  *
  */

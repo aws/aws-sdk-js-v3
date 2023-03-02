@@ -138,6 +138,7 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-all-the-stream-records-from-a-shard-1473707781419
  * ```
  *
  */

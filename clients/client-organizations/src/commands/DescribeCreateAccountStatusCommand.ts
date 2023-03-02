@@ -71,6 +71,7 @@ export interface DescribeCreateAccountStatusCommandOutput
  *   }
  * }
  * *\/
+ * // example id: to-get-information-about-a-request-to-create-an-account-1472503727223
  * ```
  *
  */

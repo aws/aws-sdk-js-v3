@@ -75,6 +75,7 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  *   }
  * }
  * *\/
+ * // example id: to-describe-the-instance-type-1472712432132
  * ```
  *
  * @example To describe the disableApiTermination attribute
@@ -95,6 +96,7 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  *   "InstanceId": "i-1234567890abcdef0"
  * }
  * *\/
+ * // example id: to-describe-the-disableapitermination-attribute-1472712533466
  * ```
  *
  * @example To describe the block device mapping for an instance
@@ -132,6 +134,7 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  *   "InstanceId": "i-1234567890abcdef0"
  * }
  * *\/
+ * // example id: to-describe-the-block-device-mapping-for-an-instance-1472712645423
  * ```
  *
  */

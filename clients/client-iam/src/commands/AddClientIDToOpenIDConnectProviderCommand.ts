@@ -60,6 +60,7 @@ export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __Metad
  * };
  * const command = new AddClientIDToOpenIDConnectProviderCommand(input);
  * await client.send(command);
+ * // example id: 028e91f4-e2a6-4d59-9e3b-4965a3fb19be
  * ```
  *
  */

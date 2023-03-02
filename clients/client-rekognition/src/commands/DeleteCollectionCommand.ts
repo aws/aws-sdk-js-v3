@@ -67,6 +67,7 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  *   "StatusCode": 200
  * }
  * *\/
+ * // example id: to-delete-a-collection-1481838179973
  * ```
  *
  */

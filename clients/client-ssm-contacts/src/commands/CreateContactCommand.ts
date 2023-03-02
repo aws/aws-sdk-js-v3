@@ -70,6 +70,7 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  *   "ContactArn": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/akuam"
  * }
  * *\/
+ * // example id: to-create-a-contact-1630360152750
  * ```
  *
  */

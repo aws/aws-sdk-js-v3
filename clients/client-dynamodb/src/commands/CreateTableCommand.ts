@@ -129,6 +129,7 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *   }
  * }
  * *\/
+ * // example id: to-create-a-table-1476116291743
  * ```
  *
  */

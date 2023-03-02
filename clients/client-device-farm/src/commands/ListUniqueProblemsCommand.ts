@@ -68,6 +68,7 @@ export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResul
  *   "uniqueProblems": {}
  * }
  * *\/
+ * // example id: to-get-information-about-unique-problems-1472617781008
  * ```
  *
  */

@@ -87,6 +87,7 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  *   "ChangeTokenStatus": "PENDING"
  * }
  * *\/
+ * // example id: getchangetokenstatus-1474658417107
  * ```
  *
  */

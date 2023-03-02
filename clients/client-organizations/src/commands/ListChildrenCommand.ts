@@ -85,6 +85,7 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-a-list-of-all-of-the-child-accounts-and-OUs-in-a-parent-container
  * ```
  *
  */

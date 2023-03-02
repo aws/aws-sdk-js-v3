@@ -87,6 +87,7 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  *   "TemplateName": "my-template"
  * }
  * *\/
+ * // example id: to-update-a-configuration-template-1456278075300
  * ```
  *
  */

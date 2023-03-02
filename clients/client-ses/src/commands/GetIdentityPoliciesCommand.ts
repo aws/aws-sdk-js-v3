@@ -79,6 +79,7 @@ export interface GetIdentityPoliciesCommandOutput extends GetIdentityPoliciesRes
  *   }
  * }
  * *\/
+ * // example id: getidentitypolicies-1469123949351
  * ```
  *
  */

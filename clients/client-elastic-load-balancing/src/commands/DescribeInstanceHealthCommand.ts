@@ -80,6 +80,7 @@ export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointSta
  *   ]
  * }
  * *\/
+ * // example id: elb-describe-instance-health-1
  * ```
  *
  */

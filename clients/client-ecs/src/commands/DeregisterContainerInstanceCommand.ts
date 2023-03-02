@@ -75,6 +75,7 @@ export interface DeregisterContainerInstanceCommandOutput
  * };
  * const command = new DeregisterContainerInstanceCommand(input);
  * await client.send(command);
+ * // example id: bf624927-cf64-4f4b-8b7e-c024a4e682f6
  * ```
  *
  */

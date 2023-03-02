@@ -76,6 +76,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  *   "Name": "MyTestDatabaseSecret"
  * }
  * *\/
+ * // example id: to-add-a-resource-based-policy-to-a-secret-1530209881839
  * ```
  *
  */

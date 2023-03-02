@@ -70,6 +70,7 @@ export interface ListConfigurationProfilesCommandOutput extends ConfigurationPro
  *   ]
  * }
  * *\/
+ * // example id: to-list-the-available-configuration-profiles-1632267193265
  * ```
  *
  */

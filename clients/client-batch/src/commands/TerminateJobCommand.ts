@@ -61,6 +61,7 @@ export interface TerminateJobCommandOutput extends TerminateJobResponse, __Metad
  * };
  * const command = new TerminateJobCommand(input);
  * await client.send(command);
+ * // example id: to-terminate-a-job-1481154558276
  * ```
  *
  */

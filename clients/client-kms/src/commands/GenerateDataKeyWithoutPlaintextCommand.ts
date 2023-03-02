@@ -138,6 +138,7 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
  * }
  * *\/
+ * // example id: to-generate-an-encrypted-data-key-1478914121134
  * ```
  *
  */

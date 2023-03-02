@@ -53,8 +53,6 @@ export interface ValidateSolNetworkPackageContentCommandOutput
  * @see {@link ValidateSolNetworkPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
- * @example Validate the network package content of a NSD archive```javascript/* Optional.empty *\/some code here```
- *
  */
 export class ValidateSolNetworkPackageContentCommand extends $Command<
   ValidateSolNetworkPackageContentCommandInput,

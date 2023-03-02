@@ -74,6 +74,7 @@ export interface ListGroupPoliciesCommandOutput extends ListGroupPoliciesRespons
  *   ]
  * }
  * *\/
+ * // example id: 02de5095-2410-4d3a-ac1b-cc40234af68f
  * ```
  *
  */

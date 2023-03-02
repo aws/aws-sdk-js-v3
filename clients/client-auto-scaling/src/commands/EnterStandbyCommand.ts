@@ -84,6 +84,7 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-enter-standby-1
  * ```
  *
  */

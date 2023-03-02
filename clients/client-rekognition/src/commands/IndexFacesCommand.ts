@@ -279,6 +279,7 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  *   "OrientationCorrection": "ROTATE_0"
  * }
  * *\/
+ * // example id: to-add-a-face-to-a-collection-1482179542923
  * ```
  *
  */

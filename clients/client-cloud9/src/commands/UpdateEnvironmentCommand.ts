@@ -60,6 +60,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResult,
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * await client.send(command);
+ * // example id: updateenvironment-1516823781910
  * ```
  *
  */

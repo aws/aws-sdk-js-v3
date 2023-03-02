@@ -110,6 +110,7 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  *   "Truncated": false
  * }
  * *\/
+ * // example id: to-list-tags-for-a-cmk-1483996855796
  * ```
  *
  */

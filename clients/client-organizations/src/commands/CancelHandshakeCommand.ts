@@ -114,6 +114,7 @@ export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, _
  *   }
  * }
  * *\/
+ * // example id: to-cancel-a-handshake-sent-to-a-member-account-1472501320506
  * ```
  *
  */

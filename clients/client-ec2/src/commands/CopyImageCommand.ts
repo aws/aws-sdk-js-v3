@@ -81,6 +81,7 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  *   "ImageId": "ami-438bea42"
  * }
  * *\/
+ * // example id: to-copy-an-ami-to-another-region-1529022820832
  * ```
  *
  */

@@ -68,6 +68,7 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * };
  * const command = new RemoveTagsFromResourceCommand(input);
  * await client.send(command);
+ * // example id: remove-tags-from-resource-1481762571330
  * ```
  *
  */

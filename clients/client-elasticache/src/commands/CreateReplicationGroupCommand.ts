@@ -106,6 +106,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *   }
  * }
  * *\/
+ * // example id: createcachereplicationgroup-1474998730655
  * ```
  *
  * @example CreateReplicationGroup
@@ -163,6 +164,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *   }
  * }
  * *\/
+ * // example id: createreplicationgroup-1483657035585
  * ```
  *
  */

@@ -51,10 +51,6 @@ export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionIn
  * @see {@link ListSolFunctionInstancesCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
- * @example List Sol Function instances```javascript/* Optional.empty *\/some code here```
- *
- * @example List Sol Function Instances with nextToken and maxResults```javascript/* Optional.empty *\/some code here```
- *
  */
 export class ListSolFunctionInstancesCommand extends $Command<
   ListSolFunctionInstancesCommandInput,

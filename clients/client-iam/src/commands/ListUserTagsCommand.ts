@@ -71,6 +71,7 @@ export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __Metad
  *   ]
  * }
  * *\/
+ * // example id: to-list-the-tags-attached-to-an-iam-user-1506719473186
  * ```
  *
  */

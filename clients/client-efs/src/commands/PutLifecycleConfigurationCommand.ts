@@ -118,6 +118,7 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  *   ]
  * }
  * *\/
+ * // example id: creates-a-new-lifecycleconfiguration-object-for-a-file-system-1551201594692
  * ```
  *
  */

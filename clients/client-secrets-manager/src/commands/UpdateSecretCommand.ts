@@ -92,6 +92,7 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  *   "Name": "MyTestDatabaseSecret"
  * }
  * *\/
+ * // example id: to-update-the-description-of-a-secret-1524002349094
  * ```
  *
  * @example To update the KMS key associated with a secret
@@ -109,6 +110,7 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  *   "Name": "MyTestDatabaseSecret"
  * }
  * *\/
+ * // example id: to-update-the-kms-key-associated-with-a-secret-1524002421563
  * ```
  *
  * @example To create a new version of the encrypted secret value
@@ -127,6 +129,7 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  *   "VersionId": "EXAMPLE1-90ab-cdef-fedc-ba987EXAMPLE"
  * }
  * *\/
+ * // example id: to-create-a-new-version-of-the-encrypted-secret-value-1524004651836
  * ```
  *
  */

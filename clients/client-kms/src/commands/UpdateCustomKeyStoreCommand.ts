@@ -151,6 +151,7 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
  * await client.send(command);
+ * // example id: to-edit-the-friendly-name-of-a-custom-key-store-1
  * ```
  *
  * @example To edit the password of an AWS CloudHSM key store
@@ -162,6 +163,7 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
  * await client.send(command);
+ * // example id: to-edit-the-properties-of-an-aws-cloudhsm-key-store-2
  * ```
  *
  * @example To associate the custom key store with a different, but related, AWS CloudHSM cluster.
@@ -173,6 +175,7 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
  * await client.send(command);
+ * // example id: to-associate-the-custom-key-store-with-a-different-but-related-aws-cloudhsm-cluster-3
  * ```
  *
  * @example To update the proxy authentication credential of an external key store
@@ -187,6 +190,7 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
  * await client.send(command);
+ * // example id: to-update-the-proxy-authentication-credential-of-an-external-key-store-4
  * ```
  *
  * @example To edit the proxy URI path of an external key store.
@@ -198,6 +202,7 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
  * await client.send(command);
+ * // example id: to-update-the-xks-proxy-api-path-of-an-external-key-store-5
  * ```
  *
  * @example To update the proxy connectivity of an external key store to VPC_ENDPOINT_SERVICE
@@ -211,6 +216,7 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
  * await client.send(command);
+ * // example id: to-update-the-proxy-connectivity-of-an-external-key-store-to-vpc_endpoint_service-6
  * ```
  *
  */

@@ -69,6 +69,7 @@ export interface DescribeRefreshSchemasStatusCommandOutput
  *   "RefreshSchemasStatus": {}
  * }
  * *\/
+ * // example id: describe-refresh-schema-status-1481755303497
  * ```
  *
  */

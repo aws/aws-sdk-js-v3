@@ -54,6 +54,7 @@ export interface DeleteSpotDatafeedSubscriptionCommandOutput extends __MetadataB
  * const input = undefined;
  * const command = new DeleteSpotDatafeedSubscriptionCommand(input);
  * await client.send(command);
+ * // example id: ec2-delete-spot-datafeed-subscription-1
  * ```
  *
  */

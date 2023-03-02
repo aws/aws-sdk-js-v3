@@ -69,6 +69,7 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  *   "EngineDefaults": {}
  * }
  * *\/
+ * // example id: describe-engine-default-cluster-parameters-f130374a-7bee-434b-b51d-da20b6e000e0
  * ```
  *
  */

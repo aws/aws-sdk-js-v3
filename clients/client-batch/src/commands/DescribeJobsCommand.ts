@@ -93,6 +93,7 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  *   ]
  * }
  * *\/
+ * // example id: to-describe-a-specific-job-1481154090490
  * ```
  *
  */

@@ -69,6 +69,7 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * };
  * const command = new DescribeSecurityGroupsCommand(input);
  * await client.send(command);
+ * // example id: to-describe-a-security-group-1529354426314
  * ```
  *
  * @example To describe a tagged security group
@@ -86,6 +87,7 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * };
  * const command = new DescribeSecurityGroupsCommand(input);
  * await client.send(command);
+ * // example id: to-describe-a-tagged-security-group-1529354553880
  * ```
  *
  */

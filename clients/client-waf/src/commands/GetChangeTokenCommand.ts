@@ -75,6 +75,7 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
+ * // example id: get-change-token-example-1471635120794
  * ```
  *
  */

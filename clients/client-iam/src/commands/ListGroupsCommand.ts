@@ -82,6 +82,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  *   ]
  * }
  * *\/
+ * // example id: b3ab1380-2a21-42fb-8e85-503f65512c66
  * ```
  *
  */

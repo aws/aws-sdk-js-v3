@@ -80,6 +80,7 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  *   "VolumeType": "gp2"
  * }
  * *\/
+ * // example id: to-create-a-new-volume-1472496724296
  * ```
  *
  * @example To create a new Provisioned IOPS (SSD) volume from a snapshot
@@ -107,6 +108,7 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  *   "VolumeType": "io1"
  * }
  * *\/
+ * // example id: to-create-a-new-provisioned-iops-ssd-volume-from-a-snapshot-1472498975176
  * ```
  *
  */

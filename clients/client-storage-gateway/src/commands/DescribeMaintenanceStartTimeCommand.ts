@@ -70,6 +70,7 @@ export interface DescribeMaintenanceStartTimeCommandOutput
  *   "Timezone": "GMT+7:00"
  * }
  * *\/
+ * // example id: to-describe-gateways-maintenance-start-time-1471470727387
  * ```
  *
  */

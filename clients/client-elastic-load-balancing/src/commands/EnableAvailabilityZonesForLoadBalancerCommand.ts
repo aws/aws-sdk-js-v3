@@ -80,6 +80,7 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: elb-enable-availability-zones-for-load-balancer-1
  * ```
  *
  */

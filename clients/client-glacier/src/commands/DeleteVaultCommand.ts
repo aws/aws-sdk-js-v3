@@ -73,6 +73,7 @@ export interface DeleteVaultCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteVaultCommand(input);
  * await client.send(command);
+ * // example id: 7f7f000b-4bdb-40d2-91e6-7c902f60f60f
  * ```
  *
  */

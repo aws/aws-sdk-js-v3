@@ -126,6 +126,7 @@ export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentR
  *   "failedItems": {}
  * }
  * *\/
+ * // example id: describte-assessment-runs-1481064424352
  * ```
  *
  */

@@ -78,6 +78,7 @@ export interface StopReplicationTaskCommandOutput extends StopReplicationTaskRes
  *   }
  * }
  * *\/
+ * // example id: stop-replication-task-1481762924947
  * ```
  *
  */

@@ -74,6 +74,7 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  *   "State": "READY_FOR_DEPLOYMENT"
  * }
  * *\/
+ * // example id: to-create-an-environment-1632265124975
  * ```
  *
  */

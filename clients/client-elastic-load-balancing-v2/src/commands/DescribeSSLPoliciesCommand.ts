@@ -158,6 +158,7 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  *   ]
  * }
  * *\/
+ * // example id: elbv2-describe-ssl-policies-1
  * ```
  *
  */

@@ -110,6 +110,7 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  *   }
  * }
  * *\/
+ * // example id: to-decline-a-handshake-sent-from-the-master-account-1472502666967
  * ```
  *
  */

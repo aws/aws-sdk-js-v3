@@ -147,6 +147,7 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  *   }
  * }
  * *\/
+ * // example id: to-compare-two-images-1482181985581
  * ```
  *
  */

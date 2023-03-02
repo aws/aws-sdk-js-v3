@@ -62,6 +62,7 @@ export interface SetVaultAccessPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetVaultAccessPolicyCommand(input);
  * await client.send(command);
+ * // example id: to--set-the-access-policy-on-a-vault-1482185872517
  * ```
  *
  */

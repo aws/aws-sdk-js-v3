@@ -71,6 +71,7 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  *   ]
  * }
  * *\/
+ * // example id: to-delete-a-face-1482182799377
  * ```
  *
  */

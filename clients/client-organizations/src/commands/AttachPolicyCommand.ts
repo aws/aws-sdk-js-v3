@@ -80,6 +80,7 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachPolicyCommand(input);
  * await client.send(command);
+ * // example id: to-attach-a-policy-to-an-ou
  * ```
  *
  * @example To attach a policy to an account
@@ -92,6 +93,7 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachPolicyCommand(input);
  * await client.send(command);
+ * // example id: to-attach-a-policy-to-an-account
  * ```
  *
  */

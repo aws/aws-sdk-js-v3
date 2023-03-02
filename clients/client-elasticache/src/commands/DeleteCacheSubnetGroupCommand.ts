@@ -56,6 +56,7 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCacheSubnetGroupCommand(input);
  * await client.send(command);
+ * // example id: deletecachesubnetgroup-1475011431325
  * ```
  *
  */

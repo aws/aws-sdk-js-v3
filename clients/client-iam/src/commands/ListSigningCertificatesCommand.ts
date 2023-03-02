@@ -80,6 +80,7 @@ export interface ListSigningCertificatesCommandOutput extends ListSigningCertifi
  *   ]
  * }
  * *\/
+ * // example id: b4c10256-4fc9-457e-b3fd-4a110d4d73dc
  * ```
  *
  */

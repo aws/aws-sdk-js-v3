@@ -80,6 +80,7 @@ export interface DescribeReplicationSubnetGroupsCommandOutput
  *   "ReplicationSubnetGroups": []
  * }
  * *\/
+ * // example id: describe-replication-subnet-groups-1481755621284
  * ```
  *
  */

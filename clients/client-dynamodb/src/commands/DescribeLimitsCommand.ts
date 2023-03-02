@@ -133,6 +133,7 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  *   "TableMaxWriteCapacityUnits": 10000
  * }
  * *\/
+ * // example id: to-determine-capacity-limits-per-table-and-account-in-the-current-aws-region-1475884162064
  * ```
  *
  */

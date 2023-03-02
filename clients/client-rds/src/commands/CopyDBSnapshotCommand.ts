@@ -71,6 +71,7 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  *   "DBSnapshot": {}
  * }
  * *\/
+ * // example id: copy-db-snapshot-1b2f0210-bc67-415d-9822-6eecf447dc86
  * ```
  *
  */

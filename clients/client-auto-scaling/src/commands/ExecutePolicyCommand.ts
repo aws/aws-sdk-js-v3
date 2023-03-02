@@ -57,6 +57,7 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ExecutePolicyCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-execute-policy-1
  * ```
  *
  */

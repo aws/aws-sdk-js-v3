@@ -102,6 +102,7 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  *   ]
  * }
  * *\/
+ * // example id: to-describe-a-service-1472513256350
  * ```
  *
  */

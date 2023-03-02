@@ -159,6 +159,7 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *   "Plaintext": "<binary data>"
  * }
  * *\/
+ * // example id: to-generate-a-data-key-1478912956062
  * ```
  *
  */

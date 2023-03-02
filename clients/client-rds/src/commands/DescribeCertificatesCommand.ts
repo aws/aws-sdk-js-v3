@@ -64,6 +64,7 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  * };
  * const command = new DescribeCertificatesCommand(input);
  * await client.send(command);
+ * // example id: describe-certificates-9d71a70d-7908-4444-b43f-321d842c62dc
  * ```
  *
  */

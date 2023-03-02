@@ -93,6 +93,7 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  * };
  * const command = new RemoveAccountFromOrganizationCommand(input);
  * await client.send(command);
+ * // example id: to-remove-an-account-from-an-organization-as-the-master-account
  * ```
  *
  */

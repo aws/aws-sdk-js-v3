@@ -77,6 +77,7 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * };
  * const command = new PutReportDefinitionCommand(input);
  * await client.send(command);
+ * // example id: to-create-a-report-definitions
  * ```
  *
  */

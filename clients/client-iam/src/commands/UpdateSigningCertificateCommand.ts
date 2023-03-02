@@ -62,6 +62,7 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  * };
  * const command = new UpdateSigningCertificateCommand(input);
  * await client.send(command);
+ * // example id: 829aee7b-efc5-4b3b-84a5-7f899b38018d
  * ```
  *
  */

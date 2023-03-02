@@ -117,6 +117,7 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  *   }
  * }
  * *\/
+ * // example id: to-get-the-launch-template-data-for-an-instance--1529356515702
  * ```
  *
  */

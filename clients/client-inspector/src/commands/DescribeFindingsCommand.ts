@@ -93,6 +93,7 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  *   ]
  * }
  * *\/
+ * // example id: describte-findings-1481064771803
  * ```
  *
  */

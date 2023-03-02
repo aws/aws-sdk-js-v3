@@ -101,6 +101,7 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  *   "DBClusterSnapshot": {}
  * }
  * *\/
+ * // example id: to-copy-a-db-cluster-snapshot-1473879770564
  * ```
  *
  */

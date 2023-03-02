@@ -91,6 +91,7 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  *   "AssociationId": "eipassoc-2bebb745"
  * }
  * *\/
+ * // example id: ec2-associate-address-1
  * ```
  *
  * @example To associate an Elastic IP address with a network interface
@@ -107,6 +108,7 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  *   "AssociationId": "eipassoc-2bebb745"
  * }
  * *\/
+ * // example id: ec2-associate-address-2
  * ```
  *
  * @example To associate an Elastic IP address in EC2-Classic
@@ -118,6 +120,7 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * };
  * const command = new AssociateAddressCommand(input);
  * await client.send(command);
+ * // example id: ec2-associate-address-3
  * ```
  *
  */

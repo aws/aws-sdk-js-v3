@@ -99,6 +99,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
  *   ]
  * }
  * *\/
+ * // example id: describesnapshots-1481743399584
  * ```
  *
  */

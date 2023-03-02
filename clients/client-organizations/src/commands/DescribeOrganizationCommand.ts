@@ -75,6 +75,7 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  *   }
  * }
  * *\/
+ * // example id: to-get-information-about-an-organization-1472503400505
  * ```
  *
  */

@@ -72,6 +72,7 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  *   "OptionGroup": {}
  * }
  * *\/
+ * // example id: to-modify-an-option-group-1473890247875
  * ```
  *
  */

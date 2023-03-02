@@ -65,6 +65,7 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  *   "DBClusterParameterGroup": {}
  * }
  * *\/
+ * // example id: copy-db-cluster-parameter-group-6fefaffe-cde9-4dba-9f0b-d3f593572fe4
  * ```
  *
  */

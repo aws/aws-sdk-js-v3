@@ -104,6 +104,7 @@ export interface StopInstancesCommandOutput extends StopInstancesResult, __Metad
  *   ]
  * }
  * *\/
+ * // example id: to-stop-a-running-ec2-instance-1529358905540
  * ```
  *
  */

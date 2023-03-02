@@ -64,6 +64,7 @@ export interface ListUploadsCommandOutput extends ListUploadsResult, __MetadataB
  *   "uploads": []
  * }
  * *\/
+ * // example id: to-get-information-about-uploads-1472617943090
  * ```
  *
  */

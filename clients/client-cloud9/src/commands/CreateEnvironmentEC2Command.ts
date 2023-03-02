@@ -69,6 +69,7 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
  * }
  * *\/
+ * // example id: createenvironmentec2-1516821730547
  * ```
  *
  */

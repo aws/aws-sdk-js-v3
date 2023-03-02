@@ -101,6 +101,7 @@ export interface PurchaseScheduledInstancesCommandOutput extends PurchaseSchedul
  *   ]
  * }
  * *\/
+ * // example id: ec2-purchase-scheduled-instances-1
  * ```
  *
  */

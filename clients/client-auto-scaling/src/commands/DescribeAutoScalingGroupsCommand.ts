@@ -106,6 +106,7 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-auto-scaling-groups-1
  * ```
  *
  */

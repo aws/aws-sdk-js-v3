@@ -70,6 +70,7 @@ export interface GetContactChannelCommandOutput extends GetContactChannelResult,
  *   "Type": "SMS"
  * }
  * *\/
+ * // example id: to-list-the-details-of-a-contact-channel-1630365682730
  * ```
  *
  */

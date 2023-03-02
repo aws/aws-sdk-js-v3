@@ -53,6 +53,7 @@ export interface DeleteRouteTableCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRouteTableCommand(input);
  * await client.send(command);
+ * // example id: ec2-delete-route-table-1
  * ```
  *
  */

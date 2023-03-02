@@ -61,6 +61,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * };
  * const command = new UntagResourceCommand(input);
  * await client.send(command);
+ * // example id: to-remove-tags-from-a-contact-1630437251110
  * ```
  *
  */

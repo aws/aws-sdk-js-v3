@@ -74,6 +74,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *   "DBInstance": {}
  * }
  * *\/
+ * // example id: modify-db-instance-6979a368-6254-467b-8a8d-61103f4fcde9
  * ```
  *
  */

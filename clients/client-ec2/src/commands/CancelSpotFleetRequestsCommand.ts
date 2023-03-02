@@ -78,6 +78,7 @@ export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetReq
  *   ]
  * }
  * *\/
+ * // example id: ec2-cancel-spot-fleet-requests-1
  * ```
  *
  * @example To cancel a Spot fleet request without terminating its Spot Instances
@@ -102,6 +103,7 @@ export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetReq
  *   ]
  * }
  * *\/
+ * // example id: ec2-cancel-spot-fleet-requests-2
  * ```
  *
  */

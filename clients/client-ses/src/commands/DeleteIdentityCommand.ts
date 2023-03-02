@@ -60,6 +60,7 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  * };
  * const command = new DeleteIdentityCommand(input);
  * await client.send(command);
+ * // example id: deleteidentity-1469047858906
  * ```
  *
  */

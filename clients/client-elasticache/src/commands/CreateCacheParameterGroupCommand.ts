@@ -84,6 +84,7 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  *   }
  * }
  * *\/
+ * // example id: createcacheparametergroup-1474997699362
  * ```
  *
  */

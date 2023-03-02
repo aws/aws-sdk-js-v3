@@ -70,6 +70,7 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * };
  * const command = new DescribeEventsCommand(input);
  * await client.send(command);
+ * // example id: describe-events-3836e5ed-3913-4f76-8452-c77fcad5016b
  * ```
  *
  */

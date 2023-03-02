@@ -59,6 +59,7 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
  * };
  * const command = new DescribeOptionGroupOptionsCommand(input);
  * await client.send(command);
+ * // example id: describe-option-group-options-30d735a4-81f1-49e4-b3f2-5dc45d50c8ed
  * ```
  *
  */

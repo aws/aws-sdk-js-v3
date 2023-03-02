@@ -144,6 +144,7 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketLoggingCommand(input);
  * await client.send(command);
+ * // example id: set-logging-configuration-for-a-bucket-1482269119909
  * ```
  *
  */

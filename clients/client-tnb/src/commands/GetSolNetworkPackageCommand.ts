@@ -51,8 +51,6 @@ export interface GetSolNetworkPackageCommandOutput extends GetSolNetworkPackageO
  * @see {@link GetSolNetworkPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
- * @example Describe an individual Sol network package```javascript/* Optional.empty *\/some code here```
- *
  */
 export class GetSolNetworkPackageCommand extends $Command<
   GetSolNetworkPackageCommandInput,

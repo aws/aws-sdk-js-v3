@@ -78,6 +78,7 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  *   "UnsuccessfullyDeletedLaunchTemplateVersions": []
  * }
  * *\/
+ * // example id: to-delete-a-launch-template-version-1529024790864
  * ```
  *
  */

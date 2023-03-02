@@ -105,6 +105,7 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  *   "LoadBalancerName": "my-load-balancer"
  * }
  * *\/
+ * // example id: elb-modify-load-balancer-attributes-1
  * ```
  *
  * @example To enable connection draining
@@ -132,6 +133,7 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  *   "LoadBalancerName": "my-load-balancer"
  * }
  * *\/
+ * // example id: elb-modify-load-balancer-attributes-2
  * ```
  *
  */

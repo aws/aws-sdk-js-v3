@@ -96,6 +96,7 @@ export interface CreateDBClusterParameterGroupCommandOutput
  *   "DBClusterParameterGroup": {}
  * }
  * *\/
+ * // example id: create-db-cluster-parameter-group-8eb1c3ae-1965-4262-afe3-ee134c4430b1
  * ```
  *
  */

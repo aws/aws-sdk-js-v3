@@ -62,6 +62,7 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  * };
  * const command = new DeleteLifecycleHookCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-delete-lifecycle-hook-1
  * ```
  *
  */

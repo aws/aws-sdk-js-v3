@@ -62,6 +62,7 @@ export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInst
  * };
  * const command = new DescribeReservedDBInstancesCommand(input);
  * await client.send(command);
+ * // example id: describe-reserved-db-instances-d45adaca-2e30-407c-a0f3-aa7b98bea17f
  * ```
  *
  */

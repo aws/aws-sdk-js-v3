@@ -67,6 +67,7 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisableKeyCommand(input);
  * await client.send(command);
+ * // example id: to-disable-a-cmk-1478566583659
  * ```
  *
  */

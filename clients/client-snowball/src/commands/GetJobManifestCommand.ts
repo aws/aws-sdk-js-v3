@@ -84,6 +84,7 @@ export interface GetJobManifestCommandOutput extends GetJobManifestResult, __Met
  *   "ManifestURI": "https://awsie-frosty-manifests-prod.s3.amazonaws.com/JID123e4567-e89b-12d3-a456-426655440000_manifest.bin?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20161224T005115Z&X-Amz-SignedHeaders=..."
  * }
  * *\/
+ * // example id: to-get-the-manifest-for-a-job-youve-created-for-aws-snowball-1482540389246
  * ```
  *
  */

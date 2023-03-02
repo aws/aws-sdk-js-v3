@@ -68,6 +68,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  *   }
  * }
  * *\/
+ * // example id: d5da2a90-5e69-4ef7-8ae8-4c33dc21fd21
  * ```
  *
  */

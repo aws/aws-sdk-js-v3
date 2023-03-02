@@ -75,6 +75,7 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
  * }
  * *\/
+ * // example id: to-cancel-deletion-of-a-cmk-1477428535102
  * ```
  *
  */

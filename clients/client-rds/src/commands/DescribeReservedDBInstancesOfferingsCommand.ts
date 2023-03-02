@@ -64,6 +64,7 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
  * };
  * const command = new DescribeReservedDBInstancesOfferingsCommand(input);
  * await client.send(command);
+ * // example id: describe-reserved-db-instances-offerings-9de7d1fd-d6a6-4a72-84ae-b2ef58d47d8d
  * ```
  *
  */

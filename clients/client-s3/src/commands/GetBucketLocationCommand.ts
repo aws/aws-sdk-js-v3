@@ -80,6 +80,7 @@ export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput,
  *   "LocationConstraint": "us-west-2"
  * }
  * *\/
+ * // example id: to-get-bucket-location-1481594573609
  * ```
  *
  */

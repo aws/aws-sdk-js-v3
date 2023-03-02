@@ -76,6 +76,7 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
  * }
  * *\/
+ * // example id: to-activate-the-gateway-1471281611207
  * ```
  *
  */

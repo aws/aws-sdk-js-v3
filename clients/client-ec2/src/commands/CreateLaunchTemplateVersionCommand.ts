@@ -100,6 +100,7 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  *   }
  * }
  * *\/
+ * // example id: to-create-a-launch-template-version-1529024195702
  * ```
  *
  */

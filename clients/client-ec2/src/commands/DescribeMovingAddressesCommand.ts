@@ -66,6 +66,7 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-moving-addresses-1
  * ```
  *
  */

@@ -53,6 +53,7 @@ export interface DeleteNetworkAclCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteNetworkAclCommand(input);
  * await client.send(command);
+ * // example id: ec2-delete-network-acl-1
  * ```
  *
  */

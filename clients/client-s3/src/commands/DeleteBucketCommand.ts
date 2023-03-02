@@ -69,6 +69,7 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBucketCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-bucket-1473108514262
  * ```
  *
  */

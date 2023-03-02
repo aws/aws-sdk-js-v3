@@ -74,6 +74,7 @@ export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, _
  *   }
  * }
  * *\/
+ * // example id: ec2-create-route-table-1
  * ```
  *
  */

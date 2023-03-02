@@ -95,6 +95,7 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  *   }
  * }
  * *\/
+ * // example id: to-delete-a-table-1475884368755
  * ```
  *
  */

@@ -70,6 +70,7 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  *   "Name": "example-application"
  * }
  * *\/
+ * // example id: to-create-an-application-1632264511615
  * ```
  *
  */

@@ -72,6 +72,7 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  *   ]
  * }
  * *\/
+ * // example id: example-list-service-instances-1587236237008
  * ```
  *
  */

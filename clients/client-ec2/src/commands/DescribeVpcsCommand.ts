@@ -77,6 +77,7 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-vpcs-1
  * ```
  *
  */

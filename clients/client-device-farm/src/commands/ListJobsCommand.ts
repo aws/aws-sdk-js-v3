@@ -55,6 +55,7 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * };
  * const command = new ListJobsCommand(input);
  * await client.send(command);
+ * // example id: to-get-information-about-jobs-1471642228071
  * ```
  *
  */

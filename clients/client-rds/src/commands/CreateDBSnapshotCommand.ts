@@ -65,6 +65,7 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  *   "DBSnapshot": {}
  * }
  * *\/
+ * // example id: create-db-snapshot-e10e0e2c-9ac4-426d-9b17-6b6a3e382ce2
  * ```
  *
  */

@@ -97,6 +97,7 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RevokeGrantCommand(input);
  * await client.send(command);
+ * // example id: to-revoke-a-grant-1481329549302
  * ```
  *
  */

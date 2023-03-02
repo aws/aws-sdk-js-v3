@@ -70,6 +70,7 @@ export interface PutAccountSettingDefaultCommandOutput extends PutAccountSetting
  *   }
  * }
  * *\/
+ * // example id: to-modify-the-default-account-settings-for-all-iam-users-or-roles-on-your-account-1549523794603
  * ```
  *
  */

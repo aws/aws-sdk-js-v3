@@ -58,6 +58,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataB
  * };
  * const command = new ListDevicesCommand(input);
  * await client.send(command);
+ * // example id: to-get-information-about-devices-1471641699344
  * ```
  *
  */

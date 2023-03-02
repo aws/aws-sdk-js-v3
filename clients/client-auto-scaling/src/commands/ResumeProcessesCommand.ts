@@ -59,6 +59,7 @@ export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResumeProcessesCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-resume-processes-1
  * ```
  *
  */

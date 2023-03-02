@@ -73,6 +73,7 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  * };
  * const command = new AddTagsToResourceCommand(input);
  * await client.send(command);
+ * // example id: add-tags-to-resource-1481744141435
  * ```
  *
  */

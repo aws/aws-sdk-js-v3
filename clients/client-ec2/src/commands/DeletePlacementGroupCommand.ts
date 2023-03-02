@@ -56,6 +56,7 @@ export interface DeletePlacementGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePlacementGroupCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-placement-group-1472712349959
  * ```
  *
  */

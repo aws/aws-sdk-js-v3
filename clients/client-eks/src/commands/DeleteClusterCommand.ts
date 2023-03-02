@@ -65,6 +65,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * };
  * const command = new DeleteClusterCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-cluster-1527868641252
  * ```
  *
  */

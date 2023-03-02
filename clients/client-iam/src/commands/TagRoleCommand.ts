@@ -104,6 +104,7 @@ export interface TagRoleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagRoleCommand(input);
  * await client.send(command);
+ * // example id: to-add-a-tag-key-and-value-to-an-iam-role-1506718791513
  * ```
  *
  */

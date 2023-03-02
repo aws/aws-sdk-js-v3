@@ -88,6 +88,7 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
  *   "VolumeRecoveryPointTime": "2017-06-30T10:10:10.000Z"
  * }
  * *\/
+ * // example id: to-create-a-snapshot-of-a-gateway-volume-1471301469561
  * ```
  *
  */

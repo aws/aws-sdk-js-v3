@@ -56,6 +56,7 @@ export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetInstanceHealthCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-set-instance-health-1
  * ```
  *
  */

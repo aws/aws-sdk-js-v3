@@ -120,6 +120,7 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-spot-instance-requests-1
  * ```
  *
  */

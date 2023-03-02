@@ -54,6 +54,7 @@ export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResetImageAttributeCommand(input);
  * await client.send(command);
+ * // example id: to-reset-the-launchpermission-attribute-1529359519534
  * ```
  *
  */

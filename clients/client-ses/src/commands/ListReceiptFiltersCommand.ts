@@ -73,6 +73,7 @@ export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersRespo
  *   ]
  * }
  * *\/
+ * // example id: listreceiptfilters-1469120786789
  * ```
  *
  */

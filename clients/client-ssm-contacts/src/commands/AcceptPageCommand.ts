@@ -60,6 +60,7 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  * };
  * const command = new AcceptPageCommand(input);
  * await client.send(command);
+ * // example id: to-accept-a-page-during-and-engagement-1630357840187
  * ```
  *
  */

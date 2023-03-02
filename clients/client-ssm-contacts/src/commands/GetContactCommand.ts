@@ -103,6 +103,7 @@ export interface GetContactCommandOutput extends GetContactResult, __MetadataBea
  *   "Type": "PERSONAL"
  * }
  * *\/
+ * // example id: example-1-to-describe-a-contact-plan-1630365360005
  * ```
  *
  * @example Example 2: To describe an escalation plan
@@ -158,6 +159,7 @@ export interface GetContactCommandOutput extends GetContactResult, __MetadataBea
  *   "Type": "ESCALATION"
  * }
  * *\/
+ * // example id: example-2-to-describe-an-escalation-plan-1630365515731
  * ```
  *
  */

@@ -107,6 +107,7 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  *   }
  * }
  * *\/
+ * // example id: createipset-1472501003122
  * ```
  *
  */

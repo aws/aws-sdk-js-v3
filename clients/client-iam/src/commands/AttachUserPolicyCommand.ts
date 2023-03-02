@@ -61,6 +61,7 @@ export interface AttachUserPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachUserPolicyCommand(input);
  * await client.send(command);
+ * // example id: 1372ebd8-9475-4b1a-a479-23b6fd4b8b3e
  * ```
  *
  */

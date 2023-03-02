@@ -73,6 +73,7 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  *   "DBClusterSnapshot": {}
  * }
  * *\/
+ * // example id: delete-db-cluster-snapshot-c67e0d95-670e-4fb5-af90-6d9a70a91b07
  * ```
  *
  */

@@ -79,6 +79,7 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * };
  * const command = new RegisterTargetsCommand(input);
  * await client.send(command);
+ * // example id: elbv2-register-targets-1
  * ```
  *
  * @example To register targets with a target group using port overrides
@@ -99,6 +100,7 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * };
  * const command = new RegisterTargetsCommand(input);
  * await client.send(command);
+ * // example id: elbv2-register-targets-2
  * ```
  *
  */

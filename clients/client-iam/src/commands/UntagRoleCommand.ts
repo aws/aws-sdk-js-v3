@@ -54,6 +54,7 @@ export interface UntagRoleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagRoleCommand(input);
  * await client.send(command);
+ * // example id: to-remove-a-tag-from-an-iam-role-1506719589943
  * ```
  *
  */

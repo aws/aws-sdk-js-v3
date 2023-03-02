@@ -78,6 +78,7 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
  *   "PolicyRevisionId": "0123456789abcdef"
  * }
  * *\/
+ * // example id: putprojectpolicy-1658201727623
  * ```
  *
  */

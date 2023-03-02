@@ -54,6 +54,7 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteScheduledActionCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-delete-scheduled-action-1
  * ```
  *
  */

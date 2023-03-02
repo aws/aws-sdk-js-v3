@@ -72,6 +72,7 @@ export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFin
  *   "failedItems": {}
  * }
  * *\/
+ * // example id: add-attributes-to-findings-1481063856401
  * ```
  *
  */

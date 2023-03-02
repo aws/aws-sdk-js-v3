@@ -75,6 +75,7 @@ export interface StartGatewayCommandOutput extends StartGatewayOutput, __Metadat
  *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
  * }
  * *\/
+ * // example id: to-start-a-gateway-service-1472150722315
  * ```
  *
  */

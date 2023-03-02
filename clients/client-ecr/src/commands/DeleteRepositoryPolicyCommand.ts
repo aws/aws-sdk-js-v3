@@ -65,6 +65,7 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  *   "repositoryName": "ubuntu"
  * }
  * *\/
+ * // example id: deleterepositorypolicy-example-1470866943748
  * ```
  *
  */

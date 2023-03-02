@@ -94,6 +94,7 @@ export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGr
  *   }
  * }
  * *\/
+ * // example id: createcachesubnet-1483042274558
  * ```
  *
  */

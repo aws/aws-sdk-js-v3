@@ -188,6 +188,7 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  *   ]
  * }
  * *\/
+ * // example id: to-list-the-faces-in-a-collection-1482181416530
  * ```
  *
  */

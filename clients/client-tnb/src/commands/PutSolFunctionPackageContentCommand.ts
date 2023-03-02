@@ -53,8 +53,6 @@ export interface PutSolFunctionPackageContentCommandOutput
  * @see {@link PutSolFunctionPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
- * @example Upload a function package content```javascript/* Optional.empty *\/some code here```
- *
  */
 export class PutSolFunctionPackageContentCommand extends $Command<
   PutSolFunctionPackageContentCommandInput,

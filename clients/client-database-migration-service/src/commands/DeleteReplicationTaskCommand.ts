@@ -78,6 +78,7 @@ export interface DeleteReplicationTaskCommandOutput extends DeleteReplicationTas
  *   }
  * }
  * *\/
+ * // example id: delete-replication-task-1481752903506
  * ```
  *
  */

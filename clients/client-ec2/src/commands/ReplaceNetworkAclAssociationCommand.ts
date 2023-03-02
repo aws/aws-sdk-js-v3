@@ -70,6 +70,7 @@ export interface ReplaceNetworkAclAssociationCommandOutput
  *   "NewAssociationId": "aclassoc-3999875b"
  * }
  * *\/
+ * // example id: ec2-replace-network-acl-association-1
  * ```
  *
  */

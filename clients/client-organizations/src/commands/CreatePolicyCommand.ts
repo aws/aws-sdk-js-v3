@@ -82,6 +82,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  *   }
  * }
  * *\/
+ * // example id: to-create-a-service-control-policy
  * ```
  *
  */

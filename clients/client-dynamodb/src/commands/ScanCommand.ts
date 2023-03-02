@@ -111,6 +111,7 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  *   "ScannedCount": 3
  * }
  * *\/
+ * // example id: to-scan-a-table-1475883652470
  * ```
  *
  */

@@ -78,6 +78,7 @@ export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGro
  *   ]
  * }
  * *\/
+ * // example id: describe-resource-groups-1481065787743
  * ```
  *
  */

@@ -71,6 +71,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  *   "Lifecycle": "DELETED"
  * }
  * *\/
+ * // example id: to-delete-a-file-system-1481847318399
  * ```
  *
  */

@@ -91,6 +91,7 @@ export interface DescribeMetricCollectionTypesCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-metric-collection-types-1
  * ```
  *
  */

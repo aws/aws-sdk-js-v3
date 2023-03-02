@@ -68,6 +68,7 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DetachPolicyCommand(input);
  * await client.send(command);
+ * // example id: to-detach-a-policy-from-a-root-ou-or-account
  * ```
  *
  */

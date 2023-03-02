@@ -122,6 +122,7 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdatePrimaryRegionCommand(input);
  * await client.send(command);
+ * // example id: to-update-the-primary-region-of-a-multi-region-kms-key-1660249555577
  * ```
  *
  */

@@ -130,6 +130,7 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: to-get-lifecycle-configuration-on-a-bucket-1481666063200
  * ```
  *
  */

@@ -95,6 +95,7 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  *   ]
  * }
  * *\/
+ * // example id: to-list-all-of-the-secret-versions-associated-with-a-secret-1524000999164
  * ```
  *
  */

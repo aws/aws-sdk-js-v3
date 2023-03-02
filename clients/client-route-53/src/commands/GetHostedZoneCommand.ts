@@ -81,6 +81,7 @@ export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __Met
  *   }
  * }
  * *\/
+ * // example id: to-get-information-about-a-hosted-zone-1481752361124
  * ```
  *
  */

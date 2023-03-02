@@ -119,6 +119,7 @@ export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage,
  *   ]
  * }
  * *\/
+ * // example id: to-describe-source-regions-1473457722410
  * ```
  *
  */

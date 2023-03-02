@@ -92,6 +92,7 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  *   "ProjectVersionArn": "arn:aws:rekognition:us-east-1:555555555555:project/DestinationProject/version/DestinationVersionName_cross_account/16567050987651"
  * }
  * *\/
+ * // example id: copyprojectversion-1658203943815
  * ```
  *
  */

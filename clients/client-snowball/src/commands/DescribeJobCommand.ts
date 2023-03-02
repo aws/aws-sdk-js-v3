@@ -90,6 +90,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  *   }
  * }
  * *\/
+ * // example id: to-describe-a-job-youve-created-for-aws-snowball-1482539500180
  * ```
  *
  */

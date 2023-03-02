@@ -65,6 +65,7 @@ export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __M
  *   "OptionGroup": {}
  * }
  * *\/
+ * // example id: copy-option-group-8d5c01c3-8846-4e9c-a4b0-1b7237f7d0ec
  * ```
  *
  */

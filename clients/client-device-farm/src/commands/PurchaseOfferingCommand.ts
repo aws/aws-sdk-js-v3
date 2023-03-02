@@ -85,6 +85,7 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, _
  *   }
  * }
  * *\/
+ * // example id: to-purchase-a-device-slot-offering-1472648146343
  * ```
  *
  */

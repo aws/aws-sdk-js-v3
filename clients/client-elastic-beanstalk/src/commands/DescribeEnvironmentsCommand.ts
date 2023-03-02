@@ -85,6 +85,7 @@ export interface DescribeEnvironmentsCommandOutput extends EnvironmentDescriptio
  *   ]
  * }
  * *\/
+ * // example id: to-view-information-about-an-environment-1456277288662
  * ```
  *
  */

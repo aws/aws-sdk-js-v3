@@ -62,6 +62,7 @@ export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResetInstanceAttributeCommand(input);
  * await client.send(command);
+ * // example id: to-reset-the-sourcedestcheck-attribute-1529359630708
  * ```
  *
  */

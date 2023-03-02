@@ -74,6 +74,7 @@ export interface PutRolePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutRolePolicyCommand(input);
  * await client.send(command);
+ * // example id: de62fd00-46c7-4601-9e0d-71d5fbb11ecb
  * ```
  *
  */

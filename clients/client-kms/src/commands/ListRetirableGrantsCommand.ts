@@ -119,6 +119,7 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  *   "Truncated": false
  * }
  * *\/
+ * // example id: to-list-grants-that-the-specified-principal-can-retire-1481140499620
  * ```
  *
  */

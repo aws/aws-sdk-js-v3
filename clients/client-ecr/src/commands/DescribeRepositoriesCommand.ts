@@ -72,6 +72,7 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  *   ]
  * }
  * *\/
+ * // example id: describe-repositories-1470856017467
  * ```
  *
  */

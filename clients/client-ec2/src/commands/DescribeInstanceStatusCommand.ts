@@ -120,6 +120,7 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  *   ]
  * }
  * *\/
+ * // example id: to-describe-the-status-of-an-instance-1529025696830
  * ```
  *
  */

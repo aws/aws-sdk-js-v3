@@ -81,6 +81,7 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketPolicyCommand(input);
  * await client.send(command);
+ * // example id: set-bucket-policy-1482448903302
  * ```
  *
  */

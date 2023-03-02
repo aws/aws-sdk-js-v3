@@ -75,6 +75,7 @@ export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecyc
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-lifecycle-hook-types-1
  * ```
  *
  */

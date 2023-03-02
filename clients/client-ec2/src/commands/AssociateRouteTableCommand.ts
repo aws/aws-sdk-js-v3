@@ -70,6 +70,7 @@ export interface AssociateRouteTableCommandOutput extends AssociateRouteTableRes
  *   "AssociationId": "rtbassoc-781d0d1a"
  * }
  * *\/
+ * // example id: ec2-associate-route-table-1
  * ```
  *
  */

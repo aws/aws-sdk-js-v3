@@ -201,6 +201,7 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  *   ]
  * }
  * *\/
+ * // example id: to-get-a-information-about-an-intent-1494432574147
  * ```
  *
  */

@@ -61,6 +61,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  * };
  * const command = new UpdateJobCommand(input);
  * await client.send(command);
+ * // example id: to-update-a-job-1482863556886
  * ```
  *
  */

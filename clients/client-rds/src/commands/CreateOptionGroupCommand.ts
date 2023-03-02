@@ -67,6 +67,7 @@ export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult,
  *   "OptionGroup": {}
  * }
  * *\/
+ * // example id: create-option-group-a7708c87-1b79-4a5e-a762-21cf8fc62b78
  * ```
  *
  */

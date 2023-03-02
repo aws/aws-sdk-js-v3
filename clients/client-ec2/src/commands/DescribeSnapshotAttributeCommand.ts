@@ -67,6 +67,7 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  *   "SnapshotId": "snap-066877671789bd71b"
  * }
  * *\/
+ * // example id: to-describe-snapshot-attributes-1472503199736
  * ```
  *
  */

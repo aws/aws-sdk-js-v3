@@ -82,6 +82,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  *   ]
  * }
  * *\/
+ * // example id: to-describe-all-volumes-1472506358883
  * ```
  *
  * @example To describe volumes that are attached to a specific instance
@@ -130,6 +131,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  *   ]
  * }
  * *\/
+ * // example id: to-describe-volumes-that-are-attached-to-a-specific-instance-1472506613578
  * ```
  *
  */

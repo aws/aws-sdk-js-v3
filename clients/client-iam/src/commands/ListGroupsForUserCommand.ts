@@ -80,6 +80,7 @@ export interface ListGroupsForUserCommandOutput extends ListGroupsForUserRespons
  *   ]
  * }
  * *\/
+ * // example id: 278ec2ee-fc28-4136-83fb-433af0ae46a2
  * ```
  *
  */

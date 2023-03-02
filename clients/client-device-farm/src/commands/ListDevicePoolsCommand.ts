@@ -89,6 +89,7 @@ export interface ListDevicePoolsCommandOutput extends ListDevicePoolsResult, __M
  *   ]
  * }
  * *\/
+ * // example id: to-get-information-about-device-pools-1471635745170
  * ```
  *
  */

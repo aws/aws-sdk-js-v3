@@ -80,6 +80,7 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  *   }
  * }
  * *\/
+ * // example id: to-create-a-new-organizational-unit
  * ```
  *
  */

@@ -63,6 +63,7 @@ export interface GetDevicePoolCommandOutput extends GetDevicePoolResult, __Metad
  *   "devicePool": {}
  * }
  * *\/
+ * // example id: getdevicepool-example-1470870873136
  * ```
  *
  */

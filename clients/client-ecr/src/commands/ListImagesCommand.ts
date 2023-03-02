@@ -74,6 +74,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  *   ]
  * }
  * *\/
+ * // example id: listimages-example-1470868161594
  * ```
  *
  */

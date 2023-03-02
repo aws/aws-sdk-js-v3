@@ -69,6 +69,7 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  *   "run": {}
  * }
  * *\/
+ * // example id: to-schedule-a-test-run-1472652429636
  * ```
  *
  */

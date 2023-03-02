@@ -86,6 +86,7 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  *   }
  * }
  * *\/
+ * // example id: 9d8447af-f344-45de-8219-2cebc3cce7f2
  * ```
  *
  */

@@ -64,6 +64,7 @@ export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataB
  *   "samples": []
  * }
  * *\/
+ * // example id: to-get-information-about-samples-1472582847534
  * ```
  *
  */

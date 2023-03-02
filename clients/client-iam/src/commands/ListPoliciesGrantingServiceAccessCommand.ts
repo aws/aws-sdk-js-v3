@@ -136,6 +136,7 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: listpoliciesaccess-user-1541698749508
  * ```
  *
  */

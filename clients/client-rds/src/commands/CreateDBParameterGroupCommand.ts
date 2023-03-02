@@ -84,6 +84,7 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  *   "DBParameterGroup": {}
  * }
  * *\/
+ * // example id: create-db-parameter-group-42afcc37-12e9-4b6a-a55c-b8a141246e87
  * ```
  *
  */

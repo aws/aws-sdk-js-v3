@@ -76,6 +76,7 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * };
  * const command = new ResetDBClusterParameterGroupCommand(input);
  * await client.send(command);
+ * // example id: reset-db-cluster-parameter-group-b04aeaf7-7f73-49e1-9bb4-857573ea3ee4
  * ```
  *
  */

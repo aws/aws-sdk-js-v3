@@ -112,6 +112,7 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  *   ]
  * }
  * *\/
+ * // example id: elbv2-create-listener-1
  * ```
  *
  * @example To create an HTTPS listener
@@ -160,6 +161,7 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  *   ]
  * }
  * *\/
+ * // example id: elbv2-create-listener-2
  * ```
  *
  */

@@ -65,6 +65,7 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  *   "jobQueueName": "GPGPU"
  * }
  * *\/
+ * // example id: to-update-a-job-queue-1481154806981
  * ```
  *
  */

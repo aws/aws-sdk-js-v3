@@ -51,6 +51,7 @@ export interface DeleteRouteCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRouteCommand(input);
  * await client.send(command);
+ * // example id: ec2-delete-route-1
  * ```
  *
  */

@@ -75,6 +75,7 @@ export interface RevokeDBSecurityGroupIngressCommandOutput
  *   "DBSecurityGroup": {}
  * }
  * *\/
+ * // example id: revoke-db-security-group-ingress-ce5b2c1c-bd4e-4809-b04a-6d78ec448813
  * ```
  *
  */

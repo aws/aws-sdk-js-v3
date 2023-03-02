@@ -95,6 +95,7 @@ export interface UpdateContactCommandOutput extends UpdateContactResult, __Metad
  * };
  * const command = new UpdateContactCommand(input);
  * await client.send(command);
+ * // example id: to-update-the-engagement-plan-of-contact-1630437436599
  * ```
  *
  */

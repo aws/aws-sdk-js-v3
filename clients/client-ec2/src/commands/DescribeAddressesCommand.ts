@@ -82,6 +82,7 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-addresses-1
  * ```
  *
  * @example To describe your Elastic IP addresses for EC2-VPC
@@ -115,6 +116,7 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-addresses-2
  * ```
  *
  * @example To describe your Elastic IP addresses for EC2-Classic
@@ -143,6 +145,7 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-addresses-3
  * ```
  *
  */

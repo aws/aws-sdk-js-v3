@@ -71,6 +71,7 @@ export interface CreateHostedConfigurationVersionCommandOutput extends HostedCon
  *   "VersionNumber": 1
  * }
  * *\/
+ * // example id: to-create-a-hosted-configuration-version-1632265196980
  * ```
  *
  */

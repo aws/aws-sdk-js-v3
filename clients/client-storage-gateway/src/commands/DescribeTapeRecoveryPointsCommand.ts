@@ -80,6 +80,7 @@ export interface DescribeTapeRecoveryPointsCommandOutput extends DescribeTapeRec
  *   ]
  * }
  * *\/
+ * // example id: to-describe-virtual-tape-recovery-points-1471542042026
  * ```
  *
  */

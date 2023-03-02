@@ -90,6 +90,7 @@ export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-tags-1
  * ```
  *
  */

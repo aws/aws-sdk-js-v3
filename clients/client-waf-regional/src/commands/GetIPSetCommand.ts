@@ -77,6 +77,7 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  *   }
  * }
  * *\/
+ * // example id: getipset-1474658688675
  * ```
  *
  */

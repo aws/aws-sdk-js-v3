@@ -87,6 +87,7 @@ export interface DescribeConnectionsCommandOutput extends DescribeConnectionsRes
  *   "Marker": ""
  * }
  * *\/
+ * // example id: describe-connections-1481754477953
  * ```
  *
  */

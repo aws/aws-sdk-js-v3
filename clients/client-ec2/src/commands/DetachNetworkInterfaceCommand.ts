@@ -53,6 +53,7 @@ export interface DetachNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DetachNetworkInterfaceCommand(input);
  * await client.send(command);
+ * // example id: ec2-detach-network-interface-1
  * ```
  *
  */

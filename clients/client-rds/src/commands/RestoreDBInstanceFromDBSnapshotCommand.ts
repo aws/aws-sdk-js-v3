@@ -155,6 +155,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  *   }
  * }
  * *\/
+ * // example id: to-restore-a-db-instance-from-a-db-snapshot-1473961657311
  * ```
  *
  */

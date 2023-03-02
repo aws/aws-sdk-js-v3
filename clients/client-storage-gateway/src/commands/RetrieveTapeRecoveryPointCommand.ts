@@ -75,6 +75,7 @@ export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeReco
  *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST0AA2AF"
  * }
  * *\/
+ * // example id: to-retrieve-the-recovery-point-of-a-virtual-tape-1472150014805
  * ```
  *
  */

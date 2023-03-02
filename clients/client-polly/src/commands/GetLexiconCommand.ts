@@ -75,6 +75,7 @@ export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBea
  *   }
  * }
  * *\/
+ * // example id: to-retrieve-a-lexicon-1481912870836
  * ```
  *
  */

@@ -82,6 +82,7 @@ export interface CreateReplicationSubnetGroupCommandOutput
  *   "ReplicationSubnetGroup": {}
  * }
  * *\/
+ * // example id: create-replication-subnet-group-1481747297930
  * ```
  *
  */

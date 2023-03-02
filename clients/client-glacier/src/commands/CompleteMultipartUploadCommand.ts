@@ -106,6 +106,7 @@ export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOut
  *   "location": "/111122223333/vaults/my-vault/archives/NkbByEejwEggmBz2fTHgJrg0XBoDfjP4q6iu87-TjhqG6eGoOY9Z8i1_AUyUsuhPAdTqLHy8pTl5nfCFJmDl2yEZONi5L26Omw12vcs01MNGntHEQL8MBfGlqrEXAMPLEArchiveId"
  * }
  * *\/
+ * // example id: 272aa0b8-e44c-4a64-add2-ad905a37984d
  * ```
  *
  */

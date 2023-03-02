@@ -99,6 +99,7 @@ export interface ListAvailableSolutionStacksCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: to-view-solution-stacks-1456277504811
  * ```
  *
  */

@@ -65,6 +65,7 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * };
  * const command = new DescribeDBClusterSnapshotsCommand(input);
  * await client.send(command);
+ * // example id: describe-db-cluster-snapshots-52f38af1-3431-4a51-9a6a-e6bb8c961b32
  * ```
  *
  */

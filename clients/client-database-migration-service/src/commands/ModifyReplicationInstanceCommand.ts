@@ -128,6 +128,7 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  *   }
  * }
  * *\/
+ * // example id: modify-replication-instance-1481761784746
  * ```
  *
  */

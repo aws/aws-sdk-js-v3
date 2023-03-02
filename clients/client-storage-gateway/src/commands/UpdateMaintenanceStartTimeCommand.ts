@@ -67,6 +67,7 @@ export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenan
  *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
+ * // example id: to-update-a-gateways-maintenance-start-time-1472152552031
  * ```
  *
  */

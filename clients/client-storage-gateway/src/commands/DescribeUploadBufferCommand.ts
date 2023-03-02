@@ -73,6 +73,7 @@ export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferO
  *   "UploadBufferUsedInBytes": 161061273600
  * }
  * *\/
+ * // example id: to-describe-upload-buffer-of-gateway-1471631099003
  * ```
  *
  * @example To describe upload buffer of a gateway
@@ -94,6 +95,7 @@ export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferO
  *   "UploadBufferUsedInBytes": 0
  * }
  * *\/
+ * // example id: to-describe-upload-buffer-of-a-gateway--1471904566370
  * ```
  *
  */

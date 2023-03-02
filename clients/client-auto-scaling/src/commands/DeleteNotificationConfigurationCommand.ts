@@ -57,6 +57,7 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
  * };
  * const command = new DeleteNotificationConfigurationCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-delete-notification-configuration-1
  * ```
  *
  */

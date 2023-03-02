@@ -80,6 +80,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  *   "DBCluster": {}
  * }
  * *\/
+ * // example id: failover-db-cluster-9e7f2f93-d98c-42c7-bb0e-d6c485c096d6
  * ```
  *
  */

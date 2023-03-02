@@ -94,6 +94,7 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  *   "Name": "MyTestDatabaseSecret"
  * }
  * *\/
+ * // example id: to-delete-a-secret-1523996905092
  * ```
  *
  */

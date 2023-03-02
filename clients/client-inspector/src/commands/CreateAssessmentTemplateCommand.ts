@@ -77,6 +77,7 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  *   "assessmentTemplateArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T"
  * }
  * *\/
+ * // example id: create-assessment-template-1481064046719
  * ```
  *
  */

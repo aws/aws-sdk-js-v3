@@ -117,6 +117,7 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *   }
  * }
  * *\/
+ * // example id: to-register-a-task-definition-1470764550877
  * ```
  *
  */

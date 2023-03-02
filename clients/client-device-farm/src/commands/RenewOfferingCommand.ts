@@ -84,6 +84,7 @@ export interface RenewOfferingCommandOutput extends RenewOfferingResult, __Metad
  *   }
  * }
  * *\/
+ * // example id: to-renew-a-device-slot-offering-1472648899785
  * ```
  *
  */

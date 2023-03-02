@@ -70,6 +70,7 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  *   "VolumeId": "vol-049df61146c4d7901"
  * }
  * *\/
+ * // example id: to-detach-a-volume-from-an-instance-1472507977694
  * ```
  *
  */

@@ -58,6 +58,7 @@ export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBeare
  * };
  * const command = new DisableVgwRoutePropagationCommand(input);
  * await client.send(command);
+ * // example id: ec2-disable-vgw-route-propagation-1
  * ```
  *
  */

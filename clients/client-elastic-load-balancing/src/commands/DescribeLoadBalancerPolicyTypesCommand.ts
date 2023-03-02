@@ -90,6 +90,7 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: elb-describe-load-balancer-policy-types-1
  * ```
  *
  */

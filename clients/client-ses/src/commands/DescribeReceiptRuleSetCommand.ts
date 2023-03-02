@@ -84,6 +84,7 @@ export interface DescribeReceiptRuleSetCommandOutput extends DescribeReceiptRule
  *   ]
  * }
  * *\/
+ * // example id: describereceiptruleset-1469121240385
  * ```
  *
  */

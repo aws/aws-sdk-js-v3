@@ -70,6 +70,7 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  *   }
  * }
  * *\/
+ * // example id: to-get-the-details-about-an-account-1472503166868
  * ```
  *
  */

@@ -64,6 +64,7 @@ export interface DeleteReplicationSubnetGroupCommandOutput
  * };
  * const command = new DeleteReplicationSubnetGroupCommand(input);
  * await client.send(command);
+ * // example id: delete-replication-subnet-group-1481752728597
  * ```
  *
  */

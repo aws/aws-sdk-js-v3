@@ -74,6 +74,7 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  * };
  * const command = new PutBucketRequestPaymentCommand(input);
  * await client.send(command);
+ * // example id: set-request-payment-configuration-on-a-bucket-1482343596680
  * ```
  *
  */

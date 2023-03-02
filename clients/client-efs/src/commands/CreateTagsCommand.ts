@@ -70,6 +70,7 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateTagsCommand(input);
  * await client.send(command);
+ * // example id: to-create-a-new-tag-1481843409357
  * ```
  *
  */

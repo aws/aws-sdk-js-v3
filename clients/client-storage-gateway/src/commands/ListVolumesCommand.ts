@@ -93,6 +93,7 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  *   ]
  * }
  * *\/
+ * // example id: to-list-the-iscsi-stored-volumes-of-a-gateway-1472145723653
  * ```
  *
  */

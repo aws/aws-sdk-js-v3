@@ -60,6 +60,7 @@ export interface CancelClusterCommandOutput extends CancelClusterResult, __Metad
  * };
  * const command = new CancelClusterCommand(input);
  * await client.send(command);
+ * // example id: to-cancel-a-cluster-job-1482533760554
  * ```
  *
  */

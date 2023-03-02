@@ -124,6 +124,7 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  *   "State": "COMPLETE"
  * }
  * *\/
+ * // example id: to-retrieve-deployment-details-1633976766883
  * ```
  *
  */

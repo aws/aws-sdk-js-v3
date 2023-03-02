@@ -73,6 +73,7 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
+ * // example id: to-describe-the-bandwidth-rate-limits-of-a-gateway-1471384826404
  * ```
  *
  */

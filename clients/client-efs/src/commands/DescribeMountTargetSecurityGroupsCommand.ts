@@ -82,6 +82,7 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: to-describe-the-security-groups-for-a-mount-target-1481849317823
  * ```
  *
  */

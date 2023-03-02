@@ -74,6 +74,7 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  *   "OperationId": "dns2voqozuhfet5kzxoxg-a-response-example"
  * }
  * *\/
+ * // example id: createpublicdnsnamespace-example-1590114940910
  * ```
  *
  */

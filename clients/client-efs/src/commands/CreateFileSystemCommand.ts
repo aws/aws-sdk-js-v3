@@ -136,6 +136,7 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  *   ]
  * }
  * *\/
+ * // example id: to-create-a-new-file-system-1481840798547
  * ```
  *
  */

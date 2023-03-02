@@ -80,6 +80,7 @@ export interface GetDeviceCommandOutput extends GetDeviceResult, __MetadataBeare
  *   }
  * }
  * *\/
+ * // example id: getdevice-example-1470870602173
  * ```
  *
  */

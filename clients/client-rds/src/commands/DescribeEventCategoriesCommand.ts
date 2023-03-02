@@ -64,6 +64,7 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * };
  * const command = new DescribeEventCategoriesCommand(input);
  * await client.send(command);
+ * // example id: describe-event-categories-97bd4c77-12da-4be6-b42f-edf77771428b
  * ```
  *
  */

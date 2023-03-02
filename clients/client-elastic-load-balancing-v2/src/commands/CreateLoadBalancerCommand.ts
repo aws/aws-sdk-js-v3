@@ -121,6 +121,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  *   ]
  * }
  * *\/
+ * // example id: elbv2-create-load-balancer-1
  * ```
  *
  * @example To create an internal load balancer
@@ -169,6 +170,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  *   ]
  * }
  * *\/
+ * // example id: elbv2-create-load-balancer-2
  * ```
  *
  */

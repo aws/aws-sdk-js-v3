@@ -71,6 +71,7 @@ export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrateg
  *   ]
  * }
  * *\/
+ * // example id: to-list-the-available-deployment-strategies-1632267364180
  * ```
  *
  */

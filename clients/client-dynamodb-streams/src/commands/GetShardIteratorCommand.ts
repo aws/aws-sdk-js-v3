@@ -72,6 +72,7 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  *   "ShardIterator": "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252|1|AAAAAAAAAAEvJp6D+zaQ...  <remaining characters omitted> ..."
  * }
  * *\/
+ * // example id: to-obtain-a-shard-iterator-for-the-provided-stream-arn-and-shard-id-1473459941476
  * ```
  *
  */

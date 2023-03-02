@@ -56,6 +56,7 @@ export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ModifyVpcAttributeCommand(input);
  * await client.send(command);
+ * // example id: ec2-modify-vpc-attribute-1
  * ```
  *
  * @example To modify the enableDnsHostnames attribute
@@ -69,6 +70,7 @@ export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ModifyVpcAttributeCommand(input);
  * await client.send(command);
+ * // example id: ec2-modify-vpc-attribute-2
  * ```
  *
  */

@@ -141,6 +141,7 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  *   }
  * }
  * *\/
+ * // example id: to-retrieve-object-acl-1481833557740
  * ```
  *
  */

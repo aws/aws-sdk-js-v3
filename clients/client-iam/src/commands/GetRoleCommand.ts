@@ -81,6 +81,7 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  *   }
  * }
  * *\/
+ * // example id: 5b7d03a6-340c-472d-aa77-56425950d8b0
  * ```
  *
  */

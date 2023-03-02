@@ -99,6 +99,7 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: elbv2-modify-load-balancer-attributes-1
  * ```
  *
  * @example To change the idle timeout
@@ -141,6 +142,7 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: elbv2-modify-load-balancer-attributes-2
  * ```
  *
  * @example To enable access logs
@@ -191,6 +193,7 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: elbv2-modify-load-balancer-attributes-3
  * ```
  *
  */

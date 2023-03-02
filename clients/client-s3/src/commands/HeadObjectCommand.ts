@@ -180,6 +180,7 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *   "VersionId": "null"
  * }
  * *\/
+ * // example id: to-retrieve-metadata-of-an-object-without-returning-the-object-itself-1481834820480
  * ```
  *
  */

@@ -53,6 +53,7 @@ export interface DeleteDhcpOptionsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDhcpOptionsCommand(input);
  * await client.send(command);
+ * // example id: ec2-delete-dhcp-options-1
  * ```
  *
  */

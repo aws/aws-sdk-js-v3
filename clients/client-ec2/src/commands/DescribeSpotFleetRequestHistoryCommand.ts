@@ -106,6 +106,7 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
  *   "StartTime": "2015-05-26T00:00:00Z"
  * }
  * *\/
+ * // example id: ec2-describe-spot-fleet-request-history-1
  * ```
  *
  */

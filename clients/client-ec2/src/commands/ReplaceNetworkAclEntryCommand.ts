@@ -63,6 +63,7 @@ export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ReplaceNetworkAclEntryCommand(input);
  * await client.send(command);
+ * // example id: ec2-replace-network-acl-entry-1
  * ```
  *
  */

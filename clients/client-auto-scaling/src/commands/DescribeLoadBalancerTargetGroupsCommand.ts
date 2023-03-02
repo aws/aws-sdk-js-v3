@@ -94,6 +94,7 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-load-balancer-target-groups-1
  * ```
  *
  */

@@ -67,6 +67,7 @@ export interface UpdateApplicationCommandOutput extends Application, __MetadataB
  *   "Name": "Example-Application"
  * }
  * *\/
+ * // example id: to-update-an-application-1632330585893
  * ```
  *
  */

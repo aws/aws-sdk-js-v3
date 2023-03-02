@@ -80,6 +80,7 @@ export interface GetObjectTorrentCommandOutput
  * };
  * const command = new GetObjectTorrentCommand(input);
  * await client.send(command);
+ * // example id: to-retrieve-torrent-files-for-an-object-1481834115959
  * ```
  *
  */

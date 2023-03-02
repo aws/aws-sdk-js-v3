@@ -56,6 +56,7 @@ export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBeare
  * };
  * const command = new DeleteRunCommand(input);
  * await client.send(command);
+ * // example id: deleterun-example-1470867905129
  * ```
  *
  */

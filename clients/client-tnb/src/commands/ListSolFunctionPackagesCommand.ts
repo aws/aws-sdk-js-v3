@@ -51,12 +51,6 @@ export interface ListSolFunctionPackagesCommandOutput extends ListSolFunctionPac
  * @see {@link ListSolFunctionPackagesCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
- * @example List information about multiple function packages without PaginationToken```javascript/* Optional.empty *\/some code here```
- *
- * @example List information about multiple function packages with PaginationToken```javascript/* Optional.empty *\/some code here```
- *
- * @example No more function packages to return```javascript/* Optional.empty *\/some code here```
- *
  */
 export class ListSolFunctionPackagesCommand extends $Command<
   ListSolFunctionPackagesCommandInput,

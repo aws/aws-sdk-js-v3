@@ -68,6 +68,7 @@ export interface GetConfigurationProfileCommandOutput extends ConfigurationProfi
  *   "RetrievalRoleArn": "arn:aws:iam::111122223333:role/Example-App-Config-Role"
  * }
  * *\/
+ * // example id: to-retrieve-configuration-profile-details-1632266081013
  * ```
  *
  */

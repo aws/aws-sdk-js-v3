@@ -56,6 +56,7 @@ export interface CreateAccountAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateAccountAliasCommand(input);
  * await client.send(command);
+ * // example id: 5adaf6fb-94fc-4ca2-b825-2fbc2062add1
  * ```
  *
  */

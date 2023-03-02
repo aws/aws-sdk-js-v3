@@ -67,6 +67,7 @@ export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOut
  *   "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001"
  * }
  * *\/
+ * // example id: to-update-a-vtl-device-type-1472153012967
  * ```
  *
  */

@@ -82,6 +82,7 @@ export interface DescribeAssessmentTemplatesCommandOutput
  *   "failedItems": {}
  * }
  * *\/
+ * // example id: describte-assessment-templates-1481064606829
  * ```
  *
  */

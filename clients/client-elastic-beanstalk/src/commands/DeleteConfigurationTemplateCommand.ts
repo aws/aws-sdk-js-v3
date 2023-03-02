@@ -62,6 +62,7 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteConfigurationTemplateCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-configuration-template-1456269836701
  * ```
  *
  */

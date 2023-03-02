@@ -71,6 +71,7 @@ export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrateg
  *   "ReplicateTo": "SSM_DOCUMENT"
  * }
  * *\/
+ * // example id: to-update-a-deployment-strategy-1632330896602
  * ```
  *
  */

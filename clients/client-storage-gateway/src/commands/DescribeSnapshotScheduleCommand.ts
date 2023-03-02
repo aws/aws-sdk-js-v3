@@ -70,6 +70,7 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
  * }
  * *\/
+ * // example id: to-describe-snapshot-schedule-for-gateway-volume-1471471139538
  * ```
  *
  */

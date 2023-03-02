@@ -86,6 +86,7 @@ export interface RequestSpotInstancesCommandOutput extends RequestSpotInstancesR
  * };
  * const command = new RequestSpotInstancesCommand(input);
  * await client.send(command);
+ * // example id: ec2-request-spot-instances-1
  * ```
  *
  * @example To create a one-time Spot Instance request
@@ -109,6 +110,7 @@ export interface RequestSpotInstancesCommandOutput extends RequestSpotInstancesR
  * };
  * const command = new RequestSpotInstancesCommand(input);
  * await client.send(command);
+ * // example id: ec2-request-spot-instances-2
  * ```
  *
  */

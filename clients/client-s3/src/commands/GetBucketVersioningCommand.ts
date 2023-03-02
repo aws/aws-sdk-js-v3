@@ -86,6 +86,7 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningOut
  *   "Status": "Enabled"
  * }
  * *\/
+ * // example id: to-get-bucket-versioning-configuration-1483037183929
  * ```
  *
  */

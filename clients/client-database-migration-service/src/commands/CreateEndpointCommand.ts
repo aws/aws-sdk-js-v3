@@ -101,6 +101,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *   }
  * }
  * *\/
+ * // example id: create-endpoint-1481746254348
  * ```
  *
  */

@@ -47,8 +47,6 @@ export interface DeleteSolNetworkInstanceCommandOutput extends __MetadataBearer 
  * @see {@link DeleteSolNetworkInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
- * @example Delete a Sol Network Instance.```javascript/* Optional.empty *\/some code here```
- *
  */
 export class DeleteSolNetworkInstanceCommand extends $Command<
   DeleteSolNetworkInstanceCommandInput,

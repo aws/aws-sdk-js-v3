@@ -90,6 +90,7 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  * };
  * const command = new RegisterScalableTargetCommand(input);
  * await client.send(command);
+ * // example id: to-register-a-new-scalable-target-1470864910380
  * ```
  *
  */

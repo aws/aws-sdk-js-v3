@@ -83,6 +83,7 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteMountTargetCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-mount-target-1481847635607
  * ```
  *
  */

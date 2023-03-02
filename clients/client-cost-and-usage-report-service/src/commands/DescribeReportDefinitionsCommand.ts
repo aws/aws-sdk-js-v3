@@ -98,6 +98,7 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-report-definitions
  * ```
  *
  */

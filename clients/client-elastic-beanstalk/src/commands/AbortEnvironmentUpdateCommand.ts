@@ -54,6 +54,7 @@ export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AbortEnvironmentUpdateCommand(input);
  * await client.send(command);
+ * // example id: to-abort-a-deployment-1456267848227
  * ```
  *
  */

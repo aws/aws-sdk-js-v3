@@ -89,6 +89,7 @@ export interface DescribeEnvironmentResourcesCommandOutput
  *   }
  * }
  * *\/
+ * // example id: to-view-information-about-the-aws-resources-in-your-environment-1456277206232
  * ```
  *
  */

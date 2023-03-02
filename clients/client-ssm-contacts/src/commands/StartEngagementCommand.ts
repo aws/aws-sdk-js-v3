@@ -69,6 +69,7 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  *   "EngagementArn": "arn:aws:ssm-contacts:us-east-2:111122223333:engagement/akuam/607ced0e-e8fa-4ea7-8958-a237b8803f8f"
  * }
  * *\/
+ * // example id: example-1-to-page-a-contacts-contact-channels-1630436634872
  * ```
  *
  * @example Example 2: To page a contact in the provided escalation plan.
@@ -89,6 +90,7 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  *   "EngagementArn": "arn:aws:ssm-contacts:us-east-2:111122223333:engagement/example_escalation/69e40ce1-8dbb-4d57-8962-5fbe7fc53356"
  * }
  * *\/
+ * // example id: example-2-to-page-a-contact-in-the-provided-escalation-plan-1630436808480
  * ```
  *
  */

@@ -74,6 +74,7 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
  *   }
  * }
  * *\/
+ * // example id: to-describe-an-address-for-a-job-1482538608745
  * ```
  *
  */

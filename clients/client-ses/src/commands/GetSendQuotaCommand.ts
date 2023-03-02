@@ -56,6 +56,7 @@ export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __Metad
  *   "SentLast24Hours": 1
  * }
  * *\/
+ * // example id: getsendquota-1469047324508
  * ```
  *
  */

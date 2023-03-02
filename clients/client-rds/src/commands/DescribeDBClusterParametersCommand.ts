@@ -65,6 +65,7 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  * };
  * const command = new DescribeDBClusterParametersCommand(input);
  * await client.send(command);
+ * // example id: describe-db-cluster-parameters-98043c28-e489-41a7-b118-bfd96dc779a1
  * ```
  *
  */

@@ -78,6 +78,7 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-create-auto-scaling-group-1
  * ```
  *
  * @example To create an Auto Scaling group with an attached target group
@@ -100,6 +101,7 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-create-auto-scaling-group-2
  * ```
  *
  * @example To create an Auto Scaling group with a mixed instances policy
@@ -142,6 +144,7 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
  * await client.send(command);
+ * // example id: to-create-an-auto-scaling-group-with-a-mixed-instances-policy-1617815269039
  * ```
  *
  */

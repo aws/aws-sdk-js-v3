@@ -77,6 +77,7 @@ export interface ListEventSubscriptionsCommandOutput extends ListEventSubscripti
  *   ]
  * }
  * *\/
+ * // example id: list-event-subscriptions-1481068376945
  * ```
  *
  */

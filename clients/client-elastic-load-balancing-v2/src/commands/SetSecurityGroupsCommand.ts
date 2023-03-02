@@ -75,6 +75,7 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  *   ]
  * }
  * *\/
+ * // example id: elbv2-set-security-groups-1
  * ```
  *
  */

@@ -89,6 +89,7 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-route-tables-1
  * ```
  *
  */

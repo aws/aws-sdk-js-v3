@@ -118,6 +118,7 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-a-list-of-the-handshakes-sent-to-an-account-1472510214747
  * ```
  *
  */

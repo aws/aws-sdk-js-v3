@@ -109,6 +109,7 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  *   }
  * }
  * *\/
+ * // example id: createsizeconstraint-1474299140754
  * ```
  *
  */

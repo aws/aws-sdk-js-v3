@@ -68,6 +68,7 @@ export interface ListContainerInstancesCommandOutput extends ListContainerInstan
  *   ]
  * }
  * *\/
+ * // example id: 62a82a94-713c-4e18-8420-1d2b2ba9d484
  * ```
  *
  */

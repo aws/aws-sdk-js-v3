@@ -82,6 +82,7 @@ export interface AuthorizeSecurityGroupEgressCommandOutput
  * };
  * const command = new AuthorizeSecurityGroupEgressCommand(input);
  * await client.send(command);
+ * // example id: to-add-a-rule-that-allows-outbound-traffic-to-a-specific-address-range-1528929309636
  * ```
  *
  * @example To add a rule that allows outbound traffic to a specific security group
@@ -104,6 +105,7 @@ export interface AuthorizeSecurityGroupEgressCommandOutput
  * };
  * const command = new AuthorizeSecurityGroupEgressCommand(input);
  * await client.send(command);
+ * // example id: to-add-a-rule-that-allows-outbound-traffic-to-a-specific-security-group-1528929760260
  * ```
  *
  */

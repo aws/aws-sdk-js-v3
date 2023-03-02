@@ -61,6 +61,7 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDBSecurityGroupCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-db-security-group-1473960141889
  * ```
  *
  */

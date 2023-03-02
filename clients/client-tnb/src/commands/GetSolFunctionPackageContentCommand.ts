@@ -53,8 +53,6 @@ export interface GetSolFunctionPackageContentCommandOutput
  * @see {@link GetSolFunctionPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
- * @example Get the content of a function package```javascript/* Optional.empty *\/some code here```
- *
  */
 export class GetSolFunctionPackageContentCommand extends $Command<
   GetSolFunctionPackageContentCommandInput,

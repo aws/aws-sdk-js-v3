@@ -78,6 +78,7 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-scheduled-actions-1
  * ```
  *
  */

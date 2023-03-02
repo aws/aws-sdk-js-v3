@@ -96,6 +96,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  *   ]
  * }
  * *\/
+ * // example id: to-describe-an-ami-1529025482866
  * ```
  *
  */

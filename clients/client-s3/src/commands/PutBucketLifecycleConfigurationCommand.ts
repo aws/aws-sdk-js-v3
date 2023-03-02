@@ -164,6 +164,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * };
  * const command = new PutBucketLifecycleConfigurationCommand(input);
  * await client.send(command);
+ * // example id: put-bucket-lifecycle-1482264533092
  * ```
  *
  */

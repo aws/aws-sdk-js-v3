@@ -93,6 +93,7 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-a-list-of-roots-ous-and-accounts-to-which-a-policy-is-attached
  * ```
  *
  */

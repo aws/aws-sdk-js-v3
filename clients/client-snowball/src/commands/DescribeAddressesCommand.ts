@@ -75,6 +75,7 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  *   ]
  * }
  * *\/
+ * // example id: to-describe-all-the-addresses-youve-created-for-aws-snowball-1482538936603
  * ```
  *
  */

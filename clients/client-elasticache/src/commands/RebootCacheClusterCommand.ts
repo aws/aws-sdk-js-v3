@@ -101,6 +101,7 @@ export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResul
  *   }
  * }
  * *\/
+ * // example id: rebootcachecluster-1482969019505
  * ```
  *
  */

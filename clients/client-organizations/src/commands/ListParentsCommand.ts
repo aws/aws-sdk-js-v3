@@ -83,6 +83,7 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-a-list-of-all-of-the-parents-of-a-child-ou-or-account
  * ```
  *
  */

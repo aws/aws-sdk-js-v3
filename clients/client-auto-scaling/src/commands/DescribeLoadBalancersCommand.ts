@@ -90,6 +90,7 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-load-balancers-1
  * ```
  *
  */

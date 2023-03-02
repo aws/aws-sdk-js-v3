@@ -87,6 +87,7 @@ export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, 
  *   "VersionLabel": "v2"
  * }
  * *\/
+ * // example id: to-update-an-environment-to-a-new-version-1456278210718
  * ```
  *
  * @example To configure option settings
@@ -140,6 +141,7 @@ export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, 
  *   "VersionLabel": "7f58-stage-150812_025409"
  * }
  * *\/
+ * // example id: to-configure-option-settings-1456278286349
  * ```
  *
  */

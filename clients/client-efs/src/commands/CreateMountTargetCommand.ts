@@ -209,6 +209,7 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  *   "SubnetId": "subnet-1234abcd"
  * }
  * *\/
+ * // example id: to-create-a-new-mount-target-1481842289329
  * ```
  *
  */

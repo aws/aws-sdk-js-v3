@@ -57,6 +57,7 @@ export interface AssociateDhcpOptionsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateDhcpOptionsCommand(input);
  * await client.send(command);
+ * // example id: ec2-associate-dhcp-options-1
  * ```
  *
  * @example To associate the default DHCP options set with a VPC
@@ -68,6 +69,7 @@ export interface AssociateDhcpOptionsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateDhcpOptionsCommand(input);
  * await client.send(command);
+ * // example id: ec2-associate-dhcp-options-2
  * ```
  *
  */

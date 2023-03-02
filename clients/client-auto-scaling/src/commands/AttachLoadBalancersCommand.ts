@@ -72,6 +72,7 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
  * };
  * const command = new AttachLoadBalancersCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-attach-load-balancers-1
  * ```
  *
  */

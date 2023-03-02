@@ -76,6 +76,7 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  *   }
  * }
  * *\/
+ * // example id: getservice-example-1590117234294
  * ```
  *
  */

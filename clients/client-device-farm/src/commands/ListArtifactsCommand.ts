@@ -59,6 +59,7 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * };
  * const command = new ListArtifactsCommand(input);
  * await client.send(command);
+ * // example id: to-list-artifacts-for-a-resource-1471635409527
  * ```
  *
  */

@@ -63,6 +63,7 @@ export interface GetRemoteAccessSessionCommandOutput extends GetRemoteAccessSess
  *   "remoteAccessSession": {}
  * }
  * *\/
+ * // example id: to-get-a-remote-access-session-1471014119414
  * ```
  *
  */

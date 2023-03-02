@@ -56,6 +56,7 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UnsubscribeFromEventCommand(input);
  * await client.send(command);
+ * // example id: unsubscribe-from-event-1481067781705
  * ```
  *
  */

@@ -67,6 +67,7 @@ export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBea
  *   }
  * }
  * *\/
+ * // example id: to-get-a-project-1470975038449
  * ```
  *
  */

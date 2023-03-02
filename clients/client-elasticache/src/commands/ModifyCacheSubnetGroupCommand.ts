@@ -102,6 +102,7 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  *   }
  * }
  * *\/
+ * // example id: modifycachesubnetgroup-1483043446226
  * ```
  *
  */

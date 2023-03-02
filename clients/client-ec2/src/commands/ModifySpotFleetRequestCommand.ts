@@ -88,6 +88,7 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  *   "Return": true
  * }
  * *\/
+ * // example id: ec2-modify-spot-fleet-request-1
  * ```
  *
  * @example To decrease the target capacity of a Spot fleet request
@@ -105,6 +106,7 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  *   "Return": true
  * }
  * *\/
+ * // example id: ec2-modify-spot-fleet-request-2
  * ```
  *
  */

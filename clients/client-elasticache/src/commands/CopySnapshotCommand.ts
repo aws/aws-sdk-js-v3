@@ -179,6 +179,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *   }
  * }
  * *\/
+ * // example id: copysnapshot-1482961393820
  * ```
  *
  */

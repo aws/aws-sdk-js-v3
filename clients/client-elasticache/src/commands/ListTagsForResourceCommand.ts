@@ -77,6 +77,7 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  *   ]
  * }
  * *\/
+ * // example id: listtagsforresource-1481748784584
  * ```
  *
  */

@@ -84,6 +84,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  *   }
  * }
  * *\/
+ * // example id: getwebacl-1475006348525
  * ```
  *
  */

@@ -241,6 +241,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *   }
  * }
  * *\/
+ * // example id: to-create-a-cmk-1
  * ```
  *
  * @example To create an asymmetric RSA KMS key for encryption and decryption
@@ -275,6 +276,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *   }
  * }
  * *\/
+ * // example id: to-create-an-asymmetric-rsa-kms-key-for-encryption-and-decryption-2
  * ```
  *
  * @example To create an asymmetric elliptic curve KMS key for signing and verification
@@ -308,6 +310,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *   }
  * }
  * *\/
+ * // example id: to-create-an-asymmetric-elliptic-curve-kms-key-for-signing-and-verification-3
  * ```
  *
  * @example To create an HMAC KMS key
@@ -341,6 +344,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *   }
  * }
  * *\/
+ * // example id: to-create-an-hmac-kms-key-1630628752841
  * ```
  *
  * @example To create a multi-Region primary KMS key
@@ -381,6 +385,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *   }
  * }
  * *\/
+ * // example id: to-create-a-multi-region-primary-kms-key-4
  * ```
  *
  * @example To create a KMS key for imported key material
@@ -413,6 +418,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *   }
  * }
  * *\/
+ * // example id: to-create-a-kms-key-for-imported-key-material-5
  * ```
  *
  * @example To create a KMS key in an AWS CloudHSM key store
@@ -448,6 +454,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *   }
  * }
  * *\/
+ * // example id: to-create-a-kms-key-in-an-aws-cloudhsm-custom-key-store-6
  * ```
  *
  * @example To create a KMS key in an external key store
@@ -486,6 +493,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *   }
  * }
  * *\/
+ * // example id: to-create-a-kms-key-in-an-external-custom-key-store-7
  * ```
  *
  */

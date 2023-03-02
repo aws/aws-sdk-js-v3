@@ -101,6 +101,7 @@ export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput,
  *   "lockId": "AE863rKkWZU53SLW5be4DUcW"
  * }
  * *\/
+ * // example id: to-initiate-the-vault-locking-process-1481919693394
  * ```
  *
  */

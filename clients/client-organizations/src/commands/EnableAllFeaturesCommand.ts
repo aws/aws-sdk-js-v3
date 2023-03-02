@@ -105,6 +105,7 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *   }
  * }
  * *\/
+ * // example id: to-enable-all-features-in-an-organization
  * ```
  *
  */

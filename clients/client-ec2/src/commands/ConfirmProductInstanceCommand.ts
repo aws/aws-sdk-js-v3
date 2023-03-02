@@ -66,6 +66,7 @@ export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInsta
  *   "OwnerId": "123456789012"
  * }
  * *\/
+ * // example id: to-confirm-the-product-instance-1472712108494
  * ```
  *
  */

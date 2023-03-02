@@ -65,6 +65,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * };
  * const command = new DescribeDBClustersCommand(input);
  * await client.send(command);
+ * // example id: describe-db-clusters-7aae8861-cb95-4b3b-9042-f62df7698635
  * ```
  *
  */

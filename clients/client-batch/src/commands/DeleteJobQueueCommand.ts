@@ -61,6 +61,7 @@ export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __M
  * };
  * const command = new DeleteJobQueueCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-job-queue-1481153508134
  * ```
  *
  */

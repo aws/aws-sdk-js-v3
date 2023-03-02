@@ -93,6 +93,7 @@ export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsO
  *   ]
  * }
  * *\/
+ * // example id: elbv2-describe-target-groups-1
  * ```
  *
  */

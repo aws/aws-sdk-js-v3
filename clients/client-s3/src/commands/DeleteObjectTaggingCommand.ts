@@ -85,6 +85,7 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  *   "VersionId": "null"
  * }
  * *\/
+ * // example id: to-remove-tag-set-from-an-object-1483145342862
  * ```
  *
  * @example To remove tag set from an object version
@@ -102,6 +103,7 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
  * }
  * *\/
+ * // example id: to-remove-tag-set-from-an-object-version-1483145285913
  * ```
  *
  */

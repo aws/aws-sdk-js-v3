@@ -72,6 +72,7 @@ export interface ListHostedConfigurationVersionsCommandOutput extends HostedConf
  *   ]
  * }
  * *\/
+ * // example id: to-list-the-available-hosted-configuration-versions-1632267647667
  * ```
  *
  */

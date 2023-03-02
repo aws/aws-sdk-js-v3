@@ -82,6 +82,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *   "ClusterId": "CID123e4567-e89b-12d3-a456-426655440000"
  * }
  * *\/
+ * // example id: to-create-a-cluster-1482864724077
  * ```
  *
  */

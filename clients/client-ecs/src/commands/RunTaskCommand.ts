@@ -111,6 +111,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *   ]
  * }
  * *\/
+ * // example id: 6f238c83-a133-42cd-ab3d-abeca0560445
  * ```
  *
  */

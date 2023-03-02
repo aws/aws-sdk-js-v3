@@ -81,6 +81,7 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteArchiveCommand(input);
  * await client.send(command);
+ * // example id: delete-archive-1481667809463
  * ```
  *
  */

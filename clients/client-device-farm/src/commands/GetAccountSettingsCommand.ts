@@ -68,6 +68,7 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResul
  *   }
  * }
  * *\/
+ * // example id: to-get-information-about-account-settings-1472567568189
  * ```
  *
  */

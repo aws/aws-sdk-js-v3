@@ -69,6 +69,7 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RequestEnvironmentInfoCommand(input);
  * await client.send(command);
+ * // example id: to-request-tailed-logs-1456277657045
  * ```
  *
  */

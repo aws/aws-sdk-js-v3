@@ -101,6 +101,7 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  *   "PublicKey": "<binary data>"
  * }
  * *\/
+ * // example id: to-retrieve-the-public-key-and-import-token-for-a-cmk-1480626483211
  * ```
  *
  */

@@ -63,6 +63,7 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  *   ]
  * }
  * *\/
+ * // example id: listverifiedemailaddresses-1469051402570
  * ```
  *
  */

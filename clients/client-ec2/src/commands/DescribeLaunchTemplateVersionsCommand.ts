@@ -116,6 +116,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: to-describe-the-versions-for-a-launch-template-1529344425048
  * ```
  *
  */

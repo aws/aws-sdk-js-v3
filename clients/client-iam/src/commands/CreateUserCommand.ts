@@ -68,6 +68,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *   }
  * }
  * *\/
+ * // example id: eb15f90b-e5f5-4af8-a594-e4e82b181a62
  * ```
  *
  */

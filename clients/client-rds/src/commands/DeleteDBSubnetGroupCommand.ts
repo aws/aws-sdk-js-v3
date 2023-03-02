@@ -56,6 +56,7 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDBSubnetGroupCommand(input);
  * await client.send(command);
+ * // example id: delete-db-subnet-group-4ae00375-511e-443d-a01d-4b9f552244aa
  * ```
  *
  */

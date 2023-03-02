@@ -349,6 +349,7 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * };
  * const command = new RestoreObjectCommand(input);
  * await client.send(command);
+ * // example id: to-restore-an-archived-object-1483049329953
  * ```
  *
  */

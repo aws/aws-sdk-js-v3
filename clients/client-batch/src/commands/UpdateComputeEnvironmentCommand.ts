@@ -65,6 +65,7 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  *   "computeEnvironmentName": "P2OnDemand"
  * }
  * *\/
+ * // example id: to-update-a-compute-environment-1481154702731
  * ```
  *
  */

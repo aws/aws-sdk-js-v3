@@ -100,6 +100,7 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAliasCommand(input);
  * await client.send(command);
+ * // example id: to-delete-an-alias-1478285209338
  * ```
  *
  */

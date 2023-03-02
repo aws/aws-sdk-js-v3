@@ -81,6 +81,7 @@ export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetG
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-internet-gateways-1
  * ```
  *
  */

@@ -72,6 +72,7 @@ export interface GetBucketRequestPaymentCommandOutput extends GetBucketRequestPa
  *   "Payer": "BucketOwner"
  * }
  * *\/
+ * // example id: to-get-bucket-versioning-configuration-1483037183929
  * ```
  *
  */

@@ -192,6 +192,7 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *   "Location": "https://examplebucket.s3.<Region>.amazonaws.com/bigobject"
  * }
  * *\/
+ * // example id: to-complete-multipart-upload-1481851590483
  * ```
  *
  */

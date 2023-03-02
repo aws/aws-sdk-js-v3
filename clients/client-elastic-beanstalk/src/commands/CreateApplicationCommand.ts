@@ -71,6 +71,7 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
  *   }
  * }
  * *\/
+ * // example id: to-create-a-new-application-1456268895683
  * ```
  *
  */

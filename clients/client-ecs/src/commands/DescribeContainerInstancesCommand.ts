@@ -136,6 +136,7 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
  *   "failures": []
  * }
  * *\/
+ * // example id: c8f439de-eb27-4269-8ca7-2c0a7ba75ab0
  * ```
  *
  */

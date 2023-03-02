@@ -107,6 +107,7 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-spot-fleet-requests-1
  * ```
  *
  */

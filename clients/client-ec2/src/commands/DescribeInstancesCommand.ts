@@ -71,6 +71,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * };
  * const command = new DescribeInstancesCommand(input);
  * await client.send(command);
+ * // example id: to-describe-an-amazon-ec2-instance-1529025982172
  * ```
  *
  * @example To describe the instances with a specific instance type
@@ -88,6 +89,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * };
  * const command = new DescribeInstancesCommand(input);
  * await client.send(command);
+ * // example id: to-describe-the-instances-with-the-instance-type-t2micro-1529026147602
  * ```
  *
  * @example To describe the instances with a specific tag
@@ -105,6 +107,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * };
  * const command = new DescribeInstancesCommand(input);
  * await client.send(command);
+ * // example id: to-describe-the-instances-with-a-specific-tag-1529026251928
  * ```
  *
  */

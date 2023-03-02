@@ -64,6 +64,7 @@ export interface GetApplicationCommandOutput extends Application, __MetadataBear
  *   "Name": "example-application"
  * }
  * *\/
+ * // example id: to-list-details-of-an-application-1632265864702
  * ```
  *
  */

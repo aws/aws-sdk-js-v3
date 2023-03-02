@@ -74,6 +74,7 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
  *   }
  * }
  * *\/
+ * // example id: ec2-create-spot-datafeed-subscription-1
  * ```
  *
  */

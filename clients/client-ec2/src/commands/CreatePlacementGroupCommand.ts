@@ -68,6 +68,7 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  * };
  * const command = new CreatePlacementGroupCommand(input);
  * await client.send(command);
+ * // example id: to-create-a-placement-group-1472712245768
  * ```
  *
  */

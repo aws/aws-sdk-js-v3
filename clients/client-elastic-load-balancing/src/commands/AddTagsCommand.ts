@@ -77,6 +77,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * };
  * const command = new AddTagsCommand(input);
  * await client.send(command);
+ * // example id: elb-add-tags-1
  * ```
  *
  */

@@ -96,6 +96,7 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-a-list-of-all-of-the-accounts-in-a-root-or-ou-1472509590974
  * ```
  *
  */

@@ -95,6 +95,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  *   }
  * }
  * *\/
+ * // example id: deletesnapshot-1475011945779
  * ```
  *
  */

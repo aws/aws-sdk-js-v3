@@ -68,6 +68,7 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  *   "DBSubnetGroup": {}
  * }
  * *\/
+ * // example id: create-db-subnet-group-c3d162c2-0ec4-4955-ba89-18967615fdb8
  * ```
  *
  */

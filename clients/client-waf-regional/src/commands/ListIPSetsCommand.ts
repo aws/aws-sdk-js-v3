@@ -76,6 +76,7 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  *   ]
  * }
  * *\/
+ * // example id: listipsets-1472235676229
  * ```
  *
  */

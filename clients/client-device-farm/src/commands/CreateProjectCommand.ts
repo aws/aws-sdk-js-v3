@@ -67,6 +67,7 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  *   }
  * }
  * *\/
+ * // example id: createproject-example-1470862210860
  * ```
  *
  */

@@ -120,6 +120,7 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
  * }
  * *\/
+ * // example id: to-schedule-a-cmk-for-deletion-1481331111094
  * ```
  *
  */

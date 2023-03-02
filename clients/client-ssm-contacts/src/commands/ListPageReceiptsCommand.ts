@@ -82,6 +82,7 @@ export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, _
  *   ]
  * }
  * *\/
+ * // example id: to-list-page-receipts-1630367706869
  * ```
  *
  */

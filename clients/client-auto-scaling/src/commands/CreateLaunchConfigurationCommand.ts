@@ -71,6 +71,7 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  * };
  * const command = new CreateLaunchConfigurationCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-create-launch-configuration-1
  * ```
  *
  */

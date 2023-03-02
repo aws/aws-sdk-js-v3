@@ -60,6 +60,7 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  * };
  * const command = new DeleteRuleCommand(input);
  * await client.send(command);
+ * // example id: elbv2-delete-rule-1
  * ```
  *
  */

@@ -78,6 +78,7 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  * };
  * const command = new ModifyMountTargetSecurityGroupsCommand(input);
  * await client.send(command);
+ * // example id: to-modify-the-security-groups-associated-with-a-mount-target-for-a-file-system-1481850772562
  * ```
  *
  */

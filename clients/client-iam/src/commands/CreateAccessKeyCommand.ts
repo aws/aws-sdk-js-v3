@@ -82,6 +82,7 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
  *   }
  * }
  * *\/
+ * // example id: 1fbb3211-4cf2-41db-8c20-ba58d9f5802d
  * ```
  *
  */

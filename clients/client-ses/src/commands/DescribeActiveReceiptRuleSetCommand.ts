@@ -86,6 +86,7 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: describeactivereceiptruleset-1469121611502
  * ```
  *
  */

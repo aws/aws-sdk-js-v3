@@ -86,6 +86,7 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  *   "ValidationErrors": []
  * }
  * *\/
+ * // example id: to-validate-the-resource-policy-of-a-secret-1524000138629
  * ```
  *
  */

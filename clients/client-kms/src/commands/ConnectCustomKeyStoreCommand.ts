@@ -144,6 +144,7 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  * };
  * const command = new ConnectCustomKeyStoreCommand(input);
  * await client.send(command);
+ * // example id: to-connect-a-custom-key-store-1628626947750
  * ```
  *
  */

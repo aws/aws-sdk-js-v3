@@ -70,6 +70,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  *   }
  * }
  * *\/
+ * // example id: deleterepository-example-1470863805703
  * ```
  *
  */

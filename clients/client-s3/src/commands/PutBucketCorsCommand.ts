@@ -143,6 +143,7 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketCorsCommand(input);
  * await client.send(command);
+ * // example id: to-set-cors-configuration-on-a-bucket-1483037818805
  * ```
  *
  */

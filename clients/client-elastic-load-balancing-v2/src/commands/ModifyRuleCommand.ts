@@ -96,6 +96,7 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  *   ]
  * }
  * *\/
+ * // example id: elbv2-modify-rule-1
  * ```
  *
  */

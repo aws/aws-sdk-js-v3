@@ -154,6 +154,7 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeAccessPoints
  *   ]
  * }
  * *\/
+ * // example id: elb-describe-load-balancers-1
  * ```
  *
  */

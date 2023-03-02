@@ -51,12 +51,6 @@ export interface ListSolNetworkPackagesCommandOutput extends ListSolNetworkPacka
  * @see {@link ListSolNetworkPackagesCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
- * @example List information about multiple network packages without PaginationToken```javascript/* Optional.empty *\/some code here```
- *
- * @example List information about multiple network packages with PaginationToken```javascript/* Optional.empty *\/some code here```
- *
- * @example No more network packages to return```javascript/* Optional.empty *\/some code here```
- *
  */
 export class ListSolNetworkPackagesCommand extends $Command<
   ListSolNetworkPackagesCommandInput,

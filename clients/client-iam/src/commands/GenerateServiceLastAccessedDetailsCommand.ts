@@ -118,6 +118,7 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  *   "JobId": "examplef-1305-c245-eba4-71fe298bcda7"
  * }
  * *\/
+ * // example id: generateaccessdata-policy-1541695178514
  * ```
  *
  */

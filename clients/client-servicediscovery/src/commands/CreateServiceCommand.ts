@@ -133,6 +133,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *   }
  * }
  * *\/
+ * // example id: example-create-service-1587235913584
  * ```
  *
  */

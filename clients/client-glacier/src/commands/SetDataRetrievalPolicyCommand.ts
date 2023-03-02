@@ -66,6 +66,7 @@ export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetDataRetrievalPolicyCommand(input);
  * await client.send(command);
+ * // example id: to-set-and-then-enact-a-data-retrieval-policy--1481928352408
  * ```
  *
  */

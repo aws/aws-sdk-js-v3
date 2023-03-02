@@ -69,6 +69,7 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  *   ]
  * }
  * *\/
+ * // example id: list-rules-packages-1481066954883
  * ```
  *
  */

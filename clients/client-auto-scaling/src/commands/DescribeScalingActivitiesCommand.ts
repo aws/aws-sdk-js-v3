@@ -83,6 +83,7 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-scaling-activities-1
  * ```
  *
  */

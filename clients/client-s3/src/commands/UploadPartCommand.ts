@@ -197,6 +197,7 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *   "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\""
  * }
  * *\/
+ * // example id: to-upload-a-part-1481847914943
  * ```
  *
  */

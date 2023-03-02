@@ -58,6 +58,7 @@ export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefin
  * };
  * const command = new DeregisterJobDefinitionCommand(input);
  * await client.send(command);
+ * // example id: to-deregister-a-job-definition-1481153579565
  * ```
  *
  */

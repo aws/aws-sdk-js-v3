@@ -67,6 +67,7 @@ export interface RestoreAddressToClassicCommandOutput extends RestoreAddressToCl
  *   "Status": "MoveInProgress"
  * }
  * *\/
+ * // example id: ec2-restore-address-to-classic-1
  * ```
  *
  */

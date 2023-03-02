@@ -74,6 +74,7 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  *   ]
  * }
  * *\/
+ * // example id: listreceiptrulesets-1469121037235
  * ```
  *
  */

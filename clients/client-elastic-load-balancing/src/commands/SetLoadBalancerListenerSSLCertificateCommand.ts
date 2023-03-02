@@ -70,6 +70,7 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
  * };
  * const command = new SetLoadBalancerListenerSSLCertificateCommand(input);
  * await client.send(command);
+ * // example id: elb-set-load-balancer-listener-ssl-certificate-1
  * ```
  *
  */

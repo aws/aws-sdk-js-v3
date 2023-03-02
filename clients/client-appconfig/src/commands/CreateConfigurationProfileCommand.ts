@@ -109,6 +109,7 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  *   "RetrievalRoleArn": "arn:aws:iam::111122223333:role/Example-App-Config-Role"
  * }
  * *\/
+ * // example id: to-create-a-configuration-profile-1632264580336
  * ```
  *
  */

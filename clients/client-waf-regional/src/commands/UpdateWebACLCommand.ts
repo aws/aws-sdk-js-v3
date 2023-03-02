@@ -158,6 +158,7 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
+ * // example id: updatewebacl-1475533627385
  * ```
  *
  */

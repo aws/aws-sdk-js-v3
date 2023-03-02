@@ -87,6 +87,7 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
+ * // example id: deleteipset-1472767434306
  * ```
  *
  */

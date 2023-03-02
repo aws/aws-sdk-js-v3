@@ -244,6 +244,7 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketAclCommand(input);
  * await client.send(command);
+ * // example id: put-bucket-acl-1482260397033
  * ```
  *
  */

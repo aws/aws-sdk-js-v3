@@ -74,6 +74,7 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  *   ]
  * }
  * *\/
+ * // example id: getauthorizationtoken-example-1470867047084
  * ```
  *
  */

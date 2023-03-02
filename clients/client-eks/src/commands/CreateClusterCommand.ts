@@ -90,6 +90,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * };
  * const command = new CreateClusterCommand(input);
  * await client.send(command);
+ * // example id: to-create-a-new-cluster-1527868185648
  * ```
  *
  */

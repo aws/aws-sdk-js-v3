@@ -92,6 +92,7 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  *   ]
  * }
  * *\/
+ * // example id: removetagsfromresource-1483037920947
  * ```
  *
  */

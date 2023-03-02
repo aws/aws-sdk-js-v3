@@ -70,6 +70,7 @@ export interface DescribeTerminationPolicyTypesCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-termination-policy-types-1
  * ```
  *
  */

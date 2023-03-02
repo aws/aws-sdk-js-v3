@@ -82,6 +82,7 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileRespo
  *   }
  * }
  * *\/
+ * // example id: 463b9ba5-18cc-4608-9ccb-5a7c6b6e5fe7
  * ```
  *
  */

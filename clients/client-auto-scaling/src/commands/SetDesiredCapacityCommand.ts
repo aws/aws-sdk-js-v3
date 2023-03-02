@@ -60,6 +60,7 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetDesiredCapacityCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-set-desired-capacity-1
  * ```
  *
  */

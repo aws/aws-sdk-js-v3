@@ -84,6 +84,7 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteImportedKeyMaterialCommand(input);
  * await client.send(command);
+ * // example id: to-delete-imported-key-material-1478561674507
  * ```
  *
  */

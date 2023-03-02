@@ -64,6 +64,7 @@ export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityR
  *   "FullyQualifiedCNAME": "my-cname.us-west-2.elasticbeanstalk.com"
  * }
  * *\/
+ * // example id: to-check-the-availability-of-a-cname-1456268589537
  * ```
  *
  */

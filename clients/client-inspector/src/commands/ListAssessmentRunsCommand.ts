@@ -71,6 +71,7 @@ export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsRespo
  *   "nextToken": "1"
  * }
  * *\/
+ * // example id: list-assessment-runs-1481066340844
  * ```
  *
  */

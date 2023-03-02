@@ -53,6 +53,7 @@ export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteNetworkInterfaceCommand(input);
  * await client.send(command);
+ * // example id: ec2-delete-network-interface-1
  * ```
  *
  */

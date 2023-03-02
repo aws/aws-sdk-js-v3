@@ -60,6 +60,7 @@ export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
  *   "job": {}
  * }
  * *\/
+ * // example id: getjob-example-1470928294268
  * ```
  *
  */

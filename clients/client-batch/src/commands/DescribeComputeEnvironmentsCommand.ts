@@ -103,6 +103,7 @@ export interface DescribeComputeEnvironmentsCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: to-describe-a-compute-environment-1481153713334
  * ```
  *
  */

@@ -68,6 +68,7 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  * };
  * const command = new DescribeDBClusterParameterGroupsCommand(input);
  * await client.send(command);
+ * // example id: describe-db-cluster-parameter-groups-cf9c6e66-664e-4f57-8e29-a9080abfc013
  * ```
  *
  */

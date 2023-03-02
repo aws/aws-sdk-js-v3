@@ -115,6 +115,7 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
  *   ]
  * }
  * *\/
+ * // example id: describereplicationgroups-1481742639427
  * ```
  *
  */

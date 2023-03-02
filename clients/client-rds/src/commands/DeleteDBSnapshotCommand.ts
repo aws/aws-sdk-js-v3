@@ -67,6 +67,7 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  *   "DBSnapshot": {}
  * }
  * *\/
+ * // example id: delete-db-snapshot-505d6b4e-8ced-479c-856a-c460a33fe07b
  * ```
  *
  */

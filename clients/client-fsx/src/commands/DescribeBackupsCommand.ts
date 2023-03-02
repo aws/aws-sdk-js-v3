@@ -111,6 +111,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  *   ]
  * }
  * *\/
+ * // example id: to-describe-backups-1481848448499
  * ```
  *
  */

@@ -69,6 +69,7 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
  *   }
  * }
  * *\/
+ * // example id: ec2-describe-spot-datafeed-subscription-1
  * ```
  *
  */

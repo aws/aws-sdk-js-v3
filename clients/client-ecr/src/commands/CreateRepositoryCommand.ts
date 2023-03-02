@@ -68,6 +68,7 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  *   }
  * }
  * *\/
+ * // example id: createrepository-example-1470863688724
  * ```
  *
  */

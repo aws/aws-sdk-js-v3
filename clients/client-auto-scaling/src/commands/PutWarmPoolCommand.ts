@@ -69,6 +69,7 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  * };
  * const command = new PutWarmPoolCommand(input);
  * await client.send(command);
+ * // example id: to-add-a-warm-pool-to-an-auto-scaling-group-1617818810383
  * ```
  *
  */

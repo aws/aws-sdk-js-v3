@@ -64,6 +64,7 @@ export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironm
  *   "status": "ready"
  * }
  * *\/
+ * // example id: describeenvironmentstatus-1516823462133
  * ```
  *
  */

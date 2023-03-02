@@ -75,6 +75,7 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C"
  * }
  * *\/
+ * // example id: to-reset-cache-disks-in-error-status-1472148909807
  * ```
  *
  */

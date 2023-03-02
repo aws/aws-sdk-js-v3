@@ -78,6 +78,7 @@ export interface TerminateEnvironmentCommandOutput extends EnvironmentDescriptio
  *   }
  * }
  * *\/
+ * // example id: to-terminate-an-environment-1456277888556
  * ```
  *
  */

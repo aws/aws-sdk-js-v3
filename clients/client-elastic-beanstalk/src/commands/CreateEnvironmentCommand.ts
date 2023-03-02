@@ -82,6 +82,7 @@ export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, 
  *   "VersionLabel": "v1"
  * }
  * *\/
+ * // example id: to-create-a-new-environment-for-an-application-1456269380396
  * ```
  *
  */

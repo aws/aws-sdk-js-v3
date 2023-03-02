@@ -72,6 +72,7 @@ export interface ListRoleTagsCommandOutput extends ListRoleTagsResponse, __Metad
  *   ]
  * }
  * *\/
+ * // example id: to-list-the-tags-attached-to-an-iam-role-1506719238376
  * ```
  *
  */

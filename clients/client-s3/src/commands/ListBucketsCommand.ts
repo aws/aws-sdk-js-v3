@@ -74,6 +74,7 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  *   }
  * }
  * *\/
+ * // example id: to-list-object-versions-1481910996058
  * ```
  *
  */

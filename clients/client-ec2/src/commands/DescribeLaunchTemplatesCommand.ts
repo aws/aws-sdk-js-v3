@@ -74,6 +74,7 @@ export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemp
  *   ]
  * }
  * *\/
+ * // example id: to-describe-a-launch-template-1529344182862
  * ```
  *
  */

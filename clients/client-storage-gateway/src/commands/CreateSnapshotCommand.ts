@@ -92,6 +92,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
  * }
  * *\/
+ * // example id: to-create-a-snapshot-of-a-gateway-volume-1471301469561
  * ```
  *
  */

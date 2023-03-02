@@ -63,6 +63,7 @@ export interface UpdateUserCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateUserCommand(input);
  * await client.send(command);
+ * // example id: 275d53ed-347a-44e6-b7d0-a96276154352
  * ```
  *
  */

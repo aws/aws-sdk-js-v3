@@ -55,6 +55,7 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteApplicationCommand(input);
  * await client.send(command);
+ * // example id: to-delete-an-application-1632265343951
  * ```
  *
  */

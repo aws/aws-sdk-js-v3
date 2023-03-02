@@ -76,6 +76,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  *   }
  * }
  * *\/
+ * // example id: to-delete-an-empty-cluster-1472512705352
  * ```
  *
  */

@@ -106,6 +106,7 @@ export interface DescribeHandshakeCommandOutput extends DescribeHandshakeRespons
  *   }
  * }
  * *\/
+ * // example id: to-get-information-about-a-handshake-1472503400505
  * ```
  *
  */

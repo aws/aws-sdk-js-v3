@@ -68,6 +68,7 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * };
  * const command = new DeregisterTargetsCommand(input);
  * await client.send(command);
+ * // example id: elbv2-deregister-targets-1
  * ```
  *
  */

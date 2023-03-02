@@ -72,6 +72,7 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  *   "DBClusterSnapshotAttributesResult": {}
  * }
  * *\/
+ * // example id: describe-db-cluster-snapshot-attributes-6752ade3-0c7b-4b06-a8e4-b76bf4e2d3571
  * ```
  *
  */

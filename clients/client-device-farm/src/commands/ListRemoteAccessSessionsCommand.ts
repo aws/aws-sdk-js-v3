@@ -64,6 +64,7 @@ export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessS
  *   "remoteAccessSessions": []
  * }
  * *\/
+ * // example id: to-get-information-about-a-remote-access-session-1472581144803
  * ```
  *
  */

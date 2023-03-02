@@ -128,6 +128,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *   }
  * }
  * *\/
+ * // example id: createrule-1474072675555
  * ```
  *
  */

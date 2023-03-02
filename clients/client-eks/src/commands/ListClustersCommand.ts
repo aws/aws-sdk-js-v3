@@ -65,6 +65,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  *   ]
  * }
  * *\/
+ * // example id: to-list-your-available-clusters-1527868801040
  * ```
  *
  */

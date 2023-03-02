@@ -61,6 +61,7 @@ export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyRes
  * };
  * const command = new DeleteProjectPolicyCommand(input);
  * await client.send(command);
+ * // example id: deleteprojectpolicy-1658204413810
  * ```
  *
  */

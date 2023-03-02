@@ -68,6 +68,7 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  *   "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
  * }
  * *\/
+ * // example id: to-remove-tags-from-a-resource-1472147210553
  * ```
  *
  */

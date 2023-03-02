@@ -103,6 +103,7 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  *   }
  * }
  * *\/
+ * // example id: to-create-a-launch-template-1529023655488
  * ```
  *
  */

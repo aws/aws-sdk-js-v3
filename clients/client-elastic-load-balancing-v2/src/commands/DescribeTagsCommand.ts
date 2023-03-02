@@ -82,6 +82,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  *   ]
  * }
  * *\/
+ * // example id: elbv2-describe-tags-1
  * ```
  *
  */

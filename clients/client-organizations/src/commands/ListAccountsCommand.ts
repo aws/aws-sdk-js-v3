@@ -109,6 +109,7 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-a-list-of-all-of-the-accounts-in-an-organization-1472509590974
  * ```
  *
  */

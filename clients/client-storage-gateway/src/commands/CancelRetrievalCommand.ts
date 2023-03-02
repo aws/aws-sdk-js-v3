@@ -66,6 +66,7 @@ export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __M
  *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
  * }
  * *\/
+ * // example id: to-cancel-virtual-tape-retrieval-1471295704491
  * ```
  *
  */

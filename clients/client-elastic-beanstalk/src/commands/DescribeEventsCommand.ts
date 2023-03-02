@@ -99,6 +99,7 @@ export interface DescribeEventsCommandOutput extends EventDescriptionsMessage, _
  *   ]
  * }
  * *\/
+ * // example id: to-view-events-for-an-environment-1456277367589
  * ```
  *
  */

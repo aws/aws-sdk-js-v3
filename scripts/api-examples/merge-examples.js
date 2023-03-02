@@ -103,6 +103,11 @@ module.exports = {
         if (sdkIdToCommandsFolder[id]) {
           return sdkIdToCommandsFolder[id];
         }
+        if (clientsFolder.endsWith("clients")) {
+          if (existsSync(join(clientsFolder, `client-${id}`, "src", "commands"))) {
+            return (sdkIdToCommandsFolder[id] = join(clientsFolder, `client-${id}`, "src", "commands"));
+          }
+        }
         for await (const file of walk(clientsFolder)) {
           if (/package\.json$/.test(file) && !file.includes("node_modules")) {
             const pkg = require(file);
@@ -122,9 +127,8 @@ module.exports = {
       for (const [operation, examples] of Object.entries(examplesFile.examples)) {
         const commandFile = join(commandsFolder, operation + "Command.ts");
         if (existsSync(commandFile)) {
-          let buffer = [];
-
           for (const example of examples) {
+            let buffer = [];
             buffer.push(
               ...`@example ${example.title}
 \`\`\`javascript
@@ -142,24 +146,26 @@ ${JSON.stringify(example.output, null, 2)}
 *\\/`
     : `await client.send(command);`
 }
+// example id: ${example.id}
 \`\`\`
 `.split("\n")
             );
-          }
 
-          const final = `${buffer.map((line) => " " + `* ${line}`.trim()).join("\n")}
+            const final = `${buffer.map((line) => " " + `* ${line}`.trim()).join("\n")}
  */`;
-          const file = readFileSync(commandFile, "utf-8");
+            const file = readFileSync(commandFile, "utf-8");
 
-          if (file.includes(`@example ${examples[0].title}`)) {
-            continue;
-          }
-          const contents = file.replace(
-            ` */\nexport class ${operation}Command`,
-            `${final}
+            if (file.includes(example.id)) {
+              continue;
+            } else {
+              const contents = file.replace(
+                ` */\nexport class ${operation}Command`,
+                `${final}
 export class ${operation}Command`
-          );
-          writeFileSync(commandFile, contents, "utf-8");
+              );
+              writeFileSync(commandFile, contents, "utf-8");
+            }
+          }
         }
       }
     }
@@ -168,4 +174,8 @@ export class ${operation}Command`
 
 if (process.argv.includes("--service")) {
   module.exports.merge(void 0, process.argv[process.argv.indexOf("--service") + 1]);
+}
+
+if (process.argv.includes("--all")) {
+  module.exports.merge(void 0);
 }

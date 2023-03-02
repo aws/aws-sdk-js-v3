@@ -72,6 +72,7 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  *   "DBSnapshotAttributesResult": {}
  * }
  * *\/
+ * // example id: describe-db-snapshot-attributes-1d4fb750-34f6-4e43-8b3d-b2751d796a95
  * ```
  *
  */

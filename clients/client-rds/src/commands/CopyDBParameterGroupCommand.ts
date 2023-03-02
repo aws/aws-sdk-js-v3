@@ -65,6 +65,7 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  *   "DBParameterGroup": {}
  * }
  * *\/
+ * // example id: copy-db-parameter-group-610d4dba-2c87-467f-ae5d-edd7f8e47349
  * ```
  *
  */

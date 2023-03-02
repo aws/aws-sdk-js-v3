@@ -239,6 +239,7 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *   }
  * }
  * *\/
+ * // example id: to-upload-a-part-by-copying-byte-range-from-an-existing-object-as-data-source-1483048068594
  * ```
  *
  * @example To upload a part by copying data from an existing object as data source
@@ -261,6 +262,7 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *   }
  * }
  * *\/
+ * // example id: to-upload-a-part-by-copying-data-from-an-existing-object-as-data-source-1483046746348
  * ```
  *
  */

@@ -63,6 +63,7 @@ export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
  *   "run": {}
  * }
  * *\/
+ * // example id: to-stop-a-test-run-1472653770340
  * ```
  *
  */

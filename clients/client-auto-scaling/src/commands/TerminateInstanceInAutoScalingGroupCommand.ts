@@ -70,6 +70,7 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  * };
  * const command = new TerminateInstanceInAutoScalingGroupCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-terminate-instance-in-auto-scaling-group-1
  * ```
  *
  */

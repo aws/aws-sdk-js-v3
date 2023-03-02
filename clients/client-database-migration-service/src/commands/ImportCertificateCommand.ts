@@ -68,6 +68,7 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  *   "Certificate": {}
  * }
  * *\/
+ * // example id: import-certificate-1481756197206
  * ```
  *
  */

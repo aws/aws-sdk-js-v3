@@ -51,8 +51,6 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  * @see {@link UpdateSolNetworkInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
- * @example Update a Sol Network Instance```javascript/* Optional.empty *\/some code here```
- *
  */
 export class UpdateSolNetworkInstanceCommand extends $Command<
   UpdateSolNetworkInstanceCommandInput,

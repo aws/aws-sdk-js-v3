@@ -115,6 +115,7 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-network-interfaces-1
  * ```
  *
  */

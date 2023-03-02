@@ -94,6 +94,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  *   "DNSName": "my-load-balancer-1234567890.us-west-2.elb.amazonaws.com"
  * }
  * *\/
+ * // example id: elb-create-load-balancer-1
  * ```
  *
  * @example To create an HTTP load balancer in EC2-Classic
@@ -120,6 +121,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  *   "DNSName": "my-load-balancer-123456789.us-west-2.elb.amazonaws.com"
  * }
  * *\/
+ * // example id: elb-create-load-balancer-2
  * ```
  *
  * @example To create an HTTPS load balancer in a VPC
@@ -156,6 +158,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  *   "DNSName": "my-load-balancer-1234567890.us-west-2.elb.amazonaws.com"
  * }
  * *\/
+ * // example id: elb-create-load-balancer-3
  * ```
  *
  * @example To create an HTTPS load balancer in EC2-Classic
@@ -189,6 +192,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  *   "DNSName": "my-load-balancer-123456789.us-west-2.elb.amazonaws.com"
  * }
  * *\/
+ * // example id: elb-create-load-balancer-4
  * ```
  *
  * @example To create an internal load balancer
@@ -219,6 +223,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  *   "DNSName": "internal-my-load-balancer-123456789.us-west-2.elb.amazonaws.com"
  * }
  * *\/
+ * // example id: elb-create-load-balancer-5
  * ```
  *
  */

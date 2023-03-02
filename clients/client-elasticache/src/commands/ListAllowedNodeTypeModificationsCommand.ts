@@ -78,21 +78,7 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  *   ]
  * }
  * *\/
- * ```
- *
- * @example ListAllowedNodeTypeModifications
- * ```javascript
- * // Lists all available node types that you can scale your Redis cluster's or replication group's current node type up to.
- * const input = {
- *   "CacheClusterId": "mycluster"
- * };
- * const command = new ListAllowedNodeTypeModificationsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ScaleUpModifications": []
- * }
- * *\/
+ * // example id: listallowednodetypemodifications-1481748494872
  * ```
  *
  */

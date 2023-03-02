@@ -63,6 +63,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  * };
  * const command = new UpdateClusterCommand(input);
  * await client.send(command);
+ * // example id: to-update-a-cluster-1482863900595
  * ```
  *
  */

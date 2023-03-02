@@ -70,6 +70,7 @@ export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __M
  *   "RefreshSchemasStatus": {}
  * }
  * *\/
+ * // example id: refresh-schema-1481762399111
  * ```
  *
  */

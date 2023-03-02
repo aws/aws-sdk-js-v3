@@ -60,6 +60,7 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateAddressCommand(input);
  * await client.send(command);
+ * // example id: ec2-disassociate-address-1
  * ```
  *
  * @example To disassociate an Elastic IP addresses in EC2-Classic
@@ -70,6 +71,7 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateAddressCommand(input);
  * await client.send(command);
+ * // example id: ec2-disassociate-address-2
  * ```
  *
  */

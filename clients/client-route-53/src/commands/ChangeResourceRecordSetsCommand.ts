@@ -176,6 +176,7 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  *   }
  * }
  * *\/
+ * // example id: to-create-update-or-delete-resource-record-sets-1484344703668
  * ```
  *
  * @example To create weighted resource record sets
@@ -233,6 +234,7 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  *   }
  * }
  * *\/
+ * // example id: to-create-weighted-resource-record-sets-1484348208522
  * ```
  *
  * @example To create an alias resource record set
@@ -270,6 +272,7 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  *   }
  * }
  * *\/
+ * // example id: to-create-an-alias-resource-record-set-1484348404062
  * ```
  *
  * @example To create weighted alias resource record sets
@@ -323,6 +326,7 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  *   }
  * }
  * *\/
+ * // example id: to-create-weighted-alias-resource-record-sets-1484349467416
  * ```
  *
  * @example To create latency resource record sets
@@ -380,6 +384,7 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  *   }
  * }
  * *\/
+ * // example id: to-create-latency-resource-record-sets-1484350219917
  * ```
  *
  * @example To create latency alias resource record sets
@@ -433,6 +438,7 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  *   }
  * }
  * *\/
+ * // example id: to-create-latency-alias-resource-record-sets-1484601774179
  * ```
  *
  * @example To create failover resource record sets
@@ -490,6 +496,7 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  *   }
  * }
  * *\/
+ * // example id: to-create-failover-resource-record-sets-1484604541740
  * ```
  *
  * @example To create failover alias resource record sets
@@ -543,6 +550,7 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  *   }
  * }
  * *\/
+ * // example id: to-create-failover-alias-resource-record-sets-1484607497724
  * ```
  *
  * @example To create geolocation resource record sets
@@ -636,6 +644,7 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  *   }
  * }
  * *\/
+ * // example id: to-create-geolocation-resource-record-sets-1484612462466
  * ```
  *
  * @example To create geolocation alias resource record sets
@@ -725,6 +734,7 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  *   }
  * }
  * *\/
+ * // example id: to-create-geolocation-alias-resource-record-sets-1484612871203
  * ```
  *
  */

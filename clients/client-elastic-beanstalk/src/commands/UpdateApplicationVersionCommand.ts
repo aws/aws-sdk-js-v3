@@ -79,6 +79,7 @@ export interface UpdateApplicationVersionCommandOutput extends ApplicationVersio
  *   }
  * }
  * *\/
+ * // example id: to-change-an-application-versions-description-1456278019237
  * ```
  *
  */

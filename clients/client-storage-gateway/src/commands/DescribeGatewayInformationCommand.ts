@@ -77,6 +77,7 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  *   "NextUpdateAvailabilityDate": "2017-01-02T16:00:00"
  * }
  * *\/
+ * // example id: to-describe-metadata-about-the-gateway-1471467849079
  * ```
  *
  */

@@ -75,6 +75,7 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateKeyDescriptionCommand(input);
  * await client.send(command);
+ * // example id: to-update-the-description-of-a-cmk-1481574808619
  * ```
  *
  */

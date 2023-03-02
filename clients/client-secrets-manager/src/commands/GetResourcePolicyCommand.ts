@@ -75,6 +75,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  *   "ResourcePolicy": "{\n\"Version\":\"2012-10-17\",\n\"Statement\":[{\n\"Effect\":\"Allow\",\n\"Principal\":{\n\"AWS\":\"arn:aws:iam::123456789012:root\"\n},\n\"Action\":\"secretsmanager:GetSecretValue\",\n\"Resource\":\"*\"\n}]\n}"
  * }
  * *\/
+ * // example id: to-retrieve-the-resource-based-policy-attached-to-a-secret-1530209677536
  * ```
  *
  */

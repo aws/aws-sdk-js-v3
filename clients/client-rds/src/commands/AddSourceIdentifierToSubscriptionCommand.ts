@@ -66,6 +66,7 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  *   "EventSubscription": {}
  * }
  * *\/
+ * // example id: add-source-identifier-to-subscription-93fb6a15-0a59-4577-a7b5-e12db9752c14
  * ```
  *
  */

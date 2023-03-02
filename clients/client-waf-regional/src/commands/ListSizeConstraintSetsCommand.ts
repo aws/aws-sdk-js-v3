@@ -76,6 +76,7 @@ export interface ListSizeConstraintSetsCommandOutput extends ListSizeConstraintS
  *   ]
  * }
  * *\/
+ * // example id: listsizeconstraintsets-1474300067597
  * ```
  *
  */

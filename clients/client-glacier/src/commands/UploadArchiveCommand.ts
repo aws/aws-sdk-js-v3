@@ -109,6 +109,7 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  *   "location": "/0123456789012/vaults/my-vault/archives/kKB7ymWJVpPSwhGP6ycSOAekp9ZYe_--zM_mw6k76ZFGEIWQX-ybtRDvc2VkPSDtfKmQrj0IRQLSGsNuDp-AJVlu2ccmDSyDUmZwKbwbpAdGATGDiB3hHO0bjbGehXTcApVud_wyDw"
  * }
  * *\/
+ * // example id: upload-archive-1481668510494
  * ```
  *
  */

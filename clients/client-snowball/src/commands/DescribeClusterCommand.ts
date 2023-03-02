@@ -86,6 +86,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
  *   }
  * }
  * *\/
+ * // example id: to-describe-a-cluster-1482864218396
  * ```
  *
  */

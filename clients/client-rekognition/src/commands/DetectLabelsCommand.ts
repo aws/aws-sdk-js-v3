@@ -191,6 +191,7 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *   ]
  * }
  * *\/
+ * // example id: to-detect-labels-1481834255770
  * ```
  *
  */

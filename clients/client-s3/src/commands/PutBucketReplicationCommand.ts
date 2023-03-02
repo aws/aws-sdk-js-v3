@@ -128,6 +128,7 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketReplicationCommand(input);
  * await client.send(command);
+ * // example id: id-1
  * ```
  *
  */

@@ -93,6 +93,7 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput,
  *   "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
  * }
  * *\/
+ * // example id: to-add-tags-to-resource-1471283689460
  * ```
  *
  */

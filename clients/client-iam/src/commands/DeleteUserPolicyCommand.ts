@@ -59,6 +59,7 @@ export interface DeleteUserPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteUserPolicyCommand(input);
  * await client.send(command);
+ * // example id: 34f07ddc-9bc1-4f52-bc59-cd0a3ccd06c8
  * ```
  *
  */

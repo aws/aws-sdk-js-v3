@@ -81,6 +81,7 @@ export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIV
  *   "VolumeSizeInBytes": 1099511627776
  * }
  * *\/
+ * // example id: to-create-a-stored-iscsi-volume-1471367662813
  * ```
  *
  */

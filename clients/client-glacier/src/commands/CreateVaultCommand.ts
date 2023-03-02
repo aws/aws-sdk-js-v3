@@ -87,6 +87,7 @@ export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataB
  *   "location": "/111122223333/vaults/my-vault"
  * }
  * *\/
+ * // example id: 1dc0313d-ace1-4e6c-9d13-1ec7813b14b7
  * ```
  *
  */

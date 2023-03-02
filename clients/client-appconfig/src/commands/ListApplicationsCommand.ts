@@ -71,6 +71,7 @@ export interface ListApplicationsCommandOutput extends Applications, __MetadataB
  *   ]
  * }
  * *\/
+ * // example id: to-list-the-available-applications-1632267111131
  * ```
  *
  */

@@ -90,6 +90,7 @@ export interface DescribeScheduledInstancesCommandOutput extends DescribeSchedul
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-scheduled-instances-1
  * ```
  *
  */

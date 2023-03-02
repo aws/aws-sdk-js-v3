@@ -86,6 +86,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  *   "DBInstance": {}
  * }
  * *\/
+ * // example id: delete-db-instance-4412e650-949c-488a-b32a-7d3038ebccc4
  * ```
  *
  */

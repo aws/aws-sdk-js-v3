@@ -90,6 +90,7 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  *   ]
  * }
  * *\/
+ * // example id: elbv2-describe-rules-1
  * ```
  *
  */

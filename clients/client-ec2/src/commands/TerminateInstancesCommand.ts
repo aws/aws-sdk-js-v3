@@ -132,6 +132,7 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  *   ]
  * }
  * *\/
+ * // example id: to-terminate-an-ec2-instance-1529359350660
  * ```
  *
  */

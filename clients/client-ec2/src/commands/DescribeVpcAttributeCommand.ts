@@ -67,6 +67,7 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  *   "VpcId": "vpc-a01106c2"
  * }
  * *\/
+ * // example id: ec2-describe-vpc-attribute-1
  * ```
  *
  * @example To describe the enableDnsHostnames attribute
@@ -86,6 +87,7 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  *   "VpcId": "vpc-a01106c2"
  * }
  * *\/
+ * // example id: ec2-describe-vpc-attribute-2
  * ```
  *
  */

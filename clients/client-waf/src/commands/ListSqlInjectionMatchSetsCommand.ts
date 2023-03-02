@@ -76,6 +76,7 @@ export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjection
  *   ]
  * }
  * *\/
+ * // example id: listsqlinjectionmatchset-1474493560103
  * ```
  *
  */

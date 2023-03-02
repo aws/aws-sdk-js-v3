@@ -85,6 +85,7 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  *   ]
  * }
  * *\/
+ * // example id: listoperations-example-1590117354396
  * ```
  *
  */

@@ -75,6 +75,7 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  *   "ReplicateTo": "SSM_DOCUMENT"
  * }
  * *\/
+ * // example id: to-create-a-deployment-strategy-1632264783812
  * ```
  *
  */

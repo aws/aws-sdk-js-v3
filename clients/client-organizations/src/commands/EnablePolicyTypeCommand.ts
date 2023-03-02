@@ -84,6 +84,7 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  *   }
  * }
  * *\/
+ * // example id: to-enable-a-policy-type-in-a-root
  * ```
  *
  */

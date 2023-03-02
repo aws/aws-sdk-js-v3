@@ -98,6 +98,7 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  * };
  * const command = new RecordLifecycleActionHeartbeatCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-record-lifecycle-action-heartbeat-1
  * ```
  *
  */

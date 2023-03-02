@@ -72,6 +72,7 @@ export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGrou
  *   "DBSecurityGroup": {}
  * }
  * *\/
+ * // example id: create-db-security-group-41b6786a-539e-42a5-a645-a8bc3cf99353
  * ```
  *
  */

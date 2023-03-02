@@ -68,6 +68,7 @@ export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachRolePolicyCommand(input);
  * await client.send(command);
+ * // example id: 3e1b8c7c-99c8-4fc4-a20c-131fe3f22c7e
  * ```
  *
  */

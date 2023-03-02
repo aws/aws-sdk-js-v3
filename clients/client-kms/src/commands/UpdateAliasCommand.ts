@@ -116,6 +116,7 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAliasCommand(input);
  * await client.send(command);
+ * // example id: to-update-an-alias-1481572726920
  * ```
  *
  */

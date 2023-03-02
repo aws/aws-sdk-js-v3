@@ -104,6 +104,7 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  *   ]
  * }
  * *\/
+ * // example id: elbv2-create-rule-1
  * ```
  *
  */

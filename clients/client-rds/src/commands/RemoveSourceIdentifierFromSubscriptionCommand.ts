@@ -67,6 +67,7 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  *   "EventSubscription": {}
  * }
  * *\/
+ * // example id: remove-source-identifier-from-subscription-30d25493-c19d-4cf7-b4e5-68371d0d8770
  * ```
  *
  */

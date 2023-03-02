@@ -50,6 +50,7 @@ export interface DeleteKeyPairCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteKeyPairCommand(input);
  * await client.send(command);
+ * // example id: ec2-delete-key-pair-1
  * ```
  *
  */

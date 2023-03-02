@@ -114,6 +114,7 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  * const input = undefined;
  * const command = new LeaveOrganizationCommand(input);
  * await client.send(command);
+ * // example id: to-leave-an-organization-as-a-member-account-1472508784736
  * ```
  *
  */

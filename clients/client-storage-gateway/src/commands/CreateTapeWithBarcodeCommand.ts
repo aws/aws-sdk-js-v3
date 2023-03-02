@@ -73,6 +73,7 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST12345"
  * }
  * *\/
+ * // example id: to-create-a-virtual-tape-using-a-barcode-1471371842452
  * ```
  *
  */

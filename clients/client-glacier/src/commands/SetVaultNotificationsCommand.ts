@@ -98,6 +98,7 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetVaultNotificationsCommand(input);
  * await client.send(command);
+ * // example id: to-configure-a-vault-to-post-a-message-to-an-amazon-simple-notification-service-amazon-sns-topic-when-jobs-complete-1482186397475
  * ```
  *
  */

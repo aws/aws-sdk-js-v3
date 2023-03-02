@@ -61,6 +61,7 @@ export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterRes
  * };
  * const command = new DeleteReceiptFilterCommand(input);
  * await client.send(command);
+ * // example id: deletereceiptfilter-1469055456835
  * ```
  *
  */

@@ -100,6 +100,7 @@ export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __Met
  *   ]
  * }
  * *\/
+ * // example id: to-describe-available-voices-1482180557753
  * ```
  *
  */

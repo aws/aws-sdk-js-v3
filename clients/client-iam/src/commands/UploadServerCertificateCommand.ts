@@ -96,6 +96,7 @@ export interface UploadServerCertificateCommandOutput extends UploadServerCertif
  *   }
  * }
  * *\/
+ * // example id: 06eab6d1-ebf2-4bd9-839d-f7508b9a38b6
  * ```
  *
  */

@@ -82,6 +82,7 @@ export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMat
  *   }
  * }
  * *\/
+ * // example id: getsqlinjectionmatchset-1475005940137
  * ```
  *
  */

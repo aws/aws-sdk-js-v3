@@ -64,6 +64,7 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  *   "OperationId": "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k98y6drk"
  * }
  * *\/
+ * // example id: example-delete-namespace-1587416093508
  * ```
  *
  */

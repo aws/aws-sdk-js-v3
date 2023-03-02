@@ -100,6 +100,7 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  *   ]
  * }
  * *\/
+ * // example id: to-describe-an-efs-file-system-1481848448460
  * ```
  *
  */

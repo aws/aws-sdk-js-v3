@@ -124,6 +124,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *   }
  * }
  * *\/
+ * // example id: createwebacl-1472061481310
  * ```
  *
  */

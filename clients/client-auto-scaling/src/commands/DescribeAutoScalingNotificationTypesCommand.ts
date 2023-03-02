@@ -67,6 +67,7 @@ export interface DescribeAutoScalingNotificationTypesCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-auto-scaling-notification-types-1
  * ```
  *
  */

@@ -91,6 +91,7 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *   "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:228f02c2-c665-4bfd-aaac-8b04080bea3c:autoScalingGroupName/my-auto-scaling-group:policyName/alb1000-target-tracking-scaling-policy"
  * }
  * *\/
+ * // example id: autoscaling-put-scaling-policy-1
  * ```
  *
  */

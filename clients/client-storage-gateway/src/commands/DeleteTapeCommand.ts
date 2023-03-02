@@ -65,6 +65,7 @@ export interface DeleteTapeCommandOutput extends DeleteTapeOutput, __MetadataBea
  *   "TapeARN": "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST05A2A0"
  * }
  * *\/
+ * // example id: to-delete-a-virtual-tape-1471382444157
  * ```
  *
  */

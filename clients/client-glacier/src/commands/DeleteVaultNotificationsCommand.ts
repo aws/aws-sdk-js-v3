@@ -66,6 +66,7 @@ export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteVaultNotificationsCommand(input);
  * await client.send(command);
+ * // example id: to-delete-the-notification-configuration-set-for-a-vault-1481840646090
  * ```
  *
  */

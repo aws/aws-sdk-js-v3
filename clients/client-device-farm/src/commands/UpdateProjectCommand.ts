@@ -69,6 +69,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  *   }
  * }
  * *\/
+ * // example id: to-update-a-device-pool-1472653887677
  * ```
  *
  */

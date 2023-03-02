@@ -87,6 +87,7 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  *   "Truncated": false
  * }
  * *\/
+ * // example id: to-list-key-policies-for-a-cmk-1481069780998
  * ```
  *
  */

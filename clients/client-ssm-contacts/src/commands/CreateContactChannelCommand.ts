@@ -68,6 +68,7 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  *   "ContactChannelArn": "arn:aws:ssm-contacts:us-east-1:111122223333:contact-channel/akuam/02f506b9-ea5d-4764-af89-2daa793ff024"
  * }
  * *\/
+ * // example id: to-create-a-contact-channel-1630360447010
  * ```
  *
  */

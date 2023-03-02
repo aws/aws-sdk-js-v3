@@ -125,6 +125,7 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  *   "SearchedFaceId": "70008e50-75e4-55d0-8e80-363fb73b3a14"
  * }
  * *\/
+ * // example id: to-delete-a-face-1482182799377
  * ```
  *
  */

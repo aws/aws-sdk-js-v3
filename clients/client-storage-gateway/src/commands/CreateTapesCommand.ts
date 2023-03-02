@@ -77,6 +77,7 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  *   ]
  * }
  * *\/
+ * // example id: to-create-a-virtual-tape-1471372061659
  * ```
  *
  */

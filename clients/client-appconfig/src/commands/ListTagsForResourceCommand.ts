@@ -65,6 +65,7 @@ export interface ListTagsForResourceCommandOutput extends ResourceTags, __Metada
  *   }
  * }
  * *\/
+ * // example id: to-list-the-tags-of-an-application-1632328796560
  * ```
  *
  */

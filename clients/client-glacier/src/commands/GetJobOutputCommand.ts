@@ -108,6 +108,7 @@ export interface GetJobOutputCommandOutput extends __WithSdkStreamMixin<GetJobOu
  *   "status": 200
  * }
  * *\/
+ * // example id: to-get-the-output-of-a-previously-initiated-job-1481848550859
  * ```
  *
  */

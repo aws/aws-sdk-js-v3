@@ -54,6 +54,7 @@ export interface AddUserToGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddUserToGroupCommand(input);
  * await client.send(command);
+ * // example id: 619c7e6b-09f8-4036-857b-51a6ea5027ca
  * ```
  *
  */

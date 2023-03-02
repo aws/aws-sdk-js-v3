@@ -87,6 +87,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *   ]
  * }
  * *\/
+ * // example id: describe-acount-attributes-1481753085663
  * ```
  *
  */

@@ -177,6 +177,7 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  *   "ReplicaTags": []
  * }
  * *\/
+ * // example id: to-replicate-a-multi-region-key-in-a-different-aws-region-1628622402887
  * ```
  *
  */

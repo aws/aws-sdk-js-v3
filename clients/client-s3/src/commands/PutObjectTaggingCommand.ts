@@ -168,6 +168,7 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *   "VersionId": "null"
  * }
  * *\/
+ * // example id: to-add-tags-to-an-existing-object-1481764668793
  * ```
  *
  */

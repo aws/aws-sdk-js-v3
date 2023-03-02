@@ -73,6 +73,7 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  *   ]
  * }
  * *\/
+ * // example id: get-the-protection-status-for-a-single-task-2022-11-02T06:56:32.553Z
  * ```
  *
  */

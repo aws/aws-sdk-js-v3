@@ -134,6 +134,7 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *   }
  * }
  * *\/
+ * // example id: to-accept-a-handshake-from-another-account-1472500561150
  * ```
  *
  */

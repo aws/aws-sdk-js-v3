@@ -76,6 +76,7 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  *   ]
  * }
  * *\/
+ * // example id: elb-attach-load-balancer-to-subnets-1
  * ```
  *
  */

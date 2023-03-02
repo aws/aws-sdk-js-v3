@@ -85,6 +85,7 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyOutput, __M
  *   "Policy": "{\"Version\":\"2008-10-17\",\"Id\":\"LogPolicy\",\"Statement\":[{\"Sid\":\"Enables the log delivery group to publish logs to your bucket \",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"111122223333\"},\"Action\":[\"s3:GetBucketAcl\",\"s3:GetObjectAcl\",\"s3:PutObject\"],\"Resource\":[\"arn:aws:s3:::policytest1/*\",\"arn:aws:s3:::policytest1\"]}]}"
  * }
  * *\/
+ * // example id: to-get-bucket-policy-1481595098424
  * ```
  *
  */

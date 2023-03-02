@@ -135,6 +135,7 @@ export interface InviteAccountToOrganizationCommandOutput
  *   }
  * }
  * *\/
+ * // example id: to-invite-an-account-to-join-an-organization-1472508594110
  * ```
  *
  */

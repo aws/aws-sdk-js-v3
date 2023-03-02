@@ -55,6 +55,7 @@ export interface AttachInternetGatewayCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachInternetGatewayCommand(input);
  * await client.send(command);
+ * // example id: ec2-attach-internet-gateway-1
  * ```
  *
  */

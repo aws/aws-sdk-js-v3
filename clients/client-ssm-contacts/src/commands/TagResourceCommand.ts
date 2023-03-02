@@ -65,6 +65,7 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * };
  * const command = new TagResourceCommand(input);
  * await client.send(command);
+ * // example id: to-tag-a-contact-1630437124572
  * ```
  *
  */

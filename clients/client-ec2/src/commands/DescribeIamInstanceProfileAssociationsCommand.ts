@@ -78,6 +78,7 @@ export interface DescribeIamInstanceProfileAssociationsCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: to-describe-an-iam-instance-profile-association-1529025123918
  * ```
  *
  */

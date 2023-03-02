@@ -83,6 +83,7 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  *   "DBSnapshotAttributesResult": {}
  * }
  * *\/
+ * // example id: modify-db-snapshot-attribute-2e66f120-2b21-4a7c-890b-4474da88bde6
  * ```
  *
  */

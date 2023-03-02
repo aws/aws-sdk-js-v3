@@ -87,6 +87,7 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  *   ]
  * }
  * *\/
+ * // example id: to-view-configuration-options-for-an-environment-1456276763917
  * ```
  *
  */

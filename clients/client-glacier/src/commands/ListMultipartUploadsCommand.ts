@@ -112,6 +112,7 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  *   ]
  * }
  * *\/
+ * // example id: to-list-all-the-in-progress-multipart-uploads-for-a-vault-1481935250590
  * ```
  *
  */

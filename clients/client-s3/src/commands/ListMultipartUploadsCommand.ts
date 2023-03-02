@@ -137,6 +137,7 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  *   ]
  * }
  * *\/
+ * // example id: to-list-in-progress-multipart-uploads-on-a-bucket-1481852775260
  * ```
  *
  * @example List next set of multipart uploads when previous result is truncated
@@ -191,6 +192,7 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  *   ]
  * }
  * *\/
+ * // example id: list-next-set-of-multipart-uploads-when-previous-result-is-truncated-1482428106748
  * ```
  *
  */

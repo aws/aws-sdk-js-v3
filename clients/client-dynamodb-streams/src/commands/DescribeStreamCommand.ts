@@ -120,6 +120,7 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  *   }
  * }
  * *\/
+ * // example id: to-describe-a-stream-with-a-given-stream-arn-1473457835200
  * ```
  *
  */

@@ -139,6 +139,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * };
  * const command = new RunInstancesCommand(input);
  * await client.send(command);
+ * // example id: to-launch-an-instance-1529360150806
  * ```
  *
  */

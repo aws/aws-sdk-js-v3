@@ -78,6 +78,7 @@ export interface DescribeCertificatesCommandOutput extends DescribeCertificatesR
  *   "Marker": ""
  * }
  * *\/
+ * // example id: describe-certificates-1481753186244
  * ```
  *
  */

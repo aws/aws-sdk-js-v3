@@ -108,6 +108,7 @@ export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutpu
  *   ]
  * }
  * *\/
+ * // example id: to-describe-virtual-tape-library-vtl-devices-of-a-single-gateway-1471906071410
  * ```
  *
  */

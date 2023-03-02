@@ -85,6 +85,7 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-adjustment-types-1
  * ```
  *
  */

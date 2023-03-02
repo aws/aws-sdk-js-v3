@@ -91,6 +91,7 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  *   }
  * }
  * *\/
+ * // example id: to-modify-the-account-settings-for-your-iam-user-account-1549523130939
  * ```
  *
  * @example To modify the account settings for a specific IAM user or IAM role
@@ -112,6 +113,7 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  *   }
  * }
  * *\/
+ * // example id: to-modify-the-account-settings-for-a-specific-iam-user-or-iam-role-1549523518390
  * ```
  *
  */

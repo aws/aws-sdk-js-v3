@@ -62,6 +62,7 @@ export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SuspendProcessesCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-suspend-processes-1
  * ```
  *
  */

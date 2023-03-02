@@ -71,6 +71,7 @@ export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTar
  *   "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX"
  * }
  * *\/
+ * // example id: create-assessment-target-1481063953657
  * ```
  *
  */

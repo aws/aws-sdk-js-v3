@@ -66,6 +66,7 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  *   "incompatibleDevices": []
  * }
  * *\/
+ * // example id: getdevicepoolcompatibility-example-1470925003466
  * ```
  *
  */

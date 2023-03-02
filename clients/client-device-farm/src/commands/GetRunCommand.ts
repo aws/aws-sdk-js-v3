@@ -85,6 +85,7 @@ export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
  *   }
  * }
  * *\/
+ * // example id: to-get-a-test-run-1471015895657
  * ```
  *
  */

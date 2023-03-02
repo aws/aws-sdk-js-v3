@@ -60,6 +60,7 @@ export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBeare
  * };
  * const command = new UnassignPrivateIpAddressesCommand(input);
  * await client.send(command);
+ * // example id: ec2-unassign-private-ip-addresses-1
  * ```
  *
  */

@@ -153,6 +153,7 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *   "CustomKeyStoreId": "cks-1234567890abcdef0"
  * }
  * *\/
+ * // example id: to-create-an-aws-cloudhsm-custom-key-store-1
  * ```
  *
  * @example To create an external key store with VPC endpoint service connectivity
@@ -177,6 +178,7 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *   "CustomKeyStoreId": "cks-1234567890abcdef0"
  * }
  * *\/
+ * // example id: to-create-an-external-custom-key-store-with-vpc-connectivity-2
  * ```
  *
  * @example To create an external key store with public endpoint connectivity
@@ -200,6 +202,7 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *   "CustomKeyStoreId": "cks-987654321abcdef0"
  * }
  * *\/
+ * // example id: to-create-an-external-custom-key-store-with-a-public-endpoint-3
  * ```
  *
  */

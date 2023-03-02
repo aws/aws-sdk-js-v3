@@ -70,6 +70,7 @@ export interface SetIdentityNotificationTopicCommandOutput
  * };
  * const command = new SetIdentityNotificationTopicCommand(input);
  * await client.send(command);
+ * // example id: setidentitynotificationtopic-1469057854966
  * ```
  *
  */

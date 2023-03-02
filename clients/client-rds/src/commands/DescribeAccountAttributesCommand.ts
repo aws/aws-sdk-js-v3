@@ -57,6 +57,7 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);
  * await client.send(command);
+ * // example id: describe-account-attributes-683d3ff7-5524-421a-8da5-e88f1ea2222b
  * ```
  *
  */

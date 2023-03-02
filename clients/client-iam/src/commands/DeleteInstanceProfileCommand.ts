@@ -62,6 +62,7 @@ export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteInstanceProfileCommand(input);
  * await client.send(command);
+ * // example id: 12d74fb8-3433-49db-8171-a1fc764e354d
  * ```
  *
  */

@@ -92,6 +92,7 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * };
  * const command = new ModifyDBClusterParameterGroupCommand(input);
  * await client.send(command);
+ * // example id: modify-db-cluster-parameter-group-f9156bc9-082a-442e-8d12-239542c1a113
  * ```
  *
  */

@@ -69,6 +69,7 @@ export interface UpdateEnvironmentCommandOutput extends Environment, __MetadataB
  *   "State": "ROLLED_BACK"
  * }
  * *\/
+ * // example id: to-update-an-environment-1632331382428
  * ```
  *
  */

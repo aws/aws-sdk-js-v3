@@ -99,6 +99,7 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RetireGrantCommand(input);
  * await client.send(command);
+ * // example id: to-retire-a-grant-1481327028297
  * ```
  *
  */

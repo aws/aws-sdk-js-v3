@@ -77,6 +77,7 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: elb-detach-load-balancer-from-subnets-1
  * ```
  *
  */

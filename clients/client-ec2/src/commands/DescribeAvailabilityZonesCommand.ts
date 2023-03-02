@@ -91,6 +91,7 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-availability-zones-1
  * ```
  *
  */

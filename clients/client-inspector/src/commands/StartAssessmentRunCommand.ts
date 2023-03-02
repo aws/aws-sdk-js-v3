@@ -66,6 +66,7 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  *   "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T/run/0-jOoroxyY"
  * }
  * *\/
+ * // example id: start-assessment-run-1481067407484
  * ```
  *
  */

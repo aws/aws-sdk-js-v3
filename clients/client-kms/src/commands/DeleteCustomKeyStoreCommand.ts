@@ -116,6 +116,7 @@ export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreR
  * };
  * const command = new DeleteCustomKeyStoreCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-custom-key-store-from-aws-kms-1628630837145
  * ```
  *
  */

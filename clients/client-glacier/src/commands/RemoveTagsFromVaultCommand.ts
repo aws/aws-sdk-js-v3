@@ -61,6 +61,7 @@ export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RemoveTagsFromVaultCommand(input);
  * await client.send(command);
+ * // example id: remove-tags-from-vault-1481754998801
  * ```
  *
  */

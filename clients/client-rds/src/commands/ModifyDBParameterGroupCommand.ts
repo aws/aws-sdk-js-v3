@@ -78,6 +78,7 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * };
  * const command = new ModifyDBParameterGroupCommand(input);
  * await client.send(command);
+ * // example id: modify-db-parameter-group-f3a4e52a-68e4-4b88-b559-f912d34c457a
  * ```
  *
  */

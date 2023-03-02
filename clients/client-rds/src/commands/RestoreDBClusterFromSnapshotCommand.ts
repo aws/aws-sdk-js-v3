@@ -85,6 +85,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *   "DBCluster": {}
  * }
  * *\/
+ * // example id: to-restore-an-amazon-aurora-db-cluster-from-a-db-cluster-snapshot-1473958144325
  * ```
  *
  */

@@ -73,6 +73,7 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
  *   "OrderableReplicationInstances": []
  * }
  * *\/
+ * // example id: describe-orderable-replication-instances-1481755123669
  * ```
  *
  */

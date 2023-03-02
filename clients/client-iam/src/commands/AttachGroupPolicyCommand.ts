@@ -61,6 +61,7 @@ export interface AttachGroupPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachGroupPolicyCommand(input);
  * await client.send(command);
+ * // example id: 87551489-86f0-45db-9889-759936778f2b
  * ```
  *
  */

@@ -115,6 +115,7 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  *   }
  * }
  * *\/
+ * // example id: deletecachecluster-1475010605291
  * ```
  *
  */

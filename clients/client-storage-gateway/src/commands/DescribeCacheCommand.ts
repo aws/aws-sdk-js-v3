@@ -76,6 +76,7 @@ export interface DescribeCacheCommandOutput extends DescribeCacheOutput, __Metad
  *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
+ * // example id: to-describe-cache-information-1471385756036
  * ```
  *
  */

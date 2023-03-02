@@ -69,6 +69,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  *   }
  * }
  * *\/
+ * // example id: ede000a1-9e4c-40db-bd0a-d4f95e41a6ab
  * ```
  *
  */

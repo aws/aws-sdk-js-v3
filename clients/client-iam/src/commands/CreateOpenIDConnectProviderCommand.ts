@@ -109,6 +109,7 @@ export interface CreateOpenIDConnectProviderCommandOutput
  *   "OpenIDConnectProviderArn": "arn:aws:iam::123456789012:oidc-provider/server.example.com"
  * }
  * *\/
+ * // example id: 4e4a6bff-cc97-4406-922e-0ab4a82cdb63
  * ```
  *
  */

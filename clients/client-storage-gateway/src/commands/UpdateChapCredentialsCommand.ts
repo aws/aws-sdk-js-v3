@@ -75,6 +75,7 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  *   "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
  * }
  * *\/
+ * // example id: to-update-chap-credentials-for-an-iscsi-target-1472151325795
  * ```
  *
  */

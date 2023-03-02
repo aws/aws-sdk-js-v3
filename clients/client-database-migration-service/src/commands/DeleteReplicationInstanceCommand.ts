@@ -122,6 +122,7 @@ export interface DeleteReplicationInstanceCommandOutput extends DeleteReplicatio
  *   }
  * }
  * *\/
+ * // example id: delete-replication-instance-1481752552839
  * ```
  *
  */

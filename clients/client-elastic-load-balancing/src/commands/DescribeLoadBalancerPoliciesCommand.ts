@@ -87,6 +87,7 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: elb-describe-load-balancer-policies-1
  * ```
  *
  */

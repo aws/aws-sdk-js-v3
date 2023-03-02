@@ -82,6 +82,7 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  *   "GroupId": "sg-903004f8"
  * }
  * *\/
+ * // example id: to-create-a-security-group-for-a-vpc-1529024532716
  * ```
  *
  */

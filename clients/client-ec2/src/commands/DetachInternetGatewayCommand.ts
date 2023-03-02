@@ -56,6 +56,7 @@ export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DetachInternetGatewayCommand(input);
  * await client.send(command);
+ * // example id: ec2-detach-internet-gateway-1
  * ```
  *
  */

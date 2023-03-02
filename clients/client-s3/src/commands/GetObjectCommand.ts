@@ -235,6 +235,7 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  *   "VersionId": "null"
  * }
  * *\/
+ * // example id: to-retrieve-a-byte-range-of-an-object--1481832674603
  * ```
  *
  * @example To retrieve an object
@@ -258,6 +259,7 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  *   "VersionId": "null"
  * }
  * *\/
+ * // example id: to-retrieve-an-object-1481827837012
  * ```
  *
  */

@@ -71,6 +71,7 @@ export interface DescribeEngagementCommandOutput extends DescribeEngagementResul
  *   "Subject": "test"
  * }
  * *\/
+ * // example id: to-describe-the-details-of-an-engagement-1630364719475
  * ```
  *
  */

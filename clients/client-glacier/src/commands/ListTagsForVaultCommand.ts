@@ -69,6 +69,7 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  *   }
  * }
  * *\/
+ * // example id: list-tags-for-vault-1481755839720
  * ```
  *
  */

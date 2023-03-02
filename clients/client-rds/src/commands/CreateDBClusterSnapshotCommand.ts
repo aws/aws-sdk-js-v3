@@ -69,6 +69,7 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  *   "DBClusterSnapshot": {}
  * }
  * *\/
+ * // example id: create-db-cluster-snapshot-
  * ```
  *
  */

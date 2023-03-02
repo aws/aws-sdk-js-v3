@@ -77,6 +77,7 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  *   }
  * }
  * *\/
+ * // example id: getnamespace-example-1590115383708
  * ```
  *
  */

@@ -91,6 +91,7 @@ export interface CreateReplicationTaskCommandOutput extends CreateReplicationTas
  *   }
  * }
  * *\/
+ * // example id: create-replication-task-1481747646288
  * ```
  *
  */

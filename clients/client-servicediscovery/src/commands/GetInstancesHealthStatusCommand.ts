@@ -72,6 +72,7 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  *   }
  * }
  * *\/
+ * // example id: getinstanceshealthstatus-example-1590115176146
  * ```
  *
  */

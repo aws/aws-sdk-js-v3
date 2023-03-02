@@ -84,6 +84,7 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * };
  * const command = new DeleteObjectCommand(input);
  * await client.send(command);
+ * // example id: to-delete-an-object-from-a-non-versioned-bucket-1481588533089
  * ```
  *
  * @example To delete an object
@@ -95,6 +96,7 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * };
  * const command = new DeleteObjectCommand(input);
  * await client.send(command);
+ * // example id: to-delete-an-object-1472850136595
  * ```
  *
  */

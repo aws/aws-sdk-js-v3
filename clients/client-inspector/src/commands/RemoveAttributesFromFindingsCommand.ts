@@ -71,6 +71,7 @@ export interface RemoveAttributesFromFindingsCommandOutput
  *   "failedItems": {}
  * }
  * *\/
+ * // example id: remove-attributes-from-findings-1481067246548
  * ```
  *
  */

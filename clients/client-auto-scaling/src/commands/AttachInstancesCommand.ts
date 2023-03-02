@@ -65,6 +65,7 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachInstancesCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-attach-instances-1
  * ```
  *
  */

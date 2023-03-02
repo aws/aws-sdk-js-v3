@@ -80,6 +80,7 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-subnets-1
  * ```
  *
  */

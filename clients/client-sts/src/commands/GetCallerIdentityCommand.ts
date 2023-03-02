@@ -73,6 +73,7 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  *   "UserId": "AKIAI44QH8DHBEXAMPLE"
  * }
  * *\/
+ * // example id: to-get-details-about-a-calling-iam-user-1480540050376
  * ```
  *
  * @example To get details about a calling user federated with AssumeRole
@@ -88,6 +89,7 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  *   "UserId": "AKIAI44QH8DHBEXAMPLE:my-role-session-name"
  * }
  * *\/
+ * // example id: to-get-details-about-a-calling-user-federated-with-assumerole-1480540158545
  * ```
  *
  * @example To get details about a calling user federated with GetFederationToken
@@ -103,6 +105,7 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  *   "UserId": "123456789012:my-federated-user-name"
  * }
  * *\/
+ * // example id: to-get-details-about-a-calling-user-federated-with-getfederationtoken-1480540231316
  * ```
  *
  */

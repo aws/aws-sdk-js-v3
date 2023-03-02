@@ -92,6 +92,7 @@ export interface CreateConfigurationTemplateCommandOutput extends ConfigurationS
  *   "TemplateName": "my-app-v1"
  * }
  * *\/
+ * // example id: to-create-a-configuration-template-1456269283586
  * ```
  *
  */

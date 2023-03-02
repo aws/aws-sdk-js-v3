@@ -72,6 +72,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  *   "DBCluster": {}
  * }
  * *\/
+ * // example id: delete-db-cluster-927fc2c8-6c67-4075-b1ba-75490be0f7d6
  * ```
  *
  */

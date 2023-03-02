@@ -70,6 +70,7 @@ export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyRes
  * };
  * const command = new DeleteScalingPolicyCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-scaling-policy-1470863892689
  * ```
  *
  */

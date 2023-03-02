@@ -68,6 +68,7 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  *   ]
  * }
  * *\/
+ * // example id: to-list-tables-1475884741238
  * ```
  *
  */

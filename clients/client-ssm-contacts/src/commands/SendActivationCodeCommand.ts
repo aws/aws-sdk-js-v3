@@ -60,6 +60,7 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  * };
  * const command = new SendActivationCodeCommand(input);
  * await client.send(command);
+ * // example id: to-send-an-activation-code-1630436453574
  * ```
  *
  */

@@ -81,6 +81,7 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  *   ]
  * }
  * *\/
+ * // example id: getsendstatistics-1469047741329
  * ```
  *
  */

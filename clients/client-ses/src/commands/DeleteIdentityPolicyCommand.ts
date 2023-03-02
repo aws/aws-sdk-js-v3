@@ -70,6 +70,7 @@ export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyR
  * };
  * const command = new DeleteIdentityPolicyCommand(input);
  * await client.send(command);
+ * // example id: deleteidentitypolicy-1469055282499
  * ```
  *
  */

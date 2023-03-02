@@ -64,6 +64,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * };
  * const command = new DescribeOrderableDBInstanceOptionsCommand(input);
  * await client.send(command);
+ * // example id: describe-orderable-db-instance-options-7444d3ed-82eb-42b9-9ed9-896b8c27a782
  * ```
  *
  */

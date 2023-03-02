@@ -72,6 +72,7 @@ export interface CreateLBCookieStickinessPolicyCommandOutput
  * };
  * const command = new CreateLBCookieStickinessPolicyCommand(input);
  * await client.send(command);
+ * // example id: elb-create-lb-cookie-stickiness-policy-1
  * ```
  *
  */

@@ -51,8 +51,6 @@ export interface GetSolFunctionInstanceCommandOutput extends GetSolFunctionInsta
  * @see {@link GetSolFunctionInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
- * @example Get a Sol Network Function Instance details```javascript/* Optional.empty *\/some code here```
- *
  */
 export class GetSolFunctionInstanceCommand extends $Command<
   GetSolFunctionInstanceCommandInput,

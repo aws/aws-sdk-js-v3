@@ -97,6 +97,7 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  *   }
  * }
  * *\/
+ * // example id: to-create-a-new-application-1456268895683
  * ```
  *
  */

@@ -75,6 +75,7 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  *   ]
  * }
  * *\/
+ * // example id: describe-rules-packages-1481069641979
  * ```
  *
  */

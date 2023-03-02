@@ -137,6 +137,7 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  *   ]
  * }
  * *\/
+ * // example id: to-delete-multiple-objects-from-a-versioned-bucket-1483146248805
  * ```
  *
  * @example To delete multiple object versions from a versioned bucket
@@ -174,6 +175,7 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  *   ]
  * }
  * *\/
+ * // example id: to-delete-multiple-object-versions-from-a-versioned-bucket-1483147087737
  * ```
  *
  */

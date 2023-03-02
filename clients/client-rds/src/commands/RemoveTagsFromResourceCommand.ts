@@ -60,6 +60,7 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RemoveTagsFromResourceCommand(input);
  * await client.send(command);
+ * // example id: remove-tags-from-resource-49f00574-38f6-4d01-ac89-d3c668449ce3
  * ```
  *
  */

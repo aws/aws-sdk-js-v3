@@ -74,6 +74,7 @@ export interface SetLoadBalancerPoliciesOfListenerCommandOutput
  * };
  * const command = new SetLoadBalancerPoliciesOfListenerCommand(input);
  * await client.send(command);
+ * // example id: elb-set-load-balancer-policies-of-listener-1
  * ```
  *
  */

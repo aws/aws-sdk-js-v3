@@ -66,6 +66,7 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  * };
  * const command = new DeleteTargetGroupCommand(input);
  * await client.send(command);
+ * // example id: elbv2-delete-target-group-1
  * ```
  *
  */

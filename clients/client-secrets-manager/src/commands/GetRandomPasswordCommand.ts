@@ -74,6 +74,7 @@ export interface GetRandomPasswordCommandOutput extends GetRandomPasswordRespons
  *   "RandomPassword": "EXAMPLE-PASSWORD"
  * }
  * *\/
+ * // example id: to-generate-a-random-password-1524000546092
  * ```
  *
  */

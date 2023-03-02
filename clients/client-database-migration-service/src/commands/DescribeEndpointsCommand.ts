@@ -78,6 +78,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  *   "Marker": ""
  * }
  * *\/
+ * // example id: describe-endpoints-1481754926060
  * ```
  *
  */

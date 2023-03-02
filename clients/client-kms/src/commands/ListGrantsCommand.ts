@@ -160,6 +160,7 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  *   "Truncated": true
  * }
  * *\/
+ * // example id: to-list-grants-for-a-cmk-1481067365389
  * ```
  *
  */

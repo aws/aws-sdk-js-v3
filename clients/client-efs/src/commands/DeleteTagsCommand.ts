@@ -67,6 +67,7 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteTagsCommand(input);
  * await client.send(command);
+ * // example id: to-delete-tags-for-an-efs-file-system-1481848189061
  * ```
  *
  */

@@ -79,6 +79,7 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
  * };
  * const command = new SetLoadBalancerPoliciesForBackendServerCommand(input);
  * await client.send(command);
+ * // example id: elb-set-load-balancer-policies-for-backend-server-1
  * ```
  *
  */

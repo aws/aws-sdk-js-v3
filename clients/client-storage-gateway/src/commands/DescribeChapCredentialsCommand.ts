@@ -72,6 +72,7 @@ export interface DescribeChapCredentialsCommandOutput extends DescribeChapCreden
  *   ]
  * }
  * *\/
+ * // example id: to-describe-chap-credetnitals-for-an-iscsi-1471467462967
  * ```
  *
  */

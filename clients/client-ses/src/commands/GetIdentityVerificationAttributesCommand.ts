@@ -87,6 +87,7 @@ export interface GetIdentityVerificationAttributesCommandOutput
  *   }
  * }
  * *\/
+ * // example id: getidentityverificationattributes-1469124205897
  * ```
  *
  */

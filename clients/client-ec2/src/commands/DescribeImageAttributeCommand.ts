@@ -69,6 +69,7 @@ export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __M
  *   ]
  * }
  * *\/
+ * // example id: to-describe-the-launch-permissions-for-an-ami-1529025296264
  * ```
  *
  */

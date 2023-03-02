@@ -106,6 +106,7 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  *   ]
  * }
  * *\/
+ * // example id: example-list-namespaces-1587401553154
  * ```
  *
  */

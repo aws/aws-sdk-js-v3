@@ -99,6 +99,7 @@ export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroup
  *   "Marker": ""
  * }
  * *\/
+ * // example id: describecachesubnetgroups-1482439214064
  * ```
  *
  */

@@ -61,6 +61,7 @@ export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, _
  * };
  * const command = new PutContactPolicyCommand(input);
  * await client.send(command);
+ * // example id: to-share-a-contact-and-engagements-1630436278898
  * ```
  *
  */

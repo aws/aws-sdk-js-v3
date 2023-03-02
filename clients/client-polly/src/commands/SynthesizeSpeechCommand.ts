@@ -81,6 +81,7 @@ export interface SynthesizeSpeechCommandOutput
  *   "RequestCharacters": 37
  * }
  * *\/
+ * // example id: to-synthesize-speech-1482186064046
  * ```
  *
  */

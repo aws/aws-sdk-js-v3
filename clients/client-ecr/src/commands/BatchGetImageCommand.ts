@@ -82,6 +82,7 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  *   ]
  * }
  * *\/
+ * // example id: batchgetimage-example-1470862771437
  * ```
  *
  */

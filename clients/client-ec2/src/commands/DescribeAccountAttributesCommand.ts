@@ -114,6 +114,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-account-attributes-1
  * ```
  *
  * @example To describe all attributes for your AWS account
@@ -179,6 +180,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-account-attributes-2
  * ```
  *
  */

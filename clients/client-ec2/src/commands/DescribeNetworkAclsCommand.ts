@@ -97,6 +97,7 @@ export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsRes
  *   ]
  * }
  * *\/
+ * // example id: ec2-
  * ```
  *
  */

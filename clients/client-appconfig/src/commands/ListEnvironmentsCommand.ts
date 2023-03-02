@@ -70,6 +70,7 @@ export interface ListEnvironmentsCommandOutput extends Environments, __MetadataB
  *   ]
  * }
  * *\/
+ * // example id: to-list-the-available-environments-1632267474389
  * ```
  *
  */

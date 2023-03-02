@@ -82,6 +82,7 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBucketPolicyCommand(input);
  * await client.send(command);
+ * // example id: to-delete-bucket-policy-1483043406577
  * ```
  *
  */

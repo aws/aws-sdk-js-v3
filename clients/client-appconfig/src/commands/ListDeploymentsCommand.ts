@@ -78,6 +78,7 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  *   ]
  * }
  * *\/
+ * // example id: to-list-the-available-deployments-1632267282025
  * ```
  *
  */

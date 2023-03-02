@@ -131,6 +131,7 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *   "PublicKey": "<binary data>"
  * }
  * *\/
+ * // example id: to-generate-an-asymmetric-data-key-pair-without-a-plaintext-key-1628620971564
  * ```
  *
  */

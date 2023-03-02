@@ -102,6 +102,7 @@ export interface DescribeScheduledInstanceAvailabilityCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-scheduled-instance-availability-1
  * ```
  *
  */

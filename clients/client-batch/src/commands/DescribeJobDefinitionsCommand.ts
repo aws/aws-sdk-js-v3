@@ -93,6 +93,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  *   ]
  * }
  * *\/
+ * // example id: to-describe-active-job-definitions-1481153895831
  * ```
  *
  */

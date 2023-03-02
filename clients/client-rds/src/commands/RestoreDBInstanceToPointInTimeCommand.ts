@@ -152,6 +152,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *   }
  * }
  * *\/
+ * // example id: to-restore-a-db-instance-to-a-point-in-time-1473962652154
  * ```
  *
  */

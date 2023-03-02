@@ -81,6 +81,7 @@ export interface DescribeReplicationInstancesCommandOutput
  *   "ReplicationInstances": []
  * }
  * *\/
+ * // example id: describe-replication-instances-1481755443952
  * ```
  *
  */

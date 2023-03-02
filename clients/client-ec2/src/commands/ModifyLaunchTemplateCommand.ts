@@ -73,6 +73,7 @@ export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateR
  *   }
  * }
  * *\/
+ * // example id: to-change-the-default-version-of-a-launch-template-1529358440364
  * ```
  *
  */

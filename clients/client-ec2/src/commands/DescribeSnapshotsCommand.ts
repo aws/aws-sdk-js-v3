@@ -119,6 +119,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  *   ]
  * }
  * *\/
+ * // example id: to-describe-a-snapshot-1472503807850
  * ```
  *
  * @example To describe snapshots using filters
@@ -156,6 +157,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  *   ]
  * }
  * *\/
+ * // example id: to-describe-snapshots-using-filters-1472503929793
  * ```
  *
  */

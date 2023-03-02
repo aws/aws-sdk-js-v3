@@ -70,6 +70,7 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
  * }
  * *\/
+ * // example id: ec2-describe-spot-fleet-instances-1
  * ```
  *
  */

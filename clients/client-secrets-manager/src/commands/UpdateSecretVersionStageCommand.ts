@@ -87,6 +87,7 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  *   "Name": "MyTestDatabaseSecret"
  * }
  * *\/
+ * // example id: to-add-a-staging-label-attached-to-a-version-of-a-secret-1524004783841
  * ```
  *
  * @example To delete a staging label attached to a version of a secret
@@ -105,6 +106,7 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  *   "Name": "MyTestDatabaseSecret"
  * }
  * *\/
+ * // example id: to-delete-a-staging-label-attached-to-a-version-of-a-secret-1524004862181
  * ```
  *
  * @example To move a staging label from one version of a secret to another
@@ -124,6 +126,7 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  *   "Name": "MyTestDatabaseSecret"
  * }
  * *\/
+ * // example id: to-move-a-staging-label-from-one-version-of-a-secret-to-another-1524004963841
  * ```
  *
  */

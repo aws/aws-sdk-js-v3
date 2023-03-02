@@ -65,6 +65,7 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteAccessPointOutput
  * };
  * const command = new DeleteLoadBalancerCommand(input);
  * await client.send(command);
+ * // example id: elb-delete-load-balancer-1
  * ```
  *
  */

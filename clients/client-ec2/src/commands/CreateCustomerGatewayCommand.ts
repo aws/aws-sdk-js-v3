@@ -84,6 +84,7 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  *   }
  * }
  * *\/
+ * // example id: ec2-create-customer-gateway-1
  * ```
  *
  */

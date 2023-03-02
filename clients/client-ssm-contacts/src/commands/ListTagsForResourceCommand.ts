@@ -68,6 +68,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *   ]
  * }
  * *\/
+ * // example id: to-list-tags-for-a-contact-1630436051681
  * ```
  *
  */

@@ -133,6 +133,7 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  *   "OrientationCorrection": "ROTATE_0"
  * }
  * *\/
+ * // example id: to-detect-faces-in-an-image-1481841782793
  * ```
  *
  */

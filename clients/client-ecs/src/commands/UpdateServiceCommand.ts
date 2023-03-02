@@ -181,6 +181,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * };
  * const command = new UpdateServiceCommand(input);
  * await client.send(command);
+ * // example id: cc9e8900-0cc2-44d2-8491-64d1d3d37887
  * ```
  *
  * @example To change the number of tasks in a service
@@ -192,6 +193,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * };
  * const command = new UpdateServiceCommand(input);
  * await client.send(command);
+ * // example id: 9581d6c5-02e3-4140-8cc1-5a4301586633
  * ```
  *
  */

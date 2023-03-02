@@ -100,6 +100,7 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketVersioningCommand(input);
  * await client.send(command);
+ * // example id: set-versioning-configuration-on-a-bucket-1482344186279
  * ```
  *
  */

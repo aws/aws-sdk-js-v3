@@ -76,6 +76,7 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  *   }
  * }
  * *\/
+ * // example id: ec2-create-vpc-1
  * ```
  *
  */

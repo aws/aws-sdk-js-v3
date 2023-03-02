@@ -75,6 +75,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  *   ]
  * }
  * *\/
+ * // example id: to-get-information-about-a-device-farm-project-1472564014388
  * ```
  *
  */

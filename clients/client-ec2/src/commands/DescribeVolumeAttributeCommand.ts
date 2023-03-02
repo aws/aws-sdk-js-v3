@@ -69,6 +69,7 @@ export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttr
  *   "VolumeId": "vol-049df61146c4d7901"
  * }
  * *\/
+ * // example id: to-describe-a-volume-attribute-1472505773492
  * ```
  *
  */

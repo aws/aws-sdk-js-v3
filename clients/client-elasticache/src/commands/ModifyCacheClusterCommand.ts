@@ -89,6 +89,7 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  *   }
  * }
  * *\/
+ * // example id: modifycachecluster-1482962725919
  * ```
  *
  */

@@ -87,6 +87,7 @@ export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstrai
  *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
+ * // example id: deletesizeconstraintset-1474299857905
  * ```
  *
  */

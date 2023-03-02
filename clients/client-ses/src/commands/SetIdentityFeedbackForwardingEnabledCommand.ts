@@ -71,6 +71,7 @@ export interface SetIdentityFeedbackForwardingEnabledCommandOutput
  * };
  * const command = new SetIdentityFeedbackForwardingEnabledCommand(input);
  * await client.send(command);
+ * // example id: setidentityfeedbackforwardingenabled-1469056811329
  * ```
  *
  */

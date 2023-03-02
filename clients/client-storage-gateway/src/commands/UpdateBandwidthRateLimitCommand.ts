@@ -76,6 +76,7 @@ export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRa
  *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
+ * // example id: to-update-the-bandwidth-rate-limits-of-a-gateway-1472151016202
  * ```
  *
  */

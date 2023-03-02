@@ -73,6 +73,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  *   ]
  * }
  * *\/
+ * // example id: listrules-1475258406433
  * ```
  *
  */

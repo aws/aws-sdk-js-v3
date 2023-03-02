@@ -88,6 +88,7 @@ export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult,
  *   }
  * }
  * *\/
+ * // example id: to-get-status-information-about-device-offerings-1472568124402
  * ```
  *
  */

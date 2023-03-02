@@ -72,6 +72,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *   ]
  * }
  * *\/
+ * // example id: listtagsforresource-example-1590093928416
  * ```
  *
  */

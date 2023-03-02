@@ -68,6 +68,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *   ]
  * }
  * *\/
+ * // example id: to-list-the-tags-for-a-cluster-1540582700259
  * ```
  *
  */

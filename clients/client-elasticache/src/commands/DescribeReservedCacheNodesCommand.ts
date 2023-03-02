@@ -59,6 +59,7 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  * };
  * const command = new DescribeReservedCacheNodesCommand(input);
  * await client.send(command);
+ * // example id: describereservedcachenodes-1481742348045
  * ```
  *
  */

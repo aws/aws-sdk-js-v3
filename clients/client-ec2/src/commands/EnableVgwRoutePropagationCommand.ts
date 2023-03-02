@@ -58,6 +58,7 @@ export interface EnableVgwRoutePropagationCommandOutput extends __MetadataBearer
  * };
  * const command = new EnableVgwRoutePropagationCommand(input);
  * await client.send(command);
+ * // example id: ec2-enable-vgw-route-propagation-1
  * ```
  *
  */

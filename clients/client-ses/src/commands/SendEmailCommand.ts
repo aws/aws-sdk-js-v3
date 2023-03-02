@@ -134,6 +134,7 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *   "MessageId": "EXAMPLE78603177f-7a5433e7-8edb-42ae-af10-f0181f34d6ee-000000"
  * }
  * *\/
+ * // example id: sendemail-1469049656296
  * ```
  *
  */

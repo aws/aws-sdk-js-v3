@@ -76,6 +76,7 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * };
  * const command = new AssignPrivateIpAddressesCommand(input);
  * await client.send(command);
+ * // example id: ec2-assign-private-ip-addresses-1
  * ```
  *
  * @example To assign secondary private IP addresses that Amazon EC2 selects to an interface
@@ -87,6 +88,7 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * };
  * const command = new AssignPrivateIpAddressesCommand(input);
  * await client.send(command);
+ * // example id: ec2-assign-private-ip-addresses-2
  * ```
  *
  */

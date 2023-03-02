@@ -113,6 +113,7 @@ export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesH
  *   "RefreshedAt": "2015-08-20T21:09:08Z"
  * }
  * *\/
+ * // example id: to-view-environment-health-1456277424757
  * ```
  *
  */

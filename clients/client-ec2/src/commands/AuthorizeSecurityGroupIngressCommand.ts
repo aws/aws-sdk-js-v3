@@ -87,6 +87,7 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  * };
  * const command = new AuthorizeSecurityGroupIngressCommand(input);
  * await client.send(command);
+ * // example id: to-add-a-rule-that-allows-inbound-ssh-traffic-1529011610328
  * ```
  *
  * @example To add a rule that allows inbound HTTP traffic from another security group
@@ -110,6 +111,7 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  * };
  * const command = new AuthorizeSecurityGroupIngressCommand(input);
  * await client.send(command);
+ * // example id: to-add-a-rule-that-allows-inbound-http-traffic-from-another-security-group-1529012163168
  * ```
  *
  * @example To add a rule that allows inbound RDP traffic from an IPv6 address range
@@ -133,6 +135,7 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  * };
  * const command = new AuthorizeSecurityGroupIngressCommand(input);
  * await client.send(command);
+ * // example id: to-add-a-rule-with-a-description-1529012418116
  * ```
  *
  */

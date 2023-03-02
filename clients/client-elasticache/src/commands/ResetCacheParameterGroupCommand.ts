@@ -67,6 +67,7 @@ export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGro
  *   "CacheParameterGroupName": "custom-mem1-4"
  * }
  * *\/
+ * // example id: resetcacheparametergroup-1483038334014
  * ```
  *
  */

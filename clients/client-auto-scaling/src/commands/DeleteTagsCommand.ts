@@ -57,6 +57,7 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteTagsCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-delete-tags-1
  * ```
  *
  */

@@ -60,6 +60,7 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateLoginProfileCommand(input);
  * await client.send(command);
+ * // example id: 036d9498-ecdb-4ed6-a8d8-366c383d1487
  * ```
  *
  */

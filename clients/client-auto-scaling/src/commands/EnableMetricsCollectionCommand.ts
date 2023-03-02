@@ -59,6 +59,7 @@ export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {
  * };
  * const command = new EnableMetricsCollectionCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-enable-metrics-collection-1
  * ```
  *
  */

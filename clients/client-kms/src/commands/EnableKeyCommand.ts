@@ -60,6 +60,7 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new EnableKeyCommand(input);
  * await client.send(command);
+ * // example id: to-enable-a-cmk-1478627501129
  * ```
  *
  */

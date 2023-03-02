@@ -171,6 +171,7 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *   "computeEnvironmentName": "C4OnDemand"
  * }
  * *\/
+ * // example id: to-create-a-managed-ec2-compute-environment-1481152600017
  * ```
  *
  * @example To create a managed EC2 Spot compute environment
@@ -214,6 +215,7 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *   "computeEnvironmentName": "M4Spot"
  * }
  * *\/
+ * // example id: to-create-a-managed-ec2-spot-compute-environment-1481152844190
  * ```
  *
  */

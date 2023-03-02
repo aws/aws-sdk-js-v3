@@ -102,6 +102,7 @@ export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimA
  *   }
  * }
  * *\/
+ * // example id: getidentitydkimattributes-1469050695628
  * ```
  *
  */

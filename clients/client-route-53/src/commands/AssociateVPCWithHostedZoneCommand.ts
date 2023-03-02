@@ -107,6 +107,7 @@ export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWit
  *   }
  * }
  * *\/
+ * // example id: to-associate-a-vpc-with-a-hosted-zone-1484069228699
  * ```
  *
  */

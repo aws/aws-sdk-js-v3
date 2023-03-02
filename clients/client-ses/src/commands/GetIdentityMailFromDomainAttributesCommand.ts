@@ -76,6 +76,7 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  *   }
  * }
  * *\/
+ * // example id: getidentitymailfromdomainattributes-1469123114860
  * ```
  *
  */

@@ -69,6 +69,7 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
  *   "OperationId": "httpvoqozuhfet5kzxoxg-a-response-example"
  * }
  * *\/
+ * // example id: createhttpnamespace-example-1590114811304
  * ```
  *
  */

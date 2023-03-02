@@ -116,6 +116,7 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  *   "SigningAlgorithm": "ECDSA_SHA_384"
  * }
  * *\/
+ * // example id: to-digitally-sign-a-message-with-an-asymmetric-kms-key-1
  * ```
  *
  * @example To digitally sign a message digest with an asymmetric KMS key.
@@ -136,6 +137,7 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  *   "SigningAlgorithm": "RSASSA_PKCS1_V1_5_SHA_256"
  * }
  * *\/
+ * // example id: to-digitally-sign-a-message-digest-with-an-asymmetric-kms-key-2
  * ```
  *
  */

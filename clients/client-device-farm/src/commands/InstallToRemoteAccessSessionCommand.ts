@@ -68,6 +68,7 @@ export interface InstallToRemoteAccessSessionCommandOutput
  *   "appUpload": {}
  * }
  * *\/
+ * // example id: to-install-to-a-remote-access-session-1471634453818
  * ```
  *
  */

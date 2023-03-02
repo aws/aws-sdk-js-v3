@@ -72,6 +72,7 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-key-pairs-1
  * ```
  *
  */

@@ -104,6 +104,7 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  * };
  * const command = new PutLifecycleHookCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-put-lifecycle-hook-1
  * ```
  *
  */

@@ -99,6 +99,7 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  *   "uploadId": "19gaRezEXAMPLES6Ry5YYdqthHOC_kGRCT03L9yetr220UmPtBYKk-OssZtLqyFu7sY1_lR7vgFuJV6NtcV5zpsJ"
  * }
  * *\/
+ * // example id: 72f2db19-3d93-4c74-b2ed-38703baacf49
  * ```
  *
  */

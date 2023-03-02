@@ -83,6 +83,7 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  *   }
  * }
  * *\/
+ * // example id: elb-describe-load-balancer-attributes-1
  * ```
  *
  */

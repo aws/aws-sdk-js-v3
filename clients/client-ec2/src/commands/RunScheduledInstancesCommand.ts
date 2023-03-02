@@ -89,6 +89,7 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  *   ]
  * }
  * *\/
+ * // example id: ec2-run-scheduled-instances-1
  * ```
  *
  * @example To launch a Scheduled Instance in EC2-Classic
@@ -121,6 +122,7 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  *   ]
  * }
  * *\/
+ * // example id: ec2-run-scheduled-instances-2
  * ```
  *
  */

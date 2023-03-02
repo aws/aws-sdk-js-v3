@@ -110,6 +110,7 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateAliasCommand(input);
  * await client.send(command);
+ * // example id: to-create-an-alias-1477505685119
  * ```
  *
  */

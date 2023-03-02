@@ -70,6 +70,7 @@ export interface ListClustersCommandOutput extends ListClustersResult, __Metadat
  *   ]
  * }
  * *\/
+ * // example id: to-get-a-list-of-clusters-that-youve-created-for-aws-snowball-1482862223003
  * ```
  *
  */

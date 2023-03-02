@@ -74,6 +74,7 @@ export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, _
  *   "devicePool": {}
  * }
  * *\/
+ * // example id: to-update-a-device-pool-1472653887677
  * ```
  *
  */

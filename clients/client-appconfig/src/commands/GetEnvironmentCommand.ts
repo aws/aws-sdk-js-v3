@@ -72,6 +72,7 @@ export interface GetEnvironmentCommandOutput extends Environment, __MetadataBear
  *   "State": "READY_FOR_DEPLOYMENT"
  * }
  * *\/
+ * // example id: to-retrieve-environment-details-1632266924806
  * ```
  *
  */

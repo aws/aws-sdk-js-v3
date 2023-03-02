@@ -97,6 +97,7 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *   ]
  * }
  * *\/
+ * // example id: to-store-a-secret-value-in-a-new-version-of-a-secret-1524001393971
  * ```
  *
  */

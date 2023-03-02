@@ -70,6 +70,7 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  *   "nextToken": "1"
  * }
  * *\/
+ * // example id: preview-agents-1481067101888
  * ```
  *
  */

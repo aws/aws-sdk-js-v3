@@ -87,6 +87,7 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-detach-instances-1
  * ```
  *
  */

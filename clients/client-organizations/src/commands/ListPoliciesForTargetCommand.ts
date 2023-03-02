@@ -85,6 +85,7 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-a-list-of-policies-attached-to-a-root-ou-or-account
  * ```
  *
  */

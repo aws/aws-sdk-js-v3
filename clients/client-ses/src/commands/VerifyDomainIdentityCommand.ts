@@ -69,6 +69,7 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
  *   "VerificationToken": "eoEmxw+YaYhb3h3iVJHuXMJXqeu1q1/wwmvjuEXAMPLE"
  * }
  * *\/
+ * // example id: verifydomainidentity-1469049165936
  * ```
  *
  */

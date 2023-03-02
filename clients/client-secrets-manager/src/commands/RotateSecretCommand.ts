@@ -85,6 +85,7 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  *   "VersionId": "EXAMPLE2-90ab-cdef-fedc-ba987SECRET2"
  * }
  * *\/
+ * // example id: to-configure-rotation-for-a-secret-1524001629475
  * ```
  *
  * @example To request an immediate rotation for a secret
@@ -102,6 +103,7 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  *   "VersionId": "EXAMPLE2-90ab-cdef-fedc-ba987SECRET2"
  * }
  * *\/
+ * // example id: to-request-an-immediate-rotation-for-a-secret-1524001949004
  * ```
  *
  */

@@ -105,6 +105,7 @@ export interface CreateXssMatchSetCommandOutput extends CreateXssMatchSetRespons
  *   }
  * }
  * *\/
+ * // example id: createxssmatchset-1474560868500
  * ```
  *
  */

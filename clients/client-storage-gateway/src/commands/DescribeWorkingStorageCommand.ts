@@ -79,6 +79,7 @@ export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStor
  *   "WorkingStorageUsedInBytes": 789207040
  * }
  * *\/
+ * // example id: to-describe-the-working-storage-of-a-gateway-depreciated-1472070842332
  * ```
  *
  */

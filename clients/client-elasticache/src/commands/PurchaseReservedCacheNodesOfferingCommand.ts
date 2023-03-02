@@ -63,6 +63,7 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
  * };
  * const command = new PurchaseReservedCacheNodesOfferingCommand(input);
  * await client.send(command);
+ * // example id: purchasereservedcachenodesofferings-1483040798484
  * ```
  *
  */

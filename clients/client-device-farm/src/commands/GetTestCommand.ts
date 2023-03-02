@@ -60,6 +60,7 @@ export interface GetTestCommandOutput extends GetTestResult, __MetadataBearer {}
  *   "test": {}
  * }
  * *\/
+ * // example id: to-get-information-about-a-specific-test-1471025744238
  * ```
  *
  */

@@ -104,6 +104,7 @@ export interface GetSlotTypesCommandOutput extends GetSlotTypesResponse, __Metad
  *   ]
  * }
  * *\/
+ * // example id: to-get-a-list-of-slot-types-1494432757458
  * ```
  *
  */

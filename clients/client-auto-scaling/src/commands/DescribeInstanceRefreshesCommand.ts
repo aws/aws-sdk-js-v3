@@ -90,6 +90,7 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  *   ]
  * }
  * *\/
+ * // example id: to-list-instance-refreshes-1592959593746
  * ```
  *
  */

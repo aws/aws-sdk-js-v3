@@ -100,6 +100,7 @@ export interface RegisterInstancesWithLoadBalancerCommandOutput extends Register
  *   ]
  * }
  * *\/
+ * // example id: elb-register-instances-with-load-balancer-1
  * ```
  *
  */

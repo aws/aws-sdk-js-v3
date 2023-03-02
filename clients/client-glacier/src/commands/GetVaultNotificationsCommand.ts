@@ -85,6 +85,7 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  *   }
  * }
  * *\/
+ * // example id: to-get-the-notification-configuration-for-the-specified-vault-1481918746677
  * ```
  *
  */

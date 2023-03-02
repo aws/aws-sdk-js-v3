@@ -98,6 +98,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-a-list-of--policies-in-the-organization
  * ```
  *
  */

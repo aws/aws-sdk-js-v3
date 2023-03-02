@@ -148,6 +148,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  *   }
  * }
  * *\/
+ * // example id: to-create-a-new-backup-1481840798597
  * ```
  *
  */

@@ -129,6 +129,7 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  *   }
  * }
  * *\/
+ * // example id: to-get-temporary-credentials-for-an-iam-user-or-an-aws-account-1480540814038
  * ```
  *
  */

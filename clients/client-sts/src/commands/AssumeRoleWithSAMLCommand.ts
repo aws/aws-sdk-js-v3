@@ -209,6 +209,7 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *   "SubjectType": "transient"
  * }
  * *\/
+ * // example id: to-assume-role-with-saml-14882749597814
  * ```
  *
  */

@@ -104,6 +104,7 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  *   }
  * }
  * *\/
+ * // example id: getsampledrequests-1474927997195
  * ```
  *
  */

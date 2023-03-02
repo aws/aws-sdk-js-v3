@@ -78,6 +78,7 @@ export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointType
  *   "SupportedEndpointTypes": []
  * }
  * *\/
+ * // example id: describe-endpoint-types-1481754742591
  * ```
  *
  */

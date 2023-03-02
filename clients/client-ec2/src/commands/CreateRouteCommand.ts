@@ -77,6 +77,7 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  * };
  * const command = new CreateRouteCommand(input);
  * await client.send(command);
+ * // example id: ec2-create-route-1
  * ```
  *
  */

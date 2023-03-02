@@ -111,6 +111,7 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  *   }
  * }
  * *\/
+ * // example id: to-copy-a-backup-1481847318640
  * ```
  *
  */

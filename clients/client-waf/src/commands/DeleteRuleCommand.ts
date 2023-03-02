@@ -87,6 +87,7 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
+ * // example id: deleterule-1474073108749
  * ```
  *
  */

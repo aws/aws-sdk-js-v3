@@ -101,6 +101,7 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  *   ]
  * }
  * *\/
+ * // example id: to-get-tag-set-associated-with-a-bucket-1481593232107
  * ```
  *
  */

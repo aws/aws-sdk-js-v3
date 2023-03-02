@@ -67,6 +67,7 @@ export interface CreateInternetGatewayCommandOutput extends CreateInternetGatewa
  *   }
  * }
  * *\/
+ * // example id: ec2-create-internet-gateway-1
  * ```
  *
  */

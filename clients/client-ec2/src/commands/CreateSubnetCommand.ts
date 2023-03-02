@@ -84,6 +84,7 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  *   }
  * }
  * *\/
+ * // example id: ec2-create-subnet-1
  * ```
  *
  */

@@ -83,6 +83,7 @@ export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStoredi
  *   ]
  * }
  * *\/
+ * // example id: to-describe-the-volumes-of-a-gateway-1471472640660
  * ```
  *
  */

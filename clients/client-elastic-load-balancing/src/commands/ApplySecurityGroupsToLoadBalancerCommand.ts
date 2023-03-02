@@ -76,6 +76,7 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: elb-apply-security-groups-to-load-balancer-1
  * ```
  *
  */

@@ -68,6 +68,7 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  *   "remoteAccessSession": {}
  * }
  * *\/
+ * // example id: to-create-a-remote-access-session-1470970668274
  * ```
  *
  */

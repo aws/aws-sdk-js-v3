@@ -65,6 +65,7 @@ export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBala
  * };
  * const command = new DeleteLoadBalancerListenersCommand(input);
  * await client.send(command);
+ * // example id: elb-delete-load-balancer-listeners-1
  * ```
  *
  */

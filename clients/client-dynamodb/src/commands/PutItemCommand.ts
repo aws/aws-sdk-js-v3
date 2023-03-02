@@ -96,6 +96,7 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  *   }
  * }
  * *\/
+ * // example id: to-add-an-item-to-a-table-1476116191110
  * ```
  *
  */

@@ -78,6 +78,7 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  *   }
  * }
  * *\/
+ * // example id: deletereplicationgroup-1475011641804
  * ```
  *
  */

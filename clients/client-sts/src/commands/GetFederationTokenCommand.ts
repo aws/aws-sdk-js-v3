@@ -172,6 +172,7 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *   "PackedPolicySize": 8
  * }
  * *\/
+ * // example id: to-get-temporary-credentials-for-a-role-by-using-getfederationtoken-1480540749900
  * ```
  *
  */

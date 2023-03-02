@@ -86,6 +86,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *   "DBCluster": {}
  * }
  * *\/
+ * // example id: to-restore-a-db-cluster-to-a-point-in-time-1473962082214
  * ```
  *
  */

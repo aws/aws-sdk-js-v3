@@ -104,6 +104,7 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  *   }
  * }
  * *\/
+ * // example id: to-get-replication-configuration-set-on-a-bucket-1481593597175
  * ```
  *
  */

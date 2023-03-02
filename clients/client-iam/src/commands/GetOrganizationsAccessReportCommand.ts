@@ -111,6 +111,7 @@ export interface GetOrganizationsAccessReportCommandOutput
  *   "NumberOfServicesNotAccessed": 1
  * }
  * *\/
+ * // example id: getorganizationsaccessreport-ou
  * ```
  *
  */

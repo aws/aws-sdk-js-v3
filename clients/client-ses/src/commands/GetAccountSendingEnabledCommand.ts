@@ -60,6 +60,7 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  *   "Enabled": true
  * }
  * *\/
+ * // example id: getaccountsendingenabled-1469047741333
  * ```
  *
  */

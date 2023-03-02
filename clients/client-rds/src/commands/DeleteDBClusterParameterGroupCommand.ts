@@ -62,6 +62,7 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * };
  * const command = new DeleteDBClusterParameterGroupCommand(input);
  * await client.send(command);
+ * // example id: delete-db-cluster-parameter-group-364f5555-ba0a-4cc8-979c-e769098924fc
  * ```
  *
  */

@@ -245,6 +245,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *   }
  * }
  * *\/
+ * // example id: to-update-a-file-system-1481840798595
  * ```
  *
  */

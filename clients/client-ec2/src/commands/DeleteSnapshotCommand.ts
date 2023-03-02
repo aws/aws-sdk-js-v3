@@ -59,6 +59,7 @@ export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSnapshotCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-snapshot-1472503042567
  * ```
  *
  */

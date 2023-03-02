@@ -73,6 +73,7 @@ export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __M
  *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
+ * // example id: to-add-upload-buffer-on-local-disk-1471293902847
  * ```
  *
  */

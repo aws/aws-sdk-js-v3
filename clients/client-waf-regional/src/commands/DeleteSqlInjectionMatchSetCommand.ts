@@ -88,6 +88,7 @@ export interface DeleteSqlInjectionMatchSetCommandOutput extends DeleteSqlInject
  *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
+ * // example id: deletesqlinjectionmatchset-1474493373197
  * ```
  *
  */

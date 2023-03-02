@@ -69,6 +69,7 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  *   ]
  * }
  * *\/
+ * // example id: to-list-the-collections-1482179199088
  * ```
  *
  */

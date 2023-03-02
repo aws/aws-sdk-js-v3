@@ -54,6 +54,7 @@ export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RebuildEnvironmentCommand(input);
  * await client.send(command);
+ * // example id: to-rebuild-an-environment-1456277600918
  * ```
  *
  */

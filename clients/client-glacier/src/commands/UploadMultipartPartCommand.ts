@@ -127,6 +127,7 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  *   "checksum": "c06f7cd4baacb087002a99a5f48bf953"
  * }
  * *\/
+ * // example id: to-upload-the-first-part-of-an-archive-1481835899519
  * ```
  *
  */

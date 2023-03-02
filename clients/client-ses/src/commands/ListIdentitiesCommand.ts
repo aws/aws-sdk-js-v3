@@ -70,6 +70,7 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  *   "NextToken": ""
  * }
  * *\/
+ * // example id: listidentities-1469048638493
  * ```
  *
  */

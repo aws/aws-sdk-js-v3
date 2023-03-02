@@ -75,6 +75,7 @@ export interface UpdateReceiptRuleCommandOutput extends UpdateReceiptRuleRespons
  * };
  * const command = new UpdateReceiptRuleCommand(input);
  * await client.send(command);
+ * // example id: updatereceiptrule-1469051756940
  * ```
  *
  */

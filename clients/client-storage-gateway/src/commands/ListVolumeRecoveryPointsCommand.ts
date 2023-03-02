@@ -76,6 +76,7 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  *   ]
  * }
  * *\/
+ * // example id: to-list-recovery-points-for-a-gateway-1472143015088
  * ```
  *
  */

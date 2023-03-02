@@ -101,6 +101,7 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  *   "SigningAlgorithm": "ECDSA_SHA_384"
  * }
  * *\/
+ * // example id: to-use-an-asymmetric-kms-key-to-verify-a-digital-signature-1
  * ```
  *
  * @example To use an asymmetric KMS key to verify a digital signature on a message digest
@@ -122,6 +123,7 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  *   "SigningAlgorithm": "RSASSA_PSS_SHA_512"
  * }
  * *\/
+ * // example id: to-use-an-asymmetric-kms-key-to-verify-a-digital-signature-on-a-message-digest-2
  * ```
  *
  */

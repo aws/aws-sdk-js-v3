@@ -76,6 +76,7 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  *   }
  * }
  * *\/
+ * // example id: example-get-operation-result-1587073807124
  * ```
  *
  */

@@ -79,6 +79,7 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  *   "UnlockCode": "12345-abcde-56789-fghij-01234"
  * }
  * *\/
+ * // example id: to-get-the-unlock-code-for-a-job-youve-created-for-aws-snowball-1482541987286
  * ```
  *
  */

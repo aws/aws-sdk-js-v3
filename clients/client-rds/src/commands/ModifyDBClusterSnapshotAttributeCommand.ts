@@ -91,6 +91,7 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  *   "DBClusterSnapshotAttributesResult": {}
  * }
  * *\/
+ * // example id: to-add-or-remove-access-to-a-manual-db-cluster-snapshot-1473889426431
  * ```
  *
  */

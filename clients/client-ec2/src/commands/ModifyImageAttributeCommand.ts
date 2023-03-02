@@ -65,6 +65,7 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ModifyImageAttributeCommand(input);
  * await client.send(command);
+ * // example id: to-make-an-ami-public-1529357395278
  * ```
  *
  * @example To grant launch permissions
@@ -82,6 +83,7 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ModifyImageAttributeCommand(input);
  * await client.send(command);
+ * // example id: to-grant-launch-permissions-1529357727906
  * ```
  *
  */

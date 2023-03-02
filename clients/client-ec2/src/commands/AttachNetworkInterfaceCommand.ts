@@ -65,6 +65,7 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  *   "AttachmentId": "eni-attach-66c4350a"
  * }
  * *\/
+ * // example id: ec2-attach-network-interface-1
  * ```
  *
  */

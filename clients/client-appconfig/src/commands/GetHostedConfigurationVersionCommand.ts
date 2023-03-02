@@ -68,6 +68,7 @@ export interface GetHostedConfigurationVersionCommandOutput extends HostedConfig
  *   "VersionNumber": 1
  * }
  * *\/
+ * // example id: to-retrieve-hosted-configuration-details-1632267003527
  * ```
  *
  */

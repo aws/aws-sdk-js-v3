@@ -79,6 +79,7 @@ export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeRespons
  *   }
  * }
  * *\/
+ * // example id: to-disable-a-policy-type-in-a-root
  * ```
  *
  */

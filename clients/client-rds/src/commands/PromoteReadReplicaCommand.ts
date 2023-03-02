@@ -82,6 +82,7 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  *   "DBInstance": {}
  * }
  * *\/
+ * // example id: promote-read-replica-cc580039-c55d-4035-838a-def4a1ae4181
  * ```
  *
  */

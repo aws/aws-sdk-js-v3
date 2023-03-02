@@ -60,6 +60,7 @@ export interface GetUploadCommandOutput extends GetUploadResult, __MetadataBeare
  *   "upload": {}
  * }
  * *\/
+ * // example id: to-get-information-about-a-specific-upload-1471025996221
  * ```
  *
  */

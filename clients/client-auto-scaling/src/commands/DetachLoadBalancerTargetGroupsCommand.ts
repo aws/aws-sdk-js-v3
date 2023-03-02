@@ -72,6 +72,7 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput
  * };
  * const command = new DetachLoadBalancerTargetGroupsCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-detach-load-balancer-target-groups-1
  * ```
  *
  */

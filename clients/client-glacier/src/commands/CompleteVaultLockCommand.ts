@@ -68,6 +68,7 @@ export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CompleteVaultLockCommand(input);
  * await client.send(command);
+ * // example id: to-complete-a-vault-lock-1481839721312
  * ```
  *
  */

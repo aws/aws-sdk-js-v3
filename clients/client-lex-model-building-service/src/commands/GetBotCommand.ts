@@ -108,6 +108,7 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  *   "status": "NOT_BUILT"
  * }
  * *\/
+ * // example id: to-get-information-about-a-bot-1494431724188
  * ```
  *
  */

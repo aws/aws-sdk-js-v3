@@ -82,6 +82,7 @@ export interface GetXssMatchSetCommandOutput extends GetXssMatchSetResponse, __M
  *   }
  * }
  * *\/
+ * // example id: getxssmatchset-1475187879017
  * ```
  *
  */

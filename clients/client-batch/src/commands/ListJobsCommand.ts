@@ -82,6 +82,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  *   ]
  * }
  * *\/
+ * // example id: to-list-running-jobs-1481154202164
  * ```
  *
  * @example To list submitted jobs
@@ -103,6 +104,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  *   ]
  * }
  * *\/
+ * // example id: to-list-submitted-jobs-1481154251623
  * ```
  *
  */

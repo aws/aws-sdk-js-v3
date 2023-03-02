@@ -51,10 +51,6 @@ export interface UpdateSolFunctionPackageCommandOutput extends UpdateSolFunction
  * @see {@link UpdateSolFunctionPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
- * @example Enable a function package's Operational State```javascript/* Optional.empty *\/some code here```
- *
- * @example Disable a function package's Operational State```javascript/* Optional.empty *\/some code here```
- *
  */
 export class UpdateSolFunctionPackageCommand extends $Command<
   UpdateSolFunctionPackageCommandInput,

@@ -54,6 +54,7 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SwapEnvironmentCNAMEsCommand(input);
  * await client.send(command);
+ * // example id: to-swap-environment-cnames-1456277839438
  * ```
  *
  */

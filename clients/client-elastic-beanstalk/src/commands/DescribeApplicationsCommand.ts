@@ -91,6 +91,7 @@ export interface DescribeApplicationsCommandOutput extends ApplicationDescriptio
  *   ]
  * }
  * *\/
+ * // example id: to-view-a-list-of-applications-1456270027373
  * ```
  *
  */

@@ -84,6 +84,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   "DBCluster": {}
  * }
  * *\/
+ * // example id: create-db-cluster-423b998d-eba9-40dd-8e19-96c5b6e5f31d
  * ```
  *
  */

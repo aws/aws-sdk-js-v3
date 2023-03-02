@@ -76,6 +76,7 @@ export interface ValidateConfigurationSettingsCommandOutput
  *   "Messages": []
  * }
  * *\/
+ * // example id: to-validate-configuration-settings-1456278393654
  * ```
  *
  */

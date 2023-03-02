@@ -67,6 +67,7 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutKeyPolicyCommand(input);
  * await client.send(command);
+ * // example id: to-attach-a-key-policy-to-a-cmk-1481147345018
  * ```
  *
  */

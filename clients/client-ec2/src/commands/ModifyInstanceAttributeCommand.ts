@@ -66,6 +66,7 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  * };
  * const command = new ModifyInstanceAttributeCommand(input);
  * await client.send(command);
+ * // example id: to-modify-the-instance-type-1529357844378
  * ```
  *
  * @example To enable enhanced networking
@@ -79,6 +80,7 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  * };
  * const command = new ModifyInstanceAttributeCommand(input);
  * await client.send(command);
+ * // example id: to-enable-enhanced-networking-1529358279870
  * ```
  *
  */

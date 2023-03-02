@@ -71,6 +71,7 @@ export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateR
  *   }
  * }
  * *\/
+ * // example id: to-delete-a-launch-template-1529024658216
  * ```
  *
  */

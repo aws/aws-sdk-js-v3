@@ -91,6 +91,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *   ]
  * }
  * *\/
+ * // example id: to-list-tags-for-a-fsx-resource-1481847318372
  * ```
  *
  */

@@ -75,6 +75,7 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __Metadat
  *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
  * }
  * *\/
+ * // example id: to-delete-a-gateway-volume-1471384418416
  * ```
  *
  */

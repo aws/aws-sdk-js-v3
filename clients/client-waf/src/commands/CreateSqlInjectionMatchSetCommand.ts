@@ -105,6 +105,7 @@ export interface CreateSqlInjectionMatchSetCommandOutput extends CreateSqlInject
  *   }
  * }
  * *\/
+ * // example id: createsqlinjectionmatchset-1474492796105
  * ```
  *
  */

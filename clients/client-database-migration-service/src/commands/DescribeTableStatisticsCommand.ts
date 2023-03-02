@@ -75,6 +75,7 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  *   "TableStatistics": []
  * }
  * *\/
+ * // example id: describe-table-statistics-1481756071890
  * ```
  *
  */

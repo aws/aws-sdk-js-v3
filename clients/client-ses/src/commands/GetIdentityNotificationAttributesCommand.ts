@@ -82,6 +82,7 @@ export interface GetIdentityNotificationAttributesCommandOutput
  *   }
  * }
  * *\/
+ * // example id: getidentitynotificationattributes-1469123466947
  * ```
  *
  */

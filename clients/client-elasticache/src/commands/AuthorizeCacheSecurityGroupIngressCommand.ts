@@ -68,6 +68,7 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput
  * };
  * const command = new AuthorizeCacheSecurityGroupIngressCommand(input);
  * await client.send(command);
+ * // example id: authorizecachecachesecuritygroupingress-1483046446206
  * ```
  *
  */

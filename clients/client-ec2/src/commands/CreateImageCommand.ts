@@ -91,6 +91,7 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  *   "ImageId": "ami-1a2b3c4d"
  * }
  * *\/
+ * // example id: to-create-an-ami-from-an-amazon-ebs-backed-instance-1529023150636
  * ```
  *
  */

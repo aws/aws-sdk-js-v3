@@ -63,6 +63,7 @@ export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddTagsToVaultCommand(input);
  * await client.send(command);
+ * // example id: add-tags-to-vault-post-tags-add-1481663457694
  * ```
  *
  */

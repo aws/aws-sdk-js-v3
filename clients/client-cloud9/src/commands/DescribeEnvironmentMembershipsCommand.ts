@@ -78,6 +78,7 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: describeenvironmentmemberships1-1516823070453
  * ```
  *
  * @example DescribeEnvironmentMemberships2
@@ -103,6 +104,7 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: describeenvironmentmemberships2-1516823191355
  * ```
  *
  * @example DescribeEnvironmentMemberships3
@@ -133,6 +135,7 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: describeenvironmentmemberships3-1516823268793
  * ```
  *
  */

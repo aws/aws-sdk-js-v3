@@ -91,6 +91,7 @@ export interface StartDeploymentCommandOutput extends Deployment, __MetadataBear
  *   "State": "DEPLOYING"
  * }
  * *\/
+ * // example id: to-start-a-configuration-deployment-1632328956790
  * ```
  *
  */

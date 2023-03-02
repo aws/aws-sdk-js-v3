@@ -123,6 +123,7 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  *   "NextMarker": "eyJNYXJrZXIiOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAyfQ=="
  * }
  * *\/
+ * // example id: to-list-objects-in-a-bucket-1473447646507
  * ```
  *
  */

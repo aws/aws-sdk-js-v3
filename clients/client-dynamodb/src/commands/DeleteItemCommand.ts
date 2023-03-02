@@ -84,6 +84,7 @@ export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBea
  *   }
  * }
  * *\/
+ * // example id: to-delete-an-item-1475884573758
  * ```
  *
  */

@@ -137,6 +137,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  *   }
  * }
  * *\/
+ * // example id: to-create-a-new-file-system-from-backup-1481840798598
  * ```
  *
  */

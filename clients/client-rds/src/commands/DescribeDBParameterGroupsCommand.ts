@@ -59,6 +59,7 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  * };
  * const command = new DescribeDBParameterGroupsCommand(input);
  * await client.send(command);
+ * // example id: describe-db-parameter-groups-
  * ```
  *
  */

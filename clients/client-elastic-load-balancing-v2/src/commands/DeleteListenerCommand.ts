@@ -64,6 +64,7 @@ export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __Met
  * };
  * const command = new DeleteListenerCommand(input);
  * await client.send(command);
+ * // example id: elbv2-delete-listener-1
  * ```
  *
  */

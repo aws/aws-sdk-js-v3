@@ -94,48 +94,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  *   }
  * }
  * *\/
- * ```
- *
- * @example CreateSnapshot - NonClustered Redis, 2 read-replicas
- * ```javascript
- * // Creates a snapshot of a non-clustered Redis cluster that has only three nodes, primary and two read-replicas. CacheClusterId must be a specific node in the cluster.
- * const input = {
- *   "CacheClusterId": "threenoderedis-001",
- *   "SnapshotName": "snapshot-2"
- * };
- * const command = new CreateSnapshotCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Snapshot": {
- *     "AutoMinorVersionUpgrade": true,
- *     "CacheClusterCreateTime": "2017-02-03T15:43:36.278Z",
- *     "CacheClusterId": "threenoderedis-001",
- *     "CacheNodeType": "cache.m3.medium",
- *     "CacheParameterGroupName": "default.redis3.2",
- *     "CacheSubnetGroupName": "default",
- *     "Engine": "redis",
- *     "EngineVersion": "3.2.4",
- *     "NodeSnapshots": [
- *       {
- *         "CacheNodeCreateTime": "2017-02-03T15:43:36.278Z",
- *         "CacheNodeId": "0001",
- *         "CacheSize": ""
- *       }
- *     ],
- *     "NumCacheNodes": 1,
- *     "Port": 6379,
- *     "PreferredAvailabilityZone": "us-west-2c",
- *     "PreferredMaintenanceWindow": "sat:08:00-sat:09:00",
- *     "SnapshotName": "snapshot-2",
- *     "SnapshotRetentionLimit": 1,
- *     "SnapshotSource": "manual",
- *     "SnapshotStatus": "creating",
- *     "SnapshotWindow": "00:00-01:00",
- *     "VpcId": "vpc-73c3cd17"
- *   }
- * }
- * *\/
+ * // example id: createsnapshot-1474999681024
  * ```
  *
  * @example CreateSnapshot-clustered Redis
@@ -181,6 +140,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  *   }
  * }
  * *\/
+ * // example id: createsnapshot-clustered-redis-1486144841758
  * ```
  *
  */

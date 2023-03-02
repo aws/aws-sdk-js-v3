@@ -122,6 +122,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *   "Prefix": ""
  * }
  * *\/
+ * // example id: to-get-object-list
  * ```
  *
  */

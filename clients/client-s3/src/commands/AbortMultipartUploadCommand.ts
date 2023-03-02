@@ -98,6 +98,7 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  * };
  * const command = new AbortMultipartUploadCommand(input);
  * await client.send(command);
+ * // example id: to-abort-a-multipart-upload-1481853354987
  * ```
  *
  */

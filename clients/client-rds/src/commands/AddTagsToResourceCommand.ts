@@ -61,6 +61,7 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddTagsToResourceCommand(input);
  * await client.send(command);
+ * // example id: add-tags-to-resource-fa99ef50-228b-449d-b893-ca4d4e9768ab
  * ```
  *
  */

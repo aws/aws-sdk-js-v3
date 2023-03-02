@@ -85,6 +85,7 @@ export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, _
  *   }
  * }
  * *\/
+ * // example id: getbytematchset-1473273311532
  * ```
  *
  */

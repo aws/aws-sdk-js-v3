@@ -57,6 +57,7 @@ export interface MoveAccountCommandOutput extends __MetadataBearer {}
  * };
  * const command = new MoveAccountCommand(input);
  * await client.send(command);
+ * // example id: to-move-an-ou-or-account-to-another-ou-or-the-root
  * ```
  *
  */

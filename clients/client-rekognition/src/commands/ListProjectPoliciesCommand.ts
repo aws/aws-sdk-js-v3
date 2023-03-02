@@ -76,6 +76,7 @@ export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesRes
  *   ]
  * }
  * *\/
+ * // example id: listprojectpolicies-1658202290173
  * ```
  *
  */

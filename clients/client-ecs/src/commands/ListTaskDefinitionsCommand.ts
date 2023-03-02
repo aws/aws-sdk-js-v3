@@ -70,6 +70,7 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  *   ]
  * }
  * *\/
+ * // example id: b381ebaf-7eba-4d60-b99b-7f6ae49d3d60
  * ```
  *
  * @example To list the registered task definitions in a family
@@ -90,6 +91,7 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  *   ]
  * }
  * *\/
+ * // example id: 734e7afd-753a-4bc2-85d0-badddce10910
  * ```
  *
  */

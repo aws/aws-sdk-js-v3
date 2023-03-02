@@ -65,6 +65,7 @@ export interface DeleteNatGatewayCommandOutput extends DeleteNatGatewayResult, _
  *   "NatGatewayId": "nat-04ae55e711cec5680"
  * }
  * *\/
+ * // example id: ec2-delete-nat-gateway-1
  * ```
  *
  */

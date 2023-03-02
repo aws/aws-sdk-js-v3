@@ -84,6 +84,7 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
  * };
  * const command = new AttachLoadBalancerTargetGroupsCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-attach-load-balancer-target-groups-1
  * ```
  *
  */

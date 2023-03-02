@@ -80,6 +80,7 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-tailed-logs-1456277792734
  * ```
  *
  */

@@ -91,6 +91,7 @@ export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer 
  *   ]
  * }
  * *\/
+ * // example id: to-get-a-list-of-bots-1494432220036
  * ```
  *
  */

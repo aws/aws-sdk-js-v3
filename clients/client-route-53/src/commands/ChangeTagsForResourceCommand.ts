@@ -74,6 +74,7 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * };
  * const command = new ChangeTagsForResourceCommand(input);
  * await client.send(command);
+ * // example id: to-add-or-remove-tags-from-a-hosted-zone-or-health-check-1484084752409
  * ```
  *
  */

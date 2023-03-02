@@ -85,6 +85,7 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  *   "MacValid": true
  * }
  * *\/
+ * // example id: to-verify-an-hmac-1631570863401
  * ```
  *
  */

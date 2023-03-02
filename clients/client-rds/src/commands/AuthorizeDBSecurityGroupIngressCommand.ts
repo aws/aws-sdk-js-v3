@@ -81,6 +81,7 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
  *   "DBSecurityGroup": {}
  * }
  * *\/
+ * // example id: authorize-db-security-group-ingress-ebf9ab91-8912-4b07-a32e-ca150668164f
  * ```
  *
  */

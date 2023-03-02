@@ -71,6 +71,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *   "nextToken": "1"
  * }
  * *\/
+ * // example id: list-findings-1481066840611
  * ```
  *
  */

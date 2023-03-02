@@ -62,6 +62,7 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  * };
  * const command = new DeleteEnvironmentConfigurationCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-draft-configuration-1456269886654
  * ```
  *
  */

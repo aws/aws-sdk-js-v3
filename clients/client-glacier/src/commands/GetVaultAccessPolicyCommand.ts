@@ -71,6 +71,7 @@ export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyO
  *   }
  * }
  * *\/
+ * // example id: to--get-the-access-policy-set-on-the-vault-1481936004590
  * ```
  *
  */

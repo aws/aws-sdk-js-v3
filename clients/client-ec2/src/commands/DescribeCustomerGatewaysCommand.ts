@@ -75,6 +75,7 @@ export interface DescribeCustomerGatewaysCommandOutput extends DescribeCustomerG
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-customer-gateways-1
  * ```
  *
  */

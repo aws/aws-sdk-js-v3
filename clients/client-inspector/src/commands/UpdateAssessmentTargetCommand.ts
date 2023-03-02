@@ -58,6 +58,7 @@ export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAssessmentTargetCommand(input);
  * await client.send(command);
+ * // example id: update-assessment-target-1481067866692
  * ```
  *
  */

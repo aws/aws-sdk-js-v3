@@ -61,6 +61,7 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * };
  * const command = new DescribeDBSnapshotsCommand(input);
  * await client.send(command);
+ * // example id: describe-db-snapshots-2c935989-a1ef-4c85-aea4-1d0f45f17f26
  * ```
  *
  */

@@ -74,6 +74,7 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  *   }
  * }
  * *\/
+ * // example id: c63795bc-3444-40b3-89df-83c474ef88be
  * ```
  *
  */

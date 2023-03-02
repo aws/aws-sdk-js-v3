@@ -71,6 +71,7 @@ export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnab
  * };
  * const command = new SetIdentityDkimEnabledCommand(input);
  * await client.send(command);
+ * // example id: setidentitydkimenabled-1469057485202
  * ```
  *
  */

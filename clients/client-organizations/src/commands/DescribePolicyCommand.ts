@@ -75,6 +75,7 @@ export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __M
  *   }
  * }
  * *\/
+ * // example id: to-get-information-about-a-policy
  * ```
  *
  */

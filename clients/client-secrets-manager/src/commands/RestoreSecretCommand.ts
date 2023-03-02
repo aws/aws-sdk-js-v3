@@ -72,6 +72,7 @@ export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __Met
  *   "Name": "MyTestDatabaseSecret"
  * }
  * *\/
+ * // example id: to-restore-a-previously-deleted-secret-1524001513930
  * ```
  *
  */

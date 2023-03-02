@@ -70,6 +70,7 @@ export interface ReplaceRouteTableAssociationCommandOutput
  *   "NewAssociationId": "rtbassoc-3a1f0f58"
  * }
  * *\/
+ * // example id: ec2-replace-route-table-association-1
  * ```
  *
  */

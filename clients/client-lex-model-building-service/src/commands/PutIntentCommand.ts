@@ -380,6 +380,7 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  *   ]
  * }
  * *\/
+ * // example id: to-create-an-intent-1494358144659
  * ```
  *
  */

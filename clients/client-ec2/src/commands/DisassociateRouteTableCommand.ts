@@ -57,6 +57,7 @@ export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateRouteTableCommand(input);
  * await client.send(command);
+ * // example id: ec2-disassociate-route-table-1
  * ```
  *
  */

@@ -84,6 +84,7 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  *   ]
  * }
  * *\/
+ * // example id: elb-deregister-instances-from-load-balancer-1
  * ```
  *
  */

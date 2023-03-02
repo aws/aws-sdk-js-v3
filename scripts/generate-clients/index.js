@@ -70,8 +70,6 @@ const {
     }
 
     await generateClients(models || globs || DEFAULT_CODE_GEN_INPUT_DIR, batchSize);
-    require("../api-examples/get-examples");
-    await require("../api-examples/merge-examples").merge(CODE_GEN_SDK_OUTPUT_DIR);
 
     if (!noPrivateClients) {
       await generateGenericClient();
@@ -95,6 +93,8 @@ const {
       await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
     }
 
+    require("../api-examples/get-examples");
+    await require("../api-examples/merge-examples").merge();
     const compress = require("../endpoints-ruleset/compress");
     compress();
 

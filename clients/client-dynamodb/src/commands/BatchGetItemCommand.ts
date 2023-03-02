@@ -157,6 +157,7 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  *   }
  * }
  * *\/
+ * // example id: to-retrieve-multiple-items-from-a-table-1476118438992
  * ```
  *
  */

@@ -79,6 +79,7 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  *   ]
  * }
  * *\/
+ * // example id: example-discover-registered-instances-1587236343568
  * ```
  *
  */

@@ -68,6 +68,7 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
  * };
  * const command = new SetIdentityHeadersInNotificationsEnabledCommand(input);
  * await client.send(command);
+ * // example id: setidentityheadersinnotificationsenabled-1469057295001
  * ```
  *
  */

@@ -72,6 +72,7 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  *   ]
  * }
  * *\/
+ * // example id: to-get-a-list-of-jobs-that-youve-created-for-aws-snowball-1482542167627
  * ```
  *
  */

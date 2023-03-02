@@ -78,6 +78,7 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  *   "StatusCode": 200
  * }
  * *\/
+ * // example id: to-create-a-collection-1481833313674
  * ```
  *
  */

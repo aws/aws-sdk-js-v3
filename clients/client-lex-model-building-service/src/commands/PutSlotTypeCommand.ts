@@ -104,6 +104,7 @@ export interface PutSlotTypeCommandOutput extends PutSlotTypeResponse, __Metadat
  *   "lastUpdatedDate": 1494356442.23
  * }
  * *\/
+ * // example id: to-create-a-slot-type-1494357262258
  * ```
  *
  */

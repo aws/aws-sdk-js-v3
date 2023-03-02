@@ -77,6 +77,7 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  *   ]
  * }
  * *\/
+ * // example id: 54f9ac18-5100-4070-bec4-fe5f612710d5
  * ```
  *
  */

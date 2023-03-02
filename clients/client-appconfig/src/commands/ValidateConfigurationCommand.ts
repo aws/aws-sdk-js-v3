@@ -55,6 +55,7 @@ export interface ValidateConfigurationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ValidateConfigurationCommand(input);
  * await client.send(command);
+ * // example id: to-validate-a-configuration-1632331491365
  * ```
  *
  */

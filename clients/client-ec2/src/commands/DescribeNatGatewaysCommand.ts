@@ -86,6 +86,7 @@ export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysRes
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-nat-gateways-1
  * ```
  *
  */

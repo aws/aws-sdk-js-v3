@@ -79,6 +79,7 @@ export interface DescribeReplicationTasksCommandOutput extends DescribeReplicati
  *   "ReplicationTasks": []
  * }
  * *\/
+ * // example id: describe-replication-tasks-1481755777563
  * ```
  *
  */

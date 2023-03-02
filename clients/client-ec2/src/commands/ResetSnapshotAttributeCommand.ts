@@ -56,6 +56,7 @@ export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResetSnapshotAttributeCommand(input);
  * await client.send(command);
+ * // example id: to-reset-a-snapshot-attribute-1472508825735
  * ```
  *
  */

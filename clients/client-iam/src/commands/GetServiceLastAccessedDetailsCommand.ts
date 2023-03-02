@@ -133,6 +133,7 @@ export interface GetServiceLastAccessedDetailsCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: getserviceaccessdetails-policy-1541696298085
  * ```
  *
  */

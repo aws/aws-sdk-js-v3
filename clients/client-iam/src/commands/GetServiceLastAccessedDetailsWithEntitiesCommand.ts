@@ -116,6 +116,7 @@ export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
  *   "JobStatus": "COMPLETED"
  * }
  * *\/
+ * // example id: getserviceaccessdetailsentity-policy-1541697621384
  * ```
  *
  */

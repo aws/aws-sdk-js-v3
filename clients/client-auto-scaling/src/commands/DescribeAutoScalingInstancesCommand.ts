@@ -75,6 +75,7 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-auto-scaling-instances-1
  * ```
  *
  */

@@ -84,6 +84,7 @@ export interface GetSizeConstraintSetCommandOutput extends GetSizeConstraintSetR
  *   }
  * }
  * *\/
+ * // example id: getsizeconstraintset-1475005422493
  * ```
  *
  */

@@ -68,6 +68,7 @@ export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTarget
  *   "nextToken": "1"
  * }
  * *\/
+ * // example id: list-assessment-targets-1481066540849
  * ```
  *
  */

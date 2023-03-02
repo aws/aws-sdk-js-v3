@@ -85,6 +85,7 @@ export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachedi
  *   ]
  * }
  * *\/
+ * // example id: to-describe-gateway-cached-iscsi-volumes-1471458094649
  * ```
  *
  */

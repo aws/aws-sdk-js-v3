@@ -54,6 +54,7 @@ export interface UntagUserCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagUserCommand(input);
  * await client.send(command);
+ * // example id: to-remove-a-tag-from-an-iam-user-1506719725554
  * ```
  *
  */

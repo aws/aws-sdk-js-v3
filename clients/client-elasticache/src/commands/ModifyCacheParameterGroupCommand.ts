@@ -75,6 +75,7 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  *   "CacheParameterGroupName": "custom-mem1-4"
  * }
  * *\/
+ * // example id: modifycacheparametergroup-1482966746787
  * ```
  *
  */

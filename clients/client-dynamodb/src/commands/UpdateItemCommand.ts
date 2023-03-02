@@ -104,6 +104,7 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  *   }
  * }
  * *\/
+ * // example id: to-update-an-item-in-a-table-1476118250055
  * ```
  *
  */

@@ -72,6 +72,7 @@ export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AbortMultipartUploadCommand(input);
  * await client.send(command);
+ * // example id: f3d907f6-e71c-420c-8f71-502346a2c48a
  * ```
  *
  */

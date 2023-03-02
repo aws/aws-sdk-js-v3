@@ -77,6 +77,7 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  *   "PublicIp": "203.0.113.0"
  * }
  * *\/
+ * // example id: ec2-allocate-address-1
  * ```
  *
  * @example To allocate an Elastic IP address for EC2-Classic
@@ -91,6 +92,7 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  *   "PublicIp": "198.51.100.0"
  * }
  * *\/
+ * // example id: ec2-allocate-address-2
  * ```
  *
  */

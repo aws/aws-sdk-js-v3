@@ -89,6 +89,7 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  *   }
  * }
  * *\/
+ * // example id: e67489b6-7b73-4e30-9ed3-9a9e0231e458
  * ```
  *
  */

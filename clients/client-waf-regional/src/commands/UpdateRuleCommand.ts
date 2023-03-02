@@ -123,6 +123,7 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
+ * // example id: updaterule-1475260064720
  * ```
  *
  */

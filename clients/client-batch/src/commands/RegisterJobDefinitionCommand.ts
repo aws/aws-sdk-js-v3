@@ -83,6 +83,7 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *   "revision": 1
  * }
  * *\/
+ * // example id: to-register-a-job-definition-1481154325325
  * ```
  *
  * @example RegisterJobDefinition with tags
@@ -122,6 +123,7 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *   "revision": 1
  * }
  * *\/
+ * // example id: registerjobdefinition-with-tags-1591290509028
  * ```
  *
  */

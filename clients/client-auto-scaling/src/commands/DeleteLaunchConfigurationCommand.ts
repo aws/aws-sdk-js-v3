@@ -55,6 +55,7 @@ export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteLaunchConfigurationCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-delete-launch-configuration-1
  * ```
  *
  */

@@ -66,6 +66,7 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateTagsCommand(input);
  * await client.send(command);
+ * // example id: ec2-create-tags-1
  * ```
  *
  */

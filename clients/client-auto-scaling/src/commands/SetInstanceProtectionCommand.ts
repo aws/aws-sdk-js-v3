@@ -69,6 +69,7 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
  * };
  * const command = new SetInstanceProtectionCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-set-instance-protection-1
  * ```
  *
  * @example To disable instance protection for an instance
@@ -83,6 +84,7 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
  * };
  * const command = new SetInstanceProtectionCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-set-instance-protection-2
  * ```
  *
  */

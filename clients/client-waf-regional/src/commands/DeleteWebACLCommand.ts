@@ -85,6 +85,7 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
+ * // example id: deletewebacl-1472767755931
  * ```
  *
  */

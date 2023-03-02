@@ -101,6 +101,7 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *   "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/demo1-vault"
  * }
  * *\/
+ * // example id: to-list-the-parts-of-an-archive-that-have-been-uploaded-in-a-multipart-upload-1481921767590
  * ```
  *
  */

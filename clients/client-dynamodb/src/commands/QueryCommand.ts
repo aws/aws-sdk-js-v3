@@ -126,6 +126,7 @@ export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
  *   "ScannedCount": 2
  * }
  * *\/
+ * // example id: to-query-an-item-1475883874631
  * ```
  *
  */

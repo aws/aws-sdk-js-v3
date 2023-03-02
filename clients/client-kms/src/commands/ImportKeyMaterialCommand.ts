@@ -124,6 +124,7 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  * };
  * const command = new ImportKeyMaterialCommand(input);
  * await client.send(command);
+ * // example id: to-import-key-material-into-a-cmk-1480630551969
  * ```
  *
  */

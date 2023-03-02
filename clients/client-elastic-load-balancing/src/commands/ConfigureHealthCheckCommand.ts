@@ -82,6 +82,7 @@ export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckO
  *   }
  * }
  * *\/
+ * // example id: elb-configure-health-check-1
  * ```
  *
  */

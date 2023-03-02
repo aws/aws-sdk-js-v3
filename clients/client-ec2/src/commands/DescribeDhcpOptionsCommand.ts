@@ -84,6 +84,7 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-dhcp-options-1
  * ```
  *
  */

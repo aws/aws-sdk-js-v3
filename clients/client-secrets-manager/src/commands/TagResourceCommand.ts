@@ -103,6 +103,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagResourceCommand(input);
  * await client.send(command);
+ * // example id: to-add-tags-to-a-secret-1524002106718
  * ```
  *
  */

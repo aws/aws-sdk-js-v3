@@ -75,6 +75,7 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  *   "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b"
  * }
  * *\/
+ * // example id: to-create-an-address-for-a-job-1482535416294
  * ```
  *
  */

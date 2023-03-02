@@ -74,6 +74,7 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  *   "Success": true
  * }
  * *\/
+ * // example id: send-ssh-key-to-an-ec2-instance-1518124883100
  * ```
  *
  */

@@ -63,6 +63,7 @@ export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ModifyVolumeAttributeCommand(input);
  * await client.send(command);
+ * // example id: to-modify-a-volume-attribute-1472508596749
  * ```
  *
  */

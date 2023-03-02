@@ -60,6 +60,7 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * };
  * const command = new DescribePendingMaintenanceActionsCommand(input);
  * await client.send(command);
+ * // example id: describe-pending-maintenance-actions-e6021f7e-58ae-49cc-b874-11996176835c
  * ```
  *
  */

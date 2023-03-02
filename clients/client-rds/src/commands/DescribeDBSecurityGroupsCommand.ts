@@ -66,6 +66,7 @@ export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMe
  * };
  * const command = new DescribeDBSecurityGroupsCommand(input);
  * await client.send(command);
+ * // example id: describe-db-security-groups-66fe9ea1-17dd-4275-b82e-f771cee0c849
  * ```
  *
  */

@@ -103,6 +103,7 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  *   }
  * }
  * *\/
+ * // example id: to-retrieve-the-details-of-a-secret-1524000138629
  * ```
  *
  */

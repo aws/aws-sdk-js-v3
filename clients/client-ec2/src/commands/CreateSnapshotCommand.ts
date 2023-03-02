@@ -92,6 +92,7 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  *   "VolumeSize": 8
  * }
  * *\/
+ * // example id: to-create-a-snapshot-1472502529790
  * ```
  *
  */

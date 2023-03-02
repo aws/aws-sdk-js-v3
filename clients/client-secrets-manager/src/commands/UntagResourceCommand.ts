@@ -72,6 +72,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagResourceCommand(input);
  * await client.send(command);
+ * // example id: to-remove-tags-from-a-secret-1524002239065
  * ```
  *
  */

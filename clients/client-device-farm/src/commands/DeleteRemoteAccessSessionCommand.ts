@@ -58,6 +58,7 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
  * };
  * const command = new DeleteRemoteAccessSessionCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-specific-remote-access-session-1470971431677
  * ```
  *
  */

@@ -60,6 +60,7 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  * };
  * const command = new DownloadDBLogFilePortionCommand(input);
  * await client.send(command);
+ * // example id: download-db-log-file-portion-54a82731-a441-4fc7-a010-8eccae6fa202
  * ```
  *
  */

@@ -71,6 +71,7 @@ export interface DescribeCacheParameterGroupsCommandOutput extends CacheParamete
  *   ]
  * }
  * *\/
+ * // example id: describecacheparametergroups-1483045457557
  * ```
  *
  */

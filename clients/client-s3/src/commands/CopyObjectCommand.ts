@@ -253,6 +253,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *   }
  * }
  * *\/
+ * // example id: to-copy-an-object-1481823186878
  * ```
  *
  */

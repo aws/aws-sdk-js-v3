@@ -103,6 +103,7 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *   "VersionId": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1"
  * }
  * *\/
+ * // example id: to-create-a-basic-secret-1523996473658
  * ```
  *
  */

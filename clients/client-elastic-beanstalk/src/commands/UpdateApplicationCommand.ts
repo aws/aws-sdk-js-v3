@@ -81,6 +81,7 @@ export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMe
  *   }
  * }
  * *\/
+ * // example id: to-change-an-applications-description-1456277957075
  * ```
  *
  */

@@ -65,6 +65,7 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  *   "OperationId": "4yejorelbukcjzpnr6tlmrghsjwpngf4-k98rnaiq"
  * }
  * *\/
+ * // example id: example-deregister-a-service-instance-1587416305738
  * ```
  *
  */

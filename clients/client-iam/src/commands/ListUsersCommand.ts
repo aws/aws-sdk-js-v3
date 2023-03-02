@@ -83,6 +83,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *   ]
  * }
  * *\/
+ * // example id: 9edfbd73-03d8-4d8a-9a79-76c85e8c8298
  * ```
  *
  */

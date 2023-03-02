@@ -56,6 +56,7 @@ export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SubscribeToEventCommand(input);
  * await client.send(command);
+ * // example id: subscribe-to-event-1481067686031
  * ```
  *
  */

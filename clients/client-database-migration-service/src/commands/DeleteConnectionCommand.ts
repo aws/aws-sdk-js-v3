@@ -68,6 +68,7 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  *   "Connection": {}
  * }
  * *\/
+ * // example id: delete-connection-1481751957981
  * ```
  *
  */

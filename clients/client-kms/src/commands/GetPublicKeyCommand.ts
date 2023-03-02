@@ -118,6 +118,7 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *   "PublicKey": "<binary data>"
  * }
  * *\/
+ * // example id: to-download-the-public-key-of-an-asymmetric-kms-key-1628621691873
  * ```
  *
  */

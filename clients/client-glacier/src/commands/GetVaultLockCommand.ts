@@ -94,6 +94,7 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  *   "State": "InProgress"
  * }
  * *\/
+ * // example id: to-retrieve-vault-lock-policy-related-attributes-that-are-set-on-a-vault-1481851363097
  * ```
  *
  */

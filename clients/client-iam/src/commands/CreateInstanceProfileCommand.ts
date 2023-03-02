@@ -74,6 +74,7 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  *   }
  * }
  * *\/
+ * // example id: 5d84e6ae-5921-4e39-8454-10232cd9ff9a
  * ```
  *
  */

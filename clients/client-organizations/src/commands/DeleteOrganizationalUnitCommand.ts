@@ -57,6 +57,7 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteOrganizationalUnitCommand(input);
  * await client.send(command);
+ * // example id: to-delete-an-organizational-unit
  * ```
  *
  */

@@ -58,6 +58,7 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  * };
  * const command = new CancelJobCommand(input);
  * await client.send(command);
+ * // example id: to-cancel-a-job-for-a-snowball-device-1482534699477
  * ```
  *
  */

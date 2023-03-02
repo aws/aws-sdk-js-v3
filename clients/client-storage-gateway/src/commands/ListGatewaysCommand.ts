@@ -82,6 +82,7 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  *   "Marker": "1"
  * }
  * *\/
+ * // example id: to-lists-region-specific-gateways-per-aws-account-1472077860657
  * ```
  *
  */

@@ -76,6 +76,7 @@ export interface DeleteBucketLifecycleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBucketLifecycleCommand(input);
  * await client.send(command);
+ * // example id: to-delete-lifecycle-configuration-on-a-bucket-1483043310583
  * ```
  *
  */

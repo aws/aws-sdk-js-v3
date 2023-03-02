@@ -72,6 +72,7 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  *   "OperationId": "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9302yzd"
  * }
  * *\/
+ * // example id: example-create-private-dns-namespace-1587058592930
  * ```
  *
  */

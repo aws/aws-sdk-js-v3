@@ -165,6 +165,7 @@ export interface ListHandshakesForOrganizationCommandOutput
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-a-list-of-the-handshakes-associated-with-an-organization-1472511206653
  * ```
  *
  */

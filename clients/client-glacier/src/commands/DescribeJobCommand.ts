@@ -96,6 +96,7 @@ export interface DescribeJobCommandOutput extends GlacierJobDescription, __Metad
  *   "VaultARN": "arn:aws:glacier:us-west-2:0123456789012:vaults/my-vault"
  * }
  * *\/
+ * // example id: to-get-information-about-a-job-you-previously-initiated-1481840928592
  * ```
  *
  */

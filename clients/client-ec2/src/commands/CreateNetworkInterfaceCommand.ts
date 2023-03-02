@@ -98,6 +98,7 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  *   }
  * }
  * *\/
+ * // example id: ec2-create-network-interface-1
  * ```
  *
  */

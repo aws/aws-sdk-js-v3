@@ -64,6 +64,7 @@ export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecuri
  * };
  * const command = new CreateCacheSecurityGroupCommand(input);
  * await client.send(command);
+ * // example id: createcachesecuritygroup-1483041506604
  * ```
  *
  */

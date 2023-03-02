@@ -71,6 +71,7 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  *   }
  * }
  * *\/
+ * // example id: to-rename-an-organizational-unit
  * ```
  *
  */

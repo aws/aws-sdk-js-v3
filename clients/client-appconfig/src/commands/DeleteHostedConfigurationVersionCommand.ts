@@ -59,6 +59,7 @@ export interface DeleteHostedConfigurationVersionCommandOutput extends __Metadat
  * };
  * const command = new DeleteHostedConfigurationVersionCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-hosted-configuration-version-1632265720740
  * ```
  *
  */

@@ -87,6 +87,7 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-a-list-of-roots-in-the-organization
  * ```
  *
  */

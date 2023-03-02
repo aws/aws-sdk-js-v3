@@ -71,6 +71,7 @@ export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, _
  *   "Status": "MoveInProgress"
  * }
  * *\/
+ * // example id: ec2-move-address-to-vpc-1
  * ```
  *
  */

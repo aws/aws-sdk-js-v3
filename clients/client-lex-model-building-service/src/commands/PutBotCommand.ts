@@ -157,6 +157,7 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  *   "status": "NOT_BUILT"
  * }
  * *\/
+ * // example id: to-create-a-bot-1494360003886
  * ```
  *
  */

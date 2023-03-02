@@ -73,6 +73,7 @@ export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataB
  *   }
  * }
  * *\/
+ * // example id: eaaa4b5f-51f1-4f73-b0d3-30127040eff8
  * ```
  *
  */

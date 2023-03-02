@@ -67,6 +67,7 @@ export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePas
  *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
  * }
  * *\/
+ * // example id: to-set-a-password-for-your-vm-1472150202632
  * ```
  *
  */

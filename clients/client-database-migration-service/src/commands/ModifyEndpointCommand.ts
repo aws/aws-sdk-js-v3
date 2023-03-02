@@ -85,6 +85,7 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  *   "Endpoint": {}
  * }
  * *\/
+ * // example id: modify-endpoint-1481761649937
  * ```
  *
  */

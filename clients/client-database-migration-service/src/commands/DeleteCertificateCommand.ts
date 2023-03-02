@@ -67,6 +67,7 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateRespons
  *   "Certificate": {}
  * }
  * *\/
+ * // example id: delete-certificate-1481751957981
  * ```
  *
  */

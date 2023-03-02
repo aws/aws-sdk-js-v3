@@ -70,6 +70,7 @@ export interface UpdateConfigurationProfileCommandOutput extends ConfigurationPr
  *   "RetrievalRoleArn": "arn:aws:iam::111122223333:role/Example-App-Config-Role"
  * }
  * *\/
+ * // example id: to-update-a-configuration-profile-1632330721974
  * ```
  *
  */

@@ -60,6 +60,7 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetTagsForResourceCommand(input);
  * await client.send(command);
+ * // example id: set-tags-for-resource-1481067329646
  * ```
  *
  */

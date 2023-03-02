@@ -76,6 +76,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *   "DBInstance": {}
  * }
  * *\/
+ * // example id: create-db-instance-57eb5d16-8bf8-4c84-9709-1700322b37b9
  * ```
  *
  */

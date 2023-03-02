@@ -64,6 +64,7 @@ export interface ListSuitesCommandOutput extends ListSuitesResult, __MetadataBea
  *   "suites": []
  * }
  * *\/
+ * // example id: to-get-information-about-suites-1472583038218
  * ```
  *
  */

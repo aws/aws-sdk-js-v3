@@ -86,6 +86,7 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  *   ]
  * }
  * *\/
+ * // example id: to-retrieve-the-encrypted-secret-value-of-a-secret-1524000702484
  * ```
  *
  */

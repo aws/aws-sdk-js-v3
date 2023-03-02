@@ -67,6 +67,7 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  *   "DBSubnetGroup": {}
  * }
  * *\/
+ * // example id: modify-db-subnet-group-e34a97d9-8fe6-4239-a4ed-ad6e73a956b0
  * ```
  *
  */

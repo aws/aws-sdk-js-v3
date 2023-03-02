@@ -162,6 +162,7 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *   }
  * }
  * *\/
+ * // example id: get-key-details-1
  * ```
  *
  * @example To get details about an RSA asymmetric KMS key
@@ -199,6 +200,7 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *   }
  * }
  * *\/
+ * // example id: to-get-details-about-an-rsa-asymmetric-kms-key-2
  * ```
  *
  * @example To get details about a multi-Region key
@@ -251,6 +253,7 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *   }
  * }
  * *\/
+ * // example id: to-get-details-about-a-multi-region-key-3
  * ```
  *
  * @example To get details about an HMAC KMS key
@@ -282,6 +285,7 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *   }
  * }
  * *\/
+ * // example id: to-get-details-about-an-hmac-kms-key-4
  * ```
  *
  * @example To get details about a KMS key in an AWS CloudHSM key store
@@ -316,6 +320,7 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *   }
  * }
  * *\/
+ * // example id: to-get-details-about-a-kms-key-in-an-AWS-CloudHSM-key-store-5
  * ```
  *
  * @example To get details about a KMS key in an external key store
@@ -352,6 +357,7 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *   }
  * }
  * *\/
+ * // example id: to-get-details-about-a-kms-key-in-an-external-key-store-6
  * ```
  *
  */

@@ -64,6 +64,7 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  * };
  * const command = new UpdateInstanceCustomHealthStatusCommand(input);
  * await client.send(command);
+ * // example id: updateinstancecustomhealthstatus-example-1590118408574
  * ```
  *
  */

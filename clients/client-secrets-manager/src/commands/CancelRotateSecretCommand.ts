@@ -82,6 +82,7 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  *   "Name": "Name"
  * }
  * *\/
+ * // example id: to-cancel-scheduled-rotation-for-a-secret-1523996016032
  * ```
  *
  */

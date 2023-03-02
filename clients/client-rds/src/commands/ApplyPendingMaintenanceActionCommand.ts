@@ -67,6 +67,7 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  *   "ResourcePendingMaintenanceActions": {}
  * }
  * *\/
+ * // example id: apply-pending-maintenance-action-2a026047-8bbb-47fc-b695-abad9f308c24
  * ```
  *
  */

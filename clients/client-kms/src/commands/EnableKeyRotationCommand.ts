@@ -93,6 +93,7 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new EnableKeyRotationCommand(input);
  * await client.send(command);
+ * // example id: to-enable-automatic-rotation-of-key-material-1478629109677
  * ```
  *
  */

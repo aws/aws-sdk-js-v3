@@ -85,6 +85,7 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  *   "VaultName": "my-vault"
  * }
  * *\/
+ * // example id: 3c1c6e9d-f5a2-427a-aa6a-f439eacfc05f
  * ```
  *
  */

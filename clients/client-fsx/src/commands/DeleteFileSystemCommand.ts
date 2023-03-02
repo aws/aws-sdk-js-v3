@@ -86,6 +86,7 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  *   "Lifecycle": "DELETING"
  * }
  * *\/
+ * // example id: to-delete-a-file-system-1481847318348
  * ```
  *
  */

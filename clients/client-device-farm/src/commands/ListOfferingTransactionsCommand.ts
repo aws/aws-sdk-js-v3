@@ -143,6 +143,7 @@ export interface ListOfferingTransactionsCommandOutput extends ListOfferingTrans
  *   ]
  * }
  * *\/
+ * // example id: to-get-information-about-device-offering-transactions-1472561712315
  * ```
  *
  */

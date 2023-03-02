@@ -92,6 +92,7 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  *   ]
  * }
  * *\/
+ * // example id: to-start-a-stopped-ec2-instance-1529358792730
  * ```
  *
  */

@@ -82,6 +82,7 @@ export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType,
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-scaling-process-types-1
  * ```
  *
  */

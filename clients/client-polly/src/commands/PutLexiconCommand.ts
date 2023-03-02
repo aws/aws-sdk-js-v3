@@ -64,6 +64,7 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * };
  * const command = new PutLexiconCommand(input);
  * await client.send(command);
+ * // example id: to-save-a-lexicon-1482272584088
  * ```
  *
  */

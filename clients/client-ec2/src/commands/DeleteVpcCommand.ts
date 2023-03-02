@@ -50,6 +50,7 @@ export interface DeleteVpcCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteVpcCommand(input);
  * await client.send(command);
+ * // example id: ec2-delete-vpc-1
  * ```
  *
  */

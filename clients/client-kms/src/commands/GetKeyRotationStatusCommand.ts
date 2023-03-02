@@ -115,6 +115,7 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  *   "KeyRotationEnabled": true
  * }
  * *\/
+ * // example id: to-retrieve-the-rotation-status-for-a-cmk-1479172287408
  * ```
  *
  */

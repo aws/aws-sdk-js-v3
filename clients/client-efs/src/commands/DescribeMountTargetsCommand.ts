@@ -79,6 +79,7 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  *   ]
  * }
  * *\/
+ * // example id: to-describe-the-mount-targets-for-a-file-system-1481849958584
  * ```
  *
  */

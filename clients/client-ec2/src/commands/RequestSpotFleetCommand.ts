@@ -109,6 +109,7 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
  * }
  * *\/
+ * // example id: ec2-request-spot-fleet-1
  * ```
  *
  * @example To request a Spot fleet in the Availability Zone with the lowest price
@@ -146,6 +147,7 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
  * }
  * *\/
+ * // example id: ec2-request-spot-fleet-2
  * ```
  *
  * @example To launch Spot instances in a subnet and assign them public IP addresses
@@ -185,6 +187,7 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
  * }
  * *\/
+ * // example id: ec2-request-spot-fleet-3
  * ```
  *
  * @example To request a Spot fleet using the diversified allocation strategy
@@ -222,6 +225,7 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
  * }
  * *\/
+ * // example id: ec2-request-spot-fleet-4
  * ```
  *
  */

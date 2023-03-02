@@ -101,6 +101,7 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  *   ]
  * }
  * *\/
+ * // example id: enable-the-protection-status-for-a-single-task-for-60-minutes-2022-11-02T06:56:32.553Z
  * ```
  *
  * @example To set task scale-in protection for the default time period in minutes
@@ -127,6 +128,7 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  *   ]
  * }
  * *\/
+ * // example id: enable-the-protection-status-for-a-single-task-with-default-expiresinminutes-2022-11-02T06:56:32.553Z
  * ```
  *
  * @example To remove task scale-in protection
@@ -152,6 +154,7 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  *   ]
  * }
  * *\/
+ * // example id: disable-scale-in-protection-on-a-single-task
  * ```
  *
  */

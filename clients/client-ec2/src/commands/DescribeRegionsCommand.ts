@@ -106,6 +106,7 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  *   ]
  * }
  * *\/
+ * // example id: ec2-describe-regions-1
  * ```
  *
  */

@@ -67,6 +67,7 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAutoScalingGroupCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-delete-auto-scaling-group-1
  * ```
  *
  * @example To delete an Auto Scaling group and all its instances
@@ -78,6 +79,7 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAutoScalingGroupCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-delete-auto-scaling-group-2
  * ```
  *
  */

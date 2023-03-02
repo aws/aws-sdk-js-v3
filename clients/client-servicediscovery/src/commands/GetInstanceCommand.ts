@@ -73,6 +73,7 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
  *   }
  * }
  * *\/
+ * // example id: getinstance-example-1590115065598
  * ```
  *
  */

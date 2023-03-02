@@ -75,6 +75,7 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
  * }
  * *\/
+ * // example id: to-update-a-volume-snapshot-schedule-1472152757068
  * ```
  *
  */

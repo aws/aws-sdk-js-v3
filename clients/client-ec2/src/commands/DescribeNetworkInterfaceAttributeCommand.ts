@@ -75,6 +75,7 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  *   "NetworkInterfaceId": "eni-686ea200"
  * }
  * *\/
+ * // example id: ec2-describe-network-interface-attribute-1
  * ```
  *
  * @example To describe the description attribute of a network interface
@@ -94,6 +95,7 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  *   "NetworkInterfaceId": "eni-686ea200"
  * }
  * *\/
+ * // example id: ec2-describe-network-interface-attribute-2
  * ```
  *
  * @example To describe the groupSet attribute of a network interface
@@ -116,6 +118,7 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  *   "NetworkInterfaceId": "eni-686ea200"
  * }
  * *\/
+ * // example id: ec2-describe-network-interface-attribute-3
  * ```
  *
  * @example To describe the sourceDestCheck attribute of a network interface
@@ -135,6 +138,7 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  *   }
  * }
  * *\/
+ * // example id: ec2-describe-network-interface-attribute-4
  * ```
  *
  */

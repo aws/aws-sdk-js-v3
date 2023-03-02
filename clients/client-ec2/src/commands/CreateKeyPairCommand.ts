@@ -65,6 +65,7 @@ export interface CreateKeyPairCommandOutput extends KeyPair, __MetadataBearer {}
  * };
  * const command = new CreateKeyPairCommand(input);
  * await client.send(command);
+ * // example id: ec2-create-key-pair-1
  * ```
  *
  */

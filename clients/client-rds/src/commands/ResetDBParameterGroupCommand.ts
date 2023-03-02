@@ -66,6 +66,7 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  * };
  * const command = new ResetDBParameterGroupCommand(input);
  * await client.send(command);
+ * // example id: reset-db-parameter-group-ed2ed723-de0d-4824-8af5-3c65fa130abf
  * ```
  *
  */

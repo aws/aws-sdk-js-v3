@@ -54,6 +54,7 @@ export interface DeleteInternetGatewayCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteInternetGatewayCommand(input);
  * await client.send(command);
+ * // example id: ec2-delete-internet-gateway-1
  * ```
  *
  */

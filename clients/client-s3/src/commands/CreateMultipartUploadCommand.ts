@@ -334,6 +334,7 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *   "UploadId": "ibZBv_75gd9r8lH_gqXatLdxMVpAlj6ZQjEs.OwyF3953YdwbcQnMA2BLGn8Lx12fQNICtMw5KyteFeHw.Sjng--"
  * }
  * *\/
+ * // example id: to-initiate-a-multipart-upload-1481836794513
  * ```
  *
  */

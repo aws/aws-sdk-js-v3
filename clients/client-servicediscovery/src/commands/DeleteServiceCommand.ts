@@ -59,6 +59,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * };
  * const command = new DeleteServiceCommand(input);
  * await client.send(command);
+ * // example id: example-delete-service-1587416462902
  * ```
  *
  */

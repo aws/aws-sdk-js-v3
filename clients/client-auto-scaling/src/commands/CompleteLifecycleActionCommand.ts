@@ -98,6 +98,7 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  * };
  * const command = new CompleteLifecycleActionCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-complete-lifecycle-action-1
  * ```
  *
  */

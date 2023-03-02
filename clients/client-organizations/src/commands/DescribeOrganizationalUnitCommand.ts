@@ -69,6 +69,7 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  *   }
  * }
  * *\/
+ * // example id: to-get-information-about-an-organizational-unit
  * ```
  *
  */

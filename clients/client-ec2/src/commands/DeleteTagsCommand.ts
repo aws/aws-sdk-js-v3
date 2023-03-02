@@ -62,6 +62,7 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteTagsCommand(input);
  * await client.send(command);
+ * // example id: ec2-delete-tags-1
  * ```
  *
  */

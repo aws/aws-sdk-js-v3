@@ -72,6 +72,7 @@ export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPol
  *   }
  * }
  * *\/
+ * // example id: to-get-the-current-data-retrieval-policy-for-the-account-1481851580439
  * ```
  *
  */

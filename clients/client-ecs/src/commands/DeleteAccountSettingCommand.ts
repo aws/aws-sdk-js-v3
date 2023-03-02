@@ -68,6 +68,7 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  *   }
  * }
  * *\/
+ * // example id: to-delete-the-account-setting-for-your-user-account-1549524548115
  * ```
  *
  * @example To delete the account settings for a specific IAM user or IAM role
@@ -88,6 +89,7 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  *   }
  * }
  * *\/
+ * // example id: to-delete-the-account-setting-for-a-specific-iam-user-or-iam-role-1549524612917
  * ```
  *
  */

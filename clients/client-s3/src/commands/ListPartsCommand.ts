@@ -134,6 +134,7 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *   "StorageClass": "STANDARD"
  * }
  * *\/
+ * // example id: to-list-parts-of-a-multipart-upload-1481852006923
  * ```
  *
  */

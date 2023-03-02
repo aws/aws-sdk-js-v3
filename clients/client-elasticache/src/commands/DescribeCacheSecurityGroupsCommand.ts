@@ -61,6 +61,7 @@ export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityG
  * };
  * const command = new DescribeCacheSecurityGroupsCommand(input);
  * await client.send(command);
+ * // example id: describecachesecuritygroups-1483047200801
  * ```
  *
  */

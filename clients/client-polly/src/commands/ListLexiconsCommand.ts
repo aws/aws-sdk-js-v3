@@ -73,6 +73,7 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  *   ]
  * }
  * *\/
+ * // example id: to-list-all-lexicons-in-a-region-1481842106487
  * ```
  *
  */

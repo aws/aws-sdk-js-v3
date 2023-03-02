@@ -138,6 +138,7 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *   "PublicKey": "<binary data>"
  * }
  * *\/
+ * // example id: to-generate-an-rsa-key-pair-for-encryption-and-decryption-1628619376878
  * ```
  *
  */

@@ -65,6 +65,7 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
  *   "repositoryName": "ubuntu"
  * }
  * *\/
+ * // example id: getrepositorypolicy-example-1470867669211
  * ```
  *
  */

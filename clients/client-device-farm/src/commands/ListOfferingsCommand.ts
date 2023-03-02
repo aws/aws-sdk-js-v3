@@ -127,6 +127,7 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResult, __Metad
  *   ]
  * }
  * *\/
+ * // example id: to-get-information-about-device-offerings-1472562810999
  * ```
  *
  */

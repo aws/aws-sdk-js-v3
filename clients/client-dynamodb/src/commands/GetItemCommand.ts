@@ -85,6 +85,7 @@ export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
  *   }
  * }
  * *\/
+ * // example id: to-read-an-item-from-a-table-1475884258350
  * ```
  *
  */

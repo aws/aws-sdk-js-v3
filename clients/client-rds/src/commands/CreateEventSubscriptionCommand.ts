@@ -95,6 +95,7 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *   "EventSubscription": {}
  * }
  * *\/
+ * // example id: create-event-subscription-00dd0ee6-0e0f-4a38-ae83-e5f2ded5f69a
  * ```
  *
  */

@@ -51,10 +51,6 @@ export interface ListSolNetworkOperationsCommandOutput extends ListSolNetworkOpe
  * @see {@link ListSolNetworkOperationsCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
- * @example List Sol Network Instantiate operations```javascript/* Optional.empty *\/some code here```
- *
- * @example List Sol Network Instantiate operations with nextToken and maxResults```javascript/* Optional.empty *\/some code here```
- *
  */
 export class ListSolNetworkOperationsCommand extends $Command<
   ListSolNetworkOperationsCommandInput,

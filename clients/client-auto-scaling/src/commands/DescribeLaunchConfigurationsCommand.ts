@@ -82,6 +82,7 @@ export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigu
  *   ]
  * }
  * *\/
+ * // example id: autoscaling-describe-launch-configurations-1
  * ```
  *
  */

@@ -69,6 +69,7 @@ export interface ReorderReceiptRuleSetCommandOutput extends ReorderReceiptRuleSe
  * };
  * const command = new ReorderReceiptRuleSetCommand(input);
  * await client.send(command);
+ * // example id: reorderreceiptruleset-1469058156806
  * ```
  *
  */

@@ -97,6 +97,7 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  *   ]
  * }
  * *\/
+ * // example id: to-describe-scaling-policies-1470864609734
  * ```
  *
  */

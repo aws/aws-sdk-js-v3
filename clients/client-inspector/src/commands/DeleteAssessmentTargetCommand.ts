@@ -54,6 +54,7 @@ export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAssessmentTargetCommand(input);
  * await client.send(command);
+ * // example id: delete-assessment-target-1481064309029
  * ```
  *
  */

@@ -79,6 +79,7 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
+ * // example id: to-add-storage-on-local-disk-1471294305401
  * ```
  *
  */

@@ -51,8 +51,6 @@ export interface PutSolNetworkPackageContentCommandOutput extends PutSolNetworkP
  * @see {@link PutSolNetworkPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
- * @example Upload the network package content of an NSD archive```javascript/* Optional.empty *\/some code here```
- *
  */
 export class PutSolNetworkPackageContentCommand extends $Command<
   PutSolNetworkPackageContentCommandInput,

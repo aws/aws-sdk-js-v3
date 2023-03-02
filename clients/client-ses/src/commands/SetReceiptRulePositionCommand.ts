@@ -63,6 +63,7 @@ export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePosit
  * };
  * const command = new SetReceiptRulePositionCommand(input);
  * await client.send(command);
+ * // example id: setreceiptruleposition-1469058530550
  * ```
  *
  */

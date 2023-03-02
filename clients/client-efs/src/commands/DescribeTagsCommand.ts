@@ -79,6 +79,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  *   ]
  * }
  * *\/
+ * // example id: to-describe-the-tags-for-a-file-system-1481850497090
  * ```
  *
  */

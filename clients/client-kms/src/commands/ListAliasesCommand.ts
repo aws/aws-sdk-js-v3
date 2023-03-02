@@ -143,6 +143,7 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  *   "Truncated": false
  * }
  * *\/
+ * // example id: to-list-aliases-1480729693349
  * ```
  *
  */

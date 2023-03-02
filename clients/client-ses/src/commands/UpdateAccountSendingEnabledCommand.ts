@@ -61,6 +61,7 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
  * };
  * const command = new UpdateAccountSendingEnabledCommand(input);
  * await client.send(command);
+ * // example id: updateaccountsendingenabled-1469047741333
  * ```
  *
  */

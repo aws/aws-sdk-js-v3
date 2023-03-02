@@ -79,6 +79,7 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  *   ]
  * }
  * *\/
+ * // example id: to-view-your-account-settings-1549524118170
  * ```
  *
  * @example To view the effective account settings for a specific IAM user or IAM role
@@ -111,6 +112,7 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  *   ]
  * }
  * *\/
+ * // example id: to-view-the-account-settings-for-a-specific-iam-user-or-iam-role-1549524237932
  * ```
  *
  */

@@ -67,6 +67,7 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ReleaseAddressCommand(input);
  * await client.send(command);
+ * // example id: ec2-release-address-1
  * ```
  *
  * @example To release an Elastic IP addresses for EC2-Classic
@@ -77,6 +78,7 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ReleaseAddressCommand(input);
  * await client.send(command);
+ * // example id: ec2-release-address-2
  * ```
  *
  */

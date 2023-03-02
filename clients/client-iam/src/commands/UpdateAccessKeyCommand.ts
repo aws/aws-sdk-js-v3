@@ -66,6 +66,7 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAccessKeyCommand(input);
  * await client.send(command);
+ * // example id: 02b556fd-e673-49b7-ab6b-f2f9035967d0
  * ```
  *
  */

@@ -75,6 +75,7 @@ export interface DisassociateIamInstanceProfileCommandOutput
  *   }
  * }
  * *\/
+ * // example id: to-disassociate-an-iam-instance-profile-1529355364478
  * ```
  *
  */

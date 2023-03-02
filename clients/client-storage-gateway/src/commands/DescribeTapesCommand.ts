@@ -86,6 +86,7 @@ export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __Metad
  *   ]
  * }
  * *\/
+ * // example id: to-describe-virtual-tapes-associated-with-gateway-1471629287727
  * ```
  *
  */

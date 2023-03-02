@@ -187,6 +187,7 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  * };
  * const command = new BatchWriteItemCommand(input);
  * await client.send(command);
+ * // example id: to-add-multiple-items-to-a-table-1476118519747
  * ```
  *
  */

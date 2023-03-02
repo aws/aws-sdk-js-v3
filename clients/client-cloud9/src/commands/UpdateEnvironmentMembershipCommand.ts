@@ -71,6 +71,7 @@ export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironm
  *   }
  * }
  * *\/
+ * // example id: updateenvironmentmembership-1516823876645
  * ```
  *
  */

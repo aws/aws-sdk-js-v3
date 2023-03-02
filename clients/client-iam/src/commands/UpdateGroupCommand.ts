@@ -65,6 +65,7 @@ export interface UpdateGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateGroupCommand(input);
  * await client.send(command);
+ * // example id: f0cf1662-91ae-4278-a80e-7db54256ccba
  * ```
  *
  */

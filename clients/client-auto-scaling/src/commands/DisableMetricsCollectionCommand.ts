@@ -56,6 +56,7 @@ export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer 
  * };
  * const command = new DisableMetricsCollectionCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-disable-metrics-collection-1
  * ```
  *
  */

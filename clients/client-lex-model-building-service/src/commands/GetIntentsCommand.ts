@@ -90,6 +90,7 @@ export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataB
  *   ]
  * }
  * *\/
+ * // example id: to-get-a-list-of-intents-1494432416363
  * ```
  *
  */

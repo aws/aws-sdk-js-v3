@@ -196,6 +196,7 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  *   "JobId": "examplea-1234-b567-cde8-90fg123abcd4"
  * }
  * *\/
+ * // example id: generateorganizationsaccessreport-ou
  * ```
  *
  */

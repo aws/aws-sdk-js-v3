@@ -61,6 +61,7 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
  * };
  * const command = new CreateReceiptRuleSetCommand(input);
  * await client.send(command);
+ * // example id: createreceiptruleset-1469058761646
  * ```
  *
  */

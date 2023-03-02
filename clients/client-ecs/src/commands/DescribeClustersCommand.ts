@@ -72,6 +72,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  *   "failures": []
  * }
  * *\/
+ * // example id: ba88d100-9672-4231-80da-a4bd210bf728
  * ```
  *
  */

@@ -71,6 +71,7 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST0AA2AF"
  * }
  * *\/
+ * // example id: to-retrieve-an-archived-tape-from-the-vts-1472149812358
  * ```
  *
  */

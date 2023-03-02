@@ -70,6 +70,7 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  * };
  * const command = new PutIdentityPolicyCommand(input);
  * await client.send(command);
+ * // example id: putidentitypolicy-1469124560016
  * ```
  *
  */

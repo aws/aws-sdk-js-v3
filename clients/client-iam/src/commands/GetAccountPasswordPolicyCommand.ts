@@ -73,6 +73,7 @@ export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswor
  *   }
  * }
  * *\/
+ * // example id: 5e4598c7-c425-431f-8af1-19073b3c4a5f
  * ```
  *
  */

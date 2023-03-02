@@ -210,6 +210,7 @@ export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataR
  *   ]
  * }
  * *\/
+ * // example id: get-telemetry-metadata-1481066021297
  * ```
  *
  */

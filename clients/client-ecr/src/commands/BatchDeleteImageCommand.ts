@@ -79,6 +79,7 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  *   ]
  * }
  * *\/
+ * // example id: batchdeleteimages-example-1470860541707
  * ```
  *
  */

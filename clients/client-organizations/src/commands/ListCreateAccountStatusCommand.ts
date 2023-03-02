@@ -85,6 +85,7 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  *   ]
  * }
  * *\/
+ * // example id: to-get-a-list-of-completed-account-creation-requests-made-in-the-organization
  * ```
  *
  * @example To get a list of all account creation requests made in the organization
@@ -109,6 +110,7 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  *   ]
  * }
  * *\/
+ * // example id: to-get-a-list-of-all-account-creation-requests-made-in-the-organization-1472509174532
  * ```
  *
  */

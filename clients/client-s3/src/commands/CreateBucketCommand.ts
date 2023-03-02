@@ -212,6 +212,7 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *   "Location": "http://examplebucket.<Region>.s3.amazonaws.com/"
  * }
  * *\/
+ * // example id: to-create-a-bucket-in-a-specific-region-1483399072992
  * ```
  *
  * @example To create a bucket
@@ -227,6 +228,7 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *   "Location": "/examplebucket"
  * }
  * *\/
+ * // example id: to-create-a-bucket--1472851826060
  * ```
  *
  */

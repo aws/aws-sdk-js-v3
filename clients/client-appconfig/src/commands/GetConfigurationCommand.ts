@@ -83,6 +83,7 @@ export interface GetConfigurationCommandOutput extends Configuration, __Metadata
  *   "ContentType": "application/octet-stream"
  * }
  * *\/
+ * // example id: to-retrieve-configuration-details-1632265954314
  * ```
  *
  */

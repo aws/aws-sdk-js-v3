@@ -89,6 +89,7 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  *   ]
  * }
  * *\/
+ * // example id: elbv2-describe-target-health-1
  * ```
  *
  * @example To describe the health of a target
@@ -121,6 +122,7 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  *   ]
  * }
  * *\/
+ * // example id: elbv2-describe-target-health-2
  * ```
  *
  */

@@ -62,6 +62,7 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
  * await client.send(command);
+ * // example id: ec2-modify-network-interface-attribute-1
  * ```
  *
  * @example To modify the description attribute of a network interface
@@ -75,6 +76,7 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
  * await client.send(command);
+ * // example id: ec2-modify-network-interface-attribute-2
  * ```
  *
  * @example To modify the groupSet attribute of a network interface
@@ -89,6 +91,7 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
  * await client.send(command);
+ * // example id: ec2-modify-network-interface-attribute-3
  * ```
  *
  * @example To modify the sourceDestCheck attribute of a network interface
@@ -102,6 +105,7 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
  * await client.send(command);
+ * // example id: ec2-modify-network-interface-attribute-4
  * ```
  *
  */

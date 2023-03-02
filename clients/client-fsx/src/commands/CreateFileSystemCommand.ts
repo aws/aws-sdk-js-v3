@@ -167,6 +167,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  *   }
  * }
  * *\/
+ * // example id: to-create-a-new-file-system-1481840798547
  * ```
  *
  */

@@ -63,6 +63,7 @@ export interface PurchaseProvisionedCapacityCommandOutput extends PurchaseProvis
  *   "capacityId": "zSaq7NzHFQDANTfQkDen4V7z"
  * }
  * *\/
+ * // example id: to-purchases-a-provisioned-capacity-unit-for-an-aws-account-1481927446662
  * ```
  *
  */

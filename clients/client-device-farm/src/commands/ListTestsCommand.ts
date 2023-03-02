@@ -61,6 +61,7 @@ export interface ListTestsCommandOutput extends ListTestsResult, __MetadataBeare
  *   "tests": []
  * }
  * *\/
+ * // example id: to-get-information-about-tests-1472617372212
  * ```
  *
  */

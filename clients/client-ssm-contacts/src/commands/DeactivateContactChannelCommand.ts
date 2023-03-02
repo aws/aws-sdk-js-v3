@@ -59,6 +59,7 @@ export interface DeactivateContactChannelCommandOutput extends DeactivateContact
  * };
  * const command = new DeactivateContactChannelCommand(input);
  * await client.send(command);
+ * // example id: to-deactivate-a-contact-channel-1630360853894
  * ```
  *
  */

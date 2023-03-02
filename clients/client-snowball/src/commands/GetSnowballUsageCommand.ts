@@ -67,6 +67,7 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  *   "SnowballsInUse": 0
  * }
  * *\/
+ * // example id: to-see-your-snowball-service-limit-and-the-number-of-snowballs-you-have-in-use-1482863394588
  * ```
  *
  */

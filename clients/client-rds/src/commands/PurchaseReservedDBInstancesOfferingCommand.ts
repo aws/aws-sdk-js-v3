@@ -66,6 +66,7 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
  *   "ReservedDBInstance": {}
  * }
  * *\/
+ * // example id: purchase-reserved-db-instances-offfering-f423c736-8413-429b-ba13-850fd4fa4dcd
  * ```
  *
  */

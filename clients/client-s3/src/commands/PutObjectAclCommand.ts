@@ -241,6 +241,7 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * };
  * const command = new PutObjectAclCommand(input);
  * await client.send(command);
+ * // example id: to-grant-permissions-using-object-acl-1481835549285
  * ```
  *
  */

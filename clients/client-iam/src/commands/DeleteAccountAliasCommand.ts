@@ -55,6 +55,7 @@ export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAccountAliasCommand(input);
  * await client.send(command);
+ * // example id: 7abeca65-04a8-4500-a890-47f1092bf766
  * ```
  *
  */

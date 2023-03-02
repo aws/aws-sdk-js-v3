@@ -65,6 +65,7 @@ export interface DescribeEngineDefaultParametersCommandOutput
  *   "EngineDefaults": {}
  * }
  * *\/
+ * // example id: describe-engine-default-parameters-35d5108e-1d44-4fac-8aeb-04b8fdfface1
  * ```
  *
  */

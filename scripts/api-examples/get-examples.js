@@ -6,13 +6,29 @@
  */
 
 const { existsSync } = require("fs");
+const { copySync } = require("fs-extra");
 const { execSync } = require("child_process");
 const { join } = require("path");
 
-const location = join(__dirname, "..", "..", "codegen", "sdk-codegen", "aws-models-examples");
+const jsv3Root = join(__dirname, "..", "..");
+const location = join(jsv3Root, "codegen", "sdk-codegen", "aws-models-examples");
+const colocation = join(jsv3Root, "..", "aws-models");
+
+let pull = true;
 
 if (!existsSync(location)) {
-  execSync(`git clone git@github.com:aws/aws-models.git ${location}`);
+  // check co-located folder (e.g. in automation)
+  if (existsSync(colocation)) {
+    copySync(colocation, location, { overwrite: true });
+    console.log("copied co-located aws-models dir");
+    pull = false;
+  } else {
+    // clone it if not colocated.
+    execSync(`git clone git@github.com:aws/aws-models.git ${location}`);
+    console.log("cloned aws-models from GitHub");
+  }
 }
 
-execSync(`cd ${location} && git pull`);
+if (pull) {
+  execSync(`cd ${location} && git pull`);
+}

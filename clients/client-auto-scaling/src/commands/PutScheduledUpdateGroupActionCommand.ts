@@ -68,6 +68,7 @@ export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBe
  * };
  * const command = new PutScheduledUpdateGroupActionCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-put-scheduled-update-group-action-1
  * ```
  *
  */

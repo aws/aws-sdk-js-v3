@@ -105,6 +105,7 @@ export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse,
  *   ]
  * }
  * *\/
+ * // example id: verifydomaindkim-1469049503083
  * ```
  *
  */

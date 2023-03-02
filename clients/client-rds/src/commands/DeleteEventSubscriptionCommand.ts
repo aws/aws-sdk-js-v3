@@ -63,6 +63,7 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  *   "EventSubscription": {}
  * }
  * *\/
+ * // example id: delete-db-event-subscription-d33567e3-1d5d-48ff-873f-0270453f4a75
  * ```
  *
  */

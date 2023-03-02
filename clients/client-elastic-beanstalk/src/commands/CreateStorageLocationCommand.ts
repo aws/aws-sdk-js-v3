@@ -63,6 +63,7 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  *   "S3Bucket": "elasticbeanstalk-us-west-2-0123456789012"
  * }
  * *\/
+ * // example id: to-create-a-new-environment-for-an-application-1456269380396
  * ```
  *
  */

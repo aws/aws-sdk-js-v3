@@ -65,6 +65,7 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  * };
  * const command = new ModifySnapshotAttributeCommand(input);
  * await client.send(command);
+ * // example id: to-modify-a-snapshot-attribute-1472508385907
  * ```
  *
  * @example To make a snapshot public
@@ -80,6 +81,7 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  * };
  * const command = new ModifySnapshotAttributeCommand(input);
  * await client.send(command);
+ * // example id: to-make-a-snapshot-public-1472508470529
  * ```
  *
  */

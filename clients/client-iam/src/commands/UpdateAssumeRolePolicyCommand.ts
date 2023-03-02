@@ -57,6 +57,7 @@ export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAssumeRolePolicyCommand(input);
  * await client.send(command);
+ * // example id: c9150063-d953-4e99-9576-9685872006c6
  * ```
  *
  */

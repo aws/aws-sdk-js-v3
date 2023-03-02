@@ -143,6 +143,7 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *   }
  * }
  * *\/
+ * // example id: to-create-a-new-account-that-is-automatically-part-of-the-organization-1472501463507
  * ```
  *
  */

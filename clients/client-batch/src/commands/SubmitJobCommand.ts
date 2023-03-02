@@ -78,6 +78,7 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *   "jobName": "example"
  * }
  * *\/
+ * // example id: to-submit-a-job-to-a-queue-1481154481673
  * ```
  *
  */

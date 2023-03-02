@@ -213,6 +213,7 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *   "SubjectFromWebIdentityToken": "amzn1.account.AF6RHO7KZU5XRVQJGXK6HEXAMPLE"
  * }
  * *\/
+ * // example id: to-assume-a-role-as-an-openid-connect-federated-user-1480533445696
  * ```
  *
  */

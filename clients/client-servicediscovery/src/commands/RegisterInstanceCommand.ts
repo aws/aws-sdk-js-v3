@@ -112,6 +112,7 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  *   "OperationId": "4yejorelbukcjzpnr6tlmrghsjwpngf4-k95yg2u7"
  * }
  * *\/
+ * // example id: example-register-instance-1587236116314
  * ```
  *
  */

@@ -65,6 +65,7 @@ export interface ListAccountAliasesCommandOutput extends ListAccountAliasesRespo
  *   ]
  * }
  * *\/
+ * // example id: e27b457a-16f9-4e05-a006-3df7b3472741
  * ```
  *
  */

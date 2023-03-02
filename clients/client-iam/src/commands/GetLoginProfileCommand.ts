@@ -75,6 +75,7 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  *   }
  * }
  * *\/
+ * // example id: d6b580cc-909f-4925-9caa-d425cbc1ad47
  * ```
  *
  */

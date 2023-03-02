@@ -73,6 +73,7 @@ export interface DescribePageCommandOutput extends DescribePageResult, __Metadat
  *   "Subject": "test"
  * }
  * *\/
+ * // example id: to-list-the-details-of-a-page-to-a-contact-channel-1630364907282
  * ```
  *
  */

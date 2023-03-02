@@ -81,6 +81,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *   }
  * }
  * *\/
+ * // example id: to-create-a-new-cluster-1472514079365
  * ```
  *
  */

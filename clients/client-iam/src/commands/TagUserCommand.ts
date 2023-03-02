@@ -103,6 +103,7 @@ export interface TagUserCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagUserCommand(input);
  * await client.send(command);
+ * // example id: to-add-a-tag-key-and-value-to-an-iam-user-1506719044227
  * ```
  *
  */

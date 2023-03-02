@@ -119,6 +119,7 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  *   "CustomKeyStores": []
  * }
  * *\/
+ * // example id: to-get-detailed-information-about-custom-key-stores-in-the-account-and-region-1
  * ```
  *
  * @example To get detailed information about an AWS CloudHSM key store by specifying its friendly name
@@ -144,6 +145,7 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  *   ]
  * }
  * *\/
+ * // example id: to-get-detailed-information-about-a-cloudhsm-custom-key-store-by-name-2
  * ```
  *
  * @example To get detailed information about an external key store by specifying its ID
@@ -173,6 +175,7 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  *   ]
  * }
  * *\/
+ * // example id: to-get-detailed-information-about-an-external-key-store--3
  * ```
  *
  * @example To get detailed information about an external key store VPC endpoint connectivity by specifying its friendly name
@@ -203,6 +206,7 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  *   ]
  * }
  * *\/
+ * // example id: to-get-detailed-information-about-an-external-custom-key-store-by-name-4
  * ```
  *
  */

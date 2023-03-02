@@ -54,6 +54,7 @@ export interface DeleteAssessmentRunCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAssessmentRunCommand(input);
  * await client.send(command);
+ * // example id: delete-assessment-run-1481064251629
  * ```
  *
  */

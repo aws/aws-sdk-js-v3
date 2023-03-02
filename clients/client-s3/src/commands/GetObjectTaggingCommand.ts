@@ -99,6 +99,7 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
  * }
  * *\/
+ * // example id: to-retrieve-tag-set-of-a-specific-object-version-1483400283663
  * ```
  *
  * @example To retrieve tag set of an object
@@ -125,6 +126,7 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  *   "VersionId": "null"
  * }
  * *\/
+ * // example id: to-retrieve-tag-set-of-an-object-1481833847896
  * ```
  *
  */

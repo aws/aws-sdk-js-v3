@@ -73,6 +73,7 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  *   "EventSubscription": {}
  * }
  * *\/
+ * // example id: modify-event-subscription-405ac869-1f02-42cd-b8f4-6950a435f30e
  * ```
  *
  */

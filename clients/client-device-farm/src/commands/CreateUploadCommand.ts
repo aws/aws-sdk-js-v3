@@ -72,6 +72,7 @@ export interface CreateUploadCommandOutput extends CreateUploadResult, __Metadat
  *   }
  * }
  * *\/
+ * // example id: createupload-example-1470864711775
  * ```
  *
  */

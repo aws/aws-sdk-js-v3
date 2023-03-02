@@ -93,6 +93,7 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  *   ]
  * }
  * *\/
+ * // example id: elbv2-modify-listener-1
  * ```
  *
  * @example To change the server certificate
@@ -132,6 +133,7 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  *   ]
  * }
  * *\/
+ * // example id: elbv2-modify-listener-2
  * ```
  *
  */

@@ -94,6 +94,7 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  *   "MacAlgorithm": "HMAC_SHA_384"
  * }
  * *\/
+ * // example id: to-generate-an-hmac-for-a-message-1631570135665
  * ```
  *
  */

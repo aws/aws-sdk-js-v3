@@ -84,6 +84,7 @@ export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTa
  *   ]
  * }
  * *\/
+ * // example id: to-describe-scalable-targets-1470864286961
  * ```
  *
  */

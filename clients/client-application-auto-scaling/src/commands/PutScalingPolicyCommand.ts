@@ -113,6 +113,7 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  *   "PolicyARN": "arn:aws:autoscaling:us-west-2:012345678910:scalingPolicy:6d8972f3-efc8-437c-92d1-6270f29a66e7:resource/ecs/service/default/web-app:policyName/cpu75-target-tracking-scaling-policy"
  * }
  * *\/
+ * // example id: to-apply-a-target-tracking-scaling-policy-with-a-predefined-metric-specification-1569364247984
  * ```
  *
  */

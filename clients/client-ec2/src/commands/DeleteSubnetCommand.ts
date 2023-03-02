@@ -50,6 +50,7 @@ export interface DeleteSubnetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSubnetCommand(input);
  * await client.send(command);
+ * // example id: ec2-delete-subnet-1
  * ```
  *
  */

@@ -53,6 +53,7 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDBParameterGroupCommand(input);
  * await client.send(command);
+ * // example id: to-delete-a-db-parameter-group-1473888796509
  * ```
  *
  */

@@ -52,10 +52,6 @@ export interface UpdateSolNetworkPackageCommandOutput extends UpdateSolNetworkPa
  * @see {@link UpdateSolNetworkPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
- * @example Enable a network package's Operational State```javascript/* Optional.empty *\/some code here```
- *
- * @example Disable a network package's Operational State```javascript/* Optional.empty *\/some code here```
- *
  */
 export class UpdateSolNetworkPackageCommand extends $Command<
   UpdateSolNetworkPackageCommandInput,

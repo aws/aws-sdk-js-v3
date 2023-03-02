@@ -71,6 +71,7 @@ export interface StopDeploymentCommandOutput extends Deployment, __MetadataBeare
  *   "PercentageComplete": 1
  * }
  * *\/
+ * // example id: to-stop-configuration-deployment-1632329139126
  * ```
  *
  */

@@ -76,6 +76,7 @@ export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesR
  *   ]
  * }
  * *\/
+ * // example id: listidentitypolicies-1469124417674
  * ```
  *
  */

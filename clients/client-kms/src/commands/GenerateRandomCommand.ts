@@ -77,6 +77,7 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  *   "Plaintext": "<binary data>"
  * }
  * *\/
+ * // example id: to-generate-random-data-1479163645600
  * ```
  *
  */

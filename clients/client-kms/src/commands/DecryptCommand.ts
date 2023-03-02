@@ -149,6 +149,7 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *   "Plaintext": "<binary data>"
  * }
  * *\/
+ * // example id: to-decrypt-data-1478281622886
  * ```
  *
  */

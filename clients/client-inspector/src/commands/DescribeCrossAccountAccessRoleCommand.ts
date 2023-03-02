@@ -64,6 +64,7 @@ export interface DescribeCrossAccountAccessRoleCommandOutput
  *   "valid": true
  * }
  * *\/
+ * // example id: describte-cross-account-access-role-1481064682267
  * ```
  *
  */

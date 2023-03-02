@@ -175,6 +175,7 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  *   "MessageId": "EXAMPLEf3f73d99b-c63fb06f-d263-41f8-a0fb-d0dc67d56c07-000000"
  * }
  * *\/
+ * // example id: sendrawemail-1469118548649
  * ```
  *
  */

@@ -114,6 +114,7 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  *   ]
  * }
  * *\/
+ * // example id: to-describe-the-status-of-a-single-volume-1472507016193
  * ```
  *
  * @example To describe the status of impaired volumes
@@ -136,6 +137,7 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  *   "VolumeStatuses": []
  * }
  * *\/
+ * // example id: to-describe-the-status-of-impaired-volumes-1472507239821
  * ```
  *
  */

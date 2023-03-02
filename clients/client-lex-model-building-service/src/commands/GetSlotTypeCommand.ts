@@ -85,6 +85,7 @@ export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __Metadat
  *   "lastUpdatedDate": 1494359274.403
  * }
  * *\/
+ * // example id: to-get-information-about-a-slot-type-1494432961004
  * ```
  *
  */

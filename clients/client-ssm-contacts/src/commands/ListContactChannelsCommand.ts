@@ -74,6 +74,7 @@ export interface ListContactChannelsCommandOutput extends ListContactChannelsRes
  *   ]
  * }
  * *\/
+ * // example id: to-list-the-contact-channels-of-a-contact-1630366544252
  * ```
  *
  */

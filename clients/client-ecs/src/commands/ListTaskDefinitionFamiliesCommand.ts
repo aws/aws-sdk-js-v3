@@ -72,6 +72,7 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  *   ]
  * }
  * *\/
+ * // example id: b5c89769-1d94-4ca2-a79e-8069103c7f75
  * ```
  *
  * @example To filter your registered task definition families
@@ -90,6 +91,7 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  *   ]
  * }
  * *\/
+ * // example id: 8a4cf9a6-42c1-4fe3-852d-99ac8968e11b
  * ```
  *
  */

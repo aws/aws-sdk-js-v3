@@ -59,6 +59,7 @@ export interface RebootInstancesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RebootInstancesCommand(input);
  * await client.send(command);
+ * // example id: to-reboot-an-ec2-instance-1529358566382
  * ```
  *
  */

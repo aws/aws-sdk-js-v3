@@ -72,6 +72,7 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateOrUpdateTagsCommand(input);
  * await client.send(command);
+ * // example id: autoscaling-create-or-update-tags-1
  * ```
  *
  */

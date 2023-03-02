@@ -72,6 +72,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  *   "Name": "MyTestDatabaseSecret"
  * }
  * *\/
+ * // example id: to-delete-the-resource-based-policy-attached-to-a-secret-1530209419204
  * ```
  *
  */

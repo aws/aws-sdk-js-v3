@@ -96,6 +96,7 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  *   ]
  * }
  * *\/
+ * // example id: elbv2-describe-load-balancers-1
  * ```
  *
  */

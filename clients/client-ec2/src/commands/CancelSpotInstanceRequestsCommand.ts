@@ -74,6 +74,7 @@ export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInsta
  *   ]
  * }
  * *\/
+ * // example id: ec2-cancel-spot-instance-requests-1
  * ```
  *
  */

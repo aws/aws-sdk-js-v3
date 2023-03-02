@@ -111,6 +111,7 @@ export interface ListClusterJobsCommandOutput extends ListClusterJobsResult, __M
  *   ]
  * }
  * *\/
+ * // example id: to-get-a-list-of-jobs-in-a-cluster-that-youve-created-for-aws-snowball-1482863105773
  * ```
  *
  */
