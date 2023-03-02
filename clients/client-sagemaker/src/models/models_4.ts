@@ -973,7 +973,7 @@ export interface UpdateTrialComponentRequest {
   EndTime?: Date;
 
   /**
-   * <p>Replaces all of the component's hyperparameters with the specified hyperparameters.</p>
+   * <p>Replaces all of the component's hyperparameters with the specified hyperparameters or add new hyperparameters. Existing hyperparameters are replaced if the trial component is updated with an identical hyperparameter key.</p>
    */
   Parameters?: Record<string, TrialComponentParameterValue>;
 
@@ -983,7 +983,7 @@ export interface UpdateTrialComponentRequest {
   ParametersToRemove?: string[];
 
   /**
-   * <p>Replaces all of the component's input artifacts with the specified artifacts.</p>
+   * <p>Replaces all of the component's input artifacts with the specified artifacts or adds new input artifacts. Existing input artifacts are replaced if the trial component is updated with an identical input artifact key.</p>
    */
   InputArtifacts?: Record<string, TrialComponentArtifact>;
 
@@ -993,7 +993,7 @@ export interface UpdateTrialComponentRequest {
   InputArtifactsToRemove?: string[];
 
   /**
-   * <p>Replaces all of the component's output artifacts with the specified artifacts.</p>
+   * <p>Replaces all of the component's output artifacts with the specified artifacts or adds new output artifacts. Existing output artifacts are replaced if the trial component is updated with an identical output artifact key.</p>
    */
   OutputArtifacts?: Record<string, TrialComponentArtifact>;
 
@@ -1172,7 +1172,7 @@ export interface SearchExpression {
 
 export interface SearchRequest {
   /**
-   * <p>The name of the Amazon SageMaker resource to search for.</p>
+   * <p>The name of the SageMaker resource to search for.</p>
    */
   Resource: ResourceType | string | undefined;
 
