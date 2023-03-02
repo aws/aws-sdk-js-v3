@@ -551,6 +551,7 @@ const serializeAws_json1_1GetResourceMetricsRequest = (
       MetricQueries: serializeAws_json1_1MetricQueryList(input.MetricQueries, context),
     }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PeriodAlignment != null && { PeriodAlignment: input.PeriodAlignment }),
     ...(input.PeriodInSeconds != null && { PeriodInSeconds: input.PeriodInSeconds }),
     ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
     ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
