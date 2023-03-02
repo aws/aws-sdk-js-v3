@@ -26,9 +26,8 @@ const { solo } = yargs(process.argv.slice(2))
     const clientFolder = join(SDK_CLIENTS_DIR, `client-${solo}`);
 
     // examples merging
-    process.argv.push("--service", solo);
     require("../api-examples/get-examples");
-    require("../api-examples/merge-examples");
+    require("../api-examples/merge-examples").merge(void 0, solo);
 
     console.log("================ starting eslint ================", "\n", new Date().toString(), solo);
     try {
