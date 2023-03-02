@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.283.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.282.0...v3.283.0) (2023-03-02)
+
+
+### Features
+
+* **client-iot:** A recurring maintenance window is an optional configuration used for rolling out the job document to all devices in the target group observing a predetermined start time, duration, and frequency that the maintenance window occurs. ([1e6be70](https://github.com/aws/aws-sdk-js-v3/commit/1e6be70616b1d5aa469648a3eb7d24d6ba72d66e))
+* **client-migrationhubstrategy:** This release updates the File Import API to allow importing servers already discovered by customers with reduced pre-requisites. ([4ae64ef](https://github.com/aws/aws-sdk-js-v3/commit/4ae64ef12ed9dadbb22139fbe99810d793e86c89))
+* **client-organizations:** This release introduces a new reason code, ACCOUNT_CREATION_NOT_COMPLETE, to ConstraintViolationException in CreateOrganization API. ([5e8e5b4](https://github.com/aws/aws-sdk-js-v3/commit/5e8e5b41ccb62c48b5743b20006c890a33ff1d36))
+* **client-pipes:** This release fixes some input parameter range and patterns. ([0070675](https://github.com/aws/aws-sdk-js-v3/commit/007067506eee27d150b7291fc30e9a91ac4329cc))
+* **client-pi:** This release adds a new field PeriodAlignment to allow the customer specifying the returned timestamp of time periods to be either the start or end time. ([3ab5412](https://github.com/aws/aws-sdk-js-v3/commit/3ab5412764a0ebfb0b0281a47812f8235cfc0e6f))
+* **client-sagemaker:** Add a new field "EndpointMetrics" in SageMaker Inference Recommender "ListInferenceRecommendationsJobSteps" API response. ([376692c](https://github.com/aws/aws-sdk-js-v3/commit/376692c888acdacad5c39452b8facd5148075ad5))
+* **clients:** update client endpoints as of 2023-03-02 ([7fb6e8d](https://github.com/aws/aws-sdk-js-v3/commit/7fb6e8d332b982301d4bd722b8ae9d937056e4e3))
+
+
+
+
+
 # [3.282.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.281.0...v3.282.0) (2023-03-01)
 
 

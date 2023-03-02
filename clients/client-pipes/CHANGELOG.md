@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.283.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.282.0...v3.283.0) (2023-03-02)
+
+
+### Features
+
+* **client-pipes:** This release fixes some input parameter range and patterns. ([0070675](https://github.com/aws/aws-sdk-js-v3/commit/007067506eee27d150b7291fc30e9a91ac4329cc))
+
+
+
+
+
 # [3.282.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.281.0...v3.282.0) (2023-03-01)
 
 **Note:** Version bump only for package @aws-sdk/client-pipes
