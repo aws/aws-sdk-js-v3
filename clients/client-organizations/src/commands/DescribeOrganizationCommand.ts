@@ -32,12 +32,12 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
 /**
  * <p>Retrieves information about the organization that the user's account belongs
  *             to.</p>
- *         <p>This operation can be called from any account in the organization.</p>
- *         <note>
+ *          <p>This operation can be called from any account in the organization.</p>
+ *          <note>
  *             <p>Even if a policy type is shown as available in the organization, you can disable
  *                 it separately at the root level with <a>DisablePolicyType</a>. Use <a>ListRoots</a> to see the status of policy types for a specified
  *                 root.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

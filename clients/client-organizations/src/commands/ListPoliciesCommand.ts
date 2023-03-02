@@ -36,7 +36,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
 
 /**
  * <p>Retrieves the list of all policies in an organization of a specified type.</p>
- *         <note>
+ *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
  * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
  * occasionally return an empty set of results even when there are more results available. The
@@ -44,7 +44,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  *                <i>only</i>
  * when there are no more results to display.</p>
  *          </note>
- *         <p>This operation can be called only from the organization's
+ *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

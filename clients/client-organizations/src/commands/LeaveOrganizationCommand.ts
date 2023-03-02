@@ -33,17 +33,17 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *             is performed by the account that wants to leave. To remove a member account as a user in
  *             the management account, use <a>RemoveAccountFromOrganization</a>
  *             instead.</p>
- *         <p>This operation can be called only from a member account in the organization.</p>
- *         <important>
+ *          <p>This operation can be called only from a member account in the organization.</p>
+ *          <important>
  *             <ul>
  *                <li>
- *                     <p>The management account in an organization with all features enabled can
+ *                   <p>The management account in an organization with all features enabled can
  *                         set service control policies (SCPs) that can restrict what administrators of
  *                         member accounts can do. This includes preventing them from successfully
  *                         calling <code>LeaveOrganization</code> and leaving the organization.</p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>You can leave an organization as a member account only if the account is
+ *                   <p>You can leave an organization as a member account only if the account is
  *                         configured with the information required to operate as a standalone account.
  *                         When you create an account in an organization using the Organizations console,
  *                         API, or CLI commands, the information required of standalone accounts is
@@ -51,49 +51,49 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                         you want to make standalone, you must perform the following steps. If any of
  *                         the steps are already completed for this account, that step doesn't
  *                         appear.</p>
- *                     <ul>
+ *                   <ul>
  *                      <li>
- *                             <p>Choose a support plan</p>
- *                         </li>
+ *                         <p>Choose a support plan</p>
+ *                      </li>
  *                      <li>
- *                             <p>Provide and verify the required contact information</p>
- *                         </li>
+ *                         <p>Provide and verify the required contact information</p>
+ *                      </li>
  *                      <li>
- *                             <p>Provide a current payment method</p>
- *                         </li>
+ *                         <p>Provide a current payment method</p>
+ *                      </li>
  *                   </ul>
- *                     <p>Amazon Web Services uses the payment method to charge for any billable (not free tier)
+ *                   <p>Amazon Web Services uses the payment method to charge for any billable (not free tier)
  *                         Amazon Web Services activity that occurs while the account isn't attached to an
  *                         organization. Follow the steps at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info"> To leave an organization when all required account information has not
  *                             yet been provided</a> in the
  *                         <i>Organizations User Guide.</i>
  *                   </p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>The account that you want to leave must not be a delegated administrator
+ *                   <p>The account that you want to leave must not be a delegated administrator
  *                         account for any Amazon Web Services service enabled for your organization. If the account
  *                         is a delegated administrator, you must first change the delegated
  *                         administrator account to another account that is remaining in the
  *                         organization.</p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>You can leave an organization only after you enable IAM user access to
+ *                   <p>You can leave an organization only after you enable IAM user access to
  *                         billing in your account. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating Access to the Billing and Cost Management Console</a> in the
  *                             <i>Amazon Web Services Billing and Cost Management User Guide.</i>
  *                   </p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>After the account leaves the organization, all tags that were attached to
+ *                   <p>After the account leaves the organization, all tags that were attached to
  *                         the account object in the organization are deleted. Amazon Web Services accounts outside
  *                         of an organization do not support tags.</p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>A newly created account has a waiting period before it can be removed from
+ *                   <p>A newly created account has a waiting period before it can be removed from
  *                         its organization. If you get an error that indicates that a wait period is
  *                         required, then try again in a few days.</p>
- *                 </li>
+ *                </li>
  *             </ul>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

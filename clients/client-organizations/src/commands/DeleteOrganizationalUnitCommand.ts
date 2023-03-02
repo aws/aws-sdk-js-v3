@@ -32,7 +32,7 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
 /**
  * <p>Deletes an organizational unit (OU) from a root or another OU. You must first remove
  *             all accounts and child OUs from the OU that you want to delete.</p>
- *         <p>This operation can be called only from the organization's management account.</p>
+ *          <p>This operation can be called only from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

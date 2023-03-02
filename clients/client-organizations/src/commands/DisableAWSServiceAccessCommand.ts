@@ -37,7 +37,7 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  *             perform operations on your behalf on any new accounts in your organization. The service
  *             can still perform operations in older accounts until the service completes its clean-up
  *             from Organizations.</p>
- *         <important>
+ *          <important>
  *             <p>We <b>
  *                   <i>strongly recommend</i>
  *                </b> that
@@ -53,39 +53,39 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  *                 occur:</p>
  *             <ul>
  *                <li>
- *                     <p>The service can no longer create a service-linked role in the accounts in
+ *                   <p>The service can no longer create a service-linked role in the accounts in
  *                         your organization. This means that the service can't perform operations on
  *                         your behalf on any new accounts in your organization. The service can still
  *                         perform operations in older accounts until the service completes its
  *                         clean-up from Organizations. </p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>The service can no longer perform tasks in the member accounts in the
+ *                   <p>The service can no longer perform tasks in the member accounts in the
  *                         organization, unless those operations are explicitly permitted by the IAM
  *                         policies that are attached to your roles. This includes any data aggregation
  *                         from the member accounts to the management account, or to a delegated
  *                         administrator account, where relevant.</p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>Some services detect this and clean up any remaining data or resources
+ *                   <p>Some services detect this and clean up any remaining data or resources
  *                         related to the integration, while other services stop accessing the
  *                         organization but leave any historical data and configuration in place to
  *                         support a possible re-enabling of the integration.</p>
- *                 </li>
+ *                </li>
  *             </ul>
  *             <p>Using the other service's console or commands to disable the integration ensures
  *                 that the other service is aware that it can clean up any resources that are required
  *                 only for the integration. How the service cleans up its resources in the
  *                 organization's accounts depends on that service. For more information, see the
  *                 documentation for the other Amazon Web Services service. </p>
- *         </important>
- *         <p>After you perform the <code>DisableAWSServiceAccess</code> operation, the specified
+ *          </important>
+ *          <p>After you perform the <code>DisableAWSServiceAccess</code> operation, the specified
  *             service can no longer perform operations in your organization's accounts </p>
- *         <p>For more information about integrating other services with Organizations, including the
+ *          <p>For more information about integrating other services with Organizations, including the
  *             list of services that work with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating Organizations with Other
  *                 Amazon Web Services Services</a> in the <i>Organizations User Guide.</i>
  *          </p>
- *         <p>This operation can be called only from the organization's management account.</p>
+ *          <p>This operation can be called only from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

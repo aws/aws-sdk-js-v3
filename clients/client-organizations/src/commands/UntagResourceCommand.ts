@@ -31,22 +31,22 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes any tags with the specified keys from the specified resource.</p>
- *         <p>You can attach tags to the following resources in Organizations.</p>
- *         <ul>
+ *          <p>You can attach tags to the following resources in Organizations.</p>
+ *          <ul>
  *             <li>
- *                 <p>Amazon Web Services account</p>
+ *                <p>Amazon Web Services account</p>
  *             </li>
  *             <li>
- *                 <p>Organization root</p>
+ *                <p>Organization root</p>
  *             </li>
  *             <li>
- *                 <p>Organizational unit (OU)</p>
+ *                <p>Organizational unit (OU)</p>
  *             </li>
  *             <li>
- *                 <p>Policy (any type)</p>
+ *                <p>Policy (any type)</p>
  *             </li>
  *          </ul>
- *         <p>This operation can be called only from the organization's management account.</p>
+ *          <p>This operation can be called only from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

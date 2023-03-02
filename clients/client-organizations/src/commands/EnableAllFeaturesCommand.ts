@@ -42,25 +42,25 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *             information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling All Features in Your Organization</a> in the
  *                 <i>Organizations User Guide.</i>
  *          </p>
- *         <important>
+ *          <important>
  *             <p>This operation is required only for organizations that were created explicitly
  *                 with only the consolidated billing features enabled. Calling this operation sends a
  *                 handshake to every invited account in the organization. The feature set change can
  *                 be finalized and the additional features enabled only after all administrators in
  *                 the invited accounts approve the change by accepting the handshake.</p>
- *         </important>
- *         <p>After you enable all features, you can separately enable or disable individual policy
+ *          </important>
+ *          <p>After you enable all features, you can separately enable or disable individual policy
  *             types in a root using <a>EnablePolicyType</a> and <a>DisablePolicyType</a>. To see the status of policy types in a root, use
  *                 <a>ListRoots</a>.</p>
- *         <p>After all invited member accounts accept the handshake, you finalize the feature set
+ *          <p>After all invited member accounts accept the handshake, you finalize the feature set
  *             change by accepting the handshake that contains <code>"Action":
  *                 "ENABLE_ALL_FEATURES"</code>. This completes the change.</p>
- *         <p>After you enable all features in your organization, the management account in the
+ *          <p>After you enable all features in your organization, the management account in the
  *             organization can apply policies on all member accounts. These policies can restrict what
  *             users and even administrators in those accounts can do. The management account can apply
  *             policies that prevent accounts from leaving the organization. Ensure that your account
  *             administrators are aware of this.</p>
- *         <p>This operation can be called only from the organization's management account.</p>
+ *          <p>This operation can be called only from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -36,7 +36,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
 
 /**
  * <p>Creates or updates a resource policy.</p>
- *         <p>You can only call this operation from the organization's management account.</p>
+ *          <p>You can only call this operation from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

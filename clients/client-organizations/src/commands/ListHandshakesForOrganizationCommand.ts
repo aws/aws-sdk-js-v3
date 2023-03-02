@@ -41,11 +41,11 @@ export interface ListHandshakesForOrganizationCommandOutput
  *             user is part of. The <code>ListHandshakesForOrganization</code> operation returns a list
  *             of handshake structures. Each structure contains details and status about a
  *             handshake.</p>
- *         <p>Handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>,
+ *          <p>Handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>,
  *                 <code>CANCELED</code>, or <code>EXPIRED</code> appear in the results of this API for
  *             only 30 days after changing to that state. After that, they're deleted and no longer
  *             accessible.</p>
- *         <note>
+ *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
  * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
  * occasionally return an empty set of results even when there are more results available. The
@@ -53,7 +53,7 @@ export interface ListHandshakesForOrganizationCommandOutput
  *                <i>only</i>
  * when there are no more results to display.</p>
  *          </note>
- *         <p>This operation can be called only from the organization's
+ *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

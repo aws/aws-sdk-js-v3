@@ -40,12 +40,12 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  *             your business requirements. The number of levels deep that you can nest OUs is dependent
  *             upon the policy types enabled for that root. For service control policies, the limit is
  *             five.</p>
- *         <p>For more information about OUs, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html">Managing Organizational Units</a> in the
+ *          <p>For more information about OUs, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html">Managing Organizational Units</a> in the
  *                 <i>Organizations User Guide.</i>
  *          </p>
- *         <p>If the request includes tags, then the requester must have the
+ *          <p>If the request includes tags, then the requester must have the
  *                 <code>organizations:TagResource</code> permission.</p>
- *         <p>This operation can be called only from the organization's management account.</p>
+ *          <p>This operation can be called only from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

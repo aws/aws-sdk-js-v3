@@ -39,7 +39,7 @@ export interface ListDelegatedServicesForAccountCommandOutput
 /**
  * <p>List the Amazon Web Services services for which the specified account is a delegated
  *             administrator.</p>
- *         <p>This operation can be called only from the organization's
+ *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

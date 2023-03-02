@@ -38,10 +38,10 @@ export interface DescribeHandshakeCommandOutput extends DescribeHandshakeRespons
  * <p>Retrieves information about a previously requested handshake. The handshake ID comes
  *             from the response to the original <a>InviteAccountToOrganization</a>
  *             operation that generated the handshake.</p>
- *         <p>You can access handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>, or
+ *          <p>You can access handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>, or
  *                 <code>CANCELED</code> for only 30 days after they change to that state. They're then
  *             deleted and no longer accessible.</p>
- *         <p>This operation can be called from any account in the organization.</p>
+ *          <p>This operation can be called from any account in the organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

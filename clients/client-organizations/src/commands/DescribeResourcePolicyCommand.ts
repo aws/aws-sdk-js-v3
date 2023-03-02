@@ -31,7 +31,8 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
 
 /**
  * <p>Retrieves information about a resource policy.</p>
- *         <p>You can only call this operation from the organization's management account or by a member account that is a delegated administrator for an AWS service.</p>
+ *          <p>You can only call this operation from the organization's management account or by a
+ *             member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
