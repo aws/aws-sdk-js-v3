@@ -39,6 +39,7 @@ import {
   JobExecutionsRetryConfig,
   JobExecutionsRolloutConfig,
   LogLevel,
+  MaintenanceWindow,
   MetricToRetain,
   MetricValue,
   MitigationActionParams,
@@ -62,6 +63,21 @@ import {
   TopicRuleDestination,
   VerificationState,
 } from "./models_0";
+
+/**
+ * <p>The input for the DeletePolicyVersion operation.</p>
+ */
+export interface DeletePolicyVersionRequest {
+  /**
+   * <p>The name of the policy.</p>
+   */
+  policyName: string | undefined;
+
+  /**
+   * <p>The policy version ID.</p>
+   */
+  policyVersionId: string | undefined;
+}
 
 export interface DeleteProvisioningTemplateRequest {
   /**
@@ -1363,7 +1379,7 @@ export interface DescribeFleetMetricResponse {
 
   /**
    * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
-   *       supported by <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.</p>
+   *       supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.</p>
    */
   unit?: FleetMetricUnit | string;
 
@@ -1485,6 +1501,16 @@ export interface JobProcessDetails {
    * <p>The number of things whose job execution status is <code>TIMED_OUT</code>.</p>
    */
   numberOfTimedOutThings?: number;
+}
+
+/**
+ * <p>Displays the next seven maintenance window occurrences and their start times.</p>
+ */
+export interface ScheduledJobRollout {
+  /**
+   * <p>Displays the start times of the next seven maintenance window occurrences.</p>
+   */
+  startTime?: string;
 }
 
 export enum JobStatus {
@@ -1646,6 +1672,11 @@ export interface Job {
    *             addition to specifying the end behavior for each job execution.</p>
    */
   schedulingConfig?: SchedulingConfig;
+
+  /**
+   * <p>Displays the next seven maintenance window occurrences and their start times.</p>
+   */
+  scheduledJobRollouts?: ScheduledJobRollout[];
 }
 
 export interface DescribeJobResponse {
@@ -1840,6 +1871,11 @@ export interface DescribeJobTemplateResponse {
    *             for a job.</p>
    */
   jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
+
+  /**
+   * <p>Allows you to configure an optional maintenance window for the rollout of a job document to all devices in the target group for a job.</p>
+   */
+  maintenanceWindows?: MaintenanceWindow[];
 }
 
 export interface DescribeManagedJobTemplateRequest {
@@ -5870,47 +5906,12 @@ export interface ListSecurityProfilesForTargetResponse {
   nextToken?: string;
 }
 
-export interface ListStreamsRequest {
-  /**
-   * <p>The maximum number of results to return at a time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>A token used to get the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>Set to true to return the list of streams in ascending order.</p>
-   */
-  ascendingOrder?: boolean;
-}
-
 /**
- * <p>A summary of a stream.</p>
+ * @internal
  */
-export interface StreamSummary {
-  /**
-   * <p>The stream ID.</p>
-   */
-  streamId?: string;
-
-  /**
-   * <p>The stream ARN.</p>
-   */
-  streamArn?: string;
-
-  /**
-   * <p>The stream version.</p>
-   */
-  streamVersion?: number;
-
-  /**
-   * <p>A description of the stream.</p>
-   */
-  description?: string;
-}
+export const DeletePolicyVersionRequestFilterSensitiveLog = (obj: DeletePolicyVersionRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -6477,6 +6478,13 @@ export const DescribeJobRequestFilterSensitiveLog = (obj: DescribeJobRequest): a
  * @internal
  */
 export const JobProcessDetailsFilterSensitiveLog = (obj: JobProcessDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledJobRolloutFilterSensitiveLog = (obj: ScheduledJobRollout): any => ({
   ...obj,
 });
 
@@ -7879,19 +7887,5 @@ export const SecurityProfileTargetMappingFilterSensitiveLog = (obj: SecurityProf
 export const ListSecurityProfilesForTargetResponseFilterSensitiveLog = (
   obj: ListSecurityProfilesForTargetResponse
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamsRequestFilterSensitiveLog = (obj: ListStreamsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamSummaryFilterSensitiveLog = (obj: StreamSummary): any => ({
   ...obj,
 });

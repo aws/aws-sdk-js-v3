@@ -3557,7 +3557,7 @@ export interface CreateFleetMetricRequest {
 
   /**
    * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
-   *       supported by <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>. Default to null.</p>
+   *       supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>. Default to null.</p>
    */
   unit?: FleetMetricUnit | string;
 
@@ -3733,13 +3733,30 @@ export enum JobEndBehavior {
 }
 
 /**
+ * <p>An optional configuration within the <code>SchedulingConfig</code> to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.</p>
+ */
+export interface MaintenanceWindow {
+  /**
+   * <p>Displays the start time of the next maintenance window.</p>
+   */
+  startTime: string | undefined;
+
+  /**
+   * <p>Displays the duration of the next maintenance window.</p>
+   */
+  durationInMinutes: number | undefined;
+}
+
+/**
  * <p>Specifies the date and time that a job will begin the rollout of the job document to all devices in the target group. Additionally, you can specify the end behavior for each job execution when it reaches the scheduled end time.</p>
  */
 export interface SchedulingConfig {
   /**
    * <p>The time a job will begin rollout of the job document to all devices in the target
    *             group for a job. The <code>startTime</code> can be scheduled up to a year in advance and
-   *             must be scheduled a minimum of thirty minutes from the current time.</p>
+   *             must be scheduled a minimum of thirty minutes from the current time. The date and time
+   *             format for the <code>startTime</code> is YYYY-MM-DD for the date and HH:MM for the
+   *             time.</p>
    */
   startTime?: string;
 
@@ -3749,7 +3766,8 @@ export interface SchedulingConfig {
    *             the current time and be scheduled a minimum of thirty minutes from the current time. The
    *             minimum duration between <code>startTime</code> and <code>endTime</code> is thirty
    *             minutes. The maximum duration between <code>startTime</code> and <code>endTime</code> is
-   *             two years. </p>
+   *             two years. The date and time format for the <code>endTime</code> is YYYY-MM-DD for the
+   *             date and HH:MM for the time.</p>
    */
   endTime?: string;
 
@@ -3759,6 +3777,11 @@ export interface SchedulingConfig {
    *             then <code>endBehavior</code> does not apply.</p>
    */
   endBehavior?: JobEndBehavior | string;
+
+  /**
+   * <p>An optional configuration within the <code>SchedulingConfig</code> to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.</p>
+   */
+  maintenanceWindows?: MaintenanceWindow[];
 }
 
 export enum TargetSelection {
@@ -4003,6 +4026,11 @@ export interface CreateJobTemplateRequest {
    * <p>Allows you to create the criteria to retry a job.</p>
    */
   jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
+
+  /**
+   * <p>Allows you to configure an optional maintenance window for the rollout of a job document to all devices in the target group for a job.</p>
+   */
+  maintenanceWindows?: MaintenanceWindow[];
 }
 
 export interface CreateJobTemplateResponse {
@@ -5939,21 +5967,6 @@ export interface DeletePolicyRequest {
 }
 
 /**
- * <p>The input for the DeletePolicyVersion operation.</p>
- */
-export interface DeletePolicyVersionRequest {
-  /**
-   * <p>The name of the policy.</p>
-   */
-  policyName: string | undefined;
-
-  /**
-   * <p>The policy version ID.</p>
-   */
-  policyVersionId: string | undefined;
-}
-
-/**
  * @internal
  */
 export const AbortCriteriaFilterSensitiveLog = (obj: AbortCriteria): any => ({
@@ -6893,6 +6906,13 @@ export const PresignedUrlConfigFilterSensitiveLog = (obj: PresignedUrlConfig): a
 /**
  * @internal
  */
+export const MaintenanceWindowFilterSensitiveLog = (obj: MaintenanceWindow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const SchedulingConfigFilterSensitiveLog = (obj: SchedulingConfig): any => ({
   ...obj,
 });
@@ -7619,12 +7639,5 @@ export const DeleteOTAUpdateResponseFilterSensitiveLog = (obj: DeleteOTAUpdateRe
  * @internal
  */
 export const DeletePolicyRequestFilterSensitiveLog = (obj: DeletePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePolicyVersionRequestFilterSensitiveLog = (obj: DeletePolicyVersionRequest): any => ({
   ...obj,
 });

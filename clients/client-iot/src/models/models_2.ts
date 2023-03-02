@@ -54,12 +54,53 @@ import {
   RegistrationConfig,
   SecurityProfileTarget,
   Status,
-  StreamSummary,
   ThingGroupIndexingConfiguration,
   ThingIndexingConfiguration,
   ThingTypeMetadata,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+export interface ListStreamsRequest {
+  /**
+   * <p>The maximum number of results to return at a time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A token used to get the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Set to true to return the list of streams in ascending order.</p>
+   */
+  ascendingOrder?: boolean;
+}
+
+/**
+ * <p>A summary of a stream.</p>
+ */
+export interface StreamSummary {
+  /**
+   * <p>The stream ID.</p>
+   */
+  streamId?: string;
+
+  /**
+   * <p>The stream ARN.</p>
+   */
+  streamArn?: string;
+
+  /**
+   * <p>The stream version.</p>
+   */
+  streamVersion?: number;
+
+  /**
+   * <p>A description of the stream.</p>
+   */
+  description?: string;
+}
 
 export interface ListStreamsResponse {
   /**
@@ -2961,6 +3002,20 @@ export interface ValidateSecurityProfileBehaviorsResponse {
    */
   validationErrors?: ValidationError[];
 }
+
+/**
+ * @internal
+ */
+export const ListStreamsRequestFilterSensitiveLog = (obj: ListStreamsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamSummaryFilterSensitiveLog = (obj: StreamSummary): any => ({
+  ...obj,
+});
 
 /**
  * @internal

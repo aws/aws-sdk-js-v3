@@ -764,6 +764,7 @@ import {
   LocationAction,
   LocationTimestamp,
   MachineLearningDetectionConfig,
+  MaintenanceWindow,
   MalformedPolicyException,
   MetricDimension,
   MetricToRetain,
@@ -876,13 +877,13 @@ import {
   RegistrationConfig,
   RoleAliasDescription,
   ScheduledAuditMetadata,
+  ScheduledJobRollout,
   SecurityProfileIdentifier,
   SecurityProfileTarget,
   SecurityProfileTargetMapping,
   ServerCertificateSummary,
   Statistics,
   StreamInfo,
-  StreamSummary,
   TaskStatistics,
   TermsAggregation,
   ThingGroupIndexingConfiguration,
@@ -904,6 +905,7 @@ import {
   MqttContext,
   RegistrationCodeValidationException,
   ResourceRegistrationFailureException,
+  StreamSummary,
   TaskAlreadyExistsException,
   ThingAttribute,
   ThingConnectivity,
@@ -1753,6 +1755,9 @@ export const serializeAws_restJson1CreateJobTemplateCommand = async (
         input.jobExecutionsRolloutConfig,
         context
       ),
+    }),
+    ...(input.maintenanceWindows != null && {
+      maintenanceWindows: serializeAws_restJson1MaintenanceWindows(input.maintenanceWindows, context),
     }),
     ...(input.presignedUrlConfig != null && {
       presignedUrlConfig: serializeAws_restJson1PresignedUrlConfig(input.presignedUrlConfig, context),
@@ -13178,6 +13183,9 @@ export const deserializeAws_restJson1DescribeJobTemplateCommand = async (
   if (data.jobTemplateId != null) {
     contents.jobTemplateId = __expectString(data.jobTemplateId);
   }
+  if (data.maintenanceWindows != null) {
+    contents.maintenanceWindows = deserializeAws_restJson1MaintenanceWindows(data.maintenanceWindows, context);
+  }
   if (data.presignedUrlConfig != null) {
     contents.presignedUrlConfig = deserializeAws_restJson1PresignedUrlConfig(data.presignedUrlConfig, context);
   }
@@ -22602,6 +22610,21 @@ const serializeAws_restJson1MachineLearningDetectionConfig = (
   };
 };
 
+const serializeAws_restJson1MaintenanceWindow = (input: MaintenanceWindow, context: __SerdeContext): any => {
+  return {
+    ...(input.durationInMinutes != null && { durationInMinutes: input.durationInMinutes }),
+    ...(input.startTime != null && { startTime: input.startTime }),
+  };
+};
+
+const serializeAws_restJson1MaintenanceWindows = (input: MaintenanceWindow[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MaintenanceWindow(entry, context);
+    });
+};
+
 const serializeAws_restJson1MetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
   return {
     ...(input.dimensionName != null && { dimensionName: input.dimensionName }),
@@ -22991,6 +23014,9 @@ const serializeAws_restJson1SchedulingConfig = (input: SchedulingConfig, context
   return {
     ...(input.endBehavior != null && { endBehavior: input.endBehavior }),
     ...(input.endTime != null && { endTime: input.endTime }),
+    ...(input.maintenanceWindows != null && {
+      maintenanceWindows: serializeAws_restJson1MaintenanceWindows(input.maintenanceWindows, context),
+    }),
     ...(input.startTime != null && { startTime: input.startTime }),
   };
 };
@@ -24992,6 +25018,10 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
         ? deserializeAws_restJson1PresignedUrlConfig(output.presignedUrlConfig, context)
         : undefined,
     reasonCode: __expectString(output.reasonCode),
+    scheduledJobRollouts:
+      output.scheduledJobRollouts != null
+        ? deserializeAws_restJson1ScheduledJobRolloutList(output.scheduledJobRollouts, context)
+        : undefined,
     schedulingConfig:
       output.schedulingConfig != null
         ? deserializeAws_restJson1SchedulingConfig(output.schedulingConfig, context)
@@ -25308,6 +25338,25 @@ const deserializeAws_restJson1MachineLearningDetectionConfig = (
   return {
     confidenceLevel: __expectString(output.confidenceLevel),
   } as any;
+};
+
+const deserializeAws_restJson1MaintenanceWindow = (output: any, context: __SerdeContext): MaintenanceWindow => {
+  return {
+    durationInMinutes: __expectInt32(output.durationInMinutes),
+    startTime: __expectString(output.startTime),
+  } as any;
+};
+
+const deserializeAws_restJson1MaintenanceWindows = (output: any, context: __SerdeContext): MaintenanceWindow[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MaintenanceWindow(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1ManagedJobTemplatesSummaryList = (
@@ -26203,10 +26252,35 @@ const deserializeAws_restJson1ScheduledAuditMetadataList = (
   return retVal;
 };
 
+const deserializeAws_restJson1ScheduledJobRollout = (output: any, context: __SerdeContext): ScheduledJobRollout => {
+  return {
+    startTime: __expectString(output.startTime),
+  } as any;
+};
+
+const deserializeAws_restJson1ScheduledJobRolloutList = (
+  output: any,
+  context: __SerdeContext
+): ScheduledJobRollout[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ScheduledJobRollout(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1SchedulingConfig = (output: any, context: __SerdeContext): SchedulingConfig => {
   return {
     endBehavior: __expectString(output.endBehavior),
     endTime: __expectString(output.endTime),
+    maintenanceWindows:
+      output.maintenanceWindows != null
+        ? deserializeAws_restJson1MaintenanceWindows(output.maintenanceWindows, context)
+        : undefined,
     startTime: __expectString(output.startTime),
   } as any;
 };
