@@ -44,22 +44,22 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  *             call to <code>TransactGetItems</code> cannot retrieve items from tables in more than one
  *                 Amazon Web Services account or Region. The aggregate size of the items in the
  *             transaction cannot exceed 4 MB.</p>
- *         <p>DynamoDB rejects the entire <code>TransactGetItems</code> request if any of
+ *          <p>DynamoDB rejects the entire <code>TransactGetItems</code> request if any of
  *             the following is true:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>A conflicting operation is in the process of updating an item to be
+ *                <p>A conflicting operation is in the process of updating an item to be
  *                     read.</p>
  *             </li>
  *             <li>
- *                 <p>There is insufficient provisioned capacity for the transaction to be
+ *                <p>There is insufficient provisioned capacity for the transaction to be
  *                     completed.</p>
  *             </li>
  *             <li>
- *                 <p>There is a user error, such as an invalid data format.</p>
+ *                <p>There is a user error, such as an invalid data format.</p>
  *             </li>
  *             <li>
- *                 <p>The aggregate size of the items in the transaction cannot exceed 4 MB.</p>
+ *                <p>The aggregate size of the items in the transaction exceeded 4 MB.</p>
  *             </li>
  *          </ul>
  * @example

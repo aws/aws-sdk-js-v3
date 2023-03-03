@@ -43,17 +43,21 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  *                 <code>ResourceInUseException</code>. If the specified table does not exist, DynamoDB
  *             returns a <code>ResourceNotFoundException</code>. If table is already in the
  *                 <code>DELETING</code> state, no error is returned. </p>
- *         <note>
+ *          <important>
+ *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
+ *                 of global tables.
+ *             </p>
+ *          </important>
+ *          <note>
  *             <p>DynamoDB might continue to accept data read and write operations, such as
  *                     <code>GetItem</code> and <code>PutItem</code>, on a table in the
  *                     <code>DELETING</code> state until the table deletion is complete.</p>
- *         </note>
- *         <p>When you delete a table, any indexes on that table are also deleted.</p>
- *         <p>If you have DynamoDB Streams enabled on the table, then the corresponding stream on
+ *          </note>
+ *          <p>When you delete a table, any indexes on that table are also deleted.</p>
+ *          <p>If you have DynamoDB Streams enabled on the table, then the corresponding stream on
  *             that table goes into the <code>DISABLED</code> state, and the stream is automatically
  *             deleted after 24 hours.</p>
- *
- *         <p>Use the <code>DescribeTable</code> action to check the status of the table. </p>
+ *          <p>Use the <code>DescribeTable</code> action to check the status of the table. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

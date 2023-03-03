@@ -37,14 +37,19 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
 /**
  * <p>Returns information about the table, including the current status of the table, when
  *             it was created, the primary key schema, and any indexes on the table.</p>
- *         <note>
+ *          <important>
+ *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
+ *                 of global tables.
+ *             </p>
+ *          </important>
+ *          <note>
  *             <p>If you issue a <code>DescribeTable</code> request immediately after a
  *                     <code>CreateTable</code> request, DynamoDB might return a
  *                     <code>ResourceNotFoundException</code>. This is because
  *                     <code>DescribeTable</code> uses an eventually consistent query, and the metadata
  *                 for your table might not be available at that moment. Wait for a few seconds, and
  *                 then try the <code>DescribeTable</code> request again.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

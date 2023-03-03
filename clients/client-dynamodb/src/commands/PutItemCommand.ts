@@ -38,22 +38,21 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  *             a new item if one with the specified primary key doesn't exist), or replace an existing
  *             item if it has certain attribute values. You can return the item's attribute values in
  *             the same operation, using the <code>ReturnValues</code> parameter.</p>
- *
- *         <p>When you add an item, the primary key attributes are the only required attributes.
+ *          <p>When you add an item, the primary key attributes are the only required attributes.
  *             </p>
- *         <p>Empty String and Binary attribute values are allowed. Attribute values of type String
+ *          <p>Empty String and Binary attribute values are allowed. Attribute values of type String
  *             and Binary must have a length greater than zero if the attribute is used as a key
  *             attribute for a table or index. Set type attributes cannot be empty. </p>
- *         <p>Invalid Requests with empty values will be rejected with a
+ *          <p>Invalid Requests with empty values will be rejected with a
  *                 <code>ValidationException</code> exception.</p>
- *         <note>
+ *          <note>
  *             <p>To prevent a new item from replacing an existing item, use a conditional
  *                 expression that contains the <code>attribute_not_exists</code> function with the
  *                 name of the attribute being used as the partition key for the table. Since every
  *                 record must contain that attribute, the <code>attribute_not_exists</code> function
  *                 will only succeed if no matching item exists.</p>
- *         </note>
- *         <p>For more information about <code>PutItem</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html">Working with
+ *          </note>
+ *          <p>For more information about <code>PutItem</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html">Working with
  *                 Items</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -36,10 +36,18 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
 
 /**
  * <p>Lists all global tables that have a replica in the specified Region.</p>
- *         <note>
+ *          <important>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
- *                     2017.11.29</a> of global tables.</p>
- *         </note>
+ *                 2017.11.29 (Legacy)</a> of global tables. We recommend using
+ *                 <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
+ *                 when creating new global tables, as it provides greater flexibility, higher efficiency and consumes less write capacity than
+ *                 2017.11.29 (Legacy). To determine which version you are using, see
+ *                 <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining the version</a>.
+ *                 To update existing global tables from version 2017.11.29 (Legacy) to version
+ *                 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">
+ *                     Updating global tables</a>.
+ *             </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

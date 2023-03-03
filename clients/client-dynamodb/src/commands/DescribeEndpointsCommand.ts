@@ -35,7 +35,9 @@ export interface DescribeEndpointsCommandInput extends DescribeEndpointsRequest 
 export interface DescribeEndpointsCommandOutput extends DescribeEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the regional endpoint information.</p>
+ * <p>Returns the regional endpoint information. This action must be included in your VPC
+ *             endpoint policies, or access to the DescribeEndpoints API will be denied. For more information
+ *             on policy permissions, please see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/inter-network-traffic-privacy.html#inter-network-traffic-DescribeEndpoints">Internetwork traffic privacy</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

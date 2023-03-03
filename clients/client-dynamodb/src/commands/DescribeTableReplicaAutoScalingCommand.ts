@@ -38,10 +38,10 @@ export interface DescribeTableReplicaAutoScalingCommandOutput
 
 /**
  * <p>Describes auto scaling settings across replicas of the global table at once.</p>
- *         <note>
- *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
- *                     2019.11.21</a> of global tables.</p>
- *         </note>
+ *          <important>
+ *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
+ *             of global tables.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -40,25 +40,25 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  *                 <code>TimeToLiveSpecification</code>. It can take up to one hour for the change to
  *             fully process. Any additional <code>UpdateTimeToLive</code> calls for the same table
  *             during this one hour duration result in a <code>ValidationException</code>. </p>
- *         <p>TTL compares the current time in epoch time format to the time stored in the TTL
+ *          <p>TTL compares the current time in epoch time format to the time stored in the TTL
  *             attribute of an item. If the epoch time value stored in the attribute is less than the
  *             current time, the item is marked as expired and subsequently deleted.</p>
- *         <note>
+ *          <note>
  *             <p> The epoch time format is the number of seconds elapsed since 12:00:00 AM January
  *                 1, 1970 UTC. </p>
- *         </note>
- *         <p>DynamoDB deletes expired items on a best-effort basis to ensure availability of
+ *          </note>
+ *          <p>DynamoDB deletes expired items on a best-effort basis to ensure availability of
  *             throughput for other data operations. </p>
- *         <important>
+ *          <important>
  *             <p>DynamoDB typically deletes expired items within two days of expiration. The exact
  *                 duration within which an item gets deleted after expiration is specific to the
  *                 nature of the workload. Items that have expired and not been deleted will still show
  *                 up in reads, queries, and scans.</p>
- *         </important>
- *         <p>As items are deleted, they are removed from any local secondary index and global
+ *          </important>
+ *          <p>As items are deleted, they are removed from any local secondary index and global
  *             secondary index immediately in the same eventually consistent way as a standard delete
  *             operation.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html">Time To Live</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html">Time To Live</a> in the
  *             Amazon DynamoDB Developer Guide. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -35,7 +35,7 @@ export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
  * <p>The <code>GetItem</code> operation returns a set of attributes for the item with the
  *             given primary key. If there is no matching item, <code>GetItem</code> does not return
  *             any data and there will be no <code>Item</code> element in the response.</p>
- *         <p>
+ *          <p>
  *             <code>GetItem</code> provides an eventually consistent read by default. If your
  *             application requires a strongly consistent read, set <code>ConsistentRead</code> to
  *                 <code>true</code>. Although a strongly consistent read might take more time than an

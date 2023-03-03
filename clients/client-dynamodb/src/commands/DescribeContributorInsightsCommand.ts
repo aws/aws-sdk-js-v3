@@ -35,7 +35,7 @@ export interface DescribeContributorInsightsCommandInput extends DescribeContrib
 export interface DescribeContributorInsightsCommandOutput extends DescribeContributorInsightsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about contributor insights, for a given table or global secondary
+ * <p>Returns information about contributor insights for a given table or global secondary
  *             index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

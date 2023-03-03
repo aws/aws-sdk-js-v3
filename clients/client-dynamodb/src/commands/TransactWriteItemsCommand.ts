@@ -42,13 +42,11 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *             item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code>
  *             the same item. The aggregate size of the items in the transaction cannot exceed 4
  *             MB.</p>
- *
- *         <p>The actions are completed atomically so that either all of them succeed, or all of
+ *          <p>The actions are completed atomically so that either all of them succeed, or all of
  *             them fail. They are defined by the following objects:</p>
- *
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>Put</code>  —   Initiates a <code>PutItem</code>
  *                     operation to write a new item. This structure specifies the primary key of the
  *                     item to be written, the name of the table to write it in, an optional condition
@@ -57,7 +55,7 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *                     the condition is not met.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>Update</code>  —   Initiates an <code>UpdateItem</code>
  *                     operation to update an existing item. This structure specifies the primary key
  *                     of the item to be updated, the name of the table where it resides, an optional
@@ -67,7 +65,7 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *                     met.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>Delete</code>  —   Initiates a <code>DeleteItem</code>
  *                     operation to delete an existing item. This structure specifies the primary key
  *                     of the item to be deleted, the name of the table where it resides, an optional
@@ -76,7 +74,7 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *                     not met.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>ConditionCheck</code>  —   Applies a condition to an item
  *                     that is not being modified by the transaction. This structure specifies the
  *                     primary key of the item to be checked, the name of the table where it resides, a
@@ -85,30 +83,29 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *                     not met.</p>
  *             </li>
  *          </ul>
- *
- *         <p>DynamoDB rejects the entire <code>TransactWriteItems</code> request if any of the
+ *          <p>DynamoDB rejects the entire <code>TransactWriteItems</code> request if any of the
  *             following is true:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>A condition in one of the condition expressions is not met.</p>
+ *                <p>A condition in one of the condition expressions is not met.</p>
  *             </li>
  *             <li>
- *                 <p>An ongoing operation is in the process of updating the same item.</p>
+ *                <p>An ongoing operation is in the process of updating the same item.</p>
  *             </li>
  *             <li>
- *                 <p>There is insufficient provisioned capacity for the transaction to be
+ *                <p>There is insufficient provisioned capacity for the transaction to be
  *                     completed.</p>
  *             </li>
  *             <li>
- *                 <p>An item size becomes too large (bigger than 400 KB), a local secondary index
+ *                <p>An item size becomes too large (bigger than 400 KB), a local secondary index
  *                     (LSI) becomes too large, or a similar validation error occurs because of changes
  *                     made by the transaction.</p>
  *             </li>
  *             <li>
- *                 <p>The aggregate size of the items in the transaction exceeds 4 MB.</p>
+ *                <p>The aggregate size of the items in the transaction exceeds 4 MB.</p>
  *             </li>
  *             <li>
- *                 <p>There is a user error, such as an invalid data format.</p>
+ *                <p>There is a user error, such as an invalid data format.</p>
  *             </li>
  *          </ul>
  * @example
