@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.284.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.283.0...v3.284.0) (2023-03-03)
+
+
+### Bug Fixes
+
+* **clients:** add unnamed enums to enums-to-strip.json ([#4489](https://github.com/aws/aws-sdk-js-v3/issues/4489)) ([81d5cde](https://github.com/aws/aws-sdk-js-v3/commit/81d5cdee1156f96ee69805ff23dc77cc77d28d9e))
+* **s3-presigned-post:** move @aws-sdk/client-s3 to a normal dependency ([#4483](https://github.com/aws/aws-sdk-js-v3/issues/4483)) ([6fee65c](https://github.com/aws/aws-sdk-js-v3/commit/6fee65c2fb5cd78537a261c3ca8a563b1e2e986f))
+
+
+### Features
+
+* **client-ec2:** This release adds support for a new boot mode for EC2 instances called 'UEFI Preferred'. ([e5182e1](https://github.com/aws/aws-sdk-js-v3/commit/e5182e146e2ad9925525dbb2cde72732b8813834))
+* **client-mediaconvert:** The AWS Elemental MediaConvert SDK has improved handling for different input and output color space combinations. ([2414092](https://github.com/aws/aws-sdk-js-v3/commit/24140920e09429308b728ee96d5ad353dc0fb4ee))
+* **client-medialive:** AWS Elemental MediaLive adds support for Nielsen watermark timezones. ([878da7a](https://github.com/aws/aws-sdk-js-v3/commit/878da7a805559174c3b8cd0753049e51f920cb70))
+* **client-transcribe:** Amazon Transcribe now supports role access for these API operations: CreateVocabulary, UpdateVocabulary, CreateVocabularyFilter, and UpdateVocabularyFilter. ([bc4b706](https://github.com/aws/aws-sdk-js-v3/commit/bc4b706d5fecd5f8cb60a38bb4dd61a0d5bf1699))
+* **clients:** update client endpoints as of 2023-03-03 ([aa83817](https://github.com/aws/aws-sdk-js-v3/commit/aa838177b5597b831942e94122f6cb8955a9b456))
+
+
+
+
+
 # [3.283.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.282.0...v3.283.0) (2023-03-02)
 
 

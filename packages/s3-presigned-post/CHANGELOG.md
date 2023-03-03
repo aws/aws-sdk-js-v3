@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.284.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.283.0...v3.284.0) (2023-03-03)
+
+
+### Bug Fixes
+
+* **s3-presigned-post:** move @aws-sdk/client-s3 to a normal dependency ([#4483](https://github.com/aws/aws-sdk-js-v3/issues/4483)) ([6fee65c](https://github.com/aws/aws-sdk-js-v3/commit/6fee65c2fb5cd78537a261c3ca8a563b1e2e986f))
+
+
+
+
+
 # [3.282.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.281.0...v3.282.0) (2023-03-01)
 
 **Note:** Version bump only for package @aws-sdk/s3-presigned-post
