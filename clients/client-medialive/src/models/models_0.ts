@@ -100,6 +100,19 @@ export enum NielsenWatermarksDistributionTypes {
   PROGRAM_CONTENT = "PROGRAM_CONTENT",
 }
 
+export enum NielsenWatermarkTimezones {
+  AMERICA_PUERTO_RICO = "AMERICA_PUERTO_RICO",
+  US_ALASKA = "US_ALASKA",
+  US_ARIZONA = "US_ARIZONA",
+  US_CENTRAL = "US_CENTRAL",
+  US_EASTERN = "US_EASTERN",
+  US_HAWAII = "US_HAWAII",
+  US_MOUNTAIN = "US_MOUNTAIN",
+  US_PACIFIC = "US_PACIFIC",
+  US_SAMOA = "US_SAMOA",
+  UTC = "UTC",
+}
+
 /**
  * Nielsen Naes Ii Nw
  */
@@ -113,6 +126,12 @@ export interface NielsenNaesIiNw {
    * Enter the Nielsen Source ID (SID) to include in the watermark
    */
   Sid: number | undefined;
+
+  /**
+   * Choose the timezone for the time stamps in the watermark. If not provided,
+   * the timestamps will be in Coordinated Universal Time (UTC)
+   */
+  Timezone?: NielsenWatermarkTimezones | string;
 }
 
 /**
@@ -1674,7 +1693,7 @@ export interface CaptionSelectorSettings {
 }
 
 /**
- * Output groups for this Live Event. Output groups contain information about where streams should be distributed.
+ * Caption Selector
  */
 export interface CaptionSelector {
   /**
@@ -4304,7 +4323,7 @@ export interface HlsAkamaiSettings {
   HttpTransferMode?: HlsAkamaiHttpTransferMode | string;
 
   /**
-   * Number of retry attempts that will be made before the Live Event is put into an error state.
+   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
    */
   NumRetries?: number;
 
@@ -4339,7 +4358,7 @@ export interface HlsBasicPutSettings {
   FilecacheDuration?: number;
 
   /**
-   * Number of retry attempts that will be made before the Live Event is put into an error state.
+   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
    */
   NumRetries?: number;
 
@@ -4373,7 +4392,7 @@ export interface HlsMediaStoreSettings {
   MediaStoreStorageClass?: HlsMediaStoreStorageClass | string;
 
   /**
-   * Number of retry attempts that will be made before the Live Event is put into an error state.
+   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
    */
   NumRetries?: number;
 
@@ -4418,7 +4437,7 @@ export interface HlsWebdavSettings {
   HttpTransferMode?: HlsWebdavHttpTransferMode | string;
 
   /**
-   * Number of retry attempts that will be made before the Live Event is put into an error state.
+   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
    */
   NumRetries?: number;
 
@@ -4521,11 +4540,6 @@ export enum HlsManifestCompression {
 export enum HlsManifestDurationFormat {
   FLOATING_POINT = "FLOATING_POINT",
   INTEGER = "INTEGER",
-}
-
-export enum HlsMode {
-  LIVE = "LIVE",
-  VOD = "VOD",
 }
 
 /**

@@ -8410,6 +8410,7 @@ const serializeAws_restJson1NielsenNaesIiNw = (input: NielsenNaesIiNw, context: 
   return {
     ...(input.CheckDigitString != null && { checkDigitString: input.CheckDigitString }),
     ...(input.Sid != null && { sid: __serializeFloat(input.Sid) }),
+    ...(input.Timezone != null && { timezone: input.Timezone }),
   };
 };
 
@@ -11936,6 +11937,7 @@ const deserializeAws_restJson1NielsenNaesIiNw = (output: any, context: __SerdeCo
   return {
     CheckDigitString: __expectString(output.checkDigitString),
     Sid: __limitedParseDouble(output.sid),
+    Timezone: __expectString(output.timezone),
   } as any;
 };
 

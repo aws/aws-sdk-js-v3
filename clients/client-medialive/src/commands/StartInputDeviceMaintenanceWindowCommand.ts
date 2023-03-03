@@ -17,9 +17,11 @@ import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import {
   StartInputDeviceMaintenanceWindowRequest,
   StartInputDeviceMaintenanceWindowRequestFilterSensitiveLog,
+} from "../models/models_1";
+import {
   StartInputDeviceMaintenanceWindowResponse,
   StartInputDeviceMaintenanceWindowResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1StartInputDeviceMaintenanceWindowCommand,
   serializeAws_restJson1StartInputDeviceMaintenanceWindowCommand,

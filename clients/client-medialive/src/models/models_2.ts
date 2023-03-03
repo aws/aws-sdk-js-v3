@@ -42,6 +42,11 @@ import {
 } from "./models_1";
 
 /**
+ * Placeholder documentation for StartInputDeviceMaintenanceWindowResponse
+ */
+export interface StartInputDeviceMaintenanceWindowResponse {}
+
+/**
  * Placeholder documentation for StartMultiplexRequest
  */
 export interface StartMultiplexRequest {
@@ -671,6 +676,15 @@ export interface UpdateReservationResponse {
    */
   Reservation?: Reservation;
 }
+
+/**
+ * @internal
+ */
+export const StartInputDeviceMaintenanceWindowResponseFilterSensitiveLog = (
+  obj: StartInputDeviceMaintenanceWindowResponse
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
