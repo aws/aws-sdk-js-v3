@@ -11622,6 +11622,7 @@
               "deprecated": true,
               "hostname": "network-firewall-fips.us-west-2.amazonaws.com"
             },
+            "me-central-1": {},
             "me-south-1": {},
             "sa-east-1": {},
             "us-east-1": {
@@ -12541,7 +12542,6 @@
             "ap-south-1": {},
             "ap-southeast-1": {},
             "ap-southeast-2": {},
-            "api": {},
             "ca-central-1": {},
             "eu-central-1": {},
             "eu-north-1": {},
@@ -22465,11 +22465,20 @@
         },
         "mediaconvert": {
           "endpoints": {
-            "us-gov-west-1": {
+            "fips-us-gov-west-1": {
               "credentialScope": {
                 "region": "us-gov-west-1"
               },
+              "deprecated": true,
               "hostname": "mediaconvert.us-gov-west-1.amazonaws.com"
+            },
+            "us-gov-west-1": {
+              "variants": [
+                {
+                  "hostname": "mediaconvert.us-gov-west-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
             }
           }
         },
