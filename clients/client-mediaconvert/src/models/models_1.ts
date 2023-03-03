@@ -1175,7 +1175,7 @@ export enum BandwidthReductionFilterStrength {
 }
 
 /**
- * The Bandwidth reduction filter increases the video quality of your output relative to its bitrate. Use to lower the bitrate of your constant quality QVBR output, with little or no perceptual decrease in quality. Or, use to increase the video quality of outputs with other rate control modes relative to the bitrate that you specify. Bandwidth reduction increases further when your input is low quality or noisy.Outputs that use this feature incur pro-tier pricing.When you include Bandwidth reduction filter, you cannot include the Noise reducer preprocessor.
+ * The Bandwidth reduction filter increases the video quality of your output relative to its bitrate. Use to lower the bitrate of your constant quality QVBR output, with little or no perceptual decrease in quality. Or, use to increase the video quality of outputs with other rate control modes relative to the bitrate that you specify. Bandwidth reduction increases further when your input is low quality or noisy. Outputs that use this feature incur pro-tier pricing. When you include Bandwidth reduction filter, you cannot include the Noise reducer preprocessor.
  */
 export interface BandwidthReductionFilter {
   /**
@@ -1184,7 +1184,7 @@ export interface BandwidthReductionFilter {
   Sharpening?: BandwidthReductionFilterSharpening | string;
 
   /**
-   * Specify the strength of the Bandwidth reduction filter. For most workflows, we recommend that you choose Auto. Your output bandwidth will be reduced by at least 8 percent with no perceptual decrease in video quality. If your output bandwidth isn't constrained, set Filter strength to Low or Medium. Low results in minimal to no impact in perceptual quality. For more bandwidth reduction, choose High. The filter helps equalize quality between all scenes and increases video softness. We recommend that you choose High for low bitrate outputs.
+   * Specify the strength of the Bandwidth reduction filter. For most workflows, we recommend that you choose Auto to reduce the bandwidth of your output with little to no perceptual decrease in video quality. For high quality and high bitrate outputs, choose Low. For the most bandwidth reduction, choose High. We recommend that you choose High for low bitrate outputs. Note that High may incur a slight increase in the softness of your output.
    */
   Strength?: BandwidthReductionFilterStrength | string;
 }
@@ -1363,7 +1363,7 @@ export interface H264Settings {
   AdaptiveQuantization?: H264AdaptiveQuantization | string;
 
   /**
-   * The Bandwidth reduction filter increases the video quality of your output relative to its bitrate. Use to lower the bitrate of your constant quality QVBR output, with little or no perceptual decrease in quality. Or, use to increase the video quality of outputs with other rate control modes relative to the bitrate that you specify. Bandwidth reduction increases further when your input is low quality or noisy.Outputs that use this feature incur pro-tier pricing.When you include Bandwidth reduction filter, you cannot include the Noise reducer preprocessor.
+   * The Bandwidth reduction filter increases the video quality of your output relative to its bitrate. Use to lower the bitrate of your constant quality QVBR output, with little or no perceptual decrease in quality. Or, use to increase the video quality of outputs with other rate control modes relative to the bitrate that you specify. Bandwidth reduction increases further when your input is low quality or noisy. Outputs that use this feature incur pro-tier pricing. When you include Bandwidth reduction filter, you cannot include the Noise reducer preprocessor.
    */
   BandwidthReductionFilter?: BandwidthReductionFilter;
 
@@ -3085,6 +3085,7 @@ export enum ColorSpaceConversion {
   FORCE_709 = "FORCE_709",
   FORCE_HDR10 = "FORCE_HDR10",
   FORCE_HLG_2020 = "FORCE_HLG_2020",
+  FORCE_P3D65_HDR = "FORCE_P3D65_HDR",
   FORCE_P3D65_SDR = "FORCE_P3D65_SDR",
   FORCE_P3DCI = "FORCE_P3DCI",
   NONE = "NONE",
@@ -3116,7 +3117,12 @@ export interface ColorCorrector {
   ClipLimits?: ClipLimits;
 
   /**
-   * Specify the color space you want for this output. The service supports conversion between HDR formats, between SDR formats, from SDR to HDR, and from HDR to SDR. SDR to HDR conversion doesn't upgrade the dynamic range. The converted video has an HDR format, but visually appears the same as an unconverted output. HDR to SDR conversion uses Elemental tone mapping technology to approximate the outcome of manually regrading from HDR to SDR. Select Force P3D65 (SDR) to set the output color space metadata to the following: * Color primaries: Display P3 * Transfer characteristics: SMPTE 428M * Matrix coefficients: BT.709
+   * Specify the color space you want for this output. The service supports conversion between HDR formats, between SDR formats, from SDR to HDR, and from HDR to SDR. SDR to HDR conversion doesn't upgrade the dynamic range. The converted video has an HDR format, but visually appears the same as an unconverted output. HDR to SDR conversion uses tone mapping to approximate the outcome of manually regrading from HDR to SDR. When you specify an output color space, MediaConvert uses the following color space metadata, which includes color primaries, transfer characteristics, and matrix coefficients:
+   *   * HDR 10: BT.2020, PQ, BT.2020 non-constant
+   *   * HLG 2020: BT.2020, HLG, BT.2020 non-constant
+   *   * P3DCI (Theater): DCIP3, SMPTE 428M, BT.709
+   *   * P3D65 (SDR): Display P3, sRGB, BT.709
+   *   * P3D65 (HDR): Display P3, PQ, BT.709
    */
   ColorSpaceConversion?: ColorSpaceConversion | string;
 
