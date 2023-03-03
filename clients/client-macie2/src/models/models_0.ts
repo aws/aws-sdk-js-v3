@@ -160,7 +160,7 @@ export interface ObjectCountByEncryptionType {
   s3Managed?: number;
 
   /**
-   * <p>The total number of objects that aren't encrypted or use client-side encryption.</p>
+   * <p>The total number of objects that use client-side encryption or aren't encrypted.</p>
    */
   unencrypted?: number;
 
@@ -322,12 +322,12 @@ export enum Type {
  */
 export interface BucketServerSideEncryption {
   /**
-   * <p>The Amazon Resource Name (ARN) or unique identifier (key ID) for the KMS key that's used by default to encrypt objects that are added to the bucket. This value is null if the bucket uses an Amazon S3 managed key to encrypt new objects or the bucket doesn't encrypt new objects by default.</p>
+   * <p>The Amazon Resource Name (ARN) or unique identifier (key ID) for the KMS key that's used by default to encrypt objects that are added to the bucket. This value is null if the bucket is configured to use an Amazon S3 managed key to encrypt new objects.</p>
    */
   kmsMasterKeyId?: string;
 
   /**
-   * <p>The type of server-side encryption that's used by default when storing new objects in the bucket. Possible values are:</p> <ul><li><p>AES256 - New objects are encrypted with an Amazon S3 managed key. They use SSE-S3 encryption.</p></li> <li><p>aws:kms - New objects are encrypted with an KMS key (kmsMasterKeyId), either an Amazon Web Services managed key or a customer managed key. They use SSE-KMS encryption.</p></li> <li><p>NONE - New objects aren't encrypted by default. Default encryption is disabled for the bucket.</p></li></ul>
+   * <p>The server-side encryption algorithm that's used by default to encrypt objects that are added to the bucket. Possible values are:</p> <ul><li><p>AES256 - New objects are encrypted with an Amazon S3 managed key. They use SSE-S3 encryption.</p></li> <li><p>aws:kms - New objects are encrypted with an KMS key (kmsMasterKeyId), either an Amazon Web Services managed key or a customer managed key. They use SSE-KMS encryption.</p></li> <li><p>NONE - The bucket's default encryption settings don't specify server-side encryption behavior for new objects.</p></li></ul>
    */
   type?: Type | string;
 }
@@ -384,7 +384,7 @@ export interface BucketMetadata {
   accountId?: string;
 
   /**
-   * <p>Specifies whether the bucket policy for the bucket requires server-side encryption of objects when objects are uploaded to the bucket. Possible values are:</p> <ul><li><p>FALSE - The bucket policy requires server-side encryption of new objects. PutObject requests must include a valid server-side encryption header.</p></li> <li><p>TRUE - The bucket doesn't have a bucket policy or it has a bucket policy that doesn't require server-side encryption of new objects. If a bucket policy exists, it doesn't require PutObject requests to include a valid server-side encryption header.</p></li> <li><p>UNKNOWN - Amazon Macie can't determine whether the bucket policy requires server-side encryption of new objects.</p></li></ul> <p>Valid server-side encryption headers are: x-amz-server-side-encryption with a value of AES256 or aws:kms, and x-amz-server-side-encryption-customer-algorithm with a value of AES256.</p>
+   * <p>Specifies whether the bucket policy for the bucket requires server-side encryption of objects when objects are added to the bucket. Possible values are:</p> <ul><li><p>FALSE - The bucket policy requires server-side encryption of new objects. PutObject requests must include a valid server-side encryption header.</p></li> <li><p>TRUE - The bucket doesn't have a bucket policy or it has a bucket policy that doesn't require server-side encryption of new objects. If a bucket policy exists, it doesn't require PutObject requests to include a valid server-side encryption header.</p></li> <li><p>UNKNOWN - Amazon Macie can't determine whether the bucket policy requires server-side encryption of new objects.</p></li></ul> <p>Valid server-side encryption headers are: x-amz-server-side-encryption with a value of AES256 or aws:kms, and x-amz-server-side-encryption-customer-algorithm with a value of AES256.</p>
    */
   allowsUnencryptedObjectUploads?: AllowsUnencryptedObjectUploads | string;
 
@@ -469,12 +469,12 @@ export interface BucketMetadata {
   sensitivityScore?: number;
 
   /**
-   * <p>Specifies whether the bucket encrypts new objects by default and, if so, the type of server-side encryption that's used.</p>
+   * <p>The default server-side encryption settings for the bucket.</p>
    */
   serverSideEncryption?: BucketServerSideEncryption;
 
   /**
-   * <p>Specifies whether the bucket is shared with another Amazon Web Services account, an Amazon CloudFront origin access identity (OAI), or a CloudFront origin access control (OAC). Possible values are:</p> <ul><li><p>EXTERNAL - The bucket is shared with one or more of the following or any combination of the following: an Amazon Web Services account that isn't part of your Amazon Macie organization, a CloudFront OAI, or a CloudFront OAC.</p></li> <li><p>INTERNAL - The bucket is shared with one or more Amazon Web Services accounts that are part of your Amazon Macie organization. It isn't shared with a CloudFront OAI or OAC.</p></li> <li><p>NOT_SHARED - The bucket isn't shared with another Amazon Web Services account, a CloudFront OAI, or a CloudFront OAC.</p></li> <li><p>UNKNOWN - Amazon Macie wasn't able to evaluate the shared access settings for the bucket.</p></li></ul> <p>An <i>Amazon Macie organization</i> is a set of Macie accounts that are centrally managed as a group of related accounts through Organizations or by Macie invitation.</p>
+   * <p>Specifies whether the bucket is shared with another Amazon Web Services account, an Amazon CloudFront origin access identity (OAI), or a CloudFront origin access control (OAC). Possible values are:</p> <ul><li><p>EXTERNAL - The bucket is shared with one or more of the following or any combination of the following: a CloudFront OAI, a CloudFront OAC, or an Amazon Web Services account that isn't part of your Amazon Macie organization.</p></li> <li><p>INTERNAL - The bucket is shared with one or more Amazon Web Services accounts that are part of your Amazon Macie organization. It isn't shared with a CloudFront OAI or OAC.</p></li> <li><p>NOT_SHARED - The bucket isn't shared with another Amazon Web Services account, a CloudFront OAI, or a CloudFront OAC.</p></li> <li><p>UNKNOWN - Amazon Macie wasn't able to evaluate the shared access settings for the bucket.</p></li></ul> <p>An <i>Amazon Macie organization</i> is a set of Macie accounts that are centrally managed as a group of related accounts through Organizations or by Macie invitation.</p>
    */
   sharedAccess?: SharedAccess | string;
 
@@ -1288,7 +1288,7 @@ export interface IamUser {
   principalId?: string;
 
   /**
-   * <p>The user name of the IAM user who performed the action.</p>
+   * <p>The username of the IAM user who performed the action.</p>
    */
   userName?: string;
 }
@@ -1405,11 +1405,11 @@ export enum EncryptionType {
 }
 
 /**
- * <p>Provides information about the server-side encryption settings for an S3 bucket or S3 object.</p>
+ * <p>Provides information about the default server-side encryption settings for an S3 bucket or the encryption settings for an S3 object.</p>
  */
 export interface ServerSideEncryption {
   /**
-   * <p>The server-side encryption algorithm that's used when storing data in the bucket or object. If default encryption is disabled for the bucket or the object isn't encrypted using server-side encryption, this value is NONE.</p>
+   * <p>The server-side encryption algorithm that's used when storing data in the bucket or object. If default encryption settings aren't configured for the bucket or the object isn't encrypted using server-side encryption, this value is NONE.</p>
    */
   encryptionType?: EncryptionType | string;
 
@@ -1439,7 +1439,7 @@ export interface S3BucketOwner {
  */
 export interface S3Bucket {
   /**
-   * <p>Specifies whether the bucket policy for the bucket requires server-side encryption of objects when objects are uploaded to the bucket. Possible values are:</p> <ul><li><p>FALSE - The bucket policy requires server-side encryption of new objects. PutObject requests must include a valid server-side encryption header.</p></li> <li><p>TRUE - The bucket doesn't have a bucket policy or it has a bucket policy that doesn't require server-side encryption of new objects. If a bucket policy exists, it doesn't require PutObject requests to include a valid server-side encryption header.</p></li> <li><p>UNKNOWN - Amazon Macie can't determine whether the bucket policy requires server-side encryption of new objects.</p></li></ul> <p>Valid server-side encryption headers are: x-amz-server-side-encryption with a value of AES256 or aws:kms, and x-amz-server-side-encryption-customer-algorithm with a value of AES256.</p>
+   * <p>Specifies whether the bucket policy for the bucket requires server-side encryption of objects when objects are added to the bucket. Possible values are:</p> <ul><li><p>FALSE - The bucket policy requires server-side encryption of new objects. PutObject requests must include a valid server-side encryption header.</p></li> <li><p>TRUE - The bucket doesn't have a bucket policy or it has a bucket policy that doesn't require server-side encryption of new objects. If a bucket policy exists, it doesn't require PutObject requests to include a valid server-side encryption header.</p></li> <li><p>UNKNOWN - Amazon Macie can't determine whether the bucket policy requires server-side encryption of new objects.</p></li></ul> <p>Valid server-side encryption headers are: x-amz-server-side-encryption with a value of AES256 or aws:kms, and x-amz-server-side-encryption-customer-algorithm with a value of AES256.</p>
    */
   allowsUnencryptedObjectUploads?: AllowsUnencryptedObjectUploads | string;
 
@@ -1454,7 +1454,7 @@ export interface S3Bucket {
   createdAt?: Date;
 
   /**
-   * <p>The type of server-side encryption that's used by default to encrypt objects in the bucket.</p>
+   * <p>The default server-side encryption settings for the bucket.</p>
    */
   defaultServerSideEncryption?: ServerSideEncryption;
 
@@ -1531,7 +1531,7 @@ export interface S3Object {
   publicAccess?: boolean;
 
   /**
-   * <p>The type of server-side encryption that's used to encrypt the object.</p>
+   * <p>The type of server-side encryption that was used to encrypt the object.</p>
    */
   serverSideEncryption?: ServerSideEncryption;
 
@@ -2298,12 +2298,12 @@ export interface SearchResourcesCriteria {
  */
 export interface SensitivityInspectionTemplatesEntry {
   /**
-   * <p>The unique identifier for the sensitivity inspection template for the account.</p>
+   * <p>The unique identifier for the sensitivity inspection template.</p>
    */
   id?: string;
 
   /**
-   * <p>The name of the sensitivity inspection template for the account: automated-sensitive-data-discovery.</p>
+   * <p>The name of the sensitivity inspection template: automated-sensitive-data-discovery.</p>
    */
   name?: string;
 }
@@ -2776,21 +2776,21 @@ export interface BucketCountByEffectivePermission {
 }
 
 /**
- * <p>Provides information about the number of S3 buckets that use certain types of server-side encryption by default or don't encrypt new objects by default. For detailed information about these settings, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html">Setting default server-side encryption behavior for Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ * <p>Provides information about the number of S3 buckets whose settings do or don't specify default server-side encryption behavior for objects that are added to the buckets. For detailed information about these settings, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html">Setting default server-side encryption behavior for Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  */
 export interface BucketCountByEncryptionType {
   /**
-   * <p>The total number of buckets that use an KMS key to encrypt new objects by default, either an Amazon Web Services managed key or a customer managed key. These buckets use KMS encryption (SSE-KMS) by default.</p>
+   * <p>The total number of buckets whose default encryption settings are configured to encrypt new objects with an Amazon Web Services managed KMS key or a customer managed KMS key. By default, these buckets encrypt new objects automatically using SSE-KMS encryption.</p>
    */
   kmsManaged?: number;
 
   /**
-   * <p>The total number of buckets that use an Amazon S3 managed key to encrypt new objects by default. These buckets use Amazon S3 managed encryption (SSE-S3) by default.</p>
+   * <p>The total number of buckets whose default encryption settings are configured to encrypt new objects with an Amazon S3 managed key. By default, these buckets encrypt new objects automatically using SSE-S3 encryption.</p>
    */
   s3Managed?: number;
 
   /**
-   * <p>The total number of buckets that don't encrypt new objects by default. Default encryption is disabled for these buckets.</p>
+   * <p>The total number of buckets that don't specify default server-side encryption behavior for new objects. Default encryption settings aren't configured for these buckets.</p>
    */
   unencrypted?: number;
 
@@ -2805,7 +2805,7 @@ export interface BucketCountByEncryptionType {
  */
 export interface BucketCountBySharedAccessType {
   /**
-   * <p>The total number of buckets that are shared with one or more of the following or any combination of the following: an Amazon Web Services account that isn't in the same Amazon Macie organization, an Amazon CloudFront OAI, or a CloudFront OAC.</p>
+   * <p>The total number of buckets that are shared with one or more of the following or any combination of the following: an Amazon CloudFront OAI, a CloudFront OAC, or an Amazon Web Services account that isn't in the same Amazon Macie organization.</p>
    */
   external?: number;
 
@@ -2826,7 +2826,7 @@ export interface BucketCountBySharedAccessType {
 }
 
 /**
- * <p>Provides information about the number of S3 buckets whose bucket policies do or don't require server-side encryption of objects when objects are uploaded to the buckets.</p>
+ * <p>Provides information about the number of S3 buckets whose bucket policies do or don't require server-side encryption of objects when objects are added to the buckets.</p>
  */
 export interface BucketCountPolicyAllowsUnencryptedObjectUploads {
   /**
@@ -3898,12 +3898,12 @@ export interface GetBucketStatisticsResponse {
   bucketCountByEffectivePermission?: BucketCountByEffectivePermission;
 
   /**
-   * <p>The total number of buckets that use certain types of server-side encryption to encrypt new objects by default. This object also reports the total number of buckets that don't encrypt new objects by default.</p>
+   * <p>The total number of buckets whose settings do or don't specify default server-side encryption behavior for objects that are added to the buckets.</p>
    */
   bucketCountByEncryptionType?: BucketCountByEncryptionType;
 
   /**
-   * <p>The total number of buckets whose bucket policies do or don't require server-side encryption of objects when objects are uploaded to the buckets.</p>
+   * <p>The total number of buckets whose bucket policies do or don't require server-side encryption of objects when objects are added to the buckets.</p>
    */
   bucketCountByObjectEncryptionRequirement?: BucketCountPolicyAllowsUnencryptedObjectUploads;
 
