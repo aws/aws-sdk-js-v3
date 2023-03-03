@@ -1,6 +1,13 @@
 // smithy-typescript generated code
 import { ByoipCidr, IpPermission, NatGatewayAddress } from "./models_0";
-import { InstanceMonitoring } from "./models_6";
+import { InstanceMonitoring, InstanceStateChange } from "./models_6";
+
+export interface TerminateInstancesResult {
+  /**
+   * <p>Information about the terminated instances.</p>
+   */
+  TerminatingInstances?: InstanceStateChange[];
+}
 
 export interface UnassignIpv6AddressesRequest {
   /**
@@ -233,6 +240,13 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const TerminateInstancesResultFilterSensitiveLog = (obj: TerminateInstancesResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal

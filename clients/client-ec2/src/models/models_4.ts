@@ -110,11 +110,12 @@ import {
   HypervisorType,
   IdFormat,
   InstanceBlockDeviceMapping,
+  InstanceBootModeValues,
   InstanceLifecycleType,
   InstanceMaintenanceOptions,
   InstanceMetadataOptionsResponse,
   InstanceNetworkInterface,
-  InstanceState,
+  InstanceStateName,
   LicenseConfiguration,
   Monitoring,
   PermissionGroup,
@@ -122,6 +123,62 @@ import {
   ProductCode,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * <p>Describes the current state of an instance.</p>
+ */
+export interface InstanceState {
+  /**
+   * <p>The state of the instance as a 16-bit unsigned integer. </p>
+   *          <p>The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values
+   *             between 256 and 65,535. These numerical values are used for internal purposes and should
+   *             be ignored.</p>
+   *          <p>The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values
+   *             between 0 and 255. </p>
+   *          <p>The valid values for instance-state-code will all be in the range of the low byte and
+   *             they are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>0</code> : <code>pending</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>16</code> : <code>running</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>32</code> : <code>shutting-down</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>48</code> : <code>terminated</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>64</code> : <code>stopping</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>80</code> : <code>stopped</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in
+   *             decimal.</p>
+   */
+  Code?: number;
+
+  /**
+   * <p>The current state of the instance.</p>
+   */
+  Name?: InstanceStateName | string;
+}
 
 /**
  * <p>Describes an instance.</p>
@@ -391,7 +448,13 @@ export interface Instance {
   EnclaveOptions?: EnclaveOptions;
 
   /**
-   * <p>The boot mode of the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
+   * <p>The boot mode that was specified by the AMI. If the value is <code>uefi-preferred</code>,
+   *             the AMI supports both UEFI and Legacy BIOS. The <code>currentInstanceBootMode</code> parameter
+   *             is the boot mode that is used to boot the instance at launch or start.</p>
+   *          <note>
+   *             <p>The operating system contained in the AMI must be configured to support the specified boot mode.</p>
+   *          </note>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
    */
   BootMode?: BootModeValues | string;
@@ -436,6 +499,12 @@ export interface Instance {
    * <p>Provides information on the recovery and maintenance options of your instance.</p>
    */
   MaintenanceOptions?: InstanceMaintenanceOptions;
+
+  /**
+   * <p>The boot mode that is used to boot the instance at launch or start. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
+   */
+  CurrentInstanceBootMode?: InstanceBootModeValues | string;
 }
 
 /**
@@ -4559,7 +4628,12 @@ export interface DescribeReservedInstancesRequest {
   OfferingType?: OfferingTypeValues | string;
 }
 
-export type RIProductDescription = "Linux/UNIX" | "Linux/UNIX (Amazon VPC)" | "Windows" | "Windows (Amazon VPC)";
+export enum RIProductDescription {
+  Linux_UNIX = "Linux/UNIX",
+  Linux_UNIX_Amazon_VPC_ = "Linux/UNIX (Amazon VPC)",
+  Windows = "Windows",
+  Windows_Amazon_VPC_ = "Windows (Amazon VPC)",
+}
 
 export enum RecurringChargeFrequency {
   Hourly = "Hourly",
@@ -10428,10 +10502,12 @@ export interface VolumeStatusEvent {
   InstanceId?: string;
 }
 
-export enum VolumeStatusName {
-  io_enabled = "io-enabled",
-  io_performance = "io-performance",
-}
+/**
+ * @internal
+ */
+export const InstanceStateFilterSensitiveLog = (obj: InstanceState): any => ({
+  ...obj,
+});
 
 /**
  * @internal

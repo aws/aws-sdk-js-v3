@@ -444,7 +444,7 @@ export interface CreateCustomerGatewayRequest {
    * <p>For devices that support BGP, the customer gateway's BGP ASN.</p>
    *          <p>Default: 65000</p>
    */
-  BgpAsn: number | undefined;
+  BgpAsn?: number;
 
   /**
    * <p>

@@ -117,7 +117,6 @@ import {
   InstanceMetadataOptionsResponse,
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
-  InstanceState,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
   LaunchPermission,
@@ -129,6 +128,7 @@ import {
   CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
   InstanceNetworkInterfaceSpecification,
+  InstanceState,
   InstanceStatusEvent,
   LaunchTemplateConfig,
   NetworkInsightsAccessScopeAnalysis,
@@ -152,6 +152,13 @@ import {
   Purchase,
   UnlimitedSupportedInstanceFamily,
 } from "./models_5";
+
+export interface ModifyAddressAttributeResult {
+  /**
+   * <p>Information about the Elastic IP address.</p>
+   */
+  Address?: AddressAttribute;
+}
 
 export enum ModifyAvailabilityZoneOptInStatus {
   not_opted_in = "not-opted-in",
@@ -4472,7 +4479,11 @@ export interface RegisterImageRequest {
   VirtualizationType?: string;
 
   /**
-   * <p>The boot mode of the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
+   * <p>The boot mode of the AMI. A value of <code>uefi-preferred</code> indicates that the AMI supports both UEFI and Legacy BIOS.</p>
+   *          <note>
+   *             <p>The operating system contained in the AMI must be configured to support the specified boot mode.</p>
+   *          </note>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
    *         <i>Amazon EC2 User Guide</i>.</p>
    */
   BootMode?: BootModeValues | string;
@@ -7551,12 +7562,12 @@ export interface TerminateInstancesRequest {
   DryRun?: boolean;
 }
 
-export interface TerminateInstancesResult {
-  /**
-   * <p>Information about the terminated instances.</p>
-   */
-  TerminatingInstances?: InstanceStateChange[];
-}
+/**
+ * @internal
+ */
+export const ModifyAddressAttributeResultFilterSensitiveLog = (obj: ModifyAddressAttributeResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9754,12 +9765,5 @@ export const TerminateClientVpnConnectionsResultFilterSensitiveLog = (
  * @internal
  */
 export const TerminateInstancesRequestFilterSensitiveLog = (obj: TerminateInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateInstancesResultFilterSensitiveLog = (obj: TerminateInstancesResult): any => ({
   ...obj,
 });

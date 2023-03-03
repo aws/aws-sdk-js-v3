@@ -4,7 +4,6 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import {
   _InstanceType,
   AccessScopeAnalysisFinding,
-  AddressAttribute,
   AddressTransfer,
   AllowedPrincipal,
   AssociationStatus,
@@ -89,8 +88,12 @@ import {
   VolumeStatusAction,
   VolumeStatusAttachmentStatus,
   VolumeStatusEvent,
-  VolumeStatusName,
 } from "./models_4";
+
+export enum VolumeStatusName {
+  io_enabled = "io-enabled",
+  io_performance = "io-performance",
+}
 
 /**
  * <p>Describes a volume status.</p>
@@ -6806,13 +6809,6 @@ export interface ModifyAddressAttributeRequest {
   DryRun?: boolean;
 }
 
-export interface ModifyAddressAttributeResult {
-  /**
-   * <p>Information about the Elastic IP address.</p>
-   */
-  Address?: AddressAttribute;
-}
-
 /**
  * @internal
  */
@@ -9067,12 +9063,5 @@ export const ListSnapshotsInRecycleBinResultFilterSensitiveLog = (obj: ListSnaps
  * @internal
  */
 export const ModifyAddressAttributeRequestFilterSensitiveLog = (obj: ModifyAddressAttributeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyAddressAttributeResultFilterSensitiveLog = (obj: ModifyAddressAttributeResult): any => ({
   ...obj,
 });
