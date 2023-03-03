@@ -764,7 +764,7 @@ export interface RelativeTimeRange {
  *                <p>A lack of interruptions</p>
  *             </li>
  *          </ul>
- *          <p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for batch
+ *          <p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for post-call
  *             categories</a> for usage examples.</p>
  */
 export interface InterruptionFilter {
@@ -811,7 +811,7 @@ export interface InterruptionFilter {
  *                <p>The presence of speech at specified periods throughout the call</p>
  *             </li>
  *          </ul>
- *          <p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for batch
+ *          <p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for post-call
  *             categories</a> for usage examples.</p>
  */
 export interface NonTalkTimeFilter {
@@ -869,7 +869,7 @@ export enum SentimentValue {
  *                     or both at specified points in the call</p>
  *             </li>
  *          </ul>
- *          <p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for batch
+ *          <p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for post-call
  *             categories</a> for usage examples.</p>
  */
 export interface SentimentFilter {
@@ -924,7 +924,7 @@ export enum TranscriptFilterType {
  *                <p>Custom words or phrases that occur at a specific time frame</p>
  *             </li>
  *          </ul>
- *          <p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for batch
+ *          <p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for post-call
  *             categories</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html#tca-rules-stream">Rule criteria for
  *                 streaming categories</a> for usage examples.</p>
  */
@@ -974,9 +974,9 @@ export interface TranscriptFilter {
  * <p>A rule is a set of criteria that you can specify to flag an attribute in your Call
  *             Analytics output. Rules define a Call Analytics category.</p>
  *          <p>Rules can include these parameters: , , , and .</p>
- *          <p>To learn more about Call Analytics rules and categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for batch
+ *          <p>To learn more about Call Analytics rules and categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for post-call
  *             transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating categories for
- *                 streaming transcriptions</a>.</p>
+ *                 real-time transcriptions</a>.</p>
  *          <p>To learn more about Call Analytics, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Analyzing call center audio with Call
  *                 Analytics</a>.</p>
  */
@@ -1156,15 +1156,14 @@ export interface CreateCallAnalyticsCategoryRequest {
   Rules: Rule[] | undefined;
 
   /**
-   * <p>Choose whether you want to create a streaming or a batch category for your Call Analytics
-   *             transcription.</p>
-   *          <p>Specifying <code>POST_CALL</code> assigns your category to batch transcriptions;
+   * <p>Choose whether you want to create a real-time or a post-call category for your Call
+   *             Analytics transcription.</p>
+   *          <p>Specifying <code>POST_CALL</code> assigns your category to post-call transcriptions;
    *             categories with this input type cannot be applied to streaming (real-time)
    *             transcriptions.</p>
    *          <p>Specifying <code>REAL_TIME</code> assigns your category to streaming transcriptions;
-   *             categories with this input type cannot be applied to batch (post-call)
-   *             transcriptions.</p>
-   *          <p>If you do not include <code>InputType</code>, your category is created as a batch
+   *             categories with this input type cannot be applied to post-call transcriptions.</p>
+   *          <p>If you do not include <code>InputType</code>, your category is created as a post-call
    *             category by default.</p>
    */
   InputType?: InputType | string;
@@ -1251,7 +1250,8 @@ export interface InputDataConfig {
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
    *             access the Amazon S3 bucket that contains your input files. If the role that you
-   *             specify doesn’t have the appropriate permissions to access the specified Amazon S3 location, your request fails.</p>
+   *             specify doesn’t have the appropriate permissions to access the specified Amazon S3
+   *             location, your request fails.</p>
    *          <p>IAM role ARNs have the format
    *                 <code>arn:partition:iam::account:role/role-name-with-path</code>. For example:
    *                 <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
@@ -1513,6 +1513,19 @@ export interface CreateVocabularyRequest {
    *                 resources</a>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
+   *             access the Amazon S3 bucket that contains your input files (in this case, your custom
+   *             vocabulary). If the role that you specify doesn’t have the appropriate permissions to access
+   *             the specified Amazon S3 location, your request fails.</p>
+   *          <p>IAM role ARNs have the format
+   *             <code>arn:partition:iam::account:role/role-name-with-path</code>. For example:
+   *             <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
+   *             ARNs</a>.</p>
+   */
+  DataAccessRoleArn?: string;
 }
 
 export interface CreateVocabularyResponse {
@@ -1605,6 +1618,19 @@ export interface CreateVocabularyFilterRequest {
    *                 resources</a>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
+   *             access the Amazon S3 bucket that contains your input files (in this case, your custom
+   *             vocabulary filter). If the role that you specify doesn’t have the appropriate permissions to access
+   *             the specified Amazon S3 location, your request fails.</p>
+   *          <p>IAM role ARNs have the format
+   *             <code>arn:partition:iam::account:role/role-name-with-path</code>. For example:
+   *             <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
+   *             ARNs</a>.</p>
+   */
+  DataAccessRoleArn?: string;
 }
 
 export interface CreateVocabularyFilterResponse {
@@ -1726,11 +1752,33 @@ export interface DescribeLanguageModelRequest {
 }
 
 /**
- * <p>Provides
- *             information about a custom language model, including the base model name, when the model
- *             was created, the location of the files used to train the model, when the model was last
- *             modified, the name you chose for the model, its language, its processing state, and if
- *             there is an upgrade available for the base model.</p>
+ * <p>Provides information about a custom language model, including:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The base model name</p>
+ *             </li>
+ *             <li>
+ *                <p>When the model was created</p>
+ *             </li>
+ *             <li>
+ *                <p>The location of the files used to train the model</p>
+ *             </li>
+ *             <li>
+ *                <p>When the model was last modified</p>
+ *             </li>
+ *             <li>
+ *                <p>The name you chose for the model</p>
+ *             </li>
+ *             <li>
+ *                <p>The model's language</p>
+ *             </li>
+ *             <li>
+ *                <p>The model's  processing state</p>
+ *             </li>
+ *             <li>
+ *                <p>Any available upgrades for the base model</p>
+ *             </li>
+ *          </ul>
  */
 export interface LanguageModel {
   /**
@@ -1808,8 +1856,7 @@ export interface LanguageModel {
 
 export interface DescribeLanguageModelResponse {
   /**
-   * <p>Provides information about the specified custom language
-   *             model.</p>
+   * <p>Provides information about the specified custom language model.</p>
    *          <p>This parameter also shows if the base language model you used to create your custom
    *             language model has been updated. If Amazon Transcribe has updated the base model, you
    *             can create a new custom language model using the updated base model.</p>
@@ -2218,7 +2265,6 @@ export interface JobExecutionSettings {
    *             the concurrent request limit. If <code>AllowDeferredExecution</code> is set to
    *                 <code>false</code> and the number of transcription job requests exceed the
    *             concurrent request limit, you get a <code>LimitExceededException</code> error.</p>
-   *          <p>Note that job queuing is enabled by default for Call Analytics jobs.</p>
    *          <p>If you include <code>AllowDeferredExecution</code> in your request, you must also
    *             include <code>DataAccessRoleArn</code>.</p>
    */
@@ -3489,7 +3535,7 @@ export interface StartCallAnalyticsJobRequest {
    *                 Amazon S3 key (SSE-S3).</p>
    *          <p>If you specify a KMS key to encrypt your output, you must also specify
    *             an output location using the <code>OutputLocation</code> parameter.</p>
-   *          <p>Note that the user making the  request must
+   *          <p>Note that the role making the  request must
    *             have permission to use the specified KMS key.</p>
    */
   OutputEncryptionKMSKeyId?: string;
@@ -3499,10 +3545,10 @@ export interface StartCallAnalyticsJobRequest {
    *             access the Amazon S3 bucket that contains your input files. If the role that you
    *             specify doesn’t have the appropriate permissions to access the specified Amazon S3 location, your request fails.</p>
    *          <p>IAM role ARNs have the format
-   *                 <code>arn:partition:iam::account:role/role-name-with-path</code>. For example:
-   *                 <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
+   *             <code>arn:partition:iam::account:role/role-name-with-path</code>. For example:
+   *             <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
-   *                 ARNs</a>.</p>
+   *             ARNs</a>.</p>
    */
   DataAccessRoleArn?: string;
 
@@ -3669,7 +3715,7 @@ export interface StartMedicalTranscriptionJobRequest {
    *                 Amazon S3 key (SSE-S3).</p>
    *          <p>If you specify a KMS key to encrypt your output, you must also specify
    *             an output location using the <code>OutputLocation</code> parameter.</p>
-   *          <p>Note that the user making the  request must
+   *          <p>Note that the role making the  request must
    *             have permission to use the specified KMS key.</p>
    */
   OutputEncryptionKMSKeyId?: string;
@@ -3900,7 +3946,7 @@ export interface StartTranscriptionJobRequest {
    *                 Amazon S3 key (SSE-S3).</p>
    *          <p>If you specify a KMS key to encrypt your output, you must also specify
    *             an output location using the <code>OutputLocation</code> parameter.</p>
-   *          <p>Note that the user making the  request must
+   *          <p>Note that the role making the  request must
    *             have permission to use the specified KMS key.</p>
    */
   OutputEncryptionKMSKeyId?: string;
@@ -4124,7 +4170,7 @@ export interface UpdateCallAnalyticsCategoryRequest {
   Rules: Rule[] | undefined;
 
   /**
-   * <p>Choose whether you want to update a streaming or a batch Call Analytics category. The
+   * <p>Choose whether you want to update a real-time or a post-call category. The
    *             input type you specify must match the input type specified when the category was created. For
    *             example, if you created a category with the <code>POST_CALL</code> input type, you must
    *             use <code>POST_CALL</code> as the input type when updating this category.</p>
@@ -4240,6 +4286,19 @@ export interface UpdateVocabularyRequest {
    *             use the <code>Phrases</code> flag; you must choose one or the other.</p>
    */
   VocabularyFileUri?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
+   *             access the Amazon S3 bucket that contains your input files (in this case, your custom
+   *             vocabulary). If the role that you specify doesn’t have the appropriate permissions to access
+   *             the specified Amazon S3 location, your request fails.</p>
+   *          <p>IAM role ARNs have the format
+   *             <code>arn:partition:iam::account:role/role-name-with-path</code>. For example:
+   *             <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
+   *             ARNs</a>.</p>
+   */
+  DataAccessRoleArn?: string;
 }
 
 export interface UpdateVocabularyResponse {
@@ -4302,6 +4361,19 @@ export interface UpdateVocabularyFilterRequest {
    *             cannot use <code>Words</code>; you must choose one or the other.</p>
    */
   VocabularyFilterFileUri?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
+   *             access the Amazon S3 bucket that contains your input files (in this case, your custom
+   *             vocabulary filter). If the role that you specify doesn’t have the appropriate permissions to access
+   *             the specified Amazon S3 location, your request fails.</p>
+   *          <p>IAM role ARNs have the format
+   *             <code>arn:partition:iam::account:role/role-name-with-path</code>. For example:
+   *             <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
+   *             ARNs</a>.</p>
+   */
+  DataAccessRoleArn?: string;
 }
 
 export interface UpdateVocabularyFilterResponse {

@@ -37,11 +37,11 @@ export interface CreateMedicalVocabularyCommandOutput extends CreateMedicalVocab
 /**
  * <p>Creates a new custom medical vocabulary.</p>
  *          <p>Before creating a new custom medical vocabulary, you must first upload a text file
- *             that contains your new entries, phrases, and terms into an Amazon S3 bucket.
+ *             that contains your vocabulary table into an Amazon S3 bucket.
  *             Note that this differs from , where you can
  *             include a list of terms within your request using the <code>Phrases</code> flag;
  *                 <code>CreateMedicalVocabulary</code> does not support the <code>Phrases</code>
- *             flag.</p>
+ *             flag and only accepts vocabularies in table format.</p>
  *          <p>Each language has a character set that contains all allowed characters for that
  *             specific language. If you use unsupported characters, your custom vocabulary request
  *             fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom Vocabularies</a> to get the character set for your

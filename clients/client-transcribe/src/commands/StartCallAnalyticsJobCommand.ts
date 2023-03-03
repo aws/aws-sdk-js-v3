@@ -45,12 +45,13 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  *          <p>If you want to apply categories to your Call Analytics job, you must create them
  *             before submitting your job request. Categories cannot be retroactively applied to a job.
  *             To create a new category, use the
- *             operation. To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for batch
+ *             operation. To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for post-call
  *                 transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating categories for
- *                     streaming transcriptions</a>.</p>
+ *                     real-time transcriptions</a>.</p>
  *          <p>To make a <code>StartCallAnalyticsJob</code> request, you must first upload your media
  *             file into an Amazon S3 bucket; you can then specify the Amazon S3
  *             location of the file using the <code>Media</code> parameter.</p>
+ *          <p>Note that job queuing is enabled by default for Call Analytics jobs.</p>
  *          <p>You must include the following parameters in your <code>StartCallAnalyticsJob</code>
  *             request:</p>
  *          <ul>
