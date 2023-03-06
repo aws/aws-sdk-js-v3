@@ -5,13 +5,7 @@ import { Readable } from "stream";
 
 export function writeRequestBody(httpRequest: ClientRequest | ClientHttp2Stream, request: HttpRequest) {
   const expect = request.headers["Expect"] || request.headers["expect"];
-  if (expect === "100-continue") {
-    httpRequest.on("continue", () => {
-      writeBody(httpRequest, request.body);
-    });
-  } else {
-    writeBody(httpRequest, request.body);
-  }
+  writeBody(httpRequest, request.body);
 }
 
 function writeBody(
