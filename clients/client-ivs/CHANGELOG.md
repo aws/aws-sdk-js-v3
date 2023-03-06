@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.285.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.284.0...v3.285.0) (2023-03-06)
+
+**Note:** Version bump only for package @aws-sdk/client-ivs
+
+
+
+
+
 # [3.282.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.281.0...v3.282.0) (2023-03-01)
 
 **Note:** Version bump only for package @aws-sdk/client-ivs
