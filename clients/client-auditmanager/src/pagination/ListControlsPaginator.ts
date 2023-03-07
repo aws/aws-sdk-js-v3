@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { AuditManager } from "../AuditManager";
 import { AuditManagerClient } from "../AuditManagerClient";
 import {
   ListControlsCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListControlsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: AuditManager,
-  input: ListControlsCommandInput,
-  ...args: any
-): Promise<ListControlsCommandOutput> => {
-  // @ts-ignore
-  return await client.listControls(input, ...args);
-};
 export async function* paginateListControls(
   config: AuditManagerPaginationConfiguration,
   input: ListControlsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListControls(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof AuditManager) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AuditManagerClient) {
+    if (config.client instanceof AuditManagerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AuditManager | AuditManagerClient");

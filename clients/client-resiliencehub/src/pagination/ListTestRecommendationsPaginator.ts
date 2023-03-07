@@ -6,7 +6,6 @@ import {
   ListTestRecommendationsCommandInput,
   ListTestRecommendationsCommandOutput,
 } from "../commands/ListTestRecommendationsCommand";
-import { Resiliencehub } from "../Resiliencehub";
 import { ResiliencehubClient } from "../ResiliencehubClient";
 import { ResiliencehubPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTestRecommendationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Resiliencehub,
-  input: ListTestRecommendationsCommandInput,
-  ...args: any
-): Promise<ListTestRecommendationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listTestRecommendations(input, ...args);
-};
 export async function* paginateListTestRecommendations(
   config: ResiliencehubPaginationConfiguration,
   input: ListTestRecommendationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListTestRecommendations(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Resiliencehub) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ResiliencehubClient) {
+    if (config.client instanceof ResiliencehubClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Resiliencehub | ResiliencehubClient");

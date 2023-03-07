@@ -6,7 +6,6 @@ import {
   ListDataIngestionJobsCommandInput,
   ListDataIngestionJobsCommandOutput,
 } from "../commands/ListDataIngestionJobsCommand";
-import { LookoutEquipment } from "../LookoutEquipment";
 import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
 import { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDataIngestionJobsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: LookoutEquipment,
-  input: ListDataIngestionJobsCommandInput,
-  ...args: any
-): Promise<ListDataIngestionJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDataIngestionJobs(input, ...args);
-};
 export async function* paginateListDataIngestionJobs(
   config: LookoutEquipmentPaginationConfiguration,
   input: ListDataIngestionJobsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDataIngestionJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LookoutEquipment) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LookoutEquipmentClient) {
+    if (config.client instanceof LookoutEquipmentClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LookoutEquipment | LookoutEquipmentClient");

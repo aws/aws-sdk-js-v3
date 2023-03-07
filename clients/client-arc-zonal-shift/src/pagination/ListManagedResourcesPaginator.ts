@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { ARCZonalShift } from "../ARCZonalShift";
 import { ARCZonalShiftClient } from "../ARCZonalShiftClient";
 import {
   ListManagedResourcesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListManagedResourcesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ARCZonalShift,
-  input: ListManagedResourcesCommandInput,
-  ...args: any
-): Promise<ListManagedResourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.listManagedResources(input, ...args);
-};
 export async function* paginateListManagedResources(
   config: ARCZonalShiftPaginationConfiguration,
   input: ListManagedResourcesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListManagedResources(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ARCZonalShift) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ARCZonalShiftClient) {
+    if (config.client instanceof ARCZonalShiftClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ARCZonalShift | ARCZonalShiftClient");

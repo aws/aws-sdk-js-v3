@@ -6,7 +6,6 @@ import {
   ListPlaybackConfigurationsCommandInput,
   ListPlaybackConfigurationsCommandOutput,
 } from "../commands/ListPlaybackConfigurationsCommand";
-import { MediaTailor } from "../MediaTailor";
 import { MediaTailorClient } from "../MediaTailorClient";
 import { MediaTailorPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPlaybackConfigurationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: MediaTailor,
-  input: ListPlaybackConfigurationsCommandInput,
-  ...args: any
-): Promise<ListPlaybackConfigurationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPlaybackConfigurations(input, ...args);
-};
 export async function* paginateListPlaybackConfigurations(
   config: MediaTailorPaginationConfiguration,
   input: ListPlaybackConfigurationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListPlaybackConfigurations(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MediaTailor) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MediaTailorClient) {
+    if (config.client instanceof MediaTailorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MediaTailor | MediaTailorClient");

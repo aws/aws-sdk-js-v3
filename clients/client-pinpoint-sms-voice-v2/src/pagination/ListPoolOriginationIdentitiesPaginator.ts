@@ -6,7 +6,6 @@ import {
   ListPoolOriginationIdentitiesCommandInput,
   ListPoolOriginationIdentitiesCommandOutput,
 } from "../commands/ListPoolOriginationIdentitiesCommand";
-import { PinpointSMSVoiceV2 } from "../PinpointSMSVoiceV2";
 import { PinpointSMSVoiceV2Client } from "../PinpointSMSVoiceV2Client";
 import { PinpointSMSVoiceV2PaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPoolOriginationIdentitiesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: PinpointSMSVoiceV2,
-  input: ListPoolOriginationIdentitiesCommandInput,
-  ...args: any
-): Promise<ListPoolOriginationIdentitiesCommandOutput> => {
-  // @ts-ignore
-  return await client.listPoolOriginationIdentities(input, ...args);
-};
 export async function* paginateListPoolOriginationIdentities(
   config: PinpointSMSVoiceV2PaginationConfiguration,
   input: ListPoolOriginationIdentitiesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListPoolOriginationIdentities(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof PinpointSMSVoiceV2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PinpointSMSVoiceV2Client) {
+    if (config.client instanceof PinpointSMSVoiceV2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected PinpointSMSVoiceV2 | PinpointSMSVoiceV2Client");

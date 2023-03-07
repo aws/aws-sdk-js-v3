@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListFaqsCommand, ListFaqsCommandInput, ListFaqsCommandOutput } from "../commands/ListFaqsCommand";
-import { Kendra } from "../Kendra";
 import { KendraClient } from "../KendraClient";
 import { KendraPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFaqsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Kendra,
-  input: ListFaqsCommandInput,
-  ...args: any
-): Promise<ListFaqsCommandOutput> => {
-  // @ts-ignore
-  return await client.listFaqs(input, ...args);
-};
 export async function* paginateListFaqs(
   config: KendraPaginationConfiguration,
   input: ListFaqsCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListFaqs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Kendra) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KendraClient) {
+    if (config.client instanceof KendraClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Kendra | KendraClient");

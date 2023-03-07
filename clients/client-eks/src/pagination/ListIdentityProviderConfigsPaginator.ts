@@ -6,7 +6,6 @@ import {
   ListIdentityProviderConfigsCommandInput,
   ListIdentityProviderConfigsCommandOutput,
 } from "../commands/ListIdentityProviderConfigsCommand";
-import { EKS } from "../EKS";
 import { EKSClient } from "../EKSClient";
 import { EKSPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListIdentityProviderConfigsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: EKS,
-  input: ListIdentityProviderConfigsCommandInput,
-  ...args: any
-): Promise<ListIdentityProviderConfigsCommandOutput> => {
-  // @ts-ignore
-  return await client.listIdentityProviderConfigs(input, ...args);
-};
 export async function* paginateListIdentityProviderConfigs(
   config: EKSPaginationConfiguration,
   input: ListIdentityProviderConfigsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListIdentityProviderConfigs(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof EKS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EKSClient) {
+    if (config.client instanceof EKSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EKS | EKSClient");

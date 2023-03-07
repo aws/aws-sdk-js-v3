@@ -6,7 +6,6 @@ import {
   ListTemplateAliasesCommandInput,
   ListTemplateAliasesCommandOutput,
 } from "../commands/ListTemplateAliasesCommand";
-import { QuickSight } from "../QuickSight";
 import { QuickSightClient } from "../QuickSightClient";
 import { QuickSightPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTemplateAliasesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: QuickSight,
-  input: ListTemplateAliasesCommandInput,
-  ...args: any
-): Promise<ListTemplateAliasesCommandOutput> => {
-  // @ts-ignore
-  return await client.listTemplateAliases(input, ...args);
-};
 export async function* paginateListTemplateAliases(
   config: QuickSightPaginationConfiguration,
   input: ListTemplateAliasesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListTemplateAliases(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof QuickSight) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof QuickSightClient) {
+    if (config.client instanceof QuickSightClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected QuickSight | QuickSightClient");

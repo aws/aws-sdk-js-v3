@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListKeysCommand, ListKeysCommandInput, ListKeysCommandOutput } from "../commands/ListKeysCommand";
-import { Location } from "../Location";
 import { LocationClient } from "../LocationClient";
 import { LocationPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListKeysCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Location,
-  input: ListKeysCommandInput,
-  ...args: any
-): Promise<ListKeysCommandOutput> => {
-  // @ts-ignore
-  return await client.listKeys(input, ...args);
-};
 export async function* paginateListKeys(
   config: LocationPaginationConfiguration,
   input: ListKeysCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListKeys(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Location) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LocationClient) {
+    if (config.client instanceof LocationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Location | LocationClient");

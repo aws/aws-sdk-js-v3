@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { GetBotsCommand, GetBotsCommandInput, GetBotsCommandOutput } from "../commands/GetBotsCommand";
-import { LexModelBuildingService } from "../LexModelBuildingService";
 import { LexModelBuildingServiceClient } from "../LexModelBuildingServiceClient";
 import { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetBotsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: LexModelBuildingService,
-  input: GetBotsCommandInput,
-  ...args: any
-): Promise<GetBotsCommandOutput> => {
-  // @ts-ignore
-  return await client.getBots(input, ...args);
-};
 export async function* paginateGetBots(
   config: LexModelBuildingServicePaginationConfiguration,
   input: GetBotsCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateGetBots(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof LexModelBuildingService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LexModelBuildingServiceClient) {
+    if (config.client instanceof LexModelBuildingServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LexModelBuildingService | LexModelBuildingServiceClient");

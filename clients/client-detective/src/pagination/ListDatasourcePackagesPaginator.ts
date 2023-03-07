@@ -6,7 +6,6 @@ import {
   ListDatasourcePackagesCommandInput,
   ListDatasourcePackagesCommandOutput,
 } from "../commands/ListDatasourcePackagesCommand";
-import { Detective } from "../Detective";
 import { DetectiveClient } from "../DetectiveClient";
 import { DetectivePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDatasourcePackagesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Detective,
-  input: ListDatasourcePackagesCommandInput,
-  ...args: any
-): Promise<ListDatasourcePackagesCommandOutput> => {
-  // @ts-ignore
-  return await client.listDatasourcePackages(input, ...args);
-};
 export async function* paginateListDatasourcePackages(
   config: DetectivePaginationConfiguration,
   input: ListDatasourcePackagesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDatasourcePackages(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Detective) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DetectiveClient) {
+    if (config.client instanceof DetectiveClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Detective | DetectiveClient");

@@ -6,7 +6,6 @@ import {
   ListArtifactsCommandInput,
   ListArtifactsCommandOutput,
 } from "../commands/ListArtifactsCommand";
-import { DeviceFarm } from "../DeviceFarm";
 import { DeviceFarmClient } from "../DeviceFarmClient";
 import { DeviceFarmPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListArtifactsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: DeviceFarm,
-  input: ListArtifactsCommandInput,
-  ...args: any
-): Promise<ListArtifactsCommandOutput> => {
-  // @ts-ignore
-  return await client.listArtifacts(input, ...args);
-};
 export async function* paginateListArtifacts(
   config: DeviceFarmPaginationConfiguration,
   input: ListArtifactsCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListArtifacts(
   let page: ListArtifactsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof DeviceFarm) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DeviceFarmClient) {
+    if (config.client instanceof DeviceFarmClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DeviceFarm | DeviceFarmClient");

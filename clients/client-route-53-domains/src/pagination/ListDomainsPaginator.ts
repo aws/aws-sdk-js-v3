@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
-import { Route53Domains } from "../Route53Domains";
 import { Route53DomainsClient } from "../Route53DomainsClient";
 import { Route53DomainsPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDomainsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Route53Domains,
-  input: ListDomainsCommandInput,
-  ...args: any
-): Promise<ListDomainsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDomains(input, ...args);
-};
 export async function* paginateListDomains(
   config: Route53DomainsPaginationConfiguration,
   input: ListDomainsCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListDomains(
   while (hasNext) {
     input.Marker = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof Route53Domains) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof Route53DomainsClient) {
+    if (config.client instanceof Route53DomainsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Route53Domains | Route53DomainsClient");

@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListLinksCommand, ListLinksCommandInput, ListLinksCommandOutput } from "../commands/ListLinksCommand";
-import { OAM } from "../OAM";
 import { OAMClient } from "../OAMClient";
 import { OAMPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListLinksCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: OAM,
-  input: ListLinksCommandInput,
-  ...args: any
-): Promise<ListLinksCommandOutput> => {
-  // @ts-ignore
-  return await client.listLinks(input, ...args);
-};
 export async function* paginateListLinks(
   config: OAMPaginationConfiguration,
   input: ListLinksCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListLinks(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof OAM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OAMClient) {
+    if (config.client instanceof OAMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected OAM | OAMClient");

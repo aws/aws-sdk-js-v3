@@ -6,7 +6,6 @@ import {
   DescribeACLsCommandInput,
   DescribeACLsCommandOutput,
 } from "../commands/DescribeACLsCommand";
-import { MemoryDB } from "../MemoryDB";
 import { MemoryDBClient } from "../MemoryDBClient";
 import { MemoryDBPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeACLsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: MemoryDB,
-  input: DescribeACLsCommandInput,
-  ...args: any
-): Promise<DescribeACLsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeACLs(input, ...args);
-};
 export async function* paginateDescribeACLs(
   config: MemoryDBPaginationConfiguration,
   input: DescribeACLsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeACLs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MemoryDB) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MemoryDBClient) {
+    if (config.client instanceof MemoryDBClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MemoryDB | MemoryDBClient");

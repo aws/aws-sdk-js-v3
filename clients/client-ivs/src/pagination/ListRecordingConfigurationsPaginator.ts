@@ -6,7 +6,6 @@ import {
   ListRecordingConfigurationsCommandInput,
   ListRecordingConfigurationsCommandOutput,
 } from "../commands/ListRecordingConfigurationsCommand";
-import { Ivs } from "../Ivs";
 import { IvsClient } from "../IvsClient";
 import { IvsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRecordingConfigurationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Ivs,
-  input: ListRecordingConfigurationsCommandInput,
-  ...args: any
-): Promise<ListRecordingConfigurationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listRecordingConfigurations(input, ...args);
-};
 export async function* paginateListRecordingConfigurations(
   config: IvsPaginationConfiguration,
   input: ListRecordingConfigurationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListRecordingConfigurations(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Ivs) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IvsClient) {
+    if (config.client instanceof IvsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Ivs | IvsClient");

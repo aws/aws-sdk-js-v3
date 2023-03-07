@@ -6,7 +6,6 @@ import {
   GetOfferingStatusCommandInput,
   GetOfferingStatusCommandOutput,
 } from "../commands/GetOfferingStatusCommand";
-import { DeviceFarm } from "../DeviceFarm";
 import { DeviceFarmClient } from "../DeviceFarmClient";
 import { DeviceFarmPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetOfferingStatusCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: DeviceFarm,
-  input: GetOfferingStatusCommandInput,
-  ...args: any
-): Promise<GetOfferingStatusCommandOutput> => {
-  // @ts-ignore
-  return await client.getOfferingStatus(input, ...args);
-};
 export async function* paginateGetOfferingStatus(
   config: DeviceFarmPaginationConfiguration,
   input: GetOfferingStatusCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateGetOfferingStatus(
   let page: GetOfferingStatusCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof DeviceFarm) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DeviceFarmClient) {
+    if (config.client instanceof DeviceFarmClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DeviceFarm | DeviceFarmClient");

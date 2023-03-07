@@ -6,7 +6,6 @@ import {
   ListAvailableResourceMetricsCommandInput,
   ListAvailableResourceMetricsCommandOutput,
 } from "../commands/ListAvailableResourceMetricsCommand";
-import { PI } from "../PI";
 import { PIClient } from "../PIClient";
 import { PIPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAvailableResourceMetricsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: PI,
-  input: ListAvailableResourceMetricsCommandInput,
-  ...args: any
-): Promise<ListAvailableResourceMetricsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAvailableResourceMetrics(input, ...args);
-};
 export async function* paginateListAvailableResourceMetrics(
   config: PIPaginationConfiguration,
   input: ListAvailableResourceMetricsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListAvailableResourceMetrics(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof PI) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PIClient) {
+    if (config.client instanceof PIClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected PI | PIClient");

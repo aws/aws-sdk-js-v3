@@ -6,7 +6,6 @@ import {
   GetPartitionIndexesCommandInput,
   GetPartitionIndexesCommandOutput,
 } from "../commands/GetPartitionIndexesCommand";
-import { Glue } from "../Glue";
 import { GlueClient } from "../GlueClient";
 import { GluePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetPartitionIndexesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Glue,
-  input: GetPartitionIndexesCommandInput,
-  ...args: any
-): Promise<GetPartitionIndexesCommandOutput> => {
-  // @ts-ignore
-  return await client.getPartitionIndexes(input, ...args);
-};
 export async function* paginateGetPartitionIndexes(
   config: GluePaginationConfiguration,
   input: GetPartitionIndexesCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateGetPartitionIndexes(
   let page: GetPartitionIndexesCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof Glue) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlueClient) {
+    if (config.client instanceof GlueClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Glue | GlueClient");

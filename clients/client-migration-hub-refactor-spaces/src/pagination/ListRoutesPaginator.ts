@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListRoutesCommand, ListRoutesCommandInput, ListRoutesCommandOutput } from "../commands/ListRoutesCommand";
-import { MigrationHubRefactorSpaces } from "../MigrationHubRefactorSpaces";
 import { MigrationHubRefactorSpacesClient } from "../MigrationHubRefactorSpacesClient";
 import { MigrationHubRefactorSpacesPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRoutesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: MigrationHubRefactorSpaces,
-  input: ListRoutesCommandInput,
-  ...args: any
-): Promise<ListRoutesCommandOutput> => {
-  // @ts-ignore
-  return await client.listRoutes(input, ...args);
-};
 export async function* paginateListRoutes(
   config: MigrationHubRefactorSpacesPaginationConfiguration,
   input: ListRoutesCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListRoutes(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MigrationHubRefactorSpaces) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MigrationHubRefactorSpacesClient) {
+    if (config.client instanceof MigrationHubRefactorSpacesClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MigrationHubRefactorSpaces | MigrationHubRefactorSpacesClient");

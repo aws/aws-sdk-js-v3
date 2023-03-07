@@ -6,7 +6,6 @@ import {
   DescribeWorkspacesCommandInput,
   DescribeWorkspacesCommandOutput,
 } from "../commands/DescribeWorkspacesCommand";
-import { WorkSpaces } from "../WorkSpaces";
 import { WorkSpacesClient } from "../WorkSpacesClient";
 import { WorkSpacesPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeWorkspacesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: WorkSpaces,
-  input: DescribeWorkspacesCommandInput,
-  ...args: any
-): Promise<DescribeWorkspacesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeWorkspaces(input, ...args);
-};
 export async function* paginateDescribeWorkspaces(
   config: WorkSpacesPaginationConfiguration,
   input: DescribeWorkspacesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeWorkspaces(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof WorkSpaces) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WorkSpacesClient) {
+    if (config.client instanceof WorkSpacesClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WorkSpaces | WorkSpacesClient");

@@ -6,7 +6,6 @@ import {
   SearchTablesByLFTagsCommandInput,
   SearchTablesByLFTagsCommandOutput,
 } from "../commands/SearchTablesByLFTagsCommand";
-import { LakeFormation } from "../LakeFormation";
 import { LakeFormationClient } from "../LakeFormationClient";
 import { LakeFormationPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchTablesByLFTagsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: LakeFormation,
-  input: SearchTablesByLFTagsCommandInput,
-  ...args: any
-): Promise<SearchTablesByLFTagsCommandOutput> => {
-  // @ts-ignore
-  return await client.searchTablesByLFTags(input, ...args);
-};
 export async function* paginateSearchTablesByLFTags(
   config: LakeFormationPaginationConfiguration,
   input: SearchTablesByLFTagsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateSearchTablesByLFTags(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LakeFormation) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LakeFormationClient) {
+    if (config.client instanceof LakeFormationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LakeFormation | LakeFormationClient");

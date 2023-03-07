@@ -6,7 +6,6 @@ import {
   ListDataViewsCommandInput,
   ListDataViewsCommandOutput,
 } from "../commands/ListDataViewsCommand";
-import { FinspaceData } from "../FinspaceData";
 import { FinspaceDataClient } from "../FinspaceDataClient";
 import { FinspaceDataPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDataViewsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: FinspaceData,
-  input: ListDataViewsCommandInput,
-  ...args: any
-): Promise<ListDataViewsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDataViews(input, ...args);
-};
 export async function* paginateListDataViews(
   config: FinspaceDataPaginationConfiguration,
   input: ListDataViewsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDataViews(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof FinspaceData) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FinspaceDataClient) {
+    if (config.client instanceof FinspaceDataClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected FinspaceData | FinspaceDataClient");

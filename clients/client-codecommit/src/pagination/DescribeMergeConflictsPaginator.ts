@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CodeCommit } from "../CodeCommit";
 import { CodeCommitClient } from "../CodeCommitClient";
 import {
   DescribeMergeConflictsCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeMergeConflictsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CodeCommit,
-  input: DescribeMergeConflictsCommandInput,
-  ...args: any
-): Promise<DescribeMergeConflictsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeMergeConflicts(input, ...args);
-};
 export async function* paginateDescribeMergeConflicts(
   config: CodeCommitPaginationConfiguration,
   input: DescribeMergeConflictsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeMergeConflicts(
   while (hasNext) {
     input.nextToken = token;
     input["maxMergeHunks"] = config.pageSize;
-    if (config.client instanceof CodeCommit) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodeCommitClient) {
+    if (config.client instanceof CodeCommitClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodeCommit | CodeCommitClient");

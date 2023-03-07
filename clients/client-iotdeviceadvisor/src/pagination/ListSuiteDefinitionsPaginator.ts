@@ -6,7 +6,6 @@ import {
   ListSuiteDefinitionsCommandInput,
   ListSuiteDefinitionsCommandOutput,
 } from "../commands/ListSuiteDefinitionsCommand";
-import { IotDeviceAdvisor } from "../IotDeviceAdvisor";
 import { IotDeviceAdvisorClient } from "../IotDeviceAdvisorClient";
 import { IotDeviceAdvisorPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSuiteDefinitionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IotDeviceAdvisor,
-  input: ListSuiteDefinitionsCommandInput,
-  ...args: any
-): Promise<ListSuiteDefinitionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSuiteDefinitions(input, ...args);
-};
 export async function* paginateListSuiteDefinitions(
   config: IotDeviceAdvisorPaginationConfiguration,
   input: ListSuiteDefinitionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListSuiteDefinitions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IotDeviceAdvisor) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IotDeviceAdvisorClient) {
+    if (config.client instanceof IotDeviceAdvisorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IotDeviceAdvisor | IotDeviceAdvisorClient");

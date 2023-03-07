@@ -6,7 +6,6 @@ import {
   ListCustomRoutingPortMappingsCommandInput,
   ListCustomRoutingPortMappingsCommandOutput,
 } from "../commands/ListCustomRoutingPortMappingsCommand";
-import { GlobalAccelerator } from "../GlobalAccelerator";
 import { GlobalAcceleratorClient } from "../GlobalAcceleratorClient";
 import { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCustomRoutingPortMappingsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: GlobalAccelerator,
-  input: ListCustomRoutingPortMappingsCommandInput,
-  ...args: any
-): Promise<ListCustomRoutingPortMappingsCommandOutput> => {
-  // @ts-ignore
-  return await client.listCustomRoutingPortMappings(input, ...args);
-};
 export async function* paginateListCustomRoutingPortMappings(
   config: GlobalAcceleratorPaginationConfiguration,
   input: ListCustomRoutingPortMappingsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListCustomRoutingPortMappings(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof GlobalAccelerator) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlobalAcceleratorClient) {
+    if (config.client instanceof GlobalAcceleratorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GlobalAccelerator | GlobalAcceleratorClient");

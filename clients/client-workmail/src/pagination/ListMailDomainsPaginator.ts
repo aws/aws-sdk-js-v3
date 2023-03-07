@@ -6,7 +6,6 @@ import {
   ListMailDomainsCommandInput,
   ListMailDomainsCommandOutput,
 } from "../commands/ListMailDomainsCommand";
-import { WorkMail } from "../WorkMail";
 import { WorkMailClient } from "../WorkMailClient";
 import { WorkMailPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMailDomainsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: WorkMail,
-  input: ListMailDomainsCommandInput,
-  ...args: any
-): Promise<ListMailDomainsCommandOutput> => {
-  // @ts-ignore
-  return await client.listMailDomains(input, ...args);
-};
 export async function* paginateListMailDomains(
   config: WorkMailPaginationConfiguration,
   input: ListMailDomainsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListMailDomains(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof WorkMail) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WorkMailClient) {
+    if (config.client instanceof WorkMailClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WorkMail | WorkMailClient");

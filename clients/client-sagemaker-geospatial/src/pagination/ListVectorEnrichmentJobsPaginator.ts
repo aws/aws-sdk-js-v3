@@ -6,7 +6,6 @@ import {
   ListVectorEnrichmentJobsCommandInput,
   ListVectorEnrichmentJobsCommandOutput,
 } from "../commands/ListVectorEnrichmentJobsCommand";
-import { SageMakerGeospatial } from "../SageMakerGeospatial";
 import { SageMakerGeospatialClient } from "../SageMakerGeospatialClient";
 import { SageMakerGeospatialPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListVectorEnrichmentJobsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SageMakerGeospatial,
-  input: ListVectorEnrichmentJobsCommandInput,
-  ...args: any
-): Promise<ListVectorEnrichmentJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listVectorEnrichmentJobs(input, ...args);
-};
 export async function* paginateListVectorEnrichmentJobs(
   config: SageMakerGeospatialPaginationConfiguration,
   input: ListVectorEnrichmentJobsCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListVectorEnrichmentJobs(
   let page: ListVectorEnrichmentJobsCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof SageMakerGeospatial) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SageMakerGeospatialClient) {
+    if (config.client instanceof SageMakerGeospatialClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SageMakerGeospatial | SageMakerGeospatialClient");

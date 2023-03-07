@@ -6,7 +6,6 @@ import {
   ListServiceActionsCommandInput,
   ListServiceActionsCommandOutput,
 } from "../commands/ListServiceActionsCommand";
-import { ServiceCatalog } from "../ServiceCatalog";
 import { ServiceCatalogClient } from "../ServiceCatalogClient";
 import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListServiceActionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ServiceCatalog,
-  input: ListServiceActionsCommandInput,
-  ...args: any
-): Promise<ListServiceActionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listServiceActions(input, ...args);
-};
 export async function* paginateListServiceActions(
   config: ServiceCatalogPaginationConfiguration,
   input: ListServiceActionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListServiceActions(
   while (hasNext) {
     input.PageToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof ServiceCatalog) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServiceCatalogClient) {
+    if (config.client instanceof ServiceCatalogClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ServiceCatalog | ServiceCatalogClient");

@@ -6,7 +6,6 @@ import {
   ListGroupMembershipsCommandInput,
   ListGroupMembershipsCommandOutput,
 } from "../commands/ListGroupMembershipsCommand";
-import { Identitystore } from "../Identitystore";
 import { IdentitystoreClient } from "../IdentitystoreClient";
 import { IdentitystorePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListGroupMembershipsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Identitystore,
-  input: ListGroupMembershipsCommandInput,
-  ...args: any
-): Promise<ListGroupMembershipsCommandOutput> => {
-  // @ts-ignore
-  return await client.listGroupMemberships(input, ...args);
-};
 export async function* paginateListGroupMemberships(
   config: IdentitystorePaginationConfiguration,
   input: ListGroupMembershipsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListGroupMemberships(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Identitystore) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IdentitystoreClient) {
+    if (config.client instanceof IdentitystoreClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Identitystore | IdentitystoreClient");

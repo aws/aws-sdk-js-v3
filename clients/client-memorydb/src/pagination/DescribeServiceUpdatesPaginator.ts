@@ -6,7 +6,6 @@ import {
   DescribeServiceUpdatesCommandInput,
   DescribeServiceUpdatesCommandOutput,
 } from "../commands/DescribeServiceUpdatesCommand";
-import { MemoryDB } from "../MemoryDB";
 import { MemoryDBClient } from "../MemoryDBClient";
 import { MemoryDBPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeServiceUpdatesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: MemoryDB,
-  input: DescribeServiceUpdatesCommandInput,
-  ...args: any
-): Promise<DescribeServiceUpdatesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeServiceUpdates(input, ...args);
-};
 export async function* paginateDescribeServiceUpdates(
   config: MemoryDBPaginationConfiguration,
   input: DescribeServiceUpdatesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeServiceUpdates(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MemoryDB) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MemoryDBClient) {
+    if (config.client instanceof MemoryDBClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MemoryDB | MemoryDBClient");

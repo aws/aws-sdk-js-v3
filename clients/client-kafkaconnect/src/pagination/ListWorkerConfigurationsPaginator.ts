@@ -6,7 +6,6 @@ import {
   ListWorkerConfigurationsCommandInput,
   ListWorkerConfigurationsCommandOutput,
 } from "../commands/ListWorkerConfigurationsCommand";
-import { KafkaConnect } from "../KafkaConnect";
 import { KafkaConnectClient } from "../KafkaConnectClient";
 import { KafkaConnectPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWorkerConfigurationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: KafkaConnect,
-  input: ListWorkerConfigurationsCommandInput,
-  ...args: any
-): Promise<ListWorkerConfigurationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listWorkerConfigurations(input, ...args);
-};
 export async function* paginateListWorkerConfigurations(
   config: KafkaConnectPaginationConfiguration,
   input: ListWorkerConfigurationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListWorkerConfigurations(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof KafkaConnect) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KafkaConnectClient) {
+    if (config.client instanceof KafkaConnectClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected KafkaConnect | KafkaConnectClient");

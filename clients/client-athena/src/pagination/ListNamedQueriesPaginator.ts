@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { Athena } from "../Athena";
 import { AthenaClient } from "../AthenaClient";
 import {
   ListNamedQueriesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListNamedQueriesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Athena,
-  input: ListNamedQueriesCommandInput,
-  ...args: any
-): Promise<ListNamedQueriesCommandOutput> => {
-  // @ts-ignore
-  return await client.listNamedQueries(input, ...args);
-};
 export async function* paginateListNamedQueries(
   config: AthenaPaginationConfiguration,
   input: ListNamedQueriesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListNamedQueries(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Athena) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AthenaClient) {
+    if (config.client instanceof AthenaClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Athena | AthenaClient");

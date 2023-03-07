@@ -6,7 +6,6 @@ import {
   ListStageDeploymentsCommandInput,
   ListStageDeploymentsCommandOutput,
 } from "../commands/ListStageDeploymentsCommand";
-import { GameSparks } from "../GameSparks";
 import { GameSparksClient } from "../GameSparksClient";
 import { GameSparksPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListStageDeploymentsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: GameSparks,
-  input: ListStageDeploymentsCommandInput,
-  ...args: any
-): Promise<ListStageDeploymentsCommandOutput> => {
-  // @ts-ignore
-  return await client.listStageDeployments(input, ...args);
-};
 export async function* paginateListStageDeployments(
   config: GameSparksPaginationConfiguration,
   input: ListStageDeploymentsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListStageDeployments(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof GameSparks) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GameSparksClient) {
+    if (config.client instanceof GameSparksClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GameSparks | GameSparksClient");

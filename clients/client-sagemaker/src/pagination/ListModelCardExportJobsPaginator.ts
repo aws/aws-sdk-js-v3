@@ -6,7 +6,6 @@ import {
   ListModelCardExportJobsCommandInput,
   ListModelCardExportJobsCommandOutput,
 } from "../commands/ListModelCardExportJobsCommand";
-import { SageMaker } from "../SageMaker";
 import { SageMakerClient } from "../SageMakerClient";
 import { SageMakerPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListModelCardExportJobsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SageMaker,
-  input: ListModelCardExportJobsCommandInput,
-  ...args: any
-): Promise<ListModelCardExportJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listModelCardExportJobs(input, ...args);
-};
 export async function* paginateListModelCardExportJobs(
   config: SageMakerPaginationConfiguration,
   input: ListModelCardExportJobsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListModelCardExportJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SageMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SageMakerClient) {
+    if (config.client instanceof SageMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SageMaker | SageMakerClient");

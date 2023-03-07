@@ -6,7 +6,6 @@ import {
   ListEntitiesForPolicyCommandInput,
   ListEntitiesForPolicyCommandOutput,
 } from "../commands/ListEntitiesForPolicyCommand";
-import { IAM } from "../IAM";
 import { IAMClient } from "../IAMClient";
 import { IAMPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEntitiesForPolicyCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IAM,
-  input: ListEntitiesForPolicyCommandInput,
-  ...args: any
-): Promise<ListEntitiesForPolicyCommandOutput> => {
-  // @ts-ignore
-  return await client.listEntitiesForPolicy(input, ...args);
-};
 export async function* paginateListEntitiesForPolicy(
   config: IAMPaginationConfiguration,
   input: ListEntitiesForPolicyCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListEntitiesForPolicy(
   while (hasNext) {
     input.Marker = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof IAM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IAMClient) {
+    if (config.client instanceof IAMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IAM | IAMClient");

@@ -6,7 +6,6 @@ import {
   DescribeRegionsCommandInput,
   DescribeRegionsCommandOutput,
 } from "../commands/DescribeRegionsCommand";
-import { DirectoryService } from "../DirectoryService";
 import { DirectoryServiceClient } from "../DirectoryServiceClient";
 import { DirectoryServicePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeRegionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: DirectoryService,
-  input: DescribeRegionsCommandInput,
-  ...args: any
-): Promise<DescribeRegionsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeRegions(input, ...args);
-};
 export async function* paginateDescribeRegions(
   config: DirectoryServicePaginationConfiguration,
   input: DescribeRegionsCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateDescribeRegions(
   let page: DescribeRegionsCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof DirectoryService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DirectoryServiceClient) {
+    if (config.client instanceof DirectoryServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DirectoryService | DirectoryServiceClient");

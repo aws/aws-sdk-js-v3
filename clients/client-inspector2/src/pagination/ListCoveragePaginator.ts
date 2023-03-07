@@ -6,7 +6,6 @@ import {
   ListCoverageCommandInput,
   ListCoverageCommandOutput,
 } from "../commands/ListCoverageCommand";
-import { Inspector2 } from "../Inspector2";
 import { Inspector2Client } from "../Inspector2Client";
 import { Inspector2PaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCoverageCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Inspector2,
-  input: ListCoverageCommandInput,
-  ...args: any
-): Promise<ListCoverageCommandOutput> => {
-  // @ts-ignore
-  return await client.listCoverage(input, ...args);
-};
 export async function* paginateListCoverage(
   config: Inspector2PaginationConfiguration,
   input: ListCoverageCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListCoverage(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Inspector2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof Inspector2Client) {
+    if (config.client instanceof Inspector2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Inspector2 | Inspector2Client");

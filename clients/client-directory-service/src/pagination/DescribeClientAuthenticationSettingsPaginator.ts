@@ -6,7 +6,6 @@ import {
   DescribeClientAuthenticationSettingsCommandInput,
   DescribeClientAuthenticationSettingsCommandOutput,
 } from "../commands/DescribeClientAuthenticationSettingsCommand";
-import { DirectoryService } from "../DirectoryService";
 import { DirectoryServiceClient } from "../DirectoryServiceClient";
 import { DirectoryServicePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeClientAuthenticationSettingsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: DirectoryService,
-  input: DescribeClientAuthenticationSettingsCommandInput,
-  ...args: any
-): Promise<DescribeClientAuthenticationSettingsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeClientAuthenticationSettings(input, ...args);
-};
 export async function* paginateDescribeClientAuthenticationSettings(
   config: DirectoryServicePaginationConfiguration,
   input: DescribeClientAuthenticationSettingsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeClientAuthenticationSettings(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof DirectoryService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DirectoryServiceClient) {
+    if (config.client instanceof DirectoryServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DirectoryService | DirectoryServiceClient");

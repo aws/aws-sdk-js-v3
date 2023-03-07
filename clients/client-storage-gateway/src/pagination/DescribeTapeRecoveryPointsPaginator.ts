@@ -6,7 +6,6 @@ import {
   DescribeTapeRecoveryPointsCommandInput,
   DescribeTapeRecoveryPointsCommandOutput,
 } from "../commands/DescribeTapeRecoveryPointsCommand";
-import { StorageGateway } from "../StorageGateway";
 import { StorageGatewayClient } from "../StorageGatewayClient";
 import { StorageGatewayPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeTapeRecoveryPointsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: StorageGateway,
-  input: DescribeTapeRecoveryPointsCommandInput,
-  ...args: any
-): Promise<DescribeTapeRecoveryPointsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeTapeRecoveryPoints(input, ...args);
-};
 export async function* paginateDescribeTapeRecoveryPoints(
   config: StorageGatewayPaginationConfiguration,
   input: DescribeTapeRecoveryPointsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeTapeRecoveryPoints(
   while (hasNext) {
     input.Marker = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof StorageGateway) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof StorageGatewayClient) {
+    if (config.client instanceof StorageGatewayClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected StorageGateway | StorageGatewayClient");

@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { AppMesh } from "../AppMesh";
 import { AppMeshClient } from "../AppMeshClient";
 import {
   ListVirtualServicesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListVirtualServicesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: AppMesh,
-  input: ListVirtualServicesCommandInput,
-  ...args: any
-): Promise<ListVirtualServicesCommandOutput> => {
-  // @ts-ignore
-  return await client.listVirtualServices(input, ...args);
-};
 export async function* paginateListVirtualServices(
   config: AppMeshPaginationConfiguration,
   input: ListVirtualServicesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListVirtualServices(
   while (hasNext) {
     input.nextToken = token;
     input["limit"] = config.pageSize;
-    if (config.client instanceof AppMesh) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AppMeshClient) {
+    if (config.client instanceof AppMeshClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AppMesh | AppMeshClient");

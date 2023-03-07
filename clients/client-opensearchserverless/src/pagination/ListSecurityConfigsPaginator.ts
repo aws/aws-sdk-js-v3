@@ -6,7 +6,6 @@ import {
   ListSecurityConfigsCommandInput,
   ListSecurityConfigsCommandOutput,
 } from "../commands/ListSecurityConfigsCommand";
-import { OpenSearchServerless } from "../OpenSearchServerless";
 import { OpenSearchServerlessClient } from "../OpenSearchServerlessClient";
 import { OpenSearchServerlessPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSecurityConfigsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: OpenSearchServerless,
-  input: ListSecurityConfigsCommandInput,
-  ...args: any
-): Promise<ListSecurityConfigsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSecurityConfigs(input, ...args);
-};
 export async function* paginateListSecurityConfigs(
   config: OpenSearchServerlessPaginationConfiguration,
   input: ListSecurityConfigsCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListSecurityConfigs(
   let page: ListSecurityConfigsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof OpenSearchServerless) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OpenSearchServerlessClient) {
+    if (config.client instanceof OpenSearchServerlessClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected OpenSearchServerless | OpenSearchServerlessClient");

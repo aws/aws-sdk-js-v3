@@ -6,7 +6,6 @@ import {
   ListNotebookInstanceLifecycleConfigsCommandInput,
   ListNotebookInstanceLifecycleConfigsCommandOutput,
 } from "../commands/ListNotebookInstanceLifecycleConfigsCommand";
-import { SageMaker } from "../SageMaker";
 import { SageMakerClient } from "../SageMakerClient";
 import { SageMakerPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListNotebookInstanceLifecycleConfigsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SageMaker,
-  input: ListNotebookInstanceLifecycleConfigsCommandInput,
-  ...args: any
-): Promise<ListNotebookInstanceLifecycleConfigsCommandOutput> => {
-  // @ts-ignore
-  return await client.listNotebookInstanceLifecycleConfigs(input, ...args);
-};
 export async function* paginateListNotebookInstanceLifecycleConfigs(
   config: SageMakerPaginationConfiguration,
   input: ListNotebookInstanceLifecycleConfigsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListNotebookInstanceLifecycleConfigs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SageMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SageMakerClient) {
+    if (config.client instanceof SageMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SageMaker | SageMakerClient");

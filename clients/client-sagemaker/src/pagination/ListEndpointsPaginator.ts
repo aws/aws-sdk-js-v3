@@ -6,7 +6,6 @@ import {
   ListEndpointsCommandInput,
   ListEndpointsCommandOutput,
 } from "../commands/ListEndpointsCommand";
-import { SageMaker } from "../SageMaker";
 import { SageMakerClient } from "../SageMakerClient";
 import { SageMakerPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEndpointsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SageMaker,
-  input: ListEndpointsCommandInput,
-  ...args: any
-): Promise<ListEndpointsCommandOutput> => {
-  // @ts-ignore
-  return await client.listEndpoints(input, ...args);
-};
 export async function* paginateListEndpoints(
   config: SageMakerPaginationConfiguration,
   input: ListEndpointsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListEndpoints(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SageMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SageMakerClient) {
+    if (config.client instanceof SageMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SageMaker | SageMakerClient");

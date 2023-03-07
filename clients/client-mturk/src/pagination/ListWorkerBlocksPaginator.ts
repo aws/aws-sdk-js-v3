@@ -6,7 +6,6 @@ import {
   ListWorkerBlocksCommandInput,
   ListWorkerBlocksCommandOutput,
 } from "../commands/ListWorkerBlocksCommand";
-import { MTurk } from "../MTurk";
 import { MTurkClient } from "../MTurkClient";
 import { MTurkPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWorkerBlocksCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: MTurk,
-  input: ListWorkerBlocksCommandInput,
-  ...args: any
-): Promise<ListWorkerBlocksCommandOutput> => {
-  // @ts-ignore
-  return await client.listWorkerBlocks(input, ...args);
-};
 export async function* paginateListWorkerBlocks(
   config: MTurkPaginationConfiguration,
   input: ListWorkerBlocksCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListWorkerBlocks(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MTurk) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MTurkClient) {
+    if (config.client instanceof MTurkClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MTurk | MTurkClient");

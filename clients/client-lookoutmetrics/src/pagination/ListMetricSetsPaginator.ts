@@ -6,7 +6,6 @@ import {
   ListMetricSetsCommandInput,
   ListMetricSetsCommandOutput,
 } from "../commands/ListMetricSetsCommand";
-import { LookoutMetrics } from "../LookoutMetrics";
 import { LookoutMetricsClient } from "../LookoutMetricsClient";
 import { LookoutMetricsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMetricSetsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: LookoutMetrics,
-  input: ListMetricSetsCommandInput,
-  ...args: any
-): Promise<ListMetricSetsCommandOutput> => {
-  // @ts-ignore
-  return await client.listMetricSets(input, ...args);
-};
 export async function* paginateListMetricSets(
   config: LookoutMetricsPaginationConfiguration,
   input: ListMetricSetsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListMetricSets(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LookoutMetrics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LookoutMetricsClient) {
+    if (config.client instanceof LookoutMetricsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LookoutMetrics | LookoutMetricsClient");

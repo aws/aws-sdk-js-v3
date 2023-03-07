@@ -6,7 +6,6 @@ import {
   GetEventTypesCommandInput,
   GetEventTypesCommandOutput,
 } from "../commands/GetEventTypesCommand";
-import { FraudDetector } from "../FraudDetector";
 import { FraudDetectorClient } from "../FraudDetectorClient";
 import { FraudDetectorPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetEventTypesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: FraudDetector,
-  input: GetEventTypesCommandInput,
-  ...args: any
-): Promise<GetEventTypesCommandOutput> => {
-  // @ts-ignore
-  return await client.getEventTypes(input, ...args);
-};
 export async function* paginateGetEventTypes(
   config: FraudDetectorPaginationConfiguration,
   input: GetEventTypesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateGetEventTypes(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof FraudDetector) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FraudDetectorClient) {
+    if (config.client instanceof FraudDetectorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected FraudDetector | FraudDetectorClient");

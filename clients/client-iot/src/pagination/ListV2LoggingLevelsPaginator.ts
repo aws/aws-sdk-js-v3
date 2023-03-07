@@ -6,7 +6,6 @@ import {
   ListV2LoggingLevelsCommandInput,
   ListV2LoggingLevelsCommandOutput,
 } from "../commands/ListV2LoggingLevelsCommand";
-import { IoT } from "../IoT";
 import { IoTClient } from "../IoTClient";
 import { IoTPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListV2LoggingLevelsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoT,
-  input: ListV2LoggingLevelsCommandInput,
-  ...args: any
-): Promise<ListV2LoggingLevelsCommandOutput> => {
-  // @ts-ignore
-  return await client.listV2LoggingLevels(input, ...args);
-};
 export async function* paginateListV2LoggingLevels(
   config: IoTPaginationConfiguration,
   input: ListV2LoggingLevelsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListV2LoggingLevels(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoT) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTClient) {
+    if (config.client instanceof IoTClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoT | IoTClient");

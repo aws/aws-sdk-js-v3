@@ -6,7 +6,6 @@ import {
   DescribeDefaultClusterParametersCommandInput,
   DescribeDefaultClusterParametersCommandOutput,
 } from "../commands/DescribeDefaultClusterParametersCommand";
-import { Redshift } from "../Redshift";
 import { RedshiftClient } from "../RedshiftClient";
 import { RedshiftPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeDefaultClusterParametersCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Redshift,
-  input: DescribeDefaultClusterParametersCommandInput,
-  ...args: any
-): Promise<DescribeDefaultClusterParametersCommandOutput> => {
-  // @ts-ignore
-  return await client.describeDefaultClusterParameters(input, ...args);
-};
 export async function* paginateDescribeDefaultClusterParameters(
   config: RedshiftPaginationConfiguration,
   input: DescribeDefaultClusterParametersCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeDefaultClusterParameters(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof Redshift) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RedshiftClient) {
+    if (config.client instanceof RedshiftClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Redshift | RedshiftClient");

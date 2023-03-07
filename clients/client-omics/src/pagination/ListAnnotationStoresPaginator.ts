@@ -6,7 +6,6 @@ import {
   ListAnnotationStoresCommandInput,
   ListAnnotationStoresCommandOutput,
 } from "../commands/ListAnnotationStoresCommand";
-import { Omics } from "../Omics";
 import { OmicsClient } from "../OmicsClient";
 import { OmicsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAnnotationStoresCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Omics,
-  input: ListAnnotationStoresCommandInput,
-  ...args: any
-): Promise<ListAnnotationStoresCommandOutput> => {
-  // @ts-ignore
-  return await client.listAnnotationStores(input, ...args);
-};
 export async function* paginateListAnnotationStores(
   config: OmicsPaginationConfiguration,
   input: ListAnnotationStoresCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListAnnotationStores(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Omics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OmicsClient) {
+    if (config.client instanceof OmicsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Omics | OmicsClient");

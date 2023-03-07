@@ -6,7 +6,6 @@ import {
   DescribeIamInstanceProfileAssociationsCommandInput,
   DescribeIamInstanceProfileAssociationsCommandOutput,
 } from "../commands/DescribeIamInstanceProfileAssociationsCommand";
-import { EC2 } from "../EC2";
 import { EC2Client } from "../EC2Client";
 import { EC2PaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeIamInstanceProfileAssociationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: EC2,
-  input: DescribeIamInstanceProfileAssociationsCommandInput,
-  ...args: any
-): Promise<DescribeIamInstanceProfileAssociationsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeIamInstanceProfileAssociations(input, ...args);
-};
 export async function* paginateDescribeIamInstanceProfileAssociations(
   config: EC2PaginationConfiguration,
   input: DescribeIamInstanceProfileAssociationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeIamInstanceProfileAssociations(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof EC2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EC2Client) {
+    if (config.client instanceof EC2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EC2 | EC2Client");

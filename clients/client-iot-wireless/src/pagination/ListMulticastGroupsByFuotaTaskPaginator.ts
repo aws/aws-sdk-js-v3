@@ -6,7 +6,6 @@ import {
   ListMulticastGroupsByFuotaTaskCommandInput,
   ListMulticastGroupsByFuotaTaskCommandOutput,
 } from "../commands/ListMulticastGroupsByFuotaTaskCommand";
-import { IoTWireless } from "../IoTWireless";
 import { IoTWirelessClient } from "../IoTWirelessClient";
 import { IoTWirelessPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMulticastGroupsByFuotaTaskCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoTWireless,
-  input: ListMulticastGroupsByFuotaTaskCommandInput,
-  ...args: any
-): Promise<ListMulticastGroupsByFuotaTaskCommandOutput> => {
-  // @ts-ignore
-  return await client.listMulticastGroupsByFuotaTask(input, ...args);
-};
 export async function* paginateListMulticastGroupsByFuotaTask(
   config: IoTWirelessPaginationConfiguration,
   input: ListMulticastGroupsByFuotaTaskCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListMulticastGroupsByFuotaTask(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof IoTWireless) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTWirelessClient) {
+    if (config.client instanceof IoTWirelessClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTWireless | IoTWirelessClient");

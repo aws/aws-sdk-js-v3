@@ -6,7 +6,6 @@ import {
   ListAnomalyGroupRelatedMetricsCommandInput,
   ListAnomalyGroupRelatedMetricsCommandOutput,
 } from "../commands/ListAnomalyGroupRelatedMetricsCommand";
-import { LookoutMetrics } from "../LookoutMetrics";
 import { LookoutMetricsClient } from "../LookoutMetricsClient";
 import { LookoutMetricsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAnomalyGroupRelatedMetricsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: LookoutMetrics,
-  input: ListAnomalyGroupRelatedMetricsCommandInput,
-  ...args: any
-): Promise<ListAnomalyGroupRelatedMetricsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAnomalyGroupRelatedMetrics(input, ...args);
-};
 export async function* paginateListAnomalyGroupRelatedMetrics(
   config: LookoutMetricsPaginationConfiguration,
   input: ListAnomalyGroupRelatedMetricsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListAnomalyGroupRelatedMetrics(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LookoutMetrics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LookoutMetricsClient) {
+    if (config.client instanceof LookoutMetricsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LookoutMetrics | LookoutMetricsClient");

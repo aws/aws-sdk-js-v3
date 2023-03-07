@@ -6,7 +6,6 @@ import {
   ListDataQualityRulesetsCommandInput,
   ListDataQualityRulesetsCommandOutput,
 } from "../commands/ListDataQualityRulesetsCommand";
-import { Glue } from "../Glue";
 import { GlueClient } from "../GlueClient";
 import { GluePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDataQualityRulesetsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Glue,
-  input: ListDataQualityRulesetsCommandInput,
-  ...args: any
-): Promise<ListDataQualityRulesetsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDataQualityRulesets(input, ...args);
-};
 export async function* paginateListDataQualityRulesets(
   config: GluePaginationConfiguration,
   input: ListDataQualityRulesetsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDataQualityRulesets(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Glue) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlueClient) {
+    if (config.client instanceof GlueClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Glue | GlueClient");

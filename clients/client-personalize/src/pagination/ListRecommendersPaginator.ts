@@ -6,7 +6,6 @@ import {
   ListRecommendersCommandInput,
   ListRecommendersCommandOutput,
 } from "../commands/ListRecommendersCommand";
-import { Personalize } from "../Personalize";
 import { PersonalizeClient } from "../PersonalizeClient";
 import { PersonalizePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRecommendersCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Personalize,
-  input: ListRecommendersCommandInput,
-  ...args: any
-): Promise<ListRecommendersCommandOutput> => {
-  // @ts-ignore
-  return await client.listRecommenders(input, ...args);
-};
 export async function* paginateListRecommenders(
   config: PersonalizePaginationConfiguration,
   input: ListRecommendersCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListRecommenders(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Personalize) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PersonalizeClient) {
+    if (config.client instanceof PersonalizeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Personalize | PersonalizeClient");

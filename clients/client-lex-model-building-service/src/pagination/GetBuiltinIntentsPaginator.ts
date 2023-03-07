@@ -6,7 +6,6 @@ import {
   GetBuiltinIntentsCommandInput,
   GetBuiltinIntentsCommandOutput,
 } from "../commands/GetBuiltinIntentsCommand";
-import { LexModelBuildingService } from "../LexModelBuildingService";
 import { LexModelBuildingServiceClient } from "../LexModelBuildingServiceClient";
 import { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetBuiltinIntentsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: LexModelBuildingService,
-  input: GetBuiltinIntentsCommandInput,
-  ...args: any
-): Promise<GetBuiltinIntentsCommandOutput> => {
-  // @ts-ignore
-  return await client.getBuiltinIntents(input, ...args);
-};
 export async function* paginateGetBuiltinIntents(
   config: LexModelBuildingServicePaginationConfiguration,
   input: GetBuiltinIntentsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateGetBuiltinIntents(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof LexModelBuildingService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LexModelBuildingServiceClient) {
+    if (config.client instanceof LexModelBuildingServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LexModelBuildingService | LexModelBuildingServiceClient");

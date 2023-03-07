@@ -6,7 +6,6 @@ import {
   ListDashboardsCommandInput,
   ListDashboardsCommandOutput,
 } from "../commands/ListDashboardsCommand";
-import { IoTSiteWise } from "../IoTSiteWise";
 import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDashboardsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoTSiteWise,
-  input: ListDashboardsCommandInput,
-  ...args: any
-): Promise<ListDashboardsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDashboards(input, ...args);
-};
 export async function* paginateListDashboards(
   config: IoTSiteWisePaginationConfiguration,
   input: ListDashboardsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDashboards(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTSiteWise) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTSiteWiseClient) {
+    if (config.client instanceof IoTSiteWiseClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTSiteWise | IoTSiteWiseClient");

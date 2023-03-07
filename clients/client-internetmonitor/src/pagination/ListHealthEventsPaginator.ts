@@ -6,7 +6,6 @@ import {
   ListHealthEventsCommandInput,
   ListHealthEventsCommandOutput,
 } from "../commands/ListHealthEventsCommand";
-import { InternetMonitor } from "../InternetMonitor";
 import { InternetMonitorClient } from "../InternetMonitorClient";
 import { InternetMonitorPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListHealthEventsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: InternetMonitor,
-  input: ListHealthEventsCommandInput,
-  ...args: any
-): Promise<ListHealthEventsCommandOutput> => {
-  // @ts-ignore
-  return await client.listHealthEvents(input, ...args);
-};
 export async function* paginateListHealthEvents(
   config: InternetMonitorPaginationConfiguration,
   input: ListHealthEventsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListHealthEvents(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof InternetMonitor) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof InternetMonitorClient) {
+    if (config.client instanceof InternetMonitorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected InternetMonitor | InternetMonitorClient");

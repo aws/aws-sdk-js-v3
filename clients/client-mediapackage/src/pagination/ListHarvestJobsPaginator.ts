@@ -6,7 +6,6 @@ import {
   ListHarvestJobsCommandInput,
   ListHarvestJobsCommandOutput,
 } from "../commands/ListHarvestJobsCommand";
-import { MediaPackage } from "../MediaPackage";
 import { MediaPackageClient } from "../MediaPackageClient";
 import { MediaPackagePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListHarvestJobsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: MediaPackage,
-  input: ListHarvestJobsCommandInput,
-  ...args: any
-): Promise<ListHarvestJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listHarvestJobs(input, ...args);
-};
 export async function* paginateListHarvestJobs(
   config: MediaPackagePaginationConfiguration,
   input: ListHarvestJobsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListHarvestJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MediaPackage) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MediaPackageClient) {
+    if (config.client instanceof MediaPackageClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MediaPackage | MediaPackageClient");

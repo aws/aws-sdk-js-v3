@@ -6,7 +6,6 @@ import {
   ListTrustAnchorsCommandInput,
   ListTrustAnchorsCommandOutput,
 } from "../commands/ListTrustAnchorsCommand";
-import { RolesAnywhere } from "../RolesAnywhere";
 import { RolesAnywhereClient } from "../RolesAnywhereClient";
 import { RolesAnywherePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTrustAnchorsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: RolesAnywhere,
-  input: ListTrustAnchorsCommandInput,
-  ...args: any
-): Promise<ListTrustAnchorsCommandOutput> => {
-  // @ts-ignore
-  return await client.listTrustAnchors(input, ...args);
-};
 export async function* paginateListTrustAnchors(
   config: RolesAnywherePaginationConfiguration,
   input: ListTrustAnchorsCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListTrustAnchors(
   let page: ListTrustAnchorsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof RolesAnywhere) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RolesAnywhereClient) {
+    if (config.client instanceof RolesAnywhereClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RolesAnywhere | RolesAnywhereClient");

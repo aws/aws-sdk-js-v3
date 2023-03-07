@@ -6,7 +6,6 @@ import {
   ListCertificatesCommandInput,
   ListCertificatesCommandOutput,
 } from "../commands/ListCertificatesCommand";
-import { IoT } from "../IoT";
 import { IoTClient } from "../IoTClient";
 import { IoTPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCertificatesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoT,
-  input: ListCertificatesCommandInput,
-  ...args: any
-): Promise<ListCertificatesCommandOutput> => {
-  // @ts-ignore
-  return await client.listCertificates(input, ...args);
-};
 export async function* paginateListCertificates(
   config: IoTPaginationConfiguration,
   input: ListCertificatesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListCertificates(
   while (hasNext) {
     input.marker = token;
     input["pageSize"] = config.pageSize;
-    if (config.client instanceof IoT) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTClient) {
+    if (config.client instanceof IoTClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoT | IoTClient");

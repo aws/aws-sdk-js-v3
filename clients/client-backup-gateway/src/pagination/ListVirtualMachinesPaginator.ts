@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { BackupGateway } from "../BackupGateway";
 import { BackupGatewayClient } from "../BackupGatewayClient";
 import {
   ListVirtualMachinesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListVirtualMachinesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: BackupGateway,
-  input: ListVirtualMachinesCommandInput,
-  ...args: any
-): Promise<ListVirtualMachinesCommandOutput> => {
-  // @ts-ignore
-  return await client.listVirtualMachines(input, ...args);
-};
 export async function* paginateListVirtualMachines(
   config: BackupGatewayPaginationConfiguration,
   input: ListVirtualMachinesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListVirtualMachines(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof BackupGateway) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof BackupGatewayClient) {
+    if (config.client instanceof BackupGatewayClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected BackupGateway | BackupGatewayClient");

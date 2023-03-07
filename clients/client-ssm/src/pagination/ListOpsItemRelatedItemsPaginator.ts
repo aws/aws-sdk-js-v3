@@ -6,7 +6,6 @@ import {
   ListOpsItemRelatedItemsCommandInput,
   ListOpsItemRelatedItemsCommandOutput,
 } from "../commands/ListOpsItemRelatedItemsCommand";
-import { SSM } from "../SSM";
 import { SSMClient } from "../SSMClient";
 import { SSMPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListOpsItemRelatedItemsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SSM,
-  input: ListOpsItemRelatedItemsCommandInput,
-  ...args: any
-): Promise<ListOpsItemRelatedItemsCommandOutput> => {
-  // @ts-ignore
-  return await client.listOpsItemRelatedItems(input, ...args);
-};
 export async function* paginateListOpsItemRelatedItems(
   config: SSMPaginationConfiguration,
   input: ListOpsItemRelatedItemsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListOpsItemRelatedItems(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSMClient) {
+    if (config.client instanceof SSMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSM | SSMClient");

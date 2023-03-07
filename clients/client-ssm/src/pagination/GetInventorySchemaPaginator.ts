@@ -6,7 +6,6 @@ import {
   GetInventorySchemaCommandInput,
   GetInventorySchemaCommandOutput,
 } from "../commands/GetInventorySchemaCommand";
-import { SSM } from "../SSM";
 import { SSMClient } from "../SSMClient";
 import { SSMPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetInventorySchemaCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SSM,
-  input: GetInventorySchemaCommandInput,
-  ...args: any
-): Promise<GetInventorySchemaCommandOutput> => {
-  // @ts-ignore
-  return await client.getInventorySchema(input, ...args);
-};
 export async function* paginateGetInventorySchema(
   config: SSMPaginationConfiguration,
   input: GetInventorySchemaCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateGetInventorySchema(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSMClient) {
+    if (config.client instanceof SSMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSM | SSMClient");

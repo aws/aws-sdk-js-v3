@@ -6,7 +6,6 @@ import {
   ListSignalingChannelsCommandInput,
   ListSignalingChannelsCommandOutput,
 } from "../commands/ListSignalingChannelsCommand";
-import { KinesisVideo } from "../KinesisVideo";
 import { KinesisVideoClient } from "../KinesisVideoClient";
 import { KinesisVideoPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSignalingChannelsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: KinesisVideo,
-  input: ListSignalingChannelsCommandInput,
-  ...args: any
-): Promise<ListSignalingChannelsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSignalingChannels(input, ...args);
-};
 export async function* paginateListSignalingChannels(
   config: KinesisVideoPaginationConfiguration,
   input: ListSignalingChannelsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListSignalingChannels(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof KinesisVideo) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KinesisVideoClient) {
+    if (config.client instanceof KinesisVideoClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected KinesisVideo | KinesisVideoClient");

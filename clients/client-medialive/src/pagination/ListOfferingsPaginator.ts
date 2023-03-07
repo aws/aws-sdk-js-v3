@@ -6,7 +6,6 @@ import {
   ListOfferingsCommandInput,
   ListOfferingsCommandOutput,
 } from "../commands/ListOfferingsCommand";
-import { MediaLive } from "../MediaLive";
 import { MediaLiveClient } from "../MediaLiveClient";
 import { MediaLivePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListOfferingsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: MediaLive,
-  input: ListOfferingsCommandInput,
-  ...args: any
-): Promise<ListOfferingsCommandOutput> => {
-  // @ts-ignore
-  return await client.listOfferings(input, ...args);
-};
 export async function* paginateListOfferings(
   config: MediaLivePaginationConfiguration,
   input: ListOfferingsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListOfferings(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MediaLive) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MediaLiveClient) {
+    if (config.client instanceof MediaLiveClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MediaLive | MediaLiveClient");

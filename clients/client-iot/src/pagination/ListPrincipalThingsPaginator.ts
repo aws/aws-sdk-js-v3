@@ -6,7 +6,6 @@ import {
   ListPrincipalThingsCommandInput,
   ListPrincipalThingsCommandOutput,
 } from "../commands/ListPrincipalThingsCommand";
-import { IoT } from "../IoT";
 import { IoTClient } from "../IoTClient";
 import { IoTPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPrincipalThingsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoT,
-  input: ListPrincipalThingsCommandInput,
-  ...args: any
-): Promise<ListPrincipalThingsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPrincipalThings(input, ...args);
-};
 export async function* paginateListPrincipalThings(
   config: IoTPaginationConfiguration,
   input: ListPrincipalThingsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListPrincipalThings(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoT) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTClient) {
+    if (config.client instanceof IoTClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoT | IoTClient");

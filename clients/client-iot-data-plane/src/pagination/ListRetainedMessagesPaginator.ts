@@ -6,7 +6,6 @@ import {
   ListRetainedMessagesCommandInput,
   ListRetainedMessagesCommandOutput,
 } from "../commands/ListRetainedMessagesCommand";
-import { IoTDataPlane } from "../IoTDataPlane";
 import { IoTDataPlaneClient } from "../IoTDataPlaneClient";
 import { IoTDataPlanePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRetainedMessagesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoTDataPlane,
-  input: ListRetainedMessagesCommandInput,
-  ...args: any
-): Promise<ListRetainedMessagesCommandOutput> => {
-  // @ts-ignore
-  return await client.listRetainedMessages(input, ...args);
-};
 export async function* paginateListRetainedMessages(
   config: IoTDataPlanePaginationConfiguration,
   input: ListRetainedMessagesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListRetainedMessages(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTDataPlane) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTDataPlaneClient) {
+    if (config.client instanceof IoTDataPlaneClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTDataPlane | IoTDataPlaneClient");

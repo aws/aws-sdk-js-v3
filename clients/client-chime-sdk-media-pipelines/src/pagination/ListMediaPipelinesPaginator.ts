@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { ChimeSDKMediaPipelines } from "../ChimeSDKMediaPipelines";
 import { ChimeSDKMediaPipelinesClient } from "../ChimeSDKMediaPipelinesClient";
 import {
   ListMediaPipelinesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMediaPipelinesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ChimeSDKMediaPipelines,
-  input: ListMediaPipelinesCommandInput,
-  ...args: any
-): Promise<ListMediaPipelinesCommandOutput> => {
-  // @ts-ignore
-  return await client.listMediaPipelines(input, ...args);
-};
 export async function* paginateListMediaPipelines(
   config: ChimeSDKMediaPipelinesPaginationConfiguration,
   input: ListMediaPipelinesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListMediaPipelines(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ChimeSDKMediaPipelines) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ChimeSDKMediaPipelinesClient) {
+    if (config.client instanceof ChimeSDKMediaPipelinesClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ChimeSDKMediaPipelines | ChimeSDKMediaPipelinesClient");

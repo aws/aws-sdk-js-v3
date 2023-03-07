@@ -6,7 +6,6 @@ import {
   DescribeSessionsCommandInput,
   DescribeSessionsCommandOutput,
 } from "../commands/DescribeSessionsCommand";
-import { SSM } from "../SSM";
 import { SSMClient } from "../SSMClient";
 import { SSMPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeSessionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SSM,
-  input: DescribeSessionsCommandInput,
-  ...args: any
-): Promise<DescribeSessionsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeSessions(input, ...args);
-};
 export async function* paginateDescribeSessions(
   config: SSMPaginationConfiguration,
   input: DescribeSessionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeSessions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSMClient) {
+    if (config.client instanceof SSMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSM | SSMClient");

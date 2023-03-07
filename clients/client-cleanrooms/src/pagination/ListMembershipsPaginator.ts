@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CleanRooms } from "../CleanRooms";
 import { CleanRoomsClient } from "../CleanRoomsClient";
 import {
   ListMembershipsCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMembershipsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CleanRooms,
-  input: ListMembershipsCommandInput,
-  ...args: any
-): Promise<ListMembershipsCommandOutput> => {
-  // @ts-ignore
-  return await client.listMemberships(input, ...args);
-};
 export async function* paginateListMemberships(
   config: CleanRoomsPaginationConfiguration,
   input: ListMembershipsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListMemberships(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof CleanRooms) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CleanRoomsClient) {
+    if (config.client instanceof CleanRoomsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CleanRooms | CleanRoomsClient");

@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListTasksCommand, ListTasksCommandInput, ListTasksCommandOutput } from "../commands/ListTasksCommand";
-import { ECS } from "../ECS";
 import { ECSClient } from "../ECSClient";
 import { ECSPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTasksCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ECS,
-  input: ListTasksCommandInput,
-  ...args: any
-): Promise<ListTasksCommandOutput> => {
-  // @ts-ignore
-  return await client.listTasks(input, ...args);
-};
 export async function* paginateListTasks(
   config: ECSPaginationConfiguration,
   input: ListTasksCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListTasks(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ECS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ECSClient) {
+    if (config.client instanceof ECSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ECS | ECSClient");

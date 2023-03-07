@@ -6,7 +6,6 @@ import {
   ListSolNetworkOperationsCommandInput,
   ListSolNetworkOperationsCommandOutput,
 } from "../commands/ListSolNetworkOperationsCommand";
-import { Tnb } from "../Tnb";
 import { TnbClient } from "../TnbClient";
 import { TnbPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSolNetworkOperationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Tnb,
-  input: ListSolNetworkOperationsCommandInput,
-  ...args: any
-): Promise<ListSolNetworkOperationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSolNetworkOperations(input, ...args);
-};
 export async function* paginateListSolNetworkOperations(
   config: TnbPaginationConfiguration,
   input: ListSolNetworkOperationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListSolNetworkOperations(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Tnb) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof TnbClient) {
+    if (config.client instanceof TnbClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Tnb | TnbClient");

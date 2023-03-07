@@ -6,7 +6,6 @@ import {
   ListApplicationDependenciesCommandInput,
   ListApplicationDependenciesCommandOutput,
 } from "../commands/ListApplicationDependenciesCommand";
-import { ServerlessApplicationRepository } from "../ServerlessApplicationRepository";
 import { ServerlessApplicationRepositoryClient } from "../ServerlessApplicationRepositoryClient";
 import { ServerlessApplicationRepositoryPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListApplicationDependenciesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ServerlessApplicationRepository,
-  input: ListApplicationDependenciesCommandInput,
-  ...args: any
-): Promise<ListApplicationDependenciesCommandOutput> => {
-  // @ts-ignore
-  return await client.listApplicationDependencies(input, ...args);
-};
 export async function* paginateListApplicationDependencies(
   config: ServerlessApplicationRepositoryPaginationConfiguration,
   input: ListApplicationDependenciesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListApplicationDependencies(
   while (hasNext) {
     input.NextToken = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof ServerlessApplicationRepository) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServerlessApplicationRepositoryClient) {
+    if (config.client instanceof ServerlessApplicationRepositoryClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error(

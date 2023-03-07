@@ -6,7 +6,6 @@ import {
   ListEdgeDeploymentPlansCommandInput,
   ListEdgeDeploymentPlansCommandOutput,
 } from "../commands/ListEdgeDeploymentPlansCommand";
-import { SageMaker } from "../SageMaker";
 import { SageMakerClient } from "../SageMakerClient";
 import { SageMakerPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEdgeDeploymentPlansCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SageMaker,
-  input: ListEdgeDeploymentPlansCommandInput,
-  ...args: any
-): Promise<ListEdgeDeploymentPlansCommandOutput> => {
-  // @ts-ignore
-  return await client.listEdgeDeploymentPlans(input, ...args);
-};
 export async function* paginateListEdgeDeploymentPlans(
   config: SageMakerPaginationConfiguration,
   input: ListEdgeDeploymentPlansCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListEdgeDeploymentPlans(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SageMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SageMakerClient) {
+    if (config.client instanceof SageMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SageMaker | SageMakerClient");

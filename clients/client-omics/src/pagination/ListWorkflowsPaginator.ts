@@ -6,7 +6,6 @@ import {
   ListWorkflowsCommandInput,
   ListWorkflowsCommandOutput,
 } from "../commands/ListWorkflowsCommand";
-import { Omics } from "../Omics";
 import { OmicsClient } from "../OmicsClient";
 import { OmicsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWorkflowsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Omics,
-  input: ListWorkflowsCommandInput,
-  ...args: any
-): Promise<ListWorkflowsCommandOutput> => {
-  // @ts-ignore
-  return await client.listWorkflows(input, ...args);
-};
 export async function* paginateListWorkflows(
   config: OmicsPaginationConfiguration,
   input: ListWorkflowsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListWorkflows(
   while (hasNext) {
     input.startingToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Omics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OmicsClient) {
+    if (config.client instanceof OmicsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Omics | OmicsClient");

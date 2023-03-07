@@ -6,7 +6,6 @@ import {
   ListSSHPublicKeysCommandInput,
   ListSSHPublicKeysCommandOutput,
 } from "../commands/ListSSHPublicKeysCommand";
-import { IAM } from "../IAM";
 import { IAMClient } from "../IAMClient";
 import { IAMPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSSHPublicKeysCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IAM,
-  input: ListSSHPublicKeysCommandInput,
-  ...args: any
-): Promise<ListSSHPublicKeysCommandOutput> => {
-  // @ts-ignore
-  return await client.listSSHPublicKeys(input, ...args);
-};
 export async function* paginateListSSHPublicKeys(
   config: IAMPaginationConfiguration,
   input: ListSSHPublicKeysCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListSSHPublicKeys(
   while (hasNext) {
     input.Marker = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof IAM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IAMClient) {
+    if (config.client instanceof IAMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IAM | IAMClient");

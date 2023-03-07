@@ -6,7 +6,6 @@ import {
   ListDiscoverersCommandInput,
   ListDiscoverersCommandOutput,
 } from "../commands/ListDiscoverersCommand";
-import { Schemas } from "../Schemas";
 import { SchemasClient } from "../SchemasClient";
 import { SchemasPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDiscoverersCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Schemas,
-  input: ListDiscoverersCommandInput,
-  ...args: any
-): Promise<ListDiscoverersCommandOutput> => {
-  // @ts-ignore
-  return await client.listDiscoverers(input, ...args);
-};
 export async function* paginateListDiscoverers(
   config: SchemasPaginationConfiguration,
   input: ListDiscoverersCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDiscoverers(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof Schemas) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SchemasClient) {
+    if (config.client instanceof SchemasClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Schemas | SchemasClient");

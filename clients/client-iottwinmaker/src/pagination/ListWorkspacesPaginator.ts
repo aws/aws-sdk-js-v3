@@ -6,7 +6,6 @@ import {
   ListWorkspacesCommandInput,
   ListWorkspacesCommandOutput,
 } from "../commands/ListWorkspacesCommand";
-import { IoTTwinMaker } from "../IoTTwinMaker";
 import { IoTTwinMakerClient } from "../IoTTwinMakerClient";
 import { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWorkspacesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoTTwinMaker,
-  input: ListWorkspacesCommandInput,
-  ...args: any
-): Promise<ListWorkspacesCommandOutput> => {
-  // @ts-ignore
-  return await client.listWorkspaces(input, ...args);
-};
 export async function* paginateListWorkspaces(
   config: IoTTwinMakerPaginationConfiguration,
   input: ListWorkspacesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListWorkspaces(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTTwinMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTTwinMakerClient) {
+    if (config.client instanceof IoTTwinMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTTwinMaker | IoTTwinMakerClient");

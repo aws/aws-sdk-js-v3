@@ -6,7 +6,6 @@ import {
   ListContainerRecipesCommandInput,
   ListContainerRecipesCommandOutput,
 } from "../commands/ListContainerRecipesCommand";
-import { Imagebuilder } from "../Imagebuilder";
 import { ImagebuilderClient } from "../ImagebuilderClient";
 import { ImagebuilderPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListContainerRecipesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Imagebuilder,
-  input: ListContainerRecipesCommandInput,
-  ...args: any
-): Promise<ListContainerRecipesCommandOutput> => {
-  // @ts-ignore
-  return await client.listContainerRecipes(input, ...args);
-};
 export async function* paginateListContainerRecipes(
   config: ImagebuilderPaginationConfiguration,
   input: ListContainerRecipesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListContainerRecipes(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Imagebuilder) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ImagebuilderClient) {
+    if (config.client instanceof ImagebuilderClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Imagebuilder | ImagebuilderClient");

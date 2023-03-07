@@ -6,7 +6,6 @@ import {
   ListAppVersionResourceMappingsCommandInput,
   ListAppVersionResourceMappingsCommandOutput,
 } from "../commands/ListAppVersionResourceMappingsCommand";
-import { Resiliencehub } from "../Resiliencehub";
 import { ResiliencehubClient } from "../ResiliencehubClient";
 import { ResiliencehubPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAppVersionResourceMappingsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Resiliencehub,
-  input: ListAppVersionResourceMappingsCommandInput,
-  ...args: any
-): Promise<ListAppVersionResourceMappingsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAppVersionResourceMappings(input, ...args);
-};
 export async function* paginateListAppVersionResourceMappings(
   config: ResiliencehubPaginationConfiguration,
   input: ListAppVersionResourceMappingsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListAppVersionResourceMappings(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Resiliencehub) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ResiliencehubClient) {
+    if (config.client instanceof ResiliencehubClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Resiliencehub | ResiliencehubClient");

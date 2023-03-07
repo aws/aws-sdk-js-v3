@@ -6,7 +6,6 @@ import {
   ListDocumentClassifiersCommandInput,
   ListDocumentClassifiersCommandOutput,
 } from "../commands/ListDocumentClassifiersCommand";
-import { Comprehend } from "../Comprehend";
 import { ComprehendClient } from "../ComprehendClient";
 import { ComprehendPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDocumentClassifiersCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Comprehend,
-  input: ListDocumentClassifiersCommandInput,
-  ...args: any
-): Promise<ListDocumentClassifiersCommandOutput> => {
-  // @ts-ignore
-  return await client.listDocumentClassifiers(input, ...args);
-};
 export async function* paginateListDocumentClassifiers(
   config: ComprehendPaginationConfiguration,
   input: ListDocumentClassifiersCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDocumentClassifiers(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Comprehend) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ComprehendClient) {
+    if (config.client instanceof ComprehendClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Comprehend | ComprehendClient");

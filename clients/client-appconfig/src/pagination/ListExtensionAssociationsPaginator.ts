@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { AppConfig } from "../AppConfig";
 import { AppConfigClient } from "../AppConfigClient";
 import {
   ListExtensionAssociationsCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListExtensionAssociationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: AppConfig,
-  input: ListExtensionAssociationsCommandInput,
-  ...args: any
-): Promise<ListExtensionAssociationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listExtensionAssociations(input, ...args);
-};
 export async function* paginateListExtensionAssociations(
   config: AppConfigPaginationConfiguration,
   input: ListExtensionAssociationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListExtensionAssociations(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof AppConfig) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AppConfigClient) {
+    if (config.client instanceof AppConfigClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AppConfig | AppConfigClient");

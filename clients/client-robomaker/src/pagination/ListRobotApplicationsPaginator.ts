@@ -6,7 +6,6 @@ import {
   ListRobotApplicationsCommandInput,
   ListRobotApplicationsCommandOutput,
 } from "../commands/ListRobotApplicationsCommand";
-import { RoboMaker } from "../RoboMaker";
 import { RoboMakerClient } from "../RoboMakerClient";
 import { RoboMakerPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRobotApplicationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: RoboMaker,
-  input: ListRobotApplicationsCommandInput,
-  ...args: any
-): Promise<ListRobotApplicationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listRobotApplications(input, ...args);
-};
 export async function* paginateListRobotApplications(
   config: RoboMakerPaginationConfiguration,
   input: ListRobotApplicationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListRobotApplications(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof RoboMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RoboMakerClient) {
+    if (config.client instanceof RoboMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RoboMaker | RoboMakerClient");

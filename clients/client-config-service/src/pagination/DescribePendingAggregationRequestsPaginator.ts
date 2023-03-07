@@ -6,7 +6,6 @@ import {
   DescribePendingAggregationRequestsCommandInput,
   DescribePendingAggregationRequestsCommandOutput,
 } from "../commands/DescribePendingAggregationRequestsCommand";
-import { ConfigService } from "../ConfigService";
 import { ConfigServiceClient } from "../ConfigServiceClient";
 import { ConfigServicePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribePendingAggregationRequestsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ConfigService,
-  input: DescribePendingAggregationRequestsCommandInput,
-  ...args: any
-): Promise<DescribePendingAggregationRequestsCommandOutput> => {
-  // @ts-ignore
-  return await client.describePendingAggregationRequests(input, ...args);
-};
 export async function* paginateDescribePendingAggregationRequests(
   config: ConfigServicePaginationConfiguration,
   input: DescribePendingAggregationRequestsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribePendingAggregationRequests(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof ConfigService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConfigServiceClient) {
+    if (config.client instanceof ConfigServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ConfigService | ConfigServiceClient");

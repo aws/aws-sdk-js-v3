@@ -6,7 +6,6 @@ import {
   GetTraceGraphCommandInput,
   GetTraceGraphCommandOutput,
 } from "../commands/GetTraceGraphCommand";
-import { XRay } from "../XRay";
 import { XRayClient } from "../XRayClient";
 import { XRayPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetTraceGraphCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: XRay,
-  input: GetTraceGraphCommandInput,
-  ...args: any
-): Promise<GetTraceGraphCommandOutput> => {
-  // @ts-ignore
-  return await client.getTraceGraph(input, ...args);
-};
 export async function* paginateGetTraceGraph(
   config: XRayPaginationConfiguration,
   input: GetTraceGraphCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateGetTraceGraph(
   let page: GetTraceGraphCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof XRay) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof XRayClient) {
+    if (config.client instanceof XRayClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected XRay | XRayClient");

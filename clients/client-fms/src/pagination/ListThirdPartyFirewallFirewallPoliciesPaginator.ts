@@ -6,7 +6,6 @@ import {
   ListThirdPartyFirewallFirewallPoliciesCommandInput,
   ListThirdPartyFirewallFirewallPoliciesCommandOutput,
 } from "../commands/ListThirdPartyFirewallFirewallPoliciesCommand";
-import { FMS } from "../FMS";
 import { FMSClient } from "../FMSClient";
 import { FMSPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListThirdPartyFirewallFirewallPoliciesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: FMS,
-  input: ListThirdPartyFirewallFirewallPoliciesCommandInput,
-  ...args: any
-): Promise<ListThirdPartyFirewallFirewallPoliciesCommandOutput> => {
-  // @ts-ignore
-  return await client.listThirdPartyFirewallFirewallPolicies(input, ...args);
-};
 export async function* paginateListThirdPartyFirewallFirewallPolicies(
   config: FMSPaginationConfiguration,
   input: ListThirdPartyFirewallFirewallPoliciesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListThirdPartyFirewallFirewallPolicies(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof FMS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FMSClient) {
+    if (config.client instanceof FMSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected FMS | FMSClient");

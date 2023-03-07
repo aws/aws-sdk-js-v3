@@ -6,7 +6,6 @@ import {
   ListAccountAssignmentCreationStatusCommandInput,
   ListAccountAssignmentCreationStatusCommandOutput,
 } from "../commands/ListAccountAssignmentCreationStatusCommand";
-import { SSOAdmin } from "../SSOAdmin";
 import { SSOAdminClient } from "../SSOAdminClient";
 import { SSOAdminPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAccountAssignmentCreationStatusCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SSOAdmin,
-  input: ListAccountAssignmentCreationStatusCommandInput,
-  ...args: any
-): Promise<ListAccountAssignmentCreationStatusCommandOutput> => {
-  // @ts-ignore
-  return await client.listAccountAssignmentCreationStatus(input, ...args);
-};
 export async function* paginateListAccountAssignmentCreationStatus(
   config: SSOAdminPaginationConfiguration,
   input: ListAccountAssignmentCreationStatusCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListAccountAssignmentCreationStatus(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSOAdmin) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSOAdminClient) {
+    if (config.client instanceof SSOAdminClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSOAdmin | SSOAdminClient");

@@ -6,7 +6,6 @@ import {
   ListAttachedLinksCommandInput,
   ListAttachedLinksCommandOutput,
 } from "../commands/ListAttachedLinksCommand";
-import { OAM } from "../OAM";
 import { OAMClient } from "../OAMClient";
 import { OAMPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAttachedLinksCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: OAM,
-  input: ListAttachedLinksCommandInput,
-  ...args: any
-): Promise<ListAttachedLinksCommandOutput> => {
-  // @ts-ignore
-  return await client.listAttachedLinks(input, ...args);
-};
 export async function* paginateListAttachedLinks(
   config: OAMPaginationConfiguration,
   input: ListAttachedLinksCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListAttachedLinks(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof OAM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OAMClient) {
+    if (config.client instanceof OAMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected OAM | OAMClient");

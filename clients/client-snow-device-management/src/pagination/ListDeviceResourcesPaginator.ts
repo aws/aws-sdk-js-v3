@@ -6,7 +6,6 @@ import {
   ListDeviceResourcesCommandInput,
   ListDeviceResourcesCommandOutput,
 } from "../commands/ListDeviceResourcesCommand";
-import { SnowDeviceManagement } from "../SnowDeviceManagement";
 import { SnowDeviceManagementClient } from "../SnowDeviceManagementClient";
 import { SnowDeviceManagementPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDeviceResourcesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SnowDeviceManagement,
-  input: ListDeviceResourcesCommandInput,
-  ...args: any
-): Promise<ListDeviceResourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.listDeviceResources(input, ...args);
-};
 export async function* paginateListDeviceResources(
   config: SnowDeviceManagementPaginationConfiguration,
   input: ListDeviceResourcesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDeviceResources(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof SnowDeviceManagement) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SnowDeviceManagementClient) {
+    if (config.client instanceof SnowDeviceManagementClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SnowDeviceManagement | SnowDeviceManagementClient");

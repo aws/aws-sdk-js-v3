@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
-import { FinspaceData } from "../FinspaceData";
 import { FinspaceDataClient } from "../FinspaceDataClient";
 import { FinspaceDataPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListUsersCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: FinspaceData,
-  input: ListUsersCommandInput,
-  ...args: any
-): Promise<ListUsersCommandOutput> => {
-  // @ts-ignore
-  return await client.listUsers(input, ...args);
-};
 export async function* paginateListUsers(
   config: FinspaceDataPaginationConfiguration,
   input: ListUsersCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListUsers(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof FinspaceData) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FinspaceDataClient) {
+    if (config.client instanceof FinspaceDataClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected FinspaceData | FinspaceDataClient");

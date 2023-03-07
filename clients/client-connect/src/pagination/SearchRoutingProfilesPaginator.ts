@@ -6,7 +6,6 @@ import {
   SearchRoutingProfilesCommandInput,
   SearchRoutingProfilesCommandOutput,
 } from "../commands/SearchRoutingProfilesCommand";
-import { Connect } from "../Connect";
 import { ConnectClient } from "../ConnectClient";
 import { ConnectPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchRoutingProfilesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Connect,
-  input: SearchRoutingProfilesCommandInput,
-  ...args: any
-): Promise<SearchRoutingProfilesCommandOutput> => {
-  // @ts-ignore
-  return await client.searchRoutingProfiles(input, ...args);
-};
 export async function* paginateSearchRoutingProfiles(
   config: ConnectPaginationConfiguration,
   input: SearchRoutingProfilesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateSearchRoutingProfiles(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Connect) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConnectClient) {
+    if (config.client instanceof ConnectClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Connect | ConnectClient");
