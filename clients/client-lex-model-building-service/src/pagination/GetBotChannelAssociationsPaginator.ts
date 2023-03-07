@@ -6,7 +6,6 @@ import {
   GetBotChannelAssociationsCommandInput,
   GetBotChannelAssociationsCommandOutput,
 } from "../commands/GetBotChannelAssociationsCommand";
-import { LexModelBuildingService } from "../LexModelBuildingService";
 import { LexModelBuildingServiceClient } from "../LexModelBuildingServiceClient";
 import { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetBotChannelAssociationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: LexModelBuildingService,
-  input: GetBotChannelAssociationsCommandInput,
-  ...args: any
-): Promise<GetBotChannelAssociationsCommandOutput> => {
-  // @ts-ignore
-  return await client.getBotChannelAssociations(input, ...args);
-};
 export async function* paginateGetBotChannelAssociations(
   config: LexModelBuildingServicePaginationConfiguration,
   input: GetBotChannelAssociationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateGetBotChannelAssociations(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof LexModelBuildingService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LexModelBuildingServiceClient) {
+    if (config.client instanceof LexModelBuildingServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LexModelBuildingService | LexModelBuildingServiceClient");

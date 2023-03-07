@@ -6,7 +6,6 @@ import {
   ListDashboardVersionsCommandInput,
   ListDashboardVersionsCommandOutput,
 } from "../commands/ListDashboardVersionsCommand";
-import { QuickSight } from "../QuickSight";
 import { QuickSightClient } from "../QuickSightClient";
 import { QuickSightPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDashboardVersionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: QuickSight,
-  input: ListDashboardVersionsCommandInput,
-  ...args: any
-): Promise<ListDashboardVersionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDashboardVersions(input, ...args);
-};
 export async function* paginateListDashboardVersions(
   config: QuickSightPaginationConfiguration,
   input: ListDashboardVersionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDashboardVersions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof QuickSight) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof QuickSightClient) {
+    if (config.client instanceof QuickSightClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected QuickSight | QuickSightClient");

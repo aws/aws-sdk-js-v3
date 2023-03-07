@@ -6,7 +6,6 @@ import {
   ListLaunchProfilesCommandInput,
   ListLaunchProfilesCommandOutput,
 } from "../commands/ListLaunchProfilesCommand";
-import { Nimble } from "../Nimble";
 import { NimbleClient } from "../NimbleClient";
 import { NimblePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListLaunchProfilesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Nimble,
-  input: ListLaunchProfilesCommandInput,
-  ...args: any
-): Promise<ListLaunchProfilesCommandOutput> => {
-  // @ts-ignore
-  return await client.listLaunchProfiles(input, ...args);
-};
 export async function* paginateListLaunchProfiles(
   config: NimblePaginationConfiguration,
   input: ListLaunchProfilesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListLaunchProfiles(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Nimble) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof NimbleClient) {
+    if (config.client instanceof NimbleClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Nimble | NimbleClient");

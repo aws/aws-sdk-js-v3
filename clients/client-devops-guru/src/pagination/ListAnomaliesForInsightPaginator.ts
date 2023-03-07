@@ -6,7 +6,6 @@ import {
   ListAnomaliesForInsightCommandInput,
   ListAnomaliesForInsightCommandOutput,
 } from "../commands/ListAnomaliesForInsightCommand";
-import { DevOpsGuru } from "../DevOpsGuru";
 import { DevOpsGuruClient } from "../DevOpsGuruClient";
 import { DevOpsGuruPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAnomaliesForInsightCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: DevOpsGuru,
-  input: ListAnomaliesForInsightCommandInput,
-  ...args: any
-): Promise<ListAnomaliesForInsightCommandOutput> => {
-  // @ts-ignore
-  return await client.listAnomaliesForInsight(input, ...args);
-};
 export async function* paginateListAnomaliesForInsight(
   config: DevOpsGuruPaginationConfiguration,
   input: ListAnomaliesForInsightCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListAnomaliesForInsight(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof DevOpsGuru) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DevOpsGuruClient) {
+    if (config.client instanceof DevOpsGuruClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DevOpsGuru | DevOpsGuruClient");

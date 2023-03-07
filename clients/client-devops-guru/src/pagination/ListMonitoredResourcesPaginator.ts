@@ -6,7 +6,6 @@ import {
   ListMonitoredResourcesCommandInput,
   ListMonitoredResourcesCommandOutput,
 } from "../commands/ListMonitoredResourcesCommand";
-import { DevOpsGuru } from "../DevOpsGuru";
 import { DevOpsGuruClient } from "../DevOpsGuruClient";
 import { DevOpsGuruPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMonitoredResourcesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: DevOpsGuru,
-  input: ListMonitoredResourcesCommandInput,
-  ...args: any
-): Promise<ListMonitoredResourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.listMonitoredResources(input, ...args);
-};
 export async function* paginateListMonitoredResources(
   config: DevOpsGuruPaginationConfiguration,
   input: ListMonitoredResourcesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListMonitoredResources(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof DevOpsGuru) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DevOpsGuruClient) {
+    if (config.client instanceof DevOpsGuruClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DevOpsGuru | DevOpsGuruClient");

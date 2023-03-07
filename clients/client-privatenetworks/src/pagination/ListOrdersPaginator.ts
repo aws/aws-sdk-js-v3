@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListOrdersCommand, ListOrdersCommandInput, ListOrdersCommandOutput } from "../commands/ListOrdersCommand";
-import { PrivateNetworks } from "../PrivateNetworks";
 import { PrivateNetworksClient } from "../PrivateNetworksClient";
 import { PrivateNetworksPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListOrdersCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: PrivateNetworks,
-  input: ListOrdersCommandInput,
-  ...args: any
-): Promise<ListOrdersCommandOutput> => {
-  // @ts-ignore
-  return await client.listOrders(input, ...args);
-};
 export async function* paginateListOrders(
   config: PrivateNetworksPaginationConfiguration,
   input: ListOrdersCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListOrders(
   while (hasNext) {
     input.startToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof PrivateNetworks) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PrivateNetworksClient) {
+    if (config.client instanceof PrivateNetworksClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected PrivateNetworks | PrivateNetworksClient");

@@ -6,7 +6,6 @@ import {
   SelectAggregateResourceConfigCommandInput,
   SelectAggregateResourceConfigCommandOutput,
 } from "../commands/SelectAggregateResourceConfigCommand";
-import { ConfigService } from "../ConfigService";
 import { ConfigServiceClient } from "../ConfigServiceClient";
 import { ConfigServicePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SelectAggregateResourceConfigCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ConfigService,
-  input: SelectAggregateResourceConfigCommandInput,
-  ...args: any
-): Promise<SelectAggregateResourceConfigCommandOutput> => {
-  // @ts-ignore
-  return await client.selectAggregateResourceConfig(input, ...args);
-};
 export async function* paginateSelectAggregateResourceConfig(
   config: ConfigServicePaginationConfiguration,
   input: SelectAggregateResourceConfigCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateSelectAggregateResourceConfig(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof ConfigService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConfigServiceClient) {
+    if (config.client instanceof ConfigServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ConfigService | ConfigServiceClient");

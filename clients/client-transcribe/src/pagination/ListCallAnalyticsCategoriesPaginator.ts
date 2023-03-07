@@ -6,7 +6,6 @@ import {
   ListCallAnalyticsCategoriesCommandInput,
   ListCallAnalyticsCategoriesCommandOutput,
 } from "../commands/ListCallAnalyticsCategoriesCommand";
-import { Transcribe } from "../Transcribe";
 import { TranscribeClient } from "../TranscribeClient";
 import { TranscribePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCallAnalyticsCategoriesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Transcribe,
-  input: ListCallAnalyticsCategoriesCommandInput,
-  ...args: any
-): Promise<ListCallAnalyticsCategoriesCommandOutput> => {
-  // @ts-ignore
-  return await client.listCallAnalyticsCategories(input, ...args);
-};
 export async function* paginateListCallAnalyticsCategories(
   config: TranscribePaginationConfiguration,
   input: ListCallAnalyticsCategoriesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListCallAnalyticsCategories(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Transcribe) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof TranscribeClient) {
+    if (config.client instanceof TranscribeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Transcribe | TranscribeClient");

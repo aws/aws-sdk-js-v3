@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListBrokersCommand, ListBrokersCommandInput, ListBrokersCommandOutput } from "../commands/ListBrokersCommand";
-import { Mq } from "../Mq";
 import { MqClient } from "../MqClient";
 import { MqPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBrokersCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Mq,
-  input: ListBrokersCommandInput,
-  ...args: any
-): Promise<ListBrokersCommandOutput> => {
-  // @ts-ignore
-  return await client.listBrokers(input, ...args);
-};
 export async function* paginateListBrokers(
   config: MqPaginationConfiguration,
   input: ListBrokersCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListBrokers(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Mq) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MqClient) {
+    if (config.client instanceof MqClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Mq | MqClient");

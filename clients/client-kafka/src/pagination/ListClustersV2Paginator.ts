@@ -6,7 +6,6 @@ import {
   ListClustersV2CommandInput,
   ListClustersV2CommandOutput,
 } from "../commands/ListClustersV2Command";
-import { Kafka } from "../Kafka";
 import { KafkaClient } from "../KafkaClient";
 import { KafkaPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListClustersV2Command(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Kafka,
-  input: ListClustersV2CommandInput,
-  ...args: any
-): Promise<ListClustersV2CommandOutput> => {
-  // @ts-ignore
-  return await client.listClustersV2(input, ...args);
-};
 export async function* paginateListClustersV2(
   config: KafkaPaginationConfiguration,
   input: ListClustersV2CommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListClustersV2(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Kafka) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KafkaClient) {
+    if (config.client instanceof KafkaClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Kafka | KafkaClient");

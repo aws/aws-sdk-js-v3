@@ -6,7 +6,6 @@ import {
   GetCanaryRunsCommandInput,
   GetCanaryRunsCommandOutput,
 } from "../commands/GetCanaryRunsCommand";
-import { Synthetics } from "../Synthetics";
 import { SyntheticsClient } from "../SyntheticsClient";
 import { SyntheticsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetCanaryRunsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Synthetics,
-  input: GetCanaryRunsCommandInput,
-  ...args: any
-): Promise<GetCanaryRunsCommandOutput> => {
-  // @ts-ignore
-  return await client.getCanaryRuns(input, ...args);
-};
 export async function* paginateGetCanaryRuns(
   config: SyntheticsPaginationConfiguration,
   input: GetCanaryRunsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateGetCanaryRuns(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Synthetics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SyntheticsClient) {
+    if (config.client instanceof SyntheticsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Synthetics | SyntheticsClient");

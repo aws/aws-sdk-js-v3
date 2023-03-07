@@ -6,7 +6,6 @@ import {
   GetUpgradeHistoryCommandInput,
   GetUpgradeHistoryCommandOutput,
 } from "../commands/GetUpgradeHistoryCommand";
-import { ElasticsearchService } from "../ElasticsearchService";
 import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
 import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetUpgradeHistoryCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ElasticsearchService,
-  input: GetUpgradeHistoryCommandInput,
-  ...args: any
-): Promise<GetUpgradeHistoryCommandOutput> => {
-  // @ts-ignore
-  return await client.getUpgradeHistory(input, ...args);
-};
 export async function* paginateGetUpgradeHistory(
   config: ElasticsearchServicePaginationConfiguration,
   input: GetUpgradeHistoryCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateGetUpgradeHistory(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ElasticsearchService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElasticsearchServiceClient) {
+    if (config.client instanceof ElasticsearchServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElasticsearchService | ElasticsearchServiceClient");

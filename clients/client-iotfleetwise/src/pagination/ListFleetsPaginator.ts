@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListFleetsCommand, ListFleetsCommandInput, ListFleetsCommandOutput } from "../commands/ListFleetsCommand";
-import { IoTFleetWise } from "../IoTFleetWise";
 import { IoTFleetWiseClient } from "../IoTFleetWiseClient";
 import { IoTFleetWisePaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFleetsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoTFleetWise,
-  input: ListFleetsCommandInput,
-  ...args: any
-): Promise<ListFleetsCommandOutput> => {
-  // @ts-ignore
-  return await client.listFleets(input, ...args);
-};
 export async function* paginateListFleets(
   config: IoTFleetWisePaginationConfiguration,
   input: ListFleetsCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListFleets(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTFleetWise) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTFleetWiseClient) {
+    if (config.client instanceof IoTFleetWiseClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTFleetWise | IoTFleetWiseClient");

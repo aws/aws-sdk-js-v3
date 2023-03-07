@@ -6,7 +6,6 @@ import {
   ListConfigurationSetsCommandInput,
   ListConfigurationSetsCommandOutput,
 } from "../commands/ListConfigurationSetsCommand";
-import { SESv2 } from "../SESv2";
 import { SESv2Client } from "../SESv2Client";
 import { SESv2PaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListConfigurationSetsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SESv2,
-  input: ListConfigurationSetsCommandInput,
-  ...args: any
-): Promise<ListConfigurationSetsCommandOutput> => {
-  // @ts-ignore
-  return await client.listConfigurationSets(input, ...args);
-};
 export async function* paginateListConfigurationSets(
   config: SESv2PaginationConfiguration,
   input: ListConfigurationSetsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListConfigurationSets(
   while (hasNext) {
     input.NextToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof SESv2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SESv2Client) {
+    if (config.client instanceof SESv2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SESv2 | SESv2Client");

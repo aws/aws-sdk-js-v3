@@ -6,7 +6,6 @@ import {
   ListJobsByPipelineCommandInput,
   ListJobsByPipelineCommandOutput,
 } from "../commands/ListJobsByPipelineCommand";
-import { ElasticTranscoder } from "../ElasticTranscoder";
 import { ElasticTranscoderClient } from "../ElasticTranscoderClient";
 import { ElasticTranscoderPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListJobsByPipelineCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ElasticTranscoder,
-  input: ListJobsByPipelineCommandInput,
-  ...args: any
-): Promise<ListJobsByPipelineCommandOutput> => {
-  // @ts-ignore
-  return await client.listJobsByPipeline(input, ...args);
-};
 export async function* paginateListJobsByPipeline(
   config: ElasticTranscoderPaginationConfiguration,
   input: ListJobsByPipelineCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListJobsByPipeline(
   let page: ListJobsByPipelineCommandOutput;
   while (hasNext) {
     input.PageToken = token;
-    if (config.client instanceof ElasticTranscoder) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElasticTranscoderClient) {
+    if (config.client instanceof ElasticTranscoderClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElasticTranscoder | ElasticTranscoderClient");

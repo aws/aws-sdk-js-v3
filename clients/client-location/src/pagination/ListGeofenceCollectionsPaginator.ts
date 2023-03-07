@@ -6,7 +6,6 @@ import {
   ListGeofenceCollectionsCommandInput,
   ListGeofenceCollectionsCommandOutput,
 } from "../commands/ListGeofenceCollectionsCommand";
-import { Location } from "../Location";
 import { LocationClient } from "../LocationClient";
 import { LocationPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListGeofenceCollectionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Location,
-  input: ListGeofenceCollectionsCommandInput,
-  ...args: any
-): Promise<ListGeofenceCollectionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listGeofenceCollections(input, ...args);
-};
 export async function* paginateListGeofenceCollections(
   config: LocationPaginationConfiguration,
   input: ListGeofenceCollectionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListGeofenceCollections(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Location) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LocationClient) {
+    if (config.client instanceof LocationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Location | LocationClient");

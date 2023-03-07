@@ -6,7 +6,6 @@ import {
   ListCoreDevicesCommandInput,
   ListCoreDevicesCommandOutput,
 } from "../commands/ListCoreDevicesCommand";
-import { GreengrassV2 } from "../GreengrassV2";
 import { GreengrassV2Client } from "../GreengrassV2Client";
 import { GreengrassV2PaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCoreDevicesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: GreengrassV2,
-  input: ListCoreDevicesCommandInput,
-  ...args: any
-): Promise<ListCoreDevicesCommandOutput> => {
-  // @ts-ignore
-  return await client.listCoreDevices(input, ...args);
-};
 export async function* paginateListCoreDevices(
   config: GreengrassV2PaginationConfiguration,
   input: ListCoreDevicesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListCoreDevices(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof GreengrassV2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GreengrassV2Client) {
+    if (config.client instanceof GreengrassV2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GreengrassV2 | GreengrassV2Client");

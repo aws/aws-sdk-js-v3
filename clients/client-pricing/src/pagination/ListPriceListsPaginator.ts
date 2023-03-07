@@ -6,7 +6,6 @@ import {
   ListPriceListsCommandInput,
   ListPriceListsCommandOutput,
 } from "../commands/ListPriceListsCommand";
-import { Pricing } from "../Pricing";
 import { PricingClient } from "../PricingClient";
 import { PricingPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPriceListsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Pricing,
-  input: ListPriceListsCommandInput,
-  ...args: any
-): Promise<ListPriceListsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPriceLists(input, ...args);
-};
 export async function* paginateListPriceLists(
   config: PricingPaginationConfiguration,
   input: ListPriceListsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListPriceLists(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Pricing) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PricingClient) {
+    if (config.client instanceof PricingClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Pricing | PricingClient");

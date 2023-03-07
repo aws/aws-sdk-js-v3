@@ -6,7 +6,6 @@ import {
   ListDatasetEntriesCommandInput,
   ListDatasetEntriesCommandOutput,
 } from "../commands/ListDatasetEntriesCommand";
-import { LookoutVision } from "../LookoutVision";
 import { LookoutVisionClient } from "../LookoutVisionClient";
 import { LookoutVisionPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDatasetEntriesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: LookoutVision,
-  input: ListDatasetEntriesCommandInput,
-  ...args: any
-): Promise<ListDatasetEntriesCommandOutput> => {
-  // @ts-ignore
-  return await client.listDatasetEntries(input, ...args);
-};
 export async function* paginateListDatasetEntries(
   config: LookoutVisionPaginationConfiguration,
   input: ListDatasetEntriesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDatasetEntries(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LookoutVision) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LookoutVisionClient) {
+    if (config.client instanceof LookoutVisionClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LookoutVision | LookoutVisionClient");

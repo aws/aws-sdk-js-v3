@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { AppStream } from "../AppStream";
 import { AppStreamClient } from "../AppStreamClient";
 import {
   DescribeImagesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeImagesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: AppStream,
-  input: DescribeImagesCommandInput,
-  ...args: any
-): Promise<DescribeImagesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeImages(input, ...args);
-};
 export async function* paginateDescribeImages(
   config: AppStreamPaginationConfiguration,
   input: DescribeImagesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeImages(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof AppStream) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AppStreamClient) {
+    if (config.client instanceof AppStreamClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AppStream | AppStreamClient");

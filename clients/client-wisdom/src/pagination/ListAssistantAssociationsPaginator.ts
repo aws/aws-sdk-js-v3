@@ -6,7 +6,6 @@ import {
   ListAssistantAssociationsCommandInput,
   ListAssistantAssociationsCommandOutput,
 } from "../commands/ListAssistantAssociationsCommand";
-import { Wisdom } from "../Wisdom";
 import { WisdomClient } from "../WisdomClient";
 import { WisdomPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAssistantAssociationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Wisdom,
-  input: ListAssistantAssociationsCommandInput,
-  ...args: any
-): Promise<ListAssistantAssociationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAssistantAssociations(input, ...args);
-};
 export async function* paginateListAssistantAssociations(
   config: WisdomPaginationConfiguration,
   input: ListAssistantAssociationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListAssistantAssociations(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Wisdom) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WisdomClient) {
+    if (config.client instanceof WisdomClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Wisdom | WisdomClient");

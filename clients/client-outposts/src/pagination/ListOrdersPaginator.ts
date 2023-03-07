@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListOrdersCommand, ListOrdersCommandInput, ListOrdersCommandOutput } from "../commands/ListOrdersCommand";
-import { Outposts } from "../Outposts";
 import { OutpostsClient } from "../OutpostsClient";
 import { OutpostsPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListOrdersCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Outposts,
-  input: ListOrdersCommandInput,
-  ...args: any
-): Promise<ListOrdersCommandOutput> => {
-  // @ts-ignore
-  return await client.listOrders(input, ...args);
-};
 export async function* paginateListOrders(
   config: OutpostsPaginationConfiguration,
   input: ListOrdersCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListOrders(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Outposts) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OutpostsClient) {
+    if (config.client instanceof OutpostsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Outposts | OutpostsClient");

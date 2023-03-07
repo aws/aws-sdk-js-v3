@@ -6,7 +6,6 @@ import {
   ListManagedPoliciesInPermissionSetCommandInput,
   ListManagedPoliciesInPermissionSetCommandOutput,
 } from "../commands/ListManagedPoliciesInPermissionSetCommand";
-import { SSOAdmin } from "../SSOAdmin";
 import { SSOAdminClient } from "../SSOAdminClient";
 import { SSOAdminPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListManagedPoliciesInPermissionSetCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SSOAdmin,
-  input: ListManagedPoliciesInPermissionSetCommandInput,
-  ...args: any
-): Promise<ListManagedPoliciesInPermissionSetCommandOutput> => {
-  // @ts-ignore
-  return await client.listManagedPoliciesInPermissionSet(input, ...args);
-};
 export async function* paginateListManagedPoliciesInPermissionSet(
   config: SSOAdminPaginationConfiguration,
   input: ListManagedPoliciesInPermissionSetCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListManagedPoliciesInPermissionSet(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSOAdmin) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSOAdminClient) {
+    if (config.client instanceof SSOAdminClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSOAdmin | SSOAdminClient");

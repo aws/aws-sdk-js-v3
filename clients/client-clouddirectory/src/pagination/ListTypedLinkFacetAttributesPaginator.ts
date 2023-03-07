@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CloudDirectory } from "../CloudDirectory";
 import { CloudDirectoryClient } from "../CloudDirectoryClient";
 import {
   ListTypedLinkFacetAttributesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTypedLinkFacetAttributesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CloudDirectory,
-  input: ListTypedLinkFacetAttributesCommandInput,
-  ...args: any
-): Promise<ListTypedLinkFacetAttributesCommandOutput> => {
-  // @ts-ignore
-  return await client.listTypedLinkFacetAttributes(input, ...args);
-};
 export async function* paginateListTypedLinkFacetAttributes(
   config: CloudDirectoryPaginationConfiguration,
   input: ListTypedLinkFacetAttributesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListTypedLinkFacetAttributes(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CloudDirectory) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudDirectoryClient) {
+    if (config.client instanceof CloudDirectoryClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudDirectory | CloudDirectoryClient");

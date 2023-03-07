@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CodeDeploy } from "../CodeDeploy";
 import { CodeDeployClient } from "../CodeDeployClient";
 import {
   ListDeploymentsCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDeploymentsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CodeDeploy,
-  input: ListDeploymentsCommandInput,
-  ...args: any
-): Promise<ListDeploymentsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDeployments(input, ...args);
-};
 export async function* paginateListDeployments(
   config: CodeDeployPaginationConfiguration,
   input: ListDeploymentsCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListDeployments(
   let page: ListDeploymentsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof CodeDeploy) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodeDeployClient) {
+    if (config.client instanceof CodeDeployClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodeDeploy | CodeDeployClient");

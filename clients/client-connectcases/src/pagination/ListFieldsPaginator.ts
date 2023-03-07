@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListFieldsCommand, ListFieldsCommandInput, ListFieldsCommandOutput } from "../commands/ListFieldsCommand";
-import { ConnectCases } from "../ConnectCases";
 import { ConnectCasesClient } from "../ConnectCasesClient";
 import { ConnectCasesPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFieldsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ConnectCases,
-  input: ListFieldsCommandInput,
-  ...args: any
-): Promise<ListFieldsCommandOutput> => {
-  // @ts-ignore
-  return await client.listFields(input, ...args);
-};
 export async function* paginateListFields(
   config: ConnectCasesPaginationConfiguration,
   input: ListFieldsCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListFields(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ConnectCases) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConnectCasesClient) {
+    if (config.client instanceof ConnectCasesClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ConnectCases | ConnectCasesClient");

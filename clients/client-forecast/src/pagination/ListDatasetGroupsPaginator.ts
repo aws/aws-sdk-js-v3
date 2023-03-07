@@ -6,7 +6,6 @@ import {
   ListDatasetGroupsCommandInput,
   ListDatasetGroupsCommandOutput,
 } from "../commands/ListDatasetGroupsCommand";
-import { Forecast } from "../Forecast";
 import { ForecastClient } from "../ForecastClient";
 import { ForecastPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDatasetGroupsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Forecast,
-  input: ListDatasetGroupsCommandInput,
-  ...args: any
-): Promise<ListDatasetGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDatasetGroups(input, ...args);
-};
 export async function* paginateListDatasetGroups(
   config: ForecastPaginationConfiguration,
   input: ListDatasetGroupsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDatasetGroups(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Forecast) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ForecastClient) {
+    if (config.client instanceof ForecastClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Forecast | ForecastClient");

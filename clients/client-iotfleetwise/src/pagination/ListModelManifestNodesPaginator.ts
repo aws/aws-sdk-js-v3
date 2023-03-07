@@ -6,7 +6,6 @@ import {
   ListModelManifestNodesCommandInput,
   ListModelManifestNodesCommandOutput,
 } from "../commands/ListModelManifestNodesCommand";
-import { IoTFleetWise } from "../IoTFleetWise";
 import { IoTFleetWiseClient } from "../IoTFleetWiseClient";
 import { IoTFleetWisePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListModelManifestNodesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoTFleetWise,
-  input: ListModelManifestNodesCommandInput,
-  ...args: any
-): Promise<ListModelManifestNodesCommandOutput> => {
-  // @ts-ignore
-  return await client.listModelManifestNodes(input, ...args);
-};
 export async function* paginateListModelManifestNodes(
   config: IoTFleetWisePaginationConfiguration,
   input: ListModelManifestNodesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListModelManifestNodes(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTFleetWise) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTFleetWiseClient) {
+    if (config.client instanceof IoTFleetWiseClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTFleetWise | IoTFleetWiseClient");

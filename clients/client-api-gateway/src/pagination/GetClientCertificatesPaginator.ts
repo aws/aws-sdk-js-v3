@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { APIGateway } from "../APIGateway";
 import { APIGatewayClient } from "../APIGatewayClient";
 import {
   GetClientCertificatesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetClientCertificatesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: APIGateway,
-  input: GetClientCertificatesCommandInput,
-  ...args: any
-): Promise<GetClientCertificatesCommandOutput> => {
-  // @ts-ignore
-  return await client.getClientCertificates(input, ...args);
-};
 export async function* paginateGetClientCertificates(
   config: APIGatewayPaginationConfiguration,
   input: GetClientCertificatesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateGetClientCertificates(
   while (hasNext) {
     input.position = token;
     input["limit"] = config.pageSize;
-    if (config.client instanceof APIGateway) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof APIGatewayClient) {
+    if (config.client instanceof APIGatewayClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected APIGateway | APIGatewayClient");

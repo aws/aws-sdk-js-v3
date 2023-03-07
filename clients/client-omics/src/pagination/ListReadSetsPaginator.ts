@@ -6,7 +6,6 @@ import {
   ListReadSetsCommandInput,
   ListReadSetsCommandOutput,
 } from "../commands/ListReadSetsCommand";
-import { Omics } from "../Omics";
 import { OmicsClient } from "../OmicsClient";
 import { OmicsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListReadSetsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Omics,
-  input: ListReadSetsCommandInput,
-  ...args: any
-): Promise<ListReadSetsCommandOutput> => {
-  // @ts-ignore
-  return await client.listReadSets(input, ...args);
-};
 export async function* paginateListReadSets(
   config: OmicsPaginationConfiguration,
   input: ListReadSetsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListReadSets(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Omics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OmicsClient) {
+    if (config.client instanceof OmicsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Omics | OmicsClient");

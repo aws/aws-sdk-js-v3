@@ -6,7 +6,6 @@ import {
   ListCostCategoryDefinitionsCommandInput,
   ListCostCategoryDefinitionsCommandOutput,
 } from "../commands/ListCostCategoryDefinitionsCommand";
-import { CostExplorer } from "../CostExplorer";
 import { CostExplorerClient } from "../CostExplorerClient";
 import { CostExplorerPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCostCategoryDefinitionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CostExplorer,
-  input: ListCostCategoryDefinitionsCommandInput,
-  ...args: any
-): Promise<ListCostCategoryDefinitionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listCostCategoryDefinitions(input, ...args);
-};
 export async function* paginateListCostCategoryDefinitions(
   config: CostExplorerPaginationConfiguration,
   input: ListCostCategoryDefinitionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListCostCategoryDefinitions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CostExplorer) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CostExplorerClient) {
+    if (config.client instanceof CostExplorerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CostExplorer | CostExplorerClient");

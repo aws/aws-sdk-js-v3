@@ -6,7 +6,6 @@ import {
   ListWorkflowsCommandInput,
   ListWorkflowsCommandOutput,
 } from "../commands/ListWorkflowsCommand";
-import { Transfer } from "../Transfer";
 import { TransferClient } from "../TransferClient";
 import { TransferPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWorkflowsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Transfer,
-  input: ListWorkflowsCommandInput,
-  ...args: any
-): Promise<ListWorkflowsCommandOutput> => {
-  // @ts-ignore
-  return await client.listWorkflows(input, ...args);
-};
 export async function* paginateListWorkflows(
   config: TransferPaginationConfiguration,
   input: ListWorkflowsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListWorkflows(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Transfer) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof TransferClient) {
+    if (config.client instanceof TransferClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Transfer | TransferClient");

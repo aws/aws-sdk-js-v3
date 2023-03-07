@@ -6,7 +6,6 @@ import {
   ListImpersonationRolesCommandInput,
   ListImpersonationRolesCommandOutput,
 } from "../commands/ListImpersonationRolesCommand";
-import { WorkMail } from "../WorkMail";
 import { WorkMailClient } from "../WorkMailClient";
 import { WorkMailPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListImpersonationRolesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: WorkMail,
-  input: ListImpersonationRolesCommandInput,
-  ...args: any
-): Promise<ListImpersonationRolesCommandOutput> => {
-  // @ts-ignore
-  return await client.listImpersonationRoles(input, ...args);
-};
 export async function* paginateListImpersonationRoles(
   config: WorkMailPaginationConfiguration,
   input: ListImpersonationRolesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListImpersonationRoles(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof WorkMail) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WorkMailClient) {
+    if (config.client instanceof WorkMailClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WorkMail | WorkMailClient");

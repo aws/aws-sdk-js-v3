@@ -6,7 +6,6 @@ import {
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
 } from "../commands/ListApplicationsCommand";
-import { EMRServerless } from "../EMRServerless";
 import { EMRServerlessClient } from "../EMRServerlessClient";
 import { EMRServerlessPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListApplicationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: EMRServerless,
-  input: ListApplicationsCommandInput,
-  ...args: any
-): Promise<ListApplicationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listApplications(input, ...args);
-};
 export async function* paginateListApplications(
   config: EMRServerlessPaginationConfiguration,
   input: ListApplicationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListApplications(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof EMRServerless) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EMRServerlessClient) {
+    if (config.client instanceof EMRServerlessClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EMRServerless | EMRServerlessClient");

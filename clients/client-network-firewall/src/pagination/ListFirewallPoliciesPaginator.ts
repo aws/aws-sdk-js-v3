@@ -6,7 +6,6 @@ import {
   ListFirewallPoliciesCommandInput,
   ListFirewallPoliciesCommandOutput,
 } from "../commands/ListFirewallPoliciesCommand";
-import { NetworkFirewall } from "../NetworkFirewall";
 import { NetworkFirewallClient } from "../NetworkFirewallClient";
 import { NetworkFirewallPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFirewallPoliciesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: NetworkFirewall,
-  input: ListFirewallPoliciesCommandInput,
-  ...args: any
-): Promise<ListFirewallPoliciesCommandOutput> => {
-  // @ts-ignore
-  return await client.listFirewallPolicies(input, ...args);
-};
 export async function* paginateListFirewallPolicies(
   config: NetworkFirewallPaginationConfiguration,
   input: ListFirewallPoliciesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListFirewallPolicies(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof NetworkFirewall) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof NetworkFirewallClient) {
+    if (config.client instanceof NetworkFirewallClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected NetworkFirewall | NetworkFirewallClient");

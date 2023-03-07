@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { AppRunner } from "../AppRunner";
 import { AppRunnerClient } from "../AppRunnerClient";
 import {
   ListServicesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListServicesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: AppRunner,
-  input: ListServicesCommandInput,
-  ...args: any
-): Promise<ListServicesCommandOutput> => {
-  // @ts-ignore
-  return await client.listServices(input, ...args);
-};
 export async function* paginateListServices(
   config: AppRunnerPaginationConfiguration,
   input: ListServicesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListServices(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof AppRunner) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AppRunnerClient) {
+    if (config.client instanceof AppRunnerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AppRunner | AppRunnerClient");

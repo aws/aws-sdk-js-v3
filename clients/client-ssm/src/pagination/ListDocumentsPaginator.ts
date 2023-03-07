@@ -6,7 +6,6 @@ import {
   ListDocumentsCommandInput,
   ListDocumentsCommandOutput,
 } from "../commands/ListDocumentsCommand";
-import { SSM } from "../SSM";
 import { SSMClient } from "../SSMClient";
 import { SSMPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDocumentsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SSM,
-  input: ListDocumentsCommandInput,
-  ...args: any
-): Promise<ListDocumentsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDocuments(input, ...args);
-};
 export async function* paginateListDocuments(
   config: SSMPaginationConfiguration,
   input: ListDocumentsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDocuments(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSMClient) {
+    if (config.client instanceof SSMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSM | SSMClient");

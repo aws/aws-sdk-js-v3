@@ -6,7 +6,6 @@ import {
   ListModelPackagingJobsCommandInput,
   ListModelPackagingJobsCommandOutput,
 } from "../commands/ListModelPackagingJobsCommand";
-import { LookoutVision } from "../LookoutVision";
 import { LookoutVisionClient } from "../LookoutVisionClient";
 import { LookoutVisionPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListModelPackagingJobsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: LookoutVision,
-  input: ListModelPackagingJobsCommandInput,
-  ...args: any
-): Promise<ListModelPackagingJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listModelPackagingJobs(input, ...args);
-};
 export async function* paginateListModelPackagingJobs(
   config: LookoutVisionPaginationConfiguration,
   input: ListModelPackagingJobsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListModelPackagingJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LookoutVision) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LookoutVisionClient) {
+    if (config.client instanceof LookoutVisionClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LookoutVision | LookoutVisionClient");

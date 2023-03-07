@@ -6,7 +6,6 @@ import {
   DescribeBatchPredictionsCommandInput,
   DescribeBatchPredictionsCommandOutput,
 } from "../commands/DescribeBatchPredictionsCommand";
-import { MachineLearning } from "../MachineLearning";
 import { MachineLearningClient } from "../MachineLearningClient";
 import { MachineLearningPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeBatchPredictionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: MachineLearning,
-  input: DescribeBatchPredictionsCommandInput,
-  ...args: any
-): Promise<DescribeBatchPredictionsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeBatchPredictions(input, ...args);
-};
 export async function* paginateDescribeBatchPredictions(
   config: MachineLearningPaginationConfiguration,
   input: DescribeBatchPredictionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeBatchPredictions(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof MachineLearning) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MachineLearningClient) {
+    if (config.client instanceof MachineLearningClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MachineLearning | MachineLearningClient");

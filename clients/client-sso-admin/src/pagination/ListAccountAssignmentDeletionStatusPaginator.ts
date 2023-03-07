@@ -6,7 +6,6 @@ import {
   ListAccountAssignmentDeletionStatusCommandInput,
   ListAccountAssignmentDeletionStatusCommandOutput,
 } from "../commands/ListAccountAssignmentDeletionStatusCommand";
-import { SSOAdmin } from "../SSOAdmin";
 import { SSOAdminClient } from "../SSOAdminClient";
 import { SSOAdminPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAccountAssignmentDeletionStatusCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SSOAdmin,
-  input: ListAccountAssignmentDeletionStatusCommandInput,
-  ...args: any
-): Promise<ListAccountAssignmentDeletionStatusCommandOutput> => {
-  // @ts-ignore
-  return await client.listAccountAssignmentDeletionStatus(input, ...args);
-};
 export async function* paginateListAccountAssignmentDeletionStatus(
   config: SSOAdminPaginationConfiguration,
   input: ListAccountAssignmentDeletionStatusCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListAccountAssignmentDeletionStatus(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSOAdmin) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSOAdminClient) {
+    if (config.client instanceof SSOAdminClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSOAdmin | SSOAdminClient");

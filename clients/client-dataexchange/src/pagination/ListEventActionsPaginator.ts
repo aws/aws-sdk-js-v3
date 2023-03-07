@@ -6,7 +6,6 @@ import {
   ListEventActionsCommandInput,
   ListEventActionsCommandOutput,
 } from "../commands/ListEventActionsCommand";
-import { DataExchange } from "../DataExchange";
 import { DataExchangeClient } from "../DataExchangeClient";
 import { DataExchangePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEventActionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: DataExchange,
-  input: ListEventActionsCommandInput,
-  ...args: any
-): Promise<ListEventActionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listEventActions(input, ...args);
-};
 export async function* paginateListEventActions(
   config: DataExchangePaginationConfiguration,
   input: ListEventActionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListEventActions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof DataExchange) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DataExchangeClient) {
+    if (config.client instanceof DataExchangeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DataExchange | DataExchangeClient");

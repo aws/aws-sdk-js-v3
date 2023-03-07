@@ -6,7 +6,6 @@ import {
   ListWorkspacesCommandInput,
   ListWorkspacesCommandOutput,
 } from "../commands/ListWorkspacesCommand";
-import { Grafana } from "../Grafana";
 import { GrafanaClient } from "../GrafanaClient";
 import { GrafanaPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWorkspacesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Grafana,
-  input: ListWorkspacesCommandInput,
-  ...args: any
-): Promise<ListWorkspacesCommandOutput> => {
-  // @ts-ignore
-  return await client.listWorkspaces(input, ...args);
-};
 export async function* paginateListWorkspaces(
   config: GrafanaPaginationConfiguration,
   input: ListWorkspacesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListWorkspaces(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Grafana) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GrafanaClient) {
+    if (config.client instanceof GrafanaClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Grafana | GrafanaClient");

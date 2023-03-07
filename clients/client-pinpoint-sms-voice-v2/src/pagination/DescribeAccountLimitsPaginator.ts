@@ -6,7 +6,6 @@ import {
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput,
 } from "../commands/DescribeAccountLimitsCommand";
-import { PinpointSMSVoiceV2 } from "../PinpointSMSVoiceV2";
 import { PinpointSMSVoiceV2Client } from "../PinpointSMSVoiceV2Client";
 import { PinpointSMSVoiceV2PaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeAccountLimitsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: PinpointSMSVoiceV2,
-  input: DescribeAccountLimitsCommandInput,
-  ...args: any
-): Promise<DescribeAccountLimitsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeAccountLimits(input, ...args);
-};
 export async function* paginateDescribeAccountLimits(
   config: PinpointSMSVoiceV2PaginationConfiguration,
   input: DescribeAccountLimitsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeAccountLimits(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof PinpointSMSVoiceV2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PinpointSMSVoiceV2Client) {
+    if (config.client instanceof PinpointSMSVoiceV2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected PinpointSMSVoiceV2 | PinpointSMSVoiceV2Client");

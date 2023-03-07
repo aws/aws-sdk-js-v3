@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { ACM } from "../ACM";
 import { ACMClient } from "../ACMClient";
 import {
   ListCertificatesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCertificatesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ACM,
-  input: ListCertificatesCommandInput,
-  ...args: any
-): Promise<ListCertificatesCommandOutput> => {
-  // @ts-ignore
-  return await client.listCertificates(input, ...args);
-};
 export async function* paginateListCertificates(
   config: ACMPaginationConfiguration,
   input: ListCertificatesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListCertificates(
   while (hasNext) {
     input.NextToken = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof ACM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ACMClient) {
+    if (config.client instanceof ACMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ACM | ACMClient");

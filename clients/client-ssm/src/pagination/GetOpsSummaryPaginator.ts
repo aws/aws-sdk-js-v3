@@ -6,7 +6,6 @@ import {
   GetOpsSummaryCommandInput,
   GetOpsSummaryCommandOutput,
 } from "../commands/GetOpsSummaryCommand";
-import { SSM } from "../SSM";
 import { SSMClient } from "../SSMClient";
 import { SSMPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetOpsSummaryCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SSM,
-  input: GetOpsSummaryCommandInput,
-  ...args: any
-): Promise<GetOpsSummaryCommandOutput> => {
-  // @ts-ignore
-  return await client.getOpsSummary(input, ...args);
-};
 export async function* paginateGetOpsSummary(
   config: SSMPaginationConfiguration,
   input: GetOpsSummaryCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateGetOpsSummary(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSMClient) {
+    if (config.client instanceof SSMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSM | SSMClient");

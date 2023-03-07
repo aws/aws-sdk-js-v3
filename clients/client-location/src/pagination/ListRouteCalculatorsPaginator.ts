@@ -6,7 +6,6 @@ import {
   ListRouteCalculatorsCommandInput,
   ListRouteCalculatorsCommandOutput,
 } from "../commands/ListRouteCalculatorsCommand";
-import { Location } from "../Location";
 import { LocationClient } from "../LocationClient";
 import { LocationPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRouteCalculatorsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Location,
-  input: ListRouteCalculatorsCommandInput,
-  ...args: any
-): Promise<ListRouteCalculatorsCommandOutput> => {
-  // @ts-ignore
-  return await client.listRouteCalculators(input, ...args);
-};
 export async function* paginateListRouteCalculators(
   config: LocationPaginationConfiguration,
   input: ListRouteCalculatorsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListRouteCalculators(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Location) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LocationClient) {
+    if (config.client instanceof LocationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Location | LocationClient");

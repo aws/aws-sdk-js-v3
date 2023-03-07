@@ -6,7 +6,6 @@ import {
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput,
 } from "../commands/DescribeFileSystemsCommand";
-import { FSx } from "../FSx";
 import { FSxClient } from "../FSxClient";
 import { FSxPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeFileSystemsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: FSx,
-  input: DescribeFileSystemsCommandInput,
-  ...args: any
-): Promise<DescribeFileSystemsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeFileSystems(input, ...args);
-};
 export async function* paginateDescribeFileSystems(
   config: FSxPaginationConfiguration,
   input: DescribeFileSystemsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeFileSystems(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof FSx) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FSxClient) {
+    if (config.client instanceof FSxClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected FSx | FSxClient");

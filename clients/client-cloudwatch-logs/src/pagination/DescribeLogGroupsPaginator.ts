@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CloudWatchLogs } from "../CloudWatchLogs";
 import { CloudWatchLogsClient } from "../CloudWatchLogsClient";
 import {
   DescribeLogGroupsCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeLogGroupsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CloudWatchLogs,
-  input: DescribeLogGroupsCommandInput,
-  ...args: any
-): Promise<DescribeLogGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeLogGroups(input, ...args);
-};
 export async function* paginateDescribeLogGroups(
   config: CloudWatchLogsPaginationConfiguration,
   input: DescribeLogGroupsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeLogGroups(
   while (hasNext) {
     input.nextToken = token;
     input["limit"] = config.pageSize;
-    if (config.client instanceof CloudWatchLogs) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudWatchLogsClient) {
+    if (config.client instanceof CloudWatchLogsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudWatchLogs | CloudWatchLogsClient");

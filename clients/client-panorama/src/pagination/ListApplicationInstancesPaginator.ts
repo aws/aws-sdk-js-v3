@@ -6,7 +6,6 @@ import {
   ListApplicationInstancesCommandInput,
   ListApplicationInstancesCommandOutput,
 } from "../commands/ListApplicationInstancesCommand";
-import { Panorama } from "../Panorama";
 import { PanoramaClient } from "../PanoramaClient";
 import { PanoramaPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListApplicationInstancesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Panorama,
-  input: ListApplicationInstancesCommandInput,
-  ...args: any
-): Promise<ListApplicationInstancesCommandOutput> => {
-  // @ts-ignore
-  return await client.listApplicationInstances(input, ...args);
-};
 export async function* paginateListApplicationInstances(
   config: PanoramaPaginationConfiguration,
   input: ListApplicationInstancesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListApplicationInstances(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Panorama) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PanoramaClient) {
+    if (config.client instanceof PanoramaClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Panorama | PanoramaClient");

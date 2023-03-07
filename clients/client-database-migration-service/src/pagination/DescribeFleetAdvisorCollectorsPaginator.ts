@@ -6,7 +6,6 @@ import {
   DescribeFleetAdvisorCollectorsCommandInput,
   DescribeFleetAdvisorCollectorsCommandOutput,
 } from "../commands/DescribeFleetAdvisorCollectorsCommand";
-import { DatabaseMigrationService } from "../DatabaseMigrationService";
 import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
 import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeFleetAdvisorCollectorsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: DatabaseMigrationService,
-  input: DescribeFleetAdvisorCollectorsCommandInput,
-  ...args: any
-): Promise<DescribeFleetAdvisorCollectorsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeFleetAdvisorCollectors(input, ...args);
-};
 export async function* paginateDescribeFleetAdvisorCollectors(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeFleetAdvisorCollectorsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeFleetAdvisorCollectors(
   while (hasNext) {
     input.NextToken = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof DatabaseMigrationService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DatabaseMigrationServiceClient) {
+    if (config.client instanceof DatabaseMigrationServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DatabaseMigrationService | DatabaseMigrationServiceClient");

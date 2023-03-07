@@ -6,7 +6,6 @@ import {
   ListJournalKinesisStreamsForLedgerCommandInput,
   ListJournalKinesisStreamsForLedgerCommandOutput,
 } from "../commands/ListJournalKinesisStreamsForLedgerCommand";
-import { QLDB } from "../QLDB";
 import { QLDBClient } from "../QLDBClient";
 import { QLDBPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListJournalKinesisStreamsForLedgerCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: QLDB,
-  input: ListJournalKinesisStreamsForLedgerCommandInput,
-  ...args: any
-): Promise<ListJournalKinesisStreamsForLedgerCommandOutput> => {
-  // @ts-ignore
-  return await client.listJournalKinesisStreamsForLedger(input, ...args);
-};
 export async function* paginateListJournalKinesisStreamsForLedger(
   config: QLDBPaginationConfiguration,
   input: ListJournalKinesisStreamsForLedgerCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListJournalKinesisStreamsForLedger(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof QLDB) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof QLDBClient) {
+    if (config.client instanceof QLDBClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected QLDB | QLDBClient");

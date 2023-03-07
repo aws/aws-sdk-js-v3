@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { GetGroupsCommand, GetGroupsCommandInput, GetGroupsCommandOutput } from "../commands/GetGroupsCommand";
-import { XRay } from "../XRay";
 import { XRayClient } from "../XRayClient";
 import { XRayPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetGroupsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: XRay,
-  input: GetGroupsCommandInput,
-  ...args: any
-): Promise<GetGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.getGroups(input, ...args);
-};
 export async function* paginateGetGroups(
   config: XRayPaginationConfiguration,
   input: GetGroupsCommandInput,
@@ -39,9 +27,7 @@ export async function* paginateGetGroups(
   let page: GetGroupsCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof XRay) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof XRayClient) {
+    if (config.client instanceof XRayClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected XRay | XRayClient");

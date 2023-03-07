@@ -6,7 +6,6 @@ import {
   ListFlywheelIterationHistoryCommandInput,
   ListFlywheelIterationHistoryCommandOutput,
 } from "../commands/ListFlywheelIterationHistoryCommand";
-import { Comprehend } from "../Comprehend";
 import { ComprehendClient } from "../ComprehendClient";
 import { ComprehendPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFlywheelIterationHistoryCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Comprehend,
-  input: ListFlywheelIterationHistoryCommandInput,
-  ...args: any
-): Promise<ListFlywheelIterationHistoryCommandOutput> => {
-  // @ts-ignore
-  return await client.listFlywheelIterationHistory(input, ...args);
-};
 export async function* paginateListFlywheelIterationHistory(
   config: ComprehendPaginationConfiguration,
   input: ListFlywheelIterationHistoryCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListFlywheelIterationHistory(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Comprehend) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ComprehendClient) {
+    if (config.client instanceof ComprehendClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Comprehend | ComprehendClient");

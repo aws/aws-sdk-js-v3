@@ -6,7 +6,6 @@ import {
   ListSlackChannelConfigurationsCommandInput,
   ListSlackChannelConfigurationsCommandOutput,
 } from "../commands/ListSlackChannelConfigurationsCommand";
-import { SupportApp } from "../SupportApp";
 import { SupportAppClient } from "../SupportAppClient";
 import { SupportAppPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSlackChannelConfigurationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SupportApp,
-  input: ListSlackChannelConfigurationsCommandInput,
-  ...args: any
-): Promise<ListSlackChannelConfigurationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSlackChannelConfigurations(input, ...args);
-};
 export async function* paginateListSlackChannelConfigurations(
   config: SupportAppPaginationConfiguration,
   input: ListSlackChannelConfigurationsCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListSlackChannelConfigurations(
   let page: ListSlackChannelConfigurationsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof SupportApp) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SupportAppClient) {
+    if (config.client instanceof SupportAppClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SupportApp | SupportAppClient");

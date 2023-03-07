@@ -6,7 +6,6 @@ import {
   ListElasticsearchVersionsCommandInput,
   ListElasticsearchVersionsCommandOutput,
 } from "../commands/ListElasticsearchVersionsCommand";
-import { ElasticsearchService } from "../ElasticsearchService";
 import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
 import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListElasticsearchVersionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ElasticsearchService,
-  input: ListElasticsearchVersionsCommandInput,
-  ...args: any
-): Promise<ListElasticsearchVersionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listElasticsearchVersions(input, ...args);
-};
 export async function* paginateListElasticsearchVersions(
   config: ElasticsearchServicePaginationConfiguration,
   input: ListElasticsearchVersionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListElasticsearchVersions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ElasticsearchService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElasticsearchServiceClient) {
+    if (config.client instanceof ElasticsearchServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElasticsearchService | ElasticsearchServiceClient");

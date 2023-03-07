@@ -6,7 +6,6 @@ import {
   DescribePortfolioSharesCommandInput,
   DescribePortfolioSharesCommandOutput,
 } from "../commands/DescribePortfolioSharesCommand";
-import { ServiceCatalog } from "../ServiceCatalog";
 import { ServiceCatalogClient } from "../ServiceCatalogClient";
 import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribePortfolioSharesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ServiceCatalog,
-  input: DescribePortfolioSharesCommandInput,
-  ...args: any
-): Promise<DescribePortfolioSharesCommandOutput> => {
-  // @ts-ignore
-  return await client.describePortfolioShares(input, ...args);
-};
 export async function* paginateDescribePortfolioShares(
   config: ServiceCatalogPaginationConfiguration,
   input: DescribePortfolioSharesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribePortfolioShares(
   while (hasNext) {
     input.PageToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof ServiceCatalog) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServiceCatalogClient) {
+    if (config.client instanceof ServiceCatalogClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ServiceCatalog | ServiceCatalogClient");

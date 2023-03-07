@@ -6,7 +6,6 @@ import {
   ListRecipeVersionsCommandInput,
   ListRecipeVersionsCommandOutput,
 } from "../commands/ListRecipeVersionsCommand";
-import { DataBrew } from "../DataBrew";
 import { DataBrewClient } from "../DataBrewClient";
 import { DataBrewPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRecipeVersionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: DataBrew,
-  input: ListRecipeVersionsCommandInput,
-  ...args: any
-): Promise<ListRecipeVersionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listRecipeVersions(input, ...args);
-};
 export async function* paginateListRecipeVersions(
   config: DataBrewPaginationConfiguration,
   input: ListRecipeVersionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListRecipeVersions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof DataBrew) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DataBrewClient) {
+    if (config.client instanceof DataBrewClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DataBrew | DataBrewClient");

@@ -6,7 +6,6 @@ import {
   GetMLTaskRunsCommandInput,
   GetMLTaskRunsCommandOutput,
 } from "../commands/GetMLTaskRunsCommand";
-import { Glue } from "../Glue";
 import { GlueClient } from "../GlueClient";
 import { GluePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetMLTaskRunsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Glue,
-  input: GetMLTaskRunsCommandInput,
-  ...args: any
-): Promise<GetMLTaskRunsCommandOutput> => {
-  // @ts-ignore
-  return await client.getMLTaskRuns(input, ...args);
-};
 export async function* paginateGetMLTaskRuns(
   config: GluePaginationConfiguration,
   input: GetMLTaskRunsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateGetMLTaskRuns(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Glue) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlueClient) {
+    if (config.client instanceof GlueClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Glue | GlueClient");

@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { GetOutcomesCommand, GetOutcomesCommandInput, GetOutcomesCommandOutput } from "../commands/GetOutcomesCommand";
-import { FraudDetector } from "../FraudDetector";
 import { FraudDetectorClient } from "../FraudDetectorClient";
 import { FraudDetectorPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetOutcomesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: FraudDetector,
-  input: GetOutcomesCommandInput,
-  ...args: any
-): Promise<GetOutcomesCommandOutput> => {
-  // @ts-ignore
-  return await client.getOutcomes(input, ...args);
-};
 export async function* paginateGetOutcomes(
   config: FraudDetectorPaginationConfiguration,
   input: GetOutcomesCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateGetOutcomes(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof FraudDetector) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FraudDetectorClient) {
+    if (config.client instanceof FraudDetectorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected FraudDetector | FraudDetectorClient");

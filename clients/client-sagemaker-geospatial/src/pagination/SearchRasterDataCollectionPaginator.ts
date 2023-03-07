@@ -6,7 +6,6 @@ import {
   SearchRasterDataCollectionCommandInput,
   SearchRasterDataCollectionCommandOutput,
 } from "../commands/SearchRasterDataCollectionCommand";
-import { SageMakerGeospatial } from "../SageMakerGeospatial";
 import { SageMakerGeospatialClient } from "../SageMakerGeospatialClient";
 import { SageMakerGeospatialPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchRasterDataCollectionCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SageMakerGeospatial,
-  input: SearchRasterDataCollectionCommandInput,
-  ...args: any
-): Promise<SearchRasterDataCollectionCommandOutput> => {
-  // @ts-ignore
-  return await client.searchRasterDataCollection(input, ...args);
-};
 export async function* paginateSearchRasterDataCollection(
   config: SageMakerGeospatialPaginationConfiguration,
   input: SearchRasterDataCollectionCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateSearchRasterDataCollection(
   let page: SearchRasterDataCollectionCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof SageMakerGeospatial) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SageMakerGeospatialClient) {
+    if (config.client instanceof SageMakerGeospatialClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SageMakerGeospatial | SageMakerGeospatialClient");

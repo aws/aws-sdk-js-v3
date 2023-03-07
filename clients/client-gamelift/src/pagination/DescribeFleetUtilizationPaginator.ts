@@ -6,7 +6,6 @@ import {
   DescribeFleetUtilizationCommandInput,
   DescribeFleetUtilizationCommandOutput,
 } from "../commands/DescribeFleetUtilizationCommand";
-import { GameLift } from "../GameLift";
 import { GameLiftClient } from "../GameLiftClient";
 import { GameLiftPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeFleetUtilizationCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: GameLift,
-  input: DescribeFleetUtilizationCommandInput,
-  ...args: any
-): Promise<DescribeFleetUtilizationCommandOutput> => {
-  // @ts-ignore
-  return await client.describeFleetUtilization(input, ...args);
-};
 export async function* paginateDescribeFleetUtilization(
   config: GameLiftPaginationConfiguration,
   input: DescribeFleetUtilizationCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeFleetUtilization(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof GameLift) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GameLiftClient) {
+    if (config.client instanceof GameLiftClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GameLift | GameLiftClient");

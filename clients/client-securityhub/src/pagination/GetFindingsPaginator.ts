@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { GetFindingsCommand, GetFindingsCommandInput, GetFindingsCommandOutput } from "../commands/GetFindingsCommand";
-import { SecurityHub } from "../SecurityHub";
 import { SecurityHubClient } from "../SecurityHubClient";
 import { SecurityHubPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetFindingsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SecurityHub,
-  input: GetFindingsCommandInput,
-  ...args: any
-): Promise<GetFindingsCommandOutput> => {
-  // @ts-ignore
-  return await client.getFindings(input, ...args);
-};
 export async function* paginateGetFindings(
   config: SecurityHubPaginationConfiguration,
   input: GetFindingsCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateGetFindings(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SecurityHub) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SecurityHubClient) {
+    if (config.client instanceof SecurityHubClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SecurityHub | SecurityHubClient");

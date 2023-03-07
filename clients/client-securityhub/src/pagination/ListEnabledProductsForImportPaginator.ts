@@ -6,7 +6,6 @@ import {
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
 } from "../commands/ListEnabledProductsForImportCommand";
-import { SecurityHub } from "../SecurityHub";
 import { SecurityHubClient } from "../SecurityHubClient";
 import { SecurityHubPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEnabledProductsForImportCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SecurityHub,
-  input: ListEnabledProductsForImportCommandInput,
-  ...args: any
-): Promise<ListEnabledProductsForImportCommandOutput> => {
-  // @ts-ignore
-  return await client.listEnabledProductsForImport(input, ...args);
-};
 export async function* paginateListEnabledProductsForImport(
   config: SecurityHubPaginationConfiguration,
   input: ListEnabledProductsForImportCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListEnabledProductsForImport(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SecurityHub) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SecurityHubClient) {
+    if (config.client instanceof SecurityHubClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SecurityHub | SecurityHubClient");

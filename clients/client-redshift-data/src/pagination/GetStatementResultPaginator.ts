@@ -6,7 +6,6 @@ import {
   GetStatementResultCommandInput,
   GetStatementResultCommandOutput,
 } from "../commands/GetStatementResultCommand";
-import { RedshiftData } from "../RedshiftData";
 import { RedshiftDataClient } from "../RedshiftDataClient";
 import { RedshiftDataPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetStatementResultCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: RedshiftData,
-  input: GetStatementResultCommandInput,
-  ...args: any
-): Promise<GetStatementResultCommandOutput> => {
-  // @ts-ignore
-  return await client.getStatementResult(input, ...args);
-};
 export async function* paginateGetStatementResult(
   config: RedshiftDataPaginationConfiguration,
   input: GetStatementResultCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateGetStatementResult(
   let page: GetStatementResultCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof RedshiftData) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RedshiftDataClient) {
+    if (config.client instanceof RedshiftDataClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RedshiftData | RedshiftDataClient");

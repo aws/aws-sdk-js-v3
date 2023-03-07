@@ -6,7 +6,6 @@ import {
   ListAllowListsCommandInput,
   ListAllowListsCommandOutput,
 } from "../commands/ListAllowListsCommand";
-import { Macie2 } from "../Macie2";
 import { Macie2Client } from "../Macie2Client";
 import { Macie2PaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAllowListsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Macie2,
-  input: ListAllowListsCommandInput,
-  ...args: any
-): Promise<ListAllowListsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAllowLists(input, ...args);
-};
 export async function* paginateListAllowLists(
   config: Macie2PaginationConfiguration,
   input: ListAllowListsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListAllowLists(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Macie2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof Macie2Client) {
+    if (config.client instanceof Macie2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Macie2 | Macie2Client");

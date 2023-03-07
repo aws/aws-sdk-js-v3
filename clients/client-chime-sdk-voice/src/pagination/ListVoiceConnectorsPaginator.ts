@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { ChimeSDKVoice } from "../ChimeSDKVoice";
 import { ChimeSDKVoiceClient } from "../ChimeSDKVoiceClient";
 import {
   ListVoiceConnectorsCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListVoiceConnectorsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ChimeSDKVoice,
-  input: ListVoiceConnectorsCommandInput,
-  ...args: any
-): Promise<ListVoiceConnectorsCommandOutput> => {
-  // @ts-ignore
-  return await client.listVoiceConnectors(input, ...args);
-};
 export async function* paginateListVoiceConnectors(
   config: ChimeSDKVoicePaginationConfiguration,
   input: ListVoiceConnectorsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListVoiceConnectors(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ChimeSDKVoice) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ChimeSDKVoiceClient) {
+    if (config.client instanceof ChimeSDKVoiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ChimeSDKVoice | ChimeSDKVoiceClient");

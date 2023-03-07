@@ -6,7 +6,6 @@ import {
   DescribeUsersCommandInput,
   DescribeUsersCommandOutput,
 } from "../commands/DescribeUsersCommand";
-import { WorkDocs } from "../WorkDocs";
 import { WorkDocsClient } from "../WorkDocsClient";
 import { WorkDocsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeUsersCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: WorkDocs,
-  input: DescribeUsersCommandInput,
-  ...args: any
-): Promise<DescribeUsersCommandOutput> => {
-  // @ts-ignore
-  return await client.describeUsers(input, ...args);
-};
 export async function* paginateDescribeUsers(
   config: WorkDocsPaginationConfiguration,
   input: DescribeUsersCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeUsers(
   while (hasNext) {
     input.Marker = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof WorkDocs) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WorkDocsClient) {
+    if (config.client instanceof WorkDocsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WorkDocs | WorkDocsClient");

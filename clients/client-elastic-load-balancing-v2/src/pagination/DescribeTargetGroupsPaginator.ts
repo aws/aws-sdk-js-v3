@@ -6,7 +6,6 @@ import {
   DescribeTargetGroupsCommandInput,
   DescribeTargetGroupsCommandOutput,
 } from "../commands/DescribeTargetGroupsCommand";
-import { ElasticLoadBalancingV2 } from "../ElasticLoadBalancingV2";
 import { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
 import { ElasticLoadBalancingV2PaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeTargetGroupsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ElasticLoadBalancingV2,
-  input: DescribeTargetGroupsCommandInput,
-  ...args: any
-): Promise<DescribeTargetGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeTargetGroups(input, ...args);
-};
 export async function* paginateDescribeTargetGroups(
   config: ElasticLoadBalancingV2PaginationConfiguration,
   input: DescribeTargetGroupsCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateDescribeTargetGroups(
   let page: DescribeTargetGroupsCommandOutput;
   while (hasNext) {
     input.Marker = token;
-    if (config.client instanceof ElasticLoadBalancingV2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElasticLoadBalancingV2Client) {
+    if (config.client instanceof ElasticLoadBalancingV2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElasticLoadBalancingV2 | ElasticLoadBalancingV2Client");

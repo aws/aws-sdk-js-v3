@@ -6,7 +6,6 @@ import {
   ListDelegatedAdministratorsCommandInput,
   ListDelegatedAdministratorsCommandOutput,
 } from "../commands/ListDelegatedAdministratorsCommand";
-import { Organizations } from "../Organizations";
 import { OrganizationsClient } from "../OrganizationsClient";
 import { OrganizationsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDelegatedAdministratorsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Organizations,
-  input: ListDelegatedAdministratorsCommandInput,
-  ...args: any
-): Promise<ListDelegatedAdministratorsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDelegatedAdministrators(input, ...args);
-};
 export async function* paginateListDelegatedAdministrators(
   config: OrganizationsPaginationConfiguration,
   input: ListDelegatedAdministratorsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDelegatedAdministrators(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Organizations) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OrganizationsClient) {
+    if (config.client instanceof OrganizationsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Organizations | OrganizationsClient");

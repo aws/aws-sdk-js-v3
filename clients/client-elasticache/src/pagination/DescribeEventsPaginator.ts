@@ -6,7 +6,6 @@ import {
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
 } from "../commands/DescribeEventsCommand";
-import { ElastiCache } from "../ElastiCache";
 import { ElastiCacheClient } from "../ElastiCacheClient";
 import { ElastiCachePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeEventsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ElastiCache,
-  input: DescribeEventsCommandInput,
-  ...args: any
-): Promise<DescribeEventsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeEvents(input, ...args);
-};
 export async function* paginateDescribeEvents(
   config: ElastiCachePaginationConfiguration,
   input: DescribeEventsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeEvents(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof ElastiCache) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElastiCacheClient) {
+    if (config.client instanceof ElastiCacheClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElastiCache | ElastiCacheClient");

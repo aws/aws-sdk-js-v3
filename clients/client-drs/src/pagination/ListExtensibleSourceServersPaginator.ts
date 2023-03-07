@@ -6,7 +6,6 @@ import {
   ListExtensibleSourceServersCommandInput,
   ListExtensibleSourceServersCommandOutput,
 } from "../commands/ListExtensibleSourceServersCommand";
-import { Drs } from "../Drs";
 import { DrsClient } from "../DrsClient";
 import { DrsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListExtensibleSourceServersCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Drs,
-  input: ListExtensibleSourceServersCommandInput,
-  ...args: any
-): Promise<ListExtensibleSourceServersCommandOutput> => {
-  // @ts-ignore
-  return await client.listExtensibleSourceServers(input, ...args);
-};
 export async function* paginateListExtensibleSourceServers(
   config: DrsPaginationConfiguration,
   input: ListExtensibleSourceServersCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListExtensibleSourceServers(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Drs) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DrsClient) {
+    if (config.client instanceof DrsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Drs | DrsClient");

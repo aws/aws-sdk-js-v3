@@ -6,7 +6,6 @@ import {
   ListDataSetsCommandInput,
   ListDataSetsCommandOutput,
 } from "../commands/ListDataSetsCommand";
-import { M2 } from "../M2";
 import { M2Client } from "../M2Client";
 import { M2PaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDataSetsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: M2,
-  input: ListDataSetsCommandInput,
-  ...args: any
-): Promise<ListDataSetsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDataSets(input, ...args);
-};
 export async function* paginateListDataSets(
   config: M2PaginationConfiguration,
   input: ListDataSetsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDataSets(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof M2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof M2Client) {
+    if (config.client instanceof M2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected M2 | M2Client");

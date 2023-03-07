@@ -6,7 +6,6 @@ import {
   ListNetworkResourcesCommandInput,
   ListNetworkResourcesCommandOutput,
 } from "../commands/ListNetworkResourcesCommand";
-import { PrivateNetworks } from "../PrivateNetworks";
 import { PrivateNetworksClient } from "../PrivateNetworksClient";
 import { PrivateNetworksPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListNetworkResourcesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: PrivateNetworks,
-  input: ListNetworkResourcesCommandInput,
-  ...args: any
-): Promise<ListNetworkResourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.listNetworkResources(input, ...args);
-};
 export async function* paginateListNetworkResources(
   config: PrivateNetworksPaginationConfiguration,
   input: ListNetworkResourcesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListNetworkResources(
   while (hasNext) {
     input.startToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof PrivateNetworks) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PrivateNetworksClient) {
+    if (config.client instanceof PrivateNetworksClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected PrivateNetworks | PrivateNetworksClient");

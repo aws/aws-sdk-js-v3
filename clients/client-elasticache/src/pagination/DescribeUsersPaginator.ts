@@ -6,7 +6,6 @@ import {
   DescribeUsersCommandInput,
   DescribeUsersCommandOutput,
 } from "../commands/DescribeUsersCommand";
-import { ElastiCache } from "../ElastiCache";
 import { ElastiCacheClient } from "../ElastiCacheClient";
 import { ElastiCachePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeUsersCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ElastiCache,
-  input: DescribeUsersCommandInput,
-  ...args: any
-): Promise<DescribeUsersCommandOutput> => {
-  // @ts-ignore
-  return await client.describeUsers(input, ...args);
-};
 export async function* paginateDescribeUsers(
   config: ElastiCachePaginationConfiguration,
   input: DescribeUsersCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeUsers(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof ElastiCache) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElastiCacheClient) {
+    if (config.client instanceof ElastiCacheClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElastiCache | ElastiCacheClient");

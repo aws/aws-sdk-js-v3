@@ -6,7 +6,6 @@ import {
   ListMilestonesCommandInput,
   ListMilestonesCommandOutput,
 } from "../commands/ListMilestonesCommand";
-import { WellArchitected } from "../WellArchitected";
 import { WellArchitectedClient } from "../WellArchitectedClient";
 import { WellArchitectedPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMilestonesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: WellArchitected,
-  input: ListMilestonesCommandInput,
-  ...args: any
-): Promise<ListMilestonesCommandOutput> => {
-  // @ts-ignore
-  return await client.listMilestones(input, ...args);
-};
 export async function* paginateListMilestones(
   config: WellArchitectedPaginationConfiguration,
   input: ListMilestonesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListMilestones(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof WellArchitected) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WellArchitectedClient) {
+    if (config.client instanceof WellArchitectedClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WellArchitected | WellArchitectedClient");

@@ -6,7 +6,6 @@ import {
   DescribeRecommendationLimitationsCommandInput,
   DescribeRecommendationLimitationsCommandOutput,
 } from "../commands/DescribeRecommendationLimitationsCommand";
-import { DatabaseMigrationService } from "../DatabaseMigrationService";
 import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
 import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeRecommendationLimitationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: DatabaseMigrationService,
-  input: DescribeRecommendationLimitationsCommandInput,
-  ...args: any
-): Promise<DescribeRecommendationLimitationsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeRecommendationLimitations(input, ...args);
-};
 export async function* paginateDescribeRecommendationLimitations(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeRecommendationLimitationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeRecommendationLimitations(
   while (hasNext) {
     input.NextToken = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof DatabaseMigrationService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DatabaseMigrationServiceClient) {
+    if (config.client instanceof DatabaseMigrationServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DatabaseMigrationService | DatabaseMigrationServiceClient");

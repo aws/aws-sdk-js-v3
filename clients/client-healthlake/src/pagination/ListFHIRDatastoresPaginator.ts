@@ -6,7 +6,6 @@ import {
   ListFHIRDatastoresCommandInput,
   ListFHIRDatastoresCommandOutput,
 } from "../commands/ListFHIRDatastoresCommand";
-import { HealthLake } from "../HealthLake";
 import { HealthLakeClient } from "../HealthLakeClient";
 import { HealthLakePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFHIRDatastoresCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: HealthLake,
-  input: ListFHIRDatastoresCommandInput,
-  ...args: any
-): Promise<ListFHIRDatastoresCommandOutput> => {
-  // @ts-ignore
-  return await client.listFHIRDatastores(input, ...args);
-};
 export async function* paginateListFHIRDatastores(
   config: HealthLakePaginationConfiguration,
   input: ListFHIRDatastoresCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListFHIRDatastores(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof HealthLake) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof HealthLakeClient) {
+    if (config.client instanceof HealthLakeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected HealthLake | HealthLakeClient");

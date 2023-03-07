@@ -6,7 +6,6 @@ import {
   ListSignalCatalogNodesCommandInput,
   ListSignalCatalogNodesCommandOutput,
 } from "../commands/ListSignalCatalogNodesCommand";
-import { IoTFleetWise } from "../IoTFleetWise";
 import { IoTFleetWiseClient } from "../IoTFleetWiseClient";
 import { IoTFleetWisePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSignalCatalogNodesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoTFleetWise,
-  input: ListSignalCatalogNodesCommandInput,
-  ...args: any
-): Promise<ListSignalCatalogNodesCommandOutput> => {
-  // @ts-ignore
-  return await client.listSignalCatalogNodes(input, ...args);
-};
 export async function* paginateListSignalCatalogNodes(
   config: IoTFleetWisePaginationConfiguration,
   input: ListSignalCatalogNodesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListSignalCatalogNodes(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTFleetWise) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTFleetWiseClient) {
+    if (config.client instanceof IoTFleetWiseClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTFleetWise | IoTFleetWiseClient");

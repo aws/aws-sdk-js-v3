@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListGamesCommand, ListGamesCommandInput, ListGamesCommandOutput } from "../commands/ListGamesCommand";
-import { GameSparks } from "../GameSparks";
 import { GameSparksClient } from "../GameSparksClient";
 import { GameSparksPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListGamesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: GameSparks,
-  input: ListGamesCommandInput,
-  ...args: any
-): Promise<ListGamesCommandOutput> => {
-  // @ts-ignore
-  return await client.listGames(input, ...args);
-};
 export async function* paginateListGames(
   config: GameSparksPaginationConfiguration,
   input: ListGamesCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListGames(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof GameSparks) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GameSparksClient) {
+    if (config.client instanceof GameSparksClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GameSparks | GameSparksClient");

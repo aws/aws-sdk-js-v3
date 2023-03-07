@@ -6,7 +6,6 @@ import {
   DescribeReservedNodesOfferingsCommandInput,
   DescribeReservedNodesOfferingsCommandOutput,
 } from "../commands/DescribeReservedNodesOfferingsCommand";
-import { MemoryDB } from "../MemoryDB";
 import { MemoryDBClient } from "../MemoryDBClient";
 import { MemoryDBPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeReservedNodesOfferingsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: MemoryDB,
-  input: DescribeReservedNodesOfferingsCommandInput,
-  ...args: any
-): Promise<DescribeReservedNodesOfferingsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeReservedNodesOfferings(input, ...args);
-};
 export async function* paginateDescribeReservedNodesOfferings(
   config: MemoryDBPaginationConfiguration,
   input: DescribeReservedNodesOfferingsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeReservedNodesOfferings(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MemoryDB) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MemoryDBClient) {
+    if (config.client instanceof MemoryDBClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MemoryDB | MemoryDBClient");

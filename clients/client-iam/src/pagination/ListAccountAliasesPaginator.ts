@@ -6,7 +6,6 @@ import {
   ListAccountAliasesCommandInput,
   ListAccountAliasesCommandOutput,
 } from "../commands/ListAccountAliasesCommand";
-import { IAM } from "../IAM";
 import { IAMClient } from "../IAMClient";
 import { IAMPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAccountAliasesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IAM,
-  input: ListAccountAliasesCommandInput,
-  ...args: any
-): Promise<ListAccountAliasesCommandOutput> => {
-  // @ts-ignore
-  return await client.listAccountAliases(input, ...args);
-};
 export async function* paginateListAccountAliases(
   config: IAMPaginationConfiguration,
   input: ListAccountAliasesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListAccountAliases(
   while (hasNext) {
     input.Marker = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof IAM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IAMClient) {
+    if (config.client instanceof IAMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IAM | IAMClient");

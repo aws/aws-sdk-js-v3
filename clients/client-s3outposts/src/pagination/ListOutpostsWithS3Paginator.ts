@@ -6,7 +6,6 @@ import {
   ListOutpostsWithS3CommandInput,
   ListOutpostsWithS3CommandOutput,
 } from "../commands/ListOutpostsWithS3Command";
-import { S3Outposts } from "../S3Outposts";
 import { S3OutpostsClient } from "../S3OutpostsClient";
 import { S3OutpostsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListOutpostsWithS3Command(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: S3Outposts,
-  input: ListOutpostsWithS3CommandInput,
-  ...args: any
-): Promise<ListOutpostsWithS3CommandOutput> => {
-  // @ts-ignore
-  return await client.listOutpostsWithS3(input, ...args);
-};
 export async function* paginateListOutpostsWithS3(
   config: S3OutpostsPaginationConfiguration,
   input: ListOutpostsWithS3CommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListOutpostsWithS3(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof S3Outposts) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof S3OutpostsClient) {
+    if (config.client instanceof S3OutpostsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected S3Outposts | S3OutpostsClient");

@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
-import { Identitystore } from "../Identitystore";
 import { IdentitystoreClient } from "../IdentitystoreClient";
 import { IdentitystorePaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListGroupsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Identitystore,
-  input: ListGroupsCommandInput,
-  ...args: any
-): Promise<ListGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listGroups(input, ...args);
-};
 export async function* paginateListGroups(
   config: IdentitystorePaginationConfiguration,
   input: ListGroupsCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListGroups(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Identitystore) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IdentitystoreClient) {
+    if (config.client instanceof IdentitystoreClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Identitystore | IdentitystoreClient");

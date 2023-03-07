@@ -6,7 +6,6 @@ import {
   ListStreamingSessionBackupsCommandInput,
   ListStreamingSessionBackupsCommandOutput,
 } from "../commands/ListStreamingSessionBackupsCommand";
-import { Nimble } from "../Nimble";
 import { NimbleClient } from "../NimbleClient";
 import { NimblePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListStreamingSessionBackupsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Nimble,
-  input: ListStreamingSessionBackupsCommandInput,
-  ...args: any
-): Promise<ListStreamingSessionBackupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listStreamingSessionBackups(input, ...args);
-};
 export async function* paginateListStreamingSessionBackups(
   config: NimblePaginationConfiguration,
   input: ListStreamingSessionBackupsCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListStreamingSessionBackups(
   let page: ListStreamingSessionBackupsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof Nimble) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof NimbleClient) {
+    if (config.client instanceof NimbleClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Nimble | NimbleClient");

@@ -6,7 +6,6 @@ import {
   ListConstraintsForPortfolioCommandInput,
   ListConstraintsForPortfolioCommandOutput,
 } from "../commands/ListConstraintsForPortfolioCommand";
-import { ServiceCatalog } from "../ServiceCatalog";
 import { ServiceCatalogClient } from "../ServiceCatalogClient";
 import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListConstraintsForPortfolioCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ServiceCatalog,
-  input: ListConstraintsForPortfolioCommandInput,
-  ...args: any
-): Promise<ListConstraintsForPortfolioCommandOutput> => {
-  // @ts-ignore
-  return await client.listConstraintsForPortfolio(input, ...args);
-};
 export async function* paginateListConstraintsForPortfolio(
   config: ServiceCatalogPaginationConfiguration,
   input: ListConstraintsForPortfolioCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListConstraintsForPortfolio(
   while (hasNext) {
     input.PageToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof ServiceCatalog) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServiceCatalogClient) {
+    if (config.client instanceof ServiceCatalogClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ServiceCatalog | ServiceCatalogClient");

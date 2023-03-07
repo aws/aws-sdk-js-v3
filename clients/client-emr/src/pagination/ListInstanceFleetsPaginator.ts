@@ -6,7 +6,6 @@ import {
   ListInstanceFleetsCommandInput,
   ListInstanceFleetsCommandOutput,
 } from "../commands/ListInstanceFleetsCommand";
-import { EMR } from "../EMR";
 import { EMRClient } from "../EMRClient";
 import { EMRPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListInstanceFleetsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: EMR,
-  input: ListInstanceFleetsCommandInput,
-  ...args: any
-): Promise<ListInstanceFleetsCommandOutput> => {
-  // @ts-ignore
-  return await client.listInstanceFleets(input, ...args);
-};
 export async function* paginateListInstanceFleets(
   config: EMRPaginationConfiguration,
   input: ListInstanceFleetsCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListInstanceFleets(
   let page: ListInstanceFleetsCommandOutput;
   while (hasNext) {
     input.Marker = token;
-    if (config.client instanceof EMR) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EMRClient) {
+    if (config.client instanceof EMRClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EMR | EMRClient");

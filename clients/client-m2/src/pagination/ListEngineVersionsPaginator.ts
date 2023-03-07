@@ -6,7 +6,6 @@ import {
   ListEngineVersionsCommandInput,
   ListEngineVersionsCommandOutput,
 } from "../commands/ListEngineVersionsCommand";
-import { M2 } from "../M2";
 import { M2Client } from "../M2Client";
 import { M2PaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEngineVersionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: M2,
-  input: ListEngineVersionsCommandInput,
-  ...args: any
-): Promise<ListEngineVersionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listEngineVersions(input, ...args);
-};
 export async function* paginateListEngineVersions(
   config: M2PaginationConfiguration,
   input: ListEngineVersionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListEngineVersions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof M2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof M2Client) {
+    if (config.client instanceof M2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected M2 | M2Client");

@@ -6,7 +6,6 @@ import {
   ListFleetsForVehicleCommandInput,
   ListFleetsForVehicleCommandOutput,
 } from "../commands/ListFleetsForVehicleCommand";
-import { IoTFleetWise } from "../IoTFleetWise";
 import { IoTFleetWiseClient } from "../IoTFleetWiseClient";
 import { IoTFleetWisePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFleetsForVehicleCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoTFleetWise,
-  input: ListFleetsForVehicleCommandInput,
-  ...args: any
-): Promise<ListFleetsForVehicleCommandOutput> => {
-  // @ts-ignore
-  return await client.listFleetsForVehicle(input, ...args);
-};
 export async function* paginateListFleetsForVehicle(
   config: IoTFleetWisePaginationConfiguration,
   input: ListFleetsForVehicleCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListFleetsForVehicle(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTFleetWise) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTFleetWiseClient) {
+    if (config.client instanceof IoTFleetWiseClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTFleetWise | IoTFleetWiseClient");

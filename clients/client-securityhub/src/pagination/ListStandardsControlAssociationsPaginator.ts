@@ -6,7 +6,6 @@ import {
   ListStandardsControlAssociationsCommandInput,
   ListStandardsControlAssociationsCommandOutput,
 } from "../commands/ListStandardsControlAssociationsCommand";
-import { SecurityHub } from "../SecurityHub";
 import { SecurityHubClient } from "../SecurityHubClient";
 import { SecurityHubPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListStandardsControlAssociationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SecurityHub,
-  input: ListStandardsControlAssociationsCommandInput,
-  ...args: any
-): Promise<ListStandardsControlAssociationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listStandardsControlAssociations(input, ...args);
-};
 export async function* paginateListStandardsControlAssociations(
   config: SecurityHubPaginationConfiguration,
   input: ListStandardsControlAssociationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListStandardsControlAssociations(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SecurityHub) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SecurityHubClient) {
+    if (config.client instanceof SecurityHubClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SecurityHub | SecurityHubClient");

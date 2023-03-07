@@ -6,7 +6,6 @@ import {
   ListEnvironmentTemplateVersionsCommandInput,
   ListEnvironmentTemplateVersionsCommandOutput,
 } from "../commands/ListEnvironmentTemplateVersionsCommand";
-import { Proton } from "../Proton";
 import { ProtonClient } from "../ProtonClient";
 import { ProtonPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEnvironmentTemplateVersionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Proton,
-  input: ListEnvironmentTemplateVersionsCommandInput,
-  ...args: any
-): Promise<ListEnvironmentTemplateVersionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listEnvironmentTemplateVersions(input, ...args);
-};
 export async function* paginateListEnvironmentTemplateVersions(
   config: ProtonPaginationConfiguration,
   input: ListEnvironmentTemplateVersionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListEnvironmentTemplateVersions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Proton) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ProtonClient) {
+    if (config.client instanceof ProtonClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Proton | ProtonClient");

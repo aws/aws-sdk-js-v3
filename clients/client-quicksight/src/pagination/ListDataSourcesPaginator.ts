@@ -6,7 +6,6 @@ import {
   ListDataSourcesCommandInput,
   ListDataSourcesCommandOutput,
 } from "../commands/ListDataSourcesCommand";
-import { QuickSight } from "../QuickSight";
 import { QuickSightClient } from "../QuickSightClient";
 import { QuickSightPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDataSourcesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: QuickSight,
-  input: ListDataSourcesCommandInput,
-  ...args: any
-): Promise<ListDataSourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.listDataSources(input, ...args);
-};
 export async function* paginateListDataSources(
   config: QuickSightPaginationConfiguration,
   input: ListDataSourcesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDataSources(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof QuickSight) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof QuickSightClient) {
+    if (config.client instanceof QuickSightClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected QuickSight | QuickSightClient");

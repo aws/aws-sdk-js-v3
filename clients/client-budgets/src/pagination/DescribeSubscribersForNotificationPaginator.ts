@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { Budgets } from "../Budgets";
 import { BudgetsClient } from "../BudgetsClient";
 import {
   DescribeSubscribersForNotificationCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeSubscribersForNotificationCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Budgets,
-  input: DescribeSubscribersForNotificationCommandInput,
-  ...args: any
-): Promise<DescribeSubscribersForNotificationCommandOutput> => {
-  // @ts-ignore
-  return await client.describeSubscribersForNotification(input, ...args);
-};
 export async function* paginateDescribeSubscribersForNotification(
   config: BudgetsPaginationConfiguration,
   input: DescribeSubscribersForNotificationCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeSubscribersForNotification(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Budgets) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof BudgetsClient) {
+    if (config.client instanceof BudgetsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Budgets | BudgetsClient");

@@ -6,7 +6,6 @@ import {
   ListScheduledActionsCommandInput,
   ListScheduledActionsCommandOutput,
 } from "../commands/ListScheduledActionsCommand";
-import { OpenSearch } from "../OpenSearch";
 import { OpenSearchClient } from "../OpenSearchClient";
 import { OpenSearchPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListScheduledActionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: OpenSearch,
-  input: ListScheduledActionsCommandInput,
-  ...args: any
-): Promise<ListScheduledActionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listScheduledActions(input, ...args);
-};
 export async function* paginateListScheduledActions(
   config: OpenSearchPaginationConfiguration,
   input: ListScheduledActionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListScheduledActions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof OpenSearch) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OpenSearchClient) {
+    if (config.client instanceof OpenSearchClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected OpenSearch | OpenSearchClient");

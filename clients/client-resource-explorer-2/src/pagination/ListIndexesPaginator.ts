@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListIndexesCommand, ListIndexesCommandInput, ListIndexesCommandOutput } from "../commands/ListIndexesCommand";
-import { ResourceExplorer2 } from "../ResourceExplorer2";
 import { ResourceExplorer2Client } from "../ResourceExplorer2Client";
 import { ResourceExplorer2PaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListIndexesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ResourceExplorer2,
-  input: ListIndexesCommandInput,
-  ...args: any
-): Promise<ListIndexesCommandOutput> => {
-  // @ts-ignore
-  return await client.listIndexes(input, ...args);
-};
 export async function* paginateListIndexes(
   config: ResourceExplorer2PaginationConfiguration,
   input: ListIndexesCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListIndexes(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ResourceExplorer2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ResourceExplorer2Client) {
+    if (config.client instanceof ResourceExplorer2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ResourceExplorer2 | ResourceExplorer2Client");

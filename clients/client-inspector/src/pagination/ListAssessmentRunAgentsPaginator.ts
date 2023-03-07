@@ -6,7 +6,6 @@ import {
   ListAssessmentRunAgentsCommandInput,
   ListAssessmentRunAgentsCommandOutput,
 } from "../commands/ListAssessmentRunAgentsCommand";
-import { Inspector } from "../Inspector";
 import { InspectorClient } from "../InspectorClient";
 import { InspectorPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAssessmentRunAgentsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Inspector,
-  input: ListAssessmentRunAgentsCommandInput,
-  ...args: any
-): Promise<ListAssessmentRunAgentsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAssessmentRunAgents(input, ...args);
-};
 export async function* paginateListAssessmentRunAgents(
   config: InspectorPaginationConfiguration,
   input: ListAssessmentRunAgentsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListAssessmentRunAgents(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Inspector) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof InspectorClient) {
+    if (config.client instanceof InspectorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Inspector | InspectorClient");
