@@ -2206,20 +2206,35 @@ export interface MapConfiguration {
    *                 in the Asia Pacific (Singapore) Region (<code>ap-southeast-1</code>).
    *                 For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps countries and area covered</a>.</p>
    *          </note>
-   *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview) map styles</a>:</p>
+   *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data map styles</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>VectorOpenDataStandardLight</code> – The Open Data Standard Light
-   *                     (preview) map style provides a detailed basemap for the world suitable for
+   *                     map style provides a detailed basemap for the world suitable for
    *                     website and mobile application use. The map includes highways major roads,
    *                     minor roads, railways, water features, cities, parks, landmarks, building
    *                     footprints, and administrative boundaries.</p>
-   *                <important>
-   *                   <p>Open Data maps is in preview. We may add, change, or remove
-   *                     features before announcing general availability. For more information, see
-   *                     <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html#open-data-preview">Open Data is in preview release</a>.</p>
-   *                </important>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VectorOpenDataStandardDark</code> – Open Data Standard Dark is a
+   *                     dark-themed map style that provides a detailed basemap for the world
+   *                     suitable for website and mobile application use. The map includes highways
+   *                     major roads, minor roads, railways, water features, cities, parks,
+   *                     landmarks, building footprints, and administrative boundaries.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VectorOpenDataVisualizationLight</code> – The Open Data
+   *                     Visualization Light map style is a light-themed style with muted colors and
+   *                     fewer features that aids in understanding overlaid data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VectorOpenDataVisualizationDark</code> – The Open Data
+   *                     Visualization Dark map style is a dark-themed style with muted colors and
+   *                     fewer features that aids in understanding overlaid data.</p>
    *             </li>
    *          </ul>
    */
@@ -3831,10 +3846,11 @@ export interface GetMapGlyphsRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview)</a> styles:</p>
+   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data</a> styles:</p>
    *          <ul>
    *             <li>
-   *                <p>VectorOpenDataStandardLight –
+   *                <p>VectorOpenDataStandardLight, VectorOpenDataStandardDark,
+   *                     VectorOpenDataVisualizationLight, VectorOpenDataVisualizationDark –
    *                     <code>Amazon Ember Regular,Noto Sans Regular</code> |
    *                     <code>Amazon Ember Bold,Noto Sans Bold</code> |
    *                     <code>Amazon Ember Medium,Noto Sans Medium</code> |
@@ -3845,7 +3861,7 @@ export interface GetMapGlyphsRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>The fonts used by <code>VectorOpenDataStandardLight</code> are combined fonts
+   *             <p>The fonts used by the Open Data map styles are combined fonts
    *                 that use <code>Amazon Ember</code> for most glyphs but <code>Noto Sans</code>
    *                 for glyphs unsupported by <code>Amazon Ember</code>.</p>
    *          </note>
