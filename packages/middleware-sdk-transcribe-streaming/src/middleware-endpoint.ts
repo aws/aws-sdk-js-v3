@@ -19,8 +19,8 @@ export const websocketURLMiddleware =
     if (HttpRequest.isInstance(request) && options.requestHandler.metadata?.handlerProtocol === "websocket") {
       // Update http/2 endpoint to WebSocket-specific endpoint.
       request.protocol = "wss:";
-      // Append port to hostname because it needs to be signed together
-      request.hostname = `${request.hostname}:8443`;
+      // Update port for using WebSocket.
+      request.port = 8443;
       request.path = `${request.path}-websocket`;
       request.method = "GET";
 

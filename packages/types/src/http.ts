@@ -42,6 +42,8 @@ export interface Headers extends Map<string, string> {
  * The SDK may at any point during processing remove one of the object
  * properties in favor of the other. The headers may or may not be combined, and
  * the SDK will not deterministically select which header candidate to use.
+ *
+ * @deprecated Replaced by implementation Fields in @aws-sdk/protocol-http.
  */
 export type HeaderBag = Record<string, string>;
 
@@ -50,6 +52,8 @@ export type HeaderBag = Record<string, string>;
  *
  * Represents an HTTP message with headers and an optional static or streaming
  * body. bode: ArrayBuffer | ArrayBufferView | string | Uint8Array | Readable | ReadableStream;
+ *
+ * @deprecated Replaced by implementation HttpRequest/HttpResponse in @aws-sdk/protocol-http.
  */
 export interface HttpMessage {
   headers: HeaderBag;
@@ -83,6 +87,8 @@ export interface Endpoint {
  *
  * Interface an HTTP request class. Contains
  * addressing information in addition to standard message properties.
+ *
+ * @deprecated Replaced by implementation HttpRequest in @aws-sdk/protocol-http.
  */
 export interface HttpRequest extends HttpMessage, Endpoint {
   method: string;
