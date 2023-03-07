@@ -237,6 +237,14 @@ ApplyPendingMaintenanceAction
 </details>
 <details>
 <summary>
+BatchStartRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/batchstartrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/batchstartrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/batchstartrecommendationscommandoutput.html)
+
+</details>
+<details>
+<summary>
 CancelReplicationTaskAssessmentRun
 </summary>
 
@@ -509,6 +517,22 @@ DescribePendingMaintenanceActions
 </details>
 <details>
 <summary>
+DescribeRecommendationLimitations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describerecommendationlimitationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describerecommendationlimitationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describerecommendationlimitationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describerecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describerecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describerecommendationscommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeRefreshSchemasStatus
 </summary>
 
@@ -689,6 +713,14 @@ RunFleetAdvisorLsaAnalysis
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/runfleetadvisorlsaanalysiscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/runfleetadvisorlsaanalysiscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/runfleetadvisorlsaanalysiscommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/startrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/startrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/startrecommendationscommandoutput.html)
 
 </details>
 <details>

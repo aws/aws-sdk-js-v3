@@ -19,48 +19,50 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import {
-  ModifyReplicationInstanceMessage,
-  ModifyReplicationInstanceMessageFilterSensitiveLog,
-  ModifyReplicationInstanceResponse,
-  ModifyReplicationInstanceResponseFilterSensitiveLog,
+  BatchStartRecommendationsRequest,
+  BatchStartRecommendationsRequestFilterSensitiveLog,
+  BatchStartRecommendationsResponse,
+  BatchStartRecommendationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ModifyReplicationInstanceCommand,
-  serializeAws_json1_1ModifyReplicationInstanceCommand,
+  deserializeAws_json1_1BatchStartRecommendationsCommand,
+  serializeAws_json1_1BatchStartRecommendationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
- * The input for {@link ModifyReplicationInstanceCommand}.
+ * The input for {@link BatchStartRecommendationsCommand}.
  */
-export interface ModifyReplicationInstanceCommandInput extends ModifyReplicationInstanceMessage {}
+export interface BatchStartRecommendationsCommandInput extends BatchStartRecommendationsRequest {}
 /**
- * The output of {@link ModifyReplicationInstanceCommand}.
+ * The output of {@link BatchStartRecommendationsCommand}.
  */
-export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicationInstanceResponse, __MetadataBearer {}
+export interface BatchStartRecommendationsCommandOutput extends BatchStartRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the replication instance to apply new settings. You can change one or more
- *          parameters by specifying these parameters and the new values in the request.</p>
- *          <p>Some settings are applied during the maintenance window.</p>
- *          <p></p>
+ * <p>Starts the analysis of up to 20 source databases to recommend target engines for each
+ *             source database. This is a batch version of <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartRecommendations.html">StartRecommendations</a>.</p>
+ *          <p>The result of analysis of each source database is reported individually in the
+ *             response. Because the batch request can result in a combination of successful and
+ *             unsuccessful actions, you should check for batch errors even when the call returns an
+ *             HTTP status code of <code>200</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, ModifyReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, ModifyReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, BatchStartRecommendationsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, BatchStartRecommendationsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const command = new ModifyReplicationInstanceCommand(input);
+ * const command = new BatchStartRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ModifyReplicationInstanceCommandInput} for command's `input` shape.
- * @see {@link ModifyReplicationInstanceCommandOutput} for command's `response` shape.
+ * @see {@link BatchStartRecommendationsCommandInput} for command's `input` shape.
+ * @see {@link BatchStartRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  */
-export class ModifyReplicationInstanceCommand extends $Command<
-  ModifyReplicationInstanceCommandInput,
-  ModifyReplicationInstanceCommandOutput,
+export class BatchStartRecommendationsCommand extends $Command<
+  BatchStartRecommendationsCommandInput,
+  BatchStartRecommendationsCommandOutput,
   DatabaseMigrationServiceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -75,7 +77,7 @@ export class ModifyReplicationInstanceCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ModifyReplicationInstanceCommandInput) {
+  constructor(readonly input: BatchStartRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -88,23 +90,23 @@ export class ModifyReplicationInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ModifyReplicationInstanceCommandInput, ModifyReplicationInstanceCommandOutput> {
+  ): Handler<BatchStartRecommendationsCommandInput, BatchStartRecommendationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ModifyReplicationInstanceCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, BatchStartRecommendationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "DatabaseMigrationServiceClient";
-    const commandName = "ModifyReplicationInstanceCommand";
+    const commandName = "BatchStartRecommendationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyReplicationInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyReplicationInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: BatchStartRecommendationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchStartRecommendationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +116,15 @@ export class ModifyReplicationInstanceCommand extends $Command<
     );
   }
 
-  private serialize(input: ModifyReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyReplicationInstanceCommand(input, context);
+  private serialize(input: BatchStartRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1BatchStartRecommendationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<ModifyReplicationInstanceCommandOutput> {
-    return deserializeAws_json1_1ModifyReplicationInstanceCommand(output, context);
+  ): Promise<BatchStartRecommendationsCommandOutput> {
+    return deserializeAws_json1_1BatchStartRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

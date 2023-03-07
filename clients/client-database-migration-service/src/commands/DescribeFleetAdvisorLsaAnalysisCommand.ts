@@ -41,9 +41,8 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your
- *             Fleet Advisor collectors.
- *         </p>
+ * <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your Fleet
+ *             Advisor collectors. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

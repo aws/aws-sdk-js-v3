@@ -40,7 +40,6 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
 
 /**
  * <p>Returns information about the schema for the specified endpoint.</p>
- *
  *          <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

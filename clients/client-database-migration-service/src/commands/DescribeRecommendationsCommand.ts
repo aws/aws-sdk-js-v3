@@ -19,48 +19,46 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import {
-  ModifyReplicationInstanceMessage,
-  ModifyReplicationInstanceMessageFilterSensitiveLog,
-  ModifyReplicationInstanceResponse,
-  ModifyReplicationInstanceResponseFilterSensitiveLog,
+  DescribeRecommendationsRequest,
+  DescribeRecommendationsRequestFilterSensitiveLog,
+  DescribeRecommendationsResponse,
+  DescribeRecommendationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ModifyReplicationInstanceCommand,
-  serializeAws_json1_1ModifyReplicationInstanceCommand,
+  deserializeAws_json1_1DescribeRecommendationsCommand,
+  serializeAws_json1_1DescribeRecommendationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
- * The input for {@link ModifyReplicationInstanceCommand}.
+ * The input for {@link DescribeRecommendationsCommand}.
  */
-export interface ModifyReplicationInstanceCommandInput extends ModifyReplicationInstanceMessage {}
+export interface DescribeRecommendationsCommandInput extends DescribeRecommendationsRequest {}
 /**
- * The output of {@link ModifyReplicationInstanceCommand}.
+ * The output of {@link DescribeRecommendationsCommand}.
  */
-export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicationInstanceResponse, __MetadataBearer {}
+export interface DescribeRecommendationsCommandOutput extends DescribeRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the replication instance to apply new settings. You can change one or more
- *          parameters by specifying these parameters and the new values in the request.</p>
- *          <p>Some settings are applied during the maintenance window.</p>
- *          <p></p>
+ * <p>Returns a paginated list of target engine recommendations for your source
+ *             databases.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, ModifyReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, ModifyReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeRecommendationsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeRecommendationsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const command = new ModifyReplicationInstanceCommand(input);
+ * const command = new DescribeRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ModifyReplicationInstanceCommandInput} for command's `input` shape.
- * @see {@link ModifyReplicationInstanceCommandOutput} for command's `response` shape.
+ * @see {@link DescribeRecommendationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  */
-export class ModifyReplicationInstanceCommand extends $Command<
-  ModifyReplicationInstanceCommandInput,
-  ModifyReplicationInstanceCommandOutput,
+export class DescribeRecommendationsCommand extends $Command<
+  DescribeRecommendationsCommandInput,
+  DescribeRecommendationsCommandOutput,
   DatabaseMigrationServiceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -75,7 +73,7 @@ export class ModifyReplicationInstanceCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ModifyReplicationInstanceCommandInput) {
+  constructor(readonly input: DescribeRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -88,23 +86,23 @@ export class ModifyReplicationInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ModifyReplicationInstanceCommandInput, ModifyReplicationInstanceCommandOutput> {
+  ): Handler<DescribeRecommendationsCommandInput, DescribeRecommendationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ModifyReplicationInstanceCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeRecommendationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "DatabaseMigrationServiceClient";
-    const commandName = "ModifyReplicationInstanceCommand";
+    const commandName = "DescribeRecommendationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyReplicationInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyReplicationInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRecommendationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRecommendationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +112,12 @@ export class ModifyReplicationInstanceCommand extends $Command<
     );
   }
 
-  private serialize(input: ModifyReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyReplicationInstanceCommand(input, context);
+  private serialize(input: DescribeRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeRecommendationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyReplicationInstanceCommandOutput> {
-    return deserializeAws_json1_1ModifyReplicationInstanceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecommendationsCommandOutput> {
+    return deserializeAws_json1_1DescribeRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./AddTagsToResourceCommand";
 export * from "./ApplyPendingMaintenanceActionCommand";
+export * from "./BatchStartRecommendationsCommand";
 export * from "./CancelReplicationTaskAssessmentRunCommand";
 export * from "./CreateEndpointCommand";
 export * from "./CreateEventSubscriptionCommand";
@@ -35,6 +36,8 @@ export * from "./DescribeFleetAdvisorSchemaObjectSummaryCommand";
 export * from "./DescribeFleetAdvisorSchemasCommand";
 export * from "./DescribeOrderableReplicationInstancesCommand";
 export * from "./DescribePendingMaintenanceActionsCommand";
+export * from "./DescribeRecommendationLimitationsCommand";
+export * from "./DescribeRecommendationsCommand";
 export * from "./DescribeRefreshSchemasStatusCommand";
 export * from "./DescribeReplicationInstanceTaskLogsCommand";
 export * from "./DescribeReplicationInstancesCommand";
@@ -58,6 +61,7 @@ export * from "./RefreshSchemasCommand";
 export * from "./ReloadTablesCommand";
 export * from "./RemoveTagsFromResourceCommand";
 export * from "./RunFleetAdvisorLsaAnalysisCommand";
+export * from "./StartRecommendationsCommand";
 export * from "./StartReplicationTaskAssessmentCommand";
 export * from "./StartReplicationTaskAssessmentRunCommand";
 export * from "./StartReplicationTaskCommand";
