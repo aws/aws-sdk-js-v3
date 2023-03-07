@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.286.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.285.0...v3.286.0) (2023-03-07)
+
+
+### Features
+
+* **client-database-migration-service:** This release adds DMS Fleet Advisor Target Recommendation APIs and exposes functionality for DMS Fleet Advisor. It adds functionality to start Target Recommendation calculation. ([b09608d](https://github.com/aws/aws-sdk-js-v3/commit/b09608dc4f80a98628a12a6ecc0d336958c0f91e))
+* **clients:** update client endpoints as of 2023-03-07 ([6678e02](https://github.com/aws/aws-sdk-js-v3/commit/6678e020f2792e02f4b1434d8c66381f3484aad6))
+
+
+
+
+
 # [3.285.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.284.0...v3.285.0) (2023-03-06)
 
 
