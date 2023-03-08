@@ -15,46 +15,45 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import {
-  GrantPermissionsRequest,
-  GrantPermissionsRequestFilterSensitiveLog,
-  GrantPermissionsResponse,
-  GrantPermissionsResponseFilterSensitiveLog,
+  UpdateDataCellsFilterRequest,
+  UpdateDataCellsFilterRequestFilterSensitiveLog,
+  UpdateDataCellsFilterResponse,
+  UpdateDataCellsFilterResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GrantPermissionsCommand,
-  serializeAws_restJson1GrantPermissionsCommand,
+  deserializeAws_restJson1UpdateDataCellsFilterCommand,
+  serializeAws_restJson1UpdateDataCellsFilterCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
- * The input for {@link GrantPermissionsCommand}.
+ * The input for {@link UpdateDataCellsFilterCommand}.
  */
-export interface GrantPermissionsCommandInput extends GrantPermissionsRequest {}
+export interface UpdateDataCellsFilterCommandInput extends UpdateDataCellsFilterRequest {}
 /**
- * The output of {@link GrantPermissionsCommand}.
+ * The output of {@link UpdateDataCellsFilterCommand}.
  */
-export interface GrantPermissionsCommandOutput extends GrantPermissionsResponse, __MetadataBearer {}
+export interface UpdateDataCellsFilterCommandOutput extends UpdateDataCellsFilterResponse, __MetadataBearer {}
 
 /**
- * <p>Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>
- *          <p>For information about permissions, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
+ * <p>Updates a data cell filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, GrantPermissionsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, GrantPermissionsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, UpdateDataCellsFilterCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
+ * // const { LakeFormationClient, UpdateDataCellsFilterCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const command = new GrantPermissionsCommand(input);
+ * const command = new UpdateDataCellsFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GrantPermissionsCommandInput} for command's `input` shape.
- * @see {@link GrantPermissionsCommandOutput} for command's `response` shape.
+ * @see {@link UpdateDataCellsFilterCommandInput} for command's `input` shape.
+ * @see {@link UpdateDataCellsFilterCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  */
-export class GrantPermissionsCommand extends $Command<
-  GrantPermissionsCommandInput,
-  GrantPermissionsCommandOutput,
+export class UpdateDataCellsFilterCommand extends $Command<
+  UpdateDataCellsFilterCommandInput,
+  UpdateDataCellsFilterCommandOutput,
   LakeFormationClientResolvedConfig
 > {
   // Start section: command_properties
@@ -69,7 +68,7 @@ export class GrantPermissionsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GrantPermissionsCommandInput) {
+  constructor(readonly input: UpdateDataCellsFilterCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -82,23 +81,23 @@ export class GrantPermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GrantPermissionsCommandInput, GrantPermissionsCommandOutput> {
+  ): Handler<UpdateDataCellsFilterCommandInput, UpdateDataCellsFilterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GrantPermissionsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateDataCellsFilterCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LakeFormationClient";
-    const commandName = "GrantPermissionsCommand";
+    const commandName = "UpdateDataCellsFilterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GrantPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GrantPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDataCellsFilterRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDataCellsFilterResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +107,12 @@ export class GrantPermissionsCommand extends $Command<
     );
   }
 
-  private serialize(input: GrantPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GrantPermissionsCommand(input, context);
+  private serialize(input: UpdateDataCellsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateDataCellsFilterCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GrantPermissionsCommandOutput> {
-    return deserializeAws_restJson1GrantPermissionsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataCellsFilterCommandOutput> {
+    return deserializeAws_restJson1UpdateDataCellsFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

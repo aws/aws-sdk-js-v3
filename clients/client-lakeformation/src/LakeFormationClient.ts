@@ -89,6 +89,7 @@ import {
   DescribeTransactionCommandOutput,
 } from "./commands/DescribeTransactionCommand";
 import { ExtendTransactionCommandInput, ExtendTransactionCommandOutput } from "./commands/ExtendTransactionCommand";
+import { GetDataCellsFilterCommandInput, GetDataCellsFilterCommandOutput } from "./commands/GetDataCellsFilterCommand";
 import {
   GetDataLakeSettingsCommandInput,
   GetDataLakeSettingsCommandOutput,
@@ -145,6 +146,10 @@ import {
 } from "./commands/SearchTablesByLFTagsCommand";
 import { StartQueryPlanningCommandInput, StartQueryPlanningCommandOutput } from "./commands/StartQueryPlanningCommand";
 import { StartTransactionCommandInput, StartTransactionCommandOutput } from "./commands/StartTransactionCommand";
+import {
+  UpdateDataCellsFilterCommandInput,
+  UpdateDataCellsFilterCommandOutput,
+} from "./commands/UpdateDataCellsFilterCommand";
 import { UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "./commands/UpdateLFTagCommand";
 import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
 import { UpdateTableObjectsCommandInput, UpdateTableObjectsCommandOutput } from "./commands/UpdateTableObjectsCommand";
@@ -176,6 +181,7 @@ export type ServiceInputTypes =
   | DescribeResourceCommandInput
   | DescribeTransactionCommandInput
   | ExtendTransactionCommandInput
+  | GetDataCellsFilterCommandInput
   | GetDataLakeSettingsCommandInput
   | GetEffectivePermissionsForPathCommandInput
   | GetLFTagCommandInput
@@ -202,6 +208,7 @@ export type ServiceInputTypes =
   | SearchTablesByLFTagsCommandInput
   | StartQueryPlanningCommandInput
   | StartTransactionCommandInput
+  | UpdateDataCellsFilterCommandInput
   | UpdateLFTagCommandInput
   | UpdateResourceCommandInput
   | UpdateTableObjectsCommandInput
@@ -223,6 +230,7 @@ export type ServiceOutputTypes =
   | DescribeResourceCommandOutput
   | DescribeTransactionCommandOutput
   | ExtendTransactionCommandOutput
+  | GetDataCellsFilterCommandOutput
   | GetDataLakeSettingsCommandOutput
   | GetEffectivePermissionsForPathCommandOutput
   | GetLFTagCommandOutput
@@ -249,6 +257,7 @@ export type ServiceOutputTypes =
   | SearchTablesByLFTagsCommandOutput
   | StartQueryPlanningCommandOutput
   | StartTransactionCommandOutput
+  | UpdateDataCellsFilterCommandOutput
   | UpdateLFTagCommandOutput
   | UpdateResourceCommandOutput
   | UpdateTableObjectsCommandOutput
