@@ -83,6 +83,11 @@ export interface Channel {
   Arn?: string;
 
   /**
+   * The date and time the Channel was created.
+   */
+  CreatedAt?: string;
+
+  /**
    * A short text description of the Channel.
    */
   Description?: string;
@@ -154,7 +159,7 @@ export interface HarvestJob {
   ChannelId?: string;
 
   /**
-   * The time the HarvestJob was submitted
+   * The date and time the HarvestJob was submitted.
    */
   CreatedAt?: string;
 
@@ -890,6 +895,11 @@ export interface OriginEndpoint {
   CmafPackage?: CmafPackage;
 
   /**
+   * The date and time the OriginEndpoint was created.
+   */
+  CreatedAt?: string;
+
+  /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
    */
   DashPackage?: DashPackage;
@@ -1010,6 +1020,11 @@ export interface ConfigureLogsResponse {
    * The Amazon Resource Name (ARN) assigned to the Channel.
    */
   Arn?: string;
+
+  /**
+   * The date and time the Channel was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A short text description of the Channel.
@@ -1196,6 +1211,11 @@ export interface CreateChannelResponse {
   Arn?: string;
 
   /**
+   * The date and time the Channel was created.
+   */
+  CreatedAt?: string;
+
+  /**
    * A short text description of the Channel.
    */
   Description?: string;
@@ -1270,7 +1290,7 @@ export interface CreateHarvestJobResponse {
   ChannelId?: string;
 
   /**
-   * The time the HarvestJob was submitted
+   * The date and time the HarvestJob was submitted.
    */
   CreatedAt?: string;
 
@@ -1412,6 +1432,11 @@ export interface CreateOriginEndpointResponse {
   CmafPackage?: CmafPackage;
 
   /**
+   * The date and time the OriginEndpoint was created.
+   */
+  CreatedAt?: string;
+
+  /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
    */
   DashPackage?: DashPackage;
@@ -1508,6 +1533,11 @@ export interface DescribeChannelResponse {
   Arn?: string;
 
   /**
+   * The date and time the Channel was created.
+   */
+  CreatedAt?: string;
+
+  /**
    * A short text description of the Channel.
    */
   Description?: string;
@@ -1557,7 +1587,7 @@ export interface DescribeHarvestJobResponse {
   ChannelId?: string;
 
   /**
-   * The time the HarvestJob was submitted
+   * The date and time the HarvestJob was submitted.
    */
   CreatedAt?: string;
 
@@ -1623,6 +1653,11 @@ export interface DescribeOriginEndpointResponse {
    * A Common Media Application Format (CMAF) packaging configuration.
    */
   CmafPackage?: CmafPackage;
+
+  /**
+   * The date and time the OriginEndpoint was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
@@ -1798,6 +1833,11 @@ export interface RotateChannelCredentialsResponse {
   Arn?: string;
 
   /**
+   * The date and time the Channel was created.
+   */
+  CreatedAt?: string;
+
+  /**
    * A short text description of the Channel.
    */
   Description?: string;
@@ -1845,6 +1885,11 @@ export interface RotateIngestEndpointCredentialsResponse {
    * The Amazon Resource Name (ARN) assigned to the Channel.
    */
   Arn?: string;
+
+  /**
+   * The date and time the Channel was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A short text description of the Channel.
@@ -1910,6 +1955,11 @@ export interface UpdateChannelResponse {
    * The Amazon Resource Name (ARN) assigned to the Channel.
    */
   Arn?: string;
+
+  /**
+   * The date and time the Channel was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A short text description of the Channel.
@@ -2031,6 +2081,11 @@ export interface UpdateOriginEndpointResponse {
    * A Common Media Application Format (CMAF) packaging configuration.
    */
   CmafPackage?: CmafPackage;
+
+  /**
+   * The date and time the OriginEndpoint was created.
+   */
+  CreatedAt?: string;
 
   /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.

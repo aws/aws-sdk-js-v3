@@ -600,6 +600,9 @@ export const deserializeAws_restJson1ConfigureLogsCommand = async (
   if (data.arn != null) {
     contents.Arn = __expectString(data.arn);
   }
+  if (data.createdAt != null) {
+    contents.CreatedAt = __expectString(data.createdAt);
+  }
   if (data.description != null) {
     contents.Description = __expectString(data.description);
   }
@@ -673,6 +676,9 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn != null) {
     contents.Arn = __expectString(data.arn);
+  }
+  if (data.createdAt != null) {
+    contents.CreatedAt = __expectString(data.createdAt);
   }
   if (data.description != null) {
     contents.Description = __expectString(data.description);
@@ -836,6 +842,9 @@ export const deserializeAws_restJson1CreateOriginEndpointCommand = async (
   }
   if (data.cmafPackage != null) {
     contents.CmafPackage = deserializeAws_restJson1CmafPackage(data.cmafPackage, context);
+  }
+  if (data.createdAt != null) {
+    contents.CreatedAt = __expectString(data.createdAt);
   }
   if (data.dashPackage != null) {
     contents.DashPackage = deserializeAws_restJson1DashPackage(data.dashPackage, context);
@@ -1035,6 +1044,9 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
   if (data.arn != null) {
     contents.Arn = __expectString(data.arn);
   }
+  if (data.createdAt != null) {
+    contents.CreatedAt = __expectString(data.createdAt);
+  }
   if (data.description != null) {
     contents.Description = __expectString(data.description);
   }
@@ -1197,6 +1209,9 @@ export const deserializeAws_restJson1DescribeOriginEndpointCommand = async (
   }
   if (data.cmafPackage != null) {
     contents.CmafPackage = deserializeAws_restJson1CmafPackage(data.cmafPackage, context);
+  }
+  if (data.createdAt != null) {
+    contents.CreatedAt = __expectString(data.createdAt);
   }
   if (data.dashPackage != null) {
     contents.DashPackage = deserializeAws_restJson1DashPackage(data.dashPackage, context);
@@ -1502,6 +1517,9 @@ export const deserializeAws_restJson1RotateChannelCredentialsCommand = async (
   if (data.arn != null) {
     contents.Arn = __expectString(data.arn);
   }
+  if (data.createdAt != null) {
+    contents.CreatedAt = __expectString(data.createdAt);
+  }
   if (data.description != null) {
     contents.Description = __expectString(data.description);
   }
@@ -1575,6 +1593,9 @@ export const deserializeAws_restJson1RotateIngestEndpointCredentialsCommand = as
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn != null) {
     contents.Arn = __expectString(data.arn);
+  }
+  if (data.createdAt != null) {
+    contents.CreatedAt = __expectString(data.createdAt);
   }
   if (data.description != null) {
     contents.Description = __expectString(data.description);
@@ -1714,6 +1735,9 @@ export const deserializeAws_restJson1UpdateChannelCommand = async (
   if (data.arn != null) {
     contents.Arn = __expectString(data.arn);
   }
+  if (data.createdAt != null) {
+    contents.CreatedAt = __expectString(data.createdAt);
+  }
   if (data.description != null) {
     contents.Description = __expectString(data.description);
   }
@@ -1796,6 +1820,9 @@ export const deserializeAws_restJson1UpdateOriginEndpointCommand = async (
   }
   if (data.cmafPackage != null) {
     contents.CmafPackage = deserializeAws_restJson1CmafPackage(data.cmafPackage, context);
+  }
+  if (data.createdAt != null) {
+    contents.CreatedAt = __expectString(data.createdAt);
   }
   if (data.dashPackage != null) {
     contents.DashPackage = deserializeAws_restJson1DashPackage(data.dashPackage, context);
@@ -2349,6 +2376,7 @@ const deserializeAws_restJson1Authorization = (output: any, context: __SerdeCont
 const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
   return {
     Arn: __expectString(output.arn),
+    CreatedAt: __expectString(output.createdAt),
     Description: __expectString(output.description),
     EgressAccessLogs:
       output.egressAccessLogs != null
@@ -2565,6 +2593,7 @@ const deserializeAws_restJson1OriginEndpoint = (output: any, context: __SerdeCon
     ChannelId: __expectString(output.channelId),
     CmafPackage:
       output.cmafPackage != null ? deserializeAws_restJson1CmafPackage(output.cmafPackage, context) : undefined,
+    CreatedAt: __expectString(output.createdAt),
     DashPackage:
       output.dashPackage != null ? deserializeAws_restJson1DashPackage(output.dashPackage, context) : undefined,
     Description: __expectString(output.description),
