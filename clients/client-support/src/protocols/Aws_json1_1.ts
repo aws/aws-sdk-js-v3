@@ -1217,11 +1217,12 @@ const serializeAws_json1_1ServiceCodeList = (input: string[], context: __SerdeCo
 };
 
 const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.map((entry) => {
+    if (entry === null) {
+      return null as any;
+    }
+    return entry;
+  });
 };
 
 const deserializeAws_json1_1AddAttachmentsToSetResponse = (
@@ -1597,14 +1598,12 @@ const deserializeAws_json1_1SeverityLevelsList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      return null as any;
+    }
+    return __expectString(entry) as any;
+  });
   return retVal;
 };
 
