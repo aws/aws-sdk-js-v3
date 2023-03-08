@@ -111,7 +111,7 @@
     "lint-staged": "^10.0.1",
     "mocha": "10.0.0",
     "prettier": "2.8.5",
-    "puppeteer": "^5.1.0",
+    "puppeteer": "^19.2.0",
     "rimraf": "3.0.2",
     "ts-jest": "28.0.5",
     "ts-loader": "9.4.2",
