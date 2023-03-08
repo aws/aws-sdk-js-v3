@@ -1,6 +1,6 @@
-import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { HttpHandler, HttpResponse } from "@aws-sdk/protocol-http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
-import { HttpHandlerOptions, Provider } from "@aws-sdk/types";
+import { HttpHandlerOptions, HttpRequest as IHttpRequest, Provider } from "@aws-sdk/types";
 import { Agent as hAgent, request as hRequest } from "http";
 import { Agent as hsAgent, request as hsRequest, RequestOptions } from "https";
 
@@ -75,7 +75,7 @@ export class NodeHttpHandler implements HttpHandler {
     this.config?.httpsAgent?.destroy();
   }
 
-  async handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
+  async handle(request: IHttpRequest, { abortSignal }: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
     if (!this.config) {
       this.config = await this.configProvider;
     }
