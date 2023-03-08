@@ -150,14 +150,8 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
     protected void deserializeStructure(GenerationContext context, StructureShape shape) {
         TypeScriptWriter writer = context.getWriter();
 
-        // Prepare the document contents structure.
-        Map<String, MemberShape> members = shape.getAllMembers();
-        writer.openBlock("let contents: any = {", "};", () -> {
-            // Set all the members to undefined to meet type constraints.
-            members.forEach((memberName, memberShape) -> writer.write("$L: undefined,", memberName));
-        });
-
-        members.forEach((memberName, memberShape) -> {
+        writer.write("let contents: any = {};");
+        shape.getAllMembers().forEach((memberName, memberShape) -> {
             // Grab the target shape so we can use a member deserializer on it.
             Shape target = context.getModel().expectShape(memberShape.getTarget());
             deserializeNamedMember(context, memberName, memberShape, "output", (dataSource, visitor) -> {
