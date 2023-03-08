@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchGetMembershipDatasourcesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchGetMembershipDatasourcesCommand}.
+ */
 export interface BatchGetMembershipDatasourcesCommandInput extends BatchGetMembershipDatasourcesRequest {}
+/**
+ * The output of {@link BatchGetMembershipDatasourcesCommand}.
+ */
 export interface BatchGetMembershipDatasourcesCommandOutput
   extends BatchGetMembershipDatasourcesResponse,
     __MetadataBearer {}

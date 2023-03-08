@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeMLModelsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeMLModelsCommand}.
+ */
 export interface DescribeMLModelsCommandInput extends DescribeMLModelsInput {}
+/**
+ * The output of {@link DescribeMLModelsCommand}.
+ */
 export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, __MetadataBearer {}
 
 /**

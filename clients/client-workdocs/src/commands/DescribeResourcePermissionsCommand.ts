@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link DescribeResourcePermissionsCommand}.
+ */
 export interface DescribeResourcePermissionsCommandInput extends DescribeResourcePermissionsRequest {}
+/**
+ * The output of {@link DescribeResourcePermissionsCommand}.
+ */
 export interface DescribeResourcePermissionsCommandOutput
   extends DescribeResourcePermissionsResponse,
     __MetadataBearer {}

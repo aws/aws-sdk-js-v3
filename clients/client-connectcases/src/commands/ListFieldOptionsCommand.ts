@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListFieldOptionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListFieldOptionsCommand}.
+ */
 export interface ListFieldOptionsCommandInput extends ListFieldOptionsRequest {}
+/**
+ * The output of {@link ListFieldOptionsCommand}.
+ */
 export interface ListFieldOptionsCommandOutput extends ListFieldOptionsResponse, __MetadataBearer {}
 
 /**

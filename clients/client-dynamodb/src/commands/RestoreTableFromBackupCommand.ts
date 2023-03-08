@@ -25,33 +25,39 @@ import {
   serializeAws_json1_0RestoreTableFromBackupCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link RestoreTableFromBackupCommand}.
+ */
 export interface RestoreTableFromBackupCommandInput extends RestoreTableFromBackupInput {}
+/**
+ * The output of {@link RestoreTableFromBackupCommand}.
+ */
 export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBackupOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new table from an existing backup. Any number of users can execute up to 4
  *             concurrent restores (any type of restore) in a given account. </p>
- *         <p>You can call <code>RestoreTableFromBackup</code> at a maximum rate of 10 times per
+ *          <p>You can call <code>RestoreTableFromBackup</code> at a maximum rate of 10 times per
  *             second.</p>
- *         <p>You must manually set up the following on the restored table:</p>
- *         <ul>
+ *          <p>You must manually set up the following on the restored table:</p>
+ *          <ul>
  *             <li>
- *                 <p>Auto scaling policies</p>
+ *                <p>Auto scaling policies</p>
  *             </li>
  *             <li>
- *                 <p>IAM policies</p>
+ *                <p>IAM policies</p>
  *             </li>
  *             <li>
- *                 <p>Amazon CloudWatch metrics and alarms</p>
+ *                <p>Amazon CloudWatch metrics and alarms</p>
  *             </li>
  *             <li>
- *                 <p>Tags</p>
+ *                <p>Tags</p>
  *             </li>
  *             <li>
- *                 <p>Stream settings</p>
+ *                <p>Stream settings</p>
  *             </li>
  *             <li>
- *                 <p>Time to Live (TTL) settings</p>
+ *                <p>Time to Live (TTL) settings</p>
  *             </li>
  *          </ul>
  * @example

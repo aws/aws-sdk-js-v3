@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutAuditEventsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutAuditEventsCommand}.
+ */
 export interface PutAuditEventsCommandInput extends PutAuditEventsRequest {}
+/**
+ * The output of {@link PutAuditEventsCommand}.
+ */
 export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __MetadataBearer {}
 
 /**

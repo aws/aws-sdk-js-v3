@@ -25,13 +25,18 @@ import {
   serializeAws_restJson1CreateWorkspaceApiKeyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateWorkspaceApiKeyCommand}.
+ */
 export interface CreateWorkspaceApiKeyCommandInput extends CreateWorkspaceApiKeyRequest {}
+/**
+ * The output of {@link CreateWorkspaceApiKeyCommand}.
+ */
 export interface CreateWorkspaceApiKeyCommandOutput extends CreateWorkspaceApiKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Grafana API key for the workspace.  This key can be used to
- *             authenticate requests sent to the workspace's HTTP API.
- *             See <a href="https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html">https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html</a>
+ * <p>Creates a Grafana API key for the workspace. This key can be used to authenticate
+ *             requests sent to the workspace's HTTP API. See <a href="https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html">https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html</a>
  *             for available APIs and example requests.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

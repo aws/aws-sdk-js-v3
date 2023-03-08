@@ -25,7 +25,13 @@ import {
   serializeAws_queryListAccessKeysCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListAccessKeysCommand}.
+ */
 export interface ListAccessKeysCommandInput extends ListAccessKeysRequest {}
+/**
+ * The output of {@link ListAccessKeysCommand}.
+ */
 export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __MetadataBearer {}
 
 /**

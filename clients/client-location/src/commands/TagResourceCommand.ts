@@ -25,15 +25,21 @@ import {
   serializeAws_restJson1TagResourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandInput extends TagResourceRequest {}
+/**
+ * The output of {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Assigns one or more tags (key-value pairs) to the specified Amazon
- *             Location Service resource.</p>
- *          <p>Tags can help you organize and categorize your resources.
- *             You can also use them to scope user permissions, by granting a user
- *             permission to access or change only resources with certain tag values.</p>
+ * <p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service
+ *             resource.</p>
+ *          <p>Tags can help you organize and categorize your resources. You can also use them to
+ *             scope user permissions, by granting a user permission to access or change only resources
+ *             with certain tag values.</p>
  *          <p>You can use the <code>TagResource</code> operation with an Amazon Location Service
  *             resource that already has tags. If you specify a new tag key for the resource, this tag
  *             is appended to the tags already associated with the resource. If you specify a tag key

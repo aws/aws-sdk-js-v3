@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListUniqueProblemsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListUniqueProblemsCommand}.
+ */
 export interface ListUniqueProblemsCommandInput extends ListUniqueProblemsRequest {}
+/**
+ * The output of {@link ListUniqueProblemsCommand}.
+ */
 export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResult, __MetadataBearer {}
 
 /**

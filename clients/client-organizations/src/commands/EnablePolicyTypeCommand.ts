@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1EnablePolicyTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EnablePolicyTypeCommand}.
+ */
 export interface EnablePolicyTypeCommandInput extends EnablePolicyTypeRequest {}
+/**
+ * The output of {@link EnablePolicyTypeCommand}.
+ */
 export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse, __MetadataBearer {}
 
 /**
@@ -33,11 +39,11 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  *             attach policies of that type to the root, any organizational unit (OU), or account in
  *             that root. You can undo this by using the <a>DisablePolicyType</a>
  *             operation.</p>
- *         <p>This is an asynchronous request that Amazon Web Services performs in the background. Amazon Web Services
+ *          <p>This is an asynchronous request that Amazon Web Services performs in the background. Amazon Web Services
  *             recommends that you first use <a>ListRoots</a> to see the status of policy
  *             types for a specified root, and then use this operation.</p>
- *         <p>This operation can be called only from the organization's management account.</p>
- *         <p>You can enable a policy type in a root only if that policy type is available in the
+ *          <p>This operation can be called only from the organization's management account.</p>
+ *          <p>You can enable a policy type in a root only if that policy type is available in the
  *             organization. To view the status of available policy types in the organization, use
  *                 <a>DescribeOrganization</a>.</p>
  * @example

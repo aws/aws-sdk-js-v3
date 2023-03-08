@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateLifecyclePolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateLifecyclePolicyCommand}.
+ */
 export interface UpdateLifecyclePolicyCommandInput extends UpdateLifecyclePolicyRequest {}
+/**
+ * The output of {@link UpdateLifecyclePolicyCommand}.
+ */
 export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolicyResponse, __MetadataBearer {}
 
 /**

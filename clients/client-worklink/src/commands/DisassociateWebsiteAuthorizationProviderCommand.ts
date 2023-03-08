@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * The input for {@link DisassociateWebsiteAuthorizationProviderCommand}.
+ */
 export interface DisassociateWebsiteAuthorizationProviderCommandInput
   extends DisassociateWebsiteAuthorizationProviderRequest {}
+/**
+ * The output of {@link DisassociateWebsiteAuthorizationProviderCommand}.
+ */
 export interface DisassociateWebsiteAuthorizationProviderCommandOutput
   extends DisassociateWebsiteAuthorizationProviderResponse,
     __MetadataBearer {}

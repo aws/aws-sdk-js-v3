@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link PutParameterCommand}.
+ */
 export interface PutParameterCommandInput extends PutParameterRequest {}
+/**
+ * The output of {@link PutParameterCommand}.
+ */
 export interface PutParameterCommandOutput extends PutParameterResult, __MetadataBearer {}
 
 /**

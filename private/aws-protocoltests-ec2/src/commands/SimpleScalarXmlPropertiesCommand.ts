@@ -19,7 +19,13 @@ import {
   serializeAws_ec2SimpleScalarXmlPropertiesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link SimpleScalarXmlPropertiesCommand}.
+ */
 export interface SimpleScalarXmlPropertiesCommandInput {}
+/**
+ * The output of {@link SimpleScalarXmlPropertiesCommand}.
+ */
 export interface SimpleScalarXmlPropertiesCommandOutput extends SimpleScalarXmlPropertiesOutput, __MetadataBearer {}
 
 export class SimpleScalarXmlPropertiesCommand extends $Command<

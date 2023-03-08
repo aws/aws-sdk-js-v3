@@ -25,7 +25,13 @@ import {
   serializeAws_queryUpdateSAMLProviderCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateSAMLProviderCommand}.
+ */
 export interface UpdateSAMLProviderCommandInput extends UpdateSAMLProviderRequest {}
+/**
+ * The output of {@link UpdateSAMLProviderCommand}.
+ */
 export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderResponse, __MetadataBearer {}
 
 /**

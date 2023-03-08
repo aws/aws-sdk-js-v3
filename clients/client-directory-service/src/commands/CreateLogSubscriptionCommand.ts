@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateLogSubscriptionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateLogSubscriptionCommand}.
+ */
 export interface CreateLogSubscriptionCommandInput extends CreateLogSubscriptionRequest {}
+/**
+ * The output of {@link CreateLogSubscriptionCommand}.
+ */
 export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptionResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisableLDAPSCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisableLDAPSCommand}.
+ */
 export interface DisableLDAPSCommandInput extends DisableLDAPSRequest {}
+/**
+ * The output of {@link DisableLDAPSCommand}.
+ */
 export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __MetadataBearer {}
 
 /**

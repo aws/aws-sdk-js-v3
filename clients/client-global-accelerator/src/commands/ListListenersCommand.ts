@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListListenersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListListenersCommand}.
+ */
 export interface ListListenersCommandInput extends ListListenersRequest {}
+/**
+ * The output of {@link ListListenersCommand}.
+ */
 export interface ListListenersCommandOutput extends ListListenersResponse, __MetadataBearer {}
 
 /**

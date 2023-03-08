@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartRunCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartRunCommand}.
+ */
 export interface StartRunCommandInput extends StartRunRequest {}
+/**
+ * The output of {@link StartRunCommand}.
+ */
 export interface StartRunCommandOutput extends StartRunResponse, __MetadataBearer {}
 
 /**

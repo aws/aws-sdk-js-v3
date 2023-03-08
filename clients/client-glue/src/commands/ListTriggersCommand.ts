@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListTriggersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTriggersCommand}.
+ */
 export interface ListTriggersCommandInput extends ListTriggersRequest {}
+/**
+ * The output of {@link ListTriggersCommand}.
+ */
 export interface ListTriggersCommandOutput extends ListTriggersResponse, __MetadataBearer {}
 
 /**

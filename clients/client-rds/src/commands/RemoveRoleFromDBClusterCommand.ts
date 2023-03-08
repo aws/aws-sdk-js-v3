@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link RemoveRoleFromDBClusterCommand}.
+ */
 export interface RemoveRoleFromDBClusterCommandInput extends RemoveRoleFromDBClusterMessage {}
+/**
+ * The output of {@link RemoveRoleFromDBClusterCommand}.
+ */
 export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {}
 
 /**

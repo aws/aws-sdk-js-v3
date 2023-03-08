@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetWirelessGatewayStatisticsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetWirelessGatewayStatisticsCommand}.
+ */
 export interface GetWirelessGatewayStatisticsCommandInput extends GetWirelessGatewayStatisticsRequest {}
+/**
+ * The output of {@link GetWirelessGatewayStatisticsCommand}.
+ */
 export interface GetWirelessGatewayStatisticsCommandOutput
   extends GetWirelessGatewayStatisticsResponse,
     __MetadataBearer {}

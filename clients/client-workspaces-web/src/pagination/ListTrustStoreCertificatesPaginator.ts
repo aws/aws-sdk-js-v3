@@ -6,7 +6,6 @@ import {
   ListTrustStoreCertificatesCommandInput,
   ListTrustStoreCertificatesCommandOutput,
 } from "../commands/ListTrustStoreCertificatesCommand";
-import { WorkSpacesWeb } from "../WorkSpacesWeb";
 import { WorkSpacesWebClient } from "../WorkSpacesWebClient";
 import { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTrustStoreCertificatesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: WorkSpacesWeb,
-  input: ListTrustStoreCertificatesCommandInput,
-  ...args: any
-): Promise<ListTrustStoreCertificatesCommandOutput> => {
-  // @ts-ignore
-  return await client.listTrustStoreCertificates(input, ...args);
-};
 export async function* paginateListTrustStoreCertificates(
   config: WorkSpacesWebPaginationConfiguration,
   input: ListTrustStoreCertificatesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListTrustStoreCertificates(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof WorkSpacesWeb) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WorkSpacesWebClient) {
+    if (config.client instanceof WorkSpacesWebClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WorkSpacesWeb | WorkSpacesWebClient");

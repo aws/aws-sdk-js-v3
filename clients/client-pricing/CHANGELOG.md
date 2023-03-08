@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.282.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.281.0...v3.282.0) (2023-03-01)
+
+
+### Features
+
+* **client-pricing:** This release adds 2 new APIs - ListPriceLists which returns a list of applicable price lists, and GetPriceListFileUrl which outputs a URL to retrieve your price lists from the generated file from ListPriceLists ([f7201bf](https://github.com/aws/aws-sdk-js-v3/commit/f7201bf1e0a66f5fe2a12b176468731e5a079fea))
+
+
+
+
+
+# [3.281.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.280.0...v3.281.0) (2023-02-28)
+
+**Note:** Version bump only for package @aws-sdk/client-pricing
+
+
+
+
+
+# [3.279.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.278.0...v3.279.0) (2023-02-24)
+
+**Note:** Version bump only for package @aws-sdk/client-pricing
+
+
+
+
+
+# [3.278.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.277.0...v3.278.0) (2023-02-23)
+
+**Note:** Version bump only for package @aws-sdk/client-pricing
+
+
+
+
+
 # [3.276.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.275.0...v3.276.0) (2023-02-21)
 
 **Note:** Version bump only for package @aws-sdk/client-pricing

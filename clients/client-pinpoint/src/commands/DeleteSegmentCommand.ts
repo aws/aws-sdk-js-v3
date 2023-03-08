@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteSegmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteSegmentCommand}.
+ */
 export interface DeleteSegmentCommandInput extends DeleteSegmentRequest {}
+/**
+ * The output of {@link DeleteSegmentCommand}.
+ */
 export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __MetadataBearer {}
 
 /**

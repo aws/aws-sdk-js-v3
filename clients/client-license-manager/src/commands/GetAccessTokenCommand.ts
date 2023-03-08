@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetAccessTokenCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetAccessTokenCommand}.
+ */
 export interface GetAccessTokenCommandInput extends GetAccessTokenRequest {}
+/**
+ * The output of {@link GetAccessTokenCommand}.
+ */
 export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __MetadataBearer {}
 
 /**

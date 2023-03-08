@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeAuditMitigationActionsTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeAuditMitigationActionsTaskCommand}.
+ */
 export interface DescribeAuditMitigationActionsTaskCommandInput extends DescribeAuditMitigationActionsTaskRequest {}
+/**
+ * The output of {@link DescribeAuditMitigationActionsTaskCommand}.
+ */
 export interface DescribeAuditMitigationActionsTaskCommandOutput
   extends DescribeAuditMitigationActionsTaskResponse,
     __MetadataBearer {}

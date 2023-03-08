@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdatePrimaryRegionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdatePrimaryRegionCommand}.
+ */
 export interface UpdatePrimaryRegionCommandInput extends UpdatePrimaryRegionRequest {}
+/**
+ * The output of {@link UpdatePrimaryRegionCommand}.
+ */
 export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
 
 /**

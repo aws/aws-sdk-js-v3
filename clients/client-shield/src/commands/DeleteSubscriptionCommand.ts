@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * The input for {@link DeleteSubscriptionCommand}.
+ */
 export interface DeleteSubscriptionCommandInput extends DeleteSubscriptionRequest {}
+/**
+ * The output of {@link DeleteSubscriptionCommand}.
+ */
 export interface DeleteSubscriptionCommandOutput extends DeleteSubscriptionResponse, __MetadataBearer {}
 
 /**

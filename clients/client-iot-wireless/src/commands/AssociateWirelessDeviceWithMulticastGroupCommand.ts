@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1AssociateWirelessDeviceWithMulticastGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateWirelessDeviceWithMulticastGroupCommand}.
+ */
 export interface AssociateWirelessDeviceWithMulticastGroupCommandInput
   extends AssociateWirelessDeviceWithMulticastGroupRequest {}
+/**
+ * The output of {@link AssociateWirelessDeviceWithMulticastGroupCommand}.
+ */
 export interface AssociateWirelessDeviceWithMulticastGroupCommandOutput
   extends AssociateWirelessDeviceWithMulticastGroupResponse,
     __MetadataBearer {}

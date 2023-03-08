@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1PutScalingPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutScalingPolicyCommand}.
+ */
 export interface PutScalingPolicyCommandInput extends PutScalingPolicyRequest {}
+/**
+ * The output of {@link PutScalingPolicyCommand}.
+ */
 export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListServicesByNamespaceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListServicesByNamespaceCommand}.
+ */
 export interface ListServicesByNamespaceCommandInput extends ListServicesByNamespaceRequest {}
+/**
+ * The output of {@link ListServicesByNamespaceCommand}.
+ */
 export interface ListServicesByNamespaceCommandOutput extends ListServicesByNamespaceResponse, __MetadataBearer {}
 
 /**

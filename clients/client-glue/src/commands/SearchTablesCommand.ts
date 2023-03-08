@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SearchTablesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SearchTablesCommand}.
+ */
 export interface SearchTablesCommandInput extends SearchTablesRequest {}
+/**
+ * The output of {@link SearchTablesCommand}.
+ */
 export interface SearchTablesCommandOutput extends SearchTablesResponse, __MetadataBearer {}
 
 /**

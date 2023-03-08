@@ -25,7 +25,13 @@ import {
   serializeAws_queryDetachLoadBalancerTargetGroupsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DetachLoadBalancerTargetGroupsCommand}.
+ */
 export interface DetachLoadBalancerTargetGroupsCommandInput extends DetachLoadBalancerTargetGroupsType {}
+/**
+ * The output of {@link DetachLoadBalancerTargetGroupsCommand}.
+ */
 export interface DetachLoadBalancerTargetGroupsCommandOutput
   extends DetachLoadBalancerTargetGroupsResultType,
     __MetadataBearer {}

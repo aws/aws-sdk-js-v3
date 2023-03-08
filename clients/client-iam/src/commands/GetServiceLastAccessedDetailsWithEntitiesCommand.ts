@@ -25,8 +25,14 @@ import {
   serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetServiceLastAccessedDetailsWithEntitiesCommand}.
+ */
 export interface GetServiceLastAccessedDetailsWithEntitiesCommandInput
   extends GetServiceLastAccessedDetailsWithEntitiesRequest {}
+/**
+ * The output of {@link GetServiceLastAccessedDetailsWithEntitiesCommand}.
+ */
 export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
   extends GetServiceLastAccessedDetailsWithEntitiesResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetCollaborationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetCollaborationCommand}.
+ */
 export interface GetCollaborationCommandInput extends GetCollaborationInput {}
+/**
+ * The output of {@link GetCollaborationCommand}.
+ */
 export interface GetCollaborationCommandOutput extends GetCollaborationOutput, __MetadataBearer {}
 
 /**

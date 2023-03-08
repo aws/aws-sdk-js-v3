@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteRoomMembershipCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteRoomMembershipCommand}.
+ */
 export interface DeleteRoomMembershipCommandInput extends DeleteRoomMembershipRequest {}
+/**
+ * The output of {@link DeleteRoomMembershipCommand}.
+ */
 export interface DeleteRoomMembershipCommandOutput extends __MetadataBearer {}
 
 /**

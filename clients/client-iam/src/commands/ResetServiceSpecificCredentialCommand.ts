@@ -25,7 +25,13 @@ import {
   serializeAws_queryResetServiceSpecificCredentialCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ResetServiceSpecificCredentialCommand}.
+ */
 export interface ResetServiceSpecificCredentialCommandInput extends ResetServiceSpecificCredentialRequest {}
+/**
+ * The output of {@link ResetServiceSpecificCredentialCommand}.
+ */
 export interface ResetServiceSpecificCredentialCommandOutput
   extends ResetServiceSpecificCredentialResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_queryGetAccessKeyLastUsedCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetAccessKeyLastUsedCommand}.
+ */
 export interface GetAccessKeyLastUsedCommandInput extends GetAccessKeyLastUsedRequest {}
+/**
+ * The output of {@link GetAccessKeyLastUsedCommand}.
+ */
 export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedResponse, __MetadataBearer {}
 
 /**

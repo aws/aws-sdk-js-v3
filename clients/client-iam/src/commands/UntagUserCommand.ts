@@ -17,7 +17,13 @@ import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { UntagUserRequest, UntagUserRequestFilterSensitiveLog } from "../models/models_1";
 import { deserializeAws_queryUntagUserCommand, serializeAws_queryUntagUserCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UntagUserCommand}.
+ */
 export interface UntagUserCommandInput extends UntagUserRequest {}
+/**
+ * The output of {@link UntagUserCommand}.
+ */
 export interface UntagUserCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartPipelineReprocessingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartPipelineReprocessingCommand}.
+ */
 export interface StartPipelineReprocessingCommandInput extends StartPipelineReprocessingRequest {}
+/**
+ * The output of {@link StartPipelineReprocessingCommand}.
+ */
 export interface StartPipelineReprocessingCommandOutput extends StartPipelineReprocessingResponse, __MetadataBearer {}
 
 /**

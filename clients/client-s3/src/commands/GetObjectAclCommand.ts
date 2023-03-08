@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetObjectAclCommand}.
+ */
 export interface GetObjectAclCommandInput extends GetObjectAclRequest {}
+/**
+ * The output of {@link GetObjectAclCommand}.
+ */
 export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __MetadataBearer {}
 
 /**

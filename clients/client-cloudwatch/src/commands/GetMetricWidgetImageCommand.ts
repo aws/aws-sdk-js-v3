@@ -25,7 +25,13 @@ import {
   serializeAws_queryGetMetricWidgetImageCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetMetricWidgetImageCommand}.
+ */
 export interface GetMetricWidgetImageCommandInput extends GetMetricWidgetImageInput {}
+/**
+ * The output of {@link GetMetricWidgetImageCommand}.
+ */
 export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageOutput, __MetadataBearer {}
 
 /**

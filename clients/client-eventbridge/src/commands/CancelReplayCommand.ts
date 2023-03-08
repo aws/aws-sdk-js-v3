@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CancelReplayCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CancelReplayCommand}.
+ */
 export interface CancelReplayCommandInput extends CancelReplayRequest {}
+/**
+ * The output of {@link CancelReplayCommand}.
+ */
 export interface CancelReplayCommandOutput extends CancelReplayResponse, __MetadataBearer {}
 
 /**

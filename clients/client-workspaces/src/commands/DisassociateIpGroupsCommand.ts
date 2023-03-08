@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link DisassociateIpGroupsCommand}.
+ */
 export interface DisassociateIpGroupsCommandInput extends DisassociateIpGroupsRequest {}
+/**
+ * The output of {@link DisassociateIpGroupsCommand}.
+ */
 export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsResult, __MetadataBearer {}
 
 /**

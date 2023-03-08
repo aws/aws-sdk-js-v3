@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDataflowEndpointGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDataflowEndpointGroupCommand}.
+ */
 export interface GetDataflowEndpointGroupCommandInput extends GetDataflowEndpointGroupRequest {}
+/**
+ * The output of {@link GetDataflowEndpointGroupCommand}.
+ */
 export interface GetDataflowEndpointGroupCommandOutput extends GetDataflowEndpointGroupResponse, __MetadataBearer {}
 
 /**

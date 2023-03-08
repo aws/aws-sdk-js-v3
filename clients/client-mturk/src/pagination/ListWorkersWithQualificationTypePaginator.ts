@@ -6,7 +6,6 @@ import {
   ListWorkersWithQualificationTypeCommandInput,
   ListWorkersWithQualificationTypeCommandOutput,
 } from "../commands/ListWorkersWithQualificationTypeCommand";
-import { MTurk } from "../MTurk";
 import { MTurkClient } from "../MTurkClient";
 import { MTurkPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWorkersWithQualificationTypeCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: MTurk,
-  input: ListWorkersWithQualificationTypeCommandInput,
-  ...args: any
-): Promise<ListWorkersWithQualificationTypeCommandOutput> => {
-  // @ts-ignore
-  return await client.listWorkersWithQualificationType(input, ...args);
-};
 export async function* paginateListWorkersWithQualificationType(
   config: MTurkPaginationConfiguration,
   input: ListWorkersWithQualificationTypeCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListWorkersWithQualificationType(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MTurk) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MTurkClient) {
+    if (config.client instanceof MTurkClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MTurk | MTurkClient");

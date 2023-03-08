@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link ListEdgePackagingJobsCommand}.
+ */
 export interface ListEdgePackagingJobsCommandInput extends ListEdgePackagingJobsRequest {}
+/**
+ * The output of {@link ListEdgePackagingJobsCommand}.
+ */
 export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJobsResponse, __MetadataBearer {}
 
 /**

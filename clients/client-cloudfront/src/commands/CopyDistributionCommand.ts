@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlCopyDistributionCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link CopyDistributionCommand}.
+ */
 export interface CopyDistributionCommandInput extends CopyDistributionRequest {}
+/**
+ * The output of {@link CopyDistributionCommand}.
+ */
 export interface CopyDistributionCommandOutput extends CopyDistributionResult, __MetadataBearer {}
 
 /**

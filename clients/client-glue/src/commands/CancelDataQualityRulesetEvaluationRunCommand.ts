@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1CancelDataQualityRulesetEvaluationRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CancelDataQualityRulesetEvaluationRunCommand}.
+ */
 export interface CancelDataQualityRulesetEvaluationRunCommandInput
   extends CancelDataQualityRulesetEvaluationRunRequest {}
+/**
+ * The output of {@link CancelDataQualityRulesetEvaluationRunCommand}.
+ */
 export interface CancelDataQualityRulesetEvaluationRunCommandOutput
   extends CancelDataQualityRulesetEvaluationRunResponse,
     __MetadataBearer {}

@@ -14,14 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListStreamsRequest, ListStreamsRequestFilterSensitiveLog } from "../models/models_1";
-import { ListStreamsResponse, ListStreamsResponseFilterSensitiveLog } from "../models/models_2";
+import {
+  ListStreamsRequest,
+  ListStreamsRequestFilterSensitiveLog,
+  ListStreamsResponse,
+  ListStreamsResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1ListStreamsCommand,
   serializeAws_restJson1ListStreamsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListStreamsCommand}.
+ */
 export interface ListStreamsCommandInput extends ListStreamsRequest {}
+/**
+ * The output of {@link ListStreamsCommand}.
+ */
 export interface ListStreamsCommandOutput extends ListStreamsResponse, __MetadataBearer {}
 
 /**

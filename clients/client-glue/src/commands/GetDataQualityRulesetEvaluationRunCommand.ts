@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDataQualityRulesetEvaluationRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDataQualityRulesetEvaluationRunCommand}.
+ */
 export interface GetDataQualityRulesetEvaluationRunCommandInput extends GetDataQualityRulesetEvaluationRunRequest {}
+/**
+ * The output of {@link GetDataQualityRulesetEvaluationRunCommand}.
+ */
 export interface GetDataQualityRulesetEvaluationRunCommandOutput
   extends GetDataQualityRulesetEvaluationRunResponse,
     __MetadataBearer {}

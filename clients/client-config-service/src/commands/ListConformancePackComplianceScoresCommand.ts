@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListConformancePackComplianceScoresCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListConformancePackComplianceScoresCommand}.
+ */
 export interface ListConformancePackComplianceScoresCommandInput extends ListConformancePackComplianceScoresRequest {}
+/**
+ * The output of {@link ListConformancePackComplianceScoresCommand}.
+ */
 export interface ListConformancePackComplianceScoresCommandOutput
   extends ListConformancePackComplianceScoresResponse,
     __MetadataBearer {}

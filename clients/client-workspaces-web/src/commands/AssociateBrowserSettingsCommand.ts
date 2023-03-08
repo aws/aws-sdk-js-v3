@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link AssociateBrowserSettingsCommand}.
+ */
 export interface AssociateBrowserSettingsCommandInput extends AssociateBrowserSettingsRequest {}
+/**
+ * The output of {@link AssociateBrowserSettingsCommand}.
+ */
 export interface AssociateBrowserSettingsCommandOutput extends AssociateBrowserSettingsResponse, __MetadataBearer {}
 
 /**

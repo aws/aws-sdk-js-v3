@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeGlobalNetworksCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeGlobalNetworksCommand}.
+ */
 export interface DescribeGlobalNetworksCommandInput extends DescribeGlobalNetworksRequest {}
+/**
+ * The output of {@link DescribeGlobalNetworksCommand}.
+ */
 export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetworksResponse, __MetadataBearer {}
 
 /**

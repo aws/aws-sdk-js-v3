@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateInterconnectCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateInterconnectCommand}.
+ */
 export interface CreateInterconnectCommandInput extends CreateInterconnectRequest {}
+/**
+ * The output of {@link CreateInterconnectCommand}.
+ */
 export interface CreateInterconnectCommandOutput extends Interconnect, __MetadataBearer {}
 
 /**

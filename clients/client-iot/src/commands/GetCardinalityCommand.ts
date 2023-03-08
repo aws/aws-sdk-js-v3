@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetCardinalityCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetCardinalityCommand}.
+ */
 export interface GetCardinalityCommandInput extends GetCardinalityRequest {}
+/**
+ * The output of {@link GetCardinalityCommand}.
+ */
 export interface GetCardinalityCommandOutput extends GetCardinalityResponse, __MetadataBearer {}
 
 /**

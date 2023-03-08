@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteSipRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteSipRuleCommand}.
+ */
 export interface DeleteSipRuleCommandInput extends DeleteSipRuleRequest {}
+/**
+ * The output of {@link DeleteSipRuleCommand}.
+ */
 export interface DeleteSipRuleCommandOutput extends __MetadataBearer {}
 
 /**

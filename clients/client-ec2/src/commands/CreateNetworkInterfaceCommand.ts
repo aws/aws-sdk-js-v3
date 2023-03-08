@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateNetworkInterfaceCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateNetworkInterfaceCommand}.
+ */
 export interface CreateNetworkInterfaceCommandInput extends CreateNetworkInterfaceRequest {}
+/**
+ * The output of {@link CreateNetworkInterfaceCommand}.
+ */
 export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterfaceResult, __MetadataBearer {}
 
 /**

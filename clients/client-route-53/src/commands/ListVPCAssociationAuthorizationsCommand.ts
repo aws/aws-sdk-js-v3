@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link ListVPCAssociationAuthorizationsCommand}.
+ */
 export interface ListVPCAssociationAuthorizationsCommandInput extends ListVPCAssociationAuthorizationsRequest {}
+/**
+ * The output of {@link ListVPCAssociationAuthorizationsCommand}.
+ */
 export interface ListVPCAssociationAuthorizationsCommandOutput
   extends ListVPCAssociationAuthorizationsResponse,
     __MetadataBearer {}

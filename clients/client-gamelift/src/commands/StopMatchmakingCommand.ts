@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopMatchmakingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopMatchmakingCommand}.
+ */
 export interface StopMatchmakingCommandInput extends StopMatchmakingInput {}
+/**
+ * The output of {@link StopMatchmakingCommand}.
+ */
 export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __MetadataBearer {}
 
 /**

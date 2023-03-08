@@ -6,7 +6,6 @@ import {
   ListPrincipalsCommandInput,
   ListPrincipalsCommandOutput,
 } from "../commands/ListPrincipalsCommand";
-import { RAM } from "../RAM";
 import { RAMClient } from "../RAMClient";
 import { RAMPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPrincipalsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: RAM,
-  input: ListPrincipalsCommandInput,
-  ...args: any
-): Promise<ListPrincipalsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPrincipals(input, ...args);
-};
 export async function* paginateListPrincipals(
   config: RAMPaginationConfiguration,
   input: ListPrincipalsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListPrincipals(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof RAM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RAMClient) {
+    if (config.client instanceof RAMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RAM | RAMClient");

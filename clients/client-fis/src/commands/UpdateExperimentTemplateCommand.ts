@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateExperimentTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateExperimentTemplateCommand}.
+ */
 export interface UpdateExperimentTemplateCommandInput extends UpdateExperimentTemplateRequest {}
+/**
+ * The output of {@link UpdateExperimentTemplateCommand}.
+ */
 export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentTemplateResponse, __MetadataBearer {}
 
 /**

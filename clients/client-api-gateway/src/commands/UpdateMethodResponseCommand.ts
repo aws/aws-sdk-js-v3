@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateMethodResponseCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateMethodResponseCommand}.
+ */
 export interface UpdateMethodResponseCommandInput extends UpdateMethodResponseRequest {}
+/**
+ * The output of {@link UpdateMethodResponseCommand}.
+ */
 export interface UpdateMethodResponseCommandOutput extends MethodResponse, __MetadataBearer {}
 
 /**

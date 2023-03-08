@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link AbortMultipartUploadCommand}.
+ */
 export interface AbortMultipartUploadCommandInput extends AbortMultipartUploadRequest {}
+/**
+ * The output of {@link AbortMultipartUploadCommand}.
+ */
 export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadOutput, __MetadataBearer {}
 
 /**

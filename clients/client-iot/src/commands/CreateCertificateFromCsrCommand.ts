@@ -25,45 +25,66 @@ import {
   serializeAws_restJson1CreateCertificateFromCsrCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateCertificateFromCsrCommand}.
+ */
 export interface CreateCertificateFromCsrCommandInput extends CreateCertificateFromCsrRequest {}
+/**
+ * The output of {@link CreateCertificateFromCsrCommand}.
+ */
 export interface CreateCertificateFromCsrCommandOutput extends CreateCertificateFromCsrResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an X.509 certificate using the specified certificate signing
- *          request.</p>
- *          <p>
- *             <b>Note:</b> The CSR must include a public key that is either an
- *          RSA key with a length of at least 2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-512
- *          curves. For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms">
- *             Certificate signing algorithms supported by IoT</a>.</p>
- *          <p>
- *             <b>Note:</b> Reusing the same certificate signing request (CSR)
- *          results in a distinct certificate.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCertificateFromCsr</a> action.</p>
+ *          request.
+ *       </p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCertificateFromCsr</a> action.
+ *       </p>
+ *          <note>
+ *             <p>The CSR must include a public key that is either an
+ *             RSA key with a length of at least 2048 bits or an ECC key from NIST P-25 or NIST P-384 curves.
+ *             For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms">
+ *                Certificate signing algorithms supported by IoT</a>.
+ *          </p>
+ *          </note>
+ *          <note>
+ *             <p>Reusing the same certificate signing request (CSR)
+ *             results in a distinct certificate.</p>
+ *          </note>
  *          <p>You can create multiple certificates in a batch by creating a directory, copying
- *          multiple .csr files into that directory, and then specifying that directory on the command
+ *          multiple <code>.csr</code> files into that directory, and then specifying that directory on the command
  *          line. The following commands show how to create a batch of certificates given a batch of
- *          CSRs.</p>
- *          <p>Assuming a set of CSRs are located inside of the directory
- *          my-csr-directory:</p>
- *          <p>On Linux and OS X, the command is:</p>
- *          <p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr
- *          --certificate-signing-request file://my-csr-directory/{}</p>
+ *          CSRs. In the following commands, we assume that a set of CSRs are located inside of the
+ *          directory my-csr-directory:</p>
+ *          <p>On Linux and OS X, the command is: </p>
+ *          <p>
+ *             <code>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr
+ *             --certificate-signing-request file://my-csr-directory/{}</code>
+ *          </p>
  *          <p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name
- *          to the aws iot create-certificate-from-csr Amazon Web Services CLI command to create a certificate for the
- *          corresponding CSR.</p>
- *          <p>The aws iot create-certificate-from-csr part of the command can also be run in
- *          parallel to speed up the certificate creation process:</p>
- *          <p>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr
- *          --certificate-signing-request file://my-csr-directory/{}</p>
+ *          to the <code>aws iot create-certificate-from-csr</code> Amazon Web Services CLI command to create a certificate for
+ *          the corresponding CSR. </p>
+ *          <p>You can also run the <code>aws iot create-certificate-from-csr</code> part of the
+ *          command in parallel to speed up the certificate creation process:</p>
+ *          <p>
+ *             <code>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr
+ *             --certificate-signing-request file://my-csr-directory/{}
+ *          </code>
+ *          </p>
  *          <p>On Windows PowerShell, the command to create certificates for all CSRs in
  *          my-csr-directory is:</p>
- *          <p>> ls -Name my-csr-directory | %{aws iot create-certificate-from-csr
- *          --certificate-signing-request file://my-csr-directory/$_}</p>
+ *          <p>
+ *             <code>> ls -Name my-csr-directory | %{aws iot create-certificate-from-csr
+ *             --certificate-signing-request file://my-csr-directory/$_}
+ *          </code>
+ *          </p>
  *          <p>On a Windows command prompt, the command to create certificates for all CSRs in
  *          my-csr-directory is:</p>
- *          <p>> forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr
- *          --certificate-signing-request file://@path"</p>
+ *          <p>
+ *             <code>> forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr
+ *             --certificate-signing-request file://@path"
+ *          </code>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link RegisterDevicesCommand}.
+ */
 export interface RegisterDevicesCommandInput extends RegisterDevicesRequest {}
+/**
+ * The output of {@link RegisterDevicesCommand}.
+ */
 export interface RegisterDevicesCommandOutput extends __MetadataBearer {}
 
 /**

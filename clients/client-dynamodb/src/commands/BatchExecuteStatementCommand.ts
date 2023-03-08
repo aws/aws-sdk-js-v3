@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0BatchExecuteStatementCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link BatchExecuteStatementCommand}.
+ */
 export interface BatchExecuteStatementCommandInput extends BatchExecuteStatementInput {}
+/**
+ * The output of {@link BatchExecuteStatementCommand}.
+ */
 export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementOutput, __MetadataBearer {}
 
 /**
@@ -33,15 +39,15 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  *             using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify
  *             an equality condition on all key attributes. This enforces that each <code>SELECT</code>
  *             statement in a batch returns at most a single item.</p>
- *         <note>
+ *          <note>
  *             <p>The entire batch must consist of either read statements or write statements, you
  *                 cannot mix both in one batch.</p>
- *         </note>
- *         <important>
+ *          </note>
+ *          <important>
  *             <p>A HTTP 200 response does not mean that all statements in the BatchExecuteStatement
  *                 succeeded. Error details for individual statements can be found under the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchStatementResponse.html#DDB-Type-BatchStatementResponse-Error">Error</a> field of the <code>BatchStatementResponse</code> for each
  *                 statement.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

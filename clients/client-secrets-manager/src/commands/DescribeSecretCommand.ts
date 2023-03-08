@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * The input for {@link DescribeSecretCommand}.
+ */
 export interface DescribeSecretCommandInput extends DescribeSecretRequest {}
+/**
+ * The output of {@link DescribeSecretCommand}.
+ */
 export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __MetadataBearer {}
 
 /**

@@ -24,7 +24,13 @@ import {
   serializeAws_restJson1DisassociateChannelFlowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateChannelFlowCommand}.
+ */
 export interface DisassociateChannelFlowCommandInput extends DisassociateChannelFlowRequest {}
+/**
+ * The output of {@link DisassociateChannelFlowCommand}.
+ */
 export interface DisassociateChannelFlowCommandOutput extends __MetadataBearer {}
 
 /**

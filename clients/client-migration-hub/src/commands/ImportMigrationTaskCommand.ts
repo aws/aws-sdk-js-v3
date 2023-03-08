@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ImportMigrationTaskCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ImportMigrationTaskCommand}.
+ */
 export interface ImportMigrationTaskCommandInput extends ImportMigrationTaskRequest {}
+/**
+ * The output of {@link ImportMigrationTaskCommand}.
+ */
 export interface ImportMigrationTaskCommandOutput extends ImportMigrationTaskResult, __MetadataBearer {}
 
 /**

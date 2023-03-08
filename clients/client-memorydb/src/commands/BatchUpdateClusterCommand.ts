@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchUpdateClusterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchUpdateClusterCommand}.
+ */
 export interface BatchUpdateClusterCommandInput extends BatchUpdateClusterRequest {}
+/**
+ * The output of {@link BatchUpdateClusterCommand}.
+ */
 export interface BatchUpdateClusterCommandOutput extends BatchUpdateClusterResponse, __MetadataBearer {}
 
 /**

@@ -25,8 +25,14 @@ import {
   serializeAws_ec2EnableReachabilityAnalyzerOrganizationSharingCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link EnableReachabilityAnalyzerOrganizationSharingCommand}.
+ */
 export interface EnableReachabilityAnalyzerOrganizationSharingCommandInput
   extends EnableReachabilityAnalyzerOrganizationSharingRequest {}
+/**
+ * The output of {@link EnableReachabilityAnalyzerOrganizationSharingCommand}.
+ */
 export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput
   extends EnableReachabilityAnalyzerOrganizationSharingResult,
     __MetadataBearer {}

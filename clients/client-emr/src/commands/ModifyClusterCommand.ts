@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ModifyClusterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ModifyClusterCommand}.
+ */
 export interface ModifyClusterCommandInput extends ModifyClusterInput {}
+/**
+ * The output of {@link ModifyClusterCommand}.
+ */
 export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __MetadataBearer {}
 
 /**

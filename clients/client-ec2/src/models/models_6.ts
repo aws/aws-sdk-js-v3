@@ -117,7 +117,6 @@ import {
   InstanceMetadataOptionsResponse,
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
-  InstanceState,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
   LaunchPermission,
@@ -129,6 +128,7 @@ import {
   CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
   InstanceNetworkInterfaceSpecification,
+  InstanceState,
   InstanceStatusEvent,
   LaunchTemplateConfig,
   NetworkInsightsAccessScopeAnalysis,
@@ -152,6 +152,13 @@ import {
   Purchase,
   UnlimitedSupportedInstanceFamily,
 } from "./models_5";
+
+export interface ModifyAddressAttributeResult {
+  /**
+   * <p>Information about the Elastic IP address.</p>
+   */
+  Address?: AddressAttribute;
+}
 
 export enum ModifyAvailabilityZoneOptInStatus {
   not_opted_in = "not-opted-in",
@@ -770,7 +777,7 @@ export interface LaunchPermissionModifications {
 export interface ModifyImageAttributeRequest {
   /**
    * <p>The name of the attribute to modify.</p>
-   *          <p>Valid values: <code>description</code> | <code>launchPermission</code>
+   *          <p>Valid values: <code>description</code> | <code>imdsSupport</code> | <code>launchPermission</code>
    *          </p>
    */
   Attribute?: string;
@@ -815,7 +822,7 @@ export interface ModifyImageAttributeRequest {
 
   /**
    * <p>The value of the attribute being modified.
-   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>description</code>.</p>
+   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>description</code> or <code>imdsSupport</code>.</p>
    */
   Value?: string;
 
@@ -835,6 +842,20 @@ export interface ModifyImageAttributeRequest {
    * <p>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
    */
   OrganizationalUnitArns?: string[];
+
+  /**
+   * <p>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances
+   *       launched from this AMI will have <code>HttpTokens</code> automatically set to
+   *       <code>required</code> so that, by default, the instance requires that IMDSv2 is used when
+   *       requesting instance metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to
+   *       <code>2</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
+   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <important>
+   *             <p>Do not use this parameter unless your AMI software supports IMDSv2. After you set the value to <code>v2.0</code>,
+   *         you can't undo it. The only way to “reset” your AMI is to create a new AMI from the underlying snapshot.</p>
+   *          </important>
+   */
+  ImdsSupport?: AttributeValue;
 }
 
 /**
@@ -4458,7 +4479,11 @@ export interface RegisterImageRequest {
   VirtualizationType?: string;
 
   /**
-   * <p>The boot mode of the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
+   * <p>The boot mode of the AMI. A value of <code>uefi-preferred</code> indicates that the AMI supports both UEFI and Legacy BIOS.</p>
+   *          <note>
+   *             <p>The operating system contained in the AMI must be configured to support the specified boot mode.</p>
+   *          </note>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
    *         <i>Amazon EC2 User Guide</i>.</p>
    */
   BootMode?: BootModeValues | string;
@@ -5323,7 +5348,7 @@ export interface RequestSpotLaunchSpecification {
   SubnetId?: string;
 
   /**
-   * <p>The Base64-encoded user data for the instance. User data is limited to 16 KB.</p>
+   * <p>The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.</p>
    */
   UserData?: string;
 }
@@ -7537,12 +7562,12 @@ export interface TerminateInstancesRequest {
   DryRun?: boolean;
 }
 
-export interface TerminateInstancesResult {
-  /**
-   * <p>Information about the terminated instances.</p>
-   */
-  TerminatingInstances?: InstanceStateChange[];
-}
+/**
+ * @internal
+ */
+export const ModifyAddressAttributeResultFilterSensitiveLog = (obj: ModifyAddressAttributeResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9740,12 +9765,5 @@ export const TerminateClientVpnConnectionsResultFilterSensitiveLog = (
  * @internal
  */
 export const TerminateInstancesRequestFilterSensitiveLog = (obj: TerminateInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateInstancesResultFilterSensitiveLog = (obj: TerminateInstancesResult): any => ({
   ...obj,
 });

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateEphemerisCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateEphemerisCommand}.
+ */
 export interface CreateEphemerisCommandInput extends CreateEphemerisRequest {}
+/**
+ * The output of {@link CreateEphemerisCommand}.
+ */
 export interface CreateEphemerisCommandOutput extends EphemerisIdResponse, __MetadataBearer {}
 
 /**

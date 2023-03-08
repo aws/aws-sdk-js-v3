@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateLocationNfsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateLocationNfsCommand}.
+ */
 export interface CreateLocationNfsCommandInput extends CreateLocationNfsRequest {}
+/**
+ * The output of {@link CreateLocationNfsCommand}.
+ */
 export interface CreateLocationNfsCommandOutput extends CreateLocationNfsResponse, __MetadataBearer {}
 
 /**

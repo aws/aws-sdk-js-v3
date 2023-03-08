@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link DeleteXssMatchSetCommand}.
+ */
 export interface DeleteXssMatchSetCommandInput extends DeleteXssMatchSetRequest {}
+/**
+ * The output of {@link DeleteXssMatchSetCommand}.
+ */
 export interface DeleteXssMatchSetCommandOutput extends DeleteXssMatchSetResponse, __MetadataBearer {}
 
 /**

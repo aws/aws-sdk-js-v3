@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link CreateEventSubscriptionCommand}.
+ */
 export interface CreateEventSubscriptionCommandInput extends CreateEventSubscriptionMessage {}
+/**
+ * The output of {@link CreateEventSubscriptionCommand}.
+ */
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResult, __MetadataBearer {}
 
 /**

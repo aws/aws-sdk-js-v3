@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListGroupsOlderThanOrderingIdCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListGroupsOlderThanOrderingIdCommand}.
+ */
 export interface ListGroupsOlderThanOrderingIdCommandInput extends ListGroupsOlderThanOrderingIdRequest {}
+/**
+ * The output of {@link ListGroupsOlderThanOrderingIdCommand}.
+ */
 export interface ListGroupsOlderThanOrderingIdCommandOutput
   extends ListGroupsOlderThanOrderingIdResponse,
     __MetadataBearer {}

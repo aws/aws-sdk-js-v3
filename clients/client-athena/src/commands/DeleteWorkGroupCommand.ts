@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteWorkGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteWorkGroupCommand}.
+ */
 export interface DeleteWorkGroupCommandInput extends DeleteWorkGroupInput {}
+/**
+ * The output of {@link DeleteWorkGroupCommand}.
+ */
 export interface DeleteWorkGroupCommandOutput extends DeleteWorkGroupOutput, __MetadataBearer {}
 
 /**

@@ -6,7 +6,6 @@ import {
   ListSecurityConfigurationsCommandInput,
   ListSecurityConfigurationsCommandOutput,
 } from "../commands/ListSecurityConfigurationsCommand";
-import { EMR } from "../EMR";
 import { EMRClient } from "../EMRClient";
 import { EMRPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSecurityConfigurationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: EMR,
-  input: ListSecurityConfigurationsCommandInput,
-  ...args: any
-): Promise<ListSecurityConfigurationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSecurityConfigurations(input, ...args);
-};
 export async function* paginateListSecurityConfigurations(
   config: EMRPaginationConfiguration,
   input: ListSecurityConfigurationsCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListSecurityConfigurations(
   let page: ListSecurityConfigurationsCommandOutput;
   while (hasNext) {
     input.Marker = token;
-    if (config.client instanceof EMR) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EMRClient) {
+    if (config.client instanceof EMRClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EMR | EMRClient");

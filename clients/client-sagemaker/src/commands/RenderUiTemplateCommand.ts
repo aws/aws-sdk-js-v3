@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link RenderUiTemplateCommand}.
+ */
 export interface RenderUiTemplateCommandInput extends RenderUiTemplateRequest {}
+/**
+ * The output of {@link RenderUiTemplateCommand}.
+ */
 export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse, __MetadataBearer {}
 
 /**

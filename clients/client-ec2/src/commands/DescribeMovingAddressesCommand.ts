@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeMovingAddressesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeMovingAddressesCommand}.
+ */
 export interface DescribeMovingAddressesCommandInput extends DescribeMovingAddressesRequest {}
+/**
+ * The output of {@link DescribeMovingAddressesCommand}.
+ */
 export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddressesResult, __MetadataBearer {}
 
 /**

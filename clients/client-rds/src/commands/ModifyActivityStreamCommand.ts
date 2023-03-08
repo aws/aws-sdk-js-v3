@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link ModifyActivityStreamCommand}.
+ */
 export interface ModifyActivityStreamCommandInput extends ModifyActivityStreamRequest {}
+/**
+ * The output of {@link ModifyActivityStreamCommand}.
+ */
 export interface ModifyActivityStreamCommandOutput extends ModifyActivityStreamResponse, __MetadataBearer {}
 
 /**

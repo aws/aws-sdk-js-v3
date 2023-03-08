@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateCustomEntityTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateCustomEntityTypeCommand}.
+ */
 export interface CreateCustomEntityTypeCommandInput extends CreateCustomEntityTypeRequest {}
+/**
+ * The output of {@link CreateCustomEntityTypeCommand}.
+ */
 export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityTypeResponse, __MetadataBearer {}
 
 /**

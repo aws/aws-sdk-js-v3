@@ -25,12 +25,18 @@ import {
   serializeAws_json1_1PutResourcePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutResourcePolicyCommand}.
+ */
 export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest {}
+/**
+ * The output of {@link PutResourcePolicyCommand}.
+ */
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates a resource policy.</p>
- *         <p>You can only call this operation from the organization's management account.</p>
+ *          <p>You can only call this operation from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

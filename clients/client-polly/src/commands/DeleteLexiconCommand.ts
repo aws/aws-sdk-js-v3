@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteLexiconCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteLexiconCommand}.
+ */
 export interface DeleteLexiconCommandInput extends DeleteLexiconInput {}
+/**
+ * The output of {@link DeleteLexiconCommand}.
+ */
 export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __MetadataBearer {}
 
 /**

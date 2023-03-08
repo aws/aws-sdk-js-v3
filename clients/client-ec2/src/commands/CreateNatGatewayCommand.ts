@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateNatGatewayCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateNatGatewayCommand}.
+ */
 export interface CreateNatGatewayCommandInput extends CreateNatGatewayRequest {}
+/**
+ * The output of {@link CreateNatGatewayCommand}.
+ */
 export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, __MetadataBearer {}
 
 /**

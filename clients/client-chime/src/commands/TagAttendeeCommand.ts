@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1TagAttendeeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link TagAttendeeCommand}.
+ */
 export interface TagAttendeeCommandInput extends TagAttendeeRequest {}
+/**
+ * The output of {@link TagAttendeeCommand}.
+ */
 export interface TagAttendeeCommandOutput extends __MetadataBearer {}
 
 /**

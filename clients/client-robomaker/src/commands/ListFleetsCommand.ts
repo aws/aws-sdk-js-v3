@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * The input for {@link ListFleetsCommand}.
+ */
 export interface ListFleetsCommandInput extends ListFleetsRequest {}
+/**
+ * The output of {@link ListFleetsCommand}.
+ */
 export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateCliTokenCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateCliTokenCommand}.
+ */
 export interface CreateCliTokenCommandInput extends CreateCliTokenRequest {}
+/**
+ * The output of {@link CreateCliTokenCommand}.
+ */
 export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __MetadataBearer {}
 
 /**

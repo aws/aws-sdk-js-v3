@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link DisassociateBrowserSettingsCommand}.
+ */
 export interface DisassociateBrowserSettingsCommandInput extends DisassociateBrowserSettingsRequest {}
+/**
+ * The output of {@link DisassociateBrowserSettingsCommand}.
+ */
 export interface DisassociateBrowserSettingsCommandOutput
   extends DisassociateBrowserSettingsResponse,
     __MetadataBearer {}

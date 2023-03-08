@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UnarchiveWaveCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UnarchiveWaveCommand}.
+ */
 export interface UnarchiveWaveCommandInput extends UnarchiveWaveRequest {}
+/**
+ * The output of {@link UnarchiveWaveCommand}.
+ */
 export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
 
 /**

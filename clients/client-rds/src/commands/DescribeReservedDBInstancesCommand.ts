@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DescribeReservedDBInstancesCommand}.
+ */
 export interface DescribeReservedDBInstancesCommandInput extends DescribeReservedDBInstancesMessage {}
+/**
+ * The output of {@link DescribeReservedDBInstancesCommand}.
+ */
 export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInstanceMessage, __MetadataBearer {}
 
 /**

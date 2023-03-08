@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeFleetEventsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeFleetEventsCommand}.
+ */
 export interface DescribeFleetEventsCommandInput extends DescribeFleetEventsInput {}
+/**
+ * The output of {@link DescribeFleetEventsCommand}.
+ */
 export interface DescribeFleetEventsCommandOutput extends DescribeFleetEventsOutput, __MetadataBearer {}
 
 /**

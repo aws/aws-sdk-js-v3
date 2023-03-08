@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetNetworkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetNetworkCommand}.
+ */
 export interface GetNetworkCommandInput extends GetNetworkInput {}
+/**
+ * The output of {@link GetNetworkCommand}.
+ */
 export interface GetNetworkCommandOutput extends GetNetworkOutput, __MetadataBearer {}
 
 /**

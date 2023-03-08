@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDomainEntryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDomainEntryCommand}.
+ */
 export interface CreateDomainEntryCommandInput extends CreateDomainEntryRequest {}
+/**
+ * The output of {@link CreateDomainEntryCommand}.
+ */
 export interface CreateDomainEntryCommandOutput extends CreateDomainEntryResult, __MetadataBearer {}
 
 /**

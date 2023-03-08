@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListProgressUpdateStreamsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListProgressUpdateStreamsCommand}.
+ */
 export interface ListProgressUpdateStreamsCommandInput extends ListProgressUpdateStreamsRequest {}
+/**
+ * The output of {@link ListProgressUpdateStreamsCommand}.
+ */
 export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpdateStreamsResult, __MetadataBearer {}
 
 /**

@@ -6,7 +6,6 @@ import {
   ListTemplateStepsCommandInput,
   ListTemplateStepsCommandOutput,
 } from "../commands/ListTemplateStepsCommand";
-import { MigrationHubOrchestrator } from "../MigrationHubOrchestrator";
 import { MigrationHubOrchestratorClient } from "../MigrationHubOrchestratorClient";
 import { MigrationHubOrchestratorPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTemplateStepsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: MigrationHubOrchestrator,
-  input: ListTemplateStepsCommandInput,
-  ...args: any
-): Promise<ListTemplateStepsCommandOutput> => {
-  // @ts-ignore
-  return await client.listTemplateSteps(input, ...args);
-};
 export async function* paginateListTemplateSteps(
   config: MigrationHubOrchestratorPaginationConfiguration,
   input: ListTemplateStepsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListTemplateSteps(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof MigrationHubOrchestrator) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MigrationHubOrchestratorClient) {
+    if (config.client instanceof MigrationHubOrchestratorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MigrationHubOrchestrator | MigrationHubOrchestratorClient");

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link GetRateBasedRuleCommand}.
+ */
 export interface GetRateBasedRuleCommandInput extends GetRateBasedRuleRequest {}
+/**
+ * The output of {@link GetRateBasedRuleCommand}.
+ */
 export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse, __MetadataBearer {}
 
 /**

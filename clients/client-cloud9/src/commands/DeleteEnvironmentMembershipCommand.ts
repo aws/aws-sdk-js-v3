@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteEnvironmentMembershipCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteEnvironmentMembershipCommand}.
+ */
 export interface DeleteEnvironmentMembershipCommandInput extends DeleteEnvironmentMembershipRequest {}
+/**
+ * The output of {@link DeleteEnvironmentMembershipCommand}.
+ */
 export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironmentMembershipResult, __MetadataBearer {}
 
 /**

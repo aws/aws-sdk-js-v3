@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * The input for {@link DeleteTrustAnchorCommand}.
+ */
 export interface DeleteTrustAnchorCommandInput extends ScalarTrustAnchorRequest {}
+/**
+ * The output of {@link DeleteTrustAnchorCommand}.
+ */
 export interface DeleteTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**

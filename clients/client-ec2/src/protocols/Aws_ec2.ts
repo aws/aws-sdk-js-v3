@@ -2975,7 +2975,6 @@ import {
   InstanceNetworkInterfaceAssociation,
   InstanceNetworkInterfaceAttachment,
   InstancePrivateIpAddress,
-  InstanceState,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
   IpamPoolCidrFailureReason,
@@ -3183,6 +3182,7 @@ import {
   InferenceDeviceInfo,
   Instance,
   InstanceNetworkInterfaceSpecification,
+  InstanceState,
   InstanceStatus,
   InstanceStatusDetails,
   InstanceStatusEvent,
@@ -3525,7 +3525,6 @@ import {
   ListSnapshotsInRecycleBinResult,
   MetricPoint,
   ModifyAddressAttributeRequest,
-  ModifyAddressAttributeResult,
   PrefixListAssociation,
   PrefixListEntry,
   PrivateDnsDetails,
@@ -3580,6 +3579,7 @@ import {
   LicenseConfigurationRequest,
   LoadPermissionModifications,
   LoadPermissionRequest,
+  ModifyAddressAttributeResult,
   ModifyAvailabilityZoneGroupRequest,
   ModifyAvailabilityZoneGroupResult,
   ModifyCapacityReservationFleetRequest,
@@ -3834,7 +3834,6 @@ import {
   TerminateClientVpnConnectionsResult,
   TerminateConnectionStatus,
   TerminateInstancesRequest,
-  TerminateInstancesResult,
   TrafficMirrorFilterRuleField,
   TrafficMirrorSessionField,
   TransitGatewayMulticastGroup,
@@ -3849,6 +3848,7 @@ import {
 } from "../models/models_6";
 import {
   SecurityGroupRuleDescription,
+  TerminateInstancesResult,
   UnassignIpv6AddressesRequest,
   UnassignIpv6AddressesResult,
   UnassignPrivateIpAddressesRequest,
@@ -51236,6 +51236,13 @@ const serializeAws_ec2ModifyImageAttributeRequest = (
       entries[loc] = value;
     });
   }
+  if (input.ImdsSupport != null) {
+    const memberEntries = serializeAws_ec2AttributeValue(input.ImdsSupport, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ImdsSupport.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -73059,6 +73066,7 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
     Ipv6Address: undefined,
     TpmSupport: undefined,
     MaintenanceOptions: undefined,
+    CurrentInstanceBootMode: undefined,
   };
   if (output["amiLaunchIndex"] !== undefined) {
     contents.AmiLaunchIndex = __strictParseInt32(output["amiLaunchIndex"]) as number;
@@ -73275,6 +73283,9 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
   }
   if (output["maintenanceOptions"] !== undefined) {
     contents.MaintenanceOptions = deserializeAws_ec2InstanceMaintenanceOptions(output["maintenanceOptions"], context);
+  }
+  if (output["currentInstanceBootMode"] !== undefined) {
+    contents.CurrentInstanceBootMode = __expectString(output["currentInstanceBootMode"]);
   }
   return contents;
 };

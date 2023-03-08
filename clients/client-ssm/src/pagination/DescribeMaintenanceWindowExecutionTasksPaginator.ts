@@ -6,7 +6,6 @@ import {
   DescribeMaintenanceWindowExecutionTasksCommandInput,
   DescribeMaintenanceWindowExecutionTasksCommandOutput,
 } from "../commands/DescribeMaintenanceWindowExecutionTasksCommand";
-import { SSM } from "../SSM";
 import { SSMClient } from "../SSMClient";
 import { SSMPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeMaintenanceWindowExecutionTasksCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SSM,
-  input: DescribeMaintenanceWindowExecutionTasksCommandInput,
-  ...args: any
-): Promise<DescribeMaintenanceWindowExecutionTasksCommandOutput> => {
-  // @ts-ignore
-  return await client.describeMaintenanceWindowExecutionTasks(input, ...args);
-};
 export async function* paginateDescribeMaintenanceWindowExecutionTasks(
   config: SSMPaginationConfiguration,
   input: DescribeMaintenanceWindowExecutionTasksCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeMaintenanceWindowExecutionTasks(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSMClient) {
+    if (config.client instanceof SSMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSM | SSMClient");

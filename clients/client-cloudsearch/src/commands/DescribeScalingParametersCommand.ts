@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeScalingParametersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeScalingParametersCommand}.
+ */
 export interface DescribeScalingParametersCommandInput extends DescribeScalingParametersRequest {}
+/**
+ * The output of {@link DescribeScalingParametersCommand}.
+ */
 export interface DescribeScalingParametersCommandOutput extends DescribeScalingParametersResponse, __MetadataBearer {}
 
 /**

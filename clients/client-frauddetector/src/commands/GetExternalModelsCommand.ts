@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetExternalModelsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetExternalModelsCommand}.
+ */
 export interface GetExternalModelsCommandInput extends GetExternalModelsRequest {}
+/**
+ * The output of {@link GetExternalModelsCommand}.
+ */
 export interface GetExternalModelsCommandOutput extends GetExternalModelsResult, __MetadataBearer {}
 
 /**

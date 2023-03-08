@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
+/**
+ * The input for {@link DeleteResourcePermissionCommand}.
+ */
 export interface DeleteResourcePermissionCommandInput extends DeleteResourcePermissionInput {}
+/**
+ * The output of {@link DeleteResourcePermissionCommand}.
+ */
 export interface DeleteResourcePermissionCommandOutput extends DeleteResourcePermissionOutput, __MetadataBearer {}
 
 /**

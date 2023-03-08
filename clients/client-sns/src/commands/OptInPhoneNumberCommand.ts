@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link OptInPhoneNumberCommand}.
+ */
 export interface OptInPhoneNumberCommandInput extends OptInPhoneNumberInput {}
+/**
+ * The output of {@link OptInPhoneNumberCommand}.
+ */
 export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse, __MetadataBearer {}
 
 /**

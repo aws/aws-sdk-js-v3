@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1ListFacesCommand, serializeAws_json1_1ListFacesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link ListFacesCommand}.
+ */
 export interface ListFacesCommandInput extends ListFacesRequest {}
+/**
+ * The output of {@link ListFacesCommand}.
+ */
 export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBearer {}
 
 /**

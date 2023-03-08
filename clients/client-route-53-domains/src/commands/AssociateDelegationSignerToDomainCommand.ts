@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link AssociateDelegationSignerToDomainCommand}.
+ */
 export interface AssociateDelegationSignerToDomainCommandInput extends AssociateDelegationSignerToDomainRequest {}
+/**
+ * The output of {@link AssociateDelegationSignerToDomainCommand}.
+ */
 export interface AssociateDelegationSignerToDomainCommandOutput
   extends AssociateDelegationSignerToDomainResponse,
     __MetadataBearer {}

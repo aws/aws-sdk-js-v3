@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
+/**
+ * The input for {@link DeleteAppAssessmentCommand}.
+ */
 export interface DeleteAppAssessmentCommandInput extends DeleteAppAssessmentRequest {}
+/**
+ * The output of {@link DeleteAppAssessmentCommand}.
+ */
 export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentResponse, __MetadataBearer {}
 
 /**

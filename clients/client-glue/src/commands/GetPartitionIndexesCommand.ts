@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetPartitionIndexesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetPartitionIndexesCommand}.
+ */
 export interface GetPartitionIndexesCommandInput extends GetPartitionIndexesRequest {}
+/**
+ * The output of {@link GetPartitionIndexesCommand}.
+ */
 export interface GetPartitionIndexesCommandOutput extends GetPartitionIndexesResponse, __MetadataBearer {}
 
 /**

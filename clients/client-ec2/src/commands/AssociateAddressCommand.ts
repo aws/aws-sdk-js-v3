@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AssociateAddressCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AssociateAddressCommand}.
+ */
 export interface AssociateAddressCommandInput extends AssociateAddressRequest {}
+/**
+ * The output of {@link AssociateAddressCommand}.
+ */
 export interface AssociateAddressCommandOutput extends AssociateAddressResult, __MetadataBearer {}
 
 /**

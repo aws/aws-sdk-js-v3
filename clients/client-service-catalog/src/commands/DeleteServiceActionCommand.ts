@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link DeleteServiceActionCommand}.
+ */
 export interface DeleteServiceActionCommandInput extends DeleteServiceActionInput {}
+/**
+ * The output of {@link DeleteServiceActionCommand}.
+ */
 export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOutput, __MetadataBearer {}
 
 /**

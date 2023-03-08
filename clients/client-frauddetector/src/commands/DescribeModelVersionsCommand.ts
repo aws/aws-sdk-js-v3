@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeModelVersionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeModelVersionsCommand}.
+ */
 export interface DescribeModelVersionsCommandInput extends DescribeModelVersionsRequest {}
+/**
+ * The output of {@link DescribeModelVersionsCommand}.
+ */
 export interface DescribeModelVersionsCommandOutput extends DescribeModelVersionsResult, __MetadataBearer {}
 
 /**

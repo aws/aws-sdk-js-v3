@@ -6,7 +6,6 @@ import {
   ListFargateProfilesCommandInput,
   ListFargateProfilesCommandOutput,
 } from "../commands/ListFargateProfilesCommand";
-import { EKS } from "../EKS";
 import { EKSClient } from "../EKSClient";
 import { EKSPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFargateProfilesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: EKS,
-  input: ListFargateProfilesCommandInput,
-  ...args: any
-): Promise<ListFargateProfilesCommandOutput> => {
-  // @ts-ignore
-  return await client.listFargateProfiles(input, ...args);
-};
 export async function* paginateListFargateProfiles(
   config: EKSPaginationConfiguration,
   input: ListFargateProfilesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListFargateProfiles(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof EKS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EKSClient) {
+    if (config.client instanceof EKSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EKS | EKSClient");

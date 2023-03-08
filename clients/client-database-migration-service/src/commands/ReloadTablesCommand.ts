@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ReloadTablesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ReloadTablesCommand}.
+ */
 export interface ReloadTablesCommandInput extends ReloadTablesMessage {}
+/**
+ * The output of {@link ReloadTablesCommand}.
+ */
 export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __MetadataBearer {}
 
 /**

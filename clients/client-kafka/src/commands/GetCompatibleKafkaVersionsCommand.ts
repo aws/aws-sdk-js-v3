@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetCompatibleKafkaVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetCompatibleKafkaVersionsCommand}.
+ */
 export interface GetCompatibleKafkaVersionsCommandInput extends GetCompatibleKafkaVersionsRequest {}
+/**
+ * The output of {@link GetCompatibleKafkaVersionsCommand}.
+ */
 export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKafkaVersionsResponse, __MetadataBearer {}
 
 /**

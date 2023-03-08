@@ -6,7 +6,6 @@ import {
   ListStudioMembersCommandInput,
   ListStudioMembersCommandOutput,
 } from "../commands/ListStudioMembersCommand";
-import { Nimble } from "../Nimble";
 import { NimbleClient } from "../NimbleClient";
 import { NimblePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListStudioMembersCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Nimble,
-  input: ListStudioMembersCommandInput,
-  ...args: any
-): Promise<ListStudioMembersCommandOutput> => {
-  // @ts-ignore
-  return await client.listStudioMembers(input, ...args);
-};
 export async function* paginateListStudioMembers(
   config: NimblePaginationConfiguration,
   input: ListStudioMembersCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListStudioMembers(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Nimble) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof NimbleClient) {
+    if (config.client instanceof NimbleClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Nimble | NimbleClient");

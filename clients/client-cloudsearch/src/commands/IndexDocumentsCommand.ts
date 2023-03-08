@@ -25,7 +25,13 @@ import {
   serializeAws_queryIndexDocumentsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link IndexDocumentsCommand}.
+ */
 export interface IndexDocumentsCommandInput extends IndexDocumentsRequest {}
+/**
+ * The output of {@link IndexDocumentsCommand}.
+ */
 export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __MetadataBearer {}
 
 /**

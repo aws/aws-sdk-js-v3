@@ -516,7 +516,6 @@ export class ServiceCatalog extends ServiceCatalogClient {
    *       required. </p>
    *          <p>You can associate a maximum of 10 Principals with a portfolio using <code>PrincipalType</code> as <code>IAM_PATTERN</code>
    *          </p>
-   *
    *          <note>
    *             <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is
    *          then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin,
@@ -827,12 +826,11 @@ export class ServiceCatalog extends ServiceCatalogClient {
    *          organization or by a delegated administrator. You can share portfolios to an organization,
    *          an organizational unit, or a specific account.</p>
    *          <p>Note that if a delegated admin is de-registered, they can no longer create portfolio shares.</p>
-   *         <p>
+   *          <p>
    *             <code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio share to an organization node.</p>
    *          <p>You can't share a shared resource, including portfolios that contain a shared product.</p>
    *          <p>If the portfolio share with the specified account or organization node already exists, this action will have no effect
    *          and will not return an error. To update an existing share, you must use the <code> UpdatePortfolioShare</code> API instead. </p>
-   *
    *          <note>
    *             <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is
    *          then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin,
@@ -875,7 +873,6 @@ export class ServiceCatalog extends ServiceCatalogClient {
   /**
    * <p>Creates a product.</p>
    *          <p>A delegated admin is authorized to invoke this command.</p>
-   *
    *          <p>The user or role that performs this operation must have the
    *             <code>cloudformation:GetTemplate</code> IAM policy permission. This policy permission is
    *          required when using the <code>ImportFromPhysicalId</code> template source in the
@@ -952,7 +949,6 @@ export class ServiceCatalog extends ServiceCatalogClient {
   /**
    * <p>Creates a provisioning artifact (also known as a version) for the specified product.</p>
    *          <p>You cannot create a provisioning artifact for a product that was shared with you.</p>
-   *
    *          <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
    *          IAM policy permission. This policy permission is required when using the
    *          <code>ImportFromPhysicalId</code> template source in the information data section.</p>
@@ -1487,6 +1483,15 @@ export class ServiceCatalog extends ServiceCatalogClient {
 
   /**
    * <p>Gets information about the specified product.</p>
+   *          <note>
+   *             <p>
+   *             Running this operation
+   *             with administrator access
+   *             results
+   *             in a failure.
+   *             <a>DescribeProductAsAdmin</a> should be used instead.
+   *          </p>
+   *          </note>
    */
   public describeProduct(
     args: DescribeProductCommandInput,
@@ -2245,20 +2250,48 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Requests the import of a resource as an Service Catalog provisioned product that is
-   *          associated to an Service Catalog product and provisioning artifact. Once imported, all
-   *          supported Service Catalog governance actions are supported on the provisioned
-   *          product.</p>
-   *          <p>Resource import only supports CloudFormation stack ARNs. CloudFormation StackSets and
-   *          non-root nested stacks are not supported.</p>
-   *          <p>The CloudFormation stack must have one of the following statuses to be imported:
-   *          <code>CREATE_COMPLETE</code>, <code>UPDATE_COMPLETE</code>, <code>UPDATE_ROLLBACK_COMPLETE</code>, <code>IMPORT_COMPLETE</code>,
-   *          <code>IMPORT_ROLLBACK_COMPLETE</code>.</p>
-   *          <p>Import of the resource requires that the CloudFormation stack template matches the
-   *          associated Service Catalog product provisioning artifact. </p>
-   *
-   *          <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
-   *          and <code>cloudformation:DescribeStacks</code> IAM policy permissions. </p>
+   * <p>
+   *          Requests the import
+   *          of a resource
+   *          as an Service Catalog provisioned product
+   *          that is associated
+   *          to an Service Catalog product and provisioning artifact.
+   *          Once imported,
+   *          all supported governance actions are supported
+   *          on the provisioned product.
+   *       </p>
+   *          <p>
+   *          Resource import only supports CloudFormation stack ARNs. CloudFormation StackSets, and non-root nested stacks are not supported.
+   *       </p>
+   *          <p>
+   *          The CloudFormation stack must have one
+   *          of the following statuses
+   *          to be imported: <code>CREATE_COMPLETE</code>, <code>UPDATE_COMPLETE</code>, <code>UPDATE_ROLLBACK_COMPLETE</code>, <code>IMPORT_COMPLETE</code>, and <code>IMPORT_ROLLBACK_COMPLETE</code>.
+   *       </p>
+   *          <p>
+   *          Import
+   *          of the resource requires
+   *          that the CloudFormation stack template matches the associated Service Catalog product provisioning artifact.
+   *       </p>
+   *          <note>
+   *             <p>
+   *             When you import an existing CloudFormation stack
+   *             into a portfolio,
+   *             constraints
+   *             that are associated
+   *             with the product
+   *             aren't applied
+   *             during the import process.
+   *             The constraints are applied
+   *             after you call <code>UpdateProvisionedProduct</code>
+   *             for the provisioned product.
+   *          </p>
+   *          </note>
+   *          <p>
+   *          The user or role
+   *          that performs this operation
+   *          must have the <code>cloudformation:GetTemplate</code> and <code>cloudformation:DescribeStacks</code> IAM policy permissions.
+   *       </p>
    */
   public importAsProvisionedProduct(
     args: ImportAsProvisionedProductCommandInput,
@@ -2388,9 +2421,32 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Lists the paths to the specified product. A path is how the user
-   *          has access to a specified product, and is necessary when provisioning a product. A path
-   *          also determines the constraints put on the product.</p>
+   * <p>
+   *          Lists the paths
+   *          to the specified product.
+   *          A path describes
+   *          how the user
+   *          gets access
+   *          to a specified product
+   *          and is necessary
+   *          when provisioning a product.
+   *          A path also determines the constraints
+   *          that are put on a product.
+   *          A path is dependent
+   *          on a specific product, porfolio, and principal.
+   *       </p>
+   *          <note>
+   *             <p>
+   *             When provisioning a product
+   *             that's been added
+   *             to a portfolio,
+   *             you must grant your user, group, or role access
+   *             to the portfolio.
+   *             For more information,
+   *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html">Granting users access</a>
+   *             in the <i>Service Catalog User Guide</i>.
+   *          </p>
+   *          </note>
    */
   public listLaunchPaths(
     args: ListLaunchPathsCommandInput,
@@ -2880,15 +2936,43 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Provisions the specified product.</p>
-   *          <p>A provisioned product is a resourced instance of a product.
-   *          For example, provisioning a product based on a CloudFormation template launches a
-   *          CloudFormation stack and its underlying resources.
-   *          You can check the status of this request using <a>DescribeRecord</a>.</p>
-   *          <p>If the request contains a tag key with an empty list of values, there is a
-   *          tag conflict for that key. Do not include conflicted keys as tags, or this causes
-   *          the error "Parameter validation failed: Missing required parameter in
-   *          Tags[<i>N</i>]:<i>Value</i>".</p>
+   * <p>
+   *          Provisions the specified product.
+   *       </p>
+   *          <p>
+   *          A provisioned product is a resourced instance
+   *          of a product.
+   *          For example,
+   *          provisioning a product
+   *          that's based
+   *          on an CloudFormation template
+   *          launches an CloudFormation stack and its underlying resources.
+   *          You can check the status
+   *          of this request
+   *          using <a>DescribeRecord</a>.
+   *       </p>
+   *          <p>
+   *          If the request contains a tag key
+   *          with an empty list
+   *          of values,
+   *          there's a tag conflict
+   *          for that key.
+   *          Don't include conflicted keys
+   *          as tags,
+   *          or this will cause the error "Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>".
+   *       </p>
+   *          <note>
+   *             <p>
+   *             When provisioning a product
+   *             that's been added
+   *             to a portfolio,
+   *             you must grant your user, group, or role access
+   *             to the portfolio.
+   *             For more information,
+   *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html">Granting users access</a>
+   *             in the <i>Service Catalog User Guide</i>.
+   *          </p>
+   *          </note>
    */
   public provisionProduct(
     args: ProvisionProductCommandInput,
@@ -3050,16 +3134,6 @@ export class ServiceCatalog extends ServiceCatalogClient {
 
   /**
    * <p>Gets information about the provisioned products that meet the specified criteria.</p>
-   *
-   *          <note>
-   *             <p>To ensure a complete list of provisioned products and remove duplicate products, use
-   *                <code>sort-by createdTime</code>. </p>
-   *             <p>Here is a CLI example: <code> </code>
-   *             </p>
-   *             <p>
-   *                <code>aws servicecatalog search-provisioned-products --sort-by createdTime </code>
-   *             </p>
-   *          </note>
    */
   public searchProvisionedProducts(
     args: SearchProvisionedProductsCommandInput,
@@ -3192,15 +3266,10 @@ export class ServiceCatalog extends ServiceCatalogClient {
   /**
    * <p>Updates the specified portfolio share. You can use this API to enable or disable <code>TagOptions</code> sharing
    *          or Principal sharing for an existing portfolio share. </p>
-   *
    *          <p>The portfolio share cannot be updated if the <code>CreatePortfolioShare</code> operation is <code>IN_PROGRESS</code>, as the share is not available to recipient entities. In this case, you must wait for the portfolio share to be COMPLETED.</p>
-   *
    *          <p>You must provide the <code>accountId</code> or organization node in the input, but not both.</p>
-   *
    *          <p>If the portfolio is shared to both an external account and an organization node, and both shares need to be updated, you must invoke <code>UpdatePortfolioShare</code> separately for each share type. </p>
-   *
    *          <p>This API cannot be used for removing the portfolio share. You must use <code>DeletePortfolioShare</code> API for that action. </p>
-   *
    *          <note>
    *             <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is
    *          then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin,

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeLocationNfsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLocationNfsCommand}.
+ */
 export interface DescribeLocationNfsCommandInput extends DescribeLocationNfsRequest {}
+/**
+ * The output of {@link DescribeLocationNfsCommand}.
+ */
 export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsResponse, __MetadataBearer {}
 
 /**

@@ -29,15 +29,20 @@ import {
   serializeAws_json1_1DescribeFleetAdvisorLsaAnalysisCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeFleetAdvisorLsaAnalysisCommand}.
+ */
 export interface DescribeFleetAdvisorLsaAnalysisCommandInput extends DescribeFleetAdvisorLsaAnalysisRequest {}
+/**
+ * The output of {@link DescribeFleetAdvisorLsaAnalysisCommand}.
+ */
 export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
   extends DescribeFleetAdvisorLsaAnalysisResponse,
     __MetadataBearer {}
 
 /**
- * <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your
- *             Fleet Advisor collectors.
- *         </p>
+ * <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your Fleet
+ *             Advisor collectors. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

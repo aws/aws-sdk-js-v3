@@ -25,7 +25,13 @@ import {
   serializeAws_queryListAccountAliasesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListAccountAliasesCommand}.
+ */
 export interface ListAccountAliasesCommandInput extends ListAccountAliasesRequest {}
+/**
+ * The output of {@link ListAccountAliasesCommand}.
+ */
 export interface ListAccountAliasesCommandOutput extends ListAccountAliasesResponse, __MetadataBearer {}
 
 /**

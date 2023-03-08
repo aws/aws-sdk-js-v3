@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetTemplateStepGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetTemplateStepGroupCommand}.
+ */
 export interface GetTemplateStepGroupCommandInput extends GetTemplateStepGroupRequest {}
+/**
+ * The output of {@link GetTemplateStepGroupCommand}.
+ */
 export interface GetTemplateStepGroupCommandOutput extends GetTemplateStepGroupResponse, __MetadataBearer {}
 
 /**

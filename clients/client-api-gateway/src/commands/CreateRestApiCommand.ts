@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateRestApiCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateRestApiCommand}.
+ */
 export interface CreateRestApiCommandInput extends CreateRestApiRequest {}
+/**
+ * The output of {@link CreateRestApiCommand}.
+ */
 export interface CreateRestApiCommandOutput extends RestApi, __MetadataBearer {}
 
 /**

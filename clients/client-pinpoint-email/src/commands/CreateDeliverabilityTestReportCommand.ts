@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateDeliverabilityTestReportCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateDeliverabilityTestReportCommand}.
+ */
 export interface CreateDeliverabilityTestReportCommandInput extends CreateDeliverabilityTestReportRequest {}
+/**
+ * The output of {@link CreateDeliverabilityTestReportCommand}.
+ */
 export interface CreateDeliverabilityTestReportCommandOutput
   extends CreateDeliverabilityTestReportResponse,
     __MetadataBearer {}

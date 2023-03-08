@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateSchemaCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateSchemaCommand}.
+ */
 export interface CreateSchemaCommandInput extends CreateSchemaRequest {}
+/**
+ * The output of {@link CreateSchemaCommand}.
+ */
 export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __MetadataBearer {}
 
 /**

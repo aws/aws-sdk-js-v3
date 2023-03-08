@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetRoomCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetRoomCommand}.
+ */
 export interface GetRoomCommandInput extends GetRoomRequest {}
+/**
+ * The output of {@link GetRoomCommand}.
+ */
 export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer {}
 
 /**

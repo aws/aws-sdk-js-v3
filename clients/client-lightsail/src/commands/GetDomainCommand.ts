@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_json1_1GetDomainCommand, serializeAws_json1_1GetDomainCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDomainCommand}.
+ */
 export interface GetDomainCommandInput extends GetDomainRequest {}
+/**
+ * The output of {@link GetDomainCommand}.
+ */
 export interface GetDomainCommandOutput extends GetDomainResult, __MetadataBearer {}
 
 /**

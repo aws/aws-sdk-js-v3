@@ -6,7 +6,6 @@ import {
   ListOperationsCommandInput,
   ListOperationsCommandOutput,
 } from "../commands/ListOperationsCommand";
-import { Route53Domains } from "../Route53Domains";
 import { Route53DomainsClient } from "../Route53DomainsClient";
 import { Route53DomainsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListOperationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Route53Domains,
-  input: ListOperationsCommandInput,
-  ...args: any
-): Promise<ListOperationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listOperations(input, ...args);
-};
 export async function* paginateListOperations(
   config: Route53DomainsPaginationConfiguration,
   input: ListOperationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListOperations(
   while (hasNext) {
     input.Marker = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof Route53Domains) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof Route53DomainsClient) {
+    if (config.client instanceof Route53DomainsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Route53Domains | Route53DomainsClient");

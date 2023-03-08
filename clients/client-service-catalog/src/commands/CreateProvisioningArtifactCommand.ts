@@ -25,13 +25,18 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link CreateProvisioningArtifactCommand}.
+ */
 export interface CreateProvisioningArtifactCommandInput extends CreateProvisioningArtifactInput {}
+/**
+ * The output of {@link CreateProvisioningArtifactCommand}.
+ */
 export interface CreateProvisioningArtifactCommandOutput extends CreateProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a provisioning artifact (also known as a version) for the specified product.</p>
  *          <p>You cannot create a provisioning artifact for a product that was shared with you.</p>
- *
  *          <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
  *          IAM policy permission. This policy permission is required when using the
  *          <code>ImportFromPhysicalId</code> template source in the information data section.</p>

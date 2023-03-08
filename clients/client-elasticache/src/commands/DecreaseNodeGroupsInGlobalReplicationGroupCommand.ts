@@ -25,8 +25,14 @@ import {
   serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DecreaseNodeGroupsInGlobalReplicationGroupCommand}.
+ */
 export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandInput
   extends DecreaseNodeGroupsInGlobalReplicationGroupMessage {}
+/**
+ * The output of {@link DecreaseNodeGroupsInGlobalReplicationGroupCommand}.
+ */
 export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput
   extends DecreaseNodeGroupsInGlobalReplicationGroupResult,
     __MetadataBearer {}

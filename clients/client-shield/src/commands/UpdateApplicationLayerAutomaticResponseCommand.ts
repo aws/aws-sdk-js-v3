@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * The input for {@link UpdateApplicationLayerAutomaticResponseCommand}.
+ */
 export interface UpdateApplicationLayerAutomaticResponseCommandInput
   extends UpdateApplicationLayerAutomaticResponseRequest {}
+/**
+ * The output of {@link UpdateApplicationLayerAutomaticResponseCommand}.
+ */
 export interface UpdateApplicationLayerAutomaticResponseCommandOutput
   extends UpdateApplicationLayerAutomaticResponseResponse,
     __MetadataBearer {}

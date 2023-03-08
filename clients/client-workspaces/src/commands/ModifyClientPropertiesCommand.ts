@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link ModifyClientPropertiesCommand}.
+ */
 export interface ModifyClientPropertiesCommandInput extends ModifyClientPropertiesRequest {}
+/**
+ * The output of {@link ModifyClientPropertiesCommand}.
+ */
 export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropertiesResult, __MetadataBearer {}
 
 /**

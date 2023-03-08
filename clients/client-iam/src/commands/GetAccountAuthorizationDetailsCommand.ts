@@ -25,7 +25,13 @@ import {
   serializeAws_queryGetAccountAuthorizationDetailsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetAccountAuthorizationDetailsCommand}.
+ */
 export interface GetAccountAuthorizationDetailsCommandInput extends GetAccountAuthorizationDetailsRequest {}
+/**
+ * The output of {@link GetAccountAuthorizationDetailsCommand}.
+ */
 export interface GetAccountAuthorizationDetailsCommandOutput
   extends GetAccountAuthorizationDetailsResponse,
     __MetadataBearer {}

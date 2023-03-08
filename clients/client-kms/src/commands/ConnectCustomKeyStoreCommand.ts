@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ConnectCustomKeyStoreCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ConnectCustomKeyStoreCommand}.
+ */
 export interface ConnectCustomKeyStoreCommandInput extends ConnectCustomKeyStoreRequest {}
+/**
+ * The output of {@link ConnectCustomKeyStoreCommand}.
+ */
 export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
@@ -84,7 +90,6 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  *         key store</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a custom key store in a different Amazon Web Services account.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ConnectCustomKeyStore</a> (IAM policy)</p>
  *          <p>

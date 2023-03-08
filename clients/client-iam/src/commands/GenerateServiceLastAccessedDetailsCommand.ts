@@ -25,7 +25,13 @@ import {
   serializeAws_queryGenerateServiceLastAccessedDetailsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GenerateServiceLastAccessedDetailsCommand}.
+ */
 export interface GenerateServiceLastAccessedDetailsCommandInput extends GenerateServiceLastAccessedDetailsRequest {}
+/**
+ * The output of {@link GenerateServiceLastAccessedDetailsCommand}.
+ */
 export interface GenerateServiceLastAccessedDetailsCommandOutput
   extends GenerateServiceLastAccessedDetailsResponse,
     __MetadataBearer {}

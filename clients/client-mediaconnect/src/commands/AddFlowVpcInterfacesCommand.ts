@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AddFlowVpcInterfacesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AddFlowVpcInterfacesCommand}.
+ */
 export interface AddFlowVpcInterfacesCommandInput extends AddFlowVpcInterfacesRequest {}
+/**
+ * The output of {@link AddFlowVpcInterfacesCommand}.
+ */
 export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesResponse, __MetadataBearer {}
 
 /**

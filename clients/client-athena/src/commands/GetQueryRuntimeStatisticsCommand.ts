@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetQueryRuntimeStatisticsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetQueryRuntimeStatisticsCommand}.
+ */
 export interface GetQueryRuntimeStatisticsCommandInput extends GetQueryRuntimeStatisticsInput {}
+/**
+ * The output of {@link GetQueryRuntimeStatisticsCommand}.
+ */
 export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeStatisticsOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AcknowledgeOrderReceiptCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AcknowledgeOrderReceiptCommand}.
+ */
 export interface AcknowledgeOrderReceiptCommandInput extends AcknowledgeOrderReceiptRequest {}
+/**
+ * The output of {@link AcknowledgeOrderReceiptCommand}.
+ */
 export interface AcknowledgeOrderReceiptCommandOutput extends AcknowledgeOrderReceiptResponse, __MetadataBearer {}
 
 /**

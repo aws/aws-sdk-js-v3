@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListConnectorsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListConnectorsCommand}.
+ */
 export interface ListConnectorsCommandInput extends ListConnectorsRequest {}
+/**
+ * The output of {@link ListConnectorsCommand}.
+ */
 export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __MetadataBearer {}
 
 /**

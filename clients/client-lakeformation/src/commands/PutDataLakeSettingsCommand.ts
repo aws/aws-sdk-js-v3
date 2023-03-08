@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutDataLakeSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutDataLakeSettingsCommand}.
+ */
 export interface PutDataLakeSettingsCommandInput extends PutDataLakeSettingsRequest {}
+/**
+ * The output of {@link PutDataLakeSettingsCommand}.
+ */
 export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsResponse, __MetadataBearer {}
 
 /**

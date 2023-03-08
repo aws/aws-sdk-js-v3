@@ -6,7 +6,6 @@ import {
   ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
   ListServiceQuotaIncreaseRequestsInTemplateCommandOutput,
 } from "../commands/ListServiceQuotaIncreaseRequestsInTemplateCommand";
-import { ServiceQuotas } from "../ServiceQuotas";
 import { ServiceQuotasClient } from "../ServiceQuotasClient";
 import { ServiceQuotasPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListServiceQuotaIncreaseRequestsInTemplateCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ServiceQuotas,
-  input: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
-  ...args: any
-): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> => {
-  // @ts-ignore
-  return await client.listServiceQuotaIncreaseRequestsInTemplate(input, ...args);
-};
 export async function* paginateListServiceQuotaIncreaseRequestsInTemplate(
   config: ServiceQuotasPaginationConfiguration,
   input: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListServiceQuotaIncreaseRequestsInTemplate(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ServiceQuotas) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServiceQuotasClient) {
+    if (config.client instanceof ServiceQuotasClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ServiceQuotas | ServiceQuotasClient");

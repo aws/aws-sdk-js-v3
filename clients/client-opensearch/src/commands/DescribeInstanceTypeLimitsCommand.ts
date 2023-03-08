@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeInstanceTypeLimitsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeInstanceTypeLimitsCommand}.
+ */
 export interface DescribeInstanceTypeLimitsCommandInput extends DescribeInstanceTypeLimitsRequest {}
+/**
+ * The output of {@link DescribeInstanceTypeLimitsCommand}.
+ */
 export interface DescribeInstanceTypeLimitsCommandOutput extends DescribeInstanceTypeLimitsResponse, __MetadataBearer {}
 
 /**

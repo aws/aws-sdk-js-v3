@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link DeleteNetworkSettingsCommand}.
+ */
 export interface DeleteNetworkSettingsCommandInput extends DeleteNetworkSettingsRequest {}
+/**
+ * The output of {@link DeleteNetworkSettingsCommand}.
+ */
 export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSettingsResponse, __MetadataBearer {}
 
 /**

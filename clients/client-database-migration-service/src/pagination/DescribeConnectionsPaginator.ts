@@ -6,7 +6,6 @@ import {
   DescribeConnectionsCommandInput,
   DescribeConnectionsCommandOutput,
 } from "../commands/DescribeConnectionsCommand";
-import { DatabaseMigrationService } from "../DatabaseMigrationService";
 import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
 import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeConnectionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: DatabaseMigrationService,
-  input: DescribeConnectionsCommandInput,
-  ...args: any
-): Promise<DescribeConnectionsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeConnections(input, ...args);
-};
 export async function* paginateDescribeConnections(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeConnectionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeConnections(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof DatabaseMigrationService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DatabaseMigrationServiceClient) {
+    if (config.client instanceof DatabaseMigrationServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DatabaseMigrationService | DatabaseMigrationServiceClient");

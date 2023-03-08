@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link EnableSagemakerServicecatalogPortfolioCommand}.
+ */
 export interface EnableSagemakerServicecatalogPortfolioCommandInput
   extends EnableSagemakerServicecatalogPortfolioInput {}
+/**
+ * The output of {@link EnableSagemakerServicecatalogPortfolioCommand}.
+ */
 export interface EnableSagemakerServicecatalogPortfolioCommandOutput
   extends EnableSagemakerServicecatalogPortfolioOutput,
     __MetadataBearer {}

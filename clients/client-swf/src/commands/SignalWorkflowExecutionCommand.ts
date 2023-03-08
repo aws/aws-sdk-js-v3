@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link SignalWorkflowExecutionCommand}.
+ */
 export interface SignalWorkflowExecutionCommandInput extends SignalWorkflowExecutionInput {}
+/**
+ * The output of {@link SignalWorkflowExecutionCommand}.
+ */
 export interface SignalWorkflowExecutionCommandOutput extends __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1PutSubscriptionFilterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutSubscriptionFilterCommand}.
+ */
 export interface PutSubscriptionFilterCommandInput extends PutSubscriptionFilterRequest {}
+/**
+ * The output of {@link PutSubscriptionFilterCommand}.
+ */
 export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1PutBackupVaultNotificationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutBackupVaultNotificationsCommand}.
+ */
 export interface PutBackupVaultNotificationsCommandInput extends PutBackupVaultNotificationsInput {}
+/**
+ * The output of {@link PutBackupVaultNotificationsCommand}.
+ */
 export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBearer {}
 
 /**

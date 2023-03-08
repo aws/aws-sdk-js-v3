@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteReportGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteReportGroupCommand}.
+ */
 export interface DeleteReportGroupCommandInput extends DeleteReportGroupInput {}
+/**
+ * The output of {@link DeleteReportGroupCommand}.
+ */
 export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput, __MetadataBearer {}
 
 /**

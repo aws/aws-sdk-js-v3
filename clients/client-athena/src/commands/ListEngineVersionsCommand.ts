@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListEngineVersionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListEngineVersionsCommand}.
+ */
 export interface ListEngineVersionsCommandInput extends ListEngineVersionsInput {}
+/**
+ * The output of {@link ListEngineVersionsCommand}.
+ */
 export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutput, __MetadataBearer {}
 
 /**

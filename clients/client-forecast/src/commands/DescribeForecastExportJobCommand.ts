@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeForecastExportJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeForecastExportJobCommand}.
+ */
 export interface DescribeForecastExportJobCommandInput extends DescribeForecastExportJobRequest {}
+/**
+ * The output of {@link DescribeForecastExportJobCommand}.
+ */
 export interface DescribeForecastExportJobCommandOutput extends DescribeForecastExportJobResponse, __MetadataBearer {}
 
 /**

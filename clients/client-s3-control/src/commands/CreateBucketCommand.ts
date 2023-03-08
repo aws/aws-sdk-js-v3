@@ -27,7 +27,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link CreateBucketCommand}.
+ */
 export interface CreateBucketCommandInput extends CreateBucketRequest {}
+/**
+ * The output of {@link CreateBucketCommand}.
+ */
 export interface CreateBucketCommandOutput extends CreateBucketResult, __MetadataBearer {}
 
 /**

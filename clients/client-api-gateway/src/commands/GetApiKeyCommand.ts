@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetApiKeyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetApiKeyCommand}.
+ */
 export interface GetApiKeyCommandInput extends GetApiKeyRequest {}
+/**
+ * The output of {@link GetApiKeyCommand}.
+ */
 export interface GetApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
 
 /**

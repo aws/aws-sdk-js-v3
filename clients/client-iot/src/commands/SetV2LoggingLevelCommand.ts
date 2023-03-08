@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1SetV2LoggingLevelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SetV2LoggingLevelCommand}.
+ */
 export interface SetV2LoggingLevelCommandInput extends SetV2LoggingLevelRequest {}
+/**
+ * The output of {@link SetV2LoggingLevelCommand}.
+ */
 export interface SetV2LoggingLevelCommandOutput extends __MetadataBearer {}
 
 /**

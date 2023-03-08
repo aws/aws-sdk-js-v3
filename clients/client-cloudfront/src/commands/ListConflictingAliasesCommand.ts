@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlListConflictingAliasesCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link ListConflictingAliasesCommand}.
+ */
 export interface ListConflictingAliasesCommandInput extends ListConflictingAliasesRequest {}
+/**
+ * The output of {@link ListConflictingAliasesCommand}.
+ */
 export interface ListConflictingAliasesCommandOutput extends ListConflictingAliasesResult, __MetadataBearer {}
 
 /**

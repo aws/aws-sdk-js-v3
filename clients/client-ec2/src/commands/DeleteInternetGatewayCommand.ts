@@ -20,7 +20,13 @@ import {
   serializeAws_ec2DeleteInternetGatewayCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteInternetGatewayCommand}.
+ */
 export interface DeleteInternetGatewayCommandInput extends DeleteInternetGatewayRequest {}
+/**
+ * The output of {@link DeleteInternetGatewayCommand}.
+ */
 export interface DeleteInternetGatewayCommandOutput extends __MetadataBearer {}
 
 /**

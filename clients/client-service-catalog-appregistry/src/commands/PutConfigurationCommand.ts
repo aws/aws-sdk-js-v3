@@ -24,7 +24,13 @@ import {
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * The input for {@link PutConfigurationCommand}.
+ */
 export interface PutConfigurationCommandInput extends PutConfigurationRequest {}
+/**
+ * The output of {@link PutConfigurationCommand}.
+ */
 export interface PutConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateAliasCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateAliasCommand}.
+ */
 export interface UpdateAliasCommandInput extends UpdateAliasInput {}
+/**
+ * The output of {@link UpdateAliasCommand}.
+ */
 export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataBearer {}
 
 /**

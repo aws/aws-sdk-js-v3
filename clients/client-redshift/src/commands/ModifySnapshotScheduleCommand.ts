@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link ModifySnapshotScheduleCommand}.
+ */
 export interface ModifySnapshotScheduleCommandInput extends ModifySnapshotScheduleMessage {}
+/**
+ * The output of {@link ModifySnapshotScheduleCommand}.
+ */
 export interface ModifySnapshotScheduleCommandOutput extends SnapshotSchedule, __MetadataBearer {}
 
 /**

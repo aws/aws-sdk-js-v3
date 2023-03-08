@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetReservationPurchaseRecommendationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetReservationPurchaseRecommendationCommand}.
+ */
 export interface GetReservationPurchaseRecommendationCommandInput extends GetReservationPurchaseRecommendationRequest {}
+/**
+ * The output of {@link GetReservationPurchaseRecommendationCommand}.
+ */
 export interface GetReservationPurchaseRecommendationCommandOutput
   extends GetReservationPurchaseRecommendationResponse,
     __MetadataBearer {}

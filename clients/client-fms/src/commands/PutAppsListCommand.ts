@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutAppsListCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutAppsListCommand}.
+ */
 export interface PutAppsListCommandInput extends PutAppsListRequest {}
+/**
+ * The output of {@link PutAppsListCommand}.
+ */
 export interface PutAppsListCommandOutput extends PutAppsListResponse, __MetadataBearer {}
 
 /**

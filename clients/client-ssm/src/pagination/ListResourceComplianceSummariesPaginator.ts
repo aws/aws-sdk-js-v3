@@ -6,7 +6,6 @@ import {
   ListResourceComplianceSummariesCommandInput,
   ListResourceComplianceSummariesCommandOutput,
 } from "../commands/ListResourceComplianceSummariesCommand";
-import { SSM } from "../SSM";
 import { SSMClient } from "../SSMClient";
 import { SSMPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListResourceComplianceSummariesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SSM,
-  input: ListResourceComplianceSummariesCommandInput,
-  ...args: any
-): Promise<ListResourceComplianceSummariesCommandOutput> => {
-  // @ts-ignore
-  return await client.listResourceComplianceSummaries(input, ...args);
-};
 export async function* paginateListResourceComplianceSummaries(
   config: SSMPaginationConfiguration,
   input: ListResourceComplianceSummariesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListResourceComplianceSummaries(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSMClient) {
+    if (config.client instanceof SSMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSM | SSMClient");

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link SendPipelineExecutionStepFailureCommand}.
+ */
 export interface SendPipelineExecutionStepFailureCommandInput extends SendPipelineExecutionStepFailureRequest {}
+/**
+ * The output of {@link SendPipelineExecutionStepFailureCommand}.
+ */
 export interface SendPipelineExecutionStepFailureCommandOutput
   extends SendPipelineExecutionStepFailureResponse,
     __MetadataBearer {}

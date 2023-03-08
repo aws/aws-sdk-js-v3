@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateRoleAliasCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateRoleAliasCommand}.
+ */
 export interface CreateRoleAliasCommandInput extends CreateRoleAliasRequest {}
+/**
+ * The output of {@link CreateRoleAliasCommand}.
+ */
 export interface CreateRoleAliasCommandOutput extends CreateRoleAliasResponse, __MetadataBearer {}
 
 /**

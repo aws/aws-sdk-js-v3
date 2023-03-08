@@ -25,7 +25,13 @@ import {
   serializeAws_ec2RestoreManagedPrefixListVersionCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RestoreManagedPrefixListVersionCommand}.
+ */
 export interface RestoreManagedPrefixListVersionCommandInput extends RestoreManagedPrefixListVersionRequest {}
+/**
+ * The output of {@link RestoreManagedPrefixListVersionCommand}.
+ */
 export interface RestoreManagedPrefixListVersionCommandOutput
   extends RestoreManagedPrefixListVersionResult,
     __MetadataBearer {}

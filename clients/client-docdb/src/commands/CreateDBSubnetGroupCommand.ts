@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateDBSubnetGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateDBSubnetGroupCommand}.
+ */
 export interface CreateDBSubnetGroupCommandInput extends CreateDBSubnetGroupMessage {}
+/**
+ * The output of {@link CreateDBSubnetGroupCommand}.
+ */
 export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryListMFADeviceTagsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListMFADeviceTagsCommand}.
+ */
 export interface ListMFADeviceTagsCommandInput extends ListMFADeviceTagsRequest {}
+/**
+ * The output of {@link ListMFADeviceTagsCommand}.
+ */
 export interface ListMFADeviceTagsCommandOutput extends ListMFADeviceTagsResponse, __MetadataBearer {}
 
 /**

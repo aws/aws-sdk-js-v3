@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListProvisionedCapacityCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListProvisionedCapacityCommand}.
+ */
 export interface ListProvisionedCapacityCommandInput extends ListProvisionedCapacityInput {}
+/**
+ * The output of {@link ListProvisionedCapacityCommand}.
+ */
 export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCapacityOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetIpamAddressHistoryCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetIpamAddressHistoryCommand}.
+ */
 export interface GetIpamAddressHistoryCommandInput extends GetIpamAddressHistoryRequest {}
+/**
+ * The output of {@link GetIpamAddressHistoryCommand}.
+ */
 export interface GetIpamAddressHistoryCommandOutput extends GetIpamAddressHistoryResult, __MetadataBearer {}
 
 /**

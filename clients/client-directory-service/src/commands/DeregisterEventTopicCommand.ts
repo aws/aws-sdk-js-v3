@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeregisterEventTopicCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterEventTopicCommand}.
+ */
 export interface DeregisterEventTopicCommandInput extends DeregisterEventTopicRequest {}
+/**
+ * The output of {@link DeregisterEventTopicCommand}.
+ */
 export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicResult, __MetadataBearer {}
 
 /**

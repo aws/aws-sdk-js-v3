@@ -25,7 +25,13 @@ import {
   serializeAws_queryStartMigrationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link StartMigrationCommand}.
+ */
 export interface StartMigrationCommandInput extends StartMigrationMessage {}
+/**
+ * The output of {@link StartMigrationCommand}.
+ */
 export interface StartMigrationCommandOutput extends StartMigrationResponse, __MetadataBearer {}
 
 /**

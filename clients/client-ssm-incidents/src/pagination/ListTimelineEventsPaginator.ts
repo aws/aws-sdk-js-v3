@@ -6,7 +6,6 @@ import {
   ListTimelineEventsCommandInput,
   ListTimelineEventsCommandOutput,
 } from "../commands/ListTimelineEventsCommand";
-import { SSMIncidents } from "../SSMIncidents";
 import { SSMIncidentsClient } from "../SSMIncidentsClient";
 import { SSMIncidentsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTimelineEventsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SSMIncidents,
-  input: ListTimelineEventsCommandInput,
-  ...args: any
-): Promise<ListTimelineEventsCommandOutput> => {
-  // @ts-ignore
-  return await client.listTimelineEvents(input, ...args);
-};
 export async function* paginateListTimelineEvents(
   config: SSMIncidentsPaginationConfiguration,
   input: ListTimelineEventsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListTimelineEvents(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof SSMIncidents) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSMIncidentsClient) {
+    if (config.client instanceof SSMIncidentsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSMIncidents | SSMIncidentsClient");

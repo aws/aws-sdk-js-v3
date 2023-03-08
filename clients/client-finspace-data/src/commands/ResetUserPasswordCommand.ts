@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ResetUserPasswordCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ResetUserPasswordCommand}.
+ */
 export interface ResetUserPasswordCommandInput extends ResetUserPasswordRequest {}
+/**
+ * The output of {@link ResetUserPasswordCommand}.
+ */
 export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResponse, __MetadataBearer {}
 
 /**

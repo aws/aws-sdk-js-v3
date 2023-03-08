@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeByoipCidrsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeByoipCidrsCommand}.
+ */
 export interface DescribeByoipCidrsCommandInput extends DescribeByoipCidrsRequest {}
+/**
+ * The output of {@link DescribeByoipCidrsCommand}.
+ */
 export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResult, __MetadataBearer {}
 
 /**

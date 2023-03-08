@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeletePrincipalMappingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeletePrincipalMappingCommand}.
+ */
 export interface DeletePrincipalMappingCommandInput extends DeletePrincipalMappingRequest {}
+/**
+ * The output of {@link DeletePrincipalMappingCommand}.
+ */
 export interface DeletePrincipalMappingCommandOutput extends __MetadataBearer {}
 
 /**

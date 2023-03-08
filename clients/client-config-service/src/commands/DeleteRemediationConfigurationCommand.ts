@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteRemediationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteRemediationConfigurationCommand}.
+ */
 export interface DeleteRemediationConfigurationCommandInput extends DeleteRemediationConfigurationRequest {}
+/**
+ * The output of {@link DeleteRemediationConfigurationCommand}.
+ */
 export interface DeleteRemediationConfigurationCommandOutput
   extends DeleteRemediationConfigurationResponse,
     __MetadataBearer {}

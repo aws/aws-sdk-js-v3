@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DescribeResizeCommand}.
+ */
 export interface DescribeResizeCommandInput extends DescribeResizeMessage {}
+/**
+ * The output of {@link DescribeResizeCommand}.
+ */
 export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __MetadataBearer {}
 
 /**

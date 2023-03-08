@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ExpireSessionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ExpireSessionCommand}.
+ */
 export interface ExpireSessionCommandInput extends ExpireSessionRequest {}
+/**
+ * The output of {@link ExpireSessionCommand}.
+ */
 export interface ExpireSessionCommandOutput extends ExpireSessionResult, __MetadataBearer {}
 
 /**

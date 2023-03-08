@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link GetFieldLevelEncryptionProfileConfigCommand}.
+ */
 export interface GetFieldLevelEncryptionProfileConfigCommandInput extends GetFieldLevelEncryptionProfileConfigRequest {}
+/**
+ * The output of {@link GetFieldLevelEncryptionProfileConfigCommand}.
+ */
 export interface GetFieldLevelEncryptionProfileConfigCommandOutput
   extends GetFieldLevelEncryptionProfileConfigResult,
     __MetadataBearer {}

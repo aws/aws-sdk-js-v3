@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link DisassociateOpsItemRelatedItemCommand}.
+ */
 export interface DisassociateOpsItemRelatedItemCommandInput extends DisassociateOpsItemRelatedItemRequest {}
+/**
+ * The output of {@link DisassociateOpsItemRelatedItemCommand}.
+ */
 export interface DisassociateOpsItemRelatedItemCommandOutput
   extends DisassociateOpsItemRelatedItemResponse,
     __MetadataBearer {}

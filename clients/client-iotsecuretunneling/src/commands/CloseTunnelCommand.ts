@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1CloseTunnelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CloseTunnelCommand}.
+ */
 export interface CloseTunnelCommandInput extends CloseTunnelRequest {}
+/**
+ * The output of {@link CloseTunnelCommand}.
+ */
 export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __MetadataBearer {}
 
 /**

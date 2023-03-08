@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryGetUserCommand, serializeAws_queryGetUserCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetUserCommand}.
+ */
 export interface GetUserCommandInput extends GetUserRequest {}
+/**
+ * The output of {@link GetUserCommand}.
+ */
 export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**

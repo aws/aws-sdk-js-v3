@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link StartAutomationExecutionCommand}.
+ */
 export interface StartAutomationExecutionCommandInput extends StartAutomationExecutionRequest {}
+/**
+ * The output of {@link StartAutomationExecutionCommand}.
+ */
 export interface StartAutomationExecutionCommandOutput extends StartAutomationExecutionResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartTransactionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartTransactionCommand}.
+ */
 export interface StartTransactionCommandInput extends StartTransactionRequest {}
+/**
+ * The output of {@link StartTransactionCommand}.
+ */
 export interface StartTransactionCommandOutput extends StartTransactionResponse, __MetadataBearer {}
 
 /**

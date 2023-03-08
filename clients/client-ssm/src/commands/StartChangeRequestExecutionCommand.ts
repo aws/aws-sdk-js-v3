@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link StartChangeRequestExecutionCommand}.
+ */
 export interface StartChangeRequestExecutionCommandInput extends StartChangeRequestExecutionRequest {}
+/**
+ * The output of {@link StartChangeRequestExecutionCommand}.
+ */
 export interface StartChangeRequestExecutionCommandOutput extends StartChangeRequestExecutionResult, __MetadataBearer {}
 
 /**

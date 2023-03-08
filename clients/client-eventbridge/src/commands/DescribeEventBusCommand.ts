@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeEventBusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeEventBusCommand}.
+ */
 export interface DescribeEventBusCommandInput extends DescribeEventBusRequest {}
+/**
+ * The output of {@link DescribeEventBusCommand}.
+ */
 export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse, __MetadataBearer {}
 
 /**

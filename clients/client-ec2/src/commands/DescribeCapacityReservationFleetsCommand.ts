@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeCapacityReservationFleetsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeCapacityReservationFleetsCommand}.
+ */
 export interface DescribeCapacityReservationFleetsCommandInput extends DescribeCapacityReservationFleetsRequest {}
+/**
+ * The output of {@link DescribeCapacityReservationFleetsCommand}.
+ */
 export interface DescribeCapacityReservationFleetsCommandOutput
   extends DescribeCapacityReservationFleetsResult,
     __MetadataBearer {}

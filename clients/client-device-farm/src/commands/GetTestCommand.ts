@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetTestCommand, serializeAws_json1_1GetTestCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetTestCommand}.
+ */
 export interface GetTestCommandInput extends GetTestRequest {}
+/**
+ * The output of {@link GetTestCommand}.
+ */
 export interface GetTestCommandOutput extends GetTestResult, __MetadataBearer {}
 
 /**

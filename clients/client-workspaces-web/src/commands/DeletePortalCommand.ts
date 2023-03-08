@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link DeletePortalCommand}.
+ */
 export interface DeletePortalCommandInput extends DeletePortalRequest {}
+/**
+ * The output of {@link DeletePortalCommand}.
+ */
 export interface DeletePortalCommandOutput extends DeletePortalResponse, __MetadataBearer {}
 
 /**

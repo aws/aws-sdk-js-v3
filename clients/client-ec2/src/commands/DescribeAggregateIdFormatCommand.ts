@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeAggregateIdFormatCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeAggregateIdFormatCommand}.
+ */
 export interface DescribeAggregateIdFormatCommandInput extends DescribeAggregateIdFormatRequest {}
+/**
+ * The output of {@link DescribeAggregateIdFormatCommand}.
+ */
 export interface DescribeAggregateIdFormatCommandOutput extends DescribeAggregateIdFormatResult, __MetadataBearer {}
 
 /**

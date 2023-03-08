@@ -6,7 +6,6 @@ import {
   ListNetworksCommandInput,
   ListNetworksCommandOutput,
 } from "../commands/ListNetworksCommand";
-import { ManagedBlockchain } from "../ManagedBlockchain";
 import { ManagedBlockchainClient } from "../ManagedBlockchainClient";
 import { ManagedBlockchainPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListNetworksCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ManagedBlockchain,
-  input: ListNetworksCommandInput,
-  ...args: any
-): Promise<ListNetworksCommandOutput> => {
-  // @ts-ignore
-  return await client.listNetworks(input, ...args);
-};
 export async function* paginateListNetworks(
   config: ManagedBlockchainPaginationConfiguration,
   input: ListNetworksCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListNetworks(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ManagedBlockchain) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ManagedBlockchainClient) {
+    if (config.client instanceof ManagedBlockchainClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ManagedBlockchain | ManagedBlockchainClient");

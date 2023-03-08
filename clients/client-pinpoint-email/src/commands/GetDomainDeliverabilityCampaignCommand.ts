@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDomainDeliverabilityCampaignCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDomainDeliverabilityCampaignCommand}.
+ */
 export interface GetDomainDeliverabilityCampaignCommandInput extends GetDomainDeliverabilityCampaignRequest {}
+/**
+ * The output of {@link GetDomainDeliverabilityCampaignCommand}.
+ */
 export interface GetDomainDeliverabilityCampaignCommandOutput
   extends GetDomainDeliverabilityCampaignResponse,
     __MetadataBearer {}

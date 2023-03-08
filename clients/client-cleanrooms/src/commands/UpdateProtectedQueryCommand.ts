@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateProtectedQueryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateProtectedQueryCommand}.
+ */
 export interface UpdateProtectedQueryCommandInput extends UpdateProtectedQueryInput {}
+/**
+ * The output of {@link UpdateProtectedQueryCommand}.
+ */
 export interface UpdateProtectedQueryCommandOutput extends UpdateProtectedQueryOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AcknowledgeThirdPartyJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AcknowledgeThirdPartyJobCommand}.
+ */
 export interface AcknowledgeThirdPartyJobCommandInput extends AcknowledgeThirdPartyJobInput {}
+/**
+ * The output of {@link AcknowledgeThirdPartyJobCommand}.
+ */
 export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdPartyJobOutput, __MetadataBearer {}
 
 /**

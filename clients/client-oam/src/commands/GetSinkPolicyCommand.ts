@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSinkPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSinkPolicyCommand}.
+ */
 export interface GetSinkPolicyCommandInput extends GetSinkPolicyInput {}
+/**
+ * The output of {@link GetSinkPolicyCommand}.
+ */
 export interface GetSinkPolicyCommandOutput extends GetSinkPolicyOutput, __MetadataBearer {}
 
 /**

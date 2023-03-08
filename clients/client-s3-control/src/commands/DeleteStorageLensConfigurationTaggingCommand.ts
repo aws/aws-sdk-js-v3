@@ -26,8 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link DeleteStorageLensConfigurationTaggingCommand}.
+ */
 export interface DeleteStorageLensConfigurationTaggingCommandInput
   extends DeleteStorageLensConfigurationTaggingRequest {}
+/**
+ * The output of {@link DeleteStorageLensConfigurationTaggingCommand}.
+ */
 export interface DeleteStorageLensConfigurationTaggingCommandOutput
   extends DeleteStorageLensConfigurationTaggingResult,
     __MetadataBearer {}

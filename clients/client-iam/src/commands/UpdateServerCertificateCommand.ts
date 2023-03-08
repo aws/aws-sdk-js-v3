@@ -20,7 +20,13 @@ import {
   serializeAws_queryUpdateServerCertificateCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateServerCertificateCommand}.
+ */
 export interface UpdateServerCertificateCommandInput extends UpdateServerCertificateRequest {}
+/**
+ * The output of {@link UpdateServerCertificateCommand}.
+ */
 export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**

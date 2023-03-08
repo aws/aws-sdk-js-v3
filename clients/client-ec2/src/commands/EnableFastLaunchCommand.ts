@@ -25,7 +25,13 @@ import {
   serializeAws_ec2EnableFastLaunchCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link EnableFastLaunchCommand}.
+ */
 export interface EnableFastLaunchCommandInput extends EnableFastLaunchRequest {}
+/**
+ * The output of {@link EnableFastLaunchCommand}.
+ */
 export interface EnableFastLaunchCommandOutput extends EnableFastLaunchResult, __MetadataBearer {}
 
 /**

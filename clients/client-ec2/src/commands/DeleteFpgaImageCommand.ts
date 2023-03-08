@@ -22,7 +22,13 @@ import {
 } from "../models/models_2";
 import { deserializeAws_ec2DeleteFpgaImageCommand, serializeAws_ec2DeleteFpgaImageCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteFpgaImageCommand}.
+ */
 export interface DeleteFpgaImageCommandInput extends DeleteFpgaImageRequest {}
+/**
+ * The output of {@link DeleteFpgaImageCommand}.
+ */
 export interface DeleteFpgaImageCommandOutput extends DeleteFpgaImageResult, __MetadataBearer {}
 
 /**

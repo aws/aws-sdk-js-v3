@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1InferSNOMEDCTCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link InferSNOMEDCTCommand}.
+ */
 export interface InferSNOMEDCTCommandInput extends InferSNOMEDCTRequest {}
+/**
+ * The output of {@link InferSNOMEDCTCommand}.
+ */
 export interface InferSNOMEDCTCommandOutput extends InferSNOMEDCTResponse, __MetadataBearer {}
 
 /**

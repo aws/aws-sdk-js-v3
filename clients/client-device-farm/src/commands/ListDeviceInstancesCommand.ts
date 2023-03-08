@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListDeviceInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListDeviceInstancesCommand}.
+ */
 export interface ListDeviceInstancesCommandInput extends ListDeviceInstancesRequest {}
+/**
+ * The output of {@link ListDeviceInstancesCommand}.
+ */
 export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesResult, __MetadataBearer {}
 
 /**

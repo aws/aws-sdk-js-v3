@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link DeleteCommentCommand}.
+ */
 export interface DeleteCommentCommandInput extends DeleteCommentRequest {}
+/**
+ * The output of {@link DeleteCommentCommand}.
+ */
 export interface DeleteCommentCommandOutput extends __MetadataBearer {}
 
 /**

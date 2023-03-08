@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
+/**
+ * The input for {@link BatchGetRumMetricDefinitionsCommand}.
+ */
 export interface BatchGetRumMetricDefinitionsCommandInput extends BatchGetRumMetricDefinitionsRequest {}
+/**
+ * The output of {@link BatchGetRumMetricDefinitionsCommand}.
+ */
 export interface BatchGetRumMetricDefinitionsCommandOutput
   extends BatchGetRumMetricDefinitionsResponse,
     __MetadataBearer {}

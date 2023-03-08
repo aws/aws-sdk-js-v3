@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * The input for {@link CreateReturnShippingLabelCommand}.
+ */
 export interface CreateReturnShippingLabelCommandInput extends CreateReturnShippingLabelRequest {}
+/**
+ * The output of {@link CreateReturnShippingLabelCommand}.
+ */
 export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShippingLabelResult, __MetadataBearer {}
 
 /**

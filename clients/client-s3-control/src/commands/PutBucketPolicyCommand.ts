@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link PutBucketPolicyCommand}.
+ */
 export interface PutBucketPolicyCommandInput extends PutBucketPolicyRequest {}
+/**
+ * The output of {@link PutBucketPolicyCommand}.
+ */
 export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
 
 /**

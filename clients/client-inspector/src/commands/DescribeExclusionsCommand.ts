@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeExclusionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeExclusionsCommand}.
+ */
 export interface DescribeExclusionsCommandInput extends DescribeExclusionsRequest {}
+/**
+ * The output of {@link DescribeExclusionsCommand}.
+ */
 export interface DescribeExclusionsCommandOutput extends DescribeExclusionsResponse, __MetadataBearer {}
 
 /**

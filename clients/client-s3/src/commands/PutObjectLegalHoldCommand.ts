@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link PutObjectLegalHoldCommand}.
+ */
 export interface PutObjectLegalHoldCommandInput extends PutObjectLegalHoldRequest {}
+/**
+ * The output of {@link PutObjectLegalHoldCommand}.
+ */
 export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutput, __MetadataBearer {}
 
 /**

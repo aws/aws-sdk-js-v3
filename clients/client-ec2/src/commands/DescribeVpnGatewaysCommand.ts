@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeVpnGatewaysCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeVpnGatewaysCommand}.
+ */
 export interface DescribeVpnGatewaysCommandInput extends DescribeVpnGatewaysRequest {}
+/**
+ * The output of {@link DescribeVpnGatewaysCommand}.
+ */
 export interface DescribeVpnGatewaysCommandOutput extends DescribeVpnGatewaysResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * The input for {@link GetDatalakeStatusCommand}.
+ */
 export interface GetDatalakeStatusCommandInput extends GetDatalakeStatusRequest {}
+/**
+ * The output of {@link GetDatalakeStatusCommand}.
+ */
 export interface GetDatalakeStatusCommandOutput extends GetDatalakeStatusResponse, __MetadataBearer {}
 
 /**

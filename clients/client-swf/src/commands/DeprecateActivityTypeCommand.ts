@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link DeprecateActivityTypeCommand}.
+ */
 export interface DeprecateActivityTypeCommandInput extends DeprecateActivityTypeInput {}
+/**
+ * The output of {@link DeprecateActivityTypeCommand}.
+ */
 export interface DeprecateActivityTypeCommandOutput extends __MetadataBearer {}
 
 /**

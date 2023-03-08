@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAnalyzerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAnalyzerCommand}.
+ */
 export interface GetAnalyzerCommandInput extends GetAnalyzerRequest {}
+/**
+ * The output of {@link GetAnalyzerCommand}.
+ */
 export interface GetAnalyzerCommandOutput extends GetAnalyzerResponse, __MetadataBearer {}
 
 /**

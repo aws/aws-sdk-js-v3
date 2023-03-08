@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlListFieldLevelEncryptionConfigsCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link ListFieldLevelEncryptionConfigsCommand}.
+ */
 export interface ListFieldLevelEncryptionConfigsCommandInput extends ListFieldLevelEncryptionConfigsRequest {}
+/**
+ * The output of {@link ListFieldLevelEncryptionConfigsCommand}.
+ */
 export interface ListFieldLevelEncryptionConfigsCommandOutput
   extends ListFieldLevelEncryptionConfigsResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetBasePathMappingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBasePathMappingsCommand}.
+ */
 export interface GetBasePathMappingsCommandInput extends GetBasePathMappingsRequest {}
+/**
+ * The output of {@link GetBasePathMappingsCommand}.
+ */
 export interface GetBasePathMappingsCommandOutput extends BasePathMappings, __MetadataBearer {}
 
 /**

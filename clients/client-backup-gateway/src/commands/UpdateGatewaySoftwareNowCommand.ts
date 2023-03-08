@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0UpdateGatewaySoftwareNowCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateGatewaySoftwareNowCommand}.
+ */
 export interface UpdateGatewaySoftwareNowCommandInput extends UpdateGatewaySoftwareNowInput {}
+/**
+ * The output of {@link UpdateGatewaySoftwareNowCommand}.
+ */
 export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoftwareNowOutput, __MetadataBearer {}
 
 /**

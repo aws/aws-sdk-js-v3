@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateUseCaseCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateUseCaseCommand}.
+ */
 export interface CreateUseCaseCommandInput extends CreateUseCaseRequest {}
+/**
+ * The output of {@link CreateUseCaseCommand}.
+ */
 export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __MetadataBearer {}
 
 /**

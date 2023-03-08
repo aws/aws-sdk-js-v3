@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link DescribeConstraintCommand}.
+ */
 export interface DescribeConstraintCommandInput extends DescribeConstraintInput {}
+/**
+ * The output of {@link DescribeConstraintCommand}.
+ */
 export interface DescribeConstraintCommandOutput extends DescribeConstraintOutput, __MetadataBearer {}
 
 /**

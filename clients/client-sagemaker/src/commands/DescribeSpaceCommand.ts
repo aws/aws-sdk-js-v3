@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DescribeSpaceCommand}.
+ */
 export interface DescribeSpaceCommandInput extends DescribeSpaceRequest {}
+/**
+ * The output of {@link DescribeSpaceCommand}.
+ */
 export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __MetadataBearer {}
 
 /**

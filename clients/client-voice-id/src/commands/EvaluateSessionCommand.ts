@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
+/**
+ * The input for {@link EvaluateSessionCommand}.
+ */
 export interface EvaluateSessionCommandInput extends EvaluateSessionRequest {}
+/**
+ * The output of {@link EvaluateSessionCommand}.
+ */
 export interface EvaluateSessionCommandOutput extends EvaluateSessionResponse, __MetadataBearer {}
 
 /**

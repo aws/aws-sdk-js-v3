@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeEffectivePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeEffectivePolicyCommand}.
+ */
 export interface DescribeEffectivePolicyCommandInput extends DescribeEffectivePolicyRequest {}
+/**
+ * The output of {@link DescribeEffectivePolicyCommand}.
+ */
 export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectivePolicyResponse, __MetadataBearer {}
 
 /**
@@ -33,11 +39,11 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  *             The effective policy is the aggregation of any policies of the specified type that the
  *             account inherits, plus any policy of that type that is directly attached to the
  *             account.</p>
- *         <p>This operation applies only to policy types <i>other</i> than service
+ *          <p>This operation applies only to policy types <i>other</i> than service
  *             control policies (SCPs).</p>
- *         <p>For more information about policy inheritance, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies-inheritance.html">How Policy Inheritance
+ *          <p>For more information about policy inheritance, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies-inheritance.html">How Policy Inheritance
  *                 Works</a> in the <i>Organizations User Guide</i>.</p>
- *         <p>This operation can be called only from the organization's
+ *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

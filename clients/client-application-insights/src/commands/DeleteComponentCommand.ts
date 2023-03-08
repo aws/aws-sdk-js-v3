@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DeleteComponentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteComponentCommand}.
+ */
 export interface DeleteComponentCommandInput extends DeleteComponentRequest {}
+/**
+ * The output of {@link DeleteComponentCommand}.
+ */
 export interface DeleteComponentCommandOutput extends DeleteComponentResponse, __MetadataBearer {}
 
 /**

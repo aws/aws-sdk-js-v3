@@ -20,7 +20,13 @@ import {
   serializeAws_queryAddRoleToDBClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link AddRoleToDBClusterCommand}.
+ */
 export interface AddRoleToDBClusterCommandInput extends AddRoleToDBClusterMessage {}
+/**
+ * The output of {@link AddRoleToDBClusterCommand}.
+ */
 export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
 
 /**

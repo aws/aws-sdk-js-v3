@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * The input for {@link GetSizeConstraintSetCommand}.
+ */
 export interface GetSizeConstraintSetCommandInput extends GetSizeConstraintSetRequest {}
+/**
+ * The output of {@link GetSizeConstraintSetCommand}.
+ */
 export interface GetSizeConstraintSetCommandOutput extends GetSizeConstraintSetResponse, __MetadataBearer {}
 
 /**

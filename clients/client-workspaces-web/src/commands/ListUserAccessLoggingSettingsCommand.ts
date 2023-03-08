@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link ListUserAccessLoggingSettingsCommand}.
+ */
 export interface ListUserAccessLoggingSettingsCommandInput extends ListUserAccessLoggingSettingsRequest {}
+/**
+ * The output of {@link ListUserAccessLoggingSettingsCommand}.
+ */
 export interface ListUserAccessLoggingSettingsCommandOutput
   extends ListUserAccessLoggingSettingsResponse,
     __MetadataBearer {}

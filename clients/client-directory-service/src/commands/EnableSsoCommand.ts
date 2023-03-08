@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1EnableSsoCommand, serializeAws_json1_1EnableSsoCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EnableSsoCommand}.
+ */
 export interface EnableSsoCommandInput extends EnableSsoRequest {}
+/**
+ * The output of {@link EnableSsoCommand}.
+ */
 export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBearer {}
 
 /**

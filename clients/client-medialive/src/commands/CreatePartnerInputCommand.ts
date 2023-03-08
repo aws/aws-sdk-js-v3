@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreatePartnerInputCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreatePartnerInputCommand}.
+ */
 export interface CreatePartnerInputCommandInput extends CreatePartnerInputRequest {}
+/**
+ * The output of {@link CreatePartnerInputCommand}.
+ */
 export interface CreatePartnerInputCommandOutput extends CreatePartnerInputResponse, __MetadataBearer {}
 
 /**

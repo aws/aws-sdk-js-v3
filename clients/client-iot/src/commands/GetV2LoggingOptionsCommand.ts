@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetV2LoggingOptionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetV2LoggingOptionsCommand}.
+ */
 export interface GetV2LoggingOptionsCommandInput extends GetV2LoggingOptionsRequest {}
+/**
+ * The output of {@link GetV2LoggingOptionsCommand}.
+ */
 export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsResponse, __MetadataBearer {}
 
 /**

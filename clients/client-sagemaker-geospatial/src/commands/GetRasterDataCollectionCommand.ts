@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../SageMakerGeospatialClient";
 
+/**
+ * The input for {@link GetRasterDataCollectionCommand}.
+ */
 export interface GetRasterDataCollectionCommandInput extends GetRasterDataCollectionInput {}
+/**
+ * The output of {@link GetRasterDataCollectionCommand}.
+ */
 export interface GetRasterDataCollectionCommandOutput extends GetRasterDataCollectionOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListBackupsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListBackupsCommand}.
+ */
 export interface ListBackupsCommandInput extends ListBackupsInput {}
+/**
+ * The output of {@link ListBackupsCommand}.
+ */
 export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataBearer {}
 
 /**
@@ -33,9 +39,9 @@ export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataB
  *             given table, specify <code>TableName</code>. <code>ListBackups</code> returns a
  *             paginated list of results with at most 1 MB worth of items in a page. You can also
  *             specify a maximum number of entries to be returned in a page.</p>
- *         <p>In the request, start time is inclusive, but end time is exclusive. Note that these
+ *          <p>In the request, start time is inclusive, but end time is exclusive. Note that these
  *             boundaries are for the time at which the original backup was requested.</p>
- *         <p>You can call <code>ListBackups</code> a maximum of five times per second.</p>
+ *          <p>You can call <code>ListBackups</code> a maximum of five times per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

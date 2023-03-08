@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1RegisterOnPremisesInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterOnPremisesInstanceCommand}.
+ */
 export interface RegisterOnPremisesInstanceCommandInput extends RegisterOnPremisesInstanceInput {}
+/**
+ * The output of {@link RegisterOnPremisesInstanceCommand}.
+ */
 export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBearer {}
 
 /**

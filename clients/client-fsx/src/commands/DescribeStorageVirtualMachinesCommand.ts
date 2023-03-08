@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeStorageVirtualMachinesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeStorageVirtualMachinesCommand}.
+ */
 export interface DescribeStorageVirtualMachinesCommandInput extends DescribeStorageVirtualMachinesRequest {}
+/**
+ * The output of {@link DescribeStorageVirtualMachinesCommand}.
+ */
 export interface DescribeStorageVirtualMachinesCommandOutput
   extends DescribeStorageVirtualMachinesResponse,
     __MetadataBearer {}

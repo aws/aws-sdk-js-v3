@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ResumeServiceCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ResumeServiceCommand}.
+ */
 export interface ResumeServiceCommandInput extends ResumeServiceRequest {}
+/**
+ * The output of {@link ResumeServiceCommand}.
+ */
 export interface ResumeServiceCommandOutput extends ResumeServiceResponse, __MetadataBearer {}
 
 /**

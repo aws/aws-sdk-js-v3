@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DescribeClusterTracksCommand}.
+ */
 export interface DescribeClusterTracksCommandInput extends DescribeClusterTracksMessage {}
+/**
+ * The output of {@link DescribeClusterTracksCommand}.
+ */
 export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __MetadataBearer {}
 
 /**

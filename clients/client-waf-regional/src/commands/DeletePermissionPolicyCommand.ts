@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link DeletePermissionPolicyCommand}.
+ */
 export interface DeletePermissionPolicyCommandInput extends DeletePermissionPolicyRequest {}
+/**
+ * The output of {@link DeletePermissionPolicyCommand}.
+ */
 export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPolicyResponse, __MetadataBearer {}
 
 /**

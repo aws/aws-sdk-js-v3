@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateExperimentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateExperimentCommand}.
+ */
 export interface CreateExperimentCommandInput extends CreateExperimentRequest {}
+/**
+ * The output of {@link CreateExperimentCommand}.
+ */
 export interface CreateExperimentCommandOutput extends CreateExperimentResponse, __MetadataBearer {}
 
 /**

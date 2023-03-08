@@ -23,7 +23,13 @@ import {
   serializeAws_queryDeleteCacheParameterGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteCacheParameterGroupCommand}.
+ */
 export interface DeleteCacheParameterGroupCommandInput extends DeleteCacheParameterGroupMessage {}
+/**
+ * The output of {@link DeleteCacheParameterGroupCommand}.
+ */
 export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**

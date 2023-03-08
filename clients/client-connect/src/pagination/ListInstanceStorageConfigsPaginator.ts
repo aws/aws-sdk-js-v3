@@ -6,7 +6,6 @@ import {
   ListInstanceStorageConfigsCommandInput,
   ListInstanceStorageConfigsCommandOutput,
 } from "../commands/ListInstanceStorageConfigsCommand";
-import { Connect } from "../Connect";
 import { ConnectClient } from "../ConnectClient";
 import { ConnectPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListInstanceStorageConfigsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Connect,
-  input: ListInstanceStorageConfigsCommandInput,
-  ...args: any
-): Promise<ListInstanceStorageConfigsCommandOutput> => {
-  // @ts-ignore
-  return await client.listInstanceStorageConfigs(input, ...args);
-};
 export async function* paginateListInstanceStorageConfigs(
   config: ConnectPaginationConfiguration,
   input: ListInstanceStorageConfigsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListInstanceStorageConfigs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Connect) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConnectClient) {
+    if (config.client instanceof ConnectClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Connect | ConnectClient");

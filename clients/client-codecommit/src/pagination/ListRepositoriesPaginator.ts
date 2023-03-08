@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CodeCommit } from "../CodeCommit";
 import { CodeCommitClient } from "../CodeCommitClient";
 import {
   ListRepositoriesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRepositoriesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CodeCommit,
-  input: ListRepositoriesCommandInput,
-  ...args: any
-): Promise<ListRepositoriesCommandOutput> => {
-  // @ts-ignore
-  return await client.listRepositories(input, ...args);
-};
 export async function* paginateListRepositories(
   config: CodeCommitPaginationConfiguration,
   input: ListRepositoriesCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListRepositories(
   let page: ListRepositoriesCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof CodeCommit) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodeCommitClient) {
+    if (config.client instanceof CodeCommitClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodeCommit | CodeCommitClient");

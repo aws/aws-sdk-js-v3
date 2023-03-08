@@ -6,7 +6,6 @@ import {
   DescribeManagedPrefixListsCommandInput,
   DescribeManagedPrefixListsCommandOutput,
 } from "../commands/DescribeManagedPrefixListsCommand";
-import { EC2 } from "../EC2";
 import { EC2Client } from "../EC2Client";
 import { EC2PaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeManagedPrefixListsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: EC2,
-  input: DescribeManagedPrefixListsCommandInput,
-  ...args: any
-): Promise<DescribeManagedPrefixListsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeManagedPrefixLists(input, ...args);
-};
 export async function* paginateDescribeManagedPrefixLists(
   config: EC2PaginationConfiguration,
   input: DescribeManagedPrefixListsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeManagedPrefixLists(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof EC2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EC2Client) {
+    if (config.client instanceof EC2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EC2 | EC2Client");

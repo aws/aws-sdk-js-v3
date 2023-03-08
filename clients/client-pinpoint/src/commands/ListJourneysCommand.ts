@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListJourneysCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListJourneysCommand}.
+ */
 export interface ListJourneysCommandInput extends ListJourneysRequest {}
+/**
+ * The output of {@link ListJourneysCommand}.
+ */
 export interface ListJourneysCommandOutput extends ListJourneysResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0CreateHostCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateHostCommand}.
+ */
 export interface CreateHostCommandInput extends CreateHostInput {}
+/**
+ * The output of {@link CreateHostCommand}.
+ */
 export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBearer {}
 
 /**

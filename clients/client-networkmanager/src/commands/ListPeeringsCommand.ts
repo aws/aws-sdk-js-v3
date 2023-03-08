@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListPeeringsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPeeringsCommand}.
+ */
 export interface ListPeeringsCommandInput extends ListPeeringsRequest {}
+/**
+ * The output of {@link ListPeeringsCommand}.
+ */
 export interface ListPeeringsCommandOutput extends ListPeeringsResponse, __MetadataBearer {}
 
 /**

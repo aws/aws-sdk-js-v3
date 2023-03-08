@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateBackendConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateBackendConfigCommand}.
+ */
 export interface UpdateBackendConfigCommandInput extends UpdateBackendConfigRequest {}
+/**
+ * The output of {@link UpdateBackendConfigCommand}.
+ */
 export interface UpdateBackendConfigCommandOutput extends UpdateBackendConfigResponse, __MetadataBearer {}
 
 /**

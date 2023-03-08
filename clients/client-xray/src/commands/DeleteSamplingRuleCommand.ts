@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * The input for {@link DeleteSamplingRuleCommand}.
+ */
 export interface DeleteSamplingRuleCommandInput extends DeleteSamplingRuleRequest {}
+/**
+ * The output of {@link DeleteSamplingRuleCommand}.
+ */
 export interface DeleteSamplingRuleCommandOutput extends DeleteSamplingRuleResult, __MetadataBearer {}
 
 /**

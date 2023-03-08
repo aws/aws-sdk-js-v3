@@ -6,7 +6,6 @@ import {
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
 } from "../commands/ListApplicationsCommand";
-import { IoTFleetHub } from "../IoTFleetHub";
 import { IoTFleetHubClient } from "../IoTFleetHubClient";
 import { IoTFleetHubPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListApplicationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoTFleetHub,
-  input: ListApplicationsCommandInput,
-  ...args: any
-): Promise<ListApplicationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listApplications(input, ...args);
-};
 export async function* paginateListApplications(
   config: IoTFleetHubPaginationConfiguration,
   input: ListApplicationsCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListApplications(
   let page: ListApplicationsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof IoTFleetHub) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTFleetHubClient) {
+    if (config.client instanceof IoTFleetHubClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTFleetHub | IoTFleetHubClient");

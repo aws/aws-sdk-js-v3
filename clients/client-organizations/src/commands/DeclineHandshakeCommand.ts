@@ -25,16 +25,22 @@ import {
   serializeAws_json1_1DeclineHandshakeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeclineHandshakeCommand}.
+ */
 export interface DeclineHandshakeCommandInput extends DeclineHandshakeRequest {}
+/**
+ * The output of {@link DeclineHandshakeCommand}.
+ */
 export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse, __MetadataBearer {}
 
 /**
  * <p>Declines a handshake request. This sets the handshake state to <code>DECLINED</code>
  *             and effectively deactivates the request.</p>
- *         <p>This operation can be called only from the account that received the handshake. The originator of the handshake can use <a>CancelHandshake</a>
+ *          <p>This operation can be called only from the account that received the handshake. The originator of the handshake can use <a>CancelHandshake</a>
  *             instead. The originator can't reactivate a declined request, but can reinitiate the
  *             process with a new handshake request.</p>
- *         <p>After you decline a handshake, it continues to appear in the results of relevant APIs
+ *          <p>After you decline a handshake, it continues to appear in the results of relevant APIs
  *             for only 30 days. After that, it's deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

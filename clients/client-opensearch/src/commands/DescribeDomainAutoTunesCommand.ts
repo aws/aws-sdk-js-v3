@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeDomainAutoTunesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeDomainAutoTunesCommand}.
+ */
 export interface DescribeDomainAutoTunesCommandInput extends DescribeDomainAutoTunesRequest {}
+/**
+ * The output of {@link DescribeDomainAutoTunesCommand}.
+ */
 export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAutoTunesResponse, __MetadataBearer {}
 
 /**

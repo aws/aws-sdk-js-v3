@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetResolverCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetResolverCommand}.
+ */
 export interface GetResolverCommandInput extends GetResolverRequest {}
+/**
+ * The output of {@link GetResolverCommand}.
+ */
 export interface GetResolverCommandOutput extends GetResolverResponse, __MetadataBearer {}
 
 /**

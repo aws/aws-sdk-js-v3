@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteMLTransformCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteMLTransformCommand}.
+ */
 export interface DeleteMLTransformCommandInput extends DeleteMLTransformRequest {}
+/**
+ * The output of {@link DeleteMLTransformCommand}.
+ */
 export interface DeleteMLTransformCommandOutput extends DeleteMLTransformResponse, __MetadataBearer {}
 
 /**

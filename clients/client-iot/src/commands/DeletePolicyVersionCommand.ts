@@ -14,13 +14,19 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeletePolicyVersionRequest, DeletePolicyVersionRequestFilterSensitiveLog } from "../models/models_0";
+import { DeletePolicyVersionRequest, DeletePolicyVersionRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1DeletePolicyVersionCommand,
   serializeAws_restJson1DeletePolicyVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePolicyVersionCommand}.
+ */
 export interface DeletePolicyVersionCommandInput extends DeletePolicyVersionRequest {}
+/**
+ * The output of {@link DeletePolicyVersionCommand}.
+ */
 export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**

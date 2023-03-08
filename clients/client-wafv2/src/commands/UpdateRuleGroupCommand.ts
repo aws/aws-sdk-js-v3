@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * The input for {@link UpdateRuleGroupCommand}.
+ */
 export interface UpdateRuleGroupCommandInput extends UpdateRuleGroupRequest {}
+/**
+ * The output of {@link UpdateRuleGroupCommand}.
+ */
 export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, __MetadataBearer {}
 
 /**

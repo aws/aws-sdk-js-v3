@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1PutReportDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutReportDefinitionCommand}.
+ */
 export interface PutReportDefinitionCommandInput extends PutReportDefinitionRequest {}
+/**
+ * The output of {@link PutReportDefinitionCommand}.
+ */
 export interface PutReportDefinitionCommandOutput extends PutReportDefinitionResult, __MetadataBearer {}
 
 /**

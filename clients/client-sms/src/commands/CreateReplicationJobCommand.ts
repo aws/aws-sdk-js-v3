@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link CreateReplicationJobCommand}.
+ */
 export interface CreateReplicationJobCommandInput extends CreateReplicationJobRequest {}
+/**
+ * The output of {@link CreateReplicationJobCommand}.
+ */
 export interface CreateReplicationJobCommandOutput extends CreateReplicationJobResponse, __MetadataBearer {}
 
 /**

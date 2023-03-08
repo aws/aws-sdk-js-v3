@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateEntitiesFromExperienceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateEntitiesFromExperienceCommand}.
+ */
 export interface DisassociateEntitiesFromExperienceCommandInput extends DisassociateEntitiesFromExperienceRequest {}
+/**
+ * The output of {@link DisassociateEntitiesFromExperienceCommand}.
+ */
 export interface DisassociateEntitiesFromExperienceCommandOutput
   extends DisassociateEntitiesFromExperienceResponse,
     __MetadataBearer {}

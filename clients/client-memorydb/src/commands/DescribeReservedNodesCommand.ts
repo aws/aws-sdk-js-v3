@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeReservedNodesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeReservedNodesCommand}.
+ */
 export interface DescribeReservedNodesCommandInput extends DescribeReservedNodesRequest {}
+/**
+ * The output of {@link DescribeReservedNodesCommand}.
+ */
 export interface DescribeReservedNodesCommandOutput extends DescribeReservedNodesResponse, __MetadataBearer {}
 
 /**

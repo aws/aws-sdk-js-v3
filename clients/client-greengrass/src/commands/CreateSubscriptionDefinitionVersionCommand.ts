@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateSubscriptionDefinitionVersionCommand}.
+ */
 export interface CreateSubscriptionDefinitionVersionCommandInput extends CreateSubscriptionDefinitionVersionRequest {}
+/**
+ * The output of {@link CreateSubscriptionDefinitionVersionCommand}.
+ */
 export interface CreateSubscriptionDefinitionVersionCommandOutput
   extends CreateSubscriptionDefinitionVersionResponse,
     __MetadataBearer {}

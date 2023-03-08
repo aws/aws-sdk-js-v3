@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeCertificatesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeCertificatesCommand}.
+ */
 export interface DescribeCertificatesCommandInput extends DescribeCertificatesMessage {}
+/**
+ * The output of {@link DescribeCertificatesCommand}.
+ */
 export interface DescribeCertificatesCommandOutput extends CertificateMessage, __MetadataBearer {}
 
 /**

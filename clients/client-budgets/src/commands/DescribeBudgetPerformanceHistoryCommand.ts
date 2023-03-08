@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeBudgetPerformanceHistoryCommand}.
+ */
 export interface DescribeBudgetPerformanceHistoryCommandInput extends DescribeBudgetPerformanceHistoryRequest {}
+/**
+ * The output of {@link DescribeBudgetPerformanceHistoryCommand}.
+ */
 export interface DescribeBudgetPerformanceHistoryCommandOutput
   extends DescribeBudgetPerformanceHistoryResponse,
     __MetadataBearer {}

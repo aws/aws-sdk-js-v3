@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteForecastExportJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteForecastExportJobCommand}.
+ */
 export interface DeleteForecastExportJobCommandInput extends DeleteForecastExportJobRequest {}
+/**
+ * The output of {@link DeleteForecastExportJobCommand}.
+ */
 export interface DeleteForecastExportJobCommandOutput extends __MetadataBearer {}
 
 /**

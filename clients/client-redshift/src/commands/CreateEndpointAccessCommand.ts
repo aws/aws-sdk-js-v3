@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link CreateEndpointAccessCommand}.
+ */
 export interface CreateEndpointAccessCommandInput extends CreateEndpointAccessMessage {}
+/**
+ * The output of {@link CreateEndpointAccessCommand}.
+ */
 export interface CreateEndpointAccessCommandOutput extends EndpointAccess, __MetadataBearer {}
 
 /**

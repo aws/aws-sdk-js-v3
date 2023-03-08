@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1TestConnectionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link TestConnectionCommand}.
+ */
 export interface TestConnectionCommandInput extends TestConnectionMessage {}
+/**
+ * The output of {@link TestConnectionCommand}.
+ */
 export interface TestConnectionCommandOutput extends TestConnectionResponse, __MetadataBearer {}
 
 /**

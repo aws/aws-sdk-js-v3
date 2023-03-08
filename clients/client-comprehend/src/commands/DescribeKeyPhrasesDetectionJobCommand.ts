@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeKeyPhrasesDetectionJobCommand}.
+ */
 export interface DescribeKeyPhrasesDetectionJobCommandInput extends DescribeKeyPhrasesDetectionJobRequest {}
+/**
+ * The output of {@link DescribeKeyPhrasesDetectionJobCommand}.
+ */
 export interface DescribeKeyPhrasesDetectionJobCommandOutput
   extends DescribeKeyPhrasesDetectionJobResponse,
     __MetadataBearer {}

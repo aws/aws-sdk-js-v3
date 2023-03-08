@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateGatewayResponseCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateGatewayResponseCommand}.
+ */
 export interface UpdateGatewayResponseCommandInput extends UpdateGatewayResponseRequest {}
+/**
+ * The output of {@link UpdateGatewayResponseCommand}.
+ */
 export interface UpdateGatewayResponseCommandOutput extends GatewayResponse, __MetadataBearer {}
 
 /**

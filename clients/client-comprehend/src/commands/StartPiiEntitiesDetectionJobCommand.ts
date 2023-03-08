@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartPiiEntitiesDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartPiiEntitiesDetectionJobCommand}.
+ */
 export interface StartPiiEntitiesDetectionJobCommandInput extends StartPiiEntitiesDetectionJobRequest {}
+/**
+ * The output of {@link StartPiiEntitiesDetectionJobCommand}.
+ */
 export interface StartPiiEntitiesDetectionJobCommandOutput
   extends StartPiiEntitiesDetectionJobResponse,
     __MetadataBearer {}

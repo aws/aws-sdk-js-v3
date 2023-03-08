@@ -25,7 +25,13 @@ import {
   serializeAws_queryDetectStackSetDriftCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DetectStackSetDriftCommand}.
+ */
 export interface DetectStackSetDriftCommandInput extends DetectStackSetDriftInput {}
+/**
+ * The output of {@link DetectStackSetDriftCommand}.
+ */
 export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeVirtualInterfacesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeVirtualInterfacesCommand}.
+ */
 export interface DescribeVirtualInterfacesCommandInput extends DescribeVirtualInterfacesRequest {}
+/**
+ * The output of {@link DescribeVirtualInterfacesCommand}.
+ */
 export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterfaces, __MetadataBearer {}
 
 /**

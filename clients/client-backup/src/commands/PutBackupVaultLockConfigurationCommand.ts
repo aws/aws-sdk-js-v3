@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1PutBackupVaultLockConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutBackupVaultLockConfigurationCommand}.
+ */
 export interface PutBackupVaultLockConfigurationCommandInput extends PutBackupVaultLockConfigurationInput {}
+/**
+ * The output of {@link PutBackupVaultLockConfigurationCommand}.
+ */
 export interface PutBackupVaultLockConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

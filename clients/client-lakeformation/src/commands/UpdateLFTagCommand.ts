@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateLFTagCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateLFTagCommand}.
+ */
 export interface UpdateLFTagCommandInput extends UpdateLFTagRequest {}
+/**
+ * The output of {@link UpdateLFTagCommand}.
+ */
 export interface UpdateLFTagCommandOutput extends UpdateLFTagResponse, __MetadataBearer {}
 
 /**

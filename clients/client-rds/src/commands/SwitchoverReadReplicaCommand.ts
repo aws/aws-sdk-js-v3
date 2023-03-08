@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link SwitchoverReadReplicaCommand}.
+ */
 export interface SwitchoverReadReplicaCommandInput extends SwitchoverReadReplicaMessage {}
+/**
+ * The output of {@link SwitchoverReadReplicaCommand}.
+ */
 export interface SwitchoverReadReplicaCommandOutput extends SwitchoverReadReplicaResult, __MetadataBearer {}
 
 /**

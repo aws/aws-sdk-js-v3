@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1MergeBranchesByThreeWayCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link MergeBranchesByThreeWayCommand}.
+ */
 export interface MergeBranchesByThreeWayCommandInput extends MergeBranchesByThreeWayInput {}
+/**
+ * The output of {@link MergeBranchesByThreeWayCommand}.
+ */
 export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThreeWayOutput, __MetadataBearer {}
 
 /**

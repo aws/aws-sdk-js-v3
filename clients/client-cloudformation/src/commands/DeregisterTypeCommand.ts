@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeregisterTypeCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeregisterTypeCommand}.
+ */
 export interface DeregisterTypeCommandInput extends DeregisterTypeInput {}
+/**
+ * The output of {@link DeregisterTypeCommand}.
+ */
 export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __MetadataBearer {}
 
 /**

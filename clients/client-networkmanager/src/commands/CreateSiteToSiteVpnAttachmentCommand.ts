@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateSiteToSiteVpnAttachmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateSiteToSiteVpnAttachmentCommand}.
+ */
 export interface CreateSiteToSiteVpnAttachmentCommandInput extends CreateSiteToSiteVpnAttachmentRequest {}
+/**
+ * The output of {@link CreateSiteToSiteVpnAttachmentCommand}.
+ */
 export interface CreateSiteToSiteVpnAttachmentCommandOutput
   extends CreateSiteToSiteVpnAttachmentResponse,
     __MetadataBearer {}

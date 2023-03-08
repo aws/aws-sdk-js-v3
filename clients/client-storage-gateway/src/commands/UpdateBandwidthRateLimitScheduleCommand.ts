@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link UpdateBandwidthRateLimitScheduleCommand}.
+ */
 export interface UpdateBandwidthRateLimitScheduleCommandInput extends UpdateBandwidthRateLimitScheduleInput {}
+/**
+ * The output of {@link UpdateBandwidthRateLimitScheduleCommand}.
+ */
 export interface UpdateBandwidthRateLimitScheduleCommandOutput
   extends UpdateBandwidthRateLimitScheduleOutput,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateBuildCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateBuildCommand}.
+ */
 export interface UpdateBuildCommandInput extends UpdateBuildInput {}
+/**
+ * The output of {@link UpdateBuildCommand}.
+ */
 export interface UpdateBuildCommandOutput extends UpdateBuildOutput, __MetadataBearer {}
 
 /**

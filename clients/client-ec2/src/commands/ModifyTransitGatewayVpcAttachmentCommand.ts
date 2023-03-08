@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyTransitGatewayVpcAttachmentCommand}.
+ */
 export interface ModifyTransitGatewayVpcAttachmentCommandInput extends ModifyTransitGatewayVpcAttachmentRequest {}
+/**
+ * The output of {@link ModifyTransitGatewayVpcAttachmentCommand}.
+ */
 export interface ModifyTransitGatewayVpcAttachmentCommandOutput
   extends ModifyTransitGatewayVpcAttachmentResult,
     __MetadataBearer {}

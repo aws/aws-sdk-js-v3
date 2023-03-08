@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutRoomSkillParameterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutRoomSkillParameterCommand}.
+ */
 export interface PutRoomSkillParameterCommandInput extends PutRoomSkillParameterRequest {}
+/**
+ * The output of {@link PutRoomSkillParameterCommand}.
+ */
 export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParameterResponse, __MetadataBearer {}
 
 /**

@@ -27,7 +27,13 @@ import {
   serializeAws_ec2DeleteTrafficMirrorSessionCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteTrafficMirrorSessionCommand}.
+ */
 export interface DeleteTrafficMirrorSessionCommandInput extends DeleteTrafficMirrorSessionRequest {}
+/**
+ * The output of {@link DeleteTrafficMirrorSessionCommand}.
+ */
 export interface DeleteTrafficMirrorSessionCommandOutput extends DeleteTrafficMirrorSessionResult, __MetadataBearer {}
 
 /**

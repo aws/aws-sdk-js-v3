@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateCodeReviewCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateCodeReviewCommand}.
+ */
 export interface CreateCodeReviewCommandInput extends CreateCodeReviewRequest {}
+/**
+ * The output of {@link CreateCodeReviewCommand}.
+ */
 export interface CreateCodeReviewCommandOutput extends CreateCodeReviewResponse, __MetadataBearer {}
 
 /**

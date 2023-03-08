@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeCertificateAuthorityAuditReportCommand}.
+ */
 export interface DescribeCertificateAuthorityAuditReportCommandInput
   extends DescribeCertificateAuthorityAuditReportRequest {}
+/**
+ * The output of {@link DescribeCertificateAuthorityAuditReportCommand}.
+ */
 export interface DescribeCertificateAuthorityAuditReportCommandOutput
   extends DescribeCertificateAuthorityAuditReportResponse,
     __MetadataBearer {}

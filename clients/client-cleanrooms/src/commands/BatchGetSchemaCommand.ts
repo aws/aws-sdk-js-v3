@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchGetSchemaCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchGetSchemaCommand}.
+ */
 export interface BatchGetSchemaCommandInput extends BatchGetSchemaInput {}
+/**
+ * The output of {@link BatchGetSchemaCommand}.
+ */
 export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __MetadataBearer {}
 
 /**

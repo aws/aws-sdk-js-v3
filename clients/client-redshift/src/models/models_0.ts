@@ -1118,7 +1118,7 @@ export interface AuthorizeSnapshotAccessMessage {
 
   /**
    * <p>The identifier of the cluster the snapshot was created from. This parameter is
-   *             required if your IAM user has a policy containing a snapshot resource element that
+   *             required if your IAM user or role has a policy containing a snapshot resource element that
    *             specifies anything other than * for the cluster name.</p>
    */
   SnapshotClusterIdentifier?: string;
@@ -1468,7 +1468,7 @@ export interface DeleteClusterSnapshotMessage {
 
   /**
    * <p>The unique identifier of the cluster the snapshot was created from. This parameter
-   *             is required if your IAM user has a policy containing a snapshot resource element that
+   *             is required if your IAM user or role has a policy containing a snapshot resource element that
    *             specifies anything other than * for the cluster name.</p>
    *          <p>Constraints: Must be the name of valid cluster.</p>
    */
@@ -3482,7 +3482,7 @@ export interface CopyClusterSnapshotMessage {
 
   /**
    * <p>The identifier of the cluster the source snapshot was created from. This parameter
-   *             is required if your IAM user has a policy containing a snapshot resource element that
+   *             is required if your IAM user or role has a policy containing a snapshot resource element that
    *             specifies anything other than * for the cluster name.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -3687,7 +3687,7 @@ export interface CreateClusterMessage {
   NodeType: string | undefined;
 
   /**
-   * <p>The user name associated with the admin user account for the cluster that is being
+   * <p>The user name associated with the admin user for the cluster that is being
    *             created.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -3713,7 +3713,7 @@ export interface CreateClusterMessage {
   MasterUsername: string | undefined;
 
   /**
-   * <p>The password associated with the admin user account for the cluster that is being
+   * <p>The password associated with the admin user for the cluster that is being
    *             created.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -6791,7 +6791,7 @@ export interface DescribeClusterSnapshotsMessage {
    *             set of records by retrying the command with the returned marker value. </p>
    *          <p>Default: <code>100</code>
    *          </p>
-   *          <p>Constraints: minimum 20, maximum 100.</p>
+   *          <p>Constraints: minimum 20, maximum 500.</p>
    */
   MaxRecords?: number;
 

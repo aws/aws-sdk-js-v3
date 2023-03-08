@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_json1_1GetSchemaCommand, serializeAws_json1_1GetSchemaCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetSchemaCommand}.
+ */
 export interface GetSchemaCommandInput extends GetSchemaInput {}
+/**
+ * The output of {@link GetSchemaCommand}.
+ */
 export interface GetSchemaCommandOutput extends GetSchemaResponse, __MetadataBearer {}
 
 /**

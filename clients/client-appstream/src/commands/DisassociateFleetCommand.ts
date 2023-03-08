@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateFleetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateFleetCommand}.
+ */
 export interface DisassociateFleetCommandInput extends DisassociateFleetRequest {}
+/**
+ * The output of {@link DisassociateFleetCommand}.
+ */
 export interface DisassociateFleetCommandOutput extends DisassociateFleetResult, __MetadataBearer {}
 
 /**

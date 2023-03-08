@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link DeleteUserAccessLoggingSettingsCommand}.
+ */
 export interface DeleteUserAccessLoggingSettingsCommandInput extends DeleteUserAccessLoggingSettingsRequest {}
+/**
+ * The output of {@link DeleteUserAccessLoggingSettingsCommand}.
+ */
 export interface DeleteUserAccessLoggingSettingsCommandOutput
   extends DeleteUserAccessLoggingSettingsResponse,
     __MetadataBearer {}

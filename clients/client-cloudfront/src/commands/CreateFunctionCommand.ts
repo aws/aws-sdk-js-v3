@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlCreateFunctionCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link CreateFunctionCommand}.
+ */
 export interface CreateFunctionCommandInput extends CreateFunctionRequest {}
+/**
+ * The output of {@link CreateFunctionCommand}.
+ */
 export interface CreateFunctionCommandOutput extends CreateFunctionResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartSchemaCreationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartSchemaCreationCommand}.
+ */
 export interface StartSchemaCreationCommandInput extends StartSchemaCreationRequest {}
+/**
+ * The output of {@link StartSchemaCreationCommand}.
+ */
 export interface StartSchemaCreationCommandOutput extends StartSchemaCreationResponse, __MetadataBearer {}
 
 /**

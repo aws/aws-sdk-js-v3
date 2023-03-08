@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RestorePhoneNumberCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RestorePhoneNumberCommand}.
+ */
 export interface RestorePhoneNumberCommandInput extends RestorePhoneNumberRequest {}
+/**
+ * The output of {@link RestorePhoneNumberCommand}.
+ */
 export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberResponse, __MetadataBearer {}
 
 export class RestorePhoneNumberCommand extends $Command<

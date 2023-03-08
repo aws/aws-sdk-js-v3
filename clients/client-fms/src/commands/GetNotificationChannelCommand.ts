@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetNotificationChannelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetNotificationChannelCommand}.
+ */
 export interface GetNotificationChannelCommandInput extends GetNotificationChannelRequest {}
+/**
+ * The output of {@link GetNotificationChannelCommand}.
+ */
 export interface GetNotificationChannelCommandOutput extends GetNotificationChannelResponse, __MetadataBearer {}
 
 /**

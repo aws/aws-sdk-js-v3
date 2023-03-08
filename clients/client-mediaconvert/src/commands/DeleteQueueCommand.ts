@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteQueueCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteQueueCommand}.
+ */
 export interface DeleteQueueCommandInput extends DeleteQueueRequest {}
+/**
+ * The output of {@link DeleteQueueCommand}.
+ */
 export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __MetadataBearer {}
 
 /**

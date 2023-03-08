@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetStageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetStageCommand}.
+ */
 export interface GetStageCommandInput extends GetStageRequest {}
+/**
+ * The output of {@link GetStageCommand}.
+ */
 export interface GetStageCommandOutput extends GetStageResult, __MetadataBearer {}
 
 /**

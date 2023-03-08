@@ -24,7 +24,13 @@ import {
   serializeAws_restJson1DeleteChannelFlowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteChannelFlowCommand}.
+ */
 export interface DeleteChannelFlowCommandInput extends DeleteChannelFlowRequest {}
+/**
+ * The output of {@link DeleteChannelFlowCommand}.
+ */
 export interface DeleteChannelFlowCommandOutput extends __MetadataBearer {}
 
 /**

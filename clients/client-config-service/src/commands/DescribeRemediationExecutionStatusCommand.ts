@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeRemediationExecutionStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeRemediationExecutionStatusCommand}.
+ */
 export interface DescribeRemediationExecutionStatusCommandInput extends DescribeRemediationExecutionStatusRequest {}
+/**
+ * The output of {@link DescribeRemediationExecutionStatusCommand}.
+ */
 export interface DescribeRemediationExecutionStatusCommandOutput
   extends DescribeRemediationExecutionStatusResponse,
     __MetadataBearer {}

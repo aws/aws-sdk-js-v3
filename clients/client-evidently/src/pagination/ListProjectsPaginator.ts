@@ -6,7 +6,6 @@ import {
   ListProjectsCommandInput,
   ListProjectsCommandOutput,
 } from "../commands/ListProjectsCommand";
-import { Evidently } from "../Evidently";
 import { EvidentlyClient } from "../EvidentlyClient";
 import { EvidentlyPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListProjectsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Evidently,
-  input: ListProjectsCommandInput,
-  ...args: any
-): Promise<ListProjectsCommandOutput> => {
-  // @ts-ignore
-  return await client.listProjects(input, ...args);
-};
 export async function* paginateListProjects(
   config: EvidentlyPaginationConfiguration,
   input: ListProjectsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListProjects(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Evidently) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EvidentlyClient) {
+    if (config.client instanceof EvidentlyClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Evidently | EvidentlyClient");

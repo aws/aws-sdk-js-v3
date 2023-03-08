@@ -31,7 +31,13 @@ import {
   TranscribeStreamingClientResolvedConfig,
 } from "../TranscribeStreamingClient";
 
+/**
+ * The input for {@link StartMedicalStreamTranscriptionCommand}.
+ */
 export interface StartMedicalStreamTranscriptionCommandInput extends StartMedicalStreamTranscriptionRequest {}
+/**
+ * The output of {@link StartMedicalStreamTranscriptionCommand}.
+ */
 export interface StartMedicalStreamTranscriptionCommandOutput
   extends StartMedicalStreamTranscriptionResponse,
     __MetadataBearer {}

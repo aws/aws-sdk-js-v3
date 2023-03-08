@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetReplicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetReplicationConfigurationCommand}.
+ */
 export interface GetReplicationConfigurationCommandInput extends GetReplicationConfigurationRequest {}
+/**
+ * The output of {@link GetReplicationConfigurationCommand}.
+ */
 export interface GetReplicationConfigurationCommandOutput extends ReplicationConfiguration, __MetadataBearer {}
 
 /**

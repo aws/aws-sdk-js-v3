@@ -23,7 +23,13 @@ import {
   serializeAws_queryDescribeMetricCollectionTypesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeMetricCollectionTypesCommand}.
+ */
 export interface DescribeMetricCollectionTypesCommandInput {}
+/**
+ * The output of {@link DescribeMetricCollectionTypesCommand}.
+ */
 export interface DescribeMetricCollectionTypesCommandOutput
   extends DescribeMetricCollectionTypesAnswer,
     __MetadataBearer {}

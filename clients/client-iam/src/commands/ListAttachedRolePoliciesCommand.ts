@@ -25,7 +25,13 @@ import {
   serializeAws_queryListAttachedRolePoliciesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListAttachedRolePoliciesCommand}.
+ */
 export interface ListAttachedRolePoliciesCommandInput extends ListAttachedRolePoliciesRequest {}
+/**
+ * The output of {@link ListAttachedRolePoliciesCommand}.
+ */
 export interface ListAttachedRolePoliciesCommandOutput extends ListAttachedRolePoliciesResponse, __MetadataBearer {}
 
 /**

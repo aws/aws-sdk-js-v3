@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListEmailIdentitiesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListEmailIdentitiesCommand}.
+ */
 export interface ListEmailIdentitiesCommandInput extends ListEmailIdentitiesRequest {}
+/**
+ * The output of {@link ListEmailIdentitiesCommand}.
+ */
 export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesResponse, __MetadataBearer {}
 
 /**

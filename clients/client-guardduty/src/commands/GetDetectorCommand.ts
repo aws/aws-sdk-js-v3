@@ -25,11 +25,20 @@ import {
   serializeAws_restJson1GetDetectorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDetectorCommand}.
+ */
 export interface GetDetectorCommandInput extends GetDetectorRequest {}
+/**
+ * The output of {@link GetDetectorCommand}.
+ */
 export interface GetDetectorCommandOutput extends GetDetectorResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves an Amazon GuardDuty detector specified by the detectorId.</p>
+ *          <p>There might be regional differences because some data sources might not be
+ *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+ *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

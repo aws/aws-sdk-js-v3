@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeLocalGatewaysCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeLocalGatewaysCommand}.
+ */
 export interface DescribeLocalGatewaysCommandInput extends DescribeLocalGatewaysRequest {}
+/**
+ * The output of {@link DescribeLocalGatewaysCommand}.
+ */
 export interface DescribeLocalGatewaysCommandOutput extends DescribeLocalGatewaysResult, __MetadataBearer {}
 
 /**

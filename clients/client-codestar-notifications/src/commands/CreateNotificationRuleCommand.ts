@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CreateNotificationRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateNotificationRuleCommand}.
+ */
 export interface CreateNotificationRuleCommandInput extends CreateNotificationRuleRequest {}
+/**
+ * The output of {@link CreateNotificationRuleCommand}.
+ */
 export interface CreateNotificationRuleCommandOutput extends CreateNotificationRuleResult, __MetadataBearer {}
 
 /**

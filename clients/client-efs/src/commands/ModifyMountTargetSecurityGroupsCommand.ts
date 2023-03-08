@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ModifyMountTargetSecurityGroupsCommand}.
+ */
 export interface ModifyMountTargetSecurityGroupsCommandInput extends ModifyMountTargetSecurityGroupsRequest {}
+/**
+ * The output of {@link ModifyMountTargetSecurityGroupsCommand}.
+ */
 export interface ModifyMountTargetSecurityGroupsCommandOutput extends __MetadataBearer {}
 
 /**

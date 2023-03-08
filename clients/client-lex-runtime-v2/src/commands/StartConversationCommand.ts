@@ -27,7 +27,13 @@ import {
   serializeAws_restJson1StartConversationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartConversationCommand}.
+ */
 export interface StartConversationCommandInput extends StartConversationRequest {}
+/**
+ * The output of {@link StartConversationCommand}.
+ */
 export interface StartConversationCommandOutput extends StartConversationResponse, __MetadataBearer {}
 
 /**

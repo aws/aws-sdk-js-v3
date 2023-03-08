@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { AccessAnalyzer } from "../AccessAnalyzer";
 import { AccessAnalyzerClient } from "../AccessAnalyzerClient";
 import {
   ListArchiveRulesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListArchiveRulesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: AccessAnalyzer,
-  input: ListArchiveRulesCommandInput,
-  ...args: any
-): Promise<ListArchiveRulesCommandOutput> => {
-  // @ts-ignore
-  return await client.listArchiveRules(input, ...args);
-};
 export async function* paginateListArchiveRules(
   config: AccessAnalyzerPaginationConfiguration,
   input: ListArchiveRulesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListArchiveRules(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof AccessAnalyzer) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AccessAnalyzerClient) {
+    if (config.client instanceof AccessAnalyzerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AccessAnalyzer | AccessAnalyzerClient");

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link BatchGetMetricDataCommand}.
+ */
 export interface BatchGetMetricDataCommandInput extends BatchGetMetricDataRequest {}
+/**
+ * The output of {@link BatchGetMetricDataCommand}.
+ */
 export interface BatchGetMetricDataCommandOutput extends BatchGetMetricDataResponse, __MetadataBearer {}
 
 /**

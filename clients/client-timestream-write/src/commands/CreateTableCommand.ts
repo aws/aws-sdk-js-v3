@@ -26,19 +26,22 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
+/**
+ * The input for {@link CreateTableCommand}.
+ */
 export interface CreateTableCommandInput extends CreateTableRequest {}
+/**
+ * The output of {@link CreateTableCommand}.
+ */
 export interface CreateTableCommandOutput extends CreateTableResponse, __MetadataBearer {}
 
 /**
- * <p>The CreateTable operation adds a new table to an existing database in your account. In an Amazon Web Services account,
- *       table names must be at least unique within each Region if they are in the same database.
- *       You may have identical table names in the same Region if the tables are in separate databases.
- *          While creating the table, you must specify the table name, database name,
- *          and the retention properties.
- *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>.
- *          See
- *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-table.html">code sample</a> for details.
- *          </p>
+ * <p>Adds a new table to an existing database in your account. In an Amazon Web Services account, table names must be at least unique within each Region if they are in the same
+ *          database. You might have identical table names in the same Region if the tables are in
+ *          separate databases. While creating the table, you must specify the table name, database
+ *          name, and the retention properties. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
+ *             <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-table.html">code
+ *             sample</a> for details. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

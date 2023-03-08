@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartJobCommand}.
+ */
 export interface StartJobCommandInput extends StartJobRequest {}
+/**
+ * The output of {@link StartJobCommand}.
+ */
 export interface StartJobCommandOutput extends StartJobResponse, __MetadataBearer {}
 
 /**

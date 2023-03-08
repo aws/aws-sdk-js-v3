@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeEngineVersionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeEngineVersionsCommand}.
+ */
 export interface DescribeEngineVersionsCommandInput extends DescribeEngineVersionsRequest {}
+/**
+ * The output of {@link DescribeEngineVersionsCommand}.
+ */
 export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersionsResponse, __MetadataBearer {}
 
 /**

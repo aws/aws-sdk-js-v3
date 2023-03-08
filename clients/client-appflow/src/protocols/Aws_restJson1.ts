@@ -3183,6 +3183,9 @@ const serializeAws_restJson1SalesforceConnectorProfileProperties = (
   return {
     ...(input.instanceUrl != null && { instanceUrl: input.instanceUrl }),
     ...(input.isSandboxEnvironment != null && { isSandboxEnvironment: input.isSandboxEnvironment }),
+    ...(input.usePrivateLinkForMetadataAndAuthorization != null && {
+      usePrivateLinkForMetadataAndAuthorization: input.usePrivateLinkForMetadataAndAuthorization,
+    }),
   };
 };
 
@@ -5142,6 +5145,7 @@ const deserializeAws_restJson1SalesforceConnectorProfileProperties = (
   return {
     instanceUrl: __expectString(output.instanceUrl),
     isSandboxEnvironment: __expectBoolean(output.isSandboxEnvironment),
+    usePrivateLinkForMetadataAndAuthorization: __expectBoolean(output.usePrivateLinkForMetadataAndAuthorization),
   } as any;
 };
 

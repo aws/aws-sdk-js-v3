@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetLexiconCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetLexiconCommand}.
+ */
 export interface GetLexiconCommandInput extends GetLexiconInput {}
+/**
+ * The output of {@link GetLexiconCommand}.
+ */
 export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBearer {}
 
 /**

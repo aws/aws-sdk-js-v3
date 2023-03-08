@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link SimpleScalarXmlPropertiesCommand}.
+ */
 export interface SimpleScalarXmlPropertiesCommandInput {}
+/**
+ * The output of {@link SimpleScalarXmlPropertiesCommand}.
+ */
 export interface SimpleScalarXmlPropertiesCommandOutput extends SimpleScalarXmlPropertiesOutput, __MetadataBearer {}
 
 export class SimpleScalarXmlPropertiesCommand extends $Command<

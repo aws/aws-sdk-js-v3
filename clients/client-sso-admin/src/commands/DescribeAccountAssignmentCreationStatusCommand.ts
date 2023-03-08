@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
+/**
+ * The input for {@link DescribeAccountAssignmentCreationStatusCommand}.
+ */
 export interface DescribeAccountAssignmentCreationStatusCommandInput
   extends DescribeAccountAssignmentCreationStatusRequest {}
+/**
+ * The output of {@link DescribeAccountAssignmentCreationStatusCommand}.
+ */
 export interface DescribeAccountAssignmentCreationStatusCommandOutput
   extends DescribeAccountAssignmentCreationStatusResponse,
     __MetadataBearer {}

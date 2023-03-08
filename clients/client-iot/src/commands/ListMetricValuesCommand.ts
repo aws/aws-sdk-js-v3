@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListMetricValuesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListMetricValuesCommand}.
+ */
 export interface ListMetricValuesCommandInput extends ListMetricValuesRequest {}
+/**
+ * The output of {@link ListMetricValuesCommand}.
+ */
 export interface ListMetricValuesCommandOutput extends ListMetricValuesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeVirtualGatewayCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeVirtualGatewayCommand}.
+ */
 export interface DescribeVirtualGatewayCommandInput extends DescribeVirtualGatewayInput {}
+/**
+ * The output of {@link DescribeVirtualGatewayCommand}.
+ */
 export interface DescribeVirtualGatewayCommandOutput extends DescribeVirtualGatewayOutput, __MetadataBearer {}
 
 /**

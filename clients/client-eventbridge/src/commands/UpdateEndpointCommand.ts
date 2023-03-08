@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateEndpointCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateEndpointCommand}.
+ */
 export interface UpdateEndpointCommandInput extends UpdateEndpointRequest {}
+/**
+ * The output of {@link UpdateEndpointCommand}.
+ */
 export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __MetadataBearer {}
 
 /**

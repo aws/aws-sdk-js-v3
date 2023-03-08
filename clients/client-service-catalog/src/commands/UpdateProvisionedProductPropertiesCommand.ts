@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link UpdateProvisionedProductPropertiesCommand}.
+ */
 export interface UpdateProvisionedProductPropertiesCommandInput extends UpdateProvisionedProductPropertiesInput {}
+/**
+ * The output of {@link UpdateProvisionedProductPropertiesCommand}.
+ */
 export interface UpdateProvisionedProductPropertiesCommandOutput
   extends UpdateProvisionedProductPropertiesOutput,
     __MetadataBearer {}

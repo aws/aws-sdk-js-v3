@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateEntityCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateEntityCommand}.
+ */
 export interface UpdateEntityCommandInput extends UpdateEntityRequest {}
+/**
+ * The output of {@link UpdateEntityCommand}.
+ */
 export interface UpdateEntityCommandOutput extends UpdateEntityResponse, __MetadataBearer {}
 
 /**

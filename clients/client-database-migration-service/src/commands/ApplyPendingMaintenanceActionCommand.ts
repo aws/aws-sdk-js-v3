@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ApplyPendingMaintenanceActionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ApplyPendingMaintenanceActionCommand}.
+ */
 export interface ApplyPendingMaintenanceActionCommandInput extends ApplyPendingMaintenanceActionMessage {}
+/**
+ * The output of {@link ApplyPendingMaintenanceActionCommand}.
+ */
 export interface ApplyPendingMaintenanceActionCommandOutput
   extends ApplyPendingMaintenanceActionResponse,
     __MetadataBearer {}

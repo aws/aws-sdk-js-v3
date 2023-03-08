@@ -26,7 +26,13 @@ import {
   serializeAws_queryCopyDBClusterSnapshotCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CopyDBClusterSnapshotCommand}.
+ */
 export interface CopyDBClusterSnapshotCommandInput extends CopyDBClusterSnapshotMessage {}
+/**
+ * The output of {@link CopyDBClusterSnapshotCommand}.
+ */
 export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapshotResult, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DeleteClusterSecurityGroupCommand}.
+ */
 export interface DeleteClusterSecurityGroupCommandInput extends DeleteClusterSecurityGroupMessage {}
+/**
+ * The output of {@link DeleteClusterSecurityGroupCommand}.
+ */
 export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**

@@ -19,12 +19,18 @@ import {
   serializeAws_json1_1DeleteResourcePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteResourcePolicyCommand}.
+ */
 export interface DeleteResourcePolicyCommandInput {}
+/**
+ * The output of {@link DeleteResourcePolicyCommand}.
+ */
 export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the resource policy from your organization.</p>
- *         <p>You can only call this operation from the organization's management account.</p>
+ *          <p>You can only call this operation from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

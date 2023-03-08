@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link ListInferenceRecommendationsJobStepsCommand}.
+ */
 export interface ListInferenceRecommendationsJobStepsCommandInput extends ListInferenceRecommendationsJobStepsRequest {}
+/**
+ * The output of {@link ListInferenceRecommendationsJobStepsCommand}.
+ */
 export interface ListInferenceRecommendationsJobStepsCommandOutput
   extends ListInferenceRecommendationsJobStepsResponse,
     __MetadataBearer {}

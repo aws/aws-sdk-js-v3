@@ -6,7 +6,6 @@ import {
   SearchDataSetsCommandInput,
   SearchDataSetsCommandOutput,
 } from "../commands/SearchDataSetsCommand";
-import { QuickSight } from "../QuickSight";
 import { QuickSightClient } from "../QuickSightClient";
 import { QuickSightPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchDataSetsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: QuickSight,
-  input: SearchDataSetsCommandInput,
-  ...args: any
-): Promise<SearchDataSetsCommandOutput> => {
-  // @ts-ignore
-  return await client.searchDataSets(input, ...args);
-};
 export async function* paginateSearchDataSets(
   config: QuickSightPaginationConfiguration,
   input: SearchDataSetsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateSearchDataSets(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof QuickSight) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof QuickSightClient) {
+    if (config.client instanceof QuickSightClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected QuickSight | QuickSightClient");

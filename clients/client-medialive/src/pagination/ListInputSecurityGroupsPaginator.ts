@@ -6,7 +6,6 @@ import {
   ListInputSecurityGroupsCommandInput,
   ListInputSecurityGroupsCommandOutput,
 } from "../commands/ListInputSecurityGroupsCommand";
-import { MediaLive } from "../MediaLive";
 import { MediaLiveClient } from "../MediaLiveClient";
 import { MediaLivePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListInputSecurityGroupsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: MediaLive,
-  input: ListInputSecurityGroupsCommandInput,
-  ...args: any
-): Promise<ListInputSecurityGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listInputSecurityGroups(input, ...args);
-};
 export async function* paginateListInputSecurityGroups(
   config: MediaLivePaginationConfiguration,
   input: ListInputSecurityGroupsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListInputSecurityGroups(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MediaLive) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MediaLiveClient) {
+    if (config.client instanceof MediaLiveClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MediaLive | MediaLiveClient");

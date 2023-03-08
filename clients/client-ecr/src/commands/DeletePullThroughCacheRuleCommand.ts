@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeletePullThroughCacheRuleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeletePullThroughCacheRuleCommand}.
+ */
 export interface DeletePullThroughCacheRuleCommandInput extends DeletePullThroughCacheRuleRequest {}
+/**
+ * The output of {@link DeletePullThroughCacheRuleCommand}.
+ */
 export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThroughCacheRuleResponse, __MetadataBearer {}
 
 /**

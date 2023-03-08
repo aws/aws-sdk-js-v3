@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1UpdateUserSecurityProfilesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateUserSecurityProfilesCommand}.
+ */
 export interface UpdateUserSecurityProfilesCommandInput extends UpdateUserSecurityProfilesRequest {}
+/**
+ * The output of {@link UpdateUserSecurityProfilesCommand}.
+ */
 export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBearer {}
 
 /**

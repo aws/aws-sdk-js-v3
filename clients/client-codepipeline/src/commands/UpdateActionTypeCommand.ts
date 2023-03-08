@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateActionTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateActionTypeCommand}.
+ */
 export interface UpdateActionTypeCommandInput extends UpdateActionTypeInput {}
+/**
+ * The output of {@link UpdateActionTypeCommand}.
+ */
 export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link CreateModelCommand}.
+ */
 export interface CreateModelCommandInput extends CreateModelInput {}
+/**
+ * The output of {@link CreateModelCommand}.
+ */
 export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataBearer {}
 
 /**

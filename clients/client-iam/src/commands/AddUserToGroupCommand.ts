@@ -20,7 +20,13 @@ import {
   serializeAws_queryAddUserToGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link AddUserToGroupCommand}.
+ */
 export interface AddUserToGroupCommandInput extends AddUserToGroupRequest {}
+/**
+ * The output of {@link AddUserToGroupCommand}.
+ */
 export interface AddUserToGroupCommandOutput extends __MetadataBearer {}
 
 /**

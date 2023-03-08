@@ -20,7 +20,13 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+/**
+ * The input for {@link LengthCommand}.
+ */
 export interface LengthCommandInput extends LengthInput {}
+/**
+ * The output of {@link LengthCommand}.
+ */
 export interface LengthCommandOutput extends LengthOutput, __MetadataBearer {}
 
 export class LengthCommand extends $Command<LengthCommandInput, LengthCommandOutput, EchoServiceClientResolvedConfig> {

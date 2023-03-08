@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link DeleteCertificateCommand}.
+ */
 export interface DeleteCertificateCommandInput extends DeleteCertificateRequest {}
+/**
+ * The output of {@link DeleteCertificateCommand}.
+ */
 export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
 
 /**

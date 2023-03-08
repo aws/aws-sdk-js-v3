@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListElasticsearchInstanceTypesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListElasticsearchInstanceTypesCommand}.
+ */
 export interface ListElasticsearchInstanceTypesCommandInput extends ListElasticsearchInstanceTypesRequest {}
+/**
+ * The output of {@link ListElasticsearchInstanceTypesCommand}.
+ */
 export interface ListElasticsearchInstanceTypesCommandOutput
   extends ListElasticsearchInstanceTypesResponse,
     __MetadataBearer {}

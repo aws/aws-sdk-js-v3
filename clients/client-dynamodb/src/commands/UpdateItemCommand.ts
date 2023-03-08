@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0UpdateItemCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateItemCommand}.
+ */
 export interface UpdateItemCommandInput extends UpdateItemInput {}
+/**
+ * The output of {@link UpdateItemCommand}.
+ */
 export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBearer {}
 
 /**
@@ -34,7 +40,7 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  *             conditional update on an existing item (insert a new attribute name-value pair if it
  *             doesn't exist, or replace an existing name-value pair if it has certain expected
  *             attribute values).</p>
- *         <p>You can also return the item's attribute values in the same <code>UpdateItem</code>
+ *          <p>You can also return the item's attribute values in the same <code>UpdateItem</code>
  *             operation using the <code>ReturnValues</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

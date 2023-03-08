@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetBucketEncryptionCommand}.
+ */
 export interface GetBucketEncryptionCommandInput extends GetBucketEncryptionRequest {}
+/**
+ * The output of {@link GetBucketEncryptionCommand}.
+ */
 export interface GetBucketEncryptionCommandOutput extends GetBucketEncryptionOutput, __MetadataBearer {}
 
 /**

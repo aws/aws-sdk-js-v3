@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link DeleteCustomVerificationEmailTemplateCommand}.
+ */
 export interface DeleteCustomVerificationEmailTemplateCommandInput
   extends DeleteCustomVerificationEmailTemplateRequest {}
+/**
+ * The output of {@link DeleteCustomVerificationEmailTemplateCommand}.
+ */
 export interface DeleteCustomVerificationEmailTemplateCommandOutput
   extends DeleteCustomVerificationEmailTemplateResponse,
     __MetadataBearer {}

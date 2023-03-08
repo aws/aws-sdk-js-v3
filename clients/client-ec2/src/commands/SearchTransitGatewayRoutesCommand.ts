@@ -25,7 +25,13 @@ import {
   serializeAws_ec2SearchTransitGatewayRoutesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link SearchTransitGatewayRoutesCommand}.
+ */
 export interface SearchTransitGatewayRoutesCommandInput extends SearchTransitGatewayRoutesRequest {}
+/**
+ * The output of {@link SearchTransitGatewayRoutesCommand}.
+ */
 export interface SearchTransitGatewayRoutesCommandOutput extends SearchTransitGatewayRoutesResult, __MetadataBearer {}
 
 /**

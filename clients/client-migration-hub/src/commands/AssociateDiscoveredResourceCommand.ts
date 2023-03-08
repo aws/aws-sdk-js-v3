@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateDiscoveredResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateDiscoveredResourceCommand}.
+ */
 export interface AssociateDiscoveredResourceCommandInput extends AssociateDiscoveredResourceRequest {}
+/**
+ * The output of {@link AssociateDiscoveredResourceCommand}.
+ */
 export interface AssociateDiscoveredResourceCommandOutput extends AssociateDiscoveredResourceResult, __MetadataBearer {}
 
 /**

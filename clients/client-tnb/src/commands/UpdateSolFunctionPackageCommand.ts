@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
+/**
+ * The input for {@link UpdateSolFunctionPackageCommand}.
+ */
 export interface UpdateSolFunctionPackageCommandInput extends UpdateSolFunctionPackageInput {}
+/**
+ * The output of {@link UpdateSolFunctionPackageCommand}.
+ */
 export interface UpdateSolFunctionPackageCommandOutput extends UpdateSolFunctionPackageOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateStreamingURLCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateStreamingURLCommand}.
+ */
 export interface CreateStreamingURLCommandInput extends CreateStreamingURLRequest {}
+/**
+ * The output of {@link CreateStreamingURLCommand}.
+ */
 export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResult, __MetadataBearer {}
 
 /**

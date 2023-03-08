@@ -23,7 +23,13 @@ import {
   serializeAws_restXmlDeleteStreamingDistributionCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link DeleteStreamingDistributionCommand}.
+ */
 export interface DeleteStreamingDistributionCommandInput extends DeleteStreamingDistributionRequest {}
+/**
+ * The output of {@link DeleteStreamingDistributionCommand}.
+ */
 export interface DeleteStreamingDistributionCommandOutput extends __MetadataBearer {}
 
 /**

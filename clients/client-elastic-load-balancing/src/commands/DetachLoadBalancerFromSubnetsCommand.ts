@@ -29,7 +29,13 @@ import {
   serializeAws_queryDetachLoadBalancerFromSubnetsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DetachLoadBalancerFromSubnetsCommand}.
+ */
 export interface DetachLoadBalancerFromSubnetsCommandInput extends DetachLoadBalancerFromSubnetsInput {}
+/**
+ * The output of {@link DetachLoadBalancerFromSubnetsCommand}.
+ */
 export interface DetachLoadBalancerFromSubnetsCommandOutput
   extends DetachLoadBalancerFromSubnetsOutput,
     __MetadataBearer {}

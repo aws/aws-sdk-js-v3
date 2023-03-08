@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociatePricingRulesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociatePricingRulesCommand}.
+ */
 export interface DisassociatePricingRulesCommandInput extends DisassociatePricingRulesInput {}
+/**
+ * The output of {@link DisassociatePricingRulesCommand}.
+ */
 export interface DisassociatePricingRulesCommandOutput extends DisassociatePricingRulesOutput, __MetadataBearer {}
 
 /**

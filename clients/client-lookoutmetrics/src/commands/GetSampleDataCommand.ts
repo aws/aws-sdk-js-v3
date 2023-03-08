@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSampleDataCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSampleDataCommand}.
+ */
 export interface GetSampleDataCommandInput extends GetSampleDataRequest {}
+/**
+ * The output of {@link GetSampleDataCommand}.
+ */
 export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __MetadataBearer {}
 
 /**

@@ -25,8 +25,14 @@ import {
   serializeAws_json1_0ExportAutoScalingGroupRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ExportAutoScalingGroupRecommendationsCommand}.
+ */
 export interface ExportAutoScalingGroupRecommendationsCommandInput
   extends ExportAutoScalingGroupRecommendationsRequest {}
+/**
+ * The output of {@link ExportAutoScalingGroupRecommendationsCommand}.
+ */
 export interface ExportAutoScalingGroupRecommendationsCommandOutput
   extends ExportAutoScalingGroupRecommendationsResponse,
     __MetadataBearer {}

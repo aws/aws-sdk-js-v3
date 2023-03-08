@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1MarkAsArchivedCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link MarkAsArchivedCommand}.
+ */
 export interface MarkAsArchivedCommandInput extends MarkAsArchivedRequest {}
+/**
+ * The output of {@link MarkAsArchivedCommand}.
+ */
 export interface MarkAsArchivedCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**

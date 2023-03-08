@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DescribeInstanceEventNotificationAttributesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeInstanceEventNotificationAttributesCommand}.
+ */
 export interface DescribeInstanceEventNotificationAttributesCommandInput
   extends DescribeInstanceEventNotificationAttributesRequest {}
+/**
+ * The output of {@link DescribeInstanceEventNotificationAttributesCommand}.
+ */
 export interface DescribeInstanceEventNotificationAttributesCommandOutput
   extends DescribeInstanceEventNotificationAttributesResult,
     __MetadataBearer {}

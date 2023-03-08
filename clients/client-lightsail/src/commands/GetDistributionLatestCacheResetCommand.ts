@@ -19,13 +19,19 @@ import {
   GetDistributionLatestCacheResetRequestFilterSensitiveLog,
   GetDistributionLatestCacheResetResult,
   GetDistributionLatestCacheResetResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetDistributionLatestCacheResetCommand,
   serializeAws_json1_1GetDistributionLatestCacheResetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDistributionLatestCacheResetCommand}.
+ */
 export interface GetDistributionLatestCacheResetCommandInput extends GetDistributionLatestCacheResetRequest {}
+/**
+ * The output of {@link GetDistributionLatestCacheResetCommand}.
+ */
 export interface GetDistributionLatestCacheResetCommandOutput
   extends GetDistributionLatestCacheResetResult,
     __MetadataBearer {}

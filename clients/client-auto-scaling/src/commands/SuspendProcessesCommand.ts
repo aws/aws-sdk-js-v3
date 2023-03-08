@@ -20,7 +20,13 @@ import {
   serializeAws_querySuspendProcessesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SuspendProcessesCommand}.
+ */
 export interface SuspendProcessesCommandInput extends ScalingProcessQuery {}
+/**
+ * The output of {@link SuspendProcessesCommand}.
+ */
 export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
 
 /**

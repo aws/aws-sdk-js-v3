@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchGetGraphMemberDatasourcesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchGetGraphMemberDatasourcesCommand}.
+ */
 export interface BatchGetGraphMemberDatasourcesCommandInput extends BatchGetGraphMemberDatasourcesRequest {}
+/**
+ * The output of {@link BatchGetGraphMemberDatasourcesCommand}.
+ */
 export interface BatchGetGraphMemberDatasourcesCommandOutput
   extends BatchGetGraphMemberDatasourcesResponse,
     __MetadataBearer {}

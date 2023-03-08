@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link DeleteSshPublicKeyCommand}.
+ */
 export interface DeleteSshPublicKeyCommandInput extends DeleteSshPublicKeyRequest {}
+/**
+ * The output of {@link DeleteSshPublicKeyCommand}.
+ */
 export interface DeleteSshPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**

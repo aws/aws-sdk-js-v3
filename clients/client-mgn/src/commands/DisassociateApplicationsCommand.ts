@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociateApplicationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateApplicationsCommand}.
+ */
 export interface DisassociateApplicationsCommandInput extends DisassociateApplicationsRequest {}
+/**
+ * The output of {@link DisassociateApplicationsCommand}.
+ */
 export interface DisassociateApplicationsCommandOutput extends DisassociateApplicationsResponse, __MetadataBearer {}
 
 /**

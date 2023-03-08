@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListFirewallsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListFirewallsCommand}.
+ */
 export interface ListFirewallsCommandInput extends ListFirewallsRequest {}
+/**
+ * The output of {@link ListFirewallsCommand}.
+ */
 export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __MetadataBearer {}
 
 /**

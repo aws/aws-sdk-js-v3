@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetProvisionedConcurrencyConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetProvisionedConcurrencyConfigCommand}.
+ */
 export interface GetProvisionedConcurrencyConfigCommandInput extends GetProvisionedConcurrencyConfigRequest {}
+/**
+ * The output of {@link GetProvisionedConcurrencyConfigCommand}.
+ */
 export interface GetProvisionedConcurrencyConfigCommandOutput
   extends GetProvisionedConcurrencyConfigResponse,
     __MetadataBearer {}

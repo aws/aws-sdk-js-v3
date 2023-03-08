@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeIpamPoolsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeIpamPoolsCommand}.
+ */
 export interface DescribeIpamPoolsCommandInput extends DescribeIpamPoolsRequest {}
+/**
+ * The output of {@link DescribeIpamPoolsCommand}.
+ */
 export interface DescribeIpamPoolsCommandOutput extends DescribeIpamPoolsResult, __MetadataBearer {}
 
 /**

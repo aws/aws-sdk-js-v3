@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RemoveTagsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RemoveTagsCommand}.
+ */
 export interface RemoveTagsCommandInput extends RemoveTagsInput {}
+/**
+ * The output of {@link RemoveTagsCommand}.
+ */
 export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBearer {}
 
 /**

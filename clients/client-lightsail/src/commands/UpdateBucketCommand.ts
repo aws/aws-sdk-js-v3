@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateBucketCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateBucketCommand}.
+ */
 export interface UpdateBucketCommandInput extends UpdateBucketRequest {}
+/**
+ * The output of {@link UpdateBucketCommand}.
+ */
 export interface UpdateBucketCommandOutput extends UpdateBucketResult, __MetadataBearer {}
 
 /**

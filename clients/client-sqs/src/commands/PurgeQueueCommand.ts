@@ -17,7 +17,13 @@ import { PurgeQueueRequest, PurgeQueueRequestFilterSensitiveLog } from "../model
 import { deserializeAws_queryPurgeQueueCommand, serializeAws_queryPurgeQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link PurgeQueueCommand}.
+ */
 export interface PurgeQueueCommandInput extends PurgeQueueRequest {}
+/**
+ * The output of {@link PurgeQueueCommand}.
+ */
 export interface PurgeQueueCommandOutput extends __MetadataBearer {}
 
 /**

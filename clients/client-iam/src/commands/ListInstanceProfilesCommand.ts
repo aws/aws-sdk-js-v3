@@ -25,7 +25,13 @@ import {
   serializeAws_queryListInstanceProfilesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListInstanceProfilesCommand}.
+ */
 export interface ListInstanceProfilesCommandInput extends ListInstanceProfilesRequest {}
+/**
+ * The output of {@link ListInstanceProfilesCommand}.
+ */
 export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesResponse, __MetadataBearer {}
 
 /**

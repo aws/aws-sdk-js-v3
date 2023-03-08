@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdatePipeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdatePipeCommand}.
+ */
 export interface UpdatePipeCommandInput extends UpdatePipeRequest {}
+/**
+ * The output of {@link UpdatePipeCommand}.
+ */
 export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataBearer {}
 
 /**
@@ -33,7 +39,6 @@ export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataB
  *          The exception to this is if you modify any Amazon Web Services-service specific fields in the <code>SourceParameters</code>, <code>EnrichmentParameters</code>, or
  *          <code>TargetParameters</code> objects. The fields in these objects are updated atomically as one and override existing values. This is by design and means that
  *          if you don't specify an optional field in one of these Parameters objects, that field will be set to its system-default value after the update.</p>
- *
  *          <p>For more information about pipes, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html">
  *          Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
  * @example

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListArchiveRulesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListArchiveRulesCommand}.
+ */
 export interface ListArchiveRulesCommandInput extends ListArchiveRulesRequest {}
+/**
+ * The output of {@link ListArchiveRulesCommand}.
+ */
 export interface ListArchiveRulesCommandOutput extends ListArchiveRulesResponse, __MetadataBearer {}
 
 /**

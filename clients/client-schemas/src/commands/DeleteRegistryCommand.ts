@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * The input for {@link DeleteRegistryCommand}.
+ */
 export interface DeleteRegistryCommandInput extends DeleteRegistryRequest {}
+/**
+ * The output of {@link DeleteRegistryCommand}.
+ */
 export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
 
 /**

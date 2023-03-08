@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteVaultCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteVaultCommand}.
+ */
 export interface DeleteVaultCommandInput extends DeleteVaultInput {}
+/**
+ * The output of {@link DeleteVaultCommand}.
+ */
 export interface DeleteVaultCommandOutput extends __MetadataBearer {}
 
 /**

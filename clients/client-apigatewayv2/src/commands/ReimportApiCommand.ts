@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ReimportApiCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ReimportApiCommand}.
+ */
 export interface ReimportApiCommandInput extends ReimportApiRequest {}
+/**
+ * The output of {@link ReimportApiCommand}.
+ */
 export interface ReimportApiCommandOutput extends ReimportApiResponse, __MetadataBearer {}
 
 /**

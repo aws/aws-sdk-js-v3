@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1GetUserAttributeVerificationCodeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetUserAttributeVerificationCodeCommand}.
+ */
 export interface GetUserAttributeVerificationCodeCommandInput extends GetUserAttributeVerificationCodeRequest {}
+/**
+ * The output of {@link GetUserAttributeVerificationCodeCommand}.
+ */
 export interface GetUserAttributeVerificationCodeCommandOutput
   extends GetUserAttributeVerificationCodeResponse,
     __MetadataBearer {}

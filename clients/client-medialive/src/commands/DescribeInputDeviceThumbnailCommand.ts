@@ -28,7 +28,13 @@ import {
   serializeAws_restJson1DescribeInputDeviceThumbnailCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeInputDeviceThumbnailCommand}.
+ */
 export interface DescribeInputDeviceThumbnailCommandInput extends DescribeInputDeviceThumbnailRequest {}
+/**
+ * The output of {@link DescribeInputDeviceThumbnailCommand}.
+ */
 export interface DescribeInputDeviceThumbnailCommandOutput
   extends __WithSdkStreamMixin<DescribeInputDeviceThumbnailResponse, "Body">,
     __MetadataBearer {}

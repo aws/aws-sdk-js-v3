@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeprecateFlowTemplateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeprecateFlowTemplateCommand}.
+ */
 export interface DeprecateFlowTemplateCommandInput extends DeprecateFlowTemplateRequest {}
+/**
+ * The output of {@link DeprecateFlowTemplateCommand}.
+ */
 export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplateResponse, __MetadataBearer {}
 
 /**

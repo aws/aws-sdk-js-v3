@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateCertificateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateCertificateCommand}.
+ */
 export interface AssociateCertificateCommandInput extends AssociateCertificateRequest {}
+/**
+ * The output of {@link AssociateCertificateCommand}.
+ */
 export interface AssociateCertificateCommandOutput extends AssociateCertificateResponse, __MetadataBearer {}
 
 /**

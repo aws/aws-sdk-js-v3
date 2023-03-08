@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListTrailsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTrailsCommand}.
+ */
 export interface ListTrailsCommandInput extends ListTrailsRequest {}
+/**
+ * The output of {@link ListTrailsCommand}.
+ */
 export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataBearer {}
 
 /**

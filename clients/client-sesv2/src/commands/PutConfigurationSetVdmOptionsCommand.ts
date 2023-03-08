@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link PutConfigurationSetVdmOptionsCommand}.
+ */
 export interface PutConfigurationSetVdmOptionsCommandInput extends PutConfigurationSetVdmOptionsRequest {}
+/**
+ * The output of {@link PutConfigurationSetVdmOptionsCommand}.
+ */
 export interface PutConfigurationSetVdmOptionsCommandOutput
   extends PutConfigurationSetVdmOptionsResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetPlaceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPlaceCommand}.
+ */
 export interface GetPlaceCommandInput extends GetPlaceRequest {}
+/**
+ * The output of {@link GetPlaceCommand}.
+ */
 export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBearer {}
 
 /**
@@ -36,10 +42,10 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  *                 search request and the call to <code>GetPlace</code>.</p>
  *             <ul>
  *                <li>
- *                   <p>Customer AWS account</p>
+ *                   <p>Customer Amazon Web Services account</p>
  *                </li>
  *                <li>
- *                   <p>AWS Region</p>
+ *                   <p>Amazon Web Services Region</p>
  *                </li>
  *                <li>
  *                   <p>Data provider specified in the place index resource</p>

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteBotVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteBotVersionCommand}.
+ */
 export interface DeleteBotVersionCommandInput extends DeleteBotVersionRequest {}
+/**
+ * The output of {@link DeleteBotVersionCommand}.
+ */
 export interface DeleteBotVersionCommandOutput extends DeleteBotVersionResponse, __MetadataBearer {}
 
 /**

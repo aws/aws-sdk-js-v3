@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListConnectorDefinitionVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListConnectorDefinitionVersionsCommand}.
+ */
 export interface ListConnectorDefinitionVersionsCommandInput extends ListConnectorDefinitionVersionsRequest {}
+/**
+ * The output of {@link ListConnectorDefinitionVersionsCommand}.
+ */
 export interface ListConnectorDefinitionVersionsCommandOutput
   extends ListConnectorDefinitionVersionsResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteEndpointCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteEndpointCommand}.
+ */
 export interface DeleteEndpointCommandInput extends DeleteEndpointRequest {}
+/**
+ * The output of {@link DeleteEndpointCommand}.
+ */
 export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __MetadataBearer {}
 
 /**

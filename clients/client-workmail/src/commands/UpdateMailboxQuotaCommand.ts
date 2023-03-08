@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link UpdateMailboxQuotaCommand}.
+ */
 export interface UpdateMailboxQuotaCommandInput extends UpdateMailboxQuotaRequest {}
+/**
+ * The output of {@link UpdateMailboxQuotaCommand}.
+ */
 export interface UpdateMailboxQuotaCommandOutput extends UpdateMailboxQuotaResponse, __MetadataBearer {}
 
 /**

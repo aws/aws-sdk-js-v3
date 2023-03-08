@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateAccessKeyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateAccessKeyCommand}.
+ */
 export interface CreateAccessKeyCommandInput extends CreateAccessKeyRequest {}
+/**
+ * The output of {@link CreateAccessKeyCommand}.
+ */
 export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, __MetadataBearer {}
 
 /**

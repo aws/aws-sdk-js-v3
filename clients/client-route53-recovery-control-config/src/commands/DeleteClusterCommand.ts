@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
 
+/**
+ * The input for {@link DeleteClusterCommand}.
+ */
 export interface DeleteClusterCommandInput extends DeleteClusterRequest {}
+/**
+ * The output of {@link DeleteClusterCommand}.
+ */
 export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __MetadataBearer {}
 
 /**

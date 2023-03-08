@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchUpdateCustomVocabularyItemCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchUpdateCustomVocabularyItemCommand}.
+ */
 export interface BatchUpdateCustomVocabularyItemCommandInput extends BatchUpdateCustomVocabularyItemRequest {}
+/**
+ * The output of {@link BatchUpdateCustomVocabularyItemCommand}.
+ */
 export interface BatchUpdateCustomVocabularyItemCommandOutput
   extends BatchUpdateCustomVocabularyItemResponse,
     __MetadataBearer {}

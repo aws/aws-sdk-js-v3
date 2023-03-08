@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateFunctionDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateFunctionDefinitionVersionCommand}.
+ */
 export interface CreateFunctionDefinitionVersionCommandInput extends CreateFunctionDefinitionVersionRequest {}
+/**
+ * The output of {@link CreateFunctionDefinitionVersionCommand}.
+ */
 export interface CreateFunctionDefinitionVersionCommandOutput
   extends CreateFunctionDefinitionVersionResponse,
     __MetadataBearer {}

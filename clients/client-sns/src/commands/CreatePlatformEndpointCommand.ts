@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link CreatePlatformEndpointCommand}.
+ */
 export interface CreatePlatformEndpointCommandInput extends CreatePlatformEndpointInput {}
+/**
+ * The output of {@link CreatePlatformEndpointCommand}.
+ */
 export interface CreatePlatformEndpointCommandOutput extends CreateEndpointResponse, __MetadataBearer {}
 
 /**

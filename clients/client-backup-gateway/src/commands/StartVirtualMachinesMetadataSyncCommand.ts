@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0StartVirtualMachinesMetadataSyncCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link StartVirtualMachinesMetadataSyncCommand}.
+ */
 export interface StartVirtualMachinesMetadataSyncCommandInput extends StartVirtualMachinesMetadataSyncInput {}
+/**
+ * The output of {@link StartVirtualMachinesMetadataSyncCommand}.
+ */
 export interface StartVirtualMachinesMetadataSyncCommandOutput
   extends StartVirtualMachinesMetadataSyncOutput,
     __MetadataBearer {}

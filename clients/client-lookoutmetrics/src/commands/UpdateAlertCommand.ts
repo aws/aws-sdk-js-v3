@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateAlertCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateAlertCommand}.
+ */
 export interface UpdateAlertCommandInput extends UpdateAlertRequest {}
+/**
+ * The output of {@link UpdateAlertCommand}.
+ */
 export interface UpdateAlertCommandOutput extends UpdateAlertResponse, __MetadataBearer {}
 
 /**

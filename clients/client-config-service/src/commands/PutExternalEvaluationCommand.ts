@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutExternalEvaluationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutExternalEvaluationCommand}.
+ */
 export interface PutExternalEvaluationCommandInput extends PutExternalEvaluationRequest {}
+/**
+ * The output of {@link PutExternalEvaluationCommand}.
+ */
 export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluationResponse, __MetadataBearer {}
 
 /**

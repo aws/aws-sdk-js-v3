@@ -121,6 +121,10 @@ export enum JobStatus {
    */
   COMPLETED = "COMPLETED",
   /**
+   * The Job completed with failed runs
+   */
+  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
+  /**
    * The Job failed
    */
   FAILED = "FAILED",
@@ -850,7 +854,7 @@ export interface CreateAnnotationStoreResponse {
   id: string | undefined;
 
   /**
-   * <p>The store's genome reference.</p>
+   * <p>The store's genome reference. Required for all stores except TSV format with generic annotations.</p>
    */
   reference?: ReferenceItem;
 
@@ -1296,7 +1300,7 @@ export interface CreateRunGroupRequest {
   maxRuns?: number;
 
   /**
-   * <p>A max duration for the group.</p>
+   * <p>A maximum run time for the group in minutes.</p>
    */
   maxDuration?: number;
 
@@ -1306,7 +1310,7 @@ export interface CreateRunGroupRequest {
   tags?: Record<string, string>;
 
   /**
-   * <p>A request ID for the group.</p>
+   * <p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>
    */
   requestId?: string;
 }
@@ -1498,7 +1502,7 @@ export interface CreateWorkflowRequest {
   parameterTemplate?: Record<string, WorkflowParameter>;
 
   /**
-   * <p>A storage capacity for the workflow.</p>
+   * <p>A storage capacity for the workflow in gigabytes.</p>
    */
   storageCapacity?: number;
 
@@ -1508,7 +1512,7 @@ export interface CreateWorkflowRequest {
   tags?: Record<string, string>;
 
   /**
-   * <p>A request ID for the workflow.</p>
+   * <p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>
    */
   requestId?: string;
 }
@@ -1518,6 +1522,7 @@ export enum WorkflowStatus {
   CREATING = "CREATING",
   DELETED = "DELETED",
   FAILED = "FAILED",
+  INACTIVE = "INACTIVE",
   UPDATING = "UPDATING",
 }
 
@@ -1842,7 +1847,7 @@ export interface GetReadSetActivationJobResponse {
   completionTime?: Date;
 
   /**
-   * <p>The job's sources.</p>
+   * <p>The job's source files.</p>
    */
   sources?: ActivateReadSetSourceItem[];
 }
@@ -2042,7 +2047,7 @@ export interface GetReadSetImportJobResponse {
   completionTime?: Date;
 
   /**
-   * <p>The job's sources.</p>
+   * <p>The job's source files.</p>
    */
   sources: ImportReadSetSourceItem[] | undefined;
 }
@@ -2319,7 +2324,7 @@ export interface GetReferenceImportJobResponse {
   completionTime?: Date;
 
   /**
-   * <p>The job's sources.</p>
+   * <p>The job's source files.</p>
    */
   sources: ImportReferenceSourceItem[] | undefined;
 }
@@ -2484,6 +2489,7 @@ export enum RunStatus {
 
 export enum WorkflowType {
   PRIVATE = "PRIVATE",
+  SERVICE = "SERVICE",
 }
 
 export interface GetRunResponse {
@@ -2553,7 +2559,7 @@ export interface GetRunResponse {
   parameters?: __DocumentType;
 
   /**
-   * <p>The run's storage capacity.</p>
+   * <p>The run's storage capacity in gigabytes.</p>
    */
   storageCapacity?: number;
 
@@ -2637,7 +2643,7 @@ export interface GetRunGroupResponse {
   maxRuns?: number;
 
   /**
-   * <p>The group's maximum run duration.</p>
+   * <p>The group's maximum run time in minutes.</p>
    */
   maxDuration?: number;
 
@@ -2696,7 +2702,7 @@ export interface GetRunTaskResponse {
   cpus?: number;
 
   /**
-   * <p>The task's memory setting.</p>
+   * <p>The task's memory use in gigabytes.</p>
    */
   memory?: number;
 
@@ -2785,6 +2791,11 @@ export interface VariantImportItemDetail {
    * <p>The item's job status.</p>
    */
   jobStatus: JobStatus | string | undefined;
+
+  /**
+   * <p> A message that provides additional context about a job </p>
+   */
+  statusMessage?: string;
 }
 
 export interface GetVariantImportResponse {
@@ -2986,7 +2997,7 @@ export interface GetWorkflowResponse {
   parameterTemplate?: Record<string, WorkflowParameter>;
 
   /**
-   * <p>The workflow's storage capacity.</p>
+   * <p>The workflow's storage capacity in gigabytes.</p>
    */
   storageCapacity?: number;
 
@@ -3621,7 +3632,7 @@ export interface RunGroupListItem {
   maxRuns?: number;
 
   /**
-   * <p>The group's maximum duration setting.</p>
+   * <p>The group's maximum duration setting in minutes.</p>
    */
   maxDuration?: number;
 
@@ -3779,7 +3790,7 @@ export interface TaskListItem {
   cpus?: number;
 
   /**
-   * <p>The task's memory.</p>
+   * <p>The task's memory use in gigabyes.</p>
    */
   memory?: number;
 
@@ -4223,7 +4234,7 @@ export interface StartReferenceImportJobRequest {
   clientToken?: string;
 
   /**
-   * <p>Sources for the job.</p>
+   * <p>The job's source files.</p>
    */
   sources: StartReferenceImportJobSourceItem[] | undefined;
 }
@@ -4277,7 +4288,7 @@ export interface UpdateRunGroupRequest {
   maxRuns?: number;
 
   /**
-   * <p>The maximum amount of time to run.</p>
+   * <p>A maximum run time for the group in minutes.</p>
    */
   maxDuration?: number;
 }
@@ -4324,7 +4335,7 @@ export interface StartRunRequest {
   parameters?: __DocumentType;
 
   /**
-   * <p>A storage capacity for the run.</p>
+   * <p>A storage capacity for the run in gigabytes.</p>
    */
   storageCapacity?: number;
 
@@ -4344,7 +4355,7 @@ export interface StartRunRequest {
   tags?: Record<string, string>;
 
   /**
-   * <p>A request ID for the run.</p>
+   * <p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>
    */
   requestId?: string;
 }
@@ -4393,7 +4404,7 @@ export interface StartReadSetActivationJobRequest {
   clientToken?: string;
 
   /**
-   * <p>The job's sources.</p>
+   * <p>The job's source files.</p>
    */
   sources: StartReadSetActivationJobSourceItem[] | undefined;
 }
@@ -4442,7 +4453,7 @@ export interface StartReadSetExportJobRequest {
   clientToken?: string;
 
   /**
-   * <p>Sources for the job.</p>
+   * <p>The job's source files.</p>
    */
   sources: ExportReadSet[] | undefined;
 }
@@ -4541,7 +4552,7 @@ export interface StartReadSetImportJobRequest {
   clientToken?: string;
 
   /**
-   * <p>Source files to import.</p>
+   * <p>The job's source files.</p>
    */
   sources: StartReadSetImportJobSourceItem[] | undefined;
 }

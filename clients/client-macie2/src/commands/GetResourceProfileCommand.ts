@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetResourceProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetResourceProfileCommand}.
+ */
 export interface GetResourceProfileCommandInput extends GetResourceProfileRequest {}
+/**
+ * The output of {@link GetResourceProfileCommand}.
+ */
 export interface GetResourceProfileCommandOutput extends GetResourceProfileResponse, __MetadataBearer {}
 
 /**

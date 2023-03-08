@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateParticipantRoleConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateParticipantRoleConfigCommand}.
+ */
 export interface UpdateParticipantRoleConfigCommandInput extends UpdateParticipantRoleConfigRequest {}
+/**
+ * The output of {@link UpdateParticipantRoleConfigCommand}.
+ */
 export interface UpdateParticipantRoleConfigCommandOutput
   extends UpdateParticipantRoleConfigResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeStackEventsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeStackEventsCommand}.
+ */
 export interface DescribeStackEventsCommandInput extends DescribeStackEventsInput {}
+/**
+ * The output of {@link DescribeStackEventsCommand}.
+ */
 export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOutput, __MetadataBearer {}
 
 /**

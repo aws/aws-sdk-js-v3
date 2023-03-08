@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateServerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateServerCommand}.
+ */
 export interface CreateServerCommandInput extends CreateServerRequest {}
+/**
+ * The output of {@link CreateServerCommand}.
+ */
 export interface CreateServerCommandOutput extends CreateServerResponse, __MetadataBearer {}
 
 /**

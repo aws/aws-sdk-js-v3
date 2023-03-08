@@ -17,7 +17,13 @@ import { UntagQueueRequest, UntagQueueRequestFilterSensitiveLog } from "../model
 import { deserializeAws_queryUntagQueueCommand, serializeAws_queryUntagQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link UntagQueueCommand}.
+ */
 export interface UntagQueueCommandInput extends UntagQueueRequest {}
+/**
+ * The output of {@link UntagQueueCommand}.
+ */
 export interface UntagQueueCommandOutput extends __MetadataBearer {}
 
 /**

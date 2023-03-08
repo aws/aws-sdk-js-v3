@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DeleteLogPatternCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteLogPatternCommand}.
+ */
 export interface DeleteLogPatternCommandInput extends DeleteLogPatternRequest {}
+/**
+ * The output of {@link DeleteLogPatternCommand}.
+ */
 export interface DeleteLogPatternCommandOutput extends DeleteLogPatternResponse, __MetadataBearer {}
 
 /**

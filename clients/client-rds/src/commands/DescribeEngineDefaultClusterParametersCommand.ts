@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DescribeEngineDefaultClusterParametersCommand}.
+ */
 export interface DescribeEngineDefaultClusterParametersCommandInput
   extends DescribeEngineDefaultClusterParametersMessage {}
+/**
+ * The output of {@link DescribeEngineDefaultClusterParametersCommand}.
+ */
 export interface DescribeEngineDefaultClusterParametersCommandOutput
   extends DescribeEngineDefaultClusterParametersResult,
     __MetadataBearer {}

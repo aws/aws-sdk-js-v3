@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1PutImageCommand, serializeAws_json1_1PutImageCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutImageCommand}.
+ */
 export interface PutImageCommandInput extends PutImageRequest {}
+/**
+ * The output of {@link PutImageCommand}.
+ */
 export interface PutImageCommandOutput extends PutImageResponse, __MetadataBearer {}
 
 /**

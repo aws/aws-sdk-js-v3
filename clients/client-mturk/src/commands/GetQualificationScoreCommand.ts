@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetQualificationScoreCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetQualificationScoreCommand}.
+ */
 export interface GetQualificationScoreCommandInput extends GetQualificationScoreRequest {}
+/**
+ * The output of {@link GetQualificationScoreCommand}.
+ */
 export interface GetQualificationScoreCommandOutput extends GetQualificationScoreResponse, __MetadataBearer {}
 
 /**

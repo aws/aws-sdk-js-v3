@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DeregisterScalableTargetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterScalableTargetCommand}.
+ */
 export interface DeregisterScalableTargetCommandInput extends DeregisterScalableTargetRequest {}
+/**
+ * The output of {@link DeregisterScalableTargetCommand}.
+ */
 export interface DeregisterScalableTargetCommandOutput extends DeregisterScalableTargetResponse, __MetadataBearer {}
 
 /**

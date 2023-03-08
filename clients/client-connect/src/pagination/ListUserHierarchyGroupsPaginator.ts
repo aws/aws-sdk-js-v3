@@ -6,7 +6,6 @@ import {
   ListUserHierarchyGroupsCommandInput,
   ListUserHierarchyGroupsCommandOutput,
 } from "../commands/ListUserHierarchyGroupsCommand";
-import { Connect } from "../Connect";
 import { ConnectClient } from "../ConnectClient";
 import { ConnectPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListUserHierarchyGroupsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Connect,
-  input: ListUserHierarchyGroupsCommandInput,
-  ...args: any
-): Promise<ListUserHierarchyGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listUserHierarchyGroups(input, ...args);
-};
 export async function* paginateListUserHierarchyGroups(
   config: ConnectPaginationConfiguration,
   input: ListUserHierarchyGroupsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListUserHierarchyGroups(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Connect) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConnectClient) {
+    if (config.client instanceof ConnectClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Connect | ConnectClient");

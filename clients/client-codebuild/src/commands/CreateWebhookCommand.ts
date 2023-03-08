@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateWebhookCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateWebhookCommand}.
+ */
 export interface CreateWebhookCommandInput extends CreateWebhookInput {}
+/**
+ * The output of {@link CreateWebhookCommand}.
+ */
 export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __MetadataBearer {}
 
 /**

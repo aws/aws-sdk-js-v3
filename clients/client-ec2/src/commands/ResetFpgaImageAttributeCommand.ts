@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ResetFpgaImageAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ResetFpgaImageAttributeCommand}.
+ */
 export interface ResetFpgaImageAttributeCommandInput extends ResetFpgaImageAttributeRequest {}
+/**
+ * The output of {@link ResetFpgaImageAttributeCommand}.
+ */
 export interface ResetFpgaImageAttributeCommandOutput extends ResetFpgaImageAttributeResult, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RemoveTagsFromOnPremisesInstancesCommand}.
+ */
 export interface RemoveTagsFromOnPremisesInstancesCommandInput extends RemoveTagsFromOnPremisesInstancesInput {}
+/**
+ * The output of {@link RemoveTagsFromOnPremisesInstancesCommand}.
+ */
 export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __MetadataBearer {}
 
 /**

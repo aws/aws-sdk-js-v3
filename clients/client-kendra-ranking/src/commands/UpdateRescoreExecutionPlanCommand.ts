@@ -23,7 +23,13 @@ import {
   serializeAws_json1_0UpdateRescoreExecutionPlanCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateRescoreExecutionPlanCommand}.
+ */
 export interface UpdateRescoreExecutionPlanCommandInput extends UpdateRescoreExecutionPlanRequest {}
+/**
+ * The output of {@link UpdateRescoreExecutionPlanCommand}.
+ */
 export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBearer {}
 
 /**

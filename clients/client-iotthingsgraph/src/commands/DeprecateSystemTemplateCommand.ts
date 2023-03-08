@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeprecateSystemTemplateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeprecateSystemTemplateCommand}.
+ */
 export interface DeprecateSystemTemplateCommandInput extends DeprecateSystemTemplateRequest {}
+/**
+ * The output of {@link DeprecateSystemTemplateCommand}.
+ */
 export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTemplateResponse, __MetadataBearer {}
 
 /**

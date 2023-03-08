@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * The input for {@link GetXssMatchSetCommand}.
+ */
 export interface GetXssMatchSetCommandInput extends GetXssMatchSetRequest {}
+/**
+ * The output of {@link GetXssMatchSetCommand}.
+ */
 export interface GetXssMatchSetCommandOutput extends GetXssMatchSetResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetManagedPrefixListAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetManagedPrefixListAssociationsCommand}.
+ */
 export interface GetManagedPrefixListAssociationsCommandInput extends GetManagedPrefixListAssociationsRequest {}
+/**
+ * The output of {@link GetManagedPrefixListAssociationsCommand}.
+ */
 export interface GetManagedPrefixListAssociationsCommandOutput
   extends GetManagedPrefixListAssociationsResult,
     __MetadataBearer {}

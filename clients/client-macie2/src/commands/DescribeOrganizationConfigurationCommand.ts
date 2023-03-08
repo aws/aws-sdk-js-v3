@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeOrganizationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeOrganizationConfigurationCommand}.
+ */
 export interface DescribeOrganizationConfigurationCommandInput extends DescribeOrganizationConfigurationRequest {}
+/**
+ * The output of {@link DescribeOrganizationConfigurationCommand}.
+ */
 export interface DescribeOrganizationConfigurationCommandOutput
   extends DescribeOrganizationConfigurationResponse,
     __MetadataBearer {}

@@ -29,12 +29,18 @@ import {
   serializeAws_json1_1ListTagsForResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandInput extends ListTagsForResourceMessage {}
+/**
+ * The output of {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all metadata tags attached to an DMS resource, including
- *          replication instance, endpoint, security group, and migration task.
+ *          replication instance, endpoint, subnet group, and migration task.
  *          For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
  *                <code>Tag</code>
  *             </a> data type description.</p>

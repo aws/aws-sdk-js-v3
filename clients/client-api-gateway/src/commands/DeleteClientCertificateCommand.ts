@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteClientCertificateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteClientCertificateCommand}.
+ */
 export interface DeleteClientCertificateCommandInput extends DeleteClientCertificateRequest {}
+/**
+ * The output of {@link DeleteClientCertificateCommand}.
+ */
 export interface DeleteClientCertificateCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link DeleteOpsMetadataCommand}.
+ */
 export interface DeleteOpsMetadataCommandInput extends DeleteOpsMetadataRequest {}
+/**
+ * The output of {@link DeleteOpsMetadataCommand}.
+ */
 export interface DeleteOpsMetadataCommandOutput extends DeleteOpsMetadataResult, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteAssessmentRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteAssessmentRunCommand}.
+ */
 export interface DeleteAssessmentRunCommandInput extends DeleteAssessmentRunRequest {}
+/**
+ * The output of {@link DeleteAssessmentRunCommand}.
+ */
 export interface DeleteAssessmentRunCommandOutput extends __MetadataBearer {}
 
 /**

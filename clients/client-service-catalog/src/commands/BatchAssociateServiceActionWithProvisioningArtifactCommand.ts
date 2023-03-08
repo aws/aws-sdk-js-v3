@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link BatchAssociateServiceActionWithProvisioningArtifactCommand}.
+ */
 export interface BatchAssociateServiceActionWithProvisioningArtifactCommandInput
   extends BatchAssociateServiceActionWithProvisioningArtifactInput {}
+/**
+ * The output of {@link BatchAssociateServiceActionWithProvisioningArtifactCommand}.
+ */
 export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
   extends BatchAssociateServiceActionWithProvisioningArtifactOutput,
     __MetadataBearer {}

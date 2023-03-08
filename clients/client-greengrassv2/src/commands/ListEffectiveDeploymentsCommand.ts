@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListEffectiveDeploymentsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListEffectiveDeploymentsCommand}.
+ */
 export interface ListEffectiveDeploymentsCommandInput extends ListEffectiveDeploymentsRequest {}
+/**
+ * The output of {@link ListEffectiveDeploymentsCommand}.
+ */
 export interface ListEffectiveDeploymentsCommandOutput extends ListEffectiveDeploymentsResponse, __MetadataBearer {}
 
 /**

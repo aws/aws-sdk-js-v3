@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DisassociateTransitGatewayPolicyTableCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisassociateTransitGatewayPolicyTableCommand}.
+ */
 export interface DisassociateTransitGatewayPolicyTableCommandInput
   extends DisassociateTransitGatewayPolicyTableRequest {}
+/**
+ * The output of {@link DisassociateTransitGatewayPolicyTableCommand}.
+ */
 export interface DisassociateTransitGatewayPolicyTableCommandOutput
   extends DisassociateTransitGatewayPolicyTableResult,
     __MetadataBearer {}

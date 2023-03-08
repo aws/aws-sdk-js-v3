@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link DisableAWSOrganizationsAccessCommand}.
+ */
 export interface DisableAWSOrganizationsAccessCommandInput extends DisableAWSOrganizationsAccessInput {}
+/**
+ * The output of {@link DisableAWSOrganizationsAccessCommand}.
+ */
 export interface DisableAWSOrganizationsAccessCommandOutput
   extends DisableAWSOrganizationsAccessOutput,
     __MetadataBearer {}

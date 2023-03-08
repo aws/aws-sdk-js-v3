@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link CreateClusterSecurityGroupCommand}.
+ */
 export interface CreateClusterSecurityGroupCommandInput extends CreateClusterSecurityGroupMessage {}
+/**
+ * The output of {@link CreateClusterSecurityGroupCommand}.
+ */
 export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSecurityGroupResult, __MetadataBearer {}
 
 /**

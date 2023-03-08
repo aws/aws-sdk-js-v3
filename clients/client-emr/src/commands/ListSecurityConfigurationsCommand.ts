@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListSecurityConfigurationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListSecurityConfigurationsCommand}.
+ */
 export interface ListSecurityConfigurationsCommandInput extends ListSecurityConfigurationsInput {}
+/**
+ * The output of {@link ListSecurityConfigurationsCommand}.
+ */
 export interface ListSecurityConfigurationsCommandOutput extends ListSecurityConfigurationsOutput, __MetadataBearer {}
 
 /**

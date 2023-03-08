@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link StopAppReplicationCommand}.
+ */
 export interface StopAppReplicationCommandInput extends StopAppReplicationRequest {}
+/**
+ * The output of {@link StopAppReplicationCommand}.
+ */
 export interface StopAppReplicationCommandOutput extends StopAppReplicationResponse, __MetadataBearer {}
 
 /**

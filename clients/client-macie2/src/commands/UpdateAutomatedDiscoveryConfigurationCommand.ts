@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateAutomatedDiscoveryConfigurationCommand}.
+ */
 export interface UpdateAutomatedDiscoveryConfigurationCommandInput
   extends UpdateAutomatedDiscoveryConfigurationRequest {}
+/**
+ * The output of {@link UpdateAutomatedDiscoveryConfigurationCommand}.
+ */
 export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
   extends UpdateAutomatedDiscoveryConfigurationResponse,
     __MetadataBearer {}

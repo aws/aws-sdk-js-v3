@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link SetIdentityDkimEnabledCommand}.
+ */
 export interface SetIdentityDkimEnabledCommandInput extends SetIdentityDkimEnabledRequest {}
+/**
+ * The output of {@link SetIdentityDkimEnabledCommand}.
+ */
 export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnabledResponse, __MetadataBearer {}
 
 /**

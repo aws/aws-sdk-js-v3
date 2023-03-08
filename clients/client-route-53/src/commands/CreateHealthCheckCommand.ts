@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link CreateHealthCheckCommand}.
+ */
 export interface CreateHealthCheckCommandInput extends CreateHealthCheckRequest {}
+/**
+ * The output of {@link CreateHealthCheckCommand}.
+ */
 export interface CreateHealthCheckCommandOutput extends CreateHealthCheckResponse, __MetadataBearer {}
 
 /**

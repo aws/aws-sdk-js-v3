@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartTaskContactCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartTaskContactCommand}.
+ */
 export interface StartTaskContactCommandInput extends StartTaskContactRequest {}
+/**
+ * The output of {@link StartTaskContactCommand}.
+ */
 export interface StartTaskContactCommandOutput extends StartTaskContactResponse, __MetadataBearer {}
 
 /**

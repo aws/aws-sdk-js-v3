@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link XmlIntEnumsCommand}.
+ */
 export interface XmlIntEnumsCommandInput extends XmlIntEnumsInputOutput {}
+/**
+ * The output of {@link XmlIntEnumsCommand}.
+ */
 export interface XmlIntEnumsCommandOutput extends XmlIntEnumsInputOutput, __MetadataBearer {}
 
 /**

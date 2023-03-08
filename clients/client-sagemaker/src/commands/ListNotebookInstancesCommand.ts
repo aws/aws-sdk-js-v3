@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link ListNotebookInstancesCommand}.
+ */
 export interface ListNotebookInstancesCommandInput extends ListNotebookInstancesInput {}
+/**
+ * The output of {@link ListNotebookInstancesCommand}.
+ */
 export interface ListNotebookInstancesCommandOutput extends ListNotebookInstancesOutput, __MetadataBearer {}
 
 /**

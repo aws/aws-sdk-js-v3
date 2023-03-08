@@ -20,7 +20,13 @@ import {
   serializeAws_queryAddTagsToResourceCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link AddTagsToResourceCommand}.
+ */
 export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage {}
+/**
+ * The output of {@link AddTagsToResourceCommand}.
+ */
 export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
 
 /**

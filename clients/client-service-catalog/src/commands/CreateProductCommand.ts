@@ -25,13 +25,18 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link CreateProductCommand}.
+ */
 export interface CreateProductCommandInput extends CreateProductInput {}
+/**
+ * The output of {@link CreateProductCommand}.
+ */
 export interface CreateProductCommandOutput extends CreateProductOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a product.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
- *
  *          <p>The user or role that performs this operation must have the
  *             <code>cloudformation:GetTemplate</code> IAM policy permission. This policy permission is
  *          required when using the <code>ImportFromPhysicalId</code> template source in the

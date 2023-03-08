@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartPolicyGenerationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartPolicyGenerationCommand}.
+ */
 export interface StartPolicyGenerationCommandInput extends StartPolicyGenerationRequest {}
+/**
+ * The output of {@link StartPolicyGenerationCommand}.
+ */
 export interface StartPolicyGenerationCommandOutput extends StartPolicyGenerationResponse, __MetadataBearer {}
 
 /**

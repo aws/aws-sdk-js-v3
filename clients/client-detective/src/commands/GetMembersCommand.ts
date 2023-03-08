@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetMembersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetMembersCommand}.
+ */
 export interface GetMembersCommandInput extends GetMembersRequest {}
+/**
+ * The output of {@link GetMembersCommand}.
+ */
 export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataBearer {}
 
 /**

@@ -26,14 +26,19 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
+/**
+ * The input for {@link ListDatabasesCommand}.
+ */
 export interface ListDatabasesCommandInput extends ListDatabasesRequest {}
+/**
+ * The output of {@link ListDatabasesCommand}.
+ */
 export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of your Timestream databases.
- *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
- *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-db.html">code sample</a> for details.
- *       </p>
+ * <p>Returns a list of your Timestream databases. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
+ *             <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-db.html">code sample</a> for
+ *          details. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

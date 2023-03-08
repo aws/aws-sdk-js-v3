@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetCurrentUserDataCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetCurrentUserDataCommand}.
+ */
 export interface GetCurrentUserDataCommandInput extends GetCurrentUserDataRequest {}
+/**
+ * The output of {@link GetCurrentUserDataCommand}.
+ */
 export interface GetCurrentUserDataCommandOutput extends GetCurrentUserDataResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteFrameworkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteFrameworkCommand}.
+ */
 export interface DeleteFrameworkCommandInput extends DeleteFrameworkInput {}
+/**
+ * The output of {@link DeleteFrameworkCommand}.
+ */
 export interface DeleteFrameworkCommandOutput extends __MetadataBearer {}
 
 /**

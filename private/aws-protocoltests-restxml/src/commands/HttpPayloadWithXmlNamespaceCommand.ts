@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link HttpPayloadWithXmlNamespaceCommand}.
+ */
 export interface HttpPayloadWithXmlNamespaceCommandInput extends HttpPayloadWithXmlNamespaceInputOutput {}
+/**
+ * The output of {@link HttpPayloadWithXmlNamespaceCommand}.
+ */
 export interface HttpPayloadWithXmlNamespaceCommandOutput
   extends HttpPayloadWithXmlNamespaceInputOutput,
     __MetadataBearer {}

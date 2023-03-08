@@ -25,27 +25,17 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export interface AssociateTrackerConsumerRequest {
-  /**
-   * <p>The name of the tracker resource to be associated with a geofence collection.</p>
-   */
-  TrackerName: string | undefined;
+export type Status = "Active" | "Expired";
 
+/**
+ * <p>Options for filtering API keys.</p>
+ */
+export interface ApiKeyFilter {
   /**
-   * <p>The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker
-   *             resource. Used when you need to specify a resource across all AWS.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Format example:
-   *                         <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * <p>Filter on <code>Active</code> or <code>Expired</code> API keys.</p>
    */
-  ConsumerArn: string | undefined;
+  KeyStatus?: Status | string;
 }
-
-export interface AssociateTrackerConsumerResponse {}
 
 /**
  * <p>The request was unsuccessful because of a conflict.</p>
@@ -69,6 +59,203 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * <p>API Restrictions on the allowed actions, resources, and referers for an API key
+ *             resource.</p>
+ */
+export interface ApiKeyRestrictions {
+  /**
+   * <p>A list of allowed actions that an API key resource grants permissions to
+   *             perform</p>
+   *          <note>
+   *             <p>Currently, the only valid action is <code>geo:GetMap*</code> as an input to the
+   *                 list. For example, <code>["geo:GetMap*"]</code> is valid but
+   *                     <code>["geo:GetMapTile"]</code> is not.</p>
+   *          </note>
+   */
+  AllowActions: string[] | undefined;
+
+  /**
+   * <p>A list of allowed resource ARNs that a API key bearer can perform actions on</p>
+   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
+   *                 (ARNs)</a>.</p>
+   *          <note>
+   *             <p>In this preview, you can allow only map resources.</p>
+   *          </note>
+   *          <p>Requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be prefixed with <code>arn</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>partition</code> and <code>service</code> must not be empty and should
+   *                     begin with only alphanumeric characters (A–Z, a–z, 0–9) and contain only
+   *                     alphanumeric numbers, hyphens (-) and periods (.).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>region</code> and <code>account-id</code> can be empty or should begin
+   *                     with only alphanumeric characters (A–Z, a–z, 0–9) and contain only alphanumeric
+   *                     numbers, hyphens (-) and periods (.).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> can begin with any character except for forward slash
+   *                     (/) and contain any characters after, including forward slashes to form a
+   *                     path.</p>
+   *                <p>
+   *                   <code>resource-id</code> can also include wildcard characters, denoted by an
+   *                     asterisk (*).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn</code>, <code>partition</code>, <code>service</code>,
+   *                         <code>region</code>, <code>account-id</code> and <code>resource-id</code>
+   *                     must be delimited by a colon (:).</p>
+   *             </li>
+   *             <li>
+   *                <p>No spaces allowed. For example,
+   *                             <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  AllowResources: string[] | undefined;
+
+  /**
+   * <p>An optional list of allowed HTTP referers for which requests must originate from.
+   *             Requests using this API key from other domains will not be allowed.</p>
+   *          <p>Requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Contain only alphanumeric characters (A–Z, a–z, 0–9) or any symbols in this
+   *                     list <code>$\-._+!*`(),;/?:@=&amp;</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>May contain a percent (%) if followed by 2 hexadecimal digits (A-F, a-f, 0-9);
+   *                     this is used for URL encoding purposes.</p>
+   *             </li>
+   *             <li>
+   *                <p>May contain wildcard characters question mark (?) and asterisk (*).</p>
+   *                <p>Question mark (?) will replace any single character (including hexadecimal
+   *                     digits).</p>
+   *                <p>Asterisk (*) will replace any multiple characters (including multiple
+   *                     hexadecimal digits).</p>
+   *             </li>
+   *             <li>
+   *                <p>No spaces allowed. For example, <code>https://example.com</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  AllowReferers?: string[];
+}
+
+export interface CreateKeyRequest {
+  /**
+   * <p>A custom name for the API key resource.</p>
+   *          <p>Requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods
+   *                     (.), and underscores (_). </p>
+   *             </li>
+   *             <li>
+   *                <p>Must be a unique API key name.</p>
+   *             </li>
+   *             <li>
+   *                <p>No spaces allowed. For example, <code>ExampleAPIKey</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>The API key restrictions for the API key resource.</p>
+   */
+  Restrictions: ApiKeyRestrictions | undefined;
+
+  /**
+   * <p>An optional description for the API key resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The optional timestamp for when the API key resource will expire in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. One of <code>NoExpiry</code> or
+   *                 <code>ExpireTime</code> must be set.</p>
+   */
+  ExpireTime?: Date;
+
+  /**
+   * <p>Optionally set to <code>true</code> to set no expiration time for the API key. One of
+   *                 <code>NoExpiry</code> or <code>ExpireTime</code> must be set.</p>
+   */
+  NoExpiry?: boolean;
+
+  /**
+   * <p>Applies one or more tags to the map resource. A tag is a key-value pair that helps
+   *             manage, identify, search, and filter your resources by labelling them.</p>
+   *          <p>Format: <code>"key" : "value"</code>
+   *          </p>
+   *          <p>Restrictions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum 50 tags per resource</p>
+   *             </li>
+   *             <li>
+   *                <p>Each resource tag must be unique with a maximum of one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
+   *                     + - = . _ : / @. </p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot use "aws:" as a prefix for a key.</p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: Record<string, string>;
+}
+
+export interface CreateKeyResponse {
+  /**
+   * <p>The key value/string of an API key. This value is used when making API calls to
+   *             authorize the call. For example, see <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_GetMapGlyphs.html">GetMapGlyphs</a>.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify
+   *             a resource across all Amazon Web Services.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Format example:
+   *                     <code>arn:aws:geo:region:account-id:key/ExampleKey</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KeyArn: string | undefined;
+
+  /**
+   * <p>The name of the API key resource.</p>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>The timestamp for when the API key resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  CreateTime: Date | undefined;
+}
+
+/**
  * <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -86,27 +273,6 @@ export class InternalServerException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The resource that you've entered was not found in your AWS account.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -212,6 +378,267 @@ export class ValidationException extends __BaseException {
     this.FieldList = opts.FieldList;
   }
 }
+
+export interface DeleteKeyRequest {
+  /**
+   * <p>The name of the API key to delete.</p>
+   */
+  KeyName: string | undefined;
+}
+
+export interface DeleteKeyResponse {}
+
+/**
+ * <p>The resource that you've entered was not found in your AWS account.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface DescribeKeyRequest {
+  /**
+   * <p>The name of the API key resource.</p>
+   */
+  KeyName: string | undefined;
+}
+
+export interface DescribeKeyResponse {
+  /**
+   * <p>The key value/string of an API key.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify
+   *             a resource across all Amazon Web Services.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Format example:
+   *                     <code>arn:aws:geo:region:account-id:key/ExampleKey</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KeyArn: string | undefined;
+
+  /**
+   * <p>The name of the API key resource.</p>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>API Restrictions on the allowed actions, resources, and referers for an API key
+   *             resource.</p>
+   */
+  Restrictions: ApiKeyRestrictions | undefined;
+
+  /**
+   * <p>The timestamp for when the API key resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  CreateTime: Date | undefined;
+
+  /**
+   * <p>The timestamp for when the API key resource will expire in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  ExpireTime: Date | undefined;
+
+  /**
+   * <p>The timestamp for when the API key resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  UpdateTime: Date | undefined;
+
+  /**
+   * <p>The optional description for the API key resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Tags associated with the API key resource.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export interface ListKeysRequest {
+  /**
+   * <p>An optional limit for the number of resources returned in a single call. </p>
+   *          <p>Default value: <code>100</code>
+   *          </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token specifying which page of results to return in the response. If no
+   *             token is provided, the default page is the first page. </p>
+   *          <p>Default value: <code>null</code>
+   *          </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Optionally filter the list to only <code>Active</code> or <code>Expired</code> API
+   *             keys.</p>
+   */
+  Filter?: ApiKeyFilter;
+}
+
+/**
+ * <p>An API key resource listed in your Amazon Web Services account.</p>
+ */
+export interface ListKeysResponseEntry {
+  /**
+   * <p>The name of the API key resource.</p>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>The timestamp for when the API key resource will expire, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
+   */
+  ExpireTime: Date | undefined;
+
+  /**
+   * <p>The optional description for the API key resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>API Restrictions on the allowed actions, resources, and referers for an API key
+   *             resource.</p>
+   */
+  Restrictions: ApiKeyRestrictions | undefined;
+
+  /**
+   * <p>The timestamp of when the API key was created, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
+   */
+  CreateTime: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the API key was last updated, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
+   */
+  UpdateTime: Date | undefined;
+}
+
+export interface ListKeysResponse {
+  /**
+   * <p>Contains API key resources in your Amazon Web Services account. Details include API key
+   *             name, allowed referers and timestamp for when the API key will expire.</p>
+   */
+  Entries: ListKeysResponseEntry[] | undefined;
+
+  /**
+   * <p>A pagination token indicating there are additional pages available. You can use the
+   *             token in a following request to fetch the next set of results. </p>
+   */
+  NextToken?: string;
+}
+
+export interface UpdateKeyRequest {
+  /**
+   * <p>The name of the API key resource to update.</p>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>Updates the description for the API key resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Updates the timestamp for when the API key resource will expire in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  ExpireTime?: Date;
+
+  /**
+   * <p>Whether the API key should expire. Set to <code>true</code> to set the API key to have
+   *             no expiration time.</p>
+   */
+  NoExpiry?: boolean;
+
+  /**
+   * <p>The boolean flag to be included for updating <code>ExpireTime</code> or
+   *                 <code>Restrictions</code> details.</p>
+   *          <p>Must be set to <code>true</code> to update an API key resource that has been used in
+   *             the past 7 days.</p>
+   *          <p>
+   *             <code>False</code> if force update is not preferred</p>
+   *          <p>Default value: <code>False</code>
+   *          </p>
+   */
+  ForceUpdate?: boolean;
+
+  /**
+   * <p>Updates the API key restrictions for the API key resource.</p>
+   */
+  Restrictions?: ApiKeyRestrictions;
+}
+
+export interface UpdateKeyResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify
+   *             a resource across all Amazon Web Services.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Format example:
+   *                     <code>arn:aws:geo:region:account-id:key/ExampleKey</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KeyArn: string | undefined;
+
+  /**
+   * <p>The name of the API key resource.</p>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>The timestamp for when the API key resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  UpdateTime: Date | undefined;
+}
+
+export interface AssociateTrackerConsumerRequest {
+  /**
+   * <p>The name of the tracker resource to be associated with a geofence collection.</p>
+   */
+  TrackerName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker
+   *             resource. Used when you need to specify a resource across all Amazon Web Services.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ConsumerArn: string | undefined;
+}
+
+export interface AssociateTrackerConsumerResponse {}
 
 export interface BatchDeleteDevicePositionHistoryRequest {
   /**
@@ -1630,7 +2057,9 @@ export interface CreateGeofenceCollectionRequest {
   Tags?: Record<string, string>;
 
   /**
-   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.
+   * <p>A key identifier for an
+   *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
+   *                 KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.
    * 	</p>
    */
   KmsKeyId?: string;
@@ -1644,7 +2073,7 @@ export interface CreateGeofenceCollectionResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the geofence collection resource. Used when you
-   *             need to specify a resource across all AWS. </p>
+   *             need to specify a resource across all Amazon Web Services. </p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -1777,20 +2206,35 @@ export interface MapConfiguration {
    *                 in the Asia Pacific (Singapore) Region (<code>ap-southeast-1</code>).
    *                 For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps countries and area covered</a>.</p>
    *          </note>
-   *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview) map styles</a>:</p>
+   *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data map styles</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>VectorOpenDataStandardLight</code> – The Open Data Standard Light
-   *                     (preview) map style provides a detailed basemap for the world suitable for
+   *                     map style provides a detailed basemap for the world suitable for
    *                     website and mobile application use. The map includes highways major roads,
    *                     minor roads, railways, water features, cities, parks, landmarks, building
    *                     footprints, and administrative boundaries.</p>
-   *                <important>
-   *                   <p>Open Data maps is in preview. We may add, change, or remove
-   *                     features before announcing general availability. For more information, see
-   *                     <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html#open-data-preview">Open Data is in preview release</a>.</p>
-   *                </important>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VectorOpenDataStandardDark</code> – Open Data Standard Dark is a
+   *                     dark-themed map style that provides a detailed basemap for the world
+   *                     suitable for website and mobile application use. The map includes highways
+   *                     major roads, minor roads, railways, water features, cities, parks,
+   *                     landmarks, building footprints, and administrative boundaries.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VectorOpenDataVisualizationLight</code> – The Open Data
+   *                     Visualization Light map style is a light-themed style with muted colors and
+   *                     fewer features that aids in understanding overlaid data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VectorOpenDataVisualizationDark</code> – The Open Data
+   *                     Visualization Dark map style is a dark-themed style with muted colors and
+   *                     fewer features that aids in understanding overlaid data.</p>
    *             </li>
    *          </ul>
    */
@@ -1874,7 +2318,7 @@ export interface CreateMapResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across
-   *             all AWS.</p>
+   *             all Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -1978,7 +2422,7 @@ export interface CreatePlaceIndexRequest {
    *                <important>
    *                   <p>If you specify HERE Technologies (<code>Here</code>) as the data provider,
    *                         you may not <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store results</a> for locations in Japan. For more information, see
-   *                         the <a href="https://aws.amazon.com/service-terms/">AWS Service
+   *                         the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services Service
    *                             Terms</a> for Amazon Location Service.</p>
    *                </important>
    *             </li>
@@ -2045,7 +2489,7 @@ export interface CreatePlaceIndexResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a
-   *             resource across AWS. </p>
+   *             resource across Amazon Web Services. </p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2177,7 +2621,7 @@ export interface CreateRouteCalculatorResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you
-   *             specify a resource across all AWS.</p>
+   *             specify a resource across all Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2230,7 +2674,9 @@ export interface CreateTrackerRequest {
   PricingPlan?: PricingPlan | string;
 
   /**
-   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.</p>
+   * <p>A key identifier for an
+   *            <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
+   *                KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.</p>
    */
   KmsKeyId?: string;
 
@@ -2320,7 +2766,7 @@ export interface CreateTrackerResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify
-   *             a resource across all AWS.</p>
+   *             a resource across all Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2398,7 +2844,7 @@ export interface DescribeGeofenceCollectionResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the geofence collection resource. Used when you
-   *             need to specify a resource across all AWS. </p>
+   *             need to specify a resource across all Amazon Web Services. </p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2429,7 +2875,9 @@ export interface DescribeGeofenceCollectionResponse {
   PricingPlanDataSource?: string;
 
   /**
-   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS KMS customer managed key</a> assigned to the Amazon Location resource</p>
+   * <p>A key identifier for an
+   *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
+   *                 KMS customer managed key</a> assigned to the Amazon Location resource</p>
    */
   KmsKeyId?: string;
 
@@ -2468,7 +2916,7 @@ export interface DescribeMapResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across
-   *             all AWS.</p>
+   *             all Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2534,7 +2982,7 @@ export interface DescribePlaceIndexResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a
-   *             resource across AWS. </p>
+   *             resource across Amazon Web Services. </p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2618,7 +3066,7 @@ export interface DescribeRouteCalculatorResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you
-   *             specify a resource across AWS.</p>
+   *             specify a resource across Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2710,7 +3158,7 @@ export interface DescribeTrackerResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify
-   *             a resource across all AWS.</p>
+   *             a resource across all Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2758,7 +3206,8 @@ export interface DescribeTrackerResponse {
   UpdateTime: Date | undefined;
 
   /**
-   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS KMS customer managed key</a> assigned to the Amazon Location resource.</p>
+   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
+   *             KMS customer managed key</a> assigned to the Amazon Location resource.</p>
    */
   KmsKeyId?: string;
 
@@ -2776,7 +3225,7 @@ export interface DisassociateTrackerConsumerRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the geofence collection to be disassociated from
-   *             the tracker resource. Used when you need to specify a resource across all AWS. </p>
+   *             the tracker resource. Used when you need to specify a resource across all Amazon Web Services. </p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2795,7 +3244,8 @@ export interface ListTagsForResourceRequest {
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>
    *          <ul>
    *             <li>
-   *                <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
+   *                <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2805,7 +3255,8 @@ export interface ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Tags that have been applied to the specified resource. Tags are mapped from the tag key to the tag value: <code>"TagKey" : "TagValue"</code>.</p>
+   * <p>Tags that have been applied to the specified resource. Tags are mapped from the tag
+   *             key to the tag value: <code>"TagKey" : "TagValue"</code>.</p>
    *          <ul>
    *             <li>
    *                <p>Format example: <code>{"tag1" : "value1", "tag2" : "value2"} </code>
@@ -2821,7 +3272,8 @@ export interface TagResourceRequest {
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to update.</p>
    *          <ul>
    *             <li>
-   *                <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
+   *                <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2829,8 +3281,8 @@ export interface TagResourceRequest {
   ResourceArn: string | undefined;
 
   /**
-   * <p>Applies one or more tags to specific resource. A tag is a key-value pair that helps you
-   *             manage, identify, search, and filter your resources.</p>
+   * <p>Applies one or more tags to specific resource. A tag is a key-value pair that helps
+   *             you manage, identify, search, and filter your resources.</p>
    *          <p>Format: <code>"key" : "value"</code>
    *          </p>
    *          <p>Restrictions:</p>
@@ -2848,8 +3300,8 @@ export interface TagResourceRequest {
    *                <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
-   *                     = . _ : / @</p>
+   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
+   *                     + - = . _ : / @</p>
    *             </li>
    *             <li>
    *                <p>Cannot use "aws:" as a prefix for a key.</p>
@@ -2863,10 +3315,12 @@ export interface TagResourceResponse {}
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove tags.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove
+   *             tags.</p>
    *          <ul>
    *             <li>
-   *                <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
+   *                <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3011,7 +3465,7 @@ export interface ListGeofenceCollectionsResponseEntry {
 
 export interface ListGeofenceCollectionsResponse {
   /**
-   * <p>Lists the geofence collections that exist in your AWS account.</p>
+   * <p>Lists the geofence collections that exist in your Amazon Web Services account.</p>
    */
   Entries: ListGeofenceCollectionsResponseEntry[] | undefined;
 
@@ -3194,7 +3648,7 @@ export interface UpdateGeofenceCollectionResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a
-   *             resource across AWS.</p>
+   *             resource across Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -3392,10 +3846,11 @@ export interface GetMapGlyphsRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview)</a> styles:</p>
+   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data</a> styles:</p>
    *          <ul>
    *             <li>
-   *                <p>VectorOpenDataStandardLight –
+   *                <p>VectorOpenDataStandardLight, VectorOpenDataStandardDark,
+   *                     VectorOpenDataVisualizationLight, VectorOpenDataVisualizationDark –
    *                     <code>Amazon Ember Regular,Noto Sans Regular</code> |
    *                     <code>Amazon Ember Bold,Noto Sans Bold</code> |
    *                     <code>Amazon Ember Medium,Noto Sans Medium</code> |
@@ -3406,7 +3861,7 @@ export interface GetMapGlyphsRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>The fonts used by <code>VectorOpenDataStandardLight</code> are combined fonts
+   *             <p>The fonts used by the Open Data map styles are combined fonts
    *                 that use <code>Amazon Ember</code> for most glyphs but <code>Noto Sans</code>
    *                 for glyphs unsupported by <code>Amazon Ember</code>.</p>
    *          </note>
@@ -3419,11 +3874,17 @@ export interface GetMapGlyphsRequest {
    *                 <code>00FF</code>. Must be aligned to multiples of 256.</p>
    */
   FontUnicodeRange: string | undefined;
+
+  /**
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   *             the request.</p>
+   */
+  Key?: string;
 }
 
 export interface GetMapGlyphsResponse {
   /**
-   * <p>The blob's content type.</p>
+   * <p>The glyph, as binary blob.</p>
    */
   Blob?: Uint8Array;
 
@@ -3431,6 +3892,11 @@ export interface GetMapGlyphsResponse {
    * <p>The map glyph content type. For example, <code>application/octet-stream</code>.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The HTTP Cache-Control directive for the value.</p>
+   */
+  CacheControl?: string;
 }
 
 export interface GetMapSpritesRequest {
@@ -3466,6 +3932,12 @@ export interface GetMapSpritesRequest {
    *          </ul>
    */
   FileName: string | undefined;
+
+  /**
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   *             the request.</p>
+   */
+  Key?: string;
 }
 
 export interface GetMapSpritesResponse {
@@ -3480,6 +3952,11 @@ export interface GetMapSpritesResponse {
    *                 <code>application/json</code>. </p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The HTTP Cache-Control directive for the value.</p>
+   */
+  CacheControl?: string;
 }
 
 export interface GetMapStyleDescriptorRequest {
@@ -3487,6 +3964,12 @@ export interface GetMapStyleDescriptorRequest {
    * <p>The map resource to retrieve the style descriptor from.</p>
    */
   MapName: string | undefined;
+
+  /**
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   *             the request.</p>
+   */
+  Key?: string;
 }
 
 export interface GetMapStyleDescriptorResponse {
@@ -3500,6 +3983,11 @@ export interface GetMapStyleDescriptorResponse {
    *             <code>application/json</code>.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The HTTP Cache-Control directive for the value.</p>
+   */
+  CacheControl?: string;
 }
 
 export interface GetMapTileRequest {
@@ -3522,6 +4010,12 @@ export interface GetMapTileRequest {
    * <p>The Y axis value for the map tile. </p>
    */
   Y: string | undefined;
+
+  /**
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   *             the request.</p>
+   */
+  Key?: string;
 }
 
 export interface GetMapTileResponse {
@@ -3535,6 +4029,11 @@ export interface GetMapTileResponse {
    *                 <code>application/vnd.mapbox-vector-tile</code>.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The HTTP Cache-Control directive for the value.</p>
+   */
+  CacheControl?: string;
 }
 
 export interface GetPlaceRequest {
@@ -3798,7 +4297,7 @@ export interface ListMapsRequest {
 }
 
 /**
- * <p>Contains details of an existing map resource in your AWS account.</p>
+ * <p>Contains details of an existing map resource in your Amazon Web Services account.</p>
  */
 export interface ListMapsResponseEntry {
   /**
@@ -3838,7 +4337,7 @@ export interface ListMapsResponseEntry {
 
 export interface ListMapsResponse {
   /**
-   * <p>Contains a list of maps in your AWS account</p>
+   * <p>Contains a list of maps in your Amazon Web Services account</p>
    */
   Entries: ListMapsResponseEntry[] | undefined;
 
@@ -3866,7 +4365,7 @@ export interface ListPlaceIndexesRequest {
 }
 
 /**
- * <p>A place index resource listed in your AWS account.</p>
+ * <p>A place index resource listed in your Amazon Web Services account.</p>
  */
 export interface ListPlaceIndexesResponseEntry {
   /**
@@ -3924,7 +4423,7 @@ export interface ListPlaceIndexesResponseEntry {
 
 export interface ListPlaceIndexesResponse {
   /**
-   * <p>Lists the place index resources that exist in your AWS account</p>
+   * <p>Lists the place index resources that exist in your Amazon Web Services account</p>
    */
   Entries: ListPlaceIndexesResponseEntry[] | undefined;
 
@@ -3953,7 +4452,7 @@ export interface ListRouteCalculatorsRequest {
 }
 
 /**
- * <p>A route calculator resource listed in your AWS account.</p>
+ * <p>A route calculator resource listed in your Amazon Web Services account.</p>
  */
 export interface ListRouteCalculatorsResponseEntry {
   /**
@@ -4024,7 +4523,7 @@ export interface ListRouteCalculatorsResponseEntry {
 
 export interface ListRouteCalculatorsResponse {
   /**
-   * <p>Lists the route calculator resources that exist in your AWS account</p>
+   * <p>Lists the route calculator resources that exist in your Amazon Web Services account</p>
    */
   Entries: ListRouteCalculatorsResponseEntry[] | undefined;
 
@@ -4130,7 +4629,7 @@ export interface ListTrackersResponseEntry {
 
 export interface ListTrackersResponse {
   /**
-   * <p>Contains tracker resources in your AWS account. Details include tracker name,
+   * <p>Contains tracker resources in your Amazon Web Services account. Details include tracker name,
    *             description and timestamps for when the tracker was created and last updated.</p>
    */
   Entries: ListTrackersResponseEntry[] | undefined;
@@ -4751,7 +5250,7 @@ export interface UpdatePlaceIndexResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the upated place index resource. Used to specify a
-   *             resource across AWS.</p>
+   *             resource across Amazon Web Services.</p>
    *          <ul>
    *             <li>
    *                <p>Format example: <code>arn:aws:geo:region:account-id:place-
@@ -4904,6 +5403,106 @@ export interface UpdateTrackerResponse {
 /**
  * @internal
  */
+export const ApiKeyFilterFilterSensitiveLog = (obj: ApiKeyFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApiKeyRestrictionsFilterSensitiveLog = (obj: ApiKeyRestrictions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateKeyRequestFilterSensitiveLog = (obj: CreateKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateKeyResponseFilterSensitiveLog = (obj: CreateKeyResponse): any => ({
+  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteKeyRequestFilterSensitiveLog = (obj: DeleteKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteKeyResponseFilterSensitiveLog = (obj: DeleteKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeKeyRequestFilterSensitiveLog = (obj: DescribeKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeKeyResponseFilterSensitiveLog = (obj: DescribeKeyResponse): any => ({
+  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListKeysRequestFilterSensitiveLog = (obj: ListKeysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListKeysResponseEntryFilterSensitiveLog = (obj: ListKeysResponseEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListKeysResponseFilterSensitiveLog = (obj: ListKeysResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateKeyRequestFilterSensitiveLog = (obj: UpdateKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateKeyResponseFilterSensitiveLog = (obj: UpdateKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const AssociateTrackerConsumerRequestFilterSensitiveLog = (obj: AssociateTrackerConsumerRequest): any => ({
   ...obj,
 });
@@ -4912,13 +5511,6 @@ export const AssociateTrackerConsumerRequestFilterSensitiveLog = (obj: Associate
  * @internal
  */
 export const AssociateTrackerConsumerResponseFilterSensitiveLog = (obj: AssociateTrackerConsumerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
   ...obj,
 });
 
@@ -5658,6 +6250,7 @@ export const GetDevicePositionHistoryResponseFilterSensitiveLog = (obj: GetDevic
  */
 export const GetMapGlyphsRequestFilterSensitiveLog = (obj: GetMapGlyphsRequest): any => ({
   ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
 /**
@@ -5672,6 +6265,7 @@ export const GetMapGlyphsResponseFilterSensitiveLog = (obj: GetMapGlyphsResponse
  */
 export const GetMapSpritesRequestFilterSensitiveLog = (obj: GetMapSpritesRequest): any => ({
   ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
 /**
@@ -5686,6 +6280,7 @@ export const GetMapSpritesResponseFilterSensitiveLog = (obj: GetMapSpritesRespon
  */
 export const GetMapStyleDescriptorRequestFilterSensitiveLog = (obj: GetMapStyleDescriptorRequest): any => ({
   ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
 /**
@@ -5700,6 +6295,7 @@ export const GetMapStyleDescriptorResponseFilterSensitiveLog = (obj: GetMapStyle
  */
 export const GetMapTileRequestFilterSensitiveLog = (obj: GetMapTileRequest): any => ({
   ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
 /**

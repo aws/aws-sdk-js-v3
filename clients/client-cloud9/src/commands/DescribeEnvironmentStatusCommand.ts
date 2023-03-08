@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeEnvironmentStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeEnvironmentStatusCommand}.
+ */
 export interface DescribeEnvironmentStatusCommandInput extends DescribeEnvironmentStatusRequest {}
+/**
+ * The output of {@link DescribeEnvironmentStatusCommand}.
+ */
 export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironmentStatusResult, __MetadataBearer {}
 
 /**

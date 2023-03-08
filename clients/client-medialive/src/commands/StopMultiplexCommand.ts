@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopMultiplexCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopMultiplexCommand}.
+ */
 export interface StopMultiplexCommandInput extends StopMultiplexRequest {}
+/**
+ * The output of {@link StopMultiplexCommand}.
+ */
 export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __MetadataBearer {}
 
 /**

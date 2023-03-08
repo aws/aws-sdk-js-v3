@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
+/**
+ * The input for {@link RegisterApplicationCommand}.
+ */
 export interface RegisterApplicationCommandInput extends RegisterApplicationInput {}
+/**
+ * The output of {@link RegisterApplicationCommand}.
+ */
 export interface RegisterApplicationCommandOutput extends RegisterApplicationOutput, __MetadataBearer {}
 
 /**

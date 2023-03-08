@@ -17,7 +17,13 @@ import { StopStackRequest, StopStackRequestFilterSensitiveLog } from "../models/
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import { deserializeAws_json1_1StopStackCommand, serializeAws_json1_1StopStackCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopStackCommand}.
+ */
 export interface StopStackCommandInput extends StopStackRequest {}
+/**
+ * The output of {@link StopStackCommand}.
+ */
 export interface StopStackCommandOutput extends __MetadataBearer {}
 
 /**

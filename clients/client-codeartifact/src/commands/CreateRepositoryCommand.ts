@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateRepositoryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateRepositoryCommand}.
+ */
 export interface CreateRepositoryCommandInput extends CreateRepositoryRequest {}
+/**
+ * The output of {@link CreateRepositoryCommand}.
+ */
 export interface CreateRepositoryCommandOutput extends CreateRepositoryResult, __MetadataBearer {}
 
 /**

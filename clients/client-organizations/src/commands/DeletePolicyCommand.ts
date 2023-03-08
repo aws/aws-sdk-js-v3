@@ -20,14 +20,20 @@ import {
   serializeAws_json1_1DeletePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeletePolicyCommand}.
+ */
 export interface DeletePolicyCommandInput extends DeletePolicyRequest {}
+/**
+ * The output of {@link DeletePolicyCommand}.
+ */
 export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified policy from your organization. Before you perform this
  *             operation, you must first detach the policy from all organizational units (OUs), roots,
  *             and accounts.</p>
- *         <p>This operation can be called only from the organization's management account.</p>
+ *          <p>This operation can be called only from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

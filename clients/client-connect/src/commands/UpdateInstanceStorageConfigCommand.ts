@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1UpdateInstanceStorageConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateInstanceStorageConfigCommand}.
+ */
 export interface UpdateInstanceStorageConfigCommandInput extends UpdateInstanceStorageConfigRequest {}
+/**
+ * The output of {@link UpdateInstanceStorageConfigCommand}.
+ */
 export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBearer {}
 
 /**

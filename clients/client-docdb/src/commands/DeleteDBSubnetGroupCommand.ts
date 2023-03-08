@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteDBSubnetGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteDBSubnetGroupCommand}.
+ */
 export interface DeleteDBSubnetGroupCommandInput extends DeleteDBSubnetGroupMessage {}
+/**
+ * The output of {@link DeleteDBSubnetGroupCommand}.
+ */
 export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**

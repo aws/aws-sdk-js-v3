@@ -6,7 +6,6 @@ import {
   ListSecurityPoliciesCommandInput,
   ListSecurityPoliciesCommandOutput,
 } from "../commands/ListSecurityPoliciesCommand";
-import { Transfer } from "../Transfer";
 import { TransferClient } from "../TransferClient";
 import { TransferPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSecurityPoliciesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Transfer,
-  input: ListSecurityPoliciesCommandInput,
-  ...args: any
-): Promise<ListSecurityPoliciesCommandOutput> => {
-  // @ts-ignore
-  return await client.listSecurityPolicies(input, ...args);
-};
 export async function* paginateListSecurityPolicies(
   config: TransferPaginationConfiguration,
   input: ListSecurityPoliciesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListSecurityPolicies(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Transfer) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof TransferClient) {
+    if (config.client instanceof TransferClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Transfer | TransferClient");

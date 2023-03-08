@@ -26,7 +26,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryDeleteRuleCommand, serializeAws_queryDeleteRuleCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteRuleCommand}.
+ */
 export interface DeleteRuleCommandInput extends DeleteRuleInput {}
+/**
+ * The output of {@link DeleteRuleCommand}.
+ */
 export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBearer {}
 
 /**

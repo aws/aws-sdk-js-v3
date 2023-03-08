@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetRepositoryTriggersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRepositoryTriggersCommand}.
+ */
 export interface GetRepositoryTriggersCommandInput extends GetRepositoryTriggersInput {}
+/**
+ * The output of {@link GetRepositoryTriggersCommand}.
+ */
 export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTriggersOutput, __MetadataBearer {}
 
 /**

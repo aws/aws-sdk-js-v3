@@ -6,7 +6,6 @@ import {
   ListVpcEndpointsCommandInput,
   ListVpcEndpointsCommandOutput,
 } from "../commands/ListVpcEndpointsCommand";
-import { OpenSearchServerless } from "../OpenSearchServerless";
 import { OpenSearchServerlessClient } from "../OpenSearchServerlessClient";
 import { OpenSearchServerlessPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListVpcEndpointsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: OpenSearchServerless,
-  input: ListVpcEndpointsCommandInput,
-  ...args: any
-): Promise<ListVpcEndpointsCommandOutput> => {
-  // @ts-ignore
-  return await client.listVpcEndpoints(input, ...args);
-};
 export async function* paginateListVpcEndpoints(
   config: OpenSearchServerlessPaginationConfiguration,
   input: ListVpcEndpointsCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListVpcEndpoints(
   let page: ListVpcEndpointsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof OpenSearchServerless) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OpenSearchServerlessClient) {
+    if (config.client instanceof OpenSearchServerlessClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected OpenSearchServerless | OpenSearchServerlessClient");

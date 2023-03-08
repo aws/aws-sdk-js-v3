@@ -27,7 +27,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link UploadPartCopyCommand}.
+ */
 export interface UploadPartCopyCommandInput extends UploadPartCopyRequest {}
+/**
+ * The output of {@link UploadPartCopyCommand}.
+ */
 export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __MetadataBearer {}
 
 /**

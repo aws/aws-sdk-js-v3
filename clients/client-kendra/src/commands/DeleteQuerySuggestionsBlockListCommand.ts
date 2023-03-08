@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DeleteQuerySuggestionsBlockListCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteQuerySuggestionsBlockListCommand}.
+ */
 export interface DeleteQuerySuggestionsBlockListCommandInput extends DeleteQuerySuggestionsBlockListRequest {}
+/**
+ * The output of {@link DeleteQuerySuggestionsBlockListCommand}.
+ */
 export interface DeleteQuerySuggestionsBlockListCommandOutput extends __MetadataBearer {}
 
 /**

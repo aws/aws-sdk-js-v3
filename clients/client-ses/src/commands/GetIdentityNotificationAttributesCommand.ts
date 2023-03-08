@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link GetIdentityNotificationAttributesCommand}.
+ */
 export interface GetIdentityNotificationAttributesCommandInput extends GetIdentityNotificationAttributesRequest {}
+/**
+ * The output of {@link GetIdentityNotificationAttributesCommand}.
+ */
 export interface GetIdentityNotificationAttributesCommandOutput
   extends GetIdentityNotificationAttributesResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2RestoreAddressToClassicCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RestoreAddressToClassicCommand}.
+ */
 export interface RestoreAddressToClassicCommandInput extends RestoreAddressToClassicRequest {}
+/**
+ * The output of {@link RestoreAddressToClassicCommand}.
+ */
 export interface RestoreAddressToClassicCommandOutput extends RestoreAddressToClassicResult, __MetadataBearer {}
 
 /**

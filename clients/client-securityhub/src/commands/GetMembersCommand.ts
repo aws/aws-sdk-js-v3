@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link GetMembersCommand}.
+ */
 export interface GetMembersCommandInput extends GetMembersRequest {}
+/**
+ * The output of {@link GetMembersCommand}.
+ */
 export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataBearer {}
 
 /**

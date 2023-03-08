@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link RestoreDBInstanceFromS3Command}.
+ */
 export interface RestoreDBInstanceFromS3CommandInput extends RestoreDBInstanceFromS3Message {}
+/**
+ * The output of {@link RestoreDBInstanceFromS3Command}.
+ */
 export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceFromS3Result, __MetadataBearer {}
 
 /**

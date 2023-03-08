@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateCapacityProviderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateCapacityProviderCommand}.
+ */
 export interface CreateCapacityProviderCommandInput extends CreateCapacityProviderRequest {}
+/**
+ * The output of {@link CreateCapacityProviderCommand}.
+ */
 export interface CreateCapacityProviderCommandOutput extends CreateCapacityProviderResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteFleetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteFleetCommand}.
+ */
 export interface DeleteFleetCommandInput extends DeleteFleetInput {}
+/**
+ * The output of {@link DeleteFleetCommand}.
+ */
 export interface DeleteFleetCommandOutput extends __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_restJson1EnableCommand, serializeAws_restJson1EnableCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link EnableCommand}.
+ */
 export interface EnableCommandInput extends EnableRequest {}
+/**
+ * The output of {@link EnableCommand}.
+ */
 export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
 
 /**

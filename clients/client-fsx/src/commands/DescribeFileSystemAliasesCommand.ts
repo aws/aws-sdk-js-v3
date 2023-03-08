@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeFileSystemAliasesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeFileSystemAliasesCommand}.
+ */
 export interface DescribeFileSystemAliasesCommandInput extends DescribeFileSystemAliasesRequest {}
+/**
+ * The output of {@link DescribeFileSystemAliasesCommand}.
+ */
 export interface DescribeFileSystemAliasesCommandOutput extends DescribeFileSystemAliasesResponse, __MetadataBearer {}
 
 /**

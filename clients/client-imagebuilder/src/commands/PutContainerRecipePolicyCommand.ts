@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutContainerRecipePolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutContainerRecipePolicyCommand}.
+ */
 export interface PutContainerRecipePolicyCommandInput extends PutContainerRecipePolicyRequest {}
+/**
+ * The output of {@link PutContainerRecipePolicyCommand}.
+ */
 export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecipePolicyResponse, __MetadataBearer {}
 
 /**

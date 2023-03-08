@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListDeviceProfilesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDeviceProfilesCommand}.
+ */
 export interface ListDeviceProfilesCommandInput extends ListDeviceProfilesRequest {}
+/**
+ * The output of {@link ListDeviceProfilesCommand}.
+ */
 export interface ListDeviceProfilesCommandOutput extends ListDeviceProfilesResponse, __MetadataBearer {}
 
 /**

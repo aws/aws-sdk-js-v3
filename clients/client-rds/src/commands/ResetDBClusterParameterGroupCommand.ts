@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link ResetDBClusterParameterGroupCommand}.
+ */
 export interface ResetDBClusterParameterGroupCommandInput extends ResetDBClusterParameterGroupMessage {}
+/**
+ * The output of {@link ResetDBClusterParameterGroupCommand}.
+ */
 export interface ResetDBClusterParameterGroupCommandOutput
   extends DBClusterParameterGroupNameMessage,
     __MetadataBearer {}

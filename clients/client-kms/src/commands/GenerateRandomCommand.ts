@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GenerateRandomCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GenerateRandomCommand}.
+ */
 export interface GenerateRandomCommandInput extends GenerateRandomRequest {}
+/**
+ * The output of {@link GenerateRandomCommand}.
+ */
 export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __MetadataBearer {}
 
 /**
@@ -38,7 +44,6 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  *          <p>Applications in Amazon Web Services Nitro Enclaves can call this operation by using the <a href="https://github.com/aws/aws-nitro-enclaves-sdk-c">Amazon Web Services Nitro Enclaves Development Kit</a>. For information about the supporting parameters, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves use KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>For more information about entropy and random number generation, see
  *       <a href="https://docs.aws.amazon.com/kms/latest/cryptographic-details/">Key Management Service Cryptographic Details</a>.</p>
- *
  *          <p>
  *             <b>Cross-account use</b>: Not applicable.
  *         <code>GenerateRandom</code> does not use any account-specific resources, such as KMS

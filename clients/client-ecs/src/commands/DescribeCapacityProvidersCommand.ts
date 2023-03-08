@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeCapacityProvidersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeCapacityProvidersCommand}.
+ */
 export interface DescribeCapacityProvidersCommandInput extends DescribeCapacityProvidersRequest {}
+/**
+ * The output of {@link DescribeCapacityProvidersCommand}.
+ */
 export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacityProvidersResponse, __MetadataBearer {}
 
 /**

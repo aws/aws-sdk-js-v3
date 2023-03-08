@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateMembersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateMembersCommand}.
+ */
 export interface CreateMembersCommandInput extends CreateMembersRequest {}
+/**
+ * The output of {@link CreateMembersCommand}.
+ */
 export interface CreateMembersCommandOutput extends CreateMembersResponse, __MetadataBearer {}
 
 /**
@@ -36,11 +42,8 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *       action will enable GuardDuty in the added member accounts, with the exception of the
  *       organization delegated administrator account, which must enable GuardDuty prior to being added as a
  *       member.</p>
- *          <p>If you are adding accounts by invitation use this action after GuardDuty has been enabled
- *       in potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">
- *                <code>Invite
- *         Members</code>
- *             </a>.</p>
+ *          <p>If you are adding accounts by invitation, use this action after GuardDuty has bee enabled in
+ *     potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

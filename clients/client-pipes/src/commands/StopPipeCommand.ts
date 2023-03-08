@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopPipeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopPipeCommand}.
+ */
 export interface StopPipeCommandInput extends StopPipeRequest {}
+/**
+ * The output of {@link StopPipeCommand}.
+ */
 export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBearer {}
 
 /**

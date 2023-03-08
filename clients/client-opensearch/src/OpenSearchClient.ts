@@ -148,6 +148,10 @@ import {
   ListPackagesForDomainCommandInput,
   ListPackagesForDomainCommandOutput,
 } from "./commands/ListPackagesForDomainCommand";
+import {
+  ListScheduledActionsCommandInput,
+  ListScheduledActionsCommandOutput,
+} from "./commands/ListScheduledActionsCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import { ListVersionsCommandInput, ListVersionsCommandOutput } from "./commands/ListVersionsCommand";
 import {
@@ -178,6 +182,10 @@ import {
 } from "./commands/StartServiceSoftwareUpdateCommand";
 import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "./commands/UpdateDomainConfigCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
+import {
+  UpdateScheduledActionCommandInput,
+  UpdateScheduledActionCommandOutput,
+} from "./commands/UpdateScheduledActionCommand";
 import { UpdateVpcEndpointCommandInput, UpdateVpcEndpointCommandOutput } from "./commands/UpdateVpcEndpointCommand";
 import { UpgradeDomainCommandInput, UpgradeDomainCommandOutput } from "./commands/UpgradeDomainCommand";
 import {
@@ -225,6 +233,7 @@ export type ServiceInputTypes =
   | ListDomainsForPackageCommandInput
   | ListInstanceTypeDetailsCommandInput
   | ListPackagesForDomainCommandInput
+  | ListScheduledActionsCommandInput
   | ListTagsCommandInput
   | ListVersionsCommandInput
   | ListVpcEndpointAccessCommandInput
@@ -237,6 +246,7 @@ export type ServiceInputTypes =
   | StartServiceSoftwareUpdateCommandInput
   | UpdateDomainConfigCommandInput
   | UpdatePackageCommandInput
+  | UpdateScheduledActionCommandInput
   | UpdateVpcEndpointCommandInput
   | UpgradeDomainCommandInput;
 
@@ -277,6 +287,7 @@ export type ServiceOutputTypes =
   | ListDomainsForPackageCommandOutput
   | ListInstanceTypeDetailsCommandOutput
   | ListPackagesForDomainCommandOutput
+  | ListScheduledActionsCommandOutput
   | ListTagsCommandOutput
   | ListVersionsCommandOutput
   | ListVpcEndpointAccessCommandOutput
@@ -289,6 +300,7 @@ export type ServiceOutputTypes =
   | StartServiceSoftwareUpdateCommandOutput
   | UpdateDomainConfigCommandOutput
   | UpdatePackageCommandOutput
+  | UpdateScheduledActionCommandOutput
   | UpdateVpcEndpointCommandOutput
   | UpgradeDomainCommandOutput;
 

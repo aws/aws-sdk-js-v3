@@ -6,7 +6,6 @@ import {
   ListResourcePoliciesCommandInput,
   ListResourcePoliciesCommandOutput,
 } from "../commands/ListResourcePoliciesCommand";
-import { XRay } from "../XRay";
 import { XRayClient } from "../XRayClient";
 import { XRayPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListResourcePoliciesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: XRay,
-  input: ListResourcePoliciesCommandInput,
-  ...args: any
-): Promise<ListResourcePoliciesCommandOutput> => {
-  // @ts-ignore
-  return await client.listResourcePolicies(input, ...args);
-};
 export async function* paginateListResourcePolicies(
   config: XRayPaginationConfiguration,
   input: ListResourcePoliciesCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListResourcePolicies(
   let page: ListResourcePoliciesCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof XRay) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof XRayClient) {
+    if (config.client instanceof XRayClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected XRay | XRayClient");

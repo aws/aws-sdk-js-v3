@@ -20,7 +20,13 @@ import {
   serializeAws_ec2ModifyVpcAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyVpcAttributeCommand}.
+ */
 export interface ModifyVpcAttributeCommandInput extends ModifyVpcAttributeRequest {}
+/**
+ * The output of {@link ModifyVpcAttributeCommand}.
+ */
 export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
 
 /**

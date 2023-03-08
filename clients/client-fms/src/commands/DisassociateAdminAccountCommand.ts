@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DisassociateAdminAccountCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateAdminAccountCommand}.
+ */
 export interface DisassociateAdminAccountCommandInput extends DisassociateAdminAccountRequest {}
+/**
+ * The output of {@link DisassociateAdminAccountCommand}.
+ */
 export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**

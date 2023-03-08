@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link RequestCancelWorkflowExecutionCommand}.
+ */
 export interface RequestCancelWorkflowExecutionCommandInput extends RequestCancelWorkflowExecutionInput {}
+/**
+ * The output of {@link RequestCancelWorkflowExecutionCommand}.
+ */
 export interface RequestCancelWorkflowExecutionCommandOutput extends __MetadataBearer {}
 
 /**

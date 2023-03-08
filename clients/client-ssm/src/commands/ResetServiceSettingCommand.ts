@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link ResetServiceSettingCommand}.
+ */
 export interface ResetServiceSettingCommandInput extends ResetServiceSettingRequest {}
+/**
+ * The output of {@link ResetServiceSettingCommand}.
+ */
 export interface ResetServiceSettingCommandOutput extends ResetServiceSettingResult, __MetadataBearer {}
 
 /**

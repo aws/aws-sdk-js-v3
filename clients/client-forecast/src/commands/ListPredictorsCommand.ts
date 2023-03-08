@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListPredictorsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListPredictorsCommand}.
+ */
 export interface ListPredictorsCommandInput extends ListPredictorsRequest {}
+/**
+ * The output of {@link ListPredictorsCommand}.
+ */
 export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __MetadataBearer {}
 
 /**

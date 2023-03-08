@@ -6,7 +6,6 @@ import {
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
 } from "../commands/ListApprovedOriginsCommand";
-import { Connect } from "../Connect";
 import { ConnectClient } from "../ConnectClient";
 import { ConnectPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListApprovedOriginsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Connect,
-  input: ListApprovedOriginsCommandInput,
-  ...args: any
-): Promise<ListApprovedOriginsCommandOutput> => {
-  // @ts-ignore
-  return await client.listApprovedOrigins(input, ...args);
-};
 export async function* paginateListApprovedOrigins(
   config: ConnectPaginationConfiguration,
   input: ListApprovedOriginsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListApprovedOrigins(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Connect) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConnectClient) {
+    if (config.client instanceof ConnectClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Connect | ConnectClient");

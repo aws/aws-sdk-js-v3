@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteScalingPlanCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteScalingPlanCommand}.
+ */
 export interface DeleteScalingPlanCommandInput extends DeleteScalingPlanRequest {}
+/**
+ * The output of {@link DeleteScalingPlanCommand}.
+ */
 export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanResponse, __MetadataBearer {}
 
 /**

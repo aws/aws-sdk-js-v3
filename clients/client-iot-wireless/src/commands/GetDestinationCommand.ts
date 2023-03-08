@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDestinationCommand}.
+ */
 export interface GetDestinationCommandInput extends GetDestinationRequest {}
+/**
+ * The output of {@link GetDestinationCommand}.
+ */
 export interface GetDestinationCommandOutput extends GetDestinationResponse, __MetadataBearer {}
 
 /**

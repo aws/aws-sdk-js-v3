@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateWirelessDeviceWithThingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateWirelessDeviceWithThingCommand}.
+ */
 export interface AssociateWirelessDeviceWithThingCommandInput extends AssociateWirelessDeviceWithThingRequest {}
+/**
+ * The output of {@link AssociateWirelessDeviceWithThingCommand}.
+ */
 export interface AssociateWirelessDeviceWithThingCommandOutput
   extends AssociateWirelessDeviceWithThingResponse,
     __MetadataBearer {}

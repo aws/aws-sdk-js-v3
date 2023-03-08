@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link PutAccountSuppressionAttributesCommand}.
+ */
 export interface PutAccountSuppressionAttributesCommandInput extends PutAccountSuppressionAttributesRequest {}
+/**
+ * The output of {@link PutAccountSuppressionAttributesCommand}.
+ */
 export interface PutAccountSuppressionAttributesCommandOutput
   extends PutAccountSuppressionAttributesResponse,
     __MetadataBearer {}

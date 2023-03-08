@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * The input for {@link DescribeProtectionCommand}.
+ */
 export interface DescribeProtectionCommandInput extends DescribeProtectionRequest {}
+/**
+ * The output of {@link DescribeProtectionCommand}.
+ */
 export interface DescribeProtectionCommandOutput extends DescribeProtectionResponse, __MetadataBearer {}
 
 /**

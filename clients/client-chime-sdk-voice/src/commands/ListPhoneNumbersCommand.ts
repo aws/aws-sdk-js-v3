@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListPhoneNumbersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPhoneNumbersCommand}.
+ */
 export interface ListPhoneNumbersCommandInput extends ListPhoneNumbersRequest {}
+/**
+ * The output of {@link ListPhoneNumbersCommand}.
+ */
 export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse, __MetadataBearer {}
 
 export class ListPhoneNumbersCommand extends $Command<

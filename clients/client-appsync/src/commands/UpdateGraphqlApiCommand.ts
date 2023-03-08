@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateGraphqlApiCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateGraphqlApiCommand}.
+ */
 export interface UpdateGraphqlApiCommandInput extends UpdateGraphqlApiRequest {}
+/**
+ * The output of {@link UpdateGraphqlApiCommand}.
+ */
 export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse, __MetadataBearer {}
 
 /**

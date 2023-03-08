@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateDataCatalogCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateDataCatalogCommand}.
+ */
 export interface UpdateDataCatalogCommandInput extends UpdateDataCatalogInput {}
+/**
+ * The output of {@link UpdateDataCatalogCommand}.
+ */
 export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput, __MetadataBearer {}
 
 /**

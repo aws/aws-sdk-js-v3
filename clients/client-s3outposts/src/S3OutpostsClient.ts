@@ -52,6 +52,7 @@ import {
 import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
 import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
 import { ListEndpointsCommandInput, ListEndpointsCommandOutput } from "./commands/ListEndpointsCommand";
+import { ListOutpostsWithS3CommandInput, ListOutpostsWithS3CommandOutput } from "./commands/ListOutpostsWithS3Command";
 import {
   ListSharedEndpointsCommandInput,
   ListSharedEndpointsCommandOutput,
@@ -68,12 +69,14 @@ export type ServiceInputTypes =
   | CreateEndpointCommandInput
   | DeleteEndpointCommandInput
   | ListEndpointsCommandInput
+  | ListOutpostsWithS3CommandInput
   | ListSharedEndpointsCommandInput;
 
 export type ServiceOutputTypes =
   | CreateEndpointCommandOutput
   | DeleteEndpointCommandOutput
   | ListEndpointsCommandOutput
+  | ListOutpostsWithS3CommandOutput
   | ListSharedEndpointsCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

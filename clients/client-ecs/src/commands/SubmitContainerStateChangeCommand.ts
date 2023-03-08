@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SubmitContainerStateChangeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SubmitContainerStateChangeCommand}.
+ */
 export interface SubmitContainerStateChangeCommandInput extends SubmitContainerStateChangeRequest {}
+/**
+ * The output of {@link SubmitContainerStateChangeCommand}.
+ */
 export interface SubmitContainerStateChangeCommandOutput extends SubmitContainerStateChangeResponse, __MetadataBearer {}
 
 /**

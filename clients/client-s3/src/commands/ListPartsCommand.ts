@@ -23,7 +23,13 @@ import {
 import { deserializeAws_restXmlListPartsCommand, serializeAws_restXmlListPartsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link ListPartsCommand}.
+ */
 export interface ListPartsCommandInput extends ListPartsRequest {}
+/**
+ * The output of {@link ListPartsCommand}.
+ */
 export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBearer {}
 
 /**

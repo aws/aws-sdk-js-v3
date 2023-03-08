@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DeleteDefaultSenderIdCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteDefaultSenderIdCommand}.
+ */
 export interface DeleteDefaultSenderIdCommandInput extends DeleteDefaultSenderIdRequest {}
+/**
+ * The output of {@link DeleteDefaultSenderIdCommand}.
+ */
 export interface DeleteDefaultSenderIdCommandOutput extends DeleteDefaultSenderIdResult, __MetadataBearer {}
 
 /**

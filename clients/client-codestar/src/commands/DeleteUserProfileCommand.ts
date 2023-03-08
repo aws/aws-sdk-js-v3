@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteUserProfileCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteUserProfileCommand}.
+ */
 export interface DeleteUserProfileCommandInput extends DeleteUserProfileRequest {}
+/**
+ * The output of {@link DeleteUserProfileCommand}.
+ */
 export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult, __MetadataBearer {}
 
 /**

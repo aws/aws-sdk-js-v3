@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../SageMakerGeospatialClient";
 
+/**
+ * The input for {@link ListEarthObservationJobsCommand}.
+ */
 export interface ListEarthObservationJobsCommandInput extends ListEarthObservationJobInput {}
+/**
+ * The output of {@link ListEarthObservationJobsCommand}.
+ */
 export interface ListEarthObservationJobsCommandOutput extends ListEarthObservationJobOutput, __MetadataBearer {}
 
 /**

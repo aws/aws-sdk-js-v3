@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryUpdateStackCommand, serializeAws_queryUpdateStackCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateStackCommand}.
+ */
 export interface UpdateStackCommandInput extends UpdateStackInput {}
+/**
+ * The output of {@link UpdateStackCommand}.
+ */
 export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataBearer {}
 
 /**

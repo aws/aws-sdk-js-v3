@@ -17,7 +17,13 @@ import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import { DeleteTagsType, DeleteTagsTypeFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryDeleteTagsCommand, serializeAws_queryDeleteTagsCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteTagsCommand}.
+ */
 export interface DeleteTagsCommandInput extends DeleteTagsType {}
+/**
+ * The output of {@link DeleteTagsCommand}.
+ */
 export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**

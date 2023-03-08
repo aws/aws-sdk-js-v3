@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetDASHStreamingSessionURLCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDASHStreamingSessionURLCommand}.
+ */
 export interface GetDASHStreamingSessionURLCommandInput extends GetDASHStreamingSessionURLInput {}
+/**
+ * The output of {@link GetDASHStreamingSessionURLCommand}.
+ */
 export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamingSessionURLOutput, __MetadataBearer {}
 
 /**

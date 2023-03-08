@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryCreateStackCommand, serializeAws_queryCreateStackCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateStackCommand}.
+ */
 export interface CreateStackCommandInput extends CreateStackInput {}
+/**
+ * The output of {@link CreateStackCommand}.
+ */
 export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeACLsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeACLsCommand}.
+ */
 export interface DescribeACLsCommandInput extends DescribeACLsRequest {}
+/**
+ * The output of {@link DescribeACLsCommand}.
+ */
 export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __MetadataBearer {}
 
 /**

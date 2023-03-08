@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link GetSuppressedDestinationCommand}.
+ */
 export interface GetSuppressedDestinationCommandInput extends GetSuppressedDestinationRequest {}
+/**
+ * The output of {@link GetSuppressedDestinationCommand}.
+ */
 export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDestinationResponse, __MetadataBearer {}
 
 /**

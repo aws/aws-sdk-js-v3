@@ -16,7 +16,13 @@ import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import { XmlListsOutput, XmlListsOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_ec2XmlListsCommand, serializeAws_ec2XmlListsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link XmlListsCommand}.
+ */
 export interface XmlListsCommandInput {}
+/**
+ * The output of {@link XmlListsCommand}.
+ */
 export interface XmlListsCommandOutput extends XmlListsOutput, __MetadataBearer {}
 
 /**

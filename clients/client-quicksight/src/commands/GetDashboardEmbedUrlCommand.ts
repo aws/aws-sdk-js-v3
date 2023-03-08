@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link GetDashboardEmbedUrlCommand}.
+ */
 export interface GetDashboardEmbedUrlCommandInput extends GetDashboardEmbedUrlRequest {}
+/**
+ * The output of {@link GetDashboardEmbedUrlCommand}.
+ */
 export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlResponse, __MetadataBearer {}
 
 /**

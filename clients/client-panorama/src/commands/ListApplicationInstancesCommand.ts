@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListApplicationInstancesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListApplicationInstancesCommand}.
+ */
 export interface ListApplicationInstancesCommandInput extends ListApplicationInstancesRequest {}
+/**
+ * The output of {@link ListApplicationInstancesCommand}.
+ */
 export interface ListApplicationInstancesCommandOutput extends ListApplicationInstancesResponse, __MetadataBearer {}
 
 /**

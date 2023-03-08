@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1EncryptCommand, serializeAws_json1_1EncryptCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EncryptCommand}.
+ */
 export interface EncryptCommandInput extends EncryptRequest {}
+/**
+ * The output of {@link EncryptCommand}.
+ */
 export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer {}
 
 /**
@@ -46,8 +52,6 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *             <p>When you use an asymmetric KMS key to encrypt or reencrypt data, be sure to record the KMS key and encryption algorithm that you choose. You will be required to provide the same KMS key and encryption algorithm when you decrypt the data. If the KMS key and algorithm do not match the values used to encrypt the data, the decrypt operation fails.</p>
  *             <p>You are not required to supply the key ID and encryption algorithm when you decrypt with symmetric encryption KMS keys because KMS stores this information in the ciphertext blob. KMS cannot store metadata in ciphertext generated with asymmetric keys. The standard format for asymmetric key ciphertext does not include configurable fields.</p>
  *          </important>
- *
- *
  *          <p>The maximum size of the data that you can encrypt varies with the type of KMS key and the
  *       encryption algorithm that you choose.</p>
  *          <ul>
@@ -116,7 +120,6 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *             <b>Cross-account use</b>: Yes.
  *       To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:Encrypt</a> (key policy)</p>
  *          <p>

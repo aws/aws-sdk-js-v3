@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link DeleteTapeCommand}.
+ */
 export interface DeleteTapeCommandInput extends DeleteTapeInput {}
+/**
+ * The output of {@link DeleteTapeCommand}.
+ */
 export interface DeleteTapeCommandOutput extends DeleteTapeOutput, __MetadataBearer {}
 
 /**

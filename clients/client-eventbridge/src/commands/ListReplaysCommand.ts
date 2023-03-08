@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListReplaysCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListReplaysCommand}.
+ */
 export interface ListReplaysCommandInput extends ListReplaysRequest {}
+/**
+ * The output of {@link ListReplaysCommand}.
+ */
 export interface ListReplaysCommandOutput extends ListReplaysResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link UpdateSMBLocalGroupsCommand}.
+ */
 export interface UpdateSMBLocalGroupsCommandInput extends UpdateSMBLocalGroupsInput {}
+/**
+ * The output of {@link UpdateSMBLocalGroupsCommand}.
+ */
 export interface UpdateSMBLocalGroupsCommandOutput extends UpdateSMBLocalGroupsOutput, __MetadataBearer {}
 
 /**

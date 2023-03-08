@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * The input for {@link QueryAssistantCommand}.
+ */
 export interface QueryAssistantCommandInput extends QueryAssistantRequest {}
+/**
+ * The output of {@link QueryAssistantCommand}.
+ */
 export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __MetadataBearer {}
 
 /**

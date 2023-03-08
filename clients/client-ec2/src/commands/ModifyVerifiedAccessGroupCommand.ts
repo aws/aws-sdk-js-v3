@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyVerifiedAccessGroupCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyVerifiedAccessGroupCommand}.
+ */
 export interface ModifyVerifiedAccessGroupCommandInput extends ModifyVerifiedAccessGroupRequest {}
+/**
+ * The output of {@link ModifyVerifiedAccessGroupCommand}.
+ */
 export interface ModifyVerifiedAccessGroupCommandOutput extends ModifyVerifiedAccessGroupResult, __MetadataBearer {}
 
 /**

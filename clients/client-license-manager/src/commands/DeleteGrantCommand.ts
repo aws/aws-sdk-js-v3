@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteGrantCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteGrantCommand}.
+ */
 export interface DeleteGrantCommandInput extends DeleteGrantRequest {}
+/**
+ * The output of {@link DeleteGrantCommand}.
+ */
 export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __MetadataBearer {}
 
 /**

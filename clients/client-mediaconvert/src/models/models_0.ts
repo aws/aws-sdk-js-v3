@@ -2617,6 +2617,7 @@ export enum ColorSpace {
   FOLLOW = "FOLLOW",
   HDR10 = "HDR10",
   HLG_2020 = "HLG_2020",
+  P3D65_HDR = "P3D65_HDR",
   P3D65_SDR = "P3D65_SDR",
   P3DCI = "P3DCI",
   REC_601 = "REC_601",
@@ -2727,10 +2728,12 @@ export interface VideoSelector {
   AlphaBehavior?: AlphaBehavior | string;
 
   /**
-   * If your input video has accurate color space metadata, or if you don't know about color space, leave this set to the default value Follow. The service will automatically detect your input color space. If your input video has metadata indicating the wrong color space, specify the accurate color space here. If your input video is HDR 10 and the SMPTE ST 2086 Mastering Display Color Volume static metadata isn't present in your video stream, or if that metadata is present but not accurate, choose Force HDR 10 here and specify correct values in the input HDR 10 metadata settings. For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr. Select P3D65 (SDR) to set the input color space metadata to the following:
-   *  * Color primaries: Display P3
-   *  * Transfer characteristics: SMPTE 428M
-   *  * Matrix coefficients: BT.709
+   * If your input video has accurate color space metadata, or if you don't know about color space: Keep the default value, Follow. MediaConvert will automatically detect your input color space. If your input video has metadata indicating the wrong color space, or has missing metadata: Specify the accurate color space here. If your input video is HDR 10 and the SMPTE ST 2086 Mastering Display Color Volume static metadata isn't present in your video stream, or if that metadata is present but not accurate: Choose Force HDR 10. Specify correct values in the input HDR 10 metadata settings. For more information about HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr. When you specify an input color space, MediaConvert uses the following color space metadata, which includes color primaries, transfer characteristics, and matrix coefficients:
+   *  * HDR 10: BT.2020, PQ, BT.2020 non-constant
+   *  * HLG 2020: BT.2020, HLG, BT.2020 non-constant
+   *  * P3DCI (Theater): DCIP3, SMPTE 428M, BT.709
+   *  * P3D65 (SDR): Display P3, sRGB, BT.709
+   *  * P3D65 (HDR): Display P3, PQ, BT.709
    */
   ColorSpace?: ColorSpace | string;
 
@@ -3161,7 +3164,7 @@ export enum VchipAction {
  */
 export interface ExtendedDataServices {
   /**
-   * The action to take on content advisory XDS packets. If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions.
+   * The action to take on copy and redistribution control XDS packets. If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions.
    */
   CopyProtectionAction?: CopyProtectionAction | string;
 
@@ -4736,12 +4739,12 @@ export interface CmfcSettings {
   TimedMetadataBoxVersion?: CmfcTimedMetadataBoxVersion | string;
 
   /**
-   * Specify the event message box (eMSG) scheme ID URI (scheme_id_uri) for ID3 timed metadata in your output. For more informaiton, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the default value: https://aomedia.org/emsg/ID3 When you specify a value for ID3 metadata scheme ID URI, you must also set ID3 metadata (timedMetadata) to Passthrough.
+   * Specify the event message box (eMSG) scheme ID URI (scheme_id_uri) for ID3 timed metadata in your output. For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the default value: https://aomedia.org/emsg/ID3 When you specify a value for ID3 metadata scheme ID URI, you must also set ID3 metadata (timedMetadata) to Passthrough.
    */
   TimedMetadataSchemeIdUri?: string;
 
   /**
-   * Specify the event message box (eMSG) value for ID3 timed metadata in your output. For more informaiton, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value, you must also set ID3 metadata (timedMetadata) to Passthrough.
+   * Specify the event message box (eMSG) value for ID3 timed metadata in your output. For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value, you must also set ID3 metadata (timedMetadata) to Passthrough.
    */
   TimedMetadataValue?: string;
 }

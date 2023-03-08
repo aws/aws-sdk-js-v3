@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeLogGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLogGroupsCommand}.
+ */
 export interface DescribeLogGroupsCommandInput extends DescribeLogGroupsRequest {}
+/**
+ * The output of {@link DescribeLogGroupsCommand}.
+ */
 export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsResponse, __MetadataBearer {}
 
 /**

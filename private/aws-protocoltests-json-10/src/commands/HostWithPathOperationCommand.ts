@@ -18,7 +18,13 @@ import {
   serializeAws_json1_0HostWithPathOperationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link HostWithPathOperationCommand}.
+ */
 export interface HostWithPathOperationCommandInput {}
+/**
+ * The output of {@link HostWithPathOperationCommand}.
+ */
 export interface HostWithPathOperationCommandOutput extends __MetadataBearer {}
 
 export class HostWithPathOperationCommand extends $Command<

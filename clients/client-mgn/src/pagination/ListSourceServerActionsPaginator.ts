@@ -6,7 +6,6 @@ import {
   ListSourceServerActionsCommandInput,
   ListSourceServerActionsCommandOutput,
 } from "../commands/ListSourceServerActionsCommand";
-import { Mgn } from "../Mgn";
 import { MgnClient } from "../MgnClient";
 import { MgnPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSourceServerActionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Mgn,
-  input: ListSourceServerActionsCommandInput,
-  ...args: any
-): Promise<ListSourceServerActionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSourceServerActions(input, ...args);
-};
 export async function* paginateListSourceServerActions(
   config: MgnPaginationConfiguration,
   input: ListSourceServerActionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListSourceServerActions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Mgn) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MgnClient) {
+    if (config.client instanceof MgnClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Mgn | MgnClient");

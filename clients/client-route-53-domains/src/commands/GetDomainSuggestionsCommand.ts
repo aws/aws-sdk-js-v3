@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link GetDomainSuggestionsCommand}.
+ */
 export interface GetDomainSuggestionsCommandInput extends GetDomainSuggestionsRequest {}
+/**
+ * The output of {@link GetDomainSuggestionsCommand}.
+ */
 export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsResponse, __MetadataBearer {}
 
 /**

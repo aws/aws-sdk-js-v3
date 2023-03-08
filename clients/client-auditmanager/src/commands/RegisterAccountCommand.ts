@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RegisterAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RegisterAccountCommand}.
+ */
 export interface RegisterAccountCommandInput extends RegisterAccountRequest {}
+/**
+ * The output of {@link RegisterAccountCommand}.
+ */
 export interface RegisterAccountCommandOutput extends RegisterAccountResponse, __MetadataBearer {}
 
 /**

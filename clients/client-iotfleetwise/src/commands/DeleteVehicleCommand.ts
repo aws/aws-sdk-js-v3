@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DeleteVehicleCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteVehicleCommand}.
+ */
 export interface DeleteVehicleCommandInput extends DeleteVehicleRequest {}
+/**
+ * The output of {@link DeleteVehicleCommand}.
+ */
 export interface DeleteVehicleCommandOutput extends DeleteVehicleResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryListMFADevicesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListMFADevicesCommand}.
+ */
 export interface ListMFADevicesCommandInput extends ListMFADevicesRequest {}
+/**
+ * The output of {@link ListMFADevicesCommand}.
+ */
 export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DescribeDBInstanceAutomatedBackupsCommand}.
+ */
 export interface DescribeDBInstanceAutomatedBackupsCommandInput extends DescribeDBInstanceAutomatedBackupsMessage {}
+/**
+ * The output of {@link DescribeDBInstanceAutomatedBackupsCommand}.
+ */
 export interface DescribeDBInstanceAutomatedBackupsCommandOutput
   extends DBInstanceAutomatedBackupMessage,
     __MetadataBearer {}

@@ -20,7 +20,13 @@ import {
   serializeAws_queryPutRolePolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PutRolePolicyCommand}.
+ */
 export interface PutRolePolicyCommandInput extends PutRolePolicyRequest {}
+/**
+ * The output of {@link PutRolePolicyCommand}.
+ */
 export interface PutRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**

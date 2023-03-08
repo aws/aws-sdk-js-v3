@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopDevEnvironmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopDevEnvironmentCommand}.
+ */
 export interface StopDevEnvironmentCommandInput extends StopDevEnvironmentRequest {}
+/**
+ * The output of {@link StopDevEnvironmentCommand}.
+ */
 export interface StopDevEnvironmentCommandOutput extends StopDevEnvironmentResponse, __MetadataBearer {}
 
 /**

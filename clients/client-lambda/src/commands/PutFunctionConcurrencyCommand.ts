@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutFunctionConcurrencyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutFunctionConcurrencyCommand}.
+ */
 export interface PutFunctionConcurrencyCommandInput extends PutFunctionConcurrencyRequest {}
+/**
+ * The output of {@link PutFunctionConcurrencyCommand}.
+ */
 export interface PutFunctionConcurrencyCommandOutput extends Concurrency, __MetadataBearer {}
 
 /**

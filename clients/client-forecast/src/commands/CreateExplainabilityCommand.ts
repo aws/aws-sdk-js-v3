@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateExplainabilityCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateExplainabilityCommand}.
+ */
 export interface CreateExplainabilityCommandInput extends CreateExplainabilityRequest {}
+/**
+ * The output of {@link CreateExplainabilityCommand}.
+ */
 export interface CreateExplainabilityCommandOutput extends CreateExplainabilityResponse, __MetadataBearer {}
 
 /**

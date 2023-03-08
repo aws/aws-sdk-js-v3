@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateTrackerConsumerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateTrackerConsumerCommand}.
+ */
 export interface AssociateTrackerConsumerCommandInput extends AssociateTrackerConsumerRequest {}
+/**
+ * The output of {@link AssociateTrackerConsumerCommand}.
+ */
 export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerConsumerResponse, __MetadataBearer {}
 
 /**

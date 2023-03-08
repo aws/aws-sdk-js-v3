@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetRoomCommand, serializeAws_json1_1GetRoomCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRoomCommand}.
+ */
 export interface GetRoomCommandInput extends GetRoomRequest {}
+/**
+ * The output of {@link GetRoomCommand}.
+ */
 export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer {}
 
 /**

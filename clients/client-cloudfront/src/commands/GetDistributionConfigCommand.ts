@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlGetDistributionConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link GetDistributionConfigCommand}.
+ */
 export interface GetDistributionConfigCommandInput extends GetDistributionConfigRequest {}
+/**
+ * The output of {@link GetDistributionConfigCommand}.
+ */
 export interface GetDistributionConfigCommandOutput extends GetDistributionConfigResult, __MetadataBearer {}
 
 /**

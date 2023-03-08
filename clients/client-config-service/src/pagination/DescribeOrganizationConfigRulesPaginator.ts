@@ -6,7 +6,6 @@ import {
   DescribeOrganizationConfigRulesCommandInput,
   DescribeOrganizationConfigRulesCommandOutput,
 } from "../commands/DescribeOrganizationConfigRulesCommand";
-import { ConfigService } from "../ConfigService";
 import { ConfigServiceClient } from "../ConfigServiceClient";
 import { ConfigServicePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeOrganizationConfigRulesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ConfigService,
-  input: DescribeOrganizationConfigRulesCommandInput,
-  ...args: any
-): Promise<DescribeOrganizationConfigRulesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeOrganizationConfigRules(input, ...args);
-};
 export async function* paginateDescribeOrganizationConfigRules(
   config: ConfigServicePaginationConfiguration,
   input: DescribeOrganizationConfigRulesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeOrganizationConfigRules(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof ConfigService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConfigServiceClient) {
+    if (config.client instanceof ConfigServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ConfigService | ConfigServiceClient");

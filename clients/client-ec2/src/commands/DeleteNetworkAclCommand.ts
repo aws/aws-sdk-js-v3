@@ -20,7 +20,13 @@ import {
   serializeAws_ec2DeleteNetworkAclCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteNetworkAclCommand}.
+ */
 export interface DeleteNetworkAclCommandInput extends DeleteNetworkAclRequest {}
+/**
+ * The output of {@link DeleteNetworkAclCommand}.
+ */
 export interface DeleteNetworkAclCommandOutput extends __MetadataBearer {}
 
 /**

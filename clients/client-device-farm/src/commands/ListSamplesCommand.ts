@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListSamplesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListSamplesCommand}.
+ */
 export interface ListSamplesCommandInput extends ListSamplesRequest {}
+/**
+ * The output of {@link ListSamplesCommand}.
+ */
 export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataBearer {}
 
 /**

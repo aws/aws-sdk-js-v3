@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateSensitivityInspectionTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateSensitivityInspectionTemplateCommand}.
+ */
 export interface UpdateSensitivityInspectionTemplateCommandInput extends UpdateSensitivityInspectionTemplateRequest {}
+/**
+ * The output of {@link UpdateSensitivityInspectionTemplateCommand}.
+ */
 export interface UpdateSensitivityInspectionTemplateCommandOutput
   extends UpdateSensitivityInspectionTemplateResponse,
     __MetadataBearer {}

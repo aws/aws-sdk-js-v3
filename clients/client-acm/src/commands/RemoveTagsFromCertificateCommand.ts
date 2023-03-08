@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1RemoveTagsFromCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RemoveTagsFromCertificateCommand}.
+ */
 export interface RemoveTagsFromCertificateCommandInput extends RemoveTagsFromCertificateRequest {}
+/**
+ * The output of {@link RemoveTagsFromCertificateCommand}.
+ */
 export interface RemoveTagsFromCertificateCommandOutput extends __MetadataBearer {}
 
 /**

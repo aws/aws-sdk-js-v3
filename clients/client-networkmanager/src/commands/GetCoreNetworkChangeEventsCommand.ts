@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetCoreNetworkChangeEventsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetCoreNetworkChangeEventsCommand}.
+ */
 export interface GetCoreNetworkChangeEventsCommandInput extends GetCoreNetworkChangeEventsRequest {}
+/**
+ * The output of {@link GetCoreNetworkChangeEventsCommand}.
+ */
 export interface GetCoreNetworkChangeEventsCommandOutput extends GetCoreNetworkChangeEventsResponse, __MetadataBearer {}
 
 /**

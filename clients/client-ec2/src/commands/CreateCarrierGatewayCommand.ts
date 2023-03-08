@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateCarrierGatewayCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateCarrierGatewayCommand}.
+ */
 export interface CreateCarrierGatewayCommandInput extends CreateCarrierGatewayRequest {}
+/**
+ * The output of {@link CreateCarrierGatewayCommand}.
+ */
 export interface CreateCarrierGatewayCommandOutput extends CreateCarrierGatewayResult, __MetadataBearer {}
 
 /**

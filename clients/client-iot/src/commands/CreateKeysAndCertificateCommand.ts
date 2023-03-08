@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateKeysAndCertificateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateKeysAndCertificateCommand}.
+ */
 export interface CreateKeysAndCertificateCommandInput extends CreateKeysAndCertificateRequest {}
+/**
+ * The output of {@link CreateKeysAndCertificateCommand}.
+ */
 export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCertificateResponse, __MetadataBearer {}
 
 /**

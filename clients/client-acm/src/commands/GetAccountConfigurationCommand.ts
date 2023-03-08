@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1GetAccountConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetAccountConfigurationCommand}.
+ */
 export interface GetAccountConfigurationCommandInput {}
+/**
+ * The output of {@link GetAccountConfigurationCommand}.
+ */
 export interface GetAccountConfigurationCommandOutput extends GetAccountConfigurationResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link DescribeDashboardPermissionsCommand}.
+ */
 export interface DescribeDashboardPermissionsCommandInput extends DescribeDashboardPermissionsRequest {}
+/**
+ * The output of {@link DescribeDashboardPermissionsCommand}.
+ */
 export interface DescribeDashboardPermissionsCommandOutput
   extends DescribeDashboardPermissionsResponse,
     __MetadataBearer {}

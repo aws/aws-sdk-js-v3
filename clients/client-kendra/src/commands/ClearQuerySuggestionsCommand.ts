@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1ClearQuerySuggestionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ClearQuerySuggestionsCommand}.
+ */
 export interface ClearQuerySuggestionsCommandInput extends ClearQuerySuggestionsRequest {}
+/**
+ * The output of {@link ClearQuerySuggestionsCommand}.
+ */
 export interface ClearQuerySuggestionsCommandOutput extends __MetadataBearer {}
 
 /**

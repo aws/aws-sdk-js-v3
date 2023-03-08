@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutSourceServerActionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutSourceServerActionCommand}.
+ */
 export interface PutSourceServerActionCommandInput extends PutSourceServerActionRequest {}
+/**
+ * The output of {@link PutSourceServerActionCommand}.
+ */
 export interface PutSourceServerActionCommandOutput extends SourceServerActionDocument, __MetadataBearer {}
 
 /**

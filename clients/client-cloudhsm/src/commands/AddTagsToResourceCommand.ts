@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AddTagsToResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddTagsToResourceCommand}.
+ */
 export interface AddTagsToResourceCommandInput extends AddTagsToResourceRequest {}
+/**
+ * The output of {@link AddTagsToResourceCommand}.
+ */
 export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResponse, __MetadataBearer {}
 
 /**

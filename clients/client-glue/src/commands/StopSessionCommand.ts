@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopSessionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopSessionCommand}.
+ */
 export interface StopSessionCommandInput extends StopSessionRequest {}
+/**
+ * The output of {@link StopSessionCommand}.
+ */
 export interface StopSessionCommandOutput extends StopSessionResponse, __MetadataBearer {}
 
 /**

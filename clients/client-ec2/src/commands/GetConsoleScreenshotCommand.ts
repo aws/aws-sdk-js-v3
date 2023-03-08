@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetConsoleScreenshotCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetConsoleScreenshotCommand}.
+ */
 export interface GetConsoleScreenshotCommandInput extends GetConsoleScreenshotRequest {}
+/**
+ * The output of {@link GetConsoleScreenshotCommand}.
+ */
 export interface GetConsoleScreenshotCommandOutput extends GetConsoleScreenshotResult, __MetadataBearer {}
 
 /**

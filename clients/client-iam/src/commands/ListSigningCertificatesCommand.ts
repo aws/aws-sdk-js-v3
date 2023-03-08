@@ -25,7 +25,13 @@ import {
   serializeAws_queryListSigningCertificatesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListSigningCertificatesCommand}.
+ */
 export interface ListSigningCertificatesCommandInput extends ListSigningCertificatesRequest {}
+/**
+ * The output of {@link ListSigningCertificatesCommand}.
+ */
 export interface ListSigningCertificatesCommandOutput extends ListSigningCertificatesResponse, __MetadataBearer {}
 
 /**

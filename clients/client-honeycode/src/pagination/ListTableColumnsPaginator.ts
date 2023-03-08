@@ -6,7 +6,6 @@ import {
   ListTableColumnsCommandInput,
   ListTableColumnsCommandOutput,
 } from "../commands/ListTableColumnsCommand";
-import { Honeycode } from "../Honeycode";
 import { HoneycodeClient } from "../HoneycodeClient";
 import { HoneycodePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTableColumnsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Honeycode,
-  input: ListTableColumnsCommandInput,
-  ...args: any
-): Promise<ListTableColumnsCommandOutput> => {
-  // @ts-ignore
-  return await client.listTableColumns(input, ...args);
-};
 export async function* paginateListTableColumns(
   config: HoneycodePaginationConfiguration,
   input: ListTableColumnsCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListTableColumns(
   let page: ListTableColumnsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof Honeycode) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof HoneycodeClient) {
+    if (config.client instanceof HoneycodeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Honeycode | HoneycodeClient");

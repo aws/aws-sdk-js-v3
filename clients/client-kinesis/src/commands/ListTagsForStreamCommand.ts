@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListTagsForStreamCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTagsForStreamCommand}.
+ */
 export interface ListTagsForStreamCommandInput extends ListTagsForStreamInput {}
+/**
+ * The output of {@link ListTagsForStreamCommand}.
+ */
 export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateSlotTypeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateSlotTypeCommand}.
+ */
 export interface UpdateSlotTypeCommandInput extends UpdateSlotTypeRequest {}
+/**
+ * The output of {@link UpdateSlotTypeCommand}.
+ */
 export interface UpdateSlotTypeCommandOutput extends UpdateSlotTypeResponse, __MetadataBearer {}
 
 /**

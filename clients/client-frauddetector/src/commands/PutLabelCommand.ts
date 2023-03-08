@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1PutLabelCommand, serializeAws_json1_1PutLabelCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutLabelCommand}.
+ */
 export interface PutLabelCommandInput extends PutLabelRequest {}
+/**
+ * The output of {@link PutLabelCommand}.
+ */
 export interface PutLabelCommandOutput extends PutLabelResult, __MetadataBearer {}
 
 /**

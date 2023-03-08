@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * The input for {@link DescribeAddressCommand}.
+ */
 export interface DescribeAddressCommandInput extends DescribeAddressRequest {}
+/**
+ * The output of {@link DescribeAddressCommand}.
+ */
 export interface DescribeAddressCommandOutput extends DescribeAddressResult, __MetadataBearer {}
 
 /**

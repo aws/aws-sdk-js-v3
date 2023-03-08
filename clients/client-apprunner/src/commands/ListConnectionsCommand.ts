@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListConnectionsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListConnectionsCommand}.
+ */
 export interface ListConnectionsCommandInput extends ListConnectionsRequest {}
+/**
+ * The output of {@link ListConnectionsCommand}.
+ */
 export interface ListConnectionsCommandOutput extends ListConnectionsResponse, __MetadataBearer {}
 
 /**

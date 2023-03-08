@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * The input for {@link DisassociateHealthCheckCommand}.
+ */
 export interface DisassociateHealthCheckCommandInput extends DisassociateHealthCheckRequest {}
+/**
+ * The output of {@link DisassociateHealthCheckCommand}.
+ */
 export interface DisassociateHealthCheckCommandOutput extends DisassociateHealthCheckResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSuiteRunReportCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSuiteRunReportCommand}.
+ */
 export interface GetSuiteRunReportCommandInput extends GetSuiteRunReportRequest {}
+/**
+ * The output of {@link GetSuiteRunReportCommand}.
+ */
 export interface GetSuiteRunReportCommandOutput extends GetSuiteRunReportResponse, __MetadataBearer {}
 
 /**

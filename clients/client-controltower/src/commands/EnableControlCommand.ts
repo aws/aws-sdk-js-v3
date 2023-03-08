@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1EnableControlCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link EnableControlCommand}.
+ */
 export interface EnableControlCommandInput extends EnableControlInput {}
+/**
+ * The output of {@link EnableControlCommand}.
+ */
 export interface EnableControlCommandOutput extends EnableControlOutput, __MetadataBearer {}
 
 /**

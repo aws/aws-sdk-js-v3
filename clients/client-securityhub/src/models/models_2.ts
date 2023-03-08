@@ -1,15 +1,266 @@
 // smithy-typescript generated code
-import { AdminAccount, AutoEnableStandards } from "./models_0";
+import { ActionTarget, AdminAccount, AssociationStatus, AutoEnableStandards } from "./models_0";
 import {
   AwsSecurityFinding,
   AwsSecurityFindingFilters,
+  ControlFindingGenerator,
   ControlStatus,
   NoteUpdate,
-  Product,
   RecordState,
   Result,
+  SeverityRating,
   StandardsSubscription,
 } from "./models_1";
+
+export interface DeleteFindingAggregatorRequest {
+  /**
+   * <p>The ARN of the finding aggregator to delete. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
+   */
+  FindingAggregatorArn: string | undefined;
+}
+
+export interface DeleteFindingAggregatorResponse {}
+
+export interface DeleteInsightRequest {
+  /**
+   * <p>The ARN of the insight to delete.</p>
+   */
+  InsightArn: string | undefined;
+}
+
+export interface DeleteInsightResponse {
+  /**
+   * <p>The ARN of the insight that was deleted.</p>
+   */
+  InsightArn: string | undefined;
+}
+
+export interface DeleteInvitationsRequest {
+  /**
+   * <p>The list of the account IDs that sent the invitations to delete.</p>
+   */
+  AccountIds: string[] | undefined;
+}
+
+export interface DeleteInvitationsResponse {
+  /**
+   * <p>The list of Amazon Web Services accounts for which the invitations were not deleted. For each account,
+   *          the list includes the account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+export interface DeleteMembersRequest {
+  /**
+   * <p>The list of account IDs for the member accounts to delete.</p>
+   */
+  AccountIds: string[] | undefined;
+}
+
+export interface DeleteMembersResponse {
+  /**
+   * <p>The list of Amazon Web Services accounts that were not deleted. For each account, the list includes the
+   *          account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+export interface DescribeActionTargetsRequest {
+  /**
+   * <p>A list of custom action target ARNs for the custom action targets to retrieve.</p>
+   */
+  ActionTargetArns?: string[];
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>DescribeActionTargets</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface DescribeActionTargetsResponse {
+  /**
+   * <p>A list of <code>ActionTarget</code> objects. Each object includes the <code>ActionTargetArn</code>,
+   *             <code>Description</code>, and <code>Name</code> of a custom action target available in
+   *          Security Hub.</p>
+   */
+  ActionTargets: ActionTarget[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeHubRequest {
+  /**
+   * <p>The ARN of the Hub resource to retrieve.</p>
+   */
+  HubArn?: string;
+}
+
+export interface DescribeHubResponse {
+  /**
+   * <p>The ARN of the Hub resource that was retrieved.</p>
+   */
+  HubArn?: string;
+
+  /**
+   * <p>The date and time when Security Hub was enabled in the account.</p>
+   */
+  SubscribedAt?: string;
+
+  /**
+   * <p>Whether to automatically enable new controls when they are added to standards that are
+   *          enabled.</p>
+   *          <p>If set to <code>true</code>, then new controls for enabled standards are enabled
+   *          automatically. If set to <code>false</code>, then new controls are not enabled.</p>
+   */
+  AutoEnableControls?: boolean;
+
+  /**
+   * <p>Specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to
+   *          <code>SECURITY_CONTROL</code>, Security Hub generates a single finding for a control check even when the check
+   *          applies to multiple enabled standards.</p>
+   *          <p>If the value for this field is set to <code>STANDARD_CONTROL</code>, Security Hub generates separate findings
+   *          for a control check when the check applies to multiple enabled standards.</p>
+   *          <p>The value for this field in a member account matches the value in the administrator
+   *          account. For accounts that aren't part of an organization, the default value of this field
+   *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 9,
+   *          2023.</p>
+   */
+  ControlFindingGenerator?: ControlFindingGenerator | string;
+}
+
+export interface DescribeOrganizationConfigurationRequest {}
+
+export interface DescribeOrganizationConfigurationResponse {
+  /**
+   * <p>Whether to automatically enable Security Hub for new accounts in the organization.</p>
+   *          <p>If set to <code>true</code>, then Security Hub is enabled for new accounts. If set to false,
+   *          then new accounts are not added automatically.</p>
+   */
+  AutoEnable?: boolean;
+
+  /**
+   * <p>Whether the maximum number of allowed member accounts are already associated with the
+   *          Security Hub administrator account.</p>
+   */
+  MemberAccountLimitReached?: boolean;
+
+  /**
+   * <p>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
+   *          for new member accounts in the organization.</p>
+   *          <p>The default value of this parameter is equal to <code>DEFAULT</code>.</p>
+   *          <p>If equal to <code>DEFAULT</code>, then Security Hub default standards are automatically enabled for new member
+   *          accounts. If equal to <code>NONE</code>, then default standards are not automatically enabled for new member
+   *          accounts.</p>
+   */
+  AutoEnableStandards?: AutoEnableStandards | string;
+}
+
+export interface DescribeProductsRequest {
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>DescribeProducts</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The ARN of the integration to return.</p>
+   */
+  ProductArn?: string;
+}
+
+export enum IntegrationType {
+  RECEIVE_FINDINGS_FROM_SECURITY_HUB = "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
+  SEND_FINDINGS_TO_SECURITY_HUB = "SEND_FINDINGS_TO_SECURITY_HUB",
+  UPDATE_FINDINGS_IN_SECURITY_HUB = "UPDATE_FINDINGS_IN_SECURITY_HUB",
+}
+
+/**
+ * <p>Contains details about a product.</p>
+ */
+export interface Product {
+  /**
+   * <p>The ARN assigned to the product.</p>
+   */
+  ProductArn: string | undefined;
+
+  /**
+   * <p>The name of the product.</p>
+   */
+  ProductName?: string;
+
+  /**
+   * <p>The name of the company that provides the product.</p>
+   */
+  CompanyName?: string;
+
+  /**
+   * <p>A description of the product.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The categories assigned to the product.</p>
+   */
+  Categories?: string[];
+
+  /**
+   * <p>The types of integration that the product supports. Available values are the
+   *          following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SEND_FINDINGS_TO_SECURITY_HUB</code> - The integration sends
+   *                findings to Security Hub.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RECEIVE_FINDINGS_FROM_SECURITY_HUB</code> - The integration
+   *                receives findings from Security Hub.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FINDINGS_IN_SECURITY_HUB</code> - The integration does not send new findings to Security Hub, but does make updates to the findings that it receives from Security Hub.</p>
+   *             </li>
+   *          </ul>
+   */
+  IntegrationTypes?: (IntegrationType | string)[];
+
+  /**
+   * <p>For integrations with Amazon Web Services services, the Amazon Web Services Console URL from which to activate the service.</p>
+   *          <p>For integrations with third-party products, the Amazon Web Services Marketplace URL from which to subscribe to or purchase the product.</p>
+   */
+  MarketplaceUrl?: string;
+
+  /**
+   * <p>The URL to the service or product documentation about the integration with Security Hub, including how to activate the integration.</p>
+   */
+  ActivationUrl?: string;
+
+  /**
+   * <p>The resource policy associated with the product.</p>
+   */
+  ProductSubscriptionResourcePolicy?: string;
+}
 
 export interface DescribeProductsResponse {
   /**
@@ -125,13 +376,6 @@ export interface DescribeStandardsControlsRequest {
    * <p>The maximum number of security standard controls to return.</p>
    */
   MaxResults?: number;
-}
-
-export enum SeverityRating {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
 }
 
 /**
@@ -283,6 +527,20 @@ export interface EnableSecurityHubRequest {
    *             <code>EnableDefaultStandards</code> to <code>false</code>.</p>
    */
   EnableDefaultStandards?: boolean;
+
+  /**
+   * <p>This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on.
+   *       If the value for this field is set to
+   *       <code>SECURITY_CONTROL</code>, Security Hub generates a single finding for a control check even when the check
+   *       applies to multiple enabled standards.</p>
+   *          <p>If the value for this field is set to <code>STANDARD_CONTROL</code>, Security Hub generates separate findings
+   *       for a control check when the check applies to multiple enabled standards.</p>
+   *          <p>The value for this field in a member account matches the value in the administrator
+   *          account. For accounts that aren't part of an organization, the default value of this field
+   *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 9,
+   *          2023.</p>
+   */
+  ControlFindingGenerator?: ControlFindingGenerator | string;
 }
 
 export interface EnableSecurityHubResponse {}
@@ -860,6 +1118,215 @@ export interface ListOrganizationAdminAccountsResponse {
   NextToken?: string;
 }
 
+export interface ListSecurityControlDefinitionsRequest {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the standard that you want to view controls for.
+   *       </p>
+   */
+  StandardsArn?: string;
+
+  /**
+   * <p>
+   *          Optional pagination parameter.
+   *       </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p> An optional parameter that limits the total results of the API response to the
+   *          specified number. If this parameter isn't provided in the request, the results include the
+   *          first 25 security controls that apply to the specified standard. The results also include a
+   *             <code>NextToken</code> parameter that you can use in a subsequent API call to get the
+   *          next 25 controls. This repeats until all controls for the standard are returned. </p>
+   */
+  MaxResults?: number;
+}
+
+export enum RegionAvailabilityStatus {
+  AVAILABLE = "AVAILABLE",
+  UNAVAILABLE = "UNAVAILABLE",
+}
+
+/**
+ * <p>
+ *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
+ *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
+ *       </p>
+ */
+export interface SecurityControlDefinition {
+  /**
+   * <p>
+   *          The unique identifier of a security control across standards. Values for this field typically consist of an
+   *          Amazon Web Service name and a number (for example, APIGateway.3). This parameter differs from
+   *          <code>SecurityControlArn</code>, which is a unique Amazon Resource Name (ARN) assigned to a control. The
+   *          ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3).
+   *       </p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p>
+   *          The title of a security control.
+   *       </p>
+   */
+  Title: string | undefined;
+
+  /**
+   * <p> The description of a security control across standards. This typically summarizes how
+   *             Security Hub evaluates the control and the conditions under which it produces a
+   *          failed finding. This parameter doesn't reference a specific standard. </p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>
+   *          A link to Security Hub documentation that explains how to remediate a failed finding for a security control.
+   *       </p>
+   */
+  RemediationUrl: string | undefined;
+
+  /**
+   * <p>
+   *          The severity of a security control. For more information about how Security Hub determines control severity,
+   *          see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the
+   *          <i>Security Hub User Guide</i>.
+   *       </p>
+   */
+  SeverityRating: SeverityRating | string | undefined;
+
+  /**
+   * <p>
+   *          Specifies whether a security control is available in the current Amazon Web Services Region.
+   *       </p>
+   */
+  CurrentRegionAvailability: RegionAvailabilityStatus | string | undefined;
+}
+
+export interface ListSecurityControlDefinitionsResponse {
+  /**
+   * <p>
+   *          An array of controls that apply to the specified standard.
+   *       </p>
+   */
+  SecurityControlDefinitions: SecurityControlDefinition[] | undefined;
+
+  /**
+   * <p> A pagination parameter that's included in the response only if it was included in the
+   *          request. </p>
+   */
+  NextToken?: string;
+}
+
+export interface ListStandardsControlAssociationsRequest {
+  /**
+   * <p>
+   *          The identifier of the control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) that you
+   *          want to determine the enablement status of in each enabled standard.
+   *       </p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p>
+   *          Optional pagination parameter.
+   *       </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p> An optional parameter that limits the total results of the API response to the
+   *          specified number. If this parameter isn't provided in the request, the results include the
+   *          first 25 standard and control associations. The results also include a
+   *             <code>NextToken</code> parameter that you can use in a subsequent API call to get the
+   *          next 25 associations. This repeats until all associations for the specified control are
+   *          returned. The number of results is limited by the number of supported Security Hub
+   *          standards that you've enabled in the calling account. </p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p> An array that provides the enablement status and other details for each control that
+ *          applies to each enabled standard. </p>
+ */
+export interface StandardsControlAssociationSummary {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of a standard.
+   *       </p>
+   */
+  StandardsArn: string | undefined;
+
+  /**
+   * <p>
+   *          A unique standard-agnostic identifier for a control. Values for this field typically consist of an
+   *          Amazon Web Service and a number, such as APIGateway.5. This field doesn't reference a specific standard.
+   *       </p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p> The ARN of a control, such as
+   *             <code>arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1</code>. This
+   *          parameter doesn't mention a specific standard. </p>
+   */
+  SecurityControlArn: string | undefined;
+
+  /**
+   * <p>
+   *          The enablement status of a control in a specific standard.
+   *       </p>
+   */
+  AssociationStatus: AssociationStatus | string | undefined;
+
+  /**
+   * <p>
+   *          The requirement that underlies this control in the compliance framework related to the standard.
+   *       </p>
+   */
+  RelatedRequirements?: string[];
+
+  /**
+   * <p> The last time that a control's enablement status in a specified standard was updated. </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p> The reason for updating the control's enablement status in a specified standard. </p>
+   */
+  UpdatedReason?: string;
+
+  /**
+   * <p>
+   *          The title of a control.
+   *       </p>
+   */
+  StandardsControlTitle?: string;
+
+  /**
+   * <p>
+   *          The description of a control. This typically summarizes how Security Hub evaluates the control and the
+   *          conditions under which it produces a failed finding. The parameter may reference a specific standard.
+   *       </p>
+   */
+  StandardsControlDescription?: string;
+}
+
+export interface ListStandardsControlAssociationsResponse {
+  /**
+   * <p> An array that provides the enablement status and other details for each security
+   *          control that applies to each enabled standard. </p>
+   */
+  StandardsControlAssociationSummaries: StandardsControlAssociationSummary[] | undefined;
+
+  /**
+   * <p> A pagination parameter that's included in the response only if it was included in the
+   *          request. </p>
+   */
+  NextToken?: string;
+}
+
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource to retrieve tags for.</p>
@@ -1052,6 +1519,17 @@ export interface UpdateSecurityHubConfigurationRequest {
    *       </p>
    */
   AutoEnableControls?: boolean;
+
+  /**
+   * <p>Updates whether the calling account has consolidated control findings turned on.
+   *       If the value for this field is set to
+   *       <code>SECURITY_CONTROL</code>, Security Hub generates a single finding for a control check even when the check
+   *       applies to multiple enabled standards.</p>
+   *          <p>If the value for this field is set to <code>STANDARD_CONTROL</code>, Security Hub generates separate findings
+   *       for a control check when the check applies to multiple enabled standards.</p>
+   *          <p>For accounts that are part of an organization, this value can only be updated in the administrator account.</p>
+   */
+  ControlFindingGenerator?: ControlFindingGenerator | string;
 }
 
 export interface UpdateSecurityHubConfigurationResponse {}
@@ -1075,6 +1553,122 @@ export interface UpdateStandardsControlRequest {
 }
 
 export interface UpdateStandardsControlResponse {}
+
+/**
+ * @internal
+ */
+export const DeleteFindingAggregatorRequestFilterSensitiveLog = (obj: DeleteFindingAggregatorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFindingAggregatorResponseFilterSensitiveLog = (obj: DeleteFindingAggregatorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInsightRequestFilterSensitiveLog = (obj: DeleteInsightRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInsightResponseFilterSensitiveLog = (obj: DeleteInsightResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInvitationsRequestFilterSensitiveLog = (obj: DeleteInvitationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInvitationsResponseFilterSensitiveLog = (obj: DeleteInvitationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMembersRequestFilterSensitiveLog = (obj: DeleteMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMembersResponseFilterSensitiveLog = (obj: DeleteMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeActionTargetsRequestFilterSensitiveLog = (obj: DescribeActionTargetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeActionTargetsResponseFilterSensitiveLog = (obj: DescribeActionTargetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHubRequestFilterSensitiveLog = (obj: DescribeHubRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHubResponseFilterSensitiveLog = (obj: DescribeHubResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeOrganizationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeOrganizationConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProductsRequestFilterSensitiveLog = (obj: DescribeProductsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProductFilterSensitiveLog = (obj: Product): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -1545,6 +2139,56 @@ export const ListOrganizationAdminAccountsRequestFilterSensitiveLog = (
  */
 export const ListOrganizationAdminAccountsResponseFilterSensitiveLog = (
   obj: ListOrganizationAdminAccountsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSecurityControlDefinitionsRequestFilterSensitiveLog = (
+  obj: ListSecurityControlDefinitionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecurityControlDefinitionFilterSensitiveLog = (obj: SecurityControlDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSecurityControlDefinitionsResponseFilterSensitiveLog = (
+  obj: ListSecurityControlDefinitionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStandardsControlAssociationsRequestFilterSensitiveLog = (
+  obj: ListStandardsControlAssociationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StandardsControlAssociationSummaryFilterSensitiveLog = (obj: StandardsControlAssociationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStandardsControlAssociationsResponseFilterSensitiveLog = (
+  obj: ListStandardsControlAssociationsResponse
 ): any => ({
   ...obj,
 });

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteCoreDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteCoreDefinitionCommand}.
+ */
 export interface DeleteCoreDefinitionCommandInput extends DeleteCoreDefinitionRequest {}
+/**
+ * The output of {@link DeleteCoreDefinitionCommand}.
+ */
 export interface DeleteCoreDefinitionCommandOutput extends DeleteCoreDefinitionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListSlotTypesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSlotTypesCommand}.
+ */
 export interface ListSlotTypesCommandInput extends ListSlotTypesRequest {}
+/**
+ * The output of {@link ListSlotTypesCommand}.
+ */
 export interface ListSlotTypesCommandOutput extends ListSlotTypesResponse, __MetadataBearer {}
 
 /**

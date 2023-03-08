@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetGroupsForCapacityReservationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetGroupsForCapacityReservationCommand}.
+ */
 export interface GetGroupsForCapacityReservationCommandInput extends GetGroupsForCapacityReservationRequest {}
+/**
+ * The output of {@link GetGroupsForCapacityReservationCommand}.
+ */
 export interface GetGroupsForCapacityReservationCommandOutput
   extends GetGroupsForCapacityReservationResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteLicenseCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteLicenseCommand}.
+ */
 export interface DeleteLicenseCommandInput extends DeleteLicenseRequest {}
+/**
+ * The output of {@link DeleteLicenseCommand}.
+ */
 export interface DeleteLicenseCommandOutput extends DeleteLicenseResponse, __MetadataBearer {}
 
 /**

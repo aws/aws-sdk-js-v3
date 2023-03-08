@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link StopProjectVersionCommand}.
+ */
 export interface StopProjectVersionCommandInput extends StopProjectVersionRequest {}
+/**
+ * The output of {@link StopProjectVersionCommand}.
+ */
 export interface StopProjectVersionCommandOutput extends StopProjectVersionResponse, __MetadataBearer {}
 
 /**

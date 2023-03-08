@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CancelReservedInstancesListingCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CancelReservedInstancesListingCommand}.
+ */
 export interface CancelReservedInstancesListingCommandInput extends CancelReservedInstancesListingRequest {}
+/**
+ * The output of {@link CancelReservedInstancesListingCommand}.
+ */
 export interface CancelReservedInstancesListingCommandOutput
   extends CancelReservedInstancesListingResult,
     __MetadataBearer {}

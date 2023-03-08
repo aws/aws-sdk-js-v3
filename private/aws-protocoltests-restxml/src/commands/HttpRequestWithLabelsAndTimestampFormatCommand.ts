@@ -22,8 +22,14 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link HttpRequestWithLabelsAndTimestampFormatCommand}.
+ */
 export interface HttpRequestWithLabelsAndTimestampFormatCommandInput
   extends HttpRequestWithLabelsAndTimestampFormatInput {}
+/**
+ * The output of {@link HttpRequestWithLabelsAndTimestampFormatCommand}.
+ */
 export interface HttpRequestWithLabelsAndTimestampFormatCommandOutput extends __MetadataBearer {}
 
 /**

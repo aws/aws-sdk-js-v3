@@ -505,10 +505,10 @@ import { IoTWirelessClient } from "./IoTWirelessClient";
  * 	        devices and the AWS Cloud. To onboard both LoRaWAN and Sidewalk devices to AWS IoT, use the
  * 	        IoT Wireless API. These wireless devices use the Low Power Wide Area Networking (LPWAN)
  * 	        communication protocol to communicate with AWS IoT.</p>
- * 	        <p>Using the API, you can perform create, read, update, and delete operations for your wireless
+ *          <p>Using the API, you can perform create, read, update, and delete operations for your wireless
  * 	        devices, gateways, destinations, and profiles. After onboarding your devices, you
  * 	        can use the API operations to set log levels and monitor your devices with CloudWatch.</p>
- * 	        <p>You can also use the API operations to create multicast groups and schedule a multicast session for
+ *          <p>You can also use the API operations to create multicast groups and schedule a multicast session for
  * 	        sending a downlink message to devices in the group. By using Firmware Updates Over-The-Air
  * 	        (FUOTA) API operations, you can create a FUOTA task and schedule a session to update the firmware
  * 	        of individual devices or an entire group of devices in a multicast group.</p>
@@ -1972,11 +1972,11 @@ export class IoTWireless extends IoTWirelessClient {
    * @deprecated
    *
    * <p>Get the position information for a given resource.</p>
-   *         <important>
+   *          <important>
    *             <p>This action is no longer supported. Calls to retrieve the position information
    *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html">GetResourcePosition</a>
    *                 API operation instead.</p>
-   *         </important>
+   *          </important>
    */
   public getPosition(args: GetPositionCommandInput, options?: __HttpHandlerOptions): Promise<GetPositionCommandOutput>;
   public getPosition(args: GetPositionCommandInput, cb: (err: any, data?: GetPositionCommandOutput) => void): void;
@@ -2005,11 +2005,11 @@ export class IoTWireless extends IoTWirelessClient {
    * @deprecated
    *
    * <p>Get position configuration for a given resource.</p>
-   *         <important>
+   *          <important>
    *             <p>This action is no longer supported. Calls to retrieve the position configuration
    *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html">GetResourcePosition</a>
    *                 API operation instead.</p>
-   *         </important>
+   *          </important>
    */
   public getPositionConfiguration(
     args: GetPositionConfigurationCommandInput,
@@ -2139,9 +2139,9 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
-   * <p>Get the position information for a given wireless device or a wireless gateway resource. The postion
-   *           information uses the <a href="https://gisgeography.com/wgs84-world-geodetic-system/">
-   *           World Geodetic System (WGS84)</a>.</p>
+   * <p>Get the position information for a given wireless device or a wireless gateway resource.
+   *             The position information uses the <a href="https://gisgeography.com/wgs84-world-geodetic-system/"> World Geodetic System
+   *                 (WGS84)</a>.</p>
    */
   public getResourcePosition(
     args: GetResourcePositionCommandInput,
@@ -2754,11 +2754,11 @@ export class IoTWireless extends IoTWirelessClient {
    * @deprecated
    *
    * <p>List position configurations for a given resource, such as positioning solvers.</p>
-   *         <important>
+   *          <important>
    *             <p>This action is no longer supported. Calls to retrieve position information
    *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html">GetResourcePosition</a>
    *                 API operation instead.</p>
-   *         </important>
+   *          </important>
    */
   public listPositionConfigurations(
     args: ListPositionConfigurationsCommandInput,
@@ -2985,10 +2985,10 @@ export class IoTWireless extends IoTWirelessClient {
    * @deprecated
    *
    * <p>Put position configuration for a given resource.</p>
-   *         <important>
+   *          <important>
    *             <p>This action is no longer supported. Calls to update the position configuration
    *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html">UpdateResourcePosition</a> API operation instead.</p>
-   *         </important>
+   *          </important>
    */
   public putPositionConfiguration(
     args: PutPositionConfigurationCommandInput,
@@ -3634,10 +3634,10 @@ export class IoTWireless extends IoTWirelessClient {
    * @deprecated
    *
    * <p>Update the position information of a resource.</p>
-   *         <important>
+   *          <important>
    *             <p>This action is no longer supported. Calls to update the position information
    *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html">UpdateResourcePosition</a> API operation instead.</p>
-   *         </important>
+   *          </important>
    */
   public updatePosition(
     args: UpdatePositionCommandInput,
@@ -3701,9 +3701,9 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
-   * <p>Update the position information of a given wireless device or a wireless gateway resource. The postion
-   *            coordinates are based on the <a href="https://gisgeography.com/wgs84-world-geodetic-system/">
-   *            World Geodetic System (WGS84)</a>.</p>
+   * <p>Update the position information of a given wireless device or a wireless gateway
+   *             resource. The position coordinates are based on the <a href="https://gisgeography.com/wgs84-world-geodetic-system/"> World Geodetic System
+   *                 (WGS84)</a>.</p>
    */
   public updateResourcePosition(
     args: UpdateResourcePositionCommandInput,

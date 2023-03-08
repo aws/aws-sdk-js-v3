@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1TagStreamCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link TagStreamCommand}.
+ */
 export interface TagStreamCommandInput extends TagStreamInput {}
+/**
+ * The output of {@link TagStreamCommand}.
+ */
 export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBearer {}
 
 /**

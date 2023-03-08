@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetSerialConsoleAccessStatusCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetSerialConsoleAccessStatusCommand}.
+ */
 export interface GetSerialConsoleAccessStatusCommandInput extends GetSerialConsoleAccessStatusRequest {}
+/**
+ * The output of {@link GetSerialConsoleAccessStatusCommand}.
+ */
 export interface GetSerialConsoleAccessStatusCommandOutput
   extends GetSerialConsoleAccessStatusResult,
     __MetadataBearer {}

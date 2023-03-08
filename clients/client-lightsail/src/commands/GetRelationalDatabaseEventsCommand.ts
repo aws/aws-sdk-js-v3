@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetRelationalDatabaseEventsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRelationalDatabaseEventsCommand}.
+ */
 export interface GetRelationalDatabaseEventsCommandInput extends GetRelationalDatabaseEventsRequest {}
+/**
+ * The output of {@link GetRelationalDatabaseEventsCommand}.
+ */
 export interface GetRelationalDatabaseEventsCommandOutput extends GetRelationalDatabaseEventsResult, __MetadataBearer {}
 
 /**

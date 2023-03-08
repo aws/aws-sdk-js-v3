@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteWirelessDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteWirelessDeviceCommand}.
+ */
 export interface DeleteWirelessDeviceCommandInput extends DeleteWirelessDeviceRequest {}
+/**
+ * The output of {@link DeleteWirelessDeviceCommand}.
+ */
 export interface DeleteWirelessDeviceCommandOutput extends DeleteWirelessDeviceResponse, __MetadataBearer {}
 
 /**

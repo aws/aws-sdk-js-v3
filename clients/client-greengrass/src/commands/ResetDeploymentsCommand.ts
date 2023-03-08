@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ResetDeploymentsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ResetDeploymentsCommand}.
+ */
 export interface ResetDeploymentsCommandInput extends ResetDeploymentsRequest {}
+/**
+ * The output of {@link ResetDeploymentsCommand}.
+ */
 export interface ResetDeploymentsCommandOutput extends ResetDeploymentsResponse, __MetadataBearer {}
 
 /**

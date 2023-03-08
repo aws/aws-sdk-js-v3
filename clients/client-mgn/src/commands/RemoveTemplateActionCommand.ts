@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RemoveTemplateActionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RemoveTemplateActionCommand}.
+ */
 export interface RemoveTemplateActionCommandInput extends RemoveTemplateActionRequest {}
+/**
+ * The output of {@link RemoveTemplateActionCommand}.
+ */
 export interface RemoveTemplateActionCommandOutput extends RemoveTemplateActionResponse, __MetadataBearer {}
 
 /**

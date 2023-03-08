@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteFileSystemCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteFileSystemCommand}.
+ */
 export interface DeleteFileSystemCommandInput extends DeleteFileSystemRequest {}
+/**
+ * The output of {@link DeleteFileSystemCommand}.
+ */
 export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelQuantumTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelQuantumTaskCommand}.
+ */
 export interface CancelQuantumTaskCommandInput extends CancelQuantumTaskRequest {}
+/**
+ * The output of {@link CancelQuantumTaskCommand}.
+ */
 export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskResponse, __MetadataBearer {}
 
 /**

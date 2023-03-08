@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateDomainAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateDomainAssociationCommand}.
+ */
 export interface UpdateDomainAssociationCommandInput extends UpdateDomainAssociationRequest {}
+/**
+ * The output of {@link UpdateDomainAssociationCommand}.
+ */
 export interface UpdateDomainAssociationCommandOutput extends UpdateDomainAssociationResult, __MetadataBearer {}
 
 /**

@@ -6,7 +6,6 @@ import {
   GetSegmentDetectionCommandInput,
   GetSegmentDetectionCommandOutput,
 } from "../commands/GetSegmentDetectionCommand";
-import { Rekognition } from "../Rekognition";
 import { RekognitionClient } from "../RekognitionClient";
 import { RekognitionPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetSegmentDetectionCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Rekognition,
-  input: GetSegmentDetectionCommandInput,
-  ...args: any
-): Promise<GetSegmentDetectionCommandOutput> => {
-  // @ts-ignore
-  return await client.getSegmentDetection(input, ...args);
-};
 export async function* paginateGetSegmentDetection(
   config: RekognitionPaginationConfiguration,
   input: GetSegmentDetectionCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateGetSegmentDetection(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Rekognition) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RekognitionClient) {
+    if (config.client instanceof RekognitionClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Rekognition | RekognitionClient");

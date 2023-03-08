@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdatePullRequestApprovalRuleContentCommand}.
+ */
 export interface UpdatePullRequestApprovalRuleContentCommandInput extends UpdatePullRequestApprovalRuleContentInput {}
+/**
+ * The output of {@link UpdatePullRequestApprovalRuleContentCommand}.
+ */
 export interface UpdatePullRequestApprovalRuleContentCommandOutput
   extends UpdatePullRequestApprovalRuleContentOutput,
     __MetadataBearer {}

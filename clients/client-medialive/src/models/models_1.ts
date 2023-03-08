@@ -33,7 +33,6 @@ import {
   HlsIvSource,
   HlsManifestCompression,
   HlsManifestDurationFormat,
-  HlsMode,
   IFrameOnlyPlaylistType,
   Input,
   InputAttachment,
@@ -80,6 +79,11 @@ import {
   ReservationResourceSpecification,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+export enum HlsMode {
+  LIVE = "LIVE",
+  VOD = "VOD",
+}
 
 export enum HlsOutputSelection {
   MANIFESTS_AND_SEGMENTS = "MANIFESTS_AND_SEGMENTS",
@@ -2886,7 +2890,7 @@ export enum Scte35SpliceInsertWebDeliveryAllowedBehavior {
 }
 
 /**
- * Scte35 Splice Insert
+ * Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements.
  */
 export interface Scte35SpliceInsert {
   /**
@@ -2916,7 +2920,7 @@ export enum Scte35AposWebDeliveryAllowedBehavior {
 }
 
 /**
- * Scte35 Time Signal Apos
+ * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.
  */
 export interface Scte35TimeSignalApos {
   /**
@@ -2945,12 +2949,12 @@ export interface AvailSettings {
   Esam?: Esam;
 
   /**
-   * Scte35 Splice Insert
+   * Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements.
    */
   Scte35SpliceInsert?: Scte35SpliceInsert;
 
   /**
-   * Scte35 Time Signal Apos
+   * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.
    */
   Scte35TimeSignalApos?: Scte35TimeSignalApos;
 }
@@ -2960,7 +2964,7 @@ export interface AvailSettings {
  */
 export interface AvailConfiguration {
   /**
-   * Ad avail settings.
+   * Controls how SCTE-35 messages create cues. Splice Insert mode treats all segmentation signals traditionally. With Time Signal APOS mode only Time Signal Placement Opportunity and Break messages create segment breaks. With ESAM mode, signals are forwarded to an ESAM server for possible update.
    */
   AvailSettings?: AvailSettings;
 }
@@ -5919,11 +5923,6 @@ export interface StartInputDeviceMaintenanceWindowRequest {
 }
 
 /**
- * Placeholder documentation for StartInputDeviceMaintenanceWindowResponse
- */
-export interface StartInputDeviceMaintenanceWindowResponse {}
-
-/**
  * @internal
  */
 export const HlsGroupSettingsFilterSensitiveLog = (obj: HlsGroupSettings): any => ({
@@ -7225,15 +7224,6 @@ export const StartChannelResponseFilterSensitiveLog = (obj: StartChannelResponse
  */
 export const StartInputDeviceMaintenanceWindowRequestFilterSensitiveLog = (
   obj: StartInputDeviceMaintenanceWindowRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartInputDeviceMaintenanceWindowResponseFilterSensitiveLog = (
-  obj: StartInputDeviceMaintenanceWindowResponse
 ): any => ({
   ...obj,
 });

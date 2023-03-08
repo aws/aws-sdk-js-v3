@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListManagedJobTemplatesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListManagedJobTemplatesCommand}.
+ */
 export interface ListManagedJobTemplatesCommandInput extends ListManagedJobTemplatesRequest {}
+/**
+ * The output of {@link ListManagedJobTemplatesCommand}.
+ */
 export interface ListManagedJobTemplatesCommandOutput extends ListManagedJobTemplatesResponse, __MetadataBearer {}
 
 /**

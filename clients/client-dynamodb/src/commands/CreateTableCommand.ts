@@ -25,23 +25,29 @@ import {
   serializeAws_json1_0CreateTableCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateTableCommand}.
+ */
 export interface CreateTableCommandInput extends CreateTableInput {}
+/**
+ * The output of {@link CreateTableCommand}.
+ */
 export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataBearer {}
 
 /**
  * <p>The <code>CreateTable</code> operation adds a new table to your account. In an Amazon Web Services account, table names must be unique within each Region. That is, you can
  *             have two tables with same name if you create the tables in different Regions.</p>
- *         <p>
+ *          <p>
  *             <code>CreateTable</code> is an asynchronous operation. Upon receiving a
  *                 <code>CreateTable</code> request, DynamoDB immediately returns a response with a
  *                 <code>TableStatus</code> of <code>CREATING</code>. After the table is created,
  *             DynamoDB sets the <code>TableStatus</code> to <code>ACTIVE</code>. You can perform read
  *             and write operations only on an <code>ACTIVE</code> table. </p>
- *         <p>You can optionally define secondary indexes on the new table, as part of the
+ *          <p>You can optionally define secondary indexes on the new table, as part of the
  *                 <code>CreateTable</code> operation. If you want to create multiple tables with
  *             secondary indexes on them, you must create the tables sequentially. Only one table with
  *             secondary indexes can be in the <code>CREATING</code> state at any given time.</p>
- *         <p>You can use the <code>DescribeTable</code> action to check the table status.</p>
+ *          <p>You can use the <code>DescribeTable</code> action to check the table status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

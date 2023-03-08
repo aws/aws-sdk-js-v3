@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateResourceCollectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateResourceCollectionCommand}.
+ */
 export interface UpdateResourceCollectionCommandInput extends UpdateResourceCollectionRequest {}
+/**
+ * The output of {@link UpdateResourceCollectionCommand}.
+ */
 export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCollectionResponse, __MetadataBearer {}
 
 /**

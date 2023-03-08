@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeRetentionConfigurationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeRetentionConfigurationsCommand}.
+ */
 export interface DescribeRetentionConfigurationsCommandInput extends DescribeRetentionConfigurationsRequest {}
+/**
+ * The output of {@link DescribeRetentionConfigurationsCommand}.
+ */
 export interface DescribeRetentionConfigurationsCommandOutput
   extends DescribeRetentionConfigurationsResponse,
     __MetadataBearer {}

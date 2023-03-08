@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DeleteVpcEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteVpcEndpointCommand}.
+ */
 export interface DeleteVpcEndpointCommandInput extends DeleteVpcEndpointRequest {}
+/**
+ * The output of {@link DeleteVpcEndpointCommand}.
+ */
 export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateCustomPluginCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateCustomPluginCommand}.
+ */
 export interface CreateCustomPluginCommandInput extends CreateCustomPluginRequest {}
+/**
+ * The output of {@link CreateCustomPluginCommand}.
+ */
 export interface CreateCustomPluginCommandOutput extends CreateCustomPluginResponse, __MetadataBearer {}
 
 /**

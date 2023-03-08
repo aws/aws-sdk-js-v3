@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeRefreshSchemasStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeRefreshSchemasStatusCommand}.
+ */
 export interface DescribeRefreshSchemasStatusCommandInput extends DescribeRefreshSchemasStatusMessage {}
+/**
+ * The output of {@link DescribeRefreshSchemasStatusCommand}.
+ */
 export interface DescribeRefreshSchemasStatusCommandOutput
   extends DescribeRefreshSchemasStatusResponse,
     __MetadataBearer {}

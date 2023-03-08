@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link DisableDomainTransferLockCommand}.
+ */
 export interface DisableDomainTransferLockCommandInput extends DisableDomainTransferLockRequest {}
+/**
+ * The output of {@link DisableDomainTransferLockCommand}.
+ */
 export interface DisableDomainTransferLockCommandOutput extends DisableDomainTransferLockResponse, __MetadataBearer {}
 
 /**

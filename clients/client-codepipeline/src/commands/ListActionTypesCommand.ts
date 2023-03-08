@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListActionTypesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListActionTypesCommand}.
+ */
 export interface ListActionTypesCommandInput extends ListActionTypesInput {}
+/**
+ * The output of {@link ListActionTypesCommand}.
+ */
 export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __MetadataBearer {}
 
 /**

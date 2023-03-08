@@ -21,7 +21,13 @@ import {
   serializeAws_restJson1DescribeSlotCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeSlotCommand}.
+ */
 export interface DescribeSlotCommandInput extends DescribeSlotRequest {}
+/**
+ * The output of {@link DescribeSlotCommand}.
+ */
 export interface DescribeSlotCommandOutput extends DescribeSlotResponse, __MetadataBearer {}
 
 /**

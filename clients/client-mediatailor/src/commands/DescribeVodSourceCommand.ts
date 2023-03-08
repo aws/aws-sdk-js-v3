@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeVodSourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeVodSourceCommand}.
+ */
 export interface DescribeVodSourceCommandInput extends DescribeVodSourceRequest {}
+/**
+ * The output of {@link DescribeVodSourceCommand}.
+ */
 export interface DescribeVodSourceCommandOutput extends DescribeVodSourceResponse, __MetadataBearer {}
 
 /**

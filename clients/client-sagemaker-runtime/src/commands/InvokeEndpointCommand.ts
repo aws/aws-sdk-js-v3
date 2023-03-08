@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SageMakerRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerRuntimeClient";
 
+/**
+ * The input for {@link InvokeEndpointCommand}.
+ */
 export interface InvokeEndpointCommandInput extends InvokeEndpointInput {}
+/**
+ * The output of {@link InvokeEndpointCommand}.
+ */
 export interface InvokeEndpointCommandOutput extends InvokeEndpointOutput, __MetadataBearer {}
 
 /**

@@ -912,8 +912,8 @@
               },
               "params": {
                 "Region": "aws-global",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -925,8 +925,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -938,8 +938,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -951,8 +951,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -973,8 +973,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -995,8 +995,8 @@
               },
               "params": {
                 "Region": "aws-cn-global",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1008,8 +1008,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1021,8 +1021,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1034,8 +1034,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1056,8 +1056,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1069,8 +1069,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1082,8 +1082,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1095,8 +1095,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1108,8 +1108,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1121,8 +1121,8 @@
               },
               "params": {
                 "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1134,8 +1134,8 @@
               },
               "params": {
                 "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1147,8 +1147,8 @@
               },
               "params": {
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1160,8 +1160,8 @@
               },
               "params": {
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1173,8 +1173,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1186,8 +1186,8 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1198,8 +1198,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1210,8 +1210,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
               }
             }
@@ -1574,7 +1574,7 @@
         "RegionName": {
           "target": "com.amazonaws.account#RegionName",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the Region-code for a given Region name (for example, <code>af-south-1</code>). When\n            you disable a Region, AWS performs actions to deactivate that Region in your account, such\n            as destroying IAM resources in the Region. This process takes a few minutes for most\n            accounts, but this can take several hours. You cannot enable the Region until the\n            disabling process is fully completed.</p>",
+            "smithy.api#documentation": "<p>Specifies the Region-code for a given Region name (for example, <code>af-south-1</code>). When\n            you disable a Region, Amazon Web Services performs actions to deactivate that Region in your account, such\n            as destroying IAM resources in the Region. This process takes a few minutes for most\n            accounts, but this can take several hours. You cannot enable the Region until the\n            disabling process is fully completed.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1598,9 +1598,9 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 64
+          "max": 254
         },
-        "smithy.api#pattern": "^[\\s]*[\\w+=.#!&-]+@[\\w.-]+\\.[\\w]+[\\s]*$",
+        "smithy.api#pattern": "^[\\s]*[\\w+=.#|!&-]+@[\\w.-]+\\.[\\w]+[\\s]*$",
         "smithy.api#sensitive": {}
       }
     },
@@ -1650,7 +1650,7 @@
         "RegionName": {
           "target": "com.amazonaws.account#RegionName",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the Region-code for a given Region name (for example, <code>af-south-1</code>). When\n            you enable a Region, AWS performs actions to prepare your account in that Region, such\n            as distributing your IAM resources to the Region. This process takes a few minutes for\n            most accounts, but it can take several hours. You cannot use the Region until this\n            process is complete. Furthermore, you cannot disable the Region until the enabling\n            process is fully completed.</p>",
+            "smithy.api#documentation": "<p>Specifies the Region-code for a given Region name (for example, <code>af-south-1</code>). When\n            you enable a Region, Amazon Web Services performs actions to prepare your account in that Region, such\n            as distributing your IAM resources to the Region. This process takes a few minutes for\n            most accounts, but it can take several hours. You cannot use the Region until this\n            process is complete. Furthermore, you cannot disable the Region until the enabling\n            process is fully completed.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2356,7 +2356,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input failed to meet the constraints specified by the AWS service in a specified field.</p>"
+        "smithy.api#documentation": "<p>The input failed to meet the constraints specified by the Amazon Web Services service in a specified field.</p>"
       }
     },
     "com.amazonaws.account#ValidationExceptionFieldList": {

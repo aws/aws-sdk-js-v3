@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateFileCacheCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateFileCacheCommand}.
+ */
 export interface CreateFileCacheCommandInput extends CreateFileCacheRequest {}
+/**
+ * The output of {@link CreateFileCacheCommand}.
+ */
 export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, __MetadataBearer {}
 
 /**

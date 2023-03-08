@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetRulesCommand, serializeAws_json1_1GetRulesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRulesCommand}.
+ */
 export interface GetRulesCommandInput extends GetRulesRequest {}
+/**
+ * The output of {@link GetRulesCommand}.
+ */
 export interface GetRulesCommandOutput extends GetRulesResult, __MetadataBearer {}
 
 /**

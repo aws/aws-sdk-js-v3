@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetConnectivityInfoCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetConnectivityInfoCommand}.
+ */
 export interface GetConnectivityInfoCommandInput extends GetConnectivityInfoRequest {}
+/**
+ * The output of {@link GetConnectivityInfoCommand}.
+ */
 export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoResponse, __MetadataBearer {}
 
 /**

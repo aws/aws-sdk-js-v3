@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DeleteDBProxyEndpointCommand}.
+ */
 export interface DeleteDBProxyEndpointCommandInput extends DeleteDBProxyEndpointRequest {}
+/**
+ * The output of {@link DeleteDBProxyEndpointCommand}.
+ */
 export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpointResponse, __MetadataBearer {}
 
 /**

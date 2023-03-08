@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { BackupStorage } from "../BackupStorage";
 import { BackupStorageClient } from "../BackupStorageClient";
 import { ListObjectsCommand, ListObjectsCommandInput, ListObjectsCommandOutput } from "../commands/ListObjectsCommand";
 import { BackupStoragePaginationConfiguration } from "./Interfaces";
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListObjectsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: BackupStorage,
-  input: ListObjectsCommandInput,
-  ...args: any
-): Promise<ListObjectsCommandOutput> => {
-  // @ts-ignore
-  return await client.listObjects(input, ...args);
-};
 export async function* paginateListObjects(
   config: BackupStoragePaginationConfiguration,
   input: ListObjectsCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListObjects(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof BackupStorage) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof BackupStorageClient) {
+    if (config.client instanceof BackupStorageClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected BackupStorage | BackupStorageClient");

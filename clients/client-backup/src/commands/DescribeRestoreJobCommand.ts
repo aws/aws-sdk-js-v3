@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeRestoreJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeRestoreJobCommand}.
+ */
 export interface DescribeRestoreJobCommandInput extends DescribeRestoreJobInput {}
+/**
+ * The output of {@link DescribeRestoreJobCommand}.
+ */
 export interface DescribeRestoreJobCommandOutput extends DescribeRestoreJobOutput, __MetadataBearer {}
 
 /**

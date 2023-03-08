@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RegisterResourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RegisterResourceCommand}.
+ */
 export interface RegisterResourceCommandInput extends RegisterResourceRequest {}
+/**
+ * The output of {@link RegisterResourceCommand}.
+ */
 export interface RegisterResourceCommandOutput extends RegisterResourceResponse, __MetadataBearer {}
 
 /**

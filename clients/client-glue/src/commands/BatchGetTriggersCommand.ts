@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetTriggersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetTriggersCommand}.
+ */
 export interface BatchGetTriggersCommandInput extends BatchGetTriggersRequest {}
+/**
+ * The output of {@link BatchGetTriggersCommand}.
+ */
 export interface BatchGetTriggersCommandOutput extends BatchGetTriggersResponse, __MetadataBearer {}
 
 /**

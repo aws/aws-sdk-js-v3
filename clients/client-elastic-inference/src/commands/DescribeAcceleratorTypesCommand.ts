@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeAcceleratorTypesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeAcceleratorTypesCommand}.
+ */
 export interface DescribeAcceleratorTypesCommandInput extends DescribeAcceleratorTypesRequest {}
+/**
+ * The output of {@link DescribeAcceleratorTypesCommand}.
+ */
 export interface DescribeAcceleratorTypesCommandOutput extends DescribeAcceleratorTypesResponse, __MetadataBearer {}
 
 /**

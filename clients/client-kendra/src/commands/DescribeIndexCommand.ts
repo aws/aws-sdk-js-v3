@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeIndexCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeIndexCommand}.
+ */
 export interface DescribeIndexCommandInput extends DescribeIndexRequest {}
+/**
+ * The output of {@link DescribeIndexCommand}.
+ */
 export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __MetadataBearer {}
 
 /**

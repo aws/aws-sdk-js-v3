@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetReservationUtilizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetReservationUtilizationCommand}.
+ */
 export interface GetReservationUtilizationCommandInput extends GetReservationUtilizationRequest {}
+/**
+ * The output of {@link GetReservationUtilizationCommand}.
+ */
 export interface GetReservationUtilizationCommandOutput extends GetReservationUtilizationResponse, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link DeleteBucketInventoryConfigurationCommand}.
+ */
 export interface DeleteBucketInventoryConfigurationCommandInput extends DeleteBucketInventoryConfigurationRequest {}
+/**
+ * The output of {@link DeleteBucketInventoryConfigurationCommand}.
+ */
 export interface DeleteBucketInventoryConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

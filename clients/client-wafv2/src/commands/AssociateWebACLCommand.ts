@@ -25,12 +25,18 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * The input for {@link AssociateWebACLCommand}.
+ */
 export interface AssociateWebACLCommandInput extends AssociateWebACLRequest {}
+/**
+ * The output of {@link AssociateWebACLCommand}.
+ */
 export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a web ACL with a regional application resource, to protect the resource.
- *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, or an Amazon Cognito user pool.  </p>
+ *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
  *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To
  *          associate a web ACL, in the CloudFront call <code>UpdateDistribution</code>, set the web ACL ID
  *          to the Amazon Resource Name (ARN) of the web ACL. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>

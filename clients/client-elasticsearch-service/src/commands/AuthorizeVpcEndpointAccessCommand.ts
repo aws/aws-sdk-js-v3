@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1AuthorizeVpcEndpointAccessCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AuthorizeVpcEndpointAccessCommand}.
+ */
 export interface AuthorizeVpcEndpointAccessCommandInput extends AuthorizeVpcEndpointAccessRequest {}
+/**
+ * The output of {@link AuthorizeVpcEndpointAccessCommand}.
+ */
 export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEndpointAccessResponse, __MetadataBearer {}
 
 /**

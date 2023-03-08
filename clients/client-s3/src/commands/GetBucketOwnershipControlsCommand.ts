@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetBucketOwnershipControlsCommand}.
+ */
 export interface GetBucketOwnershipControlsCommandInput extends GetBucketOwnershipControlsRequest {}
+/**
+ * The output of {@link GetBucketOwnershipControlsCommand}.
+ */
 export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwnershipControlsOutput, __MetadataBearer {}
 
 /**

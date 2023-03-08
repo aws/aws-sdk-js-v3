@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link NullAndEmptyHeadersClientCommand}.
+ */
 export interface NullAndEmptyHeadersClientCommandInput extends NullAndEmptyHeadersIO {}
+/**
+ * The output of {@link NullAndEmptyHeadersClientCommand}.
+ */
 export interface NullAndEmptyHeadersClientCommandOutput extends NullAndEmptyHeadersIO, __MetadataBearer {}
 
 /**

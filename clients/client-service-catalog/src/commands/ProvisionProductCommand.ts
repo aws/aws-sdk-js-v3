@@ -25,19 +25,53 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link ProvisionProductCommand}.
+ */
 export interface ProvisionProductCommandInput extends ProvisionProductInput {}
+/**
+ * The output of {@link ProvisionProductCommand}.
+ */
 export interface ProvisionProductCommandOutput extends ProvisionProductOutput, __MetadataBearer {}
 
 /**
- * <p>Provisions the specified product.</p>
- *          <p>A provisioned product is a resourced instance of a product.
- *          For example, provisioning a product based on a CloudFormation template launches a
- *          CloudFormation stack and its underlying resources.
- *          You can check the status of this request using <a>DescribeRecord</a>.</p>
- *          <p>If the request contains a tag key with an empty list of values, there is a
- *          tag conflict for that key. Do not include conflicted keys as tags, or this causes
- *          the error "Parameter validation failed: Missing required parameter in
- *          Tags[<i>N</i>]:<i>Value</i>".</p>
+ * <p>
+ *          Provisions the specified product.
+ *       </p>
+ *          <p>
+ *          A provisioned product is a resourced instance
+ *          of a product.
+ *          For example,
+ *          provisioning a product
+ *          that's based
+ *          on an CloudFormation template
+ *          launches an CloudFormation stack and its underlying resources.
+ *          You can check the status
+ *          of this request
+ *          using <a>DescribeRecord</a>.
+ *       </p>
+ *          <p>
+ *          If the request contains a tag key
+ *          with an empty list
+ *          of values,
+ *          there's a tag conflict
+ *          for that key.
+ *          Don't include conflicted keys
+ *          as tags,
+ *          or this will cause the error "Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>".
+ *       </p>
+ *          <note>
+ *             <p>
+ *             When provisioning a product
+ *             that's been added
+ *             to a portfolio,
+ *             you must grant your user, group, or role access
+ *             to the portfolio.
+ *             For more information,
+ *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html">Granting users access</a>
+ *             in the <i>Service Catalog User Guide</i>.
+ *          </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

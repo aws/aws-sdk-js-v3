@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateLoadBalancerAttributeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateLoadBalancerAttributeCommand}.
+ */
 export interface UpdateLoadBalancerAttributeCommandInput extends UpdateLoadBalancerAttributeRequest {}
+/**
+ * The output of {@link UpdateLoadBalancerAttributeCommand}.
+ */
 export interface UpdateLoadBalancerAttributeCommandOutput extends UpdateLoadBalancerAttributeResult, __MetadataBearer {}
 
 /**

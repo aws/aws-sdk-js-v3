@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateVerifiedAccessGroupCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateVerifiedAccessGroupCommand}.
+ */
 export interface CreateVerifiedAccessGroupCommandInput extends CreateVerifiedAccessGroupRequest {}
+/**
+ * The output of {@link CreateVerifiedAccessGroupCommand}.
+ */
 export interface CreateVerifiedAccessGroupCommandOutput extends CreateVerifiedAccessGroupResult, __MetadataBearer {}
 
 /**

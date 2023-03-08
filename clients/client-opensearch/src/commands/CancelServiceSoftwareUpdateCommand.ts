@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelServiceSoftwareUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelServiceSoftwareUpdateCommand}.
+ */
 export interface CancelServiceSoftwareUpdateCommandInput extends CancelServiceSoftwareUpdateRequest {}
+/**
+ * The output of {@link CancelServiceSoftwareUpdateCommand}.
+ */
 export interface CancelServiceSoftwareUpdateCommandOutput
   extends CancelServiceSoftwareUpdateResponse,
     __MetadataBearer {}

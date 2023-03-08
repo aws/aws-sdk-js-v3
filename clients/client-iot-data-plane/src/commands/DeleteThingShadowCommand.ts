@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteThingShadowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteThingShadowCommand}.
+ */
 export interface DeleteThingShadowCommandInput extends DeleteThingShadowRequest {}
+/**
+ * The output of {@link DeleteThingShadowCommand}.
+ */
 export interface DeleteThingShadowCommandOutput extends DeleteThingShadowResponse, __MetadataBearer {}
 
 /**

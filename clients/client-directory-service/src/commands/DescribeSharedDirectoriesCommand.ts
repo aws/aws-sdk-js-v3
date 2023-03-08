@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeSharedDirectoriesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeSharedDirectoriesCommand}.
+ */
 export interface DescribeSharedDirectoriesCommandInput extends DescribeSharedDirectoriesRequest {}
+/**
+ * The output of {@link DescribeSharedDirectoriesCommand}.
+ */
 export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDirectoriesResult, __MetadataBearer {}
 
 /**

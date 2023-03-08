@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeExpressionsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeExpressionsCommand}.
+ */
 export interface DescribeExpressionsCommandInput extends DescribeExpressionsRequest {}
+/**
+ * The output of {@link DescribeExpressionsCommand}.
+ */
 export interface DescribeExpressionsCommandOutput extends DescribeExpressionsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutBackupPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutBackupPolicyCommand}.
+ */
 export interface PutBackupPolicyCommandInput extends PutBackupPolicyRequest {}
+/**
+ * The output of {@link PutBackupPolicyCommand}.
+ */
 export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchDeleteDocumentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchDeleteDocumentCommand}.
+ */
 export interface BatchDeleteDocumentCommandInput extends BatchDeleteDocumentRequest {}
+/**
+ * The output of {@link BatchDeleteDocumentCommand}.
+ */
 export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentResponse, __MetadataBearer {}
 
 /**

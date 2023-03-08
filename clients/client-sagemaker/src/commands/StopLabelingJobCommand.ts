@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link StopLabelingJobCommand}.
+ */
 export interface StopLabelingJobCommandInput extends StopLabelingJobRequest {}
+/**
+ * The output of {@link StopLabelingJobCommand}.
+ */
 export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
 
 /**

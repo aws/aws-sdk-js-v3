@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateGlobalSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateGlobalSettingsCommand}.
+ */
 export interface UpdateGlobalSettingsCommandInput extends UpdateGlobalSettingsRequest {}
+/**
+ * The output of {@link UpdateGlobalSettingsCommand}.
+ */
 export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 
 /**

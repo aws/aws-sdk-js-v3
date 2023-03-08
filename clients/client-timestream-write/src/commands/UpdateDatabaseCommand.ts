@@ -26,17 +26,21 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
+/**
+ * The input for {@link UpdateDatabaseCommand}.
+ */
 export interface UpdateDatabaseCommandInput extends UpdateDatabaseRequest {}
+/**
+ * The output of {@link UpdateDatabaseCommand}.
+ */
 export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __MetadataBearer {}
 
 /**
- * <p>
- *     Modifies the KMS key for an existing database. While updating the database,
- *     you must specify the database name and the identifier of the new KMS key to be used (<code>KmsKeyId</code>).
- *     If there are any concurrent <code>UpdateDatabase</code> requests, first writer wins.
- *    </p>
- *          <p>See
- *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.update-db.html">code sample</a> for details.</p>
+ * <p> Modifies the KMS key for an existing database. While updating the
+ *          database, you must specify the database name and the identifier of the new KMS key to be used (<code>KmsKeyId</code>). If there are any concurrent
+ *             <code>UpdateDatabase</code> requests, first writer wins. </p>
+ *          <p>See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.update-db.html">code sample</a>
+ *          for details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

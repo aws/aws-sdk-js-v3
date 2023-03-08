@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DeleteEndpointAccessCommand}.
+ */
 export interface DeleteEndpointAccessCommandInput extends DeleteEndpointAccessMessage {}
+/**
+ * The output of {@link DeleteEndpointAccessCommand}.
+ */
 export interface DeleteEndpointAccessCommandOutput extends EndpointAccess, __MetadataBearer {}
 
 /**

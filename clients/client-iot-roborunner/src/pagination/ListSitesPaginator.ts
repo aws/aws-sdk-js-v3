@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListSitesCommand, ListSitesCommandInput, ListSitesCommandOutput } from "../commands/ListSitesCommand";
-import { IoTRoboRunner } from "../IoTRoboRunner";
 import { IoTRoboRunnerClient } from "../IoTRoboRunnerClient";
 import { IoTRoboRunnerPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSitesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoTRoboRunner,
-  input: ListSitesCommandInput,
-  ...args: any
-): Promise<ListSitesCommandOutput> => {
-  // @ts-ignore
-  return await client.listSites(input, ...args);
-};
 export async function* paginateListSites(
   config: IoTRoboRunnerPaginationConfiguration,
   input: ListSitesCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListSites(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTRoboRunner) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTRoboRunnerClient) {
+    if (config.client instanceof IoTRoboRunnerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTRoboRunner | IoTRoboRunnerClient");

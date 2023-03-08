@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchDetectKeyPhrasesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchDetectKeyPhrasesCommand}.
+ */
 export interface BatchDetectKeyPhrasesCommandInput extends BatchDetectKeyPhrasesRequest {}
+/**
+ * The output of {@link BatchDetectKeyPhrasesCommand}.
+ */
 export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrasesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutEventSelectorsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutEventSelectorsCommand}.
+ */
 export interface PutEventSelectorsCommandInput extends PutEventSelectorsRequest {}
+/**
+ * The output of {@link PutEventSelectorsCommand}.
+ */
 export interface PutEventSelectorsCommandOutput extends PutEventSelectorsResponse, __MetadataBearer {}
 
 /**

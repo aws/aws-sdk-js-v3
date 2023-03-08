@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateProjectCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateProjectCommand}.
+ */
 export interface CreateProjectCommandInput extends CreateProjectRequest {}
+/**
+ * The output of {@link CreateProjectCommand}.
+ */
 export interface CreateProjectCommandOutput extends CreateProjectResponse, __MetadataBearer {}
 
 /**

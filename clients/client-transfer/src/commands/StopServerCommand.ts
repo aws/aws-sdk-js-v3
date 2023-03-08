@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link StopServerCommand}.
+ */
 export interface StopServerCommandInput extends StopServerRequest {}
+/**
+ * The output of {@link StopServerCommand}.
+ */
 export interface StopServerCommandOutput extends __MetadataBearer {}
 
 /**

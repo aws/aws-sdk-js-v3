@@ -6,7 +6,6 @@ import {
   ListGatewaysCommandInput,
   ListGatewaysCommandOutput,
 } from "../commands/ListGatewaysCommand";
-import { StorageGateway } from "../StorageGateway";
 import { StorageGatewayClient } from "../StorageGatewayClient";
 import { StorageGatewayPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListGatewaysCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: StorageGateway,
-  input: ListGatewaysCommandInput,
-  ...args: any
-): Promise<ListGatewaysCommandOutput> => {
-  // @ts-ignore
-  return await client.listGateways(input, ...args);
-};
 export async function* paginateListGateways(
   config: StorageGatewayPaginationConfiguration,
   input: ListGatewaysCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListGateways(
   while (hasNext) {
     input.Marker = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof StorageGateway) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof StorageGatewayClient) {
+    if (config.client instanceof StorageGatewayClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected StorageGateway | StorageGatewayClient");

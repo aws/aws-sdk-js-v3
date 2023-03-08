@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SagemakerEdgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SagemakerEdgeClient";
 
+/**
+ * The input for {@link GetDeviceRegistrationCommand}.
+ */
 export interface GetDeviceRegistrationCommandInput extends GetDeviceRegistrationRequest {}
+/**
+ * The output of {@link GetDeviceRegistrationCommand}.
+ */
 export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistrationResult, __MetadataBearer {}
 
 /**

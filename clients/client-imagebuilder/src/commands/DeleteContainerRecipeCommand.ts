@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteContainerRecipeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteContainerRecipeCommand}.
+ */
 export interface DeleteContainerRecipeCommandInput extends DeleteContainerRecipeRequest {}
+/**
+ * The output of {@link DeleteContainerRecipeCommand}.
+ */
 export interface DeleteContainerRecipeCommandOutput extends DeleteContainerRecipeResponse, __MetadataBearer {}
 
 /**

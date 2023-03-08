@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteExperimentTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteExperimentTemplateCommand}.
+ */
 export interface DeleteExperimentTemplateCommandInput extends DeleteExperimentTemplateRequest {}
+/**
+ * The output of {@link DeleteExperimentTemplateCommand}.
+ */
 export interface DeleteExperimentTemplateCommandOutput extends DeleteExperimentTemplateResponse, __MetadataBearer {}
 
 /**

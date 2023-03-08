@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link ResetPasswordCommand}.
+ */
 export interface ResetPasswordCommandInput extends ResetPasswordRequest {}
+/**
+ * The output of {@link ResetPasswordCommand}.
+ */
 export interface ResetPasswordCommandOutput extends ResetPasswordResponse, __MetadataBearer {}
 
 /**

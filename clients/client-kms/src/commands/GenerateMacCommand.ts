@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GenerateMacCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GenerateMacCommand}.
+ */
 export interface GenerateMacCommandInput extends GenerateMacRequest {}
+/**
+ * The output of {@link GenerateMacCommand}.
+ */
 export interface GenerateMacCommandOutput extends GenerateMacResponse, __MetadataBearer {}
 
 /**

@@ -29,8 +29,14 @@ import {
   serializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateApplicationMaintenanceConfigurationCommand}.
+ */
 export interface UpdateApplicationMaintenanceConfigurationCommandInput
   extends UpdateApplicationMaintenanceConfigurationRequest {}
+/**
+ * The output of {@link UpdateApplicationMaintenanceConfigurationCommand}.
+ */
 export interface UpdateApplicationMaintenanceConfigurationCommandOutput
   extends UpdateApplicationMaintenanceConfigurationResponse,
     __MetadataBearer {}

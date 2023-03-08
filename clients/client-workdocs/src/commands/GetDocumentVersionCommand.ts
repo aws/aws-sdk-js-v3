@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link GetDocumentVersionCommand}.
+ */
 export interface GetDocumentVersionCommandInput extends GetDocumentVersionRequest {}
+/**
+ * The output of {@link GetDocumentVersionCommand}.
+ */
 export interface GetDocumentVersionCommandOutput extends GetDocumentVersionResponse, __MetadataBearer {}
 
 /**

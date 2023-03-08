@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteModelCardCommand}.
+ */
 export interface DeleteModelCardCommandInput extends DeleteModelCardRequest {}
+/**
+ * The output of {@link DeleteModelCardCommand}.
+ */
 export interface DeleteModelCardCommandOutput extends __MetadataBearer {}
 
 /**

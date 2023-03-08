@@ -6,7 +6,6 @@ import {
   DescribeGlobalReplicationGroupsCommandInput,
   DescribeGlobalReplicationGroupsCommandOutput,
 } from "../commands/DescribeGlobalReplicationGroupsCommand";
-import { ElastiCache } from "../ElastiCache";
 import { ElastiCacheClient } from "../ElastiCacheClient";
 import { ElastiCachePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeGlobalReplicationGroupsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ElastiCache,
-  input: DescribeGlobalReplicationGroupsCommandInput,
-  ...args: any
-): Promise<DescribeGlobalReplicationGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeGlobalReplicationGroups(input, ...args);
-};
 export async function* paginateDescribeGlobalReplicationGroups(
   config: ElastiCachePaginationConfiguration,
   input: DescribeGlobalReplicationGroupsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeGlobalReplicationGroups(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof ElastiCache) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElastiCacheClient) {
+    if (config.client instanceof ElastiCacheClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElastiCache | ElastiCacheClient");

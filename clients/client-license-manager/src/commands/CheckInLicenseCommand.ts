@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CheckInLicenseCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CheckInLicenseCommand}.
+ */
 export interface CheckInLicenseCommandInput extends CheckInLicenseRequest {}
+/**
+ * The output of {@link CheckInLicenseCommand}.
+ */
 export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __MetadataBearer {}
 
 /**

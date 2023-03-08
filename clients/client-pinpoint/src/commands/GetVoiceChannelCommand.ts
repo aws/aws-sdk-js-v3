@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetVoiceChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetVoiceChannelCommand}.
+ */
 export interface GetVoiceChannelCommandInput extends GetVoiceChannelRequest {}
+/**
+ * The output of {@link GetVoiceChannelCommand}.
+ */
 export interface GetVoiceChannelCommandOutput extends GetVoiceChannelResponse, __MetadataBearer {}
 
 /**

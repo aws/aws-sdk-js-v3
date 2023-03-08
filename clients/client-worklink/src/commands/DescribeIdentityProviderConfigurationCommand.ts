@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * The input for {@link DescribeIdentityProviderConfigurationCommand}.
+ */
 export interface DescribeIdentityProviderConfigurationCommandInput
   extends DescribeIdentityProviderConfigurationRequest {}
+/**
+ * The output of {@link DescribeIdentityProviderConfigurationCommand}.
+ */
 export interface DescribeIdentityProviderConfigurationCommandOutput
   extends DescribeIdentityProviderConfigurationResponse,
     __MetadataBearer {}

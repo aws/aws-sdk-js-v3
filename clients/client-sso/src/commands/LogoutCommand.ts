@@ -17,7 +17,13 @@ import { LogoutRequest, LogoutRequestFilterSensitiveLog } from "../models/models
 import { deserializeAws_restJson1LogoutCommand, serializeAws_restJson1LogoutCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
+/**
+ * The input for {@link LogoutCommand}.
+ */
 export interface LogoutCommandInput extends LogoutRequest {}
+/**
+ * The output of {@link LogoutCommand}.
+ */
 export interface LogoutCommandOutput extends __MetadataBearer {}
 
 /**

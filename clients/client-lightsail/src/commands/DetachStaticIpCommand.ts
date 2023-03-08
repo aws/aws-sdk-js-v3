@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DetachStaticIpCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DetachStaticIpCommand}.
+ */
 export interface DetachStaticIpCommandInput extends DetachStaticIpRequest {}
+/**
+ * The output of {@link DetachStaticIpCommand}.
+ */
 export interface DetachStaticIpCommandOutput extends DetachStaticIpResult, __MetadataBearer {}
 
 /**

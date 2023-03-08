@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RotateIngestEndpointCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RotateIngestEndpointCredentialsCommand}.
+ */
 export interface RotateIngestEndpointCredentialsCommandInput extends RotateIngestEndpointCredentialsRequest {}
+/**
+ * The output of {@link RotateIngestEndpointCredentialsCommand}.
+ */
 export interface RotateIngestEndpointCredentialsCommandOutput
   extends RotateIngestEndpointCredentialsResponse,
     __MetadataBearer {}

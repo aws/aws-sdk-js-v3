@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutInstancePublicPortsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutInstancePublicPortsCommand}.
+ */
 export interface PutInstancePublicPortsCommandInput extends PutInstancePublicPortsRequest {}
+/**
+ * The output of {@link PutInstancePublicPortsCommand}.
+ */
 export interface PutInstancePublicPortsCommandOutput extends PutInstancePublicPortsResult, __MetadataBearer {}
 
 /**

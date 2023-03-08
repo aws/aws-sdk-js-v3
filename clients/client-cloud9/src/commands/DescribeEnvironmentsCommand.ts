@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeEnvironmentsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeEnvironmentsCommand}.
+ */
 export interface DescribeEnvironmentsCommandInput extends DescribeEnvironmentsRequest {}
+/**
+ * The output of {@link DescribeEnvironmentsCommand}.
+ */
 export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsResult, __MetadataBearer {}
 
 /**

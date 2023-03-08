@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteApiCacheCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteApiCacheCommand}.
+ */
 export interface DeleteApiCacheCommandInput extends DeleteApiCacheRequest {}
+/**
+ * The output of {@link DeleteApiCacheCommand}.
+ */
 export interface DeleteApiCacheCommandOutput extends DeleteApiCacheResponse, __MetadataBearer {}
 
 /**

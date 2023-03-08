@@ -25,11 +25,17 @@ import {
   serializeAws_restJson1StartReadSetExportJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartReadSetExportJobCommand}.
+ */
 export interface StartReadSetExportJobCommandInput extends StartReadSetExportJobRequest {}
+/**
+ * The output of {@link StartReadSetExportJobCommand}.
+ */
 export interface StartReadSetExportJobCommandOutput extends StartReadSetExportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a read set export job.</p>
+ * <p>Exports a read set to Amazon S3.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

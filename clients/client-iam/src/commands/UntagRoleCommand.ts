@@ -17,7 +17,13 @@ import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { UntagRoleRequest, UntagRoleRequestFilterSensitiveLog } from "../models/models_1";
 import { deserializeAws_queryUntagRoleCommand, serializeAws_queryUntagRoleCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UntagRoleCommand}.
+ */
 export interface UntagRoleCommandInput extends UntagRoleRequest {}
+/**
+ * The output of {@link UntagRoleCommand}.
+ */
 export interface UntagRoleCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BuildBotLocaleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BuildBotLocaleCommand}.
+ */
 export interface BuildBotLocaleCommandInput extends BuildBotLocaleRequest {}
+/**
+ * The output of {@link BuildBotLocaleCommand}.
+ */
 export interface BuildBotLocaleCommandOutput extends BuildBotLocaleResponse, __MetadataBearer {}
 
 /**

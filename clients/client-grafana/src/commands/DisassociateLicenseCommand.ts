@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociateLicenseCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateLicenseCommand}.
+ */
 export interface DisassociateLicenseCommandInput extends DisassociateLicenseRequest {}
+/**
+ * The output of {@link DisassociateLicenseCommand}.
+ */
 export interface DisassociateLicenseCommandOutput extends DisassociateLicenseResponse, __MetadataBearer {}
 
 /**

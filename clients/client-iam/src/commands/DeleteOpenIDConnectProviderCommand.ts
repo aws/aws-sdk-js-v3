@@ -23,7 +23,13 @@ import {
   serializeAws_queryDeleteOpenIDConnectProviderCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteOpenIDConnectProviderCommand}.
+ */
 export interface DeleteOpenIDConnectProviderCommandInput extends DeleteOpenIDConnectProviderRequest {}
+/**
+ * The output of {@link DeleteOpenIDConnectProviderCommand}.
+ */
 export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**

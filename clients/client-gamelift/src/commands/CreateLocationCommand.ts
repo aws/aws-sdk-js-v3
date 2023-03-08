@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateLocationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateLocationCommand}.
+ */
 export interface CreateLocationCommandInput extends CreateLocationInput {}
+/**
+ * The output of {@link CreateLocationCommand}.
+ */
 export interface CreateLocationCommandOutput extends CreateLocationOutput, __MetadataBearer {}
 
 /**

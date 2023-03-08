@@ -22,6 +22,16 @@ import {
   BatchEnableStandardsCommandOutput,
 } from "./commands/BatchEnableStandardsCommand";
 import {
+  BatchGetSecurityControlsCommand,
+  BatchGetSecurityControlsCommandInput,
+  BatchGetSecurityControlsCommandOutput,
+} from "./commands/BatchGetSecurityControlsCommand";
+import {
+  BatchGetStandardsControlAssociationsCommand,
+  BatchGetStandardsControlAssociationsCommandInput,
+  BatchGetStandardsControlAssociationsCommandOutput,
+} from "./commands/BatchGetStandardsControlAssociationsCommand";
+import {
   BatchImportFindingsCommand,
   BatchImportFindingsCommandInput,
   BatchImportFindingsCommandOutput,
@@ -31,6 +41,11 @@ import {
   BatchUpdateFindingsCommandInput,
   BatchUpdateFindingsCommandOutput,
 } from "./commands/BatchUpdateFindingsCommand";
+import {
+  BatchUpdateStandardsControlAssociationsCommand,
+  BatchUpdateStandardsControlAssociationsCommandInput,
+  BatchUpdateStandardsControlAssociationsCommandOutput,
+} from "./commands/BatchUpdateStandardsControlAssociationsCommand";
 import {
   CreateActionTargetCommand,
   CreateActionTargetCommandInput,
@@ -212,6 +227,16 @@ import {
   ListOrganizationAdminAccountsCommandOutput,
 } from "./commands/ListOrganizationAdminAccountsCommand";
 import {
+  ListSecurityControlDefinitionsCommand,
+  ListSecurityControlDefinitionsCommandInput,
+  ListSecurityControlDefinitionsCommandOutput,
+} from "./commands/ListSecurityControlDefinitionsCommand";
+import {
+  ListStandardsControlAssociationsCommand,
+  ListStandardsControlAssociationsCommandInput,
+  ListStandardsControlAssociationsCommandOutput,
+} from "./commands/ListStandardsControlAssociationsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -260,19 +285,16 @@ import {
 import { SecurityHubClient } from "./SecurityHubClient";
 
 /**
- * <p>Security Hub provides you with a comprehensive view of the security state of your Amazon Web Services environment and resources. It also provides you with the readiness status
- *          of your environment based on controls from supported security standards. Security Hub collects
- *          security data from Amazon Web Services accounts, services, and integrated third-party products and helps
- *          you analyze security trends in your environment to identify the highest priority security
- *          issues. For more information about Security Hub, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">
- *                <i>Security HubUser
- *             Guide</i>
- *             </a>.</p>
- *          <p>When you use operations in the Security Hub API, the requests are executed only in the Amazon Web Services
- *          Region that is currently active or in the specific Amazon Web Services Region that you specify in your
- *          request. Any configuration or settings change that results from the operation is applied
- *          only to that Region. To make the same change in other Regions, execute the same command for
- *          each Region to apply the change to.</p>
+ * <p>Security Hub provides you with a comprehensive view of the security state of
+ *          your Amazon Web Services environment and resources. It also provides you with the readiness
+ *          status of your environment based on controls from supported security standards. Security Hub collects security data from Amazon Web Services accounts, services, and
+ *          integrated third-party products and helps you analyze security trends in your environment
+ *          to identify the highest priority security issues. For more information about Security Hub, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">Security HubUser
+ *             Guide</a>.</p>
+ *          <p>When you use operations in the Security Hub API, the requests are executed only in
+ *          the Amazon Web Services Region that is currently active or in the specific Amazon Web Services Region that you specify in your request. Any configuration or settings change
+ *          that results from the operation is applied only to that Region. To make the same change in
+ *          other Regions, run the same command for each Region in which you want to apply the change.</p>
  *          <p>For example, if your Region is set to <code>us-west-2</code>, when you use <code>CreateMembers</code> to add a member account to Security Hub, the association of
  *          the member account with the administrator account is created only in the <code>us-west-2</code>
  *          Region. Security Hub must be enabled for the member account in the same Region that the invitation
@@ -281,8 +303,8 @@ import { SecurityHubClient } from "./SecurityHubClient";
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>BatchEnableStandards</code> - <code>RateLimit</code> of 1
- *                request per second, <code>BurstLimit</code> of 1 request per second.</p>
+ *                   <code>BatchEnableStandards</code> - <code>RateLimit</code> of 1 request per
+ *                second. <code>BurstLimit</code> of 1 request per second.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -301,8 +323,8 @@ import { SecurityHubClient } from "./SecurityHubClient";
  *             </li>
  *             <li>
  *                <p>
- *                   <code>UpdateStandardsControl</code> - <code>RateLimit</code> of
- *                1 request per second, <code>BurstLimit</code> of 5 requests per second.</p>
+ *                   <code>UpdateStandardsControl</code> - <code>RateLimit</code> of 1 request per
+ *                second. <code>BurstLimit</code> of 5 requests per second.</p>
  *             </li>
  *             <li>
  *                <p>All other operations - <code>RateLimit</code> of 10 requests per second.
@@ -450,6 +472,74 @@ export class SecurityHub extends SecurityHubClient {
     cb?: (err: any, data?: BatchEnableStandardsCommandOutput) => void
   ): Promise<BatchEnableStandardsCommandOutput> | void {
     const command = new BatchEnableStandardsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Provides details about a batch of security controls for the current Amazon Web Services account and Amazon Web Services Region.
+   *       </p>
+   */
+  public batchGetSecurityControls(
+    args: BatchGetSecurityControlsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetSecurityControlsCommandOutput>;
+  public batchGetSecurityControls(
+    args: BatchGetSecurityControlsCommandInput,
+    cb: (err: any, data?: BatchGetSecurityControlsCommandOutput) => void
+  ): void;
+  public batchGetSecurityControls(
+    args: BatchGetSecurityControlsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetSecurityControlsCommandOutput) => void
+  ): void;
+  public batchGetSecurityControls(
+    args: BatchGetSecurityControlsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetSecurityControlsCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetSecurityControlsCommandOutput) => void
+  ): Promise<BatchGetSecurityControlsCommandOutput> | void {
+    const command = new BatchGetSecurityControlsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          For a batch of security controls and standards, identifies whether each control is currently enabled or disabled in a standard.
+   *       </p>
+   */
+  public batchGetStandardsControlAssociations(
+    args: BatchGetStandardsControlAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetStandardsControlAssociationsCommandOutput>;
+  public batchGetStandardsControlAssociations(
+    args: BatchGetStandardsControlAssociationsCommandInput,
+    cb: (err: any, data?: BatchGetStandardsControlAssociationsCommandOutput) => void
+  ): void;
+  public batchGetStandardsControlAssociations(
+    args: BatchGetStandardsControlAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetStandardsControlAssociationsCommandOutput) => void
+  ): void;
+  public batchGetStandardsControlAssociations(
+    args: BatchGetStandardsControlAssociationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetStandardsControlAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetStandardsControlAssociationsCommandOutput) => void
+  ): Promise<BatchGetStandardsControlAssociationsCommandOutput> | void {
+    const command = new BatchGetStandardsControlAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -646,6 +736,42 @@ export class SecurityHub extends SecurityHubClient {
     cb?: (err: any, data?: BatchUpdateFindingsCommandOutput) => void
   ): Promise<BatchUpdateFindingsCommandOutput> | void {
     const command = new BatchUpdateFindingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          For a batch of security controls and standards, this operation updates the enablement status of a control in a standard.
+   *       </p>
+   */
+  public batchUpdateStandardsControlAssociations(
+    args: BatchUpdateStandardsControlAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateStandardsControlAssociationsCommandOutput>;
+  public batchUpdateStandardsControlAssociations(
+    args: BatchUpdateStandardsControlAssociationsCommandInput,
+    cb: (err: any, data?: BatchUpdateStandardsControlAssociationsCommandOutput) => void
+  ): void;
+  public batchUpdateStandardsControlAssociations(
+    args: BatchUpdateStandardsControlAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateStandardsControlAssociationsCommandOutput) => void
+  ): void;
+  public batchUpdateStandardsControlAssociations(
+    args: BatchUpdateStandardsControlAssociationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchUpdateStandardsControlAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: BatchUpdateStandardsControlAssociationsCommandOutput) => void
+  ): Promise<BatchUpdateStandardsControlAssociationsCommandOutput> | void {
+    const command = new BatchUpdateStandardsControlAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2030,6 +2156,74 @@ export class SecurityHub extends SecurityHubClient {
     cb?: (err: any, data?: ListOrganizationAdminAccountsCommandOutput) => void
   ): Promise<ListOrganizationAdminAccountsCommandOutput> | void {
     const command = new ListOrganizationAdminAccountsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Lists all of the security controls that apply to a specified standard.
+   *       </p>
+   */
+  public listSecurityControlDefinitions(
+    args: ListSecurityControlDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecurityControlDefinitionsCommandOutput>;
+  public listSecurityControlDefinitions(
+    args: ListSecurityControlDefinitionsCommandInput,
+    cb: (err: any, data?: ListSecurityControlDefinitionsCommandOutput) => void
+  ): void;
+  public listSecurityControlDefinitions(
+    args: ListSecurityControlDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecurityControlDefinitionsCommandOutput) => void
+  ): void;
+  public listSecurityControlDefinitions(
+    args: ListSecurityControlDefinitionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSecurityControlDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: ListSecurityControlDefinitionsCommandOutput) => void
+  ): Promise<ListSecurityControlDefinitionsCommandOutput> | void {
+    const command = new ListSecurityControlDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Specifies whether a control is currently enabled or disabled in each enabled standard in the calling account.
+   *       </p>
+   */
+  public listStandardsControlAssociations(
+    args: ListStandardsControlAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStandardsControlAssociationsCommandOutput>;
+  public listStandardsControlAssociations(
+    args: ListStandardsControlAssociationsCommandInput,
+    cb: (err: any, data?: ListStandardsControlAssociationsCommandOutput) => void
+  ): void;
+  public listStandardsControlAssociations(
+    args: ListStandardsControlAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStandardsControlAssociationsCommandOutput) => void
+  ): void;
+  public listStandardsControlAssociations(
+    args: ListStandardsControlAssociationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStandardsControlAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: ListStandardsControlAssociationsCommandOutput) => void
+  ): Promise<ListStandardsControlAssociationsCommandOutput> | void {
+    const command = new ListStandardsControlAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

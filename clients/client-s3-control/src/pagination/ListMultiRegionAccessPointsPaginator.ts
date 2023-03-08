@@ -6,7 +6,6 @@ import {
   ListMultiRegionAccessPointsCommandInput,
   ListMultiRegionAccessPointsCommandOutput,
 } from "../commands/ListMultiRegionAccessPointsCommand";
-import { S3Control } from "../S3Control";
 import { S3ControlClient } from "../S3ControlClient";
 import { S3ControlPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMultiRegionAccessPointsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: S3Control,
-  input: ListMultiRegionAccessPointsCommandInput,
-  ...args: any
-): Promise<ListMultiRegionAccessPointsCommandOutput> => {
-  // @ts-ignore
-  return await client.listMultiRegionAccessPoints(input, ...args);
-};
 export async function* paginateListMultiRegionAccessPoints(
   config: S3ControlPaginationConfiguration,
   input: ListMultiRegionAccessPointsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListMultiRegionAccessPoints(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof S3Control) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof S3ControlClient) {
+    if (config.client instanceof S3ControlClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected S3Control | S3ControlClient");

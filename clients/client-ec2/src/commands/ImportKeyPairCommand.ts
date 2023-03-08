@@ -22,7 +22,13 @@ import {
 } from "../models/models_5";
 import { deserializeAws_ec2ImportKeyPairCommand, serializeAws_ec2ImportKeyPairCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ImportKeyPairCommand}.
+ */
 export interface ImportKeyPairCommandInput extends ImportKeyPairRequest {}
+/**
+ * The output of {@link ImportKeyPairCommand}.
+ */
 export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __MetadataBearer {}
 
 /**

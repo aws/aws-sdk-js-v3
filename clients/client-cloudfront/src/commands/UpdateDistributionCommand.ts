@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlUpdateDistributionCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link UpdateDistributionCommand}.
+ */
 export interface UpdateDistributionCommandInput extends UpdateDistributionRequest {}
+/**
+ * The output of {@link UpdateDistributionCommand}.
+ */
 export interface UpdateDistributionCommandOutput extends UpdateDistributionResult, __MetadataBearer {}
 
 /**

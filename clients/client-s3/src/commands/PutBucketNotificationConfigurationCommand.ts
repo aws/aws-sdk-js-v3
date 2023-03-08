@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link PutBucketNotificationConfigurationCommand}.
+ */
 export interface PutBucketNotificationConfigurationCommandInput extends PutBucketNotificationConfigurationRequest {}
+/**
+ * The output of {@link PutBucketNotificationConfigurationCommand}.
+ */
 export interface PutBucketNotificationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

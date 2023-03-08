@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateCustomLineItemCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateCustomLineItemCommand}.
+ */
 export interface UpdateCustomLineItemCommandInput extends UpdateCustomLineItemInput {}
+/**
+ * The output of {@link UpdateCustomLineItemCommand}.
+ */
 export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemOutput, __MetadataBearer {}
 
 /**

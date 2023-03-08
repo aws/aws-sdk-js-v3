@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeAccountOverviewCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeAccountOverviewCommand}.
+ */
 export interface DescribeAccountOverviewCommandInput extends DescribeAccountOverviewRequest {}
+/**
+ * The output of {@link DescribeAccountOverviewCommand}.
+ */
 export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOverviewResponse, __MetadataBearer {}
 
 /**

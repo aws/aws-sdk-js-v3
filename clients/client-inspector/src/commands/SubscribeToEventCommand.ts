@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1SubscribeToEventCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SubscribeToEventCommand}.
+ */
 export interface SubscribeToEventCommandInput extends SubscribeToEventRequest {}
+/**
+ * The output of {@link SubscribeToEventCommand}.
+ */
 export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
 
 /**

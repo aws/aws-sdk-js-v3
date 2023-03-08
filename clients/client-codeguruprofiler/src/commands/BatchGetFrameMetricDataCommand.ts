@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchGetFrameMetricDataCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchGetFrameMetricDataCommand}.
+ */
 export interface BatchGetFrameMetricDataCommandInput extends BatchGetFrameMetricDataRequest {}
+/**
+ * The output of {@link BatchGetFrameMetricDataCommand}.
+ */
 export interface BatchGetFrameMetricDataCommandOutput extends BatchGetFrameMetricDataResponse, __MetadataBearer {}
 
 /**

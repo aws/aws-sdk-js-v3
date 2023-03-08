@@ -21,20 +21,25 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
+/**
+ * The input for {@link DeleteTableCommand}.
+ */
 export interface DeleteTableCommandInput extends DeleteTableRequest {}
+/**
+ * The output of {@link DeleteTableCommand}.
+ */
 export interface DeleteTableCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a given Timestream table. This is an irreversible operation.
- *        After a Timestream database table is deleted, the time series data stored in
- *        the table cannot be recovered.
- *        </p>
+ * <p>Deletes a given Timestream table. This is an irreversible operation. After a
+ *             Timestream database table is deleted, the time-series data stored in the table
+ *          cannot be recovered. </p>
  *          <note>
- *             <p>Due to the nature of distributed retries,
- *          the operation can return either success or a ResourceNotFoundException. Clients should consider them equivalent.</p>
+ *             <p>Due to the nature of distributed retries, the operation can return either success or
+ *             a ResourceNotFoundException. Clients should consider them equivalent.</p>
  *          </note>
- *          <p>See
- *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.delete-table.html">code sample</a> for details.</p>
+ *          <p>See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.delete-table.html">code
+ *             sample</a> for details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

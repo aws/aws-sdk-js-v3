@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { ApplicationInsights } from "../ApplicationInsights";
 import { ApplicationInsightsClient } from "../ApplicationInsightsClient";
 import {
   ListProblemsCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListProblemsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ApplicationInsights,
-  input: ListProblemsCommandInput,
-  ...args: any
-): Promise<ListProblemsCommandOutput> => {
-  // @ts-ignore
-  return await client.listProblems(input, ...args);
-};
 export async function* paginateListProblems(
   config: ApplicationInsightsPaginationConfiguration,
   input: ListProblemsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListProblems(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ApplicationInsights) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ApplicationInsightsClient) {
+    if (config.client instanceof ApplicationInsightsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ApplicationInsights | ApplicationInsightsClient");

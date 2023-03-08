@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * The input for {@link UpdateCellCommand}.
+ */
 export interface UpdateCellCommandInput extends UpdateCellRequest {}
+/**
+ * The output of {@link UpdateCellCommand}.
+ */
 export interface UpdateCellCommandOutput extends UpdateCellResponse, __MetadataBearer {}
 
 /**

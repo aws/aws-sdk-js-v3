@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutRemediationExceptionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutRemediationExceptionsCommand}.
+ */
 export interface PutRemediationExceptionsCommandInput extends PutRemediationExceptionsRequest {}
+/**
+ * The output of {@link PutRemediationExceptionsCommand}.
+ */
 export interface PutRemediationExceptionsCommandOutput extends PutRemediationExceptionsResponse, __MetadataBearer {}
 
 /**

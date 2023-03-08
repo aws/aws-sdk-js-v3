@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeregisterGameServerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterGameServerCommand}.
+ */
 export interface DeregisterGameServerCommandInput extends DeregisterGameServerInput {}
+/**
+ * The output of {@link DeregisterGameServerCommand}.
+ */
 export interface DeregisterGameServerCommandOutput extends __MetadataBearer {}
 
 /**

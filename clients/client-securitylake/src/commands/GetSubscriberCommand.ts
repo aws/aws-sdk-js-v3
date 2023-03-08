@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * The input for {@link GetSubscriberCommand}.
+ */
 export interface GetSubscriberCommandInput extends GetSubscriberRequest {}
+/**
+ * The output of {@link GetSubscriberCommand}.
+ */
 export interface GetSubscriberCommandOutput extends GetSubscriberResponse, __MetadataBearer {}
 
 /**

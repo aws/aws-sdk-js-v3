@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DeleteAuthenticationProfileCommand}.
+ */
 export interface DeleteAuthenticationProfileCommandInput extends DeleteAuthenticationProfileMessage {}
+/**
+ * The output of {@link DeleteAuthenticationProfileCommand}.
+ */
 export interface DeleteAuthenticationProfileCommandOutput extends DeleteAuthenticationProfileResult, __MetadataBearer {}
 
 /**

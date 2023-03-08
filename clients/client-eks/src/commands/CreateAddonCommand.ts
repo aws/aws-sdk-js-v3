@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateAddonCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateAddonCommand}.
+ */
 export interface CreateAddonCommandInput extends CreateAddonRequest {}
+/**
+ * The output of {@link CreateAddonCommand}.
+ */
 export interface CreateAddonCommandOutput extends CreateAddonResponse, __MetadataBearer {}
 
 /**

@@ -25,11 +25,17 @@ import {
   serializeAws_json1_0DescribeContributorInsightsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeContributorInsightsCommand}.
+ */
 export interface DescribeContributorInsightsCommandInput extends DescribeContributorInsightsInput {}
+/**
+ * The output of {@link DescribeContributorInsightsCommand}.
+ */
 export interface DescribeContributorInsightsCommandOutput extends DescribeContributorInsightsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about contributor insights, for a given table or global secondary
+ * <p>Returns information about contributor insights for a given table or global secondary
  *             index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

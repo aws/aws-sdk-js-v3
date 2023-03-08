@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ResetAllResourceLogLevelsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ResetAllResourceLogLevelsCommand}.
+ */
 export interface ResetAllResourceLogLevelsCommandInput extends ResetAllResourceLogLevelsRequest {}
+/**
+ * The output of {@link ResetAllResourceLogLevelsCommand}.
+ */
 export interface ResetAllResourceLogLevelsCommandOutput extends ResetAllResourceLogLevelsResponse, __MetadataBearer {}
 
 /**

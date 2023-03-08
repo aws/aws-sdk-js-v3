@@ -16,7 +16,13 @@ import { XmlListsInputOutput, XmlListsInputOutputFilterSensitiveLog } from "../m
 import { deserializeAws_restXmlXmlListsCommand, serializeAws_restXmlXmlListsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link XmlListsCommand}.
+ */
 export interface XmlListsCommandInput extends XmlListsInputOutput {}
+/**
+ * The output of {@link XmlListsCommand}.
+ */
 export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBearer {}
 
 /**

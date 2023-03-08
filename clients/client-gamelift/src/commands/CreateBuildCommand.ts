@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateBuildCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateBuildCommand}.
+ */
 export interface CreateBuildCommandInput extends CreateBuildInput {}
+/**
+ * The output of {@link CreateBuildCommand}.
+ */
 export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 } from "../models/models_2";
 import { deserializeAws_ec2DeleteIpamScopeCommand, serializeAws_ec2DeleteIpamScopeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteIpamScopeCommand}.
+ */
 export interface DeleteIpamScopeCommandInput extends DeleteIpamScopeRequest {}
+/**
+ * The output of {@link DeleteIpamScopeCommand}.
+ */
 export interface DeleteIpamScopeCommandOutput extends DeleteIpamScopeResult, __MetadataBearer {}
 
 /**

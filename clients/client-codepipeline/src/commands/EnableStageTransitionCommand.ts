@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1EnableStageTransitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EnableStageTransitionCommand}.
+ */
 export interface EnableStageTransitionCommandInput extends EnableStageTransitionInput {}
+/**
+ * The output of {@link EnableStageTransitionCommand}.
+ */
 export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
 
 /**

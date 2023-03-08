@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CreateBotVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateBotVersionCommand}.
+ */
 export interface CreateBotVersionCommandInput extends CreateBotVersionRequest {}
+/**
+ * The output of {@link CreateBotVersionCommand}.
+ */
 export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse, __MetadataBearer {}
 
 /**

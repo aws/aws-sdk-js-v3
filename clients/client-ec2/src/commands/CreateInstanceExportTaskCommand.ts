@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateInstanceExportTaskCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateInstanceExportTaskCommand}.
+ */
 export interface CreateInstanceExportTaskCommandInput extends CreateInstanceExportTaskRequest {}
+/**
+ * The output of {@link CreateInstanceExportTaskCommand}.
+ */
 export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExportTaskResult, __MetadataBearer {}
 
 /**

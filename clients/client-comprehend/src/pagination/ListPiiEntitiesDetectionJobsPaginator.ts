@@ -6,7 +6,6 @@ import {
   ListPiiEntitiesDetectionJobsCommandInput,
   ListPiiEntitiesDetectionJobsCommandOutput,
 } from "../commands/ListPiiEntitiesDetectionJobsCommand";
-import { Comprehend } from "../Comprehend";
 import { ComprehendClient } from "../ComprehendClient";
 import { ComprehendPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPiiEntitiesDetectionJobsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Comprehend,
-  input: ListPiiEntitiesDetectionJobsCommandInput,
-  ...args: any
-): Promise<ListPiiEntitiesDetectionJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPiiEntitiesDetectionJobs(input, ...args);
-};
 export async function* paginateListPiiEntitiesDetectionJobs(
   config: ComprehendPaginationConfiguration,
   input: ListPiiEntitiesDetectionJobsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListPiiEntitiesDetectionJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Comprehend) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ComprehendClient) {
+    if (config.client instanceof ComprehendClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Comprehend | ComprehendClient");

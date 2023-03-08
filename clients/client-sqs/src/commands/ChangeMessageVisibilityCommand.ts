@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link ChangeMessageVisibilityCommand}.
+ */
 export interface ChangeMessageVisibilityCommandInput extends ChangeMessageVisibilityRequest {}
+/**
+ * The output of {@link ChangeMessageVisibilityCommand}.
+ */
 export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {}
 
 /**

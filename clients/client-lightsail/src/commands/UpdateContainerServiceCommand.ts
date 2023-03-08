@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateContainerServiceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateContainerServiceCommand}.
+ */
 export interface UpdateContainerServiceCommandInput extends UpdateContainerServiceRequest {}
+/**
+ * The output of {@link UpdateContainerServiceCommand}.
+ */
 export interface UpdateContainerServiceCommandOutput extends UpdateContainerServiceResult, __MetadataBearer {}
 
 /**

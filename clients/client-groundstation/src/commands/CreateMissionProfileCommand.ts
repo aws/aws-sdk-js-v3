@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateMissionProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateMissionProfileCommand}.
+ */
 export interface CreateMissionProfileCommandInput extends CreateMissionProfileRequest {}
+/**
+ * The output of {@link CreateMissionProfileCommand}.
+ */
 export interface CreateMissionProfileCommandOutput extends MissionProfileIdResponse, __MetadataBearer {}
 
 /**

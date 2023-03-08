@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetIpamDiscoveredAccountsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetIpamDiscoveredAccountsCommand}.
+ */
 export interface GetIpamDiscoveredAccountsCommandInput extends GetIpamDiscoveredAccountsRequest {}
+/**
+ * The output of {@link GetIpamDiscoveredAccountsCommand}.
+ */
 export interface GetIpamDiscoveredAccountsCommandOutput extends GetIpamDiscoveredAccountsResult, __MetadataBearer {}
 
 /**

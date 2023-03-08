@@ -25,17 +25,23 @@ import {
   serializeAws_json1_1CreatePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreatePolicyCommand}.
+ */
 export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
+/**
+ * The output of {@link CreatePolicyCommand}.
+ */
 export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a policy of a specified type that you can attach to a root, an organizational
  *             unit (OU), or an individual Amazon Web Services account.</p>
- *         <p>For more information about policies and their use, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html">Managing
+ *          <p>For more information about policies and their use, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html">Managing
  *                 Organization Policies</a>.</p>
- *         <p>If the request includes tags, then the requester must have the
+ *          <p>If the request includes tags, then the requester must have the
  *                 <code>organizations:TagResource</code> permission.</p>
- *         <p>This operation can be called only from the organization's management account.</p>
+ *          <p>This operation can be called only from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

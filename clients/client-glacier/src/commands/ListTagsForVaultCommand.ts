@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListTagsForVaultCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListTagsForVaultCommand}.
+ */
 export interface ListTagsForVaultCommandInput extends ListTagsForVaultInput {}
+/**
+ * The output of {@link ListTagsForVaultCommand}.
+ */
 export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, __MetadataBearer {}
 
 /**

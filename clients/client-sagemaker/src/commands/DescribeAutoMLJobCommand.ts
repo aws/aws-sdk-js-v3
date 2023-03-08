@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DescribeAutoMLJobCommand}.
+ */
 export interface DescribeAutoMLJobCommandInput extends DescribeAutoMLJobRequest {}
+/**
+ * The output of {@link DescribeAutoMLJobCommand}.
+ */
 export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobResponse, __MetadataBearer {}
 
 /**

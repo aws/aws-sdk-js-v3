@@ -25,7 +25,13 @@ import {
   serializeAws_ec2PurchaseScheduledInstancesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link PurchaseScheduledInstancesCommand}.
+ */
 export interface PurchaseScheduledInstancesCommandInput extends PurchaseScheduledInstancesRequest {}
+/**
+ * The output of {@link PurchaseScheduledInstancesCommand}.
+ */
 export interface PurchaseScheduledInstancesCommandOutput extends PurchaseScheduledInstancesResult, __MetadataBearer {}
 
 /**

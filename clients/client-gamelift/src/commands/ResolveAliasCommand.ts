@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ResolveAliasCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ResolveAliasCommand}.
+ */
 export interface ResolveAliasCommandInput extends ResolveAliasInput {}
+/**
+ * The output of {@link ResolveAliasCommand}.
+ */
 export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __MetadataBearer {}
 
 /**

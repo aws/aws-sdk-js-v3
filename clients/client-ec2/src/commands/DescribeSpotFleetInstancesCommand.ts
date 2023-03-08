@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeSpotFleetInstancesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeSpotFleetInstancesCommand}.
+ */
 export interface DescribeSpotFleetInstancesCommandInput extends DescribeSpotFleetInstancesRequest {}
+/**
+ * The output of {@link DescribeSpotFleetInstancesCommand}.
+ */
 export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFleetInstancesResponse, __MetadataBearer {}
 
 /**

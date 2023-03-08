@@ -6,7 +6,6 @@ import {
   GetTransitGatewayConnectPeerAssociationsCommandInput,
   GetTransitGatewayConnectPeerAssociationsCommandOutput,
 } from "../commands/GetTransitGatewayConnectPeerAssociationsCommand";
-import { NetworkManager } from "../NetworkManager";
 import { NetworkManagerClient } from "../NetworkManagerClient";
 import { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetTransitGatewayConnectPeerAssociationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: NetworkManager,
-  input: GetTransitGatewayConnectPeerAssociationsCommandInput,
-  ...args: any
-): Promise<GetTransitGatewayConnectPeerAssociationsCommandOutput> => {
-  // @ts-ignore
-  return await client.getTransitGatewayConnectPeerAssociations(input, ...args);
-};
 export async function* paginateGetTransitGatewayConnectPeerAssociations(
   config: NetworkManagerPaginationConfiguration,
   input: GetTransitGatewayConnectPeerAssociationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateGetTransitGatewayConnectPeerAssociations(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof NetworkManager) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof NetworkManagerClient) {
+    if (config.client instanceof NetworkManagerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected NetworkManager | NetworkManagerClient");

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1TerminateSessionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link TerminateSessionCommand}.
+ */
 export interface TerminateSessionCommandInput extends TerminateSessionRequest {}
+/**
+ * The output of {@link TerminateSessionCommand}.
+ */
 export interface TerminateSessionCommandOutput extends TerminateSessionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link ListRecommendationsCommand}.
+ */
 export interface ListRecommendationsCommandInput extends ListRecommendationsRequest {}
+/**
+ * The output of {@link ListRecommendationsCommand}.
+ */
 export interface ListRecommendationsCommandOutput extends ListRecommendationsResponse, __MetadataBearer {}
 
 /**

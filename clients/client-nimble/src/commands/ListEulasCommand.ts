@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListEulasCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListEulasCommand}.
+ */
 export interface ListEulasCommandInput extends ListEulasRequest {}
+/**
+ * The output of {@link ListEulasCommand}.
+ */
 export interface ListEulasCommandOutput extends ListEulasResponse, __MetadataBearer {}
 
 /**

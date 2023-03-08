@@ -29,7 +29,13 @@ import {
   serializeAws_queryCreateAppCookieStickinessPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateAppCookieStickinessPolicyCommand}.
+ */
 export interface CreateAppCookieStickinessPolicyCommandInput extends CreateAppCookieStickinessPolicyInput {}
+/**
+ * The output of {@link CreateAppCookieStickinessPolicyCommand}.
+ */
 export interface CreateAppCookieStickinessPolicyCommandOutput
   extends CreateAppCookieStickinessPolicyOutput,
     __MetadataBearer {}

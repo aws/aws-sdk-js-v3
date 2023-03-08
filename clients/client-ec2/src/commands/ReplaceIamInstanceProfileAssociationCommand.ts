@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ReplaceIamInstanceProfileAssociationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ReplaceIamInstanceProfileAssociationCommand}.
+ */
 export interface ReplaceIamInstanceProfileAssociationCommandInput extends ReplaceIamInstanceProfileAssociationRequest {}
+/**
+ * The output of {@link ReplaceIamInstanceProfileAssociationCommand}.
+ */
 export interface ReplaceIamInstanceProfileAssociationCommandOutput
   extends ReplaceIamInstanceProfileAssociationResult,
     __MetadataBearer {}

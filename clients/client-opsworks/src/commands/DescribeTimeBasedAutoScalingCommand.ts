@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeTimeBasedAutoScalingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeTimeBasedAutoScalingCommand}.
+ */
 export interface DescribeTimeBasedAutoScalingCommandInput extends DescribeTimeBasedAutoScalingRequest {}
+/**
+ * The output of {@link DescribeTimeBasedAutoScalingCommand}.
+ */
 export interface DescribeTimeBasedAutoScalingCommandOutput
   extends DescribeTimeBasedAutoScalingResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link ListHubContentVersionsCommand}.
+ */
 export interface ListHubContentVersionsCommandInput extends ListHubContentVersionsRequest {}
+/**
+ * The output of {@link ListHubContentVersionsCommand}.
+ */
 export interface ListHubContentVersionsCommandOutput extends ListHubContentVersionsResponse, __MetadataBearer {}
 
 /**

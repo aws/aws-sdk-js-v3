@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteFuotaTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteFuotaTaskCommand}.
+ */
 export interface DeleteFuotaTaskCommandInput extends DeleteFuotaTaskRequest {}
+/**
+ * The output of {@link DeleteFuotaTaskCommand}.
+ */
 export interface DeleteFuotaTaskCommandOutput extends DeleteFuotaTaskResponse, __MetadataBearer {}
 
 /**

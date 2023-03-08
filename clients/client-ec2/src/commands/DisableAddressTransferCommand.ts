@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DisableAddressTransferCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisableAddressTransferCommand}.
+ */
 export interface DisableAddressTransferCommandInput extends DisableAddressTransferRequest {}
+/**
+ * The output of {@link DisableAddressTransferCommand}.
+ */
 export interface DisableAddressTransferCommandOutput extends DisableAddressTransferResult, __MetadataBearer {}
 
 /**

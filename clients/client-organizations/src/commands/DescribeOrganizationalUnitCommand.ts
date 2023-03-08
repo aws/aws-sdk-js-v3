@@ -25,12 +25,18 @@ import {
   serializeAws_json1_1DescribeOrganizationalUnitCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeOrganizationalUnitCommand}.
+ */
 export interface DescribeOrganizationalUnitCommandInput extends DescribeOrganizationalUnitRequest {}
+/**
+ * The output of {@link DescribeOrganizationalUnitCommand}.
+ */
 export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an organizational unit (OU).</p>
- *         <p>This operation can be called only from the organization's
+ *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

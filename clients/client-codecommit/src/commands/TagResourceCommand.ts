@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1TagResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandInput extends TagResourceInput {}
+/**
+ * The output of {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**

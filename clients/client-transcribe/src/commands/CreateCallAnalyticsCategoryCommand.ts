@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
+/**
+ * The input for {@link CreateCallAnalyticsCategoryCommand}.
+ */
 export interface CreateCallAnalyticsCategoryCommandInput extends CreateCallAnalyticsCategoryRequest {}
+/**
+ * The output of {@link CreateCallAnalyticsCategoryCommand}.
+ */
 export interface CreateCallAnalyticsCategoryCommandOutput
   extends CreateCallAnalyticsCategoryResponse,
     __MetadataBearer {}
@@ -36,16 +42,17 @@ export interface CreateCallAnalyticsCategoryCommandOutput
  *             order to apply categories to your transcriptions, you must create them before submitting your
  *             transcription request, as categories cannot be applied retroactively.</p>
  *          <p>When creating a new category, you can use the <code>InputType</code> parameter to
- *             label the category as a batch category (<code>POST_CALL</code>) or a streaming category
- *             (<code>REAL_TIME</code>). Batch categories can only be applied to batch transcriptions and
- *             streaming categories can only be applied to streaming transcriptions. If you do not include
- *             <code>InputType</code>, your category is created as a batch category by default.</p>
+ *             label the category as a <code>POST_CALL</code> or a <code>REAL_TIME</code> category.
+ *             <code>POST_CALL</code> categories can only be applied to post-call transcriptions and
+ *             <code>REAL_TIME</code> categories can only be applied to real-time transcriptions. If you
+ *             do not include <code>InputType</code>, your category is created as a
+ *             <code>POST_CALL</code> category by default.</p>
  *          <p>Call Analytics categories are composed of rules. For each category, you must create
  *             between 1 and 20 rules. Rules can include these parameters: , , , and .</p>
  *          <p>To update an existing category, see .</p>
- *          <p>To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for batch
+ *          <p>To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for post-call
  *             transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating categories for
- *                 streaming transcriptions</a>.</p>
+ *                 real-time transcriptions</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

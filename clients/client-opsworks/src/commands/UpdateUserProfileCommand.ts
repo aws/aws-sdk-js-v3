@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateUserProfileCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateUserProfileCommand}.
+ */
 export interface UpdateUserProfileCommandInput extends UpdateUserProfileRequest {}
+/**
+ * The output of {@link UpdateUserProfileCommand}.
+ */
 export interface UpdateUserProfileCommandOutput extends __MetadataBearer {}
 
 /**

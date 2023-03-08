@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1RemoveTagsFromVaultCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RemoveTagsFromVaultCommand}.
+ */
 export interface RemoveTagsFromVaultCommandInput extends RemoveTagsFromVaultInput {}
+/**
+ * The output of {@link RemoveTagsFromVaultCommand}.
+ */
 export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
 
 /**

@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link StartExportTaskCommand}.
+ */
 export interface StartExportTaskCommandInput extends StartExportTaskMessage {}
+/**
+ * The output of {@link StartExportTaskCommand}.
+ */
 export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBearer {}
 
 /**

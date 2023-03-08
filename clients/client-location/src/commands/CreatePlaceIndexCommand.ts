@@ -25,11 +25,17 @@ import {
   serializeAws_restJson1CreatePlaceIndexCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreatePlaceIndexCommand}.
+ */
 export interface CreatePlaceIndexCommandInput extends CreatePlaceIndexRequest {}
+/**
+ * The output of {@link CreatePlaceIndexCommand}.
+ */
 export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a place index resource in your AWS account. Use a place index resource to
+ * <p>Creates a place index resource in your Amazon Web Services account. Use a place index resource to
  *             geocode addresses and other text queries by using the
  *                 <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by
  *             using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions
@@ -37,7 +43,7 @@ export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse,
  *          <note>
  *             <p>If your application is tracking or routing assets you use in your business, such
  *                 as delivery vehicles or employees, you must not use Esri as your geolocation
- *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
+ *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
  *                     service terms</a> for more details.</p>
  *          </note>
  * @example

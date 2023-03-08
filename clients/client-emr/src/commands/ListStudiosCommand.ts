@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListStudiosCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListStudiosCommand}.
+ */
 export interface ListStudiosCommandInput extends ListStudiosInput {}
+/**
+ * The output of {@link ListStudiosCommand}.
+ */
 export interface ListStudiosCommandOutput extends ListStudiosOutput, __MetadataBearer {}
 
 /**

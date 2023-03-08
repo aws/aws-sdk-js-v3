@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateSipMediaApplicationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateSipMediaApplicationCommand}.
+ */
 export interface UpdateSipMediaApplicationCommandInput extends UpdateSipMediaApplicationRequest {}
+/**
+ * The output of {@link UpdateSipMediaApplicationCommand}.
+ */
 export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaApplicationResponse, __MetadataBearer {}
 
 export class UpdateSipMediaApplicationCommand extends $Command<

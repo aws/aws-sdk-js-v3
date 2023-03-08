@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CreateMediaCapturePipelineCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateMediaCapturePipelineCommand}.
+ */
 export interface CreateMediaCapturePipelineCommandInput extends CreateMediaCapturePipelineRequest {}
+/**
+ * The output of {@link CreateMediaCapturePipelineCommand}.
+ */
 export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapturePipelineResponse, __MetadataBearer {}
 
 /**

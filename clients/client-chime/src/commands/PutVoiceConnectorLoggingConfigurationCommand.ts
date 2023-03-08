@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutVoiceConnectorLoggingConfigurationCommand}.
+ */
 export interface PutVoiceConnectorLoggingConfigurationCommandInput
   extends PutVoiceConnectorLoggingConfigurationRequest {}
+/**
+ * The output of {@link PutVoiceConnectorLoggingConfigurationCommand}.
+ */
 export interface PutVoiceConnectorLoggingConfigurationCommandOutput
   extends PutVoiceConnectorLoggingConfigurationResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link FailoverDBClusterCommand}.
+ */
 export interface FailoverDBClusterCommandInput extends FailoverDBClusterMessage {}
+/**
+ * The output of {@link FailoverDBClusterCommand}.
+ */
 export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult, __MetadataBearer {}
 
 /**

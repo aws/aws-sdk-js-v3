@@ -26,13 +26,17 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
+/**
+ * The input for {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandInput extends UntagResourceRequest {}
+/**
+ * The output of {@link UntagResourceCommand}.
+ */
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *     Removes the association of tags from a Timestream resource.
- * </p>
+ * <p> Removes the association of tags from a Timestream resource. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

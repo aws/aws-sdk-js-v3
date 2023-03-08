@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetAddressBookCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetAddressBookCommand}.
+ */
 export interface GetAddressBookCommandInput extends GetAddressBookRequest {}
+/**
+ * The output of {@link GetAddressBookCommand}.
+ */
 export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __MetadataBearer {}
 
 /**

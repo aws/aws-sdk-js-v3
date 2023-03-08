@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_ec2CreateCoipCidrCommand, serializeAws_ec2CreateCoipCidrCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateCoipCidrCommand}.
+ */
 export interface CreateCoipCidrCommandInput extends CreateCoipCidrRequest {}
+/**
+ * The output of {@link CreateCoipCidrCommand}.
+ */
 export interface CreateCoipCidrCommandOutput extends CreateCoipCidrResult, __MetadataBearer {}
 
 /**

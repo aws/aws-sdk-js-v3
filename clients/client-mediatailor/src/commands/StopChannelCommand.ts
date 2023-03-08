@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopChannelCommand}.
+ */
 export interface StopChannelCommandInput extends StopChannelRequest {}
+/**
+ * The output of {@link StopChannelCommand}.
+ */
 export interface StopChannelCommandOutput extends StopChannelResponse, __MetadataBearer {}
 
 /**

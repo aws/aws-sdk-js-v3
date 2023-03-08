@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateScheduleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateScheduleCommand}.
+ */
 export interface CreateScheduleCommandInput extends CreateScheduleRequest {}
+/**
+ * The output of {@link CreateScheduleCommand}.
+ */
 export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __MetadataBearer {}
 
 /**

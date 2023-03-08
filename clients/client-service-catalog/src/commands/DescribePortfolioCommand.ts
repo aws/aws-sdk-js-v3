@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link DescribePortfolioCommand}.
+ */
 export interface DescribePortfolioCommandInput extends DescribePortfolioInput {}
+/**
+ * The output of {@link DescribePortfolioCommand}.
+ */
 export interface DescribePortfolioCommandOutput extends DescribePortfolioOutput, __MetadataBearer {}
 
 /**

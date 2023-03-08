@@ -29,8 +29,14 @@ import {
   serializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeFleetAdvisorSchemaObjectSummaryCommand}.
+ */
 export interface DescribeFleetAdvisorSchemaObjectSummaryCommandInput
   extends DescribeFleetAdvisorSchemaObjectSummaryRequest {}
+/**
+ * The output of {@link DescribeFleetAdvisorSchemaObjectSummaryCommand}.
+ */
 export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
   extends DescribeFleetAdvisorSchemaObjectSummaryResponse,
     __MetadataBearer {}

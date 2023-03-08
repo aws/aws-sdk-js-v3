@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryGetTemplateCommand, serializeAws_queryGetTemplateCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetTemplateCommand}.
+ */
 export interface GetTemplateCommandInput extends GetTemplateInput {}
+/**
+ * The output of {@link GetTemplateCommand}.
+ */
 export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataBearer {}
 
 /**

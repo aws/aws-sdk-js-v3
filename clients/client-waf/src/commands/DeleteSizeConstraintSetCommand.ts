@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * The input for {@link DeleteSizeConstraintSetCommand}.
+ */
 export interface DeleteSizeConstraintSetCommandInput extends DeleteSizeConstraintSetRequest {}
+/**
+ * The output of {@link DeleteSizeConstraintSetCommand}.
+ */
 export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstraintSetResponse, __MetadataBearer {}
 
 /**

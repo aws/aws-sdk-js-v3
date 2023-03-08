@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListBulkDeploymentDetailedReportsCommand}.
+ */
 export interface ListBulkDeploymentDetailedReportsCommandInput extends ListBulkDeploymentDetailedReportsRequest {}
+/**
+ * The output of {@link ListBulkDeploymentDetailedReportsCommand}.
+ */
 export interface ListBulkDeploymentDetailedReportsCommandOutput
   extends ListBulkDeploymentDetailedReportsResponse,
     __MetadataBearer {}

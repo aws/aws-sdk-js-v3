@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link ListEmailIdentitiesCommand}.
+ */
 export interface ListEmailIdentitiesCommandInput extends ListEmailIdentitiesRequest {}
+/**
+ * The output of {@link ListEmailIdentitiesCommand}.
+ */
 export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesResponse, __MetadataBearer {}
 
 /**

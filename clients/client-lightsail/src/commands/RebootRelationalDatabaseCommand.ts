@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RebootRelationalDatabaseCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RebootRelationalDatabaseCommand}.
+ */
 export interface RebootRelationalDatabaseCommandInput extends RebootRelationalDatabaseRequest {}
+/**
+ * The output of {@link RebootRelationalDatabaseCommand}.
+ */
 export interface RebootRelationalDatabaseCommandOutput extends RebootRelationalDatabaseResult, __MetadataBearer {}
 
 /**

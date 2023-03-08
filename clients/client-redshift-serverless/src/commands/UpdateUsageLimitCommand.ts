@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * The input for {@link UpdateUsageLimitCommand}.
+ */
 export interface UpdateUsageLimitCommandInput extends UpdateUsageLimitRequest {}
+/**
+ * The output of {@link UpdateUsageLimitCommand}.
+ */
 export interface UpdateUsageLimitCommandOutput extends UpdateUsageLimitResponse, __MetadataBearer {}
 
 /**

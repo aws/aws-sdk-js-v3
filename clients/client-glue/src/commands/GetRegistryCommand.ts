@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetRegistryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRegistryCommand}.
+ */
 export interface GetRegistryCommandInput extends GetRegistryInput {}
+/**
+ * The output of {@link GetRegistryCommand}.
+ */
 export interface GetRegistryCommandOutput extends GetRegistryResponse, __MetadataBearer {}
 
 /**

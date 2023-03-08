@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutAppInstanceRetentionSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutAppInstanceRetentionSettingsCommand}.
+ */
 export interface PutAppInstanceRetentionSettingsCommandInput extends PutAppInstanceRetentionSettingsRequest {}
+/**
+ * The output of {@link PutAppInstanceRetentionSettingsCommand}.
+ */
 export interface PutAppInstanceRetentionSettingsCommandOutput
   extends PutAppInstanceRetentionSettingsResponse,
     __MetadataBearer {}

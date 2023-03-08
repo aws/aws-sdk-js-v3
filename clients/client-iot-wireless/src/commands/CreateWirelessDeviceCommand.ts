@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateWirelessDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateWirelessDeviceCommand}.
+ */
 export interface CreateWirelessDeviceCommandInput extends CreateWirelessDeviceRequest {}
+/**
+ * The output of {@link CreateWirelessDeviceCommand}.
+ */
 export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceResponse, __MetadataBearer {}
 
 /**

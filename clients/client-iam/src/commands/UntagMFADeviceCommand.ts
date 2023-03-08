@@ -20,7 +20,13 @@ import {
   serializeAws_queryUntagMFADeviceCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UntagMFADeviceCommand}.
+ */
 export interface UntagMFADeviceCommandInput extends UntagMFADeviceRequest {}
+/**
+ * The output of {@link UntagMFADeviceCommand}.
+ */
 export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**

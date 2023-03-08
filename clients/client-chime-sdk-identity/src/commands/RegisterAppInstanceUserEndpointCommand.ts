@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RegisterAppInstanceUserEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RegisterAppInstanceUserEndpointCommand}.
+ */
 export interface RegisterAppInstanceUserEndpointCommandInput extends RegisterAppInstanceUserEndpointRequest {}
+/**
+ * The output of {@link RegisterAppInstanceUserEndpointCommand}.
+ */
 export interface RegisterAppInstanceUserEndpointCommandOutput
   extends RegisterAppInstanceUserEndpointResponse,
     __MetadataBearer {}

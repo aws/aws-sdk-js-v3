@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link DeleteVerifiedEmailAddressCommand}.
+ */
 export interface DeleteVerifiedEmailAddressCommandInput extends DeleteVerifiedEmailAddressRequest {}
+/**
+ * The output of {@link DeleteVerifiedEmailAddressCommand}.
+ */
 export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBearer {}
 
 /**

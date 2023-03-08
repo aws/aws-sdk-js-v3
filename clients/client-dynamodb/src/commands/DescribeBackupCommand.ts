@@ -25,12 +25,18 @@ import {
   serializeAws_json1_0DescribeBackupCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeBackupCommand}.
+ */
 export interface DescribeBackupCommandInput extends DescribeBackupInput {}
+/**
+ * The output of {@link DescribeBackupCommand}.
+ */
 export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __MetadataBearer {}
 
 /**
  * <p>Describes an existing backup of a table.</p>
- *         <p>You can call <code>DescribeBackup</code> at a maximum rate of 10 times per
+ *          <p>You can call <code>DescribeBackup</code> at a maximum rate of 10 times per
  *             second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

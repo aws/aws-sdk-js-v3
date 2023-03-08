@@ -23,8 +23,14 @@ import {
   serializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommand}.
+ */
 export interface DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput
   extends DeleteVoiceConnectorEmergencyCallingConfigurationRequest {}
+/**
+ * The output of {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommand}.
+ */
 export interface DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

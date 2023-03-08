@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1AssociateAdminAccountCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateAdminAccountCommand}.
+ */
 export interface AssociateAdminAccountCommandInput extends AssociateAdminAccountRequest {}
+/**
+ * The output of {@link AssociateAdminAccountCommand}.
+ */
 export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**

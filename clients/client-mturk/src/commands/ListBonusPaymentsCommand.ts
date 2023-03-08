@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListBonusPaymentsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListBonusPaymentsCommand}.
+ */
 export interface ListBonusPaymentsCommandInput extends ListBonusPaymentsRequest {}
+/**
+ * The output of {@link ListBonusPaymentsCommand}.
+ */
 export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsResponse, __MetadataBearer {}
 
 /**

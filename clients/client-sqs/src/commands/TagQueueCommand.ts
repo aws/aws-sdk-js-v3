@@ -17,7 +17,13 @@ import { TagQueueRequest, TagQueueRequestFilterSensitiveLog } from "../models/mo
 import { deserializeAws_queryTagQueueCommand, serializeAws_queryTagQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link TagQueueCommand}.
+ */
 export interface TagQueueCommandInput extends TagQueueRequest {}
+/**
+ * The output of {@link TagQueueCommand}.
+ */
 export interface TagQueueCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateCollaborationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateCollaborationCommand}.
+ */
 export interface UpdateCollaborationCommandInput extends UpdateCollaborationInput {}
+/**
+ * The output of {@link UpdateCollaborationCommand}.
+ */
 export interface UpdateCollaborationCommandOutput extends UpdateCollaborationOutput, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CreateChannelMembershipCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateChannelMembershipCommand}.
+ */
 export interface CreateChannelMembershipCommandInput extends CreateChannelMembershipRequest {}
+/**
+ * The output of {@link CreateChannelMembershipCommand}.
+ */
 export interface CreateChannelMembershipCommandOutput extends CreateChannelMembershipResponse, __MetadataBearer {}
 
 /**

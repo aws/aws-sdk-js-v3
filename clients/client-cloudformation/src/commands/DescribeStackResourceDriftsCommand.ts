@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeStackResourceDriftsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeStackResourceDriftsCommand}.
+ */
 export interface DescribeStackResourceDriftsCommandInput extends DescribeStackResourceDriftsInput {}
+/**
+ * The output of {@link DescribeStackResourceDriftsCommand}.
+ */
 export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackResourceDriftsOutput, __MetadataBearer {}
 
 /**

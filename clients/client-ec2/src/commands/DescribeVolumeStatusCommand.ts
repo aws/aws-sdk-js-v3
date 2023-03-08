@@ -21,7 +21,13 @@ import {
   serializeAws_ec2DescribeVolumeStatusCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeVolumeStatusCommand}.
+ */
 export interface DescribeVolumeStatusCommandInput extends DescribeVolumeStatusRequest {}
+/**
+ * The output of {@link DescribeVolumeStatusCommand}.
+ */
 export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusResult, __MetadataBearer {}
 
 /**

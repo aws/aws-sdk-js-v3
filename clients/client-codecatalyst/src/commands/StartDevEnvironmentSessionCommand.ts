@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartDevEnvironmentSessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartDevEnvironmentSessionCommand}.
+ */
 export interface StartDevEnvironmentSessionCommandInput extends StartDevEnvironmentSessionRequest {}
+/**
+ * The output of {@link StartDevEnvironmentSessionCommand}.
+ */
 export interface StartDevEnvironmentSessionCommandOutput extends StartDevEnvironmentSessionResponse, __MetadataBearer {}
 
 /**

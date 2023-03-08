@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListWorkersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListWorkersCommand}.
+ */
 export interface ListWorkersCommandInput extends ListWorkersRequest {}
+/**
+ * The output of {@link ListWorkersCommand}.
+ */
 export interface ListWorkersCommandOutput extends ListWorkersResponse, __MetadataBearer {}
 
 /**

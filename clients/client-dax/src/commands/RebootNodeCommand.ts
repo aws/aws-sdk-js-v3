@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RebootNodeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RebootNodeCommand}.
+ */
 export interface RebootNodeCommandInput extends RebootNodeRequest {}
+/**
+ * The output of {@link RebootNodeCommand}.
+ */
 export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataBearer {}
 
 /**

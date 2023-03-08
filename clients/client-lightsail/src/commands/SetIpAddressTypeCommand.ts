@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SetIpAddressTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SetIpAddressTypeCommand}.
+ */
 export interface SetIpAddressTypeCommandInput extends SetIpAddressTypeRequest {}
+/**
+ * The output of {@link SetIpAddressTypeCommand}.
+ */
 export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeResult, __MetadataBearer {}
 
 /**

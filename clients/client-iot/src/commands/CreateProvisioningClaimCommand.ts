@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateProvisioningClaimCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateProvisioningClaimCommand}.
+ */
 export interface CreateProvisioningClaimCommandInput extends CreateProvisioningClaimRequest {}
+/**
+ * The output of {@link CreateProvisioningClaimCommand}.
+ */
 export interface CreateProvisioningClaimCommandOutput extends CreateProvisioningClaimResponse, __MetadataBearer {}
 
 /**

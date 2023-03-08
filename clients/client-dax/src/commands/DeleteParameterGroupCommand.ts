@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteParameterGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteParameterGroupCommand}.
+ */
 export interface DeleteParameterGroupCommandInput extends DeleteParameterGroupRequest {}
+/**
+ * The output of {@link DeleteParameterGroupCommand}.
+ */
 export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupResponse, __MetadataBearer {}
 
 /**

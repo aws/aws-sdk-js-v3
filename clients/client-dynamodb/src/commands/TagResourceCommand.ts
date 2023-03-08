@@ -20,7 +20,13 @@ import {
   serializeAws_json1_0TagResourceCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandInput extends TagResourceInput {}
+/**
+ * The output of {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
@@ -28,7 +34,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *             user-defined tags so that they appear on the Billing and Cost Management console for
  *             cost allocation tracking. You can call TagResource up to five times per second, per
  *             account. </p>
- *         <p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
+ *          <p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
  *             in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

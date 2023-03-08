@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateAssessmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateAssessmentCommand}.
+ */
 export interface CreateAssessmentCommandInput extends CreateAssessmentRequest {}
+/**
+ * The output of {@link CreateAssessmentCommand}.
+ */
 export interface CreateAssessmentCommandOutput extends CreateAssessmentResponse, __MetadataBearer {}
 
 /**

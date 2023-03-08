@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteContactCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteContactCommand}.
+ */
 export interface DeleteContactCommandInput extends DeleteContactRequest {}
+/**
+ * The output of {@link DeleteContactCommand}.
+ */
 export interface DeleteContactCommandOutput extends DeleteContactResponse, __MetadataBearer {}
 
 /**

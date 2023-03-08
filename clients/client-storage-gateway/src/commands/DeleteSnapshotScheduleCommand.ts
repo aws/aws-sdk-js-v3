@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link DeleteSnapshotScheduleCommand}.
+ */
 export interface DeleteSnapshotScheduleCommandInput extends DeleteSnapshotScheduleInput {}
+/**
+ * The output of {@link DeleteSnapshotScheduleCommand}.
+ */
 export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotScheduleOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteImageCommand}.
+ */
 export interface DeleteImageCommandInput extends DeleteImageRequest {}
+/**
+ * The output of {@link DeleteImageCommand}.
+ */
 export interface DeleteImageCommandOutput extends DeleteImageResponse, __MetadataBearer {}
 
 /**

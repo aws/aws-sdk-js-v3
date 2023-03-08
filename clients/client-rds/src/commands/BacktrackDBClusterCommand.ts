@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link BacktrackDBClusterCommand}.
+ */
 export interface BacktrackDBClusterCommandInput extends BacktrackDBClusterMessage {}
+/**
+ * The output of {@link BacktrackDBClusterCommand}.
+ */
 export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __MetadataBearer {}
 
 /**

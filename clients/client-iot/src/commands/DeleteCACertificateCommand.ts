@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteCACertificateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteCACertificateCommand}.
+ */
 export interface DeleteCACertificateCommandInput extends DeleteCACertificateRequest {}
+/**
+ * The output of {@link DeleteCACertificateCommand}.
+ */
 export interface DeleteCACertificateCommandOutput extends DeleteCACertificateResponse, __MetadataBearer {}
 
 /**

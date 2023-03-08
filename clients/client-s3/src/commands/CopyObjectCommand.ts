@@ -27,7 +27,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link CopyObjectCommand}.
+ */
 export interface CopyObjectCommandInput extends CopyObjectRequest {}
+/**
+ * The output of {@link CopyObjectCommand}.
+ */
 export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBearer {}
 
 /**

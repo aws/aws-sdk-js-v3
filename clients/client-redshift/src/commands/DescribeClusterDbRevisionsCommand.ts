@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DescribeClusterDbRevisionsCommand}.
+ */
 export interface DescribeClusterDbRevisionsCommandInput extends DescribeClusterDbRevisionsMessage {}
+/**
+ * The output of {@link DescribeClusterDbRevisionsCommand}.
+ */
 export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisionsMessage, __MetadataBearer {}
 
 /**

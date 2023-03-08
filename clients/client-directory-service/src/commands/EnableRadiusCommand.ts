@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1EnableRadiusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EnableRadiusCommand}.
+ */
 export interface EnableRadiusCommandInput extends EnableRadiusRequest {}
+/**
+ * The output of {@link EnableRadiusCommand}.
+ */
 export interface EnableRadiusCommandOutput extends EnableRadiusResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * The input for {@link UpdateEnvironmentTemplateVersionCommand}.
+ */
 export interface UpdateEnvironmentTemplateVersionCommandInput extends UpdateEnvironmentTemplateVersionInput {}
+/**
+ * The output of {@link UpdateEnvironmentTemplateVersionCommand}.
+ */
 export interface UpdateEnvironmentTemplateVersionCommandOutput
   extends UpdateEnvironmentTemplateVersionOutput,
     __MetadataBearer {}

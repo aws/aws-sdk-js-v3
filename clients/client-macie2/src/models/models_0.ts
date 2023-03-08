@@ -160,7 +160,7 @@ export interface ObjectCountByEncryptionType {
   s3Managed?: number;
 
   /**
-   * <p>The total number of objects that aren't encrypted or use client-side encryption.</p>
+   * <p>The total number of objects that use client-side encryption or aren't encrypted.</p>
    */
   unencrypted?: number;
 
@@ -301,12 +301,12 @@ export interface ReplicationDetails {
   replicated?: boolean;
 
   /**
-   * <p>Specifies whether the bucket is configured to replicate one or more objects to an Amazon Web Services account that isn't part of the same Amazon Macie organization.</p>
+   * <p>Specifies whether the bucket is configured to replicate one or more objects to a bucket for an Amazon Web Services account that isn't part of your Amazon Macie organization. An <i>Amazon Macie organization</i> is a set of Macie accounts that are centrally managed as a group of related accounts through Organizations or by Macie invitation.</p>
    */
   replicatedExternally?: boolean;
 
   /**
-   * <p>An array of Amazon Web Services account IDs, one for each Amazon Web Services account that the bucket is configured to replicate one or more objects to.</p>
+   * <p>An array of Amazon Web Services account IDs, one for each Amazon Web Services account that owns a bucket that the bucket is configured to replicate one or more objects to.</p>
    */
   replicationAccounts?: string[];
 }
@@ -322,12 +322,12 @@ export enum Type {
  */
 export interface BucketServerSideEncryption {
   /**
-   * <p>The Amazon Resource Name (ARN) or unique identifier (key ID) for the KMS key that's used by default to encrypt objects that are added to the bucket. This value is null if the bucket uses an Amazon S3 managed key to encrypt new objects or the bucket doesn't encrypt new objects by default.</p>
+   * <p>The Amazon Resource Name (ARN) or unique identifier (key ID) for the KMS key that's used by default to encrypt objects that are added to the bucket. This value is null if the bucket is configured to use an Amazon S3 managed key to encrypt new objects.</p>
    */
   kmsMasterKeyId?: string;
 
   /**
-   * <p>The type of server-side encryption that's used by default when storing new objects in the bucket. Possible values are:</p> <ul><li><p>AES256 - New objects are encrypted with an Amazon S3 managed key. They use SSE-S3 encryption.</p></li> <li><p>aws:kms - New objects are encrypted with an KMS key (kmsMasterKeyId), either an Amazon Web Services managed key or a customer managed key. They use SSE-KMS encryption.</p></li> <li><p>NONE - New objects aren't encrypted by default. Default encryption is disabled for the bucket.</p></li></ul>
+   * <p>The server-side encryption algorithm that's used by default to encrypt objects that are added to the bucket. Possible values are:</p> <ul><li><p>AES256 - New objects are encrypted with an Amazon S3 managed key. They use SSE-S3 encryption.</p></li> <li><p>aws:kms - New objects are encrypted with an KMS key (kmsMasterKeyId), either an Amazon Web Services managed key or a customer managed key. They use SSE-KMS encryption.</p></li> <li><p>NONE - The bucket's default encryption settings don't specify server-side encryption behavior for new objects.</p></li></ul>
    */
   type?: Type | string;
 }
@@ -375,7 +375,7 @@ export interface ObjectLevelStatistics {
 }
 
 /**
- * <p>Provides statistical data and other information about an S3 bucket that Amazon Macie monitors and analyzes for your account. If an error occurs when Macie attempts to retrieve and process metadata from Amazon S3 for the bucket and the bucket's objects, the value for the versioning property is false and the value for most other properties is null. Key exceptions are accountId, bucketArn, bucketCreatedAt, bucketName, lastUpdated, and region. To identify the cause of the error, refer to the errorCode and errorMessage values.</p>
+ * <p>Provides statistical data and other information about an S3 bucket that Amazon Macie monitors and analyzes for your account. By default, object count and storage size values include data for object parts that are the result of incomplete multipart uploads. For more information, see <a href="https://docs.aws.amazon.com/macie/latest/user/monitoring-s3-how-it-works.html">How Macie monitors Amazon S3 data security</a> in the <i>Amazon Macie User Guide</i>.</p> <p>If an error occurs when Macie attempts to retrieve and process metadata from Amazon S3 for the bucket or the bucket's objects, the value for the versioning property is false and the value for most other properties is null. Key exceptions are accountId, bucketArn, bucketCreatedAt, bucketName, lastUpdated, and region. To identify the cause of the error, refer to the errorCode and errorMessage values.</p>
  */
 export interface BucketMetadata {
   /**
@@ -384,7 +384,7 @@ export interface BucketMetadata {
   accountId?: string;
 
   /**
-   * <p>Specifies whether the bucket policy for the bucket requires server-side encryption of objects when objects are uploaded to the bucket. Possible values are:</p> <ul><li><p>FALSE - The bucket policy requires server-side encryption of new objects. PutObject requests must include a valid server-side encryption header.</p></li> <li><p>TRUE - The bucket doesn't have a bucket policy or it has a bucket policy that doesn't require server-side encryption of new objects. If a bucket policy exists, it doesn't require PutObject requests to include a valid server-side encryption header.</p></li> <li><p>UNKNOWN - Amazon Macie can't determine whether the bucket policy requires server-side encryption of new objects.</p></li></ul> <p>Valid server-side encryption headers are: x-amz-server-side-encryption with a value of AES256 or aws:kms, and x-amz-server-side-encryption-customer-algorithm with a value of AES256.</p>
+   * <p>Specifies whether the bucket policy for the bucket requires server-side encryption of objects when objects are added to the bucket. Possible values are:</p> <ul><li><p>FALSE - The bucket policy requires server-side encryption of new objects. PutObject requests must include a valid server-side encryption header.</p></li> <li><p>TRUE - The bucket doesn't have a bucket policy or it has a bucket policy that doesn't require server-side encryption of new objects. If a bucket policy exists, it doesn't require PutObject requests to include a valid server-side encryption header.</p></li> <li><p>UNKNOWN - Amazon Macie can't determine whether the bucket policy requires server-side encryption of new objects.</p></li></ul> <p>Valid server-side encryption headers are: x-amz-server-side-encryption with a value of AES256 or aws:kms, and x-amz-server-side-encryption-customer-algorithm with a value of AES256.</p>
    */
   allowsUnencryptedObjectUploads?: AllowsUnencryptedObjectUploads | string;
 
@@ -394,7 +394,7 @@ export interface BucketMetadata {
   bucketArn?: string;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when the bucket was created, or changes such as edits to the bucket's policy were most recently made to the bucket.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the bucket was created. This value can also indicate when changes such as edits to the bucket's policy were most recently made to the bucket.</p>
    */
   bucketCreatedAt?: Date;
 
@@ -414,7 +414,7 @@ export interface BucketMetadata {
   classifiableSizeInBytes?: number;
 
   /**
-   * <p>Specifies the error code for an error that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. If this value is ACCESS_DENIED, Macie doesn't have permission to retrieve the information. For example, the bucket has a restrictive bucket policy and Amazon S3 denied the request. If this value is null, Macie was able to retrieve and process the information.</p>
+   * <p>The error code for an error that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. If this value is ACCESS_DENIED, Macie doesn't have permission to retrieve the information. For example, the bucket has a restrictive bucket policy and Amazon S3 denied the request. If this value is null, Macie was able to retrieve and process the information.</p>
    */
   errorCode?: BucketMetadataErrorCode | string;
 
@@ -429,12 +429,12 @@ export interface BucketMetadata {
   jobDetails?: JobDetails;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently performed automated sensitive data discovery for the bucket. This value is null if automated sensitive data discovery is currently disabled for your account.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently analyzed data in the bucket while performing automated sensitive data discovery for your account. This value is null if automated sensitive data discovery is currently disabled for your account.</p>
    */
   lastAutomatedDiscoveryTime?: Date;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently retrieved both bucket and object metadata from Amazon S3 for the bucket.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently retrieved bucket or object metadata from Amazon S3 for the bucket.</p>
    */
   lastUpdated?: Date;
 
@@ -444,7 +444,7 @@ export interface BucketMetadata {
   objectCount?: number;
 
   /**
-   * <p>The total number of objects that are in the bucket, grouped by server-side encryption type. This includes a grouping that reports the total number of objects that aren't encrypted or use client-side encryption.</p>
+   * <p>The total number of objects in the bucket, grouped by server-side encryption type. This includes a grouping that reports the total number of objects that aren't encrypted or use client-side encryption.</p>
    */
   objectCountByEncryptionType?: ObjectCountByEncryptionType;
 
@@ -464,17 +464,17 @@ export interface BucketMetadata {
   replicationDetails?: ReplicationDetails;
 
   /**
-   * <p>The sensitivity score for the bucket, ranging from -1 (no analysis due to an error) to 100 (sensitive). This value is null if automated sensitive data discovery is currently disabled for your account.</p>
+   * <p>The sensitivity score for the bucket, ranging from -1 (classification error) to 100 (sensitive). This value is null if automated sensitive data discovery is currently disabled for your account.</p>
    */
   sensitivityScore?: number;
 
   /**
-   * <p>Specifies whether the bucket encrypts new objects by default and, if so, the type of server-side encryption that's used.</p>
+   * <p>The default server-side encryption settings for the bucket.</p>
    */
   serverSideEncryption?: BucketServerSideEncryption;
 
   /**
-   * <p>Specifies whether the bucket is shared with another Amazon Web Services account. Possible values are:</p> <ul><li><p>EXTERNAL - The bucket is shared with an Amazon Web Services account that isn't part of the same Amazon Macie organization.</p></li> <li><p>INTERNAL - The bucket is shared with an Amazon Web Services account that's part of the same Amazon Macie organization.</p></li> <li><p>NOT_SHARED - The bucket isn't shared with other Amazon Web Services accounts.</p></li> <li><p>UNKNOWN - Amazon Macie wasn't able to evaluate the shared access settings for the bucket.</p></li></ul>
+   * <p>Specifies whether the bucket is shared with another Amazon Web Services account, an Amazon CloudFront origin access identity (OAI), or a CloudFront origin access control (OAC). Possible values are:</p> <ul><li><p>EXTERNAL - The bucket is shared with one or more of the following or any combination of the following: a CloudFront OAI, a CloudFront OAC, or an Amazon Web Services account that isn't part of your Amazon Macie organization.</p></li> <li><p>INTERNAL - The bucket is shared with one or more Amazon Web Services accounts that are part of your Amazon Macie organization. It isn't shared with a CloudFront OAI or OAC.</p></li> <li><p>NOT_SHARED - The bucket isn't shared with another Amazon Web Services account, a CloudFront OAI, or a CloudFront OAC.</p></li> <li><p>UNKNOWN - Amazon Macie wasn't able to evaluate the shared access settings for the bucket.</p></li></ul> <p>An <i>Amazon Macie organization</i> is a set of Macie accounts that are centrally managed as a group of related accounts through Organizations or by Macie invitation.</p>
    */
   sharedAccess?: SharedAccess | string;
 
@@ -519,7 +519,7 @@ export interface ClassificationScopeSummary {
   id?: string;
 
   /**
-   * <p>The name of the classification scope.</p>
+   * <p>The name of the classification scope: automated-sensitive-data-discovery.</p>
    */
   name?: string;
 }
@@ -723,7 +723,7 @@ export interface Cell {
 }
 
 /**
- * <p>Specifies the location of an occurrence of sensitive data in a non-binary text file, such as an HTML, TXT, or XML file.</p>
+ * <p>Specifies the location of an occurrence of sensitive data in an email message or a non-binary text file such as an HTML, TXT, or XML file.</p>
  */
 export interface Range {
   /**
@@ -787,7 +787,7 @@ export interface Occurrences {
   cells?: Cell[];
 
   /**
-   * <p>An array of objects, one for each occurrence of sensitive data in a non-binary text file, such as an HTML, TXT, or XML file. Each Range object specifies a line or inclusive range of lines that contains the sensitive data, and the position of the data on the specified line or lines.</p> <p>This value is often null for file types that are supported by Cell, Page, or Record objects. Exceptions are the location of sensitive data in: unstructured sections of an otherwise structured file, such as a comment in a file; a malformed file that Amazon Macie analyzes as plain text; and, a CSV or TSV file that has any column names that contain sensitive data.</p>
+   * <p>An array of objects, one for each occurrence of sensitive data in an email message or a non-binary text file such as an HTML, TXT, or XML file. Each Range object specifies a line or inclusive range of lines that contains the sensitive data, and the position of the data on the specified line or lines.</p> <p>This value is often null for file types that are supported by Cell, Page, or Record objects. Exceptions are the location of sensitive data in: unstructured sections of an otherwise structured file, such as a comment in a file; a malformed file that Amazon Macie analyzes as plain text; and, a CSV or TSV file that has any column names that contain sensitive data.</p>
    */
   lineRanges?: Range[];
 
@@ -812,7 +812,7 @@ export interface Occurrences {
  */
 export interface CustomDetection {
   /**
-   * <p>The Amazon Resource Name (ARN) of the custom data identifier.</p>
+   * <p>The unique identifier for the custom data identifier.</p>
    */
   arn?: string;
 
@@ -904,7 +904,7 @@ export interface ClassificationResultStatus {
   code?: string;
 
   /**
-   * <p>A brief description of the status of the finding. This value is null if the status (code) of the finding is COMPLETE.</p> <p>Amazon Macie uses this value to notify you of any errors, warnings, or considerations that might impact your analysis of the finding and the affected S3 object. Possible values are:</p> <ul><li><p>ARCHIVE_CONTAINS_UNPROCESSED_FILES - The object is an archive file and Macie extracted and analyzed only some or none of the files in the archive. To determine which files Macie analyzed, if any, you can refer to the corresponding sensitive data discovery result for the finding (ClassificationDetails.detailedResultsLocation).</p></li> <li><p>ARCHIVE_EXCEEDS_SIZE_LIMIT - The object is an archive file whose total storage size exceeds the size quota for this type of archive.</p></li> <li><p>ARCHIVE_NESTING_LEVEL_OVER_LIMIT - The object is an archive file whose nested depth exceeds the quota for the maximum number of nested levels that Macie analyzes for this type of archive.</p></li> <li><p>ARCHIVE_TOTAL_BYTES_EXTRACTED_OVER_LIMIT - The object is an archive file that exceeds the quota for the maximum amount of data that Macie extracts and analyzes for this type of archive.</p></li> <li><p>ARCHIVE_TOTAL_DOCUMENTS_PROCESSED_OVER_LIMIT - The object is an archive file that contains more than the maximum number of files that Macie extracts and analyzes for this type of archive.</p></li> <li><p>FILE_EXCEEDS_SIZE_LIMIT - The storage size of the object exceeds the size quota for this type of file.</p></li> <li><p>INVALID_ENCRYPTION - The object is encrypted using server-side encryption but Macie isn’t allowed to use the key. Macie can’t decrypt and analyze the object.</p></li> <li><p>INVALID_KMS_KEY - The object is encrypted with an KMS key that was disabled or is being deleted. Macie can’t decrypt and analyze the object.</p></li> <li><p>INVALID_OBJECT_STATE - The object doesn’t use a supported Amazon S3 storage class. For more information, see <a href="https://docs.aws.amazon.com/macie/latest/user/data-classification.html">Discovering sensitive data</a> in the <i>Amazon Macie User Guide</i>.</p></li> <li><p>JSON_NESTING_LEVEL_OVER_LIMIT - The object contains JSON data and the nested depth of the data exceeds the quota for the number of nested levels that Macie analyzes for this type of file.</p></li> <li><p>MALFORMED_FILE - The object is a malformed or corrupted file. An error occurred when Macie attempted to detect the file’s type or extract data from the file.</p></li> <li><p>OBJECT_VERSION_MISMATCH - The object was changed while Macie was analyzing it.</p></li> <li><p>NO_SUCH_BUCKET_AVAILABLE - The object was in a bucket that was deleted shortly before or when Macie attempted to analyze the object.</p></li> <li><p>MALFORMED_OR_FILE_SIZE_EXCEEDS_LIMIT - The object is a Microsoft Office file that is malformed or exceeds the size quota for this type of file. If the file is malformed, an error occurred when Macie attempted to extract data from the file.</p></li> <li><p>OOXML_UNCOMPRESSED_SIZE_EXCEEDS_LIMIT - The object is an Office Open XML file that exceeds the size quota for this type of file.</p></li> <li><p>OOXML_UNCOMPRESSED_RATIO_EXCEEDS_LIMIT - The object is an Office Open XML file whose compression ratio exceeds the compression quota for this type of file.</p></li> <li><p>PERMISSION_DENIED - Macie isn’t allowed to access the object. The object’s permissions settings prevent Macie from analyzing the object.</p></li> <li><p>SOURCE_OBJECT_NO_LONGER_AVAILABLE - The object was deleted shortly before or when Macie attempted to analyze it.</p></li> <li><p>UNABLE_TO_PARSE_FILE - The object is a file that contains structured data and an error occurred when Macie attempted to parse the data.</p></li> <li><p>UNSUPPORTED_FILE_TYPE_EXCEPTION - The object is a file that uses an unsupported file or storage format. For more information, see <a href="https://docs.aws.amazon.com/macie/latest/user/discovery-supported-formats.html">Supported file and storage formats</a> in the <i>Amazon Macie User Guide</i>.</p></li></ul> <p>For information about sensitive data discovery quotas for files, see <a href="https://docs.aws.amazon.com/macie/latest/user/macie-quotas.html">Amazon Macie quotas</a> in the <i>Amazon Macie User Guide</i>.</p>
+   * <p>A brief description of the status of the finding. This value is null if the status (code) of the finding is COMPLETE.</p> <p>Amazon Macie uses this value to notify you of any errors, warnings, or considerations that might impact your analysis of the finding and the affected S3 object. Possible values are:</p> <ul><li><p>ARCHIVE_CONTAINS_UNPROCESSED_FILES - The object is an archive file and Macie extracted and analyzed only some or none of the files in the archive. To determine which files Macie analyzed, if any, refer to the corresponding sensitive data discovery result for the finding (ClassificationDetails.detailedResultsLocation).</p></li> <li><p>ARCHIVE_EXCEEDS_SIZE_LIMIT - The object is an archive file whose total storage size exceeds the size quota for this type of archive.</p></li> <li><p>ARCHIVE_NESTING_LEVEL_OVER_LIMIT - The object is an archive file whose nested depth exceeds the quota for the maximum number of nested levels that Macie analyzes for this type of archive.</p></li> <li><p>ARCHIVE_TOTAL_BYTES_EXTRACTED_OVER_LIMIT - The object is an archive file that exceeds the quota for the maximum amount of data that Macie extracts and analyzes for this type of archive.</p></li> <li><p>ARCHIVE_TOTAL_DOCUMENTS_PROCESSED_OVER_LIMIT - The object is an archive file that contains more than the maximum number of files that Macie extracts and analyzes for this type of archive.</p></li> <li><p>FILE_EXCEEDS_SIZE_LIMIT - The storage size of the object exceeds the size quota for this type of file.</p></li> <li><p>INVALID_ENCRYPTION - The object is encrypted using server-side encryption but Macie isn't allowed to use the key. Macie can't decrypt and analyze the object.</p></li> <li><p>INVALID_KMS_KEY - The object is encrypted with an KMS key that was disabled or is being deleted. Macie can't decrypt and analyze the object.</p></li> <li><p>INVALID_OBJECT_STATE - The object doesn't use a supported Amazon S3 storage class.</p></li> <li><p>JSON_NESTING_LEVEL_OVER_LIMIT - The object contains JSON data and the nested depth of the data exceeds the quota for the number of nested levels that Macie analyzes for this type of file.</p></li> <li><p>MALFORMED_FILE - The object is a malformed or corrupted file. An error occurred when Macie attempted to detect the file's type or extract data from the file.</p></li> <li><p>MALFORMED_OR_FILE_SIZE_EXCEEDS_LIMIT - The object is a Microsoft Office file that is malformed or exceeds the size quota for this type of file. If the file is malformed, an error occurred when Macie attempted to extract data from the file.</p></li> <li><p>NO_SUCH_BUCKET_AVAILABLE - The object was in a bucket that was deleted shortly before or when Macie attempted to analyze the object.</p></li> <li><p>OBJECT_VERSION_MISMATCH - The object was changed while Macie was analyzing it.</p></li> <li><p>OOXML_UNCOMPRESSED_RATIO_EXCEEDS_LIMIT - The object is an Office Open XML file whose compression ratio exceeds the compression quota for this type of file.</p></li> <li><p>OOXML_UNCOMPRESSED_SIZE_EXCEEDS_LIMIT - The object is an Office Open XML file that exceeds the size quota for this type of file.</p></li> <li><p>PERMISSION_DENIED - Macie isn't allowed to access the object. The object's permissions settings prevent Macie from analyzing the object.</p></li> <li><p>SOURCE_OBJECT_NO_LONGER_AVAILABLE - The object was deleted shortly before or when Macie attempted to analyze it.</p></li> <li><p>TIME_CUT_OFF_REACHED - Macie started analyzing the object but additional analysis would exceed the time quota for analyzing an object.</p></li> <li><p>UNABLE_TO_PARSE_FILE - The object is a file that contains structured data and an error occurred when Macie attempted to parse the data.</p></li> <li><p>UNSUPPORTED_FILE_TYPE_EXCEPTION - The object is a file that uses an unsupported file or storage format.</p></li></ul> <p>For information about quotas, supported storage classes, and supported file and storage formats, see <a href="https://docs.aws.amazon.com/macie/latest/user/macie-quotas.html">Quotas</a> and <a href="https://docs.aws.amazon.com/macie/latest/user/discovery-supported-storage.html">Supported storage classes and formats</a> in the <i>Amazon Macie User Guide</i>.</p>
    */
   reason?: string;
 }
@@ -1148,7 +1148,7 @@ export interface SessionIssuer {
   accountId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source account, IAM user, or role that was used to get the credentials.</p>
+   * <p>The Amazon Resource Name (ARN) of the source account, Identity and Access Management (IAM) user, or role that was used to get the credentials.</p>
    */
   arn?: string;
 
@@ -1288,7 +1288,7 @@ export interface IamUser {
   principalId?: string;
 
   /**
-   * <p>The user name of the IAM user who performed the action.</p>
+   * <p>The username of the IAM user who performed the action.</p>
    */
   userName?: string;
 }
@@ -1405,11 +1405,11 @@ export enum EncryptionType {
 }
 
 /**
- * <p>Provides information about the server-side encryption settings for an S3 bucket or S3 object.</p>
+ * <p>Provides information about the default server-side encryption settings for an S3 bucket or the encryption settings for an S3 object.</p>
  */
 export interface ServerSideEncryption {
   /**
-   * <p>The server-side encryption algorithm that's used when storing data in the bucket or object. If default encryption is disabled for the bucket or the object isn't encrypted using server-side encryption, this value is NONE.</p>
+   * <p>The server-side encryption algorithm that's used when storing data in the bucket or object. If default encryption settings aren't configured for the bucket or the object isn't encrypted using server-side encryption, this value is NONE.</p>
    */
   encryptionType?: EncryptionType | string;
 
@@ -1439,7 +1439,7 @@ export interface S3BucketOwner {
  */
 export interface S3Bucket {
   /**
-   * <p>Specifies whether the bucket policy for the bucket requires server-side encryption of objects when objects are uploaded to the bucket. Possible values are:</p> <ul><li><p>FALSE - The bucket policy requires server-side encryption of new objects. PutObject requests must include a valid server-side encryption header.</p></li> <li><p>TRUE - The bucket doesn't have a bucket policy or it has a bucket policy that doesn't require server-side encryption of new objects. If a bucket policy exists, it doesn't require PutObject requests to include a valid server-side encryption header.</p></li> <li><p>UNKNOWN - Amazon Macie can't determine whether the bucket policy requires server-side encryption of new objects.</p></li></ul> <p>Valid server-side encryption headers are: x-amz-server-side-encryption with a value of AES256 or aws:kms, and x-amz-server-side-encryption-customer-algorithm with a value of AES256.</p>
+   * <p>Specifies whether the bucket policy for the bucket requires server-side encryption of objects when objects are added to the bucket. Possible values are:</p> <ul><li><p>FALSE - The bucket policy requires server-side encryption of new objects. PutObject requests must include a valid server-side encryption header.</p></li> <li><p>TRUE - The bucket doesn't have a bucket policy or it has a bucket policy that doesn't require server-side encryption of new objects. If a bucket policy exists, it doesn't require PutObject requests to include a valid server-side encryption header.</p></li> <li><p>UNKNOWN - Amazon Macie can't determine whether the bucket policy requires server-side encryption of new objects.</p></li></ul> <p>Valid server-side encryption headers are: x-amz-server-side-encryption with a value of AES256 or aws:kms, and x-amz-server-side-encryption-customer-algorithm with a value of AES256.</p>
    */
   allowsUnencryptedObjectUploads?: AllowsUnencryptedObjectUploads | string;
 
@@ -1449,12 +1449,12 @@ export interface S3Bucket {
   arn?: string;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when the bucket was created.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the bucket was created. This value can also indicate when changes such as edits to the bucket's policy were most recently made to the bucket, relative to when the finding was created or last updated.</p>
    */
   createdAt?: Date;
 
   /**
-   * <p>The type of server-side encryption that's used by default to encrypt objects in the bucket.</p>
+   * <p>The default server-side encryption settings for the bucket.</p>
    */
   defaultServerSideEncryption?: ServerSideEncryption;
 
@@ -1531,7 +1531,7 @@ export interface S3Object {
   publicAccess?: boolean;
 
   /**
-   * <p>The type of server-side encryption that's used to encrypt the object.</p>
+   * <p>The type of server-side encryption that was used to encrypt the object.</p>
    */
   serverSideEncryption?: ServerSideEncryption;
 
@@ -1598,6 +1598,7 @@ export enum FindingType {
   Policy_IAMUser_S3BucketPublic = "Policy:IAMUser/S3BucketPublic",
   Policy_IAMUser_S3BucketReplicatedExternally = "Policy:IAMUser/S3BucketReplicatedExternally",
   Policy_IAMUser_S3BucketSharedExternally = "Policy:IAMUser/S3BucketSharedExternally",
+  Policy_IAMUser_S3BucketSharedWithCloudFront = "Policy:IAMUser/S3BucketSharedWithCloudFront",
   SensitiveData_S3Object_Credentials = "SensitiveData:S3Object/Credentials",
   SensitiveData_S3Object_CustomIdentifier = "SensitiveData:S3Object/CustomIdentifier",
   SensitiveData_S3Object_Financial = "SensitiveData:S3Object/Financial",
@@ -2056,7 +2057,7 @@ export interface ManagedDataIdentifierSummary {
 }
 
 /**
- * <p>Provides statistical data and other information about an S3 bucket that Amazon Macie monitors and analyzes for your account. If an error occurs when Macie attempts to retrieve and process information about the bucket or the bucket's objects, the value for most of these properties is null. Key exceptions are accountId and bucketName. To identify the cause of the error, refer to the errorCode and errorMessage values.</p>
+ * <p>Provides statistical data and other information about an S3 bucket that Amazon Macie monitors and analyzes for your account. By default, object count and storage size values include data for object parts that are the result of incomplete multipart uploads. For more information, see <a href="https://docs.aws.amazon.com/macie/latest/user/monitoring-s3-how-it-works.html">How Macie monitors Amazon S3 data security</a> in the <i>Amazon Macie User Guide</i>.</p> <p>If an error occurs when Macie attempts to retrieve and process information about the bucket or the bucket's objects, the value for most of these properties is null. Key exceptions are accountId and bucketName. To identify the cause of the error, refer to the errorCode and errorMessage values.</p>
  */
 export interface MatchingBucket {
   /**
@@ -2080,7 +2081,7 @@ export interface MatchingBucket {
   classifiableSizeInBytes?: number;
 
   /**
-   * <p>Specifies the error code for an error that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. If this value is ACCESS_DENIED, Macie doesn't have permission to retrieve the information. For example, the bucket has a restrictive bucket policy and Amazon S3 denied the request. If this value is null, Macie was able to retrieve and process the information.</p>
+   * <p>The error code for an error that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. If this value is ACCESS_DENIED, Macie doesn't have permission to retrieve the information. For example, the bucket has a restrictive bucket policy and Amazon S3 denied the request. If this value is null, Macie was able to retrieve and process the information.</p>
    */
   errorCode?: BucketMetadataErrorCode | string;
 
@@ -2095,7 +2096,7 @@ export interface MatchingBucket {
   jobDetails?: JobDetails;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently performed automated sensitive data discovery for the bucket. This value is null if automated sensitive data discovery is currently disabled for your account.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently analyzed data in the bucket while performing automated sensitive data discovery for your account. This value is null if automated sensitive data discovery is currently disabled for your account.</p>
    */
   lastAutomatedDiscoveryTime?: Date;
 
@@ -2110,7 +2111,7 @@ export interface MatchingBucket {
   objectCountByEncryptionType?: ObjectCountByEncryptionType;
 
   /**
-   * <p>The current sensitivity score for the bucket, ranging from -1 (no analysis due to an error) to 100 (sensitive). This value is null if automated sensitive data discovery is currently disabled for your account.</p>
+   * <p>The current sensitivity score for the bucket, ranging from -1 (classification error) to 100 (sensitive). This value is null if automated sensitive data discovery is currently disabled for your account.</p>
    */
   sensitivityScore?: number;
 
@@ -2165,12 +2166,12 @@ export interface Member {
   arn?: string;
 
   /**
-   * <p>The email address for the account.</p>
+   * <p>The email address for the account. This value is null if the account is associated with the administrator account through Organizations.</p>
    */
   email?: string;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if an invitation hasn't been sent to the account.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie membership invitation hasn't been sent to the account.</p>
    */
   invitedAt?: Date;
 
@@ -2297,12 +2298,12 @@ export interface SearchResourcesCriteria {
  */
 export interface SensitivityInspectionTemplatesEntry {
   /**
-   * <p>The unique identifier for the sensitivity inspection template for the account.</p>
+   * <p>The unique identifier for the sensitivity inspection template.</p>
    */
   id?: string;
 
   /**
-   * <p>The name of the sensitivity inspection template for the account.</p>
+   * <p>The name of the sensitivity inspection template: automated-sensitive-data-discovery.</p>
    */
   name?: string;
 }
@@ -2750,7 +2751,7 @@ export interface BatchGetCustomDataIdentifiersResponse {
 }
 
 /**
- * <p>Provides information about the number of S3 buckets that are publicly accessible based on a combination of permissions settings for each bucket.</p>
+ * <p>Provides information about the number of S3 buckets that are publicly accessible due to a combination of permissions settings for each bucket.</p>
  */
 export interface BucketCountByEffectivePermission {
   /**
@@ -2775,21 +2776,21 @@ export interface BucketCountByEffectivePermission {
 }
 
 /**
- * <p>Provides information about the number of S3 buckets that use certain types of server-side encryption by default or don't encrypt new objects by default. For detailed information about these settings, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html">Setting default server-side encryption behavior for Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ * <p>Provides information about the number of S3 buckets whose settings do or don't specify default server-side encryption behavior for objects that are added to the buckets. For detailed information about these settings, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html">Setting default server-side encryption behavior for Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  */
 export interface BucketCountByEncryptionType {
   /**
-   * <p>The total number of buckets that use an KMS key to encrypt new objects by default, either an Amazon Web Services managed key or a customer managed key. These buckets use KMS encryption (SSE-KMS) by default.</p>
+   * <p>The total number of buckets whose default encryption settings are configured to encrypt new objects with an Amazon Web Services managed KMS key or a customer managed KMS key. By default, these buckets encrypt new objects automatically using SSE-KMS encryption.</p>
    */
   kmsManaged?: number;
 
   /**
-   * <p>The total number of buckets that use an Amazon S3 managed key to encrypt new objects by default. These buckets use Amazon S3 managed encryption (SSE-S3) by default.</p>
+   * <p>The total number of buckets whose default encryption settings are configured to encrypt new objects with an Amazon S3 managed key. By default, these buckets encrypt new objects automatically using SSE-S3 encryption.</p>
    */
   s3Managed?: number;
 
   /**
-   * <p>The total number of buckets that don't encrypt new objects by default. Default encryption is disabled for these buckets.</p>
+   * <p>The total number of buckets that don't specify default server-side encryption behavior for new objects. Default encryption settings aren't configured for these buckets.</p>
    */
   unencrypted?: number;
 
@@ -2800,32 +2801,32 @@ export interface BucketCountByEncryptionType {
 }
 
 /**
- * <p>Provides information about the number of S3 buckets that are or aren't shared with other Amazon Web Services accounts.</p>
+ * <p>Provides information about the number of S3 buckets that are or aren't shared with other Amazon Web Services accounts, Amazon CloudFront origin access identities (OAIs), or CloudFront origin access controls (OACs). In this data, an <i>Amazon Macie organization</i> is defined as a set of Macie accounts that are centrally managed as a group of related accounts through Organizations or by Macie invitation.</p>
  */
 export interface BucketCountBySharedAccessType {
   /**
-   * <p>The total number of buckets that are shared with an Amazon Web Services account that isn't part of the same Amazon Macie organization.</p>
+   * <p>The total number of buckets that are shared with one or more of the following or any combination of the following: an Amazon CloudFront OAI, a CloudFront OAC, or an Amazon Web Services account that isn't in the same Amazon Macie organization.</p>
    */
   external?: number;
 
   /**
-   * <p>The total number of buckets that are shared with an Amazon Web Services account that's part of the same Amazon Macie organization.</p>
+   * <p>The total number of buckets that are shared with one or more Amazon Web Services accounts in the same Amazon Macie organization. These buckets aren't shared with Amazon CloudFront OAIs or OACs.</p>
    */
   internal?: number;
 
   /**
-   * <p>The total number of buckets that aren't shared with other Amazon Web Services accounts.</p>
+   * <p>The total number of buckets that aren't shared with other Amazon Web Services accounts, Amazon CloudFront OAIs, or CloudFront OACs.</p>
    */
   notShared?: number;
 
   /**
-   * <p>The total number of buckets that Amazon Macie wasn't able to evaluate shared access settings for. Macie can't determine whether these buckets are shared with other Amazon Web Services accounts.</p>
+   * <p>The total number of buckets that Amazon Macie wasn't able to evaluate shared access settings for. Macie can't determine whether these buckets are shared with other Amazon Web Services accounts, Amazon CloudFront OAIs, or CloudFront OACs.</p>
    */
   unknown?: number;
 }
 
 /**
- * <p>Provides information about the number of S3 buckets whose bucket policies do or don't require server-side encryption of objects when objects are uploaded to the buckets.</p>
+ * <p>Provides information about the number of S3 buckets whose bucket policies do or don't require server-side encryption of objects when objects are added to the buckets.</p>
  */
 export interface BucketCountPolicyAllowsUnencryptedObjectUploads {
   /**
@@ -2914,7 +2915,7 @@ export interface SensitivityAggregations {
   classifiableSizeInBytes?: number;
 
   /**
-   * <p>The total number of buckets that are publicly accessible based on a combination of permissions settings for each bucket.</p>
+   * <p>The total number of buckets that are publicly accessible due to a combination of permissions settings for each bucket.</p>
    */
   publiclyAccessibleCount?: number;
 
@@ -2944,7 +2945,7 @@ export interface BucketStatisticsBySensitivity {
   notClassified?: SensitivityAggregations;
 
   /**
-   * <p>The aggregated statistical data for all buckets that have a sensitivity score of 0-49.</p>
+   * <p>The aggregated statistical data for all buckets that have a sensitivity score of 1-49.</p>
    */
   notSensitive?: SensitivityAggregations;
 
@@ -3892,22 +3893,22 @@ export interface GetBucketStatisticsResponse {
   bucketCount?: number;
 
   /**
-   * <p>The total number of buckets that are publicly accessible based on a combination of permissions settings for each bucket.</p>
+   * <p>The total number of buckets that are publicly accessible due to a combination of permissions settings for each bucket.</p>
    */
   bucketCountByEffectivePermission?: BucketCountByEffectivePermission;
 
   /**
-   * <p>The total number of buckets that use certain types of server-side encryption to encrypt new objects by default. This object also reports the total number of buckets that don't encrypt new objects by default.</p>
+   * <p>The total number of buckets whose settings do or don't specify default server-side encryption behavior for objects that are added to the buckets.</p>
    */
   bucketCountByEncryptionType?: BucketCountByEncryptionType;
 
   /**
-   * <p>The total number of buckets whose bucket policies do or don't require server-side encryption of objects when objects are uploaded to the buckets.</p>
+   * <p>The total number of buckets whose bucket policies do or don't require server-side encryption of objects when objects are added to the buckets.</p>
    */
   bucketCountByObjectEncryptionRequirement?: BucketCountPolicyAllowsUnencryptedObjectUploads;
 
   /**
-   * <p>The total number of buckets that are or aren't shared with another Amazon Web Services account.</p>
+   * <p>The total number of buckets that are or aren't shared with other Amazon Web Services accounts, Amazon CloudFront origin access identities (OAIs), or CloudFront origin access controls (OACs).</p>
    */
   bucketCountBySharedAccessType?: BucketCountBySharedAccessType;
 
@@ -3927,7 +3928,7 @@ export interface GetBucketStatisticsResponse {
   classifiableSizeInBytes?: number;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently retrieved both bucket and object metadata from Amazon S3 for the buckets.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently retrieved bucket or object metadata from Amazon S3 for the buckets.</p>
    */
   lastUpdated?: Date;
 
@@ -4000,7 +4001,7 @@ export interface GetClassificationScopeResponse {
   id?: string;
 
   /**
-   * <p>The name of the classification scope.</p>
+   * <p>The name of the classification scope: automated-sensitive-data-discovery.</p>
    */
   name?: string;
 
@@ -4293,12 +4294,12 @@ export interface GetMemberResponse {
   arn?: string;
 
   /**
-   * <p>The email address for the account.</p>
+   * <p>The email address for the account. This value is null if the account is associated with the administrator account through Organizations.</p>
    */
   email?: string;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if an invitation hasn't been sent to the account.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie membership invitation hasn't been sent to the account.</p>
    */
   invitedAt?: Date;
 
@@ -4387,7 +4388,7 @@ export interface GetResourceProfileResponse {
   profileUpdatedAt?: Date;
 
   /**
-   * <p>The current sensitivity score for the bucket, ranging from -1 (no analysis due to an error) to 100 (sensitive). By default, this score is calculated automatically based on the amount of data that Amazon Macie has analyzed in the bucket and the amount of sensitive data that Macie has found in the bucket.</p>
+   * <p>The current sensitivity score for the bucket, ranging from -1 (classification error) to 100 (sensitive). By default, this score is calculated automatically based on the amount of data that Amazon Macie has analyzed in the bucket and the amount of sensitive data that Macie has found in the bucket.</p>
    */
   sensitivityScore?: number;
 
@@ -4553,7 +4554,7 @@ export interface GetSensitivityInspectionTemplateResponse {
   includes?: SensitivityInspectionTemplateIncludes;
 
   /**
-   * <p>The name of the template.</p>
+   * <p>The name of the template: automated-sensitive-data-discovery.</p>
    */
   name?: string;
 

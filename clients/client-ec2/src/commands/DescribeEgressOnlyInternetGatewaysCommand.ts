@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeEgressOnlyInternetGatewaysCommand}.
+ */
 export interface DescribeEgressOnlyInternetGatewaysCommandInput extends DescribeEgressOnlyInternetGatewaysRequest {}
+/**
+ * The output of {@link DescribeEgressOnlyInternetGatewaysCommand}.
+ */
 export interface DescribeEgressOnlyInternetGatewaysCommandOutput
   extends DescribeEgressOnlyInternetGatewaysResult,
     __MetadataBearer {}

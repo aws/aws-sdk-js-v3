@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DisassociateClientVpnTargetNetworkCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisassociateClientVpnTargetNetworkCommand}.
+ */
 export interface DisassociateClientVpnTargetNetworkCommandInput extends DisassociateClientVpnTargetNetworkRequest {}
+/**
+ * The output of {@link DisassociateClientVpnTargetNetworkCommand}.
+ */
 export interface DisassociateClientVpnTargetNetworkCommandOutput
   extends DisassociateClientVpnTargetNetworkResult,
     __MetadataBearer {}

@@ -29,7 +29,13 @@ import {
   serializeAws_queryApplySecurityGroupsToLoadBalancerCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ApplySecurityGroupsToLoadBalancerCommand}.
+ */
 export interface ApplySecurityGroupsToLoadBalancerCommandInput extends ApplySecurityGroupsToLoadBalancerInput {}
+/**
+ * The output of {@link ApplySecurityGroupsToLoadBalancerCommand}.
+ */
 export interface ApplySecurityGroupsToLoadBalancerCommandOutput
   extends ApplySecurityGroupsToLoadBalancerOutput,
     __MetadataBearer {}

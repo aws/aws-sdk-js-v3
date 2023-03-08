@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteVPCEConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteVPCEConfigurationCommand}.
+ */
 export interface DeleteVPCEConfigurationCommandInput extends DeleteVPCEConfigurationRequest {}
+/**
+ * The output of {@link DeleteVPCEConfigurationCommand}.
+ */
 export interface DeleteVPCEConfigurationCommandOutput extends DeleteVPCEConfigurationResult, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1AbortMultipartUploadCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AbortMultipartUploadCommand}.
+ */
 export interface AbortMultipartUploadCommandInput extends AbortMultipartUploadInput {}
+/**
+ * The output of {@link AbortMultipartUploadCommand}.
+ */
 export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
 
 /**

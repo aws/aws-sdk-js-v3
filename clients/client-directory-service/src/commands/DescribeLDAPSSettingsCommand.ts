@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeLDAPSSettingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLDAPSSettingsCommand}.
+ */
 export interface DescribeLDAPSSettingsCommandInput extends DescribeLDAPSSettingsRequest {}
+/**
+ * The output of {@link DescribeLDAPSSettingsCommand}.
+ */
 export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSettingsResult, __MetadataBearer {}
 
 /**

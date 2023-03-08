@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListAnswersCommand, ListAnswersCommandInput, ListAnswersCommandOutput } from "../commands/ListAnswersCommand";
-import { WellArchitected } from "../WellArchitected";
 import { WellArchitectedClient } from "../WellArchitectedClient";
 import { WellArchitectedPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAnswersCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: WellArchitected,
-  input: ListAnswersCommandInput,
-  ...args: any
-): Promise<ListAnswersCommandOutput> => {
-  // @ts-ignore
-  return await client.listAnswers(input, ...args);
-};
 export async function* paginateListAnswers(
   config: WellArchitectedPaginationConfiguration,
   input: ListAnswersCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListAnswers(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof WellArchitected) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WellArchitectedClient) {
+    if (config.client instanceof WellArchitectedClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WellArchitected | WellArchitectedClient");

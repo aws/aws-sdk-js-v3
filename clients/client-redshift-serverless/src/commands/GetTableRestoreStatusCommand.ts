@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * The input for {@link GetTableRestoreStatusCommand}.
+ */
 export interface GetTableRestoreStatusCommandInput extends GetTableRestoreStatusRequest {}
+/**
+ * The output of {@link GetTableRestoreStatusCommand}.
+ */
 export interface GetTableRestoreStatusCommandOutput extends GetTableRestoreStatusResponse, __MetadataBearer {}
 
 /**

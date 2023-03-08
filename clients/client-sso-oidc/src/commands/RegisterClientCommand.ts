@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
+/**
+ * The input for {@link RegisterClientCommand}.
+ */
 export interface RegisterClientCommandInput extends RegisterClientRequest {}
+/**
+ * The output of {@link RegisterClientCommand}.
+ */
 export interface RegisterClientCommandOutput extends RegisterClientResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1PutCommentReactionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutCommentReactionCommand}.
+ */
 export interface PutCommentReactionCommandInput extends PutCommentReactionInput {}
+/**
+ * The output of {@link PutCommentReactionCommand}.
+ */
 export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
 
 /**

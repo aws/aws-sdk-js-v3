@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteMissionProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteMissionProfileCommand}.
+ */
 export interface DeleteMissionProfileCommandInput extends DeleteMissionProfileRequest {}
+/**
+ * The output of {@link DeleteMissionProfileCommand}.
+ */
 export interface DeleteMissionProfileCommandOutput extends MissionProfileIdResponse, __MetadataBearer {}
 
 /**

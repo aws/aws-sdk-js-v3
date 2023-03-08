@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDocumentationVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDocumentationVersionsCommand}.
+ */
 export interface GetDocumentationVersionsCommandInput extends GetDocumentationVersionsRequest {}
+/**
+ * The output of {@link GetDocumentationVersionsCommand}.
+ */
 export interface GetDocumentationVersionsCommandOutput extends DocumentationVersions, __MetadataBearer {}
 
 /**

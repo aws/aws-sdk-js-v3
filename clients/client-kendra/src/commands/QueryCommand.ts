@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_json1_1QueryCommand, serializeAws_json1_1QueryCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link QueryCommand}.
+ */
 export interface QueryCommandInput extends QueryRequest {}
+/**
+ * The output of {@link QueryCommand}.
+ */
 export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
 
 /**

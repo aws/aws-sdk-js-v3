@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link DeregisterPatchBaselineForPatchGroupCommand}.
+ */
 export interface DeregisterPatchBaselineForPatchGroupCommandInput extends DeregisterPatchBaselineForPatchGroupRequest {}
+/**
+ * The output of {@link DeregisterPatchBaselineForPatchGroupCommand}.
+ */
 export interface DeregisterPatchBaselineForPatchGroupCommandOutput
   extends DeregisterPatchBaselineForPatchGroupResult,
     __MetadataBearer {}

@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand}.
+ */
 export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput
   extends StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {}
+/**
+ * The output of {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand}.
+ */
 export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput
   extends StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse,
     __MetadataBearer {}

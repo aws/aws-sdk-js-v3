@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link GetDeliverabilityDashboardOptionsCommand}.
+ */
 export interface GetDeliverabilityDashboardOptionsCommandInput extends GetDeliverabilityDashboardOptionsRequest {}
+/**
+ * The output of {@link GetDeliverabilityDashboardOptionsCommand}.
+ */
 export interface GetDeliverabilityDashboardOptionsCommandOutput
   extends GetDeliverabilityDashboardOptionsResponse,
     __MetadataBearer {}

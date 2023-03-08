@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeAuditTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeAuditTaskCommand}.
+ */
 export interface DescribeAuditTaskCommandInput extends DescribeAuditTaskRequest {}
+/**
+ * The output of {@link DescribeAuditTaskCommand}.
+ */
 export interface DescribeAuditTaskCommandOutput extends DescribeAuditTaskResponse, __MetadataBearer {}
 
 /**

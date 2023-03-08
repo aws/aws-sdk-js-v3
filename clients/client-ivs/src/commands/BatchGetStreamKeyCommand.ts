@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchGetStreamKeyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchGetStreamKeyCommand}.
+ */
 export interface BatchGetStreamKeyCommandInput extends BatchGetStreamKeyRequest {}
+/**
+ * The output of {@link BatchGetStreamKeyCommand}.
+ */
 export interface BatchGetStreamKeyCommandOutput extends BatchGetStreamKeyResponse, __MetadataBearer {}
 
 /**

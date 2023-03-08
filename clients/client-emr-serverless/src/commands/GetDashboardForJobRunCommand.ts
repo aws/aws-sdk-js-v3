@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDashboardForJobRunCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDashboardForJobRunCommand}.
+ */
 export interface GetDashboardForJobRunCommandInput extends GetDashboardForJobRunRequest {}
+/**
+ * The output of {@link GetDashboardForJobRunCommand}.
+ */
 export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRunResponse, __MetadataBearer {}
 
 /**

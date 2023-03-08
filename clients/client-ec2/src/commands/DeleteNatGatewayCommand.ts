@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteNatGatewayCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteNatGatewayCommand}.
+ */
 export interface DeleteNatGatewayCommandInput extends DeleteNatGatewayRequest {}
+/**
+ * The output of {@link DeleteNatGatewayCommand}.
+ */
 export interface DeleteNatGatewayCommandOutput extends DeleteNatGatewayResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link RecognizeCelebritiesCommand}.
+ */
 export interface RecognizeCelebritiesCommandInput extends RecognizeCelebritiesRequest {}
+/**
+ * The output of {@link RecognizeCelebritiesCommand}.
+ */
 export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesResponse, __MetadataBearer {}
 
 /**

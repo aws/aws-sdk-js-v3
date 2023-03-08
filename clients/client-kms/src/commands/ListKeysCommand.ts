@@ -22,14 +22,19 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1ListKeysCommand, serializeAws_json1_1ListKeysCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListKeysCommand}.
+ */
 export interface ListKeysCommandInput extends ListKeysRequest {}
+/**
+ * The output of {@link ListKeysCommand}.
+ */
 export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of all KMS keys in the caller's Amazon Web Services account and Region.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListKeys</a> (IAM policy)</p>
  *          <p>

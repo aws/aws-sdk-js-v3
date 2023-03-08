@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListBranchesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListBranchesCommand}.
+ */
 export interface ListBranchesCommandInput extends ListBranchesInput {}
+/**
+ * The output of {@link ListBranchesCommand}.
+ */
 export interface ListBranchesCommandOutput extends ListBranchesOutput, __MetadataBearer {}
 
 /**

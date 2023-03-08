@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminGetDeviceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminGetDeviceCommand}.
+ */
 export interface AdminGetDeviceCommandInput extends AdminGetDeviceRequest {}
+/**
+ * The output of {@link AdminGetDeviceCommand}.
+ */
 export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __MetadataBearer {}
 
 /**

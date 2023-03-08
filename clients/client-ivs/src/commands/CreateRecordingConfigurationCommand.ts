@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateRecordingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateRecordingConfigurationCommand}.
+ */
 export interface CreateRecordingConfigurationCommandInput extends CreateRecordingConfigurationRequest {}
+/**
+ * The output of {@link CreateRecordingConfigurationCommand}.
+ */
 export interface CreateRecordingConfigurationCommandOutput
   extends CreateRecordingConfigurationResponse,
     __MetadataBearer {}

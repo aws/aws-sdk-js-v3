@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetTemporaryGluePartitionCredentialsCommand}.
+ */
 export interface GetTemporaryGluePartitionCredentialsCommandInput extends GetTemporaryGluePartitionCredentialsRequest {}
+/**
+ * The output of {@link GetTemporaryGluePartitionCredentialsCommand}.
+ */
 export interface GetTemporaryGluePartitionCredentialsCommandOutput
   extends GetTemporaryGluePartitionCredentialsResponse,
     __MetadataBearer {}

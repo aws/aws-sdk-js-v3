@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutCaseEventConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutCaseEventConfigurationCommand}.
+ */
 export interface PutCaseEventConfigurationCommandInput extends PutCaseEventConfigurationRequest {}
+/**
+ * The output of {@link PutCaseEventConfigurationCommand}.
+ */
 export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConfigurationResponse, __MetadataBearer {}
 
 /**

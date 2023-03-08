@@ -25,11 +25,26 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link DescribeProductCommand}.
+ */
 export interface DescribeProductCommandInput extends DescribeProductInput {}
+/**
+ * The output of {@link DescribeProductCommand}.
+ */
 export interface DescribeProductCommandOutput extends DescribeProductOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about the specified product.</p>
+ *          <note>
+ *             <p>
+ *             Running this operation
+ *             with administrator access
+ *             results
+ *             in a failure.
+ *             <a>DescribeProductAsAdmin</a> should be used instead.
+ *          </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

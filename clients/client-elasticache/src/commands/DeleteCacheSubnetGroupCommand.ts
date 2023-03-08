@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteCacheSubnetGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteCacheSubnetGroupCommand}.
+ */
 export interface DeleteCacheSubnetGroupCommandInput extends DeleteCacheSubnetGroupMessage {}
+/**
+ * The output of {@link DeleteCacheSubnetGroupCommand}.
+ */
 export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**

@@ -753,7 +753,7 @@ export interface DeprovisionPublicIpv4PoolCidrRequest {
   PoolId: string | undefined;
 
   /**
-   * <p>The CIDR you want to deprovision from the pool.</p>
+   * <p>The CIDR you want to deprovision from the pool. Enter the CIDR you want to deprovision with a netmask of <code>/32</code>. You must rerun this command for each IP address in the CIDR range. If your CIDR is a <code>/24</code>, you will have to run this command to deprovision each of the 256 IP addresses in the <code>/24</code> CIDR.</p>
    */
   Cidr: string | undefined;
 }
@@ -3591,14 +3591,14 @@ export interface DescribeFastLaunchImagesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining results,
-   * 			make another request with the returned NextToken value. If this parameter is not specified,
-   * 			then all results are returned.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -3682,7 +3682,8 @@ export interface DescribeFastLaunchImagesSuccessItem {
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse;
 
   /**
-   * <p>The maximum number of parallel instances that are launched for creating resources.</p>
+   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
+   * 			pre-provisioned snapshots for Windows faster launching.</p>
    */
   MaxParallelLaunches?: number;
 
@@ -3715,8 +3716,8 @@ export interface DescribeFastLaunchImagesResult {
   FastLaunchImages?: DescribeFastLaunchImagesSuccessItem[];
 
   /**
-   * <p>The token to use for the next set of results. This value is null when there are
-   * 			no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -3884,14 +3885,14 @@ export interface DescribeFleetHistoryRequest {
   EventType?: FleetEventType | string;
 
   /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 1 and
-   *          1000. The default value is 1000. To retrieve the remaining results, make another call with
-   *          the returned <code>NextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -4085,13 +4086,14 @@ export interface DescribeFleetHistoryResult {
    * <p>The last date and time for the events, in UTC format (for example,
    *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
    *          All records up to this time were retrieved.</p>
-   *          <p>If <code>nextToken</code> indicates that there are more results, this value is not
+   *          <p>If <code>nextToken</code> indicates that there are more items, this value is not
    *          present.</p>
    */
   LastEvaluatedTime?: Date;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 
@@ -4116,14 +4118,14 @@ export interface DescribeFleetInstancesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 1 and
-   *          1000. The default value is 1000. To retrieve the remaining results, make another call with
-   *          the returned <code>NextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -4152,7 +4154,8 @@ export interface DescribeFleetInstancesResult {
   ActiveInstances?: ActiveInstance[];
 
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 
@@ -4171,14 +4174,14 @@ export interface DescribeFleetsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 1 and
-   *          1000. The default value is 1000. To retrieve the remaining results, make another call with
-   *          the returned <code>NextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -4737,7 +4740,8 @@ export interface FleetData {
 
 export interface DescribeFleetsResult {
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 
@@ -6297,13 +6301,14 @@ export interface DescribeImagesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -6319,6 +6324,7 @@ export enum ArchitectureValues {
 export enum BootModeValues {
   legacy_bios = "legacy-bios",
   uefi = "uefi",
+  uefi_preferred = "uefi-preferred",
 }
 
 export enum HypervisorType {
@@ -6544,7 +6550,8 @@ export interface DescribeImagesResult {
   Images?: Image[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -7126,16 +7133,16 @@ export interface DescribeInstanceCreditSpecificationsRequest {
   InstanceIds?: string[];
 
   /**
-   * <p>The maximum number of items to return for this request. To get the next page of
-   *             items, make another request with the token returned in the output. This value
-   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
-   *             parameter in the same call. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>You cannot specify this parameter and the instance IDs
+   *             parameter in the same call.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token returned from a previous paginated request.
-   *             Pagination continues from the end of the items returned by the previous request.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -7164,8 +7171,8 @@ export interface DescribeInstanceCreditSpecificationsResult {
   InstanceCreditSpecifications?: InstanceCreditSpecification[];
 
   /**
-   * <p>The token to include in another request to get the next page of items.
-   *             This value is <code>null</code> when there are no more items to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -7779,16 +7786,15 @@ export interface DescribeInstancesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of items to return for this request. To get the next page of items,
-   *             make another request with the token returned in the output. This value can be between 5 and 1000.
-   *             You cannot specify this parameter and the instance IDs parameter in the same request. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>You cannot specify this parameter and the instance IDs parameter in the same request.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token returned from a previous paginated request.
-   *             Pagination continues from the end of the items returned by the previous request.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 }
@@ -7838,6 +7844,11 @@ export interface CpuOptions {
    * <p>The number of threads per CPU core.</p>
    */
   ThreadsPerCore?: number;
+}
+
+export enum InstanceBootModeValues {
+  legacy_bios = "legacy-bios",
+  uefi = "uefi",
 }
 
 /**
@@ -8296,62 +8307,6 @@ export enum InstanceStateName {
   stopped = "stopped",
   stopping = "stopping",
   terminated = "terminated",
-}
-
-/**
- * <p>Describes the current state of an instance.</p>
- */
-export interface InstanceState {
-  /**
-   * <p>The state of the instance as a 16-bit unsigned integer. </p>
-   *          <p>The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values
-   *             between 256 and 65,535. These numerical values are used for internal purposes and should
-   *             be ignored.</p>
-   *          <p>The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values
-   *             between 0 and 255. </p>
-   *          <p>The valid values for instance-state-code will all be in the range of the low byte and
-   *             they are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>0</code> : <code>pending</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>16</code> : <code>running</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>32</code> : <code>shutting-down</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>48</code> : <code>terminated</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>64</code> : <code>stopping</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>80</code> : <code>stopped</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in
-   *             decimal.</p>
-   */
-  Code?: number;
-
-  /**
-   * <p>The current state of the instance.</p>
-   */
-  Name?: InstanceStateName | string;
 }
 
 /**
@@ -10261,12 +10216,5 @@ export const InstanceNetworkInterfaceFilterSensitiveLog = (obj: InstanceNetworkI
  * @internal
  */
 export const PrivateDnsNameOptionsResponseFilterSensitiveLog = (obj: PrivateDnsNameOptionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStateFilterSensitiveLog = (obj: InstanceState): any => ({
   ...obj,
 });

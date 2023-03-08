@@ -33,6 +33,11 @@ import {
   CreateTemplateCommandInput,
   CreateTemplateCommandOutput,
 } from "./commands/CreateTemplateCommand";
+import {
+  DeleteDomainCommand,
+  DeleteDomainCommandInput,
+  DeleteDomainCommandOutput,
+} from "./commands/DeleteDomainCommand";
 import { GetCaseCommand, GetCaseCommandInput, GetCaseCommandOutput } from "./commands/GetCaseCommand";
 import {
   GetCaseEventConfigurationCommand,
@@ -97,12 +102,11 @@ import {
 import { ConnectCasesClient } from "./ConnectCasesClient";
 
 /**
- * <p>Welcome to the Amazon Connect Cases API Reference. This guide provides information about the
- *       Amazon Connect Cases API, which you can use to create, update, get, and list Cases domains,
- *       fields, field options, layouts, templates, cases, related items, and tags.</p>
- *
- *          <p>For more information about Amazon Connect Cases, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Amazon Connect Cases</a> in the
- *           <i>Amazon Connect Administrator Guide</i>. </p>
+ * <p>With Amazon Connect Cases, your agents can track and manage customer issues that require
+ *       multiple interactions, follow-up tasks, and teams in your contact center. A case represents a
+ *       customer issue. It records the issue, the steps and interactions taken to resolve the issue,
+ *       and the outcome. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Amazon Connect Cases</a> in the
+ *           <i>Amazon Connect Administrator Guide</i>.</p>
  */
 export class ConnectCases extends ConnectCasesClient {
   /**
@@ -174,8 +178,23 @@ export class ConnectCases extends ConnectCasesClient {
    * <p>Creates a case in the specified Cases domain. Case system and custom fields are taken
    *       as an array id/value pairs with a declared data types.</p>
    *          <note>
-   *             <p>
-   *                <code>customer_id</code> is a required field when creating a case.</p>
+   *             <p>The following fields are required when creating a case:</p>
+   *
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *                      <code>customer_id</code> - You must provide the full customer profile ARN in this
+   *             format: <code>arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles
+   *               domain name/profiles/profile ID</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>title</code>
+   *                   </p>
+   *                </li>
+   *             </ul>
+   *
    *          </note>
    */
   public createCase(args: CreateCaseCommandInput, options?: __HttpHandlerOptions): Promise<CreateCaseCommandOutput>;
@@ -208,7 +227,9 @@ export class ConnectCases extends ConnectCasesClient {
    *          <important>
    *             <p>This will not associate your connect instance to Cases domain. Instead, use the
    *           Amazon Connect
-   *         <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html">CreateIntegrationAssociation</a> API.</p>
+   *         <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html">CreateIntegrationAssociation</a> API. You need specific IAM
+   *         permissions to successfully associate the Cases domain. For more information, see
+   *           <a href="https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam">Onboard to Cases</a>.</p>
    *          </important>
    */
   public createDomain(
@@ -373,6 +394,35 @@ export class ConnectCases extends ConnectCasesClient {
     cb?: (err: any, data?: CreateTemplateCommandOutput) => void
   ): Promise<CreateTemplateCommandOutput> | void {
     const command = new CreateTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a domain.</p>
+   */
+  public deleteDomain(
+    args: DeleteDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainCommandOutput>;
+  public deleteDomain(args: DeleteDomainCommandInput, cb: (err: any, data?: DeleteDomainCommandOutput) => void): void;
+  public deleteDomain(
+    args: DeleteDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): void;
+  public deleteDomain(
+    args: DeleteDomainCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): Promise<DeleteDomainCommandOutput> | void {
+    const command = new DeleteDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -763,6 +813,11 @@ export class ConnectCases extends ConnectCasesClient {
   /**
    * <p>Searches for cases within their associated Cases domain. Search results are returned
    *       as a paginated list of abridged case documents.</p>
+   *          <note>
+   *             <p>For <code>customer_id</code> you must provide the full customer profile ARN in this
+   *         format: <code> arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain
+   *           name/profiles/profile ID</code>. </p>
+   *          </note>
    */
   public searchCases(args: SearchCasesCommandInput, options?: __HttpHandlerOptions): Promise<SearchCasesCommandOutput>;
   public searchCases(args: SearchCasesCommandInput, cb: (err: any, data?: SearchCasesCommandOutput) => void): void;

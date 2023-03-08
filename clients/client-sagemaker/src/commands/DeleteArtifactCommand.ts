@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteArtifactCommand}.
+ */
 export interface DeleteArtifactCommandInput extends DeleteArtifactRequest {}
+/**
+ * The output of {@link DeleteArtifactCommand}.
+ */
 export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __MetadataBearer {}
 
 /**

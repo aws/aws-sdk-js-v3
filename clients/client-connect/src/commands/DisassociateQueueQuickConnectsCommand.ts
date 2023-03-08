@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DisassociateQueueQuickConnectsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateQueueQuickConnectsCommand}.
+ */
 export interface DisassociateQueueQuickConnectsCommandInput extends DisassociateQueueQuickConnectsRequest {}
+/**
+ * The output of {@link DisassociateQueueQuickConnectsCommand}.
+ */
 export interface DisassociateQueueQuickConnectsCommandOutput extends __MetadataBearer {}
 
 /**

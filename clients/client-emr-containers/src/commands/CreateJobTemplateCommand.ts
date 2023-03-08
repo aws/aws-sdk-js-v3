@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateJobTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateJobTemplateCommand}.
+ */
 export interface CreateJobTemplateCommandInput extends CreateJobTemplateRequest {}
+/**
+ * The output of {@link CreateJobTemplateCommand}.
+ */
 export interface CreateJobTemplateCommandOutput extends CreateJobTemplateResponse, __MetadataBearer {}
 
 /**

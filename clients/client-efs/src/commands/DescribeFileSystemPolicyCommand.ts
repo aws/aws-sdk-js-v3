@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeFileSystemPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeFileSystemPolicyCommand}.
+ */
 export interface DescribeFileSystemPolicyCommandInput extends DescribeFileSystemPolicyRequest {}
+/**
+ * The output of {@link DescribeFileSystemPolicyCommand}.
+ */
 export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyDescription, __MetadataBearer {}
 
 /**

@@ -18,15 +18,26 @@ import { SearchRequest, SearchRequestFilterSensitiveLog } from "../models/models
 import { deserializeAws_json1_1SearchCommand, serializeAws_json1_1SearchCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link SearchCommand}.
+ */
 export interface SearchCommandInput extends SearchRequest {}
+/**
+ * The output of {@link SearchCommand}.
+ */
 export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
 
 /**
- * <p>Finds Amazon SageMaker resources that match a search query. Matching resources are returned
+ * <p>Finds SageMaker resources that match a search query. Matching resources are returned
  *       as a list of <code>SearchRecord</code> objects in the response. You can sort the search
  *       results by any resource property in a ascending or descending order.</p>
  *          <p>You can query against the following value types: numeric, text, Boolean, and
  *       timestamp.</p>
+ *          <note>
+ *             <p>The Search API may provide access to otherwise restricted data. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html">Amazon SageMaker
+ *       API Permissions: Actions, Permissions, and Resources Reference</a> for more
+ *         information.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

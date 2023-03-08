@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateMeshCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateMeshCommand}.
+ */
 export interface UpdateMeshCommandInput extends UpdateMeshInput {}
+/**
+ * The output of {@link UpdateMeshCommand}.
+ */
 export interface UpdateMeshCommandOutput extends UpdateMeshOutput, __MetadataBearer {}
 
 /**

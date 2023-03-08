@@ -12,6 +12,11 @@ import {
   ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand";
 import {
+  BatchStartRecommendationsCommand,
+  BatchStartRecommendationsCommandInput,
+  BatchStartRecommendationsCommandOutput,
+} from "./commands/BatchStartRecommendationsCommand";
+import {
   CancelReplicationTaskAssessmentRunCommand,
   CancelReplicationTaskAssessmentRunCommandInput,
   CancelReplicationTaskAssessmentRunCommandOutput,
@@ -182,6 +187,16 @@ import {
   DescribePendingMaintenanceActionsCommandOutput,
 } from "./commands/DescribePendingMaintenanceActionsCommand";
 import {
+  DescribeRecommendationLimitationsCommand,
+  DescribeRecommendationLimitationsCommandInput,
+  DescribeRecommendationLimitationsCommandOutput,
+} from "./commands/DescribeRecommendationLimitationsCommand";
+import {
+  DescribeRecommendationsCommand,
+  DescribeRecommendationsCommandInput,
+  DescribeRecommendationsCommandOutput,
+} from "./commands/DescribeRecommendationsCommand";
+import {
   DescribeRefreshSchemasStatusCommand,
   DescribeRefreshSchemasStatusCommandInput,
   DescribeRefreshSchemasStatusCommandOutput,
@@ -297,6 +312,11 @@ import {
   RunFleetAdvisorLsaAnalysisCommandOutput,
 } from "./commands/RunFleetAdvisorLsaAnalysisCommand";
 import {
+  StartRecommendationsCommand,
+  StartRecommendationsCommandInput,
+  StartRecommendationsCommandOutput,
+} from "./commands/StartRecommendationsCommand";
+import {
   StartReplicationTaskAssessmentCommand,
   StartReplicationTaskAssessmentCommandInput,
   StartReplicationTaskAssessmentCommandOutput,
@@ -343,7 +363,7 @@ import { DatabaseMigrationServiceClient } from "./DatabaseMigrationServiceClient
 export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   /**
    * <p>Adds metadata tags to an DMS resource, including replication instance, endpoint,
-   *          security group, and migration task. These tags can also be used with cost allocation
+   *          subnet group, and migration task. These tags can also be used with cost allocation
    *          reporting to track cost associated with DMS resources, or used in a Condition statement in
    *          an IAM policy for DMS. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
    *                <code>Tag</code>
@@ -400,6 +420,43 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     cb?: (err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void
   ): Promise<ApplyPendingMaintenanceActionCommandOutput> | void {
     const command = new ApplyPendingMaintenanceActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts the analysis of up to 20 source databases to recommend target engines for each
+   *             source database. This is a batch version of <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartRecommendations.html">StartRecommendations</a>.</p>
+   *          <p>The result of analysis of each source database is reported individually in the
+   *             response. Because the batch request can result in a combination of successful and
+   *             unsuccessful actions, you should check for batch errors even when the call returns an
+   *             HTTP status code of <code>200</code>.</p>
+   */
+  public batchStartRecommendations(
+    args: BatchStartRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchStartRecommendationsCommandOutput>;
+  public batchStartRecommendations(
+    args: BatchStartRecommendationsCommandInput,
+    cb: (err: any, data?: BatchStartRecommendationsCommandOutput) => void
+  ): void;
+  public batchStartRecommendations(
+    args: BatchStartRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchStartRecommendationsCommandOutput) => void
+  ): void;
+  public batchStartRecommendations(
+    args: BatchStartRecommendationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchStartRecommendationsCommandOutput) => void),
+    cb?: (err: any, data?: BatchStartRecommendationsCommandOutput) => void
+  ): Promise<BatchStartRecommendationsCommandOutput> | void {
+    const command = new BatchStartRecommendationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1421,9 +1478,8 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   * <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your
-   *             Fleet Advisor collectors.
-   *         </p>
+   * <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your Fleet
+   *             Advisor collectors. </p>
    */
   public describeFleetAdvisorLsaAnalysis(
     args: DescribeFleetAdvisorLsaAnalysisCommandInput,
@@ -1578,6 +1634,72 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     cb?: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): Promise<DescribePendingMaintenanceActionsCommandOutput> | void {
     const command = new DescribePendingMaintenanceActionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a paginated list of limitations for recommendations of target Amazon Web Services
+   *             engines.</p>
+   */
+  public describeRecommendationLimitations(
+    args: DescribeRecommendationLimitationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRecommendationLimitationsCommandOutput>;
+  public describeRecommendationLimitations(
+    args: DescribeRecommendationLimitationsCommandInput,
+    cb: (err: any, data?: DescribeRecommendationLimitationsCommandOutput) => void
+  ): void;
+  public describeRecommendationLimitations(
+    args: DescribeRecommendationLimitationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRecommendationLimitationsCommandOutput) => void
+  ): void;
+  public describeRecommendationLimitations(
+    args: DescribeRecommendationLimitationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRecommendationLimitationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRecommendationLimitationsCommandOutput) => void
+  ): Promise<DescribeRecommendationLimitationsCommandOutput> | void {
+    const command = new DescribeRecommendationLimitationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a paginated list of target engine recommendations for your source
+   *             databases.</p>
+   */
+  public describeRecommendations(
+    args: DescribeRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRecommendationsCommandOutput>;
+  public describeRecommendations(
+    args: DescribeRecommendationsCommandInput,
+    cb: (err: any, data?: DescribeRecommendationsCommandOutput) => void
+  ): void;
+  public describeRecommendations(
+    args: DescribeRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRecommendationsCommandOutput) => void
+  ): void;
+  public describeRecommendations(
+    args: DescribeRecommendationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRecommendationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRecommendationsCommandOutput) => void
+  ): Promise<DescribeRecommendationsCommandOutput> | void {
+    const command = new DescribeRecommendationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1869,7 +1991,6 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
 
   /**
    * <p>Returns information about the schema for the specified endpoint.</p>
-   *
    *          <p></p>
    */
   public describeSchemas(
@@ -1971,7 +2092,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
 
   /**
    * <p>Lists all metadata tags attached to an DMS resource, including
-   *          replication instance, endpoint, security group, and migration task.
+   *          replication instance, endpoint, subnet group, and migration task.
    *          For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
    *                <code>Tag</code>
    *             </a> data type description.</p>
@@ -2080,7 +2201,6 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
    * <p>Modifies the replication instance to apply new settings. You can change one or more
    *          parameters by specifying these parameters and the new values in the request.</p>
    *          <p>Some settings are applied during the maintenance window.</p>
-   *
    *          <p></p>
    */
   public modifyReplicationInstance(
@@ -2314,7 +2434,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
 
   /**
    * <p>Removes metadata tags from an DMS resource, including replication instance,
-   *          endpoint, security group, and migration task. For more information, see
+   *          endpoint, subnet group, and migration task. For more information, see
    *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
    *                <code>Tag</code>
    *             </a>
@@ -2371,6 +2491,40 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     cb?: (err: any, data?: RunFleetAdvisorLsaAnalysisCommandOutput) => void
   ): Promise<RunFleetAdvisorLsaAnalysisCommandOutput> | void {
     const command = new RunFleetAdvisorLsaAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts the analysis of your source database to provide recommendations of target
+   *             engines.</p>
+   *          <p>You can create recommendations for multiple source databases using <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_BatchStartRecommendations.html">BatchStartRecommendations</a>.</p>
+   */
+  public startRecommendations(
+    args: StartRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRecommendationsCommandOutput>;
+  public startRecommendations(
+    args: StartRecommendationsCommandInput,
+    cb: (err: any, data?: StartRecommendationsCommandOutput) => void
+  ): void;
+  public startRecommendations(
+    args: StartRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartRecommendationsCommandOutput) => void
+  ): void;
+  public startRecommendations(
+    args: StartRecommendationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartRecommendationsCommandOutput) => void),
+    cb?: (err: any, data?: StartRecommendationsCommandOutput) => void
+  ): Promise<StartRecommendationsCommandOutput> | void {
+    const command = new StartRecommendationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

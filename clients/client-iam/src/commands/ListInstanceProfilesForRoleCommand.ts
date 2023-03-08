@@ -25,7 +25,13 @@ import {
   serializeAws_queryListInstanceProfilesForRoleCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListInstanceProfilesForRoleCommand}.
+ */
 export interface ListInstanceProfilesForRoleCommandInput extends ListInstanceProfilesForRoleRequest {}
+/**
+ * The output of {@link ListInstanceProfilesForRoleCommand}.
+ */
 export interface ListInstanceProfilesForRoleCommandOutput
   extends ListInstanceProfilesForRoleResponse,
     __MetadataBearer {}

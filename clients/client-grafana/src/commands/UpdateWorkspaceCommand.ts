@@ -25,16 +25,22 @@ import {
   serializeAws_restJson1UpdateWorkspaceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateWorkspaceCommand}.
+ */
 export interface UpdateWorkspaceCommandInput extends UpdateWorkspaceRequest {}
+/**
+ * The output of {@link UpdateWorkspaceCommand}.
+ */
 export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing Amazon Managed Grafana workspace. If you use this operation and omit any
- *             optional parameters, the existing values of those parameters are not changed.</p>
- *          <p>To modify the user authentication methods that the workspace uses, such as SAML or IAM Identity Center,
- *             use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html">UpdateWorkspaceAuthentication</a>.</p>
- *          <p>To modify which users in the workspace have the <code>Admin</code> and <code>Editor</code> Grafana roles,
- *             use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html">UpdatePermissions</a>.</p>
+ * <p>Modifies an existing Amazon Managed Grafana workspace. If you use this operation and omit
+ *             any optional parameters, the existing values of those parameters are not changed.</p>
+ *          <p>To modify the user authentication methods that the workspace uses, such as SAML or
+ *                 IAM Identity Center, use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html">UpdateWorkspaceAuthentication</a>.</p>
+ *          <p>To modify which users in the workspace have the <code>Admin</code> and
+ *                 <code>Editor</code> Grafana roles, use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html">UpdatePermissions</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

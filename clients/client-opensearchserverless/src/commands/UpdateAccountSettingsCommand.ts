@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0UpdateAccountSettingsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateAccountSettingsCommand}.
+ */
 export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettingsRequest {}
+/**
+ * The output of {@link UpdateAccountSettingsCommand}.
+ */
 export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsResponse, __MetadataBearer {}
 
 /**

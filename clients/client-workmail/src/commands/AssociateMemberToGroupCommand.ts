@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link AssociateMemberToGroupCommand}.
+ */
 export interface AssociateMemberToGroupCommandInput extends AssociateMemberToGroupRequest {}
+/**
+ * The output of {@link AssociateMemberToGroupCommand}.
+ */
 export interface AssociateMemberToGroupCommandOutput extends AssociateMemberToGroupResponse, __MetadataBearer {}
 
 /**

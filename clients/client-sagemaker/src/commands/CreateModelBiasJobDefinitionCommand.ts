@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link CreateModelBiasJobDefinitionCommand}.
+ */
 export interface CreateModelBiasJobDefinitionCommandInput extends CreateModelBiasJobDefinitionRequest {}
+/**
+ * The output of {@link CreateModelBiasJobDefinitionCommand}.
+ */
 export interface CreateModelBiasJobDefinitionCommandOutput
   extends CreateModelBiasJobDefinitionResponse,
     __MetadataBearer {}

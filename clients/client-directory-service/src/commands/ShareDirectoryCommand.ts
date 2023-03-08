@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ShareDirectoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ShareDirectoryCommand}.
+ */
 export interface ShareDirectoryCommandInput extends ShareDirectoryRequest {}
+/**
+ * The output of {@link ShareDirectoryCommand}.
+ */
 export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __MetadataBearer {}
 
 /**

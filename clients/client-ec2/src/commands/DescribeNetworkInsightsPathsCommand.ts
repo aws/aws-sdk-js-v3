@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeNetworkInsightsPathsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeNetworkInsightsPathsCommand}.
+ */
 export interface DescribeNetworkInsightsPathsCommandInput extends DescribeNetworkInsightsPathsRequest {}
+/**
+ * The output of {@link DescribeNetworkInsightsPathsCommand}.
+ */
 export interface DescribeNetworkInsightsPathsCommandOutput
   extends DescribeNetworkInsightsPathsResult,
     __MetadataBearer {}

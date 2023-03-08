@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreatePrefetchScheduleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreatePrefetchScheduleCommand}.
+ */
 export interface CreatePrefetchScheduleCommandInput extends CreatePrefetchScheduleRequest {}
+/**
+ * The output of {@link CreatePrefetchScheduleCommand}.
+ */
 export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchScheduleResponse, __MetadataBearer {}
 
 /**

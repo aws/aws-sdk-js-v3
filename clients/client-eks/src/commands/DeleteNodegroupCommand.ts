@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteNodegroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteNodegroupCommand}.
+ */
 export interface DeleteNodegroupCommandInput extends DeleteNodegroupRequest {}
+/**
+ * The output of {@link DeleteNodegroupCommand}.
+ */
 export interface DeleteNodegroupCommandOutput extends DeleteNodegroupResponse, __MetadataBearer {}
 
 /**

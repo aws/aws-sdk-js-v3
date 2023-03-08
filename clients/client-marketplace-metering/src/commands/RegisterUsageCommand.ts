@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1RegisterUsageCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterUsageCommand}.
+ */
 export interface RegisterUsageCommandInput extends RegisterUsageRequest {}
+/**
+ * The output of {@link RegisterUsageCommand}.
+ */
 export interface RegisterUsageCommandOutput extends RegisterUsageResult, __MetadataBearer {}
 
 /**

@@ -26,7 +26,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1DetectPHICommand, serializeAws_json1_1DetectPHICommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DetectPHICommand}.
+ */
 export interface DetectPHICommandInput extends DetectPHIRequest {}
+/**
+ * The output of {@link DetectPHICommand}.
+ */
 export interface DetectPHICommandOutput extends DetectPHIResponse, __MetadataBearer {}
 
 /**

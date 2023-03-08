@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteResolverCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteResolverCommand}.
+ */
 export interface DeleteResolverCommandInput extends DeleteResolverRequest {}
+/**
+ * The output of {@link DeleteResolverCommand}.
+ */
 export interface DeleteResolverCommandOutput extends DeleteResolverResponse, __MetadataBearer {}
 
 /**

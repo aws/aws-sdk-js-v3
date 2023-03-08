@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CreateIntentVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateIntentVersionCommand}.
+ */
 export interface CreateIntentVersionCommandInput extends CreateIntentVersionRequest {}
+/**
+ * The output of {@link CreateIntentVersionCommand}.
+ */
 export interface CreateIntentVersionCommandOutput extends CreateIntentVersionResponse, __MetadataBearer {}
 
 /**

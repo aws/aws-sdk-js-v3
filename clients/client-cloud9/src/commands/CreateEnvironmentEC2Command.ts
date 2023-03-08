@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateEnvironmentEC2Command,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateEnvironmentEC2Command}.
+ */
 export interface CreateEnvironmentEC2CommandInput extends CreateEnvironmentEC2Request {}
+/**
+ * The output of {@link CreateEnvironmentEC2Command}.
+ */
 export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2Result, __MetadataBearer {}
 
 /**

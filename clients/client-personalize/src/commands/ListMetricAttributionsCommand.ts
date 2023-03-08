@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListMetricAttributionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListMetricAttributionsCommand}.
+ */
 export interface ListMetricAttributionsCommandInput extends ListMetricAttributionsRequest {}
+/**
+ * The output of {@link ListMetricAttributionsCommand}.
+ */
 export interface ListMetricAttributionsCommandOutput extends ListMetricAttributionsResponse, __MetadataBearer {}
 
 /**

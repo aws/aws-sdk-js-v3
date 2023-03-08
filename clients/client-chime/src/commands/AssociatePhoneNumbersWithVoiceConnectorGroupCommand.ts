@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociatePhoneNumbersWithVoiceConnectorGroupCommand}.
+ */
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput
   extends AssociatePhoneNumbersWithVoiceConnectorGroupRequest {}
+/**
+ * The output of {@link AssociatePhoneNumbersWithVoiceConnectorGroupCommand}.
+ */
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
   extends AssociatePhoneNumbersWithVoiceConnectorGroupResponse,
     __MetadataBearer {}

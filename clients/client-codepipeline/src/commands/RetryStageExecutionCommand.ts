@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RetryStageExecutionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RetryStageExecutionCommand}.
+ */
 export interface RetryStageExecutionCommandInput extends RetryStageExecutionInput {}
+/**
+ * The output of {@link RetryStageExecutionCommand}.
+ */
 export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RegisterOrganizationDelegatedAdminCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterOrganizationDelegatedAdminCommand}.
+ */
 export interface RegisterOrganizationDelegatedAdminCommandInput extends RegisterOrganizationDelegatedAdminRequest {}
+/**
+ * The output of {@link RegisterOrganizationDelegatedAdminCommand}.
+ */
 export interface RegisterOrganizationDelegatedAdminCommandOutput
   extends RegisterOrganizationDelegatedAdminResponse,
     __MetadataBearer {}

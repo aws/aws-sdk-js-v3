@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateEventActionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateEventActionCommand}.
+ */
 export interface CreateEventActionCommandInput extends CreateEventActionRequest {}
+/**
+ * The output of {@link CreateEventActionCommand}.
+ */
 export interface CreateEventActionCommandOutput extends CreateEventActionResponse, __MetadataBearer {}
 
 /**

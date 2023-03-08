@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartTopicsDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartTopicsDetectionJobCommand}.
+ */
 export interface StartTopicsDetectionJobCommandInput extends StartTopicsDetectionJobRequest {}
+/**
+ * The output of {@link StartTopicsDetectionJobCommand}.
+ */
 export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetectionJobResponse, __MetadataBearer {}
 
 /**

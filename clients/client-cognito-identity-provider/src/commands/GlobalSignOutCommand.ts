@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1GlobalSignOutCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GlobalSignOutCommand}.
+ */
 export interface GlobalSignOutCommandInput extends GlobalSignOutRequest {}
+/**
+ * The output of {@link GlobalSignOutCommand}.
+ */
 export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __MetadataBearer {}
 
 /**

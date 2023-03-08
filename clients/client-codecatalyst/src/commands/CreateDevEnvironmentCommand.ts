@@ -25,12 +25,22 @@ import {
   serializeAws_restJson1CreateDevEnvironmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateDevEnvironmentCommand}.
+ */
 export interface CreateDevEnvironmentCommandInput extends CreateDevEnvironmentRequest {}
+/**
+ * The output of {@link CreateDevEnvironmentCommand}.
+ */
 export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development Dev Environment that you can use to quickly work on the code stored in the source repositories of your project.
- *       By default, a Dev Environment is configured to have a 2 core processor, 4GB of RAM, and 16GB of persistent storage. </p>
+ *       </p>
+ *          <note>
+ *             <p>When created in the Amazon CodeCatalyst console, by default a Dev Environment is configured to have a 2 core processor, 4GB of RAM, and 16GB of persistent storage. None of these
+ *       defaults apply to a Dev Environment created programmatically.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

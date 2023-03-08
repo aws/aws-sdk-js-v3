@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DeleteScalingPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteScalingPolicyCommand}.
+ */
 export interface DeleteScalingPolicyCommandInput extends DeleteScalingPolicyRequest {}
+/**
+ * The output of {@link DeleteScalingPolicyCommand}.
+ */
 export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyResponse, __MetadataBearer {}
 
 /**

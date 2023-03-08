@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1GetUICustomizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetUICustomizationCommand}.
+ */
 export interface GetUICustomizationCommandInput extends GetUICustomizationRequest {}
+/**
+ * The output of {@link GetUICustomizationCommand}.
+ */
 export interface GetUICustomizationCommandOutput extends GetUICustomizationResponse, __MetadataBearer {}
 
 /**

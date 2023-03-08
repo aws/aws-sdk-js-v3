@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeReservedInstancesOfferingsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeReservedInstancesOfferingsCommand}.
+ */
 export interface DescribeReservedInstancesOfferingsCommandInput extends DescribeReservedInstancesOfferingsRequest {}
+/**
+ * The output of {@link DescribeReservedInstancesOfferingsCommand}.
+ */
 export interface DescribeReservedInstancesOfferingsCommandOutput
   extends DescribeReservedInstancesOfferingsResult,
     __MetadataBearer {}

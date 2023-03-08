@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchDetectSyntaxCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchDetectSyntaxCommand}.
+ */
 export interface BatchDetectSyntaxCommandInput extends BatchDetectSyntaxRequest {}
+/**
+ * The output of {@link BatchDetectSyntaxCommand}.
+ */
 export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxResponse, __MetadataBearer {}
 
 /**

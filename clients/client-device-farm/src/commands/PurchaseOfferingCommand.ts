@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PurchaseOfferingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PurchaseOfferingCommand}.
+ */
 export interface PurchaseOfferingCommandInput extends PurchaseOfferingRequest {}
+/**
+ * The output of {@link PurchaseOfferingCommand}.
+ */
 export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, __MetadataBearer {}
 
 /**

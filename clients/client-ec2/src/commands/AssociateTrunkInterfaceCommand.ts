@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AssociateTrunkInterfaceCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AssociateTrunkInterfaceCommand}.
+ */
 export interface AssociateTrunkInterfaceCommandInput extends AssociateTrunkInterfaceRequest {}
+/**
+ * The output of {@link AssociateTrunkInterfaceCommand}.
+ */
 export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInterfaceResult, __MetadataBearer {}
 
 /**

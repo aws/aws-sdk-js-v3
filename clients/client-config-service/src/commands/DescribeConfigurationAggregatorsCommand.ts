@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeConfigurationAggregatorsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeConfigurationAggregatorsCommand}.
+ */
 export interface DescribeConfigurationAggregatorsCommandInput extends DescribeConfigurationAggregatorsRequest {}
+/**
+ * The output of {@link DescribeConfigurationAggregatorsCommand}.
+ */
 export interface DescribeConfigurationAggregatorsCommandOutput
   extends DescribeConfigurationAggregatorsResponse,
     __MetadataBearer {}

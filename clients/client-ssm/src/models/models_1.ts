@@ -866,8 +866,7 @@ export interface SessionFilter {
    *                <p>Target: Specify a managed node to which session connections have been made.</p>
    *             </li>
    *             <li>
-   *                <p>Owner: Specify an Amazon Web Services user account to see a list of sessions started by that
-   *      user.</p>
+   *                <p>Owner: Specify an Amazon Web Services user to see a list of sessions started by that user.</p>
    *             </li>
    *             <li>
    *                <p>Status: Specify a valid session status to see a list of all sessions with that status.
@@ -990,7 +989,7 @@ export interface Session {
   DocumentName?: string;
 
   /**
-   * <p>The ID of the Amazon Web Services user account that started the session.</p>
+   * <p>The ID of the Amazon Web Services user that started the session.</p>
    */
   Owner?: string;
 
@@ -3810,6 +3809,11 @@ export interface GetServiceSettingRequest {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>/ssm/managed-instance/default-ec2-instance-management-role</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>/ssm/automation/customer-script-log-destination</code>
    *                </p>
    *             </li>
@@ -5775,7 +5779,7 @@ export interface DocumentIdentifier {
   DisplayName?: string;
 
   /**
-   * <p>The Amazon Web Services user account that created the document.</p>
+   * <p>The Amazon Web Services user that created the document.</p>
    */
   Owner?: string;
 
@@ -6580,8 +6584,8 @@ export interface ListTagsForResourceResult {
 }
 
 /**
- * <p>The document can't be shared with more Amazon Web Services user accounts. You can specify a maximum of
- *    20 accounts per API operation to share a private document.</p>
+ * <p>The document can't be shared with more Amazon Web Services accounts. You can specify a maximum of 20
+ *    accounts per API operation to share a private document.</p>
  *          <p>By default, you can share a private document with a maximum of 1,000 accounts and publicly
  *    share up to five documents.</p>
  *          <p>If you need to increase the quota for privately or publicly shared Systems Manager documents, contact
@@ -6618,16 +6622,16 @@ export interface ModifyDocumentPermissionRequest {
   PermissionType: DocumentPermissionType | string | undefined;
 
   /**
-   * <p>The Amazon Web Services user accounts that should have access to the document. The account IDs can
-   *    either be a group of account IDs or <i>All</i>.</p>
+   * <p>The Amazon Web Services users that should have access to the document. The account IDs can either be a
+   *    group of account IDs or <i>All</i>.</p>
    */
   AccountIdsToAdd?: string[];
 
   /**
-   * <p>The Amazon Web Services user accounts that should no longer have access to the document. The Amazon Web Services
-   *    user account can either be a group of account IDs or <i>All</i>. This action has a
-   *    higher priority than <i>AccountIdsToAdd</i>. If you specify an account ID to add
-   *    and the same ID to remove, the system removes access to the document.</p>
+   * <p>The Amazon Web Services users that should no longer have access to the document. The Amazon Web Services user
+   *    can either be a group of account IDs or <i>All</i>. This action has a higher
+   *    priority than <i>AccountIdsToAdd</i>. If you specify an ID to add and the same ID
+   *    to remove, the system removes access to the document.</p>
    */
   AccountIdsToRemove?: string[];
 
@@ -7334,16 +7338,10 @@ export interface PutParameterRequest {
 
   /**
    * <p>The Key Management Service (KMS) ID that you want to use to encrypt a
-   *    parameter. Either the default KMS key automatically assigned to your Amazon Web Services account
-   *    or a custom key. Required for parameters that use the <code>SecureString</code>
-   *    data type.</p>
+   *    parameter. Use a custom key for better security. Required for parameters that use the <code>SecureString</code> data type.</p>
    *          <p>If you don't specify a key ID, the system uses the default key associated with your
-   *    Amazon Web Services account.</p>
+   *    Amazon Web Services account which is not as secure as using a custom key.</p>
    *          <ul>
-   *             <li>
-   *                <p>To use your default KMS key, choose the <code>SecureString</code> data type, and do <i>not</i> specify the <code>Key ID</code> when you create the parameter. The system automatically populates
-   *       <code>Key ID</code> with your default KMS key.</p>
-   *             </li>
    *             <li>
    *                <p>To use a custom KMS key, choose the <code>SecureString</code>
    *      data type with the <code>Key ID</code> parameter.</p>
@@ -7500,8 +7498,21 @@ export interface PutParameterRequest {
    *          <p>When you create a <code>String</code> parameter and specify <code>aws:ec2:image</code>,
    *    Amazon Web Services Systems Manager validates the parameter value is in the required format, such as
    *     <code>ami-12345abcdeEXAMPLE</code>, and that the specified AMI is available in your
-   *    Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html">Native parameter support
-   *     for Amazon Machine Image (AMI) IDs</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *    Amazon Web Services account.</p>
+   *          <note>
+   *             <p>If the action is successful, the service sends back an HTTP 200 response which indicates a
+   *     successful <code>PutParameter</code> call for all cases except for data type
+   *      <code>aws:ec2:image</code>. If you call <code>PutParameter</code> with
+   *      <code>aws:ec2:image</code> data type, a successful HTTP 200 response does not guarantee that
+   *     your parameter was successfully created or updated. The <code>aws:ec2:image</code> value is
+   *     validated asynchronously, and the <code>PutParameter</code> call returns before the validation
+   *     is complete. If you submit an invalid AMI value, the PutParameter operation will return success,
+   *     but the asynchronous validation will fail and the parameter will not be created or updated. To
+   *     monitor whether your <code>aws:ec2:image</code> parameters are created successfully,  see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-cwe.html">Setting
+   *      up notifications or trigger actions based on Parameter Store events</a>.  For more
+   *     information about  AMI format validation , see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html">Native parameter
+   *      support for Amazon Machine Image (AMI) IDs</a>. </p>
+   *          </note>
    */
   DataType?: string;
 }

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDeleteEventsByEventTypeStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDeleteEventsByEventTypeStatusCommand}.
+ */
 export interface GetDeleteEventsByEventTypeStatusCommandInput extends GetDeleteEventsByEventTypeStatusRequest {}
+/**
+ * The output of {@link GetDeleteEventsByEventTypeStatusCommand}.
+ */
 export interface GetDeleteEventsByEventTypeStatusCommandOutput
   extends GetDeleteEventsByEventTypeStatusResult,
     __MetadataBearer {}

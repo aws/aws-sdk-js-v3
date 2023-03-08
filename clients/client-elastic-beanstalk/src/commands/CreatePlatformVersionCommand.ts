@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreatePlatformVersionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreatePlatformVersionCommand}.
+ */
 export interface CreatePlatformVersionCommandInput extends CreatePlatformVersionRequest {}
+/**
+ * The output of {@link CreatePlatformVersionCommand}.
+ */
 export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersionResult, __MetadataBearer {}
 
 /**

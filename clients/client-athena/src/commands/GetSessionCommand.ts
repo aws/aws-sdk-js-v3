@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetSessionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetSessionCommand}.
+ */
 export interface GetSessionCommandInput extends GetSessionRequest {}
+/**
+ * The output of {@link GetSessionCommand}.
+ */
 export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataBearer {}
 
 /**

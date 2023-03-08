@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetBucketsAggregationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBucketsAggregationCommand}.
+ */
 export interface GetBucketsAggregationCommandInput extends GetBucketsAggregationRequest {}
+/**
+ * The output of {@link GetBucketsAggregationCommand}.
+ */
 export interface GetBucketsAggregationCommandOutput extends GetBucketsAggregationResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutConfigurationSetReputationOptionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutConfigurationSetReputationOptionsCommand}.
+ */
 export interface PutConfigurationSetReputationOptionsCommandInput extends PutConfigurationSetReputationOptionsRequest {}
+/**
+ * The output of {@link PutConfigurationSetReputationOptionsCommand}.
+ */
 export interface PutConfigurationSetReputationOptionsCommandOutput
   extends PutConfigurationSetReputationOptionsResponse,
     __MetadataBearer {}

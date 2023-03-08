@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdatePullRequestTitleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdatePullRequestTitleCommand}.
+ */
 export interface UpdatePullRequestTitleCommandInput extends UpdatePullRequestTitleInput {}
+/**
+ * The output of {@link UpdatePullRequestTitleCommand}.
+ */
 export interface UpdatePullRequestTitleCommandOutput extends UpdatePullRequestTitleOutput, __MetadataBearer {}
 
 /**

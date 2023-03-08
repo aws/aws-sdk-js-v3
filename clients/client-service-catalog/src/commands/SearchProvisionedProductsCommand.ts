@@ -25,21 +25,17 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link SearchProvisionedProductsCommand}.
+ */
 export interface SearchProvisionedProductsCommandInput extends SearchProvisionedProductsInput {}
+/**
+ * The output of {@link SearchProvisionedProductsCommand}.
+ */
 export interface SearchProvisionedProductsCommandOutput extends SearchProvisionedProductsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about the provisioned products that meet the specified criteria.</p>
- *
- *          <note>
- *             <p>To ensure a complete list of provisioned products and remove duplicate products, use
- *                <code>sort-by createdTime</code>. </p>
- *             <p>Here is a CLI example: <code> </code>
- *             </p>
- *             <p>
- *                <code>aws servicecatalog search-provisioned-products --sort-by createdTime </code>
- *             </p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

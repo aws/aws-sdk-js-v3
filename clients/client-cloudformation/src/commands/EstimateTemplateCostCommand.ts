@@ -25,7 +25,13 @@ import {
   serializeAws_queryEstimateTemplateCostCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link EstimateTemplateCostCommand}.
+ */
 export interface EstimateTemplateCostCommandInput extends EstimateTemplateCostInput {}
+/**
+ * The output of {@link EstimateTemplateCostCommand}.
+ */
 export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostOutput, __MetadataBearer {}
 
 /**

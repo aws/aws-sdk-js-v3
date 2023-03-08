@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetBlueprintCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetBlueprintCommand}.
+ */
 export interface GetBlueprintCommandInput extends GetBlueprintRequest {}
+/**
+ * The output of {@link GetBlueprintCommand}.
+ */
 export interface GetBlueprintCommandOutput extends GetBlueprintResponse, __MetadataBearer {}
 
 /**

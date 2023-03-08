@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1ListTapesCommand, serializeAws_json1_1ListTapesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link ListTapesCommand}.
+ */
 export interface ListTapesCommandInput extends ListTapesInput {}
+/**
+ * The output of {@link ListTapesCommand}.
+ */
 export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBearer {}
 
 /**

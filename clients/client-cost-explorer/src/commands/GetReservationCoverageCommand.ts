@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetReservationCoverageCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetReservationCoverageCommand}.
+ */
 export interface GetReservationCoverageCommandInput extends GetReservationCoverageRequest {}
+/**
+ * The output of {@link GetReservationCoverageCommand}.
+ */
 export interface GetReservationCoverageCommandOutput extends GetReservationCoverageResponse, __MetadataBearer {}
 
 /**

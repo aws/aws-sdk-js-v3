@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetEmailTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetEmailTemplateCommand}.
+ */
 export interface GetEmailTemplateCommandInput extends GetEmailTemplateRequest {}
+/**
+ * The output of {@link GetEmailTemplateCommand}.
+ */
 export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse, __MetadataBearer {}
 
 /**

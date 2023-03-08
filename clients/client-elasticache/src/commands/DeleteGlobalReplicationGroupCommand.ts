@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteGlobalReplicationGroupCommand}.
+ */
 export interface DeleteGlobalReplicationGroupCommandInput extends DeleteGlobalReplicationGroupMessage {}
+/**
+ * The output of {@link DeleteGlobalReplicationGroupCommand}.
+ */
 export interface DeleteGlobalReplicationGroupCommandOutput
   extends DeleteGlobalReplicationGroupResult,
     __MetadataBearer {}

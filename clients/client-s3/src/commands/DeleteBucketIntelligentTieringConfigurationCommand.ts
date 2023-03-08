@@ -23,8 +23,14 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link DeleteBucketIntelligentTieringConfigurationCommand}.
+ */
 export interface DeleteBucketIntelligentTieringConfigurationCommandInput
   extends DeleteBucketIntelligentTieringConfigurationRequest {}
+/**
+ * The output of {@link DeleteBucketIntelligentTieringConfigurationCommand}.
+ */
 export interface DeleteBucketIntelligentTieringConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

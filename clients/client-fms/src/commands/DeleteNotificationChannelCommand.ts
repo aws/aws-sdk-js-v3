@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DeleteNotificationChannelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteNotificationChannelCommand}.
+ */
 export interface DeleteNotificationChannelCommandInput extends DeleteNotificationChannelRequest {}
+/**
+ * The output of {@link DeleteNotificationChannelCommand}.
+ */
 export interface DeleteNotificationChannelCommandOutput extends __MetadataBearer {}
 
 /**

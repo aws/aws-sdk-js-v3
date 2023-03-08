@@ -6,7 +6,6 @@ import {
   ListPackagingGroupsCommandInput,
   ListPackagingGroupsCommandOutput,
 } from "../commands/ListPackagingGroupsCommand";
-import { MediaPackageVod } from "../MediaPackageVod";
 import { MediaPackageVodClient } from "../MediaPackageVodClient";
 import { MediaPackageVodPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPackagingGroupsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: MediaPackageVod,
-  input: ListPackagingGroupsCommandInput,
-  ...args: any
-): Promise<ListPackagingGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPackagingGroups(input, ...args);
-};
 export async function* paginateListPackagingGroups(
   config: MediaPackageVodPaginationConfiguration,
   input: ListPackagingGroupsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListPackagingGroups(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MediaPackageVod) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MediaPackageVodClient) {
+    if (config.client instanceof MediaPackageVodClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MediaPackageVod | MediaPackageVodClient");

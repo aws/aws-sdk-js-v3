@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeAppBlocksCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeAppBlocksCommand}.
+ */
 export interface DescribeAppBlocksCommandInput extends DescribeAppBlocksRequest {}
+/**
+ * The output of {@link DescribeAppBlocksCommand}.
+ */
 export interface DescribeAppBlocksCommandOutput extends DescribeAppBlocksResult, __MetadataBearer {}
 
 /**

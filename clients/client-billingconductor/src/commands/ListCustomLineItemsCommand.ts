@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListCustomLineItemsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListCustomLineItemsCommand}.
+ */
 export interface ListCustomLineItemsCommandInput extends ListCustomLineItemsInput {}
+/**
+ * The output of {@link ListCustomLineItemsCommand}.
+ */
 export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOutput, __MetadataBearer {}
 
 /**

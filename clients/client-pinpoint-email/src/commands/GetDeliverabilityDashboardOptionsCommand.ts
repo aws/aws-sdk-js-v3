@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDeliverabilityDashboardOptionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDeliverabilityDashboardOptionsCommand}.
+ */
 export interface GetDeliverabilityDashboardOptionsCommandInput extends GetDeliverabilityDashboardOptionsRequest {}
+/**
+ * The output of {@link GetDeliverabilityDashboardOptionsCommand}.
+ */
 export interface GetDeliverabilityDashboardOptionsCommandOutput
   extends GetDeliverabilityDashboardOptionsResponse,
     __MetadataBearer {}

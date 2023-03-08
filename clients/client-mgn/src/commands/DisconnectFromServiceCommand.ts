@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisconnectFromServiceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisconnectFromServiceCommand}.
+ */
 export interface DisconnectFromServiceCommandInput extends DisconnectFromServiceRequest {}
+/**
+ * The output of {@link DisconnectFromServiceCommand}.
+ */
 export interface DisconnectFromServiceCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**

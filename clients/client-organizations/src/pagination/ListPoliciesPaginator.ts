@@ -6,7 +6,6 @@ import {
   ListPoliciesCommandInput,
   ListPoliciesCommandOutput,
 } from "../commands/ListPoliciesCommand";
-import { Organizations } from "../Organizations";
 import { OrganizationsClient } from "../OrganizationsClient";
 import { OrganizationsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPoliciesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Organizations,
-  input: ListPoliciesCommandInput,
-  ...args: any
-): Promise<ListPoliciesCommandOutput> => {
-  // @ts-ignore
-  return await client.listPolicies(input, ...args);
-};
 export async function* paginateListPolicies(
   config: OrganizationsPaginationConfiguration,
   input: ListPoliciesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListPolicies(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Organizations) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OrganizationsClient) {
+    if (config.client instanceof OrganizationsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Organizations | OrganizationsClient");

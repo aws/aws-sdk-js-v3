@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ConfirmForgotPasswordCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ConfirmForgotPasswordCommand}.
+ */
 export interface ConfirmForgotPasswordCommandInput extends ConfirmForgotPasswordRequest {}
+/**
+ * The output of {@link ConfirmForgotPasswordCommand}.
+ */
 export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswordResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteHoursOfOperationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteHoursOfOperationCommand}.
+ */
 export interface DeleteHoursOfOperationCommandInput extends DeleteHoursOfOperationRequest {}
+/**
+ * The output of {@link DeleteHoursOfOperationCommand}.
+ */
 export interface DeleteHoursOfOperationCommandOutput extends __MetadataBearer {}
 
 /**

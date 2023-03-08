@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchDisassociateProjectAssetsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchDisassociateProjectAssetsCommand}.
+ */
 export interface BatchDisassociateProjectAssetsCommandInput extends BatchDisassociateProjectAssetsRequest {}
+/**
+ * The output of {@link BatchDisassociateProjectAssetsCommand}.
+ */
 export interface BatchDisassociateProjectAssetsCommandOutput
   extends BatchDisassociateProjectAssetsResponse,
     __MetadataBearer {}

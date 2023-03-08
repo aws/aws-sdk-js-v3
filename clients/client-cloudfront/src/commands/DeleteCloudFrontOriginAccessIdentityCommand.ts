@@ -23,7 +23,13 @@ import {
   serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link DeleteCloudFrontOriginAccessIdentityCommand}.
+ */
 export interface DeleteCloudFrontOriginAccessIdentityCommandInput extends DeleteCloudFrontOriginAccessIdentityRequest {}
+/**
+ * The output of {@link DeleteCloudFrontOriginAccessIdentityCommand}.
+ */
 export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __MetadataBearer {}
 
 /**

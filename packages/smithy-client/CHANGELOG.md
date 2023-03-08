@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.279.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.278.0...v3.279.0) (2023-02-24)
+
+
+### Bug Fixes
+
+* **smithy-client:** optional param in error handling path ([#4410](https://github.com/aws/aws-sdk-js-v3/issues/4410)) ([df945f5](https://github.com/aws/aws-sdk-js-v3/commit/df945f5225c6f7962e2b56d8c899156df427920a))
+
+
+
+
+
 # [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
 
 **Note:** Version bump only for package @aws-sdk/smithy-client

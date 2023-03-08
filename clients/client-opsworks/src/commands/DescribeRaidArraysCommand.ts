@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeRaidArraysCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeRaidArraysCommand}.
+ */
 export interface DescribeRaidArraysCommandInput extends DescribeRaidArraysRequest {}
+/**
+ * The output of {@link DescribeRaidArraysCommand}.
+ */
 export interface DescribeRaidArraysCommandOutput extends DescribeRaidArraysResult, __MetadataBearer {}
 
 /**

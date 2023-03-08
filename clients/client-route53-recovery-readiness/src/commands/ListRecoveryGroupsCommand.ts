@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * The input for {@link ListRecoveryGroupsCommand}.
+ */
 export interface ListRecoveryGroupsCommandInput extends ListRecoveryGroupsRequest {}
+/**
+ * The output of {@link ListRecoveryGroupsCommand}.
+ */
 export interface ListRecoveryGroupsCommandOutput extends ListRecoveryGroupsResponse, __MetadataBearer {}
 
 /**

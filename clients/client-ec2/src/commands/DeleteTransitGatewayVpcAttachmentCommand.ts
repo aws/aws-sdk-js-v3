@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteTransitGatewayVpcAttachmentCommand}.
+ */
 export interface DeleteTransitGatewayVpcAttachmentCommandInput extends DeleteTransitGatewayVpcAttachmentRequest {}
+/**
+ * The output of {@link DeleteTransitGatewayVpcAttachmentCommand}.
+ */
 export interface DeleteTransitGatewayVpcAttachmentCommandOutput
   extends DeleteTransitGatewayVpcAttachmentResult,
     __MetadataBearer {}

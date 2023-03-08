@@ -6,7 +6,6 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
-import { IoTThingsGraph } from "../IoTThingsGraph";
 import { IoTThingsGraphClient } from "../IoTThingsGraphClient";
 import { IoTThingsGraphPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTagsForResourceCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoTThingsGraph,
-  input: ListTagsForResourceCommandInput,
-  ...args: any
-): Promise<ListTagsForResourceCommandOutput> => {
-  // @ts-ignore
-  return await client.listTagsForResource(input, ...args);
-};
 export async function* paginateListTagsForResource(
   config: IoTThingsGraphPaginationConfiguration,
   input: ListTagsForResourceCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListTagsForResource(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTThingsGraph) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTThingsGraphClient) {
+    if (config.client instanceof IoTThingsGraphClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTThingsGraph | IoTThingsGraphClient");

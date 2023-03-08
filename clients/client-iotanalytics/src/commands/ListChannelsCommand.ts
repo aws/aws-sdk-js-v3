@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListChannelsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListChannelsCommand}.
+ */
 export interface ListChannelsCommandInput extends ListChannelsRequest {}
+/**
+ * The output of {@link ListChannelsCommand}.
+ */
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListCoreNetworkPolicyVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListCoreNetworkPolicyVersionsCommand}.
+ */
 export interface ListCoreNetworkPolicyVersionsCommandInput extends ListCoreNetworkPolicyVersionsRequest {}
+/**
+ * The output of {@link ListCoreNetworkPolicyVersionsCommand}.
+ */
 export interface ListCoreNetworkPolicyVersionsCommandOutput
   extends ListCoreNetworkPolicyVersionsResponse,
     __MetadataBearer {}

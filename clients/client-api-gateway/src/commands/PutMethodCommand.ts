@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutMethodCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutMethodCommand}.
+ */
 export interface PutMethodCommandInput extends PutMethodRequest {}
+/**
+ * The output of {@link PutMethodCommand}.
+ */
 export interface PutMethodCommandOutput extends Method, __MetadataBearer {}
 
 /**

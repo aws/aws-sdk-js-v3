@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetTableVersionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetTableVersionsCommand}.
+ */
 export interface GetTableVersionsCommandInput extends GetTableVersionsRequest {}
+/**
+ * The output of {@link GetTableVersionsCommand}.
+ */
 export interface GetTableVersionsCommandOutput extends GetTableVersionsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeEnvironmentHealthCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeEnvironmentHealthCommand}.
+ */
 export interface DescribeEnvironmentHealthCommandInput extends DescribeEnvironmentHealthRequest {}
+/**
+ * The output of {@link DescribeEnvironmentHealthCommand}.
+ */
 export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironmentHealthResult, __MetadataBearer {}
 
 /**

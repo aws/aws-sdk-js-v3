@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * The input for {@link GetSubjectCommand}.
+ */
 export interface GetSubjectCommandInput extends ScalarSubjectRequest {}
+/**
+ * The output of {@link GetSubjectCommand}.
+ */
 export interface GetSubjectCommandOutput extends SubjectDetailResponse, __MetadataBearer {}
 
 /**

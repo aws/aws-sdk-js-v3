@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListBootstrapActionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListBootstrapActionsCommand}.
+ */
 export interface ListBootstrapActionsCommandInput extends ListBootstrapActionsInput {}
+/**
+ * The output of {@link ListBootstrapActionsCommand}.
+ */
 export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsOutput, __MetadataBearer {}
 
 /**

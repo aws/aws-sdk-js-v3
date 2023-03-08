@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateBaiduChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateBaiduChannelCommand}.
+ */
 export interface UpdateBaiduChannelCommandInput extends UpdateBaiduChannelRequest {}
+/**
+ * The output of {@link UpdateBaiduChannelCommand}.
+ */
 export interface UpdateBaiduChannelCommandOutput extends UpdateBaiduChannelResponse, __MetadataBearer {}
 
 /**

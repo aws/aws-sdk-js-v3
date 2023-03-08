@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateDeviceWithNetworkProfileCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateDeviceWithNetworkProfileCommand}.
+ */
 export interface AssociateDeviceWithNetworkProfileCommandInput extends AssociateDeviceWithNetworkProfileRequest {}
+/**
+ * The output of {@link AssociateDeviceWithNetworkProfileCommand}.
+ */
 export interface AssociateDeviceWithNetworkProfileCommandOutput
   extends AssociateDeviceWithNetworkProfileResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * The input for {@link DisassociateResourceCommand}.
+ */
 export interface DisassociateResourceCommandInput extends DisassociateResourceRequest {}
+/**
+ * The output of {@link DisassociateResourceCommand}.
+ */
 export interface DisassociateResourceCommandOutput extends DisassociateResourceResponse, __MetadataBearer {}
 
 /**

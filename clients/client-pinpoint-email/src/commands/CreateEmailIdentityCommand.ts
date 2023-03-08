@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateEmailIdentityCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateEmailIdentityCommand}.
+ */
 export interface CreateEmailIdentityCommandInput extends CreateEmailIdentityRequest {}
+/**
+ * The output of {@link CreateEmailIdentityCommand}.
+ */
 export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DeleteOptedOutNumberCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteOptedOutNumberCommand}.
+ */
 export interface DeleteOptedOutNumberCommandInput extends DeleteOptedOutNumberRequest {}
+/**
+ * The output of {@link DeleteOptedOutNumberCommand}.
+ */
 export interface DeleteOptedOutNumberCommandOutput extends DeleteOptedOutNumberResult, __MetadataBearer {}
 
 /**

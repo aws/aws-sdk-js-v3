@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * The input for {@link DeleteEndpointAccessCommand}.
+ */
 export interface DeleteEndpointAccessCommandInput extends DeleteEndpointAccessRequest {}
+/**
+ * The output of {@link DeleteEndpointAccessCommand}.
+ */
 export interface DeleteEndpointAccessCommandOutput extends DeleteEndpointAccessResponse, __MetadataBearer {}
 
 /**

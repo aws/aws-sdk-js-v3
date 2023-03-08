@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListRoleAliasesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListRoleAliasesCommand}.
+ */
 export interface ListRoleAliasesCommandInput extends ListRoleAliasesRequest {}
+/**
+ * The output of {@link ListRoleAliasesCommand}.
+ */
 export interface ListRoleAliasesCommandOutput extends ListRoleAliasesResponse, __MetadataBearer {}
 
 /**

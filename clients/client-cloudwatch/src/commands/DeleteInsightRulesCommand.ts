@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteInsightRulesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteInsightRulesCommand}.
+ */
 export interface DeleteInsightRulesCommandInput extends DeleteInsightRulesInput {}
+/**
+ * The output of {@link DeleteInsightRulesCommand}.
+ */
 export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutput, __MetadataBearer {}
 
 /**

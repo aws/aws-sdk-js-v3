@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SendAnnouncementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SendAnnouncementCommand}.
+ */
 export interface SendAnnouncementCommandInput extends SendAnnouncementRequest {}
+/**
+ * The output of {@link SendAnnouncementCommand}.
+ */
 export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse, __MetadataBearer {}
 
 /**

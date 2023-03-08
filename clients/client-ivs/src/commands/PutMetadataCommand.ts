@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1PutMetadataCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutMetadataCommand}.
+ */
 export interface PutMetadataCommandInput extends PutMetadataRequest {}
+/**
+ * The output of {@link PutMetadataCommand}.
+ */
 export interface PutMetadataCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetChannelScheduleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetChannelScheduleCommand}.
+ */
 export interface GetChannelScheduleCommandInput extends GetChannelScheduleRequest {}
+/**
+ * The output of {@link GetChannelScheduleCommand}.
+ */
 export interface GetChannelScheduleCommandOutput extends GetChannelScheduleResponse, __MetadataBearer {}
 
 /**

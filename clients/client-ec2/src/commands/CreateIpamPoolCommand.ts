@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_ec2CreateIpamPoolCommand, serializeAws_ec2CreateIpamPoolCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateIpamPoolCommand}.
+ */
 export interface CreateIpamPoolCommandInput extends CreateIpamPoolRequest {}
+/**
+ * The output of {@link CreateIpamPoolCommand}.
+ */
 export interface CreateIpamPoolCommandOutput extends CreateIpamPoolResult, __MetadataBearer {}
 
 /**

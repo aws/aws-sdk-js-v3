@@ -25,14 +25,20 @@ import {
   serializeAws_json1_1ListParentsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListParentsCommand}.
+ */
 export interface ListParentsCommandInput extends ListParentsRequest {}
+/**
+ * The output of {@link ListParentsCommand}.
+ */
 export interface ListParentsCommandOutput extends ListParentsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the root or organizational units (OUs) that serve as the immediate parent of the
  *             specified child OU or account. This operation, along with <a>ListChildren</a>
  *             enables you to traverse the tree structure that makes up this root.</p>
- *         <note>
+ *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
  * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
  * occasionally return an empty set of results even when there are more results available. The
@@ -40,11 +46,11 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  *                <i>only</i>
  * when there are no more results to display.</p>
  *          </note>
- *         <p>This operation can be called only from the organization's
+ *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
- *         <note>
+ *          <note>
  *             <p>In the current release, a child can have only a single parent.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

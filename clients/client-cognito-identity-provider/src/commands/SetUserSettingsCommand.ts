@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1SetUserSettingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SetUserSettingsCommand}.
+ */
 export interface SetUserSettingsCommandInput extends SetUserSettingsRequest {}
+/**
+ * The output of {@link SetUserSettingsCommand}.
+ */
 export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, __MetadataBearer {}
 
 /**

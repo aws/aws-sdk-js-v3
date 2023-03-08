@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ResendConfirmationCodeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ResendConfirmationCodeCommand}.
+ */
 export interface ResendConfirmationCodeCommandInput extends ResendConfirmationCodeRequest {}
+/**
+ * The output of {@link ResendConfirmationCodeCommand}.
+ */
 export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationCodeResponse, __MetadataBearer {}
 
 /**

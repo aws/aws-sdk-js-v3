@@ -25,7 +25,13 @@ import {
   serializeAws_queryUpdateAvailabilityOptionsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateAvailabilityOptionsCommand}.
+ */
 export interface UpdateAvailabilityOptionsCommandInput extends UpdateAvailabilityOptionsRequest {}
+/**
+ * The output of {@link UpdateAvailabilityOptionsCommand}.
+ */
 export interface UpdateAvailabilityOptionsCommandOutput extends UpdateAvailabilityOptionsResponse, __MetadataBearer {}
 
 /**

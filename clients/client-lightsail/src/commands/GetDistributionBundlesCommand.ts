@@ -19,13 +19,19 @@ import {
   GetDistributionBundlesRequestFilterSensitiveLog,
   GetDistributionBundlesResult,
   GetDistributionBundlesResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetDistributionBundlesCommand,
   serializeAws_json1_1GetDistributionBundlesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDistributionBundlesCommand}.
+ */
 export interface GetDistributionBundlesCommandInput extends GetDistributionBundlesRequest {}
+/**
+ * The output of {@link GetDistributionBundlesCommand}.
+ */
 export interface GetDistributionBundlesCommandOutput extends GetDistributionBundlesResult, __MetadataBearer {}
 
 /**

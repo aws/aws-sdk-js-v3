@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartFailbackLaunchCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartFailbackLaunchCommand}.
+ */
 export interface StartFailbackLaunchCommandInput extends StartFailbackLaunchRequest {}
+/**
+ * The output of {@link StartFailbackLaunchCommand}.
+ */
 export interface StartFailbackLaunchCommandOutput extends StartFailbackLaunchResponse, __MetadataBearer {}
 
 /**

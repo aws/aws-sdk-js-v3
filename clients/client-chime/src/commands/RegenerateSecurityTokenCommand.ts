@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RegenerateSecurityTokenCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RegenerateSecurityTokenCommand}.
+ */
 export interface RegenerateSecurityTokenCommandInput extends RegenerateSecurityTokenRequest {}
+/**
+ * The output of {@link RegenerateSecurityTokenCommand}.
+ */
 export interface RegenerateSecurityTokenCommandOutput extends RegenerateSecurityTokenResponse, __MetadataBearer {}
 
 /**

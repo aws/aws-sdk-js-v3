@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ResetEbsDefaultKmsKeyIdCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ResetEbsDefaultKmsKeyIdCommand}.
+ */
 export interface ResetEbsDefaultKmsKeyIdCommandInput extends ResetEbsDefaultKmsKeyIdRequest {}
+/**
+ * The output of {@link ResetEbsDefaultKmsKeyIdCommand}.
+ */
 export interface ResetEbsDefaultKmsKeyIdCommandOutput extends ResetEbsDefaultKmsKeyIdResult, __MetadataBearer {}
 
 /**

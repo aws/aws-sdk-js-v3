@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link ReceiveMessageCommand}.
+ */
 export interface ReceiveMessageCommandInput extends ReceiveMessageRequest {}
+/**
+ * The output of {@link ReceiveMessageCommand}.
+ */
 export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutResourceAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutResourceAttributesCommand}.
+ */
 export interface PutResourceAttributesCommandInput extends PutResourceAttributesRequest {}
+/**
+ * The output of {@link PutResourceAttributesCommand}.
+ */
 export interface PutResourceAttributesCommandOutput extends PutResourceAttributesResult, __MetadataBearer {}
 
 /**

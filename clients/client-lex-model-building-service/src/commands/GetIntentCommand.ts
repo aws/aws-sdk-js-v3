@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetIntentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetIntentCommand}.
+ */
 export interface GetIntentCommandInput extends GetIntentRequest {}
+/**
+ * The output of {@link GetIntentCommand}.
+ */
 export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBearer {}
 
 /**

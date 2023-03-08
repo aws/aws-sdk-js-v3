@@ -28,7 +28,13 @@ import {
   serializeAws_restJson1PutSessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutSessionCommand}.
+ */
 export interface PutSessionCommandInput extends PutSessionRequest {}
+/**
+ * The output of {@link PutSessionCommand}.
+ */
 export interface PutSessionCommandOutput
   extends __WithSdkStreamMixin<PutSessionResponse, "audioStream">,
     __MetadataBearer {}

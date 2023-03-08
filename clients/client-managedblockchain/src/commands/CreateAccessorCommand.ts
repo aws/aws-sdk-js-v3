@@ -29,16 +29,17 @@ import {
   serializeAws_restJson1CreateAccessorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateAccessorCommand}.
+ */
 export interface CreateAccessorCommandInput extends CreateAccessorInput {}
+/**
+ * The output of {@link CreateAccessorCommand}.
+ */
 export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
- *         subject to change. We recommend that you use this feature only with
- *         test scenarios, and not in production environments.</p>
- *          </important>
- *          <p>Creates a new accessor for use with Managed Blockchain Ethereum nodes. An accessor object is a container that has the information
+ * <p>Creates a new accessor for use with Managed Blockchain Ethereum nodes. An accessor contains information
  *          required for token based access to your Ethereum nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

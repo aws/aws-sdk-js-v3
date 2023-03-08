@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateInstanceProfileCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateInstanceProfileCommand}.
+ */
 export interface CreateInstanceProfileCommandInput extends CreateInstanceProfileRequest {}
+/**
+ * The output of {@link CreateInstanceProfileCommand}.
+ */
 export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfileResponse, __MetadataBearer {}
 
 /**

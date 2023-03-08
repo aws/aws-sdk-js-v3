@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeEvaluationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeEvaluationsCommand}.
+ */
 export interface DescribeEvaluationsCommandInput extends DescribeEvaluationsInput {}
+/**
+ * The output of {@link DescribeEvaluationsCommand}.
+ */
 export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOutput, __MetadataBearer {}
 
 /**

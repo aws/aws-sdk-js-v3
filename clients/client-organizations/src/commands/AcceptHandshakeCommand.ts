@@ -25,20 +25,26 @@ import {
   serializeAws_json1_1AcceptHandshakeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AcceptHandshakeCommand}.
+ */
 export interface AcceptHandshakeCommandInput extends AcceptHandshakeRequest {}
+/**
+ * The output of {@link AcceptHandshakeCommand}.
+ */
 export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, __MetadataBearer {}
 
 /**
  * <p>Sends a response to the originator of a handshake agreeing to the action proposed by
  *             the handshake request.</p>
- *         <p>You can only call this operation by the following principals when they also have the
+ *          <p>You can only call this operation by the following principals when they also have the
  *             relevant IAM permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Invitation to join</b> or <b>Approve all features request</b> handshakes: only a principal from
  *                     the member account.</p>
- *                 <p>The user who calls the API for an invitation to join must have the
+ *                <p>The user who calls the API for an invitation to join must have the
  *                         <code>organizations:AcceptHandshake</code> permission. If you enabled all
  *                     features in the organization, the user must also have the
  *                         <code>iam:CreateServiceLinkedRole</code> permission so that Organizations can
@@ -47,10 +53,10 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *                         <i>Organizations User Guide</i>.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Enable all features final confirmation</b>
  *                     handshake: only a principal from the management account.</p>
- *                 <p>For more information about invitations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html">Inviting an
+ *                <p>For more information about invitations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html">Inviting an
  *                         Amazon Web Services account to join your organization</a> in the
  *                         <i>Organizations User Guide.</i> For more information about requests to
  *                     enable all features in the organization, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling all features in your organization</a> in
@@ -58,7 +64,7 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *                </p>
  *             </li>
  *          </ul>
- *         <p>After you accept a handshake, it continues to appear in the results of relevant APIs
+ *          <p>After you accept a handshake, it continues to appear in the results of relevant APIs
  *             for only 30 days. After that, it's deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

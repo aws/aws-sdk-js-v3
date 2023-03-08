@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateGatewayCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateGatewayCommand}.
+ */
 export interface CreateGatewayCommandInput extends CreateGatewayRequest {}
+/**
+ * The output of {@link CreateGatewayCommand}.
+ */
 export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __MetadataBearer {}
 
 /**

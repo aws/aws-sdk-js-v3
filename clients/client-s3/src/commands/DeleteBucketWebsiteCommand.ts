@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link DeleteBucketWebsiteCommand}.
+ */
 export interface DeleteBucketWebsiteCommandInput extends DeleteBucketWebsiteRequest {}
+/**
+ * The output of {@link DeleteBucketWebsiteCommand}.
+ */
 export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
 
 /**

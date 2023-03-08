@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetLoadBalancersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetLoadBalancersCommand}.
+ */
 export interface GetLoadBalancersCommandInput extends GetLoadBalancersRequest {}
+/**
+ * The output of {@link GetLoadBalancersCommand}.
+ */
 export interface GetLoadBalancersCommandOutput extends GetLoadBalancersResult, __MetadataBearer {}
 
 /**

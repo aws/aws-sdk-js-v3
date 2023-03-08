@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateFileSystemAliasesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateFileSystemAliasesCommand}.
+ */
 export interface AssociateFileSystemAliasesCommandInput extends AssociateFileSystemAliasesRequest {}
+/**
+ * The output of {@link AssociateFileSystemAliasesCommand}.
+ */
 export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSystemAliasesResponse, __MetadataBearer {}
 
 /**

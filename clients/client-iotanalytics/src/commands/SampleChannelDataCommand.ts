@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SampleChannelDataCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SampleChannelDataCommand}.
+ */
 export interface SampleChannelDataCommandInput extends SampleChannelDataRequest {}
+/**
+ * The output of {@link SampleChannelDataCommand}.
+ */
 export interface SampleChannelDataCommandOutput extends SampleChannelDataResponse, __MetadataBearer {}
 
 /**

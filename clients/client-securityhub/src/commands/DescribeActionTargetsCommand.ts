@@ -18,14 +18,20 @@ import {
   DescribeActionTargetsRequestFilterSensitiveLog,
   DescribeActionTargetsResponse,
   DescribeActionTargetsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeActionTargetsCommand,
   serializeAws_restJson1DescribeActionTargetsCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link DescribeActionTargetsCommand}.
+ */
 export interface DescribeActionTargetsCommandInput extends DescribeActionTargetsRequest {}
+/**
+ * The output of {@link DescribeActionTargetsCommand}.
+ */
 export interface DescribeActionTargetsCommandOutput extends DescribeActionTargetsResponse, __MetadataBearer {}
 
 /**

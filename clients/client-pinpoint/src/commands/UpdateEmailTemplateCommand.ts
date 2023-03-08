@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateEmailTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateEmailTemplateCommand}.
+ */
 export interface UpdateEmailTemplateCommandInput extends UpdateEmailTemplateRequest {}
+/**
+ * The output of {@link UpdateEmailTemplateCommand}.
+ */
 export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateResponse, __MetadataBearer {}
 
 /**

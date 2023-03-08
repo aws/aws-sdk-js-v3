@@ -25,14 +25,21 @@ import {
   serializeAws_json1_1StartDocumentClassificationJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartDocumentClassificationJobCommand}.
+ */
 export interface StartDocumentClassificationJobCommandInput extends StartDocumentClassificationJobRequest {}
+/**
+ * The output of {@link StartDocumentClassificationJobCommand}.
+ */
 export interface StartDocumentClassificationJobCommandOutput
   extends StartDocumentClassificationJobResponse,
     __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous document classification job. Use the  operation to track the progress of the
- *       job.</p>
+ * <p>Starts an asynchronous document classification job. Use the
+ *       <code>DescribeDocumentClassificationJob</code>
+ *           operation to track the progress of the job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

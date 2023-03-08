@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ListDeviceEventsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDeviceEventsCommand}.
+ */
 export interface ListDeviceEventsCommandInput extends ListDeviceEventsRequest {}
+/**
+ * The output of {@link ListDeviceEventsCommand}.
+ */
 export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse, __MetadataBearer {}
 
 /**

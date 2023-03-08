@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListSolutionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListSolutionsCommand}.
+ */
 export interface ListSolutionsCommandInput extends ListSolutionsRequest {}
+/**
+ * The output of {@link ListSolutionsCommand}.
+ */
 export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __MetadataBearer {}
 
 /**

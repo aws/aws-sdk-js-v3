@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1AssociateDeviceWithPlacementCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateDeviceWithPlacementCommand}.
+ */
 export interface AssociateDeviceWithPlacementCommandInput extends AssociateDeviceWithPlacementRequest {}
+/**
+ * The output of {@link AssociateDeviceWithPlacementCommand}.
+ */
 export interface AssociateDeviceWithPlacementCommandOutput
   extends AssociateDeviceWithPlacementResponse,
     __MetadataBearer {}

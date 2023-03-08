@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminSetUserPasswordCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminSetUserPasswordCommand}.
+ */
 export interface AdminSetUserPasswordCommandInput extends AdminSetUserPasswordRequest {}
+/**
+ * The output of {@link AdminSetUserPasswordCommand}.
+ */
 export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordResponse, __MetadataBearer {}
 
 /**

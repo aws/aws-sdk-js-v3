@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AssociateVpcCidrBlockCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AssociateVpcCidrBlockCommand}.
+ */
 export interface AssociateVpcCidrBlockCommandInput extends AssociateVpcCidrBlockRequest {}
+/**
+ * The output of {@link AssociateVpcCidrBlockCommand}.
+ */
 export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBlockResult, __MetadataBearer {}
 
 /**

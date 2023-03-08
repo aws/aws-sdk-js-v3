@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateTemplateCommand}.
+ */
 export interface CreateTemplateCommandInput extends CreateTemplateRequest {}
+/**
+ * The output of {@link CreateTemplateCommand}.
+ */
 export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __MetadataBearer {}
 
 /**

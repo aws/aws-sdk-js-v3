@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1EvaluateFeatureCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link EvaluateFeatureCommand}.
+ */
 export interface EvaluateFeatureCommandInput extends EvaluateFeatureRequest {}
+/**
+ * The output of {@link EvaluateFeatureCommand}.
+ */
 export interface EvaluateFeatureCommandOutput extends EvaluateFeatureResponse, __MetadataBearer {}
 
 /**

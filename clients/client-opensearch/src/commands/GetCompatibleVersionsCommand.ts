@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetCompatibleVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetCompatibleVersionsCommand}.
+ */
 export interface GetCompatibleVersionsCommandInput extends GetCompatibleVersionsRequest {}
+/**
+ * The output of {@link GetCompatibleVersionsCommand}.
+ */
 export interface GetCompatibleVersionsCommandOutput extends GetCompatibleVersionsResponse, __MetadataBearer {}
 
 /**

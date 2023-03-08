@@ -26,7 +26,13 @@ import {
   serializeAws_json1_1SetPrincipalTagAttributeMapCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SetPrincipalTagAttributeMapCommand}.
+ */
 export interface SetPrincipalTagAttributeMapCommandInput extends SetPrincipalTagAttributeMapInput {}
+/**
+ * The output of {@link SetPrincipalTagAttributeMapCommand}.
+ */
 export interface SetPrincipalTagAttributeMapCommandOutput
   extends SetPrincipalTagAttributeMapResponse,
     __MetadataBearer {}

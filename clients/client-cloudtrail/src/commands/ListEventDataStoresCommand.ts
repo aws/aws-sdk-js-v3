@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListEventDataStoresCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListEventDataStoresCommand}.
+ */
 export interface ListEventDataStoresCommandInput extends ListEventDataStoresRequest {}
+/**
+ * The output of {@link ListEventDataStoresCommand}.
+ */
 export interface ListEventDataStoresCommandOutput extends ListEventDataStoresResponse, __MetadataBearer {}
 
 /**

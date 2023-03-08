@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdatePreparedStatementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdatePreparedStatementCommand}.
+ */
 export interface UpdatePreparedStatementCommandInput extends UpdatePreparedStatementInput {}
+/**
+ * The output of {@link UpdatePreparedStatementCommand}.
+ */
 export interface UpdatePreparedStatementCommandOutput extends UpdatePreparedStatementOutput, __MetadataBearer {}
 
 /**

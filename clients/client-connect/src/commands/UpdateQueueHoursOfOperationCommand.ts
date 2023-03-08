@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1UpdateQueueHoursOfOperationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateQueueHoursOfOperationCommand}.
+ */
 export interface UpdateQueueHoursOfOperationCommandInput extends UpdateQueueHoursOfOperationRequest {}
+/**
+ * The output of {@link UpdateQueueHoursOfOperationCommand}.
+ */
 export interface UpdateQueueHoursOfOperationCommandOutput extends __MetadataBearer {}
 
 /**

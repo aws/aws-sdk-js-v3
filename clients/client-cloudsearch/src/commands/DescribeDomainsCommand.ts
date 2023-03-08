@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeDomainsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeDomainsCommand}.
+ */
 export interface DescribeDomainsCommandInput extends DescribeDomainsRequest {}
+/**
+ * The output of {@link DescribeDomainsCommand}.
+ */
 export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, __MetadataBearer {}
 
 /**

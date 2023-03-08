@@ -20,7 +20,13 @@ import {
   serializeAws_ec2CreateNetworkAclEntryCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateNetworkAclEntryCommand}.
+ */
 export interface CreateNetworkAclEntryCommandInput extends CreateNetworkAclEntryRequest {}
+/**
+ * The output of {@link CreateNetworkAclEntryCommand}.
+ */
 export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**

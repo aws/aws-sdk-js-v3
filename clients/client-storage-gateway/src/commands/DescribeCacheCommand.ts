@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link DescribeCacheCommand}.
+ */
 export interface DescribeCacheCommandInput extends DescribeCacheInput {}
+/**
+ * The output of {@link DescribeCacheCommand}.
+ */
 export interface DescribeCacheCommandOutput extends DescribeCacheOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListWhatIfAnalysesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListWhatIfAnalysesCommand}.
+ */
 export interface ListWhatIfAnalysesCommandInput extends ListWhatIfAnalysesRequest {}
+/**
+ * The output of {@link ListWhatIfAnalysesCommand}.
+ */
 export interface ListWhatIfAnalysesCommandOutput extends ListWhatIfAnalysesResponse, __MetadataBearer {}
 
 /**

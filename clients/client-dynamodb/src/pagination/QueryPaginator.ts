@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "../commands/QueryCommand";
-import { DynamoDB } from "../DynamoDB";
 import { DynamoDBClient } from "../DynamoDBClient";
 import { DynamoDBPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new QueryCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: DynamoDB,
-  input: QueryCommandInput,
-  ...args: any
-): Promise<QueryCommandOutput> => {
-  // @ts-ignore
-  return await client.query(input, ...args);
-};
 export async function* paginateQuery(
   config: DynamoDBPaginationConfiguration,
   input: QueryCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateQuery(
   while (hasNext) {
     input.ExclusiveStartKey = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof DynamoDB) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DynamoDBClient) {
+    if (config.client instanceof DynamoDBClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DynamoDB | DynamoDBClient");

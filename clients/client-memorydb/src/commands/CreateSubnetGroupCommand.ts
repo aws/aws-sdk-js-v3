@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateSubnetGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateSubnetGroupCommand}.
+ */
 export interface CreateSubnetGroupCommandInput extends CreateSubnetGroupRequest {}
+/**
+ * The output of {@link CreateSubnetGroupCommand}.
+ */
 export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupResponse, __MetadataBearer {}
 
 /**

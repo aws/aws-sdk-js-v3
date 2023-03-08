@@ -29,7 +29,13 @@ import {
   serializeAws_queryDescribeRulesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeRulesCommand}.
+ */
 export interface DescribeRulesCommandInput extends DescribeRulesInput {}
+/**
+ * The output of {@link DescribeRulesCommand}.
+ */
 export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __MetadataBearer {}
 
 /**

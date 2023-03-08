@@ -6,7 +6,6 @@ import {
   ListSpeakerEnrollmentJobsCommandInput,
   ListSpeakerEnrollmentJobsCommandOutput,
 } from "../commands/ListSpeakerEnrollmentJobsCommand";
-import { VoiceID } from "../VoiceID";
 import { VoiceIDClient } from "../VoiceIDClient";
 import { VoiceIDPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSpeakerEnrollmentJobsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: VoiceID,
-  input: ListSpeakerEnrollmentJobsCommandInput,
-  ...args: any
-): Promise<ListSpeakerEnrollmentJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSpeakerEnrollmentJobs(input, ...args);
-};
 export async function* paginateListSpeakerEnrollmentJobs(
   config: VoiceIDPaginationConfiguration,
   input: ListSpeakerEnrollmentJobsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListSpeakerEnrollmentJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof VoiceID) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof VoiceIDClient) {
+    if (config.client instanceof VoiceIDClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected VoiceID | VoiceIDClient");

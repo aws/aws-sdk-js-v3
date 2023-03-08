@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelInputDeviceTransferCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelInputDeviceTransferCommand}.
+ */
 export interface CancelInputDeviceTransferCommandInput extends CancelInputDeviceTransferRequest {}
+/**
+ * The output of {@link CancelInputDeviceTransferCommand}.
+ */
 export interface CancelInputDeviceTransferCommandOutput extends CancelInputDeviceTransferResponse, __MetadataBearer {}
 
 /**

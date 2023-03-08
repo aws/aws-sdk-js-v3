@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DeleteHsmClientCertificateCommand}.
+ */
 export interface DeleteHsmClientCertificateCommandInput extends DeleteHsmClientCertificateMessage {}
+/**
+ * The output of {@link DeleteHsmClientCertificateCommand}.
+ */
 export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBearer {}
 
 /**

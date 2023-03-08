@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateVpnConnectionCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateVpnConnectionCommand}.
+ */
 export interface CreateVpnConnectionCommandInput extends CreateVpnConnectionRequest {}
+/**
+ * The output of {@link CreateVpnConnectionCommand}.
+ */
 export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListEntitledApplicationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListEntitledApplicationsCommand}.
+ */
 export interface ListEntitledApplicationsCommandInput extends ListEntitledApplicationsRequest {}
+/**
+ * The output of {@link ListEntitledApplicationsCommand}.
+ */
 export interface ListEntitledApplicationsCommandOutput extends ListEntitledApplicationsResult, __MetadataBearer {}
 
 /**

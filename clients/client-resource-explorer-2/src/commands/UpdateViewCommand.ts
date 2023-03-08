@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * The input for {@link UpdateViewCommand}.
+ */
 export interface UpdateViewCommandInput extends UpdateViewInput {}
+/**
+ * The output of {@link UpdateViewCommand}.
+ */
 export interface UpdateViewCommandOutput extends UpdateViewOutput, __MetadataBearer {}
 
 /**

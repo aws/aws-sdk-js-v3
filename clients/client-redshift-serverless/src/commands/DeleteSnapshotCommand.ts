@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * The input for {@link DeleteSnapshotCommand}.
+ */
 export interface DeleteSnapshotCommandInput extends DeleteSnapshotRequest {}
+/**
+ * The output of {@link DeleteSnapshotCommand}.
+ */
 export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __MetadataBearer {}
 
 /**

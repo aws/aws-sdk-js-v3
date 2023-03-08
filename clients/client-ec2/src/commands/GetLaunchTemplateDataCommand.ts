@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetLaunchTemplateDataCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetLaunchTemplateDataCommand}.
+ */
 export interface GetLaunchTemplateDataCommandInput extends GetLaunchTemplateDataRequest {}
+/**
+ * The output of {@link GetLaunchTemplateDataCommand}.
+ */
 export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDataResult, __MetadataBearer {}
 
 /**

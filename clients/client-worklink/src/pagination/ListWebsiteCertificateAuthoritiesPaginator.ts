@@ -6,7 +6,6 @@ import {
   ListWebsiteCertificateAuthoritiesCommandInput,
   ListWebsiteCertificateAuthoritiesCommandOutput,
 } from "../commands/ListWebsiteCertificateAuthoritiesCommand";
-import { WorkLink } from "../WorkLink";
 import { WorkLinkClient } from "../WorkLinkClient";
 import { WorkLinkPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWebsiteCertificateAuthoritiesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: WorkLink,
-  input: ListWebsiteCertificateAuthoritiesCommandInput,
-  ...args: any
-): Promise<ListWebsiteCertificateAuthoritiesCommandOutput> => {
-  // @ts-ignore
-  return await client.listWebsiteCertificateAuthorities(input, ...args);
-};
 export async function* paginateListWebsiteCertificateAuthorities(
   config: WorkLinkPaginationConfiguration,
   input: ListWebsiteCertificateAuthoritiesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListWebsiteCertificateAuthorities(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof WorkLink) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WorkLinkClient) {
+    if (config.client instanceof WorkLinkClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WorkLink | WorkLinkClient");

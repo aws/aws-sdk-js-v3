@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeCustomVocabularyMetadataCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeCustomVocabularyMetadataCommand}.
+ */
 export interface DescribeCustomVocabularyMetadataCommandInput extends DescribeCustomVocabularyMetadataRequest {}
+/**
+ * The output of {@link DescribeCustomVocabularyMetadataCommand}.
+ */
 export interface DescribeCustomVocabularyMetadataCommandOutput
   extends DescribeCustomVocabularyMetadataResponse,
     __MetadataBearer {}

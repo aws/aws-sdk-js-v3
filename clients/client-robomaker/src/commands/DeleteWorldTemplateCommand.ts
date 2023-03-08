@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * The input for {@link DeleteWorldTemplateCommand}.
+ */
 export interface DeleteWorldTemplateCommandInput extends DeleteWorldTemplateRequest {}
+/**
+ * The output of {@link DeleteWorldTemplateCommand}.
+ */
 export interface DeleteWorldTemplateCommandOutput extends DeleteWorldTemplateResponse, __MetadataBearer {}
 
 /**

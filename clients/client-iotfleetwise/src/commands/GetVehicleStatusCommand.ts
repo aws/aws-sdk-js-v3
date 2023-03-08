@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetVehicleStatusCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetVehicleStatusCommand}.
+ */
 export interface GetVehicleStatusCommandInput extends GetVehicleStatusRequest {}
+/**
+ * The output of {@link GetVehicleStatusCommand}.
+ */
 export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse, __MetadataBearer {}
 
 /**

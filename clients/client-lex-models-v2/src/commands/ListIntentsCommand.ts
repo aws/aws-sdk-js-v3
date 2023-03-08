@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListIntentsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListIntentsCommand}.
+ */
 export interface ListIntentsCommandInput extends ListIntentsRequest {}
+/**
+ * The output of {@link ListIntentsCommand}.
+ */
 export interface ListIntentsCommandOutput extends ListIntentsResponse, __MetadataBearer {}
 
 /**

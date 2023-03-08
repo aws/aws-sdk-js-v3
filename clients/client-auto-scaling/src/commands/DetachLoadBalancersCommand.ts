@@ -25,7 +25,13 @@ import {
   serializeAws_queryDetachLoadBalancersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DetachLoadBalancersCommand}.
+ */
 export interface DetachLoadBalancersCommandInput extends DetachLoadBalancersType {}
+/**
+ * The output of {@link DetachLoadBalancersCommand}.
+ */
 export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersResultType, __MetadataBearer {}
 
 /**

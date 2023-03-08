@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link DetachVolumeCommand}.
+ */
 export interface DetachVolumeCommandInput extends DetachVolumeInput {}
+/**
+ * The output of {@link DetachVolumeCommand}.
+ */
 export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __MetadataBearer {}
 
 /**

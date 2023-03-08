@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSinkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSinkCommand}.
+ */
 export interface GetSinkCommandInput extends GetSinkInput {}
+/**
+ * The output of {@link GetSinkCommand}.
+ */
 export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
 
 /**

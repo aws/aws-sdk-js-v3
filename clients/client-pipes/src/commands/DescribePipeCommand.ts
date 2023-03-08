@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribePipeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribePipeCommand}.
+ */
 export interface DescribePipeCommandInput extends DescribePipeRequest {}
+/**
+ * The output of {@link DescribePipeCommand}.
+ */
 export interface DescribePipeCommandOutput extends DescribePipeResponse, __MetadataBearer {}
 
 /**

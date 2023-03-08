@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1QueryWhatIfForecastCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link QueryWhatIfForecastCommand}.
+ */
 export interface QueryWhatIfForecastCommandInput extends QueryWhatIfForecastRequest {}
+/**
+ * The output of {@link QueryWhatIfForecastCommand}.
+ */
 export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastResponse, __MetadataBearer {}
 
 /**

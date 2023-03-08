@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartLaunchCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartLaunchCommand}.
+ */
 export interface StartLaunchCommandInput extends StartLaunchRequest {}
+/**
+ * The output of {@link StartLaunchCommand}.
+ */
 export interface StartLaunchCommandOutput extends StartLaunchResponse, __MetadataBearer {}
 
 /**

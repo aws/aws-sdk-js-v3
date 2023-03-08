@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ConfirmTopicRuleDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ConfirmTopicRuleDestinationCommand}.
+ */
 export interface ConfirmTopicRuleDestinationCommandInput extends ConfirmTopicRuleDestinationRequest {}
+/**
+ * The output of {@link ConfirmTopicRuleDestinationCommand}.
+ */
 export interface ConfirmTopicRuleDestinationCommandOutput
   extends ConfirmTopicRuleDestinationResponse,
     __MetadataBearer {}

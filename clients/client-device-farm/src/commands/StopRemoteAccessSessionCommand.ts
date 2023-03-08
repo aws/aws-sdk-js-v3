@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopRemoteAccessSessionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopRemoteAccessSessionCommand}.
+ */
 export interface StopRemoteAccessSessionCommandInput extends StopRemoteAccessSessionRequest {}
+/**
+ * The output of {@link StopRemoteAccessSessionCommand}.
+ */
 export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSessionResult, __MetadataBearer {}
 
 /**

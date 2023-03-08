@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DescribeAutoScalingConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeAutoScalingConfigurationCommand}.
+ */
 export interface DescribeAutoScalingConfigurationCommandInput extends DescribeAutoScalingConfigurationRequest {}
+/**
+ * The output of {@link DescribeAutoScalingConfigurationCommand}.
+ */
 export interface DescribeAutoScalingConfigurationCommandOutput
   extends DescribeAutoScalingConfigurationResponse,
     __MetadataBearer {}

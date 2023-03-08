@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteInputSecurityGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteInputSecurityGroupCommand}.
+ */
 export interface DeleteInputSecurityGroupCommandInput extends DeleteInputSecurityGroupRequest {}
+/**
+ * The output of {@link DeleteInputSecurityGroupCommand}.
+ */
 export interface DeleteInputSecurityGroupCommandOutput extends DeleteInputSecurityGroupResponse, __MetadataBearer {}
 
 /**

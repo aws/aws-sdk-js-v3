@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeClassicLinkInstancesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeClassicLinkInstancesCommand}.
+ */
 export interface DescribeClassicLinkInstancesCommandInput extends DescribeClassicLinkInstancesRequest {}
+/**
+ * The output of {@link DescribeClassicLinkInstancesCommand}.
+ */
 export interface DescribeClassicLinkInstancesCommandOutput
   extends DescribeClassicLinkInstancesResult,
     __MetadataBearer {}

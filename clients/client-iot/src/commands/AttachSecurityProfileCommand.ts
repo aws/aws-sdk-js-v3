@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AttachSecurityProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AttachSecurityProfileCommand}.
+ */
 export interface AttachSecurityProfileCommandInput extends AttachSecurityProfileRequest {}
+/**
+ * The output of {@link AttachSecurityProfileCommand}.
+ */
 export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfileResponse, __MetadataBearer {}
 
 /**

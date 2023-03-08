@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchDeletePhoneNumberCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchDeletePhoneNumberCommand}.
+ */
 export interface BatchDeletePhoneNumberCommandInput extends BatchDeletePhoneNumberRequest {}
+/**
+ * The output of {@link BatchDeletePhoneNumberCommand}.
+ */
 export interface BatchDeletePhoneNumberCommandOutput extends BatchDeletePhoneNumberResponse, __MetadataBearer {}
 
 /**

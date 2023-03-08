@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListPromptsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPromptsCommand}.
+ */
 export interface ListPromptsCommandInput extends ListPromptsRequest {}
+/**
+ * The output of {@link ListPromptsCommand}.
+ */
 export interface ListPromptsCommandOutput extends ListPromptsResponse, __MetadataBearer {}
 
 /**

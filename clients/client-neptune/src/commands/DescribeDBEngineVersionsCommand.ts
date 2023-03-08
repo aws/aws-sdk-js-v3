@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeDBEngineVersionsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeDBEngineVersionsCommand}.
+ */
 export interface DescribeDBEngineVersionsCommandInput extends DescribeDBEngineVersionsMessage {}
+/**
+ * The output of {@link DescribeDBEngineVersionsCommand}.
+ */
 export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMessage, __MetadataBearer {}
 
 /**

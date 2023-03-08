@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * The input for {@link UpdateSecretVersionStageCommand}.
+ */
 export interface UpdateSecretVersionStageCommandInput extends UpdateSecretVersionStageRequest {}
+/**
+ * The output of {@link UpdateSecretVersionStageCommand}.
+ */
 export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersionStageResponse, __MetadataBearer {}
 
 /**

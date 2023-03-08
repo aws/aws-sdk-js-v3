@@ -17,7 +17,13 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { DeregisterImageRequest, DeregisterImageRequestFilterSensitiveLog } from "../models/models_3";
 import { deserializeAws_ec2DeregisterImageCommand, serializeAws_ec2DeregisterImageCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeregisterImageCommand}.
+ */
 export interface DeregisterImageCommandInput extends DeregisterImageRequest {}
+/**
+ * The output of {@link DeregisterImageCommand}.
+ */
 export interface DeregisterImageCommandOutput extends __MetadataBearer {}
 
 /**

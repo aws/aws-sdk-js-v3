@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link JsonIntEnumsCommand}.
+ */
 export interface JsonIntEnumsCommandInput extends JsonIntEnumsInputOutput {}
+/**
+ * The output of {@link JsonIntEnumsCommand}.
+ */
 export interface JsonIntEnumsCommandOutput extends JsonIntEnumsInputOutput, __MetadataBearer {}
 
 /**

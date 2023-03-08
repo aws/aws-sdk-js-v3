@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteStackSetCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteStackSetCommand}.
+ */
 export interface DeleteStackSetCommandInput extends DeleteStackSetInput {}
+/**
+ * The output of {@link DeleteStackSetCommand}.
+ */
 export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeFileSystemsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeFileSystemsCommand}.
+ */
 export interface DescribeFileSystemsCommandInput extends DescribeFileSystemsRequest {}
+/**
+ * The output of {@link DescribeFileSystemsCommand}.
+ */
 export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsResponse, __MetadataBearer {}
 
 /**

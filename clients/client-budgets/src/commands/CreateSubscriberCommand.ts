@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateSubscriberCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateSubscriberCommand}.
+ */
 export interface CreateSubscriberCommandInput extends CreateSubscriberRequest {}
+/**
+ * The output of {@link CreateSubscriberCommand}.
+ */
 export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse, __MetadataBearer {}
 
 /**

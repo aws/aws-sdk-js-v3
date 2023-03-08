@@ -226,3 +226,38 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+DeleteReportDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/classes/deletereportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/deletereportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/deletereportdefinitioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeReportDefinitions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/classes/describereportdefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/describereportdefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/describereportdefinitionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ModifyReportDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/classes/modifyreportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/modifyreportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/modifyreportdefinitioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutReportDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/classes/putreportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/putreportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-and-usage-report-service/interfaces/putreportdefinitioncommandoutput.html)
+
+</details>

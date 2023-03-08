@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeInputSecurityGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeInputSecurityGroupCommand}.
+ */
 export interface DescribeInputSecurityGroupCommandInput extends DescribeInputSecurityGroupRequest {}
+/**
+ * The output of {@link DescribeInputSecurityGroupCommand}.
+ */
 export interface DescribeInputSecurityGroupCommandOutput extends DescribeInputSecurityGroupResponse, __MetadataBearer {}
 
 /**

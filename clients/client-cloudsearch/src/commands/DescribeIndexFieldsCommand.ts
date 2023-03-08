@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeIndexFieldsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeIndexFieldsCommand}.
+ */
 export interface DescribeIndexFieldsCommandInput extends DescribeIndexFieldsRequest {}
+/**
+ * The output of {@link DescribeIndexFieldsCommand}.
+ */
 export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsResponse, __MetadataBearer {}
 
 /**

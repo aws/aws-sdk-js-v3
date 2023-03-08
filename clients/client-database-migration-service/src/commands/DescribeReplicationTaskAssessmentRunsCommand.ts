@@ -29,8 +29,14 @@ import {
   serializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeReplicationTaskAssessmentRunsCommand}.
+ */
 export interface DescribeReplicationTaskAssessmentRunsCommandInput
   extends DescribeReplicationTaskAssessmentRunsMessage {}
+/**
+ * The output of {@link DescribeReplicationTaskAssessmentRunsCommand}.
+ */
 export interface DescribeReplicationTaskAssessmentRunsCommandOutput
   extends DescribeReplicationTaskAssessmentRunsResponse,
     __MetadataBearer {}

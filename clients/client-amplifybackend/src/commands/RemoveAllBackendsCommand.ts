@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RemoveAllBackendsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RemoveAllBackendsCommand}.
+ */
 export interface RemoveAllBackendsCommandInput extends RemoveAllBackendsRequest {}
+/**
+ * The output of {@link RemoveAllBackendsCommand}.
+ */
 export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsResponse, __MetadataBearer {}
 
 /**

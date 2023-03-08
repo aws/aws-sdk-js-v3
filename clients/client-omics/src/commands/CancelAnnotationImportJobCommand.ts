@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelAnnotationImportJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelAnnotationImportJobCommand}.
+ */
 export interface CancelAnnotationImportJobCommandInput extends CancelAnnotationImportRequest {}
+/**
+ * The output of {@link CancelAnnotationImportJobCommand}.
+ */
 export interface CancelAnnotationImportJobCommandOutput extends CancelAnnotationImportResponse, __MetadataBearer {}
 
 /**

@@ -19,13 +19,19 @@ import {
   StopTrainingEntityRecognizerRequestFilterSensitiveLog,
   StopTrainingEntityRecognizerResponse,
   StopTrainingEntityRecognizerResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1StopTrainingEntityRecognizerCommand,
   serializeAws_json1_1StopTrainingEntityRecognizerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopTrainingEntityRecognizerCommand}.
+ */
 export interface StopTrainingEntityRecognizerCommandInput extends StopTrainingEntityRecognizerRequest {}
+/**
+ * The output of {@link StopTrainingEntityRecognizerCommand}.
+ */
 export interface StopTrainingEntityRecognizerCommandOutput
   extends StopTrainingEntityRecognizerResponse,
     __MetadataBearer {}

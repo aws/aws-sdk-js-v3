@@ -6,7 +6,6 @@ import {
   ListSessionsCommandInput,
   ListSessionsCommandOutput,
 } from "../commands/ListSessionsCommand";
-import { Glue } from "../Glue";
 import { GlueClient } from "../GlueClient";
 import { GluePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSessionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Glue,
-  input: ListSessionsCommandInput,
-  ...args: any
-): Promise<ListSessionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSessions(input, ...args);
-};
 export async function* paginateListSessions(
   config: GluePaginationConfiguration,
   input: ListSessionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListSessions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Glue) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlueClient) {
+    if (config.client instanceof GlueClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Glue | GlueClient");

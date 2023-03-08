@@ -27,7 +27,13 @@ import {
   serializeAws_json1_1DeleteCustomRoutingListenerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteCustomRoutingListenerCommand}.
+ */
 export interface DeleteCustomRoutingListenerCommandInput extends DeleteCustomRoutingListenerRequest {}
+/**
+ * The output of {@link DeleteCustomRoutingListenerCommand}.
+ */
 export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBearer {}
 
 /**

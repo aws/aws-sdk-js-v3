@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchPutFieldOptionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchPutFieldOptionsCommand}.
+ */
 export interface BatchPutFieldOptionsCommandInput extends BatchPutFieldOptionsRequest {}
+/**
+ * The output of {@link BatchPutFieldOptionsCommand}.
+ */
 export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsResponse, __MetadataBearer {}
 
 /**

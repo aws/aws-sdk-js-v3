@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link NestedXmlMapsCommand}.
+ */
 export interface NestedXmlMapsCommandInput extends NestedXmlMapsInputOutput {}
+/**
+ * The output of {@link NestedXmlMapsCommand}.
+ */
 export interface NestedXmlMapsCommandOutput extends NestedXmlMapsInputOutput, __MetadataBearer {}
 
 export class NestedXmlMapsCommand extends $Command<

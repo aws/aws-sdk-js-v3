@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RunJobFlowCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RunJobFlowCommand}.
+ */
 export interface RunJobFlowCommandInput extends RunJobFlowInput {}
+/**
+ * The output of {@link RunJobFlowCommand}.
+ */
 export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBearer {}
 
 /**

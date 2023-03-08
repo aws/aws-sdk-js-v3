@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
+/**
+ * The input for {@link DeregisterApplicationCommand}.
+ */
 export interface DeregisterApplicationCommandInput extends DeregisterApplicationInput {}
+/**
+ * The output of {@link DeregisterApplicationCommand}.
+ */
 export interface DeregisterApplicationCommandOutput extends DeregisterApplicationOutput, __MetadataBearer {}
 
 /**

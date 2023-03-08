@@ -16,7 +16,13 @@ import { XmlUnionsInputOutput, XmlUnionsInputOutputFilterSensitiveLog } from "..
 import { deserializeAws_restXmlXmlUnionsCommand, serializeAws_restXmlXmlUnionsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link XmlUnionsCommand}.
+ */
 export interface XmlUnionsCommandInput extends XmlUnionsInputOutput {}
+/**
+ * The output of {@link XmlUnionsCommand}.
+ */
 export interface XmlUnionsCommandOutput extends XmlUnionsInputOutput, __MetadataBearer {}
 
 export class XmlUnionsCommand extends $Command<

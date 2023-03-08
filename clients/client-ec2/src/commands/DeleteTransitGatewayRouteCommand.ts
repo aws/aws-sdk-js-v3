@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteTransitGatewayRouteCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteTransitGatewayRouteCommand}.
+ */
 export interface DeleteTransitGatewayRouteCommandInput extends DeleteTransitGatewayRouteRequest {}
+/**
+ * The output of {@link DeleteTransitGatewayRouteCommand}.
+ */
 export interface DeleteTransitGatewayRouteCommandOutput extends DeleteTransitGatewayRouteResult, __MetadataBearer {}
 
 /**

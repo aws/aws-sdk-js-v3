@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeMonitorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeMonitorCommand}.
+ */
 export interface DescribeMonitorCommandInput extends DescribeMonitorRequest {}
+/**
+ * The output of {@link DescribeMonitorCommand}.
+ */
 export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, __MetadataBearer {}
 
 /**

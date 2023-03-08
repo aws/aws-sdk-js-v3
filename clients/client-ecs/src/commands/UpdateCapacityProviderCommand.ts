@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateCapacityProviderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateCapacityProviderCommand}.
+ */
 export interface UpdateCapacityProviderCommandInput extends UpdateCapacityProviderRequest {}
+/**
+ * The output of {@link UpdateCapacityProviderCommand}.
+ */
 export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProviderResponse, __MetadataBearer {}
 
 /**

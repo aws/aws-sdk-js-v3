@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RemoveRegionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RemoveRegionCommand}.
+ */
 export interface RemoveRegionCommandInput extends RemoveRegionRequest {}
+/**
+ * The output of {@link RemoveRegionCommand}.
+ */
 export interface RemoveRegionCommandOutput extends RemoveRegionResult, __MetadataBearer {}
 
 /**

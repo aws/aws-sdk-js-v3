@@ -29,7 +29,13 @@ import {
   serializeAws_querySetIpAddressTypeCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SetIpAddressTypeCommand}.
+ */
 export interface SetIpAddressTypeCommandInput extends SetIpAddressTypeInput {}
+/**
+ * The output of {@link SetIpAddressTypeCommand}.
+ */
 export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link RestoreDBClusterFromS3Command}.
+ */
 export interface RestoreDBClusterFromS3CommandInput extends RestoreDBClusterFromS3Message {}
+/**
+ * The output of {@link RestoreDBClusterFromS3Command}.
+ */
 export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFromS3Result, __MetadataBearer {}
 
 /**

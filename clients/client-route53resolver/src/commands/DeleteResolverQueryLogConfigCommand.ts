@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * The input for {@link DeleteResolverQueryLogConfigCommand}.
+ */
 export interface DeleteResolverQueryLogConfigCommandInput extends DeleteResolverQueryLogConfigRequest {}
+/**
+ * The output of {@link DeleteResolverQueryLogConfigCommand}.
+ */
 export interface DeleteResolverQueryLogConfigCommandOutput
   extends DeleteResolverQueryLogConfigResponse,
     __MetadataBearer {}

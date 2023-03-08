@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutBlockPublicAccessConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutBlockPublicAccessConfigurationCommand}.
+ */
 export interface PutBlockPublicAccessConfigurationCommandInput extends PutBlockPublicAccessConfigurationInput {}
+/**
+ * The output of {@link PutBlockPublicAccessConfigurationCommand}.
+ */
 export interface PutBlockPublicAccessConfigurationCommandOutput
   extends PutBlockPublicAccessConfigurationOutput,
     __MetadataBearer {}

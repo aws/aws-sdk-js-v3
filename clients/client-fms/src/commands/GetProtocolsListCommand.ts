@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetProtocolsListCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetProtocolsListCommand}.
+ */
 export interface GetProtocolsListCommandInput extends GetProtocolsListRequest {}
+/**
+ * The output of {@link GetProtocolsListCommand}.
+ */
 export interface GetProtocolsListCommandOutput extends GetProtocolsListResponse, __MetadataBearer {}
 
 /**

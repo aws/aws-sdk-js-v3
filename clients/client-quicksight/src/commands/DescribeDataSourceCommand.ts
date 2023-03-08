@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link DescribeDataSourceCommand}.
+ */
 export interface DescribeDataSourceCommandInput extends DescribeDataSourceRequest {}
+/**
+ * The output of {@link DescribeDataSourceCommand}.
+ */
 export interface DescribeDataSourceCommandOutput extends DescribeDataSourceResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartNextPendingJobExecutionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartNextPendingJobExecutionCommand}.
+ */
 export interface StartNextPendingJobExecutionCommandInput extends StartNextPendingJobExecutionRequest {}
+/**
+ * The output of {@link StartNextPendingJobExecutionCommand}.
+ */
 export interface StartNextPendingJobExecutionCommandOutput
   extends StartNextPendingJobExecutionResponse,
     __MetadataBearer {}

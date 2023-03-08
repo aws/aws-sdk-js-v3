@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateBranchCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateBranchCommand}.
+ */
 export interface UpdateBranchCommandInput extends UpdateBranchRequest {}
+/**
+ * The output of {@link UpdateBranchCommand}.
+ */
 export interface UpdateBranchCommandOutput extends UpdateBranchResult, __MetadataBearer {}
 
 /**

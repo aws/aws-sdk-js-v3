@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link GetParametersByPathCommand}.
+ */
 export interface GetParametersByPathCommandInput extends GetParametersByPathRequest {}
+/**
+ * The output of {@link GetParametersByPathCommand}.
+ */
 export interface GetParametersByPathCommandOutput extends GetParametersByPathResult, __MetadataBearer {}
 
 /**

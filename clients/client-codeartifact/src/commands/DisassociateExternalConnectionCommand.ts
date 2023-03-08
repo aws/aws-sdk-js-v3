@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociateExternalConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateExternalConnectionCommand}.
+ */
 export interface DisassociateExternalConnectionCommandInput extends DisassociateExternalConnectionRequest {}
+/**
+ * The output of {@link DisassociateExternalConnectionCommand}.
+ */
 export interface DisassociateExternalConnectionCommandOutput
   extends DisassociateExternalConnectionResult,
     __MetadataBearer {}

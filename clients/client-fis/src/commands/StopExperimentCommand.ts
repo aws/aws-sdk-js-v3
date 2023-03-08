@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopExperimentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopExperimentCommand}.
+ */
 export interface StopExperimentCommandInput extends StopExperimentRequest {}
+/**
+ * The output of {@link StopExperimentCommand}.
+ */
 export interface StopExperimentCommandOutput extends StopExperimentResponse, __MetadataBearer {}
 
 /**

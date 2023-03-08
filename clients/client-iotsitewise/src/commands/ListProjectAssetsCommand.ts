@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListProjectAssetsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListProjectAssetsCommand}.
+ */
 export interface ListProjectAssetsCommandInput extends ListProjectAssetsRequest {}
+/**
+ * The output of {@link ListProjectAssetsCommand}.
+ */
 export interface ListProjectAssetsCommandOutput extends ListProjectAssetsResponse, __MetadataBearer {}
 
 /**

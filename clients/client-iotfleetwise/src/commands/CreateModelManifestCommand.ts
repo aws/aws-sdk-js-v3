@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0CreateModelManifestCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateModelManifestCommand}.
+ */
 export interface CreateModelManifestCommandInput extends CreateModelManifestRequest {}
+/**
+ * The output of {@link CreateModelManifestCommand}.
+ */
 export interface CreateModelManifestCommandOutput extends CreateModelManifestResponse, __MetadataBearer {}
 
 /**

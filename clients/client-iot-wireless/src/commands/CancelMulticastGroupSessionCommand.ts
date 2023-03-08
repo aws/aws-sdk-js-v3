@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelMulticastGroupSessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelMulticastGroupSessionCommand}.
+ */
 export interface CancelMulticastGroupSessionCommandInput extends CancelMulticastGroupSessionRequest {}
+/**
+ * The output of {@link CancelMulticastGroupSessionCommand}.
+ */
 export interface CancelMulticastGroupSessionCommandOutput
   extends CancelMulticastGroupSessionResponse,
     __MetadataBearer {}

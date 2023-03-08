@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeConditionalForwardersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeConditionalForwardersCommand}.
+ */
 export interface DescribeConditionalForwardersCommandInput extends DescribeConditionalForwardersRequest {}
+/**
+ * The output of {@link DescribeConditionalForwardersCommand}.
+ */
 export interface DescribeConditionalForwardersCommandOutput
   extends DescribeConditionalForwardersResult,
     __MetadataBearer {}

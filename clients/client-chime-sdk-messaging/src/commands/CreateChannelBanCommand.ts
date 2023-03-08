@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CreateChannelBanCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateChannelBanCommand}.
+ */
 export interface CreateChannelBanCommandInput extends CreateChannelBanRequest {}
+/**
+ * The output of {@link CreateChannelBanCommand}.
+ */
 export interface CreateChannelBanCommandOutput extends CreateChannelBanResponse, __MetadataBearer {}
 
 /**

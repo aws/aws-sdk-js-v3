@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListAccountsForParentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAccountsForParentCommand}.
+ */
 export interface ListAccountsForParentCommandInput extends ListAccountsForParentRequest {}
+/**
+ * The output of {@link ListAccountsForParentCommand}.
+ */
 export interface ListAccountsForParentCommandOutput extends ListAccountsForParentResponse, __MetadataBearer {}
 
 /**
@@ -34,7 +40,7 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  *             that aren't in any OU. If you specify an OU, you get a list of all the accounts in only
  *             that OU and not in any child OUs. To get a list of all accounts in the organization, use
  *             the <a>ListAccounts</a> operation.</p>
- *         <note>
+ *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
  * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
  * occasionally return an empty set of results even when there are more results available. The
@@ -42,7 +48,7 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  *                <i>only</i>
  * when there are no more results to display.</p>
  *          </note>
- *         <p>This operation can be called only from the organization's
+ *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

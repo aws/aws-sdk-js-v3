@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateEvaluationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateEvaluationCommand}.
+ */
 export interface CreateEvaluationCommandInput extends CreateEvaluationInput {}
+/**
+ * The output of {@link CreateEvaluationCommand}.
+ */
 export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, __MetadataBearer {}
 
 /**

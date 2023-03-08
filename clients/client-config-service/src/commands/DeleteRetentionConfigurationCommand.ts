@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DeleteRetentionConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteRetentionConfigurationCommand}.
+ */
 export interface DeleteRetentionConfigurationCommandInput extends DeleteRetentionConfigurationRequest {}
+/**
+ * The output of {@link DeleteRetentionConfigurationCommand}.
+ */
 export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

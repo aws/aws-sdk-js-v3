@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchCreateCustomVocabularyItemCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchCreateCustomVocabularyItemCommand}.
+ */
 export interface BatchCreateCustomVocabularyItemCommandInput extends BatchCreateCustomVocabularyItemRequest {}
+/**
+ * The output of {@link BatchCreateCustomVocabularyItemCommand}.
+ */
 export interface BatchCreateCustomVocabularyItemCommandOutput
   extends BatchCreateCustomVocabularyItemResponse,
     __MetadataBearer {}

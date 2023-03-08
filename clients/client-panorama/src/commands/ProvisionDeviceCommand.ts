@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ProvisionDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ProvisionDeviceCommand}.
+ */
 export interface ProvisionDeviceCommandInput extends ProvisionDeviceRequest {}
+/**
+ * The output of {@link ProvisionDeviceCommand}.
+ */
 export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, __MetadataBearer {}
 
 /**

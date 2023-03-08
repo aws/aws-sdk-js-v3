@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link UpdateConnectionAliasPermissionCommand}.
+ */
 export interface UpdateConnectionAliasPermissionCommandInput extends UpdateConnectionAliasPermissionRequest {}
+/**
+ * The output of {@link UpdateConnectionAliasPermissionCommand}.
+ */
 export interface UpdateConnectionAliasPermissionCommandOutput
   extends UpdateConnectionAliasPermissionResult,
     __MetadataBearer {}

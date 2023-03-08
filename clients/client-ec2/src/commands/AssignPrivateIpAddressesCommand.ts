@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AssignPrivateIpAddressesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AssignPrivateIpAddressesCommand}.
+ */
 export interface AssignPrivateIpAddressesCommandInput extends AssignPrivateIpAddressesRequest {}
+/**
+ * The output of {@link AssignPrivateIpAddressesCommand}.
+ */
 export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAddressesResult, __MetadataBearer {}
 
 /**

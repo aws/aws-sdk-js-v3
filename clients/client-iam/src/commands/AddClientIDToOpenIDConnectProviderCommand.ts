@@ -23,7 +23,13 @@ import {
   serializeAws_queryAddClientIDToOpenIDConnectProviderCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link AddClientIDToOpenIDConnectProviderCommand}.
+ */
 export interface AddClientIDToOpenIDConnectProviderCommandInput extends AddClientIDToOpenIDConnectProviderRequest {}
+/**
+ * The output of {@link AddClientIDToOpenIDConnectProviderCommand}.
+ */
 export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**

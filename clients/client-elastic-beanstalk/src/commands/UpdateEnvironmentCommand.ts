@@ -25,7 +25,13 @@ import {
   serializeAws_queryUpdateEnvironmentCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateEnvironmentCommand}.
+ */
 export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentMessage {}
+/**
+ * The output of {@link UpdateEnvironmentCommand}.
+ */
 export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, __MetadataBearer {}
 
 /**

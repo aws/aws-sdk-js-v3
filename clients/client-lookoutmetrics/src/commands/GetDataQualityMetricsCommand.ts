@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDataQualityMetricsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDataQualityMetricsCommand}.
+ */
 export interface GetDataQualityMetricsCommandInput extends GetDataQualityMetricsRequest {}
+/**
+ * The output of {@link GetDataQualityMetricsCommand}.
+ */
 export interface GetDataQualityMetricsCommandOutput extends GetDataQualityMetricsResponse, __MetadataBearer {}
 
 /**

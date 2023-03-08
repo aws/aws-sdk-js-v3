@@ -6,7 +6,6 @@ import {
   ListRoutingControlsCommandInput,
   ListRoutingControlsCommandOutput,
 } from "../commands/ListRoutingControlsCommand";
-import { Route53RecoveryControlConfig } from "../Route53RecoveryControlConfig";
 import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";
 import { Route53RecoveryControlConfigPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRoutingControlsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Route53RecoveryControlConfig,
-  input: ListRoutingControlsCommandInput,
-  ...args: any
-): Promise<ListRoutingControlsCommandOutput> => {
-  // @ts-ignore
-  return await client.listRoutingControls(input, ...args);
-};
 export async function* paginateListRoutingControls(
   config: Route53RecoveryControlConfigPaginationConfiguration,
   input: ListRoutingControlsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListRoutingControls(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Route53RecoveryControlConfig) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof Route53RecoveryControlConfigClient) {
+    if (config.client instanceof Route53RecoveryControlConfigClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Route53RecoveryControlConfig | Route53RecoveryControlConfigClient");

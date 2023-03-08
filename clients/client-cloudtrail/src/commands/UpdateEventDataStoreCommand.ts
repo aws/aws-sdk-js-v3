@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateEventDataStoreCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateEventDataStoreCommand}.
+ */
 export interface UpdateEventDataStoreCommandInput extends UpdateEventDataStoreRequest {}
+/**
+ * The output of {@link UpdateEventDataStoreCommand}.
+ */
 export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreResponse, __MetadataBearer {}
 
 /**

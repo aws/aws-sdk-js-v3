@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * The input for {@link AcceptResourceShareInvitationCommand}.
+ */
 export interface AcceptResourceShareInvitationCommandInput extends AcceptResourceShareInvitationRequest {}
+/**
+ * The output of {@link AcceptResourceShareInvitationCommand}.
+ */
 export interface AcceptResourceShareInvitationCommandOutput
   extends AcceptResourceShareInvitationResponse,
     __MetadataBearer {}

@@ -25,13 +25,19 @@ import {
   serializeAws_restJson1GetResourcePositionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetResourcePositionCommand}.
+ */
 export interface GetResourcePositionCommandInput extends GetResourcePositionRequest {}
+/**
+ * The output of {@link GetResourcePositionCommand}.
+ */
 export interface GetResourcePositionCommandOutput extends GetResourcePositionResponse, __MetadataBearer {}
 
 /**
- * <p>Get the position information for a given wireless device or a wireless gateway resource. The postion
- *           information uses the <a href="https://gisgeography.com/wgs84-world-geodetic-system/">
- *           World Geodetic System (WGS84)</a>.</p>
+ * <p>Get the position information for a given wireless device or a wireless gateway resource.
+ *             The position information uses the <a href="https://gisgeography.com/wgs84-world-geodetic-system/"> World Geodetic System
+ *                 (WGS84)</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

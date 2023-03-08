@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1UpdateQuerySuggestionsConfigCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateQuerySuggestionsConfigCommand}.
+ */
 export interface UpdateQuerySuggestionsConfigCommandInput extends UpdateQuerySuggestionsConfigRequest {}
+/**
+ * The output of {@link UpdateQuerySuggestionsConfigCommand}.
+ */
 export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteObjectsOnCancelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteObjectsOnCancelCommand}.
+ */
 export interface DeleteObjectsOnCancelCommandInput extends DeleteObjectsOnCancelRequest {}
+/**
+ * The output of {@link DeleteObjectsOnCancelCommand}.
+ */
 export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCancelResponse, __MetadataBearer {}
 
 /**

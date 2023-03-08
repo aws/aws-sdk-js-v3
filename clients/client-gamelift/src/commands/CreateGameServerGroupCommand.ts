@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateGameServerGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateGameServerGroupCommand}.
+ */
 export interface CreateGameServerGroupCommandInput extends CreateGameServerGroupInput {}
+/**
+ * The output of {@link CreateGameServerGroupCommand}.
+ */
 export interface CreateGameServerGroupCommandOutput extends CreateGameServerGroupOutput, __MetadataBearer {}
 
 /**

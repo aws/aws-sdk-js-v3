@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeTransitGatewayConnectPeersCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeTransitGatewayConnectPeersCommand}.
+ */
 export interface DescribeTransitGatewayConnectPeersCommandInput extends DescribeTransitGatewayConnectPeersRequest {}
+/**
+ * The output of {@link DescribeTransitGatewayConnectPeersCommand}.
+ */
 export interface DescribeTransitGatewayConnectPeersCommandOutput
   extends DescribeTransitGatewayConnectPeersResult,
     __MetadataBearer {}

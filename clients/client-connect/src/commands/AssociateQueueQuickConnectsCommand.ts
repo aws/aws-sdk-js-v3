@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1AssociateQueueQuickConnectsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateQueueQuickConnectsCommand}.
+ */
 export interface AssociateQueueQuickConnectsCommandInput extends AssociateQueueQuickConnectsRequest {}
+/**
+ * The output of {@link AssociateQueueQuickConnectsCommand}.
+ */
 export interface AssociateQueueQuickConnectsCommandOutput extends __MetadataBearer {}
 
 /**

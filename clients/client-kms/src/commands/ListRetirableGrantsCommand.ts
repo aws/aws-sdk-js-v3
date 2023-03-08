@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListRetirableGrantsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListRetirableGrantsCommand}.
+ */
 export interface ListRetirableGrantsCommandInput extends ListRetirableGrantsRequest {}
+/**
+ * The output of {@link ListRetirableGrantsCommand}.
+ */
 export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __MetadataBearer {}
 
 /**
@@ -44,7 +50,6 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  *       Amazon Web Services account. However, this operation can return grants in any Amazon Web Services account. You do not need
  *         <code>kms:ListRetirableGrants</code> permission (or any other additional permission) in any
  *       Amazon Web Services account other than your own.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListRetirableGrants</a> (IAM policy) in your
  *       Amazon Web Services account.</p>

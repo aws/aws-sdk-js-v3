@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link GetConnectionStatusCommand}.
+ */
 export interface GetConnectionStatusCommandInput extends GetConnectionStatusRequest {}
+/**
+ * The output of {@link GetConnectionStatusCommand}.
+ */
 export interface GetConnectionStatusCommandOutput extends GetConnectionStatusResponse, __MetadataBearer {}
 
 /**

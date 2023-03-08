@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeAccountLimitsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeAccountLimitsCommand}.
+ */
 export interface DescribeAccountLimitsCommandInput extends DescribeAccountLimitsInput {}
+/**
+ * The output of {@link DescribeAccountLimitsCommand}.
+ */
 export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsOutput, __MetadataBearer {}
 
 /**

@@ -29,12 +29,18 @@ import {
   serializeAws_json1_1RemoveTagsFromResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RemoveTagsFromResourceCommand}.
+ */
 export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResourceMessage {}
+/**
+ * The output of {@link RemoveTagsFromResourceCommand}.
+ */
 export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Removes metadata tags from an DMS resource, including replication instance,
- *          endpoint, security group, and migration task. For more information, see
+ *          endpoint, subnet group, and migration task. For more information, see
  *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
  *                <code>Tag</code>
  *             </a>

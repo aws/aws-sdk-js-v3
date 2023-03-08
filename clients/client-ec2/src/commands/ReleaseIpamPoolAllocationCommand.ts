@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ReleaseIpamPoolAllocationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ReleaseIpamPoolAllocationCommand}.
+ */
 export interface ReleaseIpamPoolAllocationCommandInput extends ReleaseIpamPoolAllocationRequest {}
+/**
+ * The output of {@link ReleaseIpamPoolAllocationCommand}.
+ */
 export interface ReleaseIpamPoolAllocationCommandOutput extends ReleaseIpamPoolAllocationResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetRecoveryPointRestoreMetadataCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetRecoveryPointRestoreMetadataCommand}.
+ */
 export interface GetRecoveryPointRestoreMetadataCommandInput extends GetRecoveryPointRestoreMetadataInput {}
+/**
+ * The output of {@link GetRecoveryPointRestoreMetadataCommand}.
+ */
 export interface GetRecoveryPointRestoreMetadataCommandOutput
   extends GetRecoveryPointRestoreMetadataOutput,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateLocationNfsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateLocationNfsCommand}.
+ */
 export interface UpdateLocationNfsCommandInput extends UpdateLocationNfsRequest {}
+/**
+ * The output of {@link UpdateLocationNfsCommand}.
+ */
 export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsResponse, __MetadataBearer {}
 
 /**

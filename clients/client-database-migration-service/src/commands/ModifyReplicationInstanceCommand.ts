@@ -29,14 +29,19 @@ import {
   serializeAws_json1_1ModifyReplicationInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ModifyReplicationInstanceCommand}.
+ */
 export interface ModifyReplicationInstanceCommandInput extends ModifyReplicationInstanceMessage {}
+/**
+ * The output of {@link ModifyReplicationInstanceCommand}.
+ */
 export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicationInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the replication instance to apply new settings. You can change one or more
  *          parameters by specifying these parameters and the new values in the request.</p>
  *          <p>Some settings are applied during the maintenance window.</p>
- *
  *          <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

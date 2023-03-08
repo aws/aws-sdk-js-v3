@@ -20,7 +20,13 @@ import {
   serializeAws_queryAttachInstancesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link AttachInstancesCommand}.
+ */
 export interface AttachInstancesCommandInput extends AttachInstancesQuery {}
+/**
+ * The output of {@link AttachInstancesCommand}.
+ */
 export interface AttachInstancesCommandOutput extends __MetadataBearer {}
 
 /**

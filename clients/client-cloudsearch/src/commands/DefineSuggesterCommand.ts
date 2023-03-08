@@ -25,7 +25,13 @@ import {
   serializeAws_queryDefineSuggesterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DefineSuggesterCommand}.
+ */
 export interface DefineSuggesterCommandInput extends DefineSuggesterRequest {}
+/**
+ * The output of {@link DefineSuggesterCommand}.
+ */
 export interface DefineSuggesterCommandOutput extends DefineSuggesterResponse, __MetadataBearer {}
 
 /**

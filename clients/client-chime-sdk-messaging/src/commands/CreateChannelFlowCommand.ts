@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CreateChannelFlowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateChannelFlowCommand}.
+ */
 export interface CreateChannelFlowCommandInput extends CreateChannelFlowRequest {}
+/**
+ * The output of {@link CreateChannelFlowCommand}.
+ */
 export interface CreateChannelFlowCommandOutput extends CreateChannelFlowResponse, __MetadataBearer {}
 
 /**

@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link HttpEnumPayloadCommand}.
+ */
 export interface HttpEnumPayloadCommandInput extends EnumPayloadInput {}
+/**
+ * The output of {@link HttpEnumPayloadCommand}.
+ */
 export interface HttpEnumPayloadCommandOutput extends EnumPayloadInput, __MetadataBearer {}
 
 export class HttpEnumPayloadCommand extends $Command<

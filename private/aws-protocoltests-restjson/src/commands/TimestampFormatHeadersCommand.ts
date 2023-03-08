@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link TimestampFormatHeadersCommand}.
+ */
 export interface TimestampFormatHeadersCommandInput extends TimestampFormatHeadersIO {}
+/**
+ * The output of {@link TimestampFormatHeadersCommand}.
+ */
 export interface TimestampFormatHeadersCommandOutput extends TimestampFormatHeadersIO, __MetadataBearer {}
 
 /**

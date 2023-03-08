@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DisassociateLexBotCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateLexBotCommand}.
+ */
 export interface DisassociateLexBotCommandInput extends DisassociateLexBotRequest {}
+/**
+ * The output of {@link DisassociateLexBotCommand}.
+ */
 export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
 
 /**

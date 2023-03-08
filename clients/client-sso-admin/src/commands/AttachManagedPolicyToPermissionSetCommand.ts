@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
+/**
+ * The input for {@link AttachManagedPolicyToPermissionSetCommand}.
+ */
 export interface AttachManagedPolicyToPermissionSetCommandInput extends AttachManagedPolicyToPermissionSetRequest {}
+/**
+ * The output of {@link AttachManagedPolicyToPermissionSetCommand}.
+ */
 export interface AttachManagedPolicyToPermissionSetCommandOutput
   extends AttachManagedPolicyToPermissionSetResponse,
     __MetadataBearer {}

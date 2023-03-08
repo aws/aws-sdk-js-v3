@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeValidDBInstanceModificationsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeValidDBInstanceModificationsCommand}.
+ */
 export interface DescribeValidDBInstanceModificationsCommandInput extends DescribeValidDBInstanceModificationsMessage {}
+/**
+ * The output of {@link DescribeValidDBInstanceModificationsCommand}.
+ */
 export interface DescribeValidDBInstanceModificationsCommandOutput
   extends DescribeValidDBInstanceModificationsResult,
     __MetadataBearer {}

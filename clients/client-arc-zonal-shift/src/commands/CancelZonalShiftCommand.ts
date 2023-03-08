@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelZonalShiftCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelZonalShiftCommand}.
+ */
 export interface CancelZonalShiftCommandInput extends CancelZonalShiftRequest {}
+/**
+ * The output of {@link CancelZonalShiftCommand}.
+ */
 export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
 
 /**

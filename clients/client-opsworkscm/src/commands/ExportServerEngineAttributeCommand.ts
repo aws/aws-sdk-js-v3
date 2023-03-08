@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ExportServerEngineAttributeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ExportServerEngineAttributeCommand}.
+ */
 export interface ExportServerEngineAttributeCommandInput extends ExportServerEngineAttributeRequest {}
+/**
+ * The output of {@link ExportServerEngineAttributeCommand}.
+ */
 export interface ExportServerEngineAttributeCommandOutput
   extends ExportServerEngineAttributeResponse,
     __MetadataBearer {}

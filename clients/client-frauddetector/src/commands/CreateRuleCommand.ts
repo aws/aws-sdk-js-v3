@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateRuleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateRuleCommand}.
+ */
 export interface CreateRuleCommandInput extends CreateRuleRequest {}
+/**
+ * The output of {@link CreateRuleCommand}.
+ */
 export interface CreateRuleCommandOutput extends CreateRuleResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartMaintenanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartMaintenanceCommand}.
+ */
 export interface StartMaintenanceCommandInput extends StartMaintenanceRequest {}
+/**
+ * The output of {@link StartMaintenanceCommand}.
+ */
 export interface StartMaintenanceCommandOutput extends StartMaintenanceResponse, __MetadataBearer {}
 
 /**

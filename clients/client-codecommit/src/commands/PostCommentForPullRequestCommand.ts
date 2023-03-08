@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PostCommentForPullRequestCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PostCommentForPullRequestCommand}.
+ */
 export interface PostCommentForPullRequestCommandInput extends PostCommentForPullRequestInput {}
+/**
+ * The output of {@link PostCommentForPullRequestCommand}.
+ */
 export interface PostCommentForPullRequestCommandOutput extends PostCommentForPullRequestOutput, __MetadataBearer {}
 
 /**

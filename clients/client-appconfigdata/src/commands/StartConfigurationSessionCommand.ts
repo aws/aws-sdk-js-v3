@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartConfigurationSessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartConfigurationSessionCommand}.
+ */
 export interface StartConfigurationSessionCommandInput extends StartConfigurationSessionRequest {}
+/**
+ * The output of {@link StartConfigurationSessionCommand}.
+ */
 export interface StartConfigurationSessionCommandOutput extends StartConfigurationSessionResponse, __MetadataBearer {}
 
 /**

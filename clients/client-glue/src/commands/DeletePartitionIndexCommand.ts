@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeletePartitionIndexCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeletePartitionIndexCommand}.
+ */
 export interface DeletePartitionIndexCommandInput extends DeletePartitionIndexRequest {}
+/**
+ * The output of {@link DeletePartitionIndexCommand}.
+ */
 export interface DeletePartitionIndexCommandOutput extends DeletePartitionIndexResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListRunTasksCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListRunTasksCommand}.
+ */
 export interface ListRunTasksCommandInput extends ListRunTasksRequest {}
+/**
+ * The output of {@link ListRunTasksCommand}.
+ */
 export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __MetadataBearer {}
 
 /**

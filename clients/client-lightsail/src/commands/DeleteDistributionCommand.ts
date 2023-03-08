@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteDistributionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteDistributionCommand}.
+ */
 export interface DeleteDistributionCommandInput extends DeleteDistributionRequest {}
+/**
+ * The output of {@link DeleteDistributionCommand}.
+ */
 export interface DeleteDistributionCommandOutput extends DeleteDistributionResult, __MetadataBearer {}
 
 /**

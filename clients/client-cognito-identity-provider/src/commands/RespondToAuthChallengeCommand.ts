@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1RespondToAuthChallengeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RespondToAuthChallengeCommand}.
+ */
 export interface RespondToAuthChallengeCommandInput extends RespondToAuthChallengeRequest {}
+/**
+ * The output of {@link RespondToAuthChallengeCommand}.
+ */
 export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChallengeResponse, __MetadataBearer {}
 
 /**

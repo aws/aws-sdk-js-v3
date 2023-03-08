@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetProjectCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetProjectCommand}.
+ */
 export interface GetProjectCommandInput extends GetProjectRequest {}
+/**
+ * The output of {@link GetProjectCommand}.
+ */
 export interface GetProjectCommandOutput extends GetProjectResponse, __MetadataBearer {}
 
 /**

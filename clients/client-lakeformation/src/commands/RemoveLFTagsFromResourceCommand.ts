@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RemoveLFTagsFromResourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RemoveLFTagsFromResourceCommand}.
+ */
 export interface RemoveLFTagsFromResourceCommandInput extends RemoveLFTagsFromResourceRequest {}
+/**
+ * The output of {@link RemoveLFTagsFromResourceCommand}.
+ */
 export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromResourceResponse, __MetadataBearer {}
 
 /**

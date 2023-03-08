@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchEvaluateFeatureCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchEvaluateFeatureCommand}.
+ */
 export interface BatchEvaluateFeatureCommandInput extends BatchEvaluateFeatureRequest {}
+/**
+ * The output of {@link BatchEvaluateFeatureCommand}.
+ */
 export interface BatchEvaluateFeatureCommandOutput extends BatchEvaluateFeatureResponse, __MetadataBearer {}
 
 /**

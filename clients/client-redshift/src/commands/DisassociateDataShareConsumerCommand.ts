@@ -24,7 +24,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DisassociateDataShareConsumerCommand}.
+ */
 export interface DisassociateDataShareConsumerCommandInput extends DisassociateDataShareConsumerMessage {}
+/**
+ * The output of {@link DisassociateDataShareConsumerCommand}.
+ */
 export interface DisassociateDataShareConsumerCommandOutput extends DataShare, __MetadataBearer {}
 
 /**

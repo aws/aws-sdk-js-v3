@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListServerNeighborsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListServerNeighborsCommand}.
+ */
 export interface ListServerNeighborsCommandInput extends ListServerNeighborsRequest {}
+/**
+ * The output of {@link ListServerNeighborsCommand}.
+ */
 export interface ListServerNeighborsCommandOutput extends ListServerNeighborsResponse, __MetadataBearer {}
 
 /**

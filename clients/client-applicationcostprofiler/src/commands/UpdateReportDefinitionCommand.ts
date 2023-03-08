@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1UpdateReportDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateReportDefinitionCommand}.
+ */
 export interface UpdateReportDefinitionCommandInput extends UpdateReportDefinitionRequest {}
+/**
+ * The output of {@link UpdateReportDefinitionCommand}.
+ */
 export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinitionResult, __MetadataBearer {}
 
 /**

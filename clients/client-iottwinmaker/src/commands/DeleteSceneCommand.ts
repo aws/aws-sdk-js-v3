@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteSceneCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteSceneCommand}.
+ */
 export interface DeleteSceneCommandInput extends DeleteSceneRequest {}
+/**
+ * The output of {@link DeleteSceneCommand}.
+ */
 export interface DeleteSceneCommandOutput extends DeleteSceneResponse, __MetadataBearer {}
 
 /**

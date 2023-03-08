@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeImageScanFindingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeImageScanFindingsCommand}.
+ */
 export interface DescribeImageScanFindingsCommandInput extends DescribeImageScanFindingsRequest {}
+/**
+ * The output of {@link DescribeImageScanFindingsCommand}.
+ */
 export interface DescribeImageScanFindingsCommandOutput extends DescribeImageScanFindingsResponse, __MetadataBearer {}
 
 /**

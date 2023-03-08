@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link SetSMSAttributesCommand}.
+ */
 export interface SetSMSAttributesCommandInput extends SetSMSAttributesInput {}
+/**
+ * The output of {@link SetSMSAttributesCommand}.
+ */
 export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse, __MetadataBearer {}
 
 /**

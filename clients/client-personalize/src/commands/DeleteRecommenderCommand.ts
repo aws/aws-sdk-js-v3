@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteRecommenderCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteRecommenderCommand}.
+ */
 export interface DeleteRecommenderCommandInput extends DeleteRecommenderRequest {}
+/**
+ * The output of {@link DeleteRecommenderCommand}.
+ */
 export interface DeleteRecommenderCommandOutput extends __MetadataBearer {}
 
 /**

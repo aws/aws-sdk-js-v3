@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1UpdateAppCommand, serializeAws_json1_1UpdateAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link UpdateAppCommand}.
+ */
 export interface UpdateAppCommandInput extends UpdateAppRequest {}
+/**
+ * The output of {@link UpdateAppCommand}.
+ */
 export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBearer {}
 
 /**

@@ -20,12 +20,19 @@ import {
   serializeAws_json1_1DescribeResourcePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeResourcePolicyCommand}.
+ */
 export interface DescribeResourcePolicyCommandInput {}
+/**
+ * The output of {@link DescribeResourcePolicyCommand}.
+ */
 export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a resource policy.</p>
- *         <p>You can only call this operation from the organization's management account or by a member account that is a delegated administrator for an AWS service.</p>
+ *          <p>You can only call this operation from the organization's management account or by a
+ *             member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -75,6 +75,7 @@ import {
   ContainsPiiEntitiesCommandInput,
   ContainsPiiEntitiesCommandOutput,
 } from "./commands/ContainsPiiEntitiesCommand";
+import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
 import {
   CreateDocumentClassifierCommandInput,
   CreateDocumentClassifierCommandOutput,
@@ -84,6 +85,7 @@ import {
   CreateEntityRecognizerCommandInput,
   CreateEntityRecognizerCommandOutput,
 } from "./commands/CreateEntityRecognizerCommand";
+import { CreateFlywheelCommandInput, CreateFlywheelCommandOutput } from "./commands/CreateFlywheelCommand";
 import {
   DeleteDocumentClassifierCommandInput,
   DeleteDocumentClassifierCommandOutput,
@@ -93,10 +95,12 @@ import {
   DeleteEntityRecognizerCommandInput,
   DeleteEntityRecognizerCommandOutput,
 } from "./commands/DeleteEntityRecognizerCommand";
+import { DeleteFlywheelCommandInput, DeleteFlywheelCommandOutput } from "./commands/DeleteFlywheelCommand";
 import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
+import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import {
   DescribeDocumentClassificationJobCommandInput,
   DescribeDocumentClassificationJobCommandOutput,
@@ -122,6 +126,11 @@ import {
   DescribeEventsDetectionJobCommandInput,
   DescribeEventsDetectionJobCommandOutput,
 } from "./commands/DescribeEventsDetectionJobCommand";
+import { DescribeFlywheelCommandInput, DescribeFlywheelCommandOutput } from "./commands/DescribeFlywheelCommand";
+import {
+  DescribeFlywheelIterationCommandInput,
+  DescribeFlywheelIterationCommandOutput,
+} from "./commands/DescribeFlywheelIterationCommand";
 import {
   DescribeKeyPhrasesDetectionJobCommandInput,
   DescribeKeyPhrasesDetectionJobCommandOutput,
@@ -160,6 +169,7 @@ import {
   DetectTargetedSentimentCommandOutput,
 } from "./commands/DetectTargetedSentimentCommand";
 import { ImportModelCommandInput, ImportModelCommandOutput } from "./commands/ImportModelCommand";
+import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
 import {
   ListDocumentClassificationJobsCommandInput,
   ListDocumentClassificationJobsCommandOutput,
@@ -193,6 +203,11 @@ import {
   ListEventsDetectionJobsCommandInput,
   ListEventsDetectionJobsCommandOutput,
 } from "./commands/ListEventsDetectionJobsCommand";
+import {
+  ListFlywheelIterationHistoryCommandInput,
+  ListFlywheelIterationHistoryCommandOutput,
+} from "./commands/ListFlywheelIterationHistoryCommand";
+import { ListFlywheelsCommandInput, ListFlywheelsCommandOutput } from "./commands/ListFlywheelsCommand";
 import {
   ListKeyPhrasesDetectionJobsCommandInput,
   ListKeyPhrasesDetectionJobsCommandOutput,
@@ -234,6 +249,10 @@ import {
   StartEventsDetectionJobCommandInput,
   StartEventsDetectionJobCommandOutput,
 } from "./commands/StartEventsDetectionJobCommand";
+import {
+  StartFlywheelIterationCommandInput,
+  StartFlywheelIterationCommandOutput,
+} from "./commands/StartFlywheelIterationCommand";
 import {
   StartKeyPhrasesDetectionJobCommandInput,
   StartKeyPhrasesDetectionJobCommandOutput,
@@ -293,6 +312,7 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "./commands/UpdateEndpointCommand";
+import { UpdateFlywheelCommandInput, UpdateFlywheelCommandOutput } from "./commands/UpdateFlywheelCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -310,13 +330,17 @@ export type ServiceInputTypes =
   | BatchDetectTargetedSentimentCommandInput
   | ClassifyDocumentCommandInput
   | ContainsPiiEntitiesCommandInput
+  | CreateDatasetCommandInput
   | CreateDocumentClassifierCommandInput
   | CreateEndpointCommandInput
   | CreateEntityRecognizerCommandInput
+  | CreateFlywheelCommandInput
   | DeleteDocumentClassifierCommandInput
   | DeleteEndpointCommandInput
   | DeleteEntityRecognizerCommandInput
+  | DeleteFlywheelCommandInput
   | DeleteResourcePolicyCommandInput
+  | DescribeDatasetCommandInput
   | DescribeDocumentClassificationJobCommandInput
   | DescribeDocumentClassifierCommandInput
   | DescribeDominantLanguageDetectionJobCommandInput
@@ -324,6 +348,8 @@ export type ServiceInputTypes =
   | DescribeEntitiesDetectionJobCommandInput
   | DescribeEntityRecognizerCommandInput
   | DescribeEventsDetectionJobCommandInput
+  | DescribeFlywheelCommandInput
+  | DescribeFlywheelIterationCommandInput
   | DescribeKeyPhrasesDetectionJobCommandInput
   | DescribePiiEntitiesDetectionJobCommandInput
   | DescribeResourcePolicyCommandInput
@@ -338,6 +364,7 @@ export type ServiceInputTypes =
   | DetectSyntaxCommandInput
   | DetectTargetedSentimentCommandInput
   | ImportModelCommandInput
+  | ListDatasetsCommandInput
   | ListDocumentClassificationJobsCommandInput
   | ListDocumentClassifierSummariesCommandInput
   | ListDocumentClassifiersCommandInput
@@ -347,6 +374,8 @@ export type ServiceInputTypes =
   | ListEntityRecognizerSummariesCommandInput
   | ListEntityRecognizersCommandInput
   | ListEventsDetectionJobsCommandInput
+  | ListFlywheelIterationHistoryCommandInput
+  | ListFlywheelsCommandInput
   | ListKeyPhrasesDetectionJobsCommandInput
   | ListPiiEntitiesDetectionJobsCommandInput
   | ListSentimentDetectionJobsCommandInput
@@ -358,6 +387,7 @@ export type ServiceInputTypes =
   | StartDominantLanguageDetectionJobCommandInput
   | StartEntitiesDetectionJobCommandInput
   | StartEventsDetectionJobCommandInput
+  | StartFlywheelIterationCommandInput
   | StartKeyPhrasesDetectionJobCommandInput
   | StartPiiEntitiesDetectionJobCommandInput
   | StartSentimentDetectionJobCommandInput
@@ -374,7 +404,8 @@ export type ServiceInputTypes =
   | StopTrainingEntityRecognizerCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateEndpointCommandInput;
+  | UpdateEndpointCommandInput
+  | UpdateFlywheelCommandInput;
 
 export type ServiceOutputTypes =
   | BatchDetectDominantLanguageCommandOutput
@@ -385,13 +416,17 @@ export type ServiceOutputTypes =
   | BatchDetectTargetedSentimentCommandOutput
   | ClassifyDocumentCommandOutput
   | ContainsPiiEntitiesCommandOutput
+  | CreateDatasetCommandOutput
   | CreateDocumentClassifierCommandOutput
   | CreateEndpointCommandOutput
   | CreateEntityRecognizerCommandOutput
+  | CreateFlywheelCommandOutput
   | DeleteDocumentClassifierCommandOutput
   | DeleteEndpointCommandOutput
   | DeleteEntityRecognizerCommandOutput
+  | DeleteFlywheelCommandOutput
   | DeleteResourcePolicyCommandOutput
+  | DescribeDatasetCommandOutput
   | DescribeDocumentClassificationJobCommandOutput
   | DescribeDocumentClassifierCommandOutput
   | DescribeDominantLanguageDetectionJobCommandOutput
@@ -399,6 +434,8 @@ export type ServiceOutputTypes =
   | DescribeEntitiesDetectionJobCommandOutput
   | DescribeEntityRecognizerCommandOutput
   | DescribeEventsDetectionJobCommandOutput
+  | DescribeFlywheelCommandOutput
+  | DescribeFlywheelIterationCommandOutput
   | DescribeKeyPhrasesDetectionJobCommandOutput
   | DescribePiiEntitiesDetectionJobCommandOutput
   | DescribeResourcePolicyCommandOutput
@@ -413,6 +450,7 @@ export type ServiceOutputTypes =
   | DetectSyntaxCommandOutput
   | DetectTargetedSentimentCommandOutput
   | ImportModelCommandOutput
+  | ListDatasetsCommandOutput
   | ListDocumentClassificationJobsCommandOutput
   | ListDocumentClassifierSummariesCommandOutput
   | ListDocumentClassifiersCommandOutput
@@ -422,6 +460,8 @@ export type ServiceOutputTypes =
   | ListEntityRecognizerSummariesCommandOutput
   | ListEntityRecognizersCommandOutput
   | ListEventsDetectionJobsCommandOutput
+  | ListFlywheelIterationHistoryCommandOutput
+  | ListFlywheelsCommandOutput
   | ListKeyPhrasesDetectionJobsCommandOutput
   | ListPiiEntitiesDetectionJobsCommandOutput
   | ListSentimentDetectionJobsCommandOutput
@@ -433,6 +473,7 @@ export type ServiceOutputTypes =
   | StartDominantLanguageDetectionJobCommandOutput
   | StartEntitiesDetectionJobCommandOutput
   | StartEventsDetectionJobCommandOutput
+  | StartFlywheelIterationCommandOutput
   | StartKeyPhrasesDetectionJobCommandOutput
   | StartPiiEntitiesDetectionJobCommandOutput
   | StartSentimentDetectionJobCommandOutput
@@ -449,7 +490,8 @@ export type ServiceOutputTypes =
   | StopTrainingEntityRecognizerCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateEndpointCommandOutput;
+  | UpdateEndpointCommandOutput
+  | UpdateFlywheelCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

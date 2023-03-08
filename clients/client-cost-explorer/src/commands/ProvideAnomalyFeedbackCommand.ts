@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ProvideAnomalyFeedbackCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ProvideAnomalyFeedbackCommand}.
+ */
 export interface ProvideAnomalyFeedbackCommandInput extends ProvideAnomalyFeedbackRequest {}
+/**
+ * The output of {@link ProvideAnomalyFeedbackCommand}.
+ */
 export interface ProvideAnomalyFeedbackCommandOutput extends ProvideAnomalyFeedbackResponse, __MetadataBearer {}
 
 /**

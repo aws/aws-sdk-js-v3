@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateDatasetGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateDatasetGroupCommand}.
+ */
 export interface UpdateDatasetGroupCommandInput extends UpdateDatasetGroupRequest {}
+/**
+ * The output of {@link UpdateDatasetGroupCommand}.
+ */
 export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupResponse, __MetadataBearer {}
 
 /**

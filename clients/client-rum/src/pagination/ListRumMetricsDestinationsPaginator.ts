@@ -6,7 +6,6 @@ import {
   ListRumMetricsDestinationsCommandInput,
   ListRumMetricsDestinationsCommandOutput,
 } from "../commands/ListRumMetricsDestinationsCommand";
-import { RUM } from "../RUM";
 import { RUMClient } from "../RUMClient";
 import { RUMPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRumMetricsDestinationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: RUM,
-  input: ListRumMetricsDestinationsCommandInput,
-  ...args: any
-): Promise<ListRumMetricsDestinationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listRumMetricsDestinations(input, ...args);
-};
 export async function* paginateListRumMetricsDestinations(
   config: RUMPaginationConfiguration,
   input: ListRumMetricsDestinationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListRumMetricsDestinations(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof RUM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RUMClient) {
+    if (config.client instanceof RUMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RUM | RUMClient");

@@ -22,7 +22,13 @@ import {
   serializeAws_json1_0EndpointWithHostLabelOperationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link EndpointWithHostLabelOperationCommand}.
+ */
 export interface EndpointWithHostLabelOperationCommandInput extends EndpointWithHostLabelOperationInput {}
+/**
+ * The output of {@link EndpointWithHostLabelOperationCommand}.
+ */
 export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataBearer {}
 
 export class EndpointWithHostLabelOperationCommand extends $Command<

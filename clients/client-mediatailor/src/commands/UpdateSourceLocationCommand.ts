@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateSourceLocationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateSourceLocationCommand}.
+ */
 export interface UpdateSourceLocationCommandInput extends UpdateSourceLocationRequest {}
+/**
+ * The output of {@link UpdateSourceLocationCommand}.
+ */
 export interface UpdateSourceLocationCommandOutput extends UpdateSourceLocationResponse, __MetadataBearer {}
 
 /**

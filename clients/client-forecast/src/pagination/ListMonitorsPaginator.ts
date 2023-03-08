@@ -6,7 +6,6 @@ import {
   ListMonitorsCommandInput,
   ListMonitorsCommandOutput,
 } from "../commands/ListMonitorsCommand";
-import { Forecast } from "../Forecast";
 import { ForecastClient } from "../ForecastClient";
 import { ForecastPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMonitorsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Forecast,
-  input: ListMonitorsCommandInput,
-  ...args: any
-): Promise<ListMonitorsCommandOutput> => {
-  // @ts-ignore
-  return await client.listMonitors(input, ...args);
-};
 export async function* paginateListMonitors(
   config: ForecastPaginationConfiguration,
   input: ListMonitorsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListMonitors(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Forecast) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ForecastClient) {
+    if (config.client instanceof ForecastClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Forecast | ForecastClient");

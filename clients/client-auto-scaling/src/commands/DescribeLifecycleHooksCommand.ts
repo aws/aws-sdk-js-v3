@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeLifecycleHooksCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeLifecycleHooksCommand}.
+ */
 export interface DescribeLifecycleHooksCommandInput extends DescribeLifecycleHooksType {}
+/**
+ * The output of {@link DescribeLifecycleHooksCommand}.
+ */
 export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHooksAnswer, __MetadataBearer {}
 
 /**

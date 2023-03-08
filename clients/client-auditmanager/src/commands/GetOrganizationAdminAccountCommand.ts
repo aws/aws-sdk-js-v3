@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetOrganizationAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetOrganizationAdminAccountCommand}.
+ */
 export interface GetOrganizationAdminAccountCommandInput extends GetOrganizationAdminAccountRequest {}
+/**
+ * The output of {@link GetOrganizationAdminAccountCommand}.
+ */
 export interface GetOrganizationAdminAccountCommandOutput
   extends GetOrganizationAdminAccountResponse,
     __MetadataBearer {}

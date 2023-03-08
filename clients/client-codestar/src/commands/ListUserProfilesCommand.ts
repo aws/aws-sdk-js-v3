@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListUserProfilesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListUserProfilesCommand}.
+ */
 export interface ListUserProfilesCommandInput extends ListUserProfilesRequest {}
+/**
+ * The output of {@link ListUserProfilesCommand}.
+ */
 export interface ListUserProfilesCommandOutput extends ListUserProfilesResult, __MetadataBearer {}
 
 /**

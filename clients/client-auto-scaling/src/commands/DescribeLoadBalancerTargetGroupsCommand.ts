@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeLoadBalancerTargetGroupsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeLoadBalancerTargetGroupsCommand}.
+ */
 export interface DescribeLoadBalancerTargetGroupsCommandInput extends DescribeLoadBalancerTargetGroupsRequest {}
+/**
+ * The output of {@link DescribeLoadBalancerTargetGroupsCommand}.
+ */
 export interface DescribeLoadBalancerTargetGroupsCommandOutput
   extends DescribeLoadBalancerTargetGroupsResponse,
     __MetadataBearer {}

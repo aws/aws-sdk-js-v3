@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeDimensionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeDimensionCommand}.
+ */
 export interface DescribeDimensionCommandInput extends DescribeDimensionRequest {}
+/**
+ * The output of {@link DescribeDimensionCommand}.
+ */
 export interface DescribeDimensionCommandOutput extends DescribeDimensionResponse, __MetadataBearer {}
 
 /**

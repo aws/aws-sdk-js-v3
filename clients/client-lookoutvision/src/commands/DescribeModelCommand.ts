@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeModelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeModelCommand}.
+ */
 export interface DescribeModelCommandInput extends DescribeModelRequest {}
+/**
+ * The output of {@link DescribeModelCommand}.
+ */
 export interface DescribeModelCommandOutput extends DescribeModelResponse, __MetadataBearer {}
 
 /**

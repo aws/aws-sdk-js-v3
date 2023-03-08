@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
 
+/**
+ * The input for {@link PutApplicationPolicyCommand}.
+ */
 export interface PutApplicationPolicyCommandInput extends PutApplicationPolicyRequest {}
+/**
+ * The output of {@link PutApplicationPolicyCommand}.
+ */
 export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyResponse, __MetadataBearer {}
 
 /**

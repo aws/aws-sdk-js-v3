@@ -6,7 +6,6 @@ import {
   ListProvisioningArtifactsForServiceActionCommandInput,
   ListProvisioningArtifactsForServiceActionCommandOutput,
 } from "../commands/ListProvisioningArtifactsForServiceActionCommand";
-import { ServiceCatalog } from "../ServiceCatalog";
 import { ServiceCatalogClient } from "../ServiceCatalogClient";
 import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListProvisioningArtifactsForServiceActionCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ServiceCatalog,
-  input: ListProvisioningArtifactsForServiceActionCommandInput,
-  ...args: any
-): Promise<ListProvisioningArtifactsForServiceActionCommandOutput> => {
-  // @ts-ignore
-  return await client.listProvisioningArtifactsForServiceAction(input, ...args);
-};
 export async function* paginateListProvisioningArtifactsForServiceAction(
   config: ServiceCatalogPaginationConfiguration,
   input: ListProvisioningArtifactsForServiceActionCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListProvisioningArtifactsForServiceAction(
   while (hasNext) {
     input.PageToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof ServiceCatalog) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServiceCatalogClient) {
+    if (config.client instanceof ServiceCatalogClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ServiceCatalog | ServiceCatalogClient");

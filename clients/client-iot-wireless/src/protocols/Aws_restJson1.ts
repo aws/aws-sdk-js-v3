@@ -751,8 +751,11 @@ export const serializeAws_restJson1CreateFuotaTaskCommand = async (
     ...(input.Description != null && { Description: input.Description }),
     ...(input.FirmwareUpdateImage != null && { FirmwareUpdateImage: input.FirmwareUpdateImage }),
     ...(input.FirmwareUpdateRole != null && { FirmwareUpdateRole: input.FirmwareUpdateRole }),
+    ...(input.FragmentIntervalMS != null && { FragmentIntervalMS: input.FragmentIntervalMS }),
+    ...(input.FragmentSizeBytes != null && { FragmentSizeBytes: input.FragmentSizeBytes }),
     ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANFuotaTask(input.LoRaWAN, context) }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.RedundancyPercent != null && { RedundancyPercent: input.RedundancyPercent }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
@@ -2863,8 +2866,11 @@ export const serializeAws_restJson1UpdateFuotaTaskCommand = async (
     ...(input.Description != null && { Description: input.Description }),
     ...(input.FirmwareUpdateImage != null && { FirmwareUpdateImage: input.FirmwareUpdateImage }),
     ...(input.FirmwareUpdateRole != null && { FirmwareUpdateRole: input.FirmwareUpdateRole }),
+    ...(input.FragmentIntervalMS != null && { FragmentIntervalMS: input.FragmentIntervalMS }),
+    ...(input.FragmentSizeBytes != null && { FragmentSizeBytes: input.FragmentSizeBytes }),
     ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANFuotaTask(input.LoRaWAN, context) }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.RedundancyPercent != null && { RedundancyPercent: input.RedundancyPercent }),
   });
   return new __HttpRequest({
     protocol,
@@ -5369,6 +5375,12 @@ export const deserializeAws_restJson1GetFuotaTaskCommand = async (
   if (data.FirmwareUpdateRole != null) {
     contents.FirmwareUpdateRole = __expectString(data.FirmwareUpdateRole);
   }
+  if (data.FragmentIntervalMS != null) {
+    contents.FragmentIntervalMS = __expectInt32(data.FragmentIntervalMS);
+  }
+  if (data.FragmentSizeBytes != null) {
+    contents.FragmentSizeBytes = __expectInt32(data.FragmentSizeBytes);
+  }
   if (data.Id != null) {
     contents.Id = __expectString(data.Id);
   }
@@ -5377,6 +5389,9 @@ export const deserializeAws_restJson1GetFuotaTaskCommand = async (
   }
   if (data.Name != null) {
     contents.Name = __expectString(data.Name);
+  }
+  if (data.RedundancyPercent != null) {
+    contents.RedundancyPercent = __expectInt32(data.RedundancyPercent);
   }
   if (data.Status != null) {
     contents.Status = __expectString(data.Status);

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteFilterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteFilterCommand}.
+ */
 export interface DeleteFilterCommandInput extends DeleteFilterRequest {}
+/**
+ * The output of {@link DeleteFilterCommand}.
+ */
 export interface DeleteFilterCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateLinkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateLinkCommand}.
+ */
 export interface AssociateLinkCommandInput extends AssociateLinkRequest {}
+/**
+ * The output of {@link AssociateLinkCommand}.
+ */
 export interface AssociateLinkCommandOutput extends AssociateLinkResponse, __MetadataBearer {}
 
 /**

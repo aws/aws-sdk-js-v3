@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1DeleteACLCommand, serializeAws_json1_1DeleteACLCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteACLCommand}.
+ */
 export interface DeleteACLCommandInput extends DeleteACLRequest {}
+/**
+ * The output of {@link DeleteACLCommand}.
+ */
 export interface DeleteACLCommandOutput extends DeleteACLResponse, __MetadataBearer {}
 
 /**

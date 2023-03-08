@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PollForTaskCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PollForTaskCommand}.
+ */
 export interface PollForTaskCommandInput extends PollForTaskInput {}
+/**
+ * The output of {@link PollForTaskCommand}.
+ */
 export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeLogStreamsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLogStreamsCommand}.
+ */
 export interface DescribeLogStreamsCommandInput extends DescribeLogStreamsRequest {}
+/**
+ * The output of {@link DescribeLogStreamsCommand}.
+ */
 export interface DescribeLogStreamsCommandOutput extends DescribeLogStreamsResponse, __MetadataBearer {}
 
 /**

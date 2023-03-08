@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateKeyPairCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateKeyPairCommand}.
+ */
 export interface CreateKeyPairCommandInput extends CreateKeyPairRequest {}
+/**
+ * The output of {@link CreateKeyPairCommand}.
+ */
 export interface CreateKeyPairCommandOutput extends CreateKeyPairResult, __MetadataBearer {}
 
 /**

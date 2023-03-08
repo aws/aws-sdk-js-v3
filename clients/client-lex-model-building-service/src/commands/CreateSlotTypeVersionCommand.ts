@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CreateSlotTypeVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateSlotTypeVersionCommand}.
+ */
 export interface CreateSlotTypeVersionCommandInput extends CreateSlotTypeVersionRequest {}
+/**
+ * The output of {@link CreateSlotTypeVersionCommand}.
+ */
 export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersionResponse, __MetadataBearer {}
 
 /**

@@ -8255,7 +8255,7 @@ export enum Operator {
  * <p>A conditional statement for a search expression that includes a resource property, a
  *       Boolean operator, and a value. Resources that match the statement are returned in the
  *       results from the <a>Search</a> API.</p>
- *          <p>If you specify a <code>Value</code>, but not an <code>Operator</code>, Amazon SageMaker uses the
+ *          <p>If you specify a <code>Value</code>, but not an <code>Operator</code>, SageMaker uses the
  *       equals operator.</p>
  *          <p>In search, there are several property types:</p>
  *          <dl>
@@ -8620,7 +8620,7 @@ export interface SuggestionQuery {
 
 export interface GetSearchSuggestionsRequest {
   /**
-   * <p>The name of the Amazon SageMaker resource to search for.</p>
+   * <p>The name of the SageMaker resource to search for.</p>
    */
   Resource: ResourceType | string | undefined;
 
@@ -8636,7 +8636,7 @@ export interface GetSearchSuggestionsRequest {
  */
 export interface PropertyNameSuggestion {
   /**
-   * <p>A suggested property name based on what you entered in the search textbox in the Amazon SageMaker
+   * <p>A suggested property name based on what you entered in the search textbox in the SageMaker
    *       console.</p>
    */
   PropertyName?: string;
@@ -9311,6 +9311,11 @@ export interface RecommendationJobInferenceBenchmark {
    * <p>The reason why a benchmark failed.</p>
    */
   FailureReason?: string;
+
+  /**
+   * <p>The metrics for an existing endpoint compared in an Inference Recommender job.</p>
+   */
+  EndpointMetrics?: InferenceMetrics;
 }
 
 export enum RecommendationStepType {
@@ -9319,7 +9324,7 @@ export enum RecommendationStepType {
 
 /**
  * <p>A returned array object for the <code>Steps</code> response field in the
- *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InferenceRecommendationsJobStep.html">ListInferenceRecommendationsJobSteps</a> API command.</p>
+ *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceRecommendationsJobSteps.html">ListInferenceRecommendationsJobSteps</a> API command.</p>
  */
 export interface InferenceRecommendationsJobStep {
   /**

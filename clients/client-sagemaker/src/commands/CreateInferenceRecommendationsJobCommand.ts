@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link CreateInferenceRecommendationsJobCommand}.
+ */
 export interface CreateInferenceRecommendationsJobCommandInput extends CreateInferenceRecommendationsJobRequest {}
+/**
+ * The output of {@link CreateInferenceRecommendationsJobCommand}.
+ */
 export interface CreateInferenceRecommendationsJobCommandOutput
   extends CreateInferenceRecommendationsJobResponse,
     __MetadataBearer {}

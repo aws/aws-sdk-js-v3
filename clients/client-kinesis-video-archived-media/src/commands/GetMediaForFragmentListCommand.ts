@@ -32,7 +32,13 @@ import {
   serializeAws_restJson1GetMediaForFragmentListCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetMediaForFragmentListCommand}.
+ */
 export interface GetMediaForFragmentListCommandInput extends GetMediaForFragmentListInput {}
+/**
+ * The output of {@link GetMediaForFragmentListCommand}.
+ */
 export interface GetMediaForFragmentListCommandOutput
   extends __WithSdkStreamMixin<GetMediaForFragmentListOutput, "Payload">,
     __MetadataBearer {}

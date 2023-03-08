@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeApplicationsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeApplicationsCommand}.
+ */
 export interface DescribeApplicationsCommandInput extends DescribeApplicationsMessage {}
+/**
+ * The output of {@link DescribeApplicationsCommand}.
+ */
 export interface DescribeApplicationsCommandOutput extends ApplicationDescriptionsMessage, __MetadataBearer {}
 
 /**

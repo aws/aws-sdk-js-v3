@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeVpcPeeringAuthorizationsCommand}.
+ */
 export interface DescribeVpcPeeringAuthorizationsCommandInput extends DescribeVpcPeeringAuthorizationsInput {}
+/**
+ * The output of {@link DescribeVpcPeeringAuthorizationsCommand}.
+ */
 export interface DescribeVpcPeeringAuthorizationsCommandOutput
   extends DescribeVpcPeeringAuthorizationsOutput,
     __MetadataBearer {}

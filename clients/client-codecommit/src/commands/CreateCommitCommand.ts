@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateCommitCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateCommitCommand}.
+ */
 export interface CreateCommitCommandInput extends CreateCommitInput {}
+/**
+ * The output of {@link CreateCommitCommand}.
+ */
 export interface CreateCommitCommandOutput extends CreateCommitOutput, __MetadataBearer {}
 
 /**

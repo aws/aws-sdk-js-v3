@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListMembershipsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListMembershipsCommand}.
+ */
 export interface ListMembershipsCommandInput extends ListMembershipsInput {}
+/**
+ * The output of {@link ListMembershipsCommand}.
+ */
 export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __MetadataBearer {}
 
 /**

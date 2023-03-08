@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryPutWarmPoolCommand, serializeAws_queryPutWarmPoolCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PutWarmPoolCommand}.
+ */
 export interface PutWarmPoolCommandInput extends PutWarmPoolType {}
+/**
+ * The output of {@link PutWarmPoolCommand}.
+ */
 export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataBearer {}
 
 /**

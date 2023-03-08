@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListAliasesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAliasesCommand}.
+ */
 export interface ListAliasesCommandInput extends ListAliasesRequest {}
+/**
+ * The output of {@link ListAliasesCommand}.
+ */
 export interface ListAliasesCommandOutput extends ListAliasesResponse, __MetadataBearer {}
 
 /**
@@ -46,8 +52,6 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  *          <p>
  *             <b>Cross-account use</b>: No. <code>ListAliases</code> does not
  *       return aliases in other Amazon Web Services accounts.</p>
- *
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListAliases</a> (IAM policy)</p>
  *          <p>For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html#alias-access">Controlling access to aliases</a> in the

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetEC2InstanceRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetEC2InstanceRecommendationsCommand}.
+ */
 export interface GetEC2InstanceRecommendationsCommandInput extends GetEC2InstanceRecommendationsRequest {}
+/**
+ * The output of {@link GetEC2InstanceRecommendationsCommand}.
+ */
 export interface GetEC2InstanceRecommendationsCommandOutput
   extends GetEC2InstanceRecommendationsResponse,
     __MetadataBearer {}

@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminLinkProviderForUserCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminLinkProviderForUserCommand}.
+ */
 export interface AdminLinkProviderForUserCommandInput extends AdminLinkProviderForUserRequest {}
+/**
+ * The output of {@link AdminLinkProviderForUserCommand}.
+ */
 export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProviderForUserResponse, __MetadataBearer {}
 
 /**

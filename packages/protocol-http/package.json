@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/protocol-http",
-  "version": "3.272.0",
+  "version": "3.282.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",

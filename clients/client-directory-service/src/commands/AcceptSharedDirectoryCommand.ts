@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AcceptSharedDirectoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AcceptSharedDirectoryCommand}.
+ */
 export interface AcceptSharedDirectoryCommandInput extends AcceptSharedDirectoryRequest {}
+/**
+ * The output of {@link AcceptSharedDirectoryCommand}.
+ */
 export interface AcceptSharedDirectoryCommandOutput extends AcceptSharedDirectoryResult, __MetadataBearer {}
 
 /**

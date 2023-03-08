@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RebootBrokerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RebootBrokerCommand}.
+ */
 export interface RebootBrokerCommandInput extends RebootBrokerRequest {}
+/**
+ * The output of {@link RebootBrokerCommand}.
+ */
 export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __MetadataBearer {}
 
 /**

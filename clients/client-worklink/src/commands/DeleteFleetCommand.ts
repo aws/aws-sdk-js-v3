@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * The input for {@link DeleteFleetCommand}.
+ */
 export interface DeleteFleetCommandInput extends DeleteFleetRequest {}
+/**
+ * The output of {@link DeleteFleetCommand}.
+ */
 export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __MetadataBearer {}
 
 /**

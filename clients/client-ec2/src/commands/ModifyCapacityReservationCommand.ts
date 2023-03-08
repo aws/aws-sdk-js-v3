@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyCapacityReservationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyCapacityReservationCommand}.
+ */
 export interface ModifyCapacityReservationCommandInput extends ModifyCapacityReservationRequest {}
+/**
+ * The output of {@link ModifyCapacityReservationCommand}.
+ */
 export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityReservationResult, __MetadataBearer {}
 
 /**

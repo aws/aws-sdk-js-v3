@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateQualificationFromWorkerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateQualificationFromWorkerCommand}.
+ */
 export interface DisassociateQualificationFromWorkerCommandInput extends DisassociateQualificationFromWorkerRequest {}
+/**
+ * The output of {@link DisassociateQualificationFromWorkerCommand}.
+ */
 export interface DisassociateQualificationFromWorkerCommandOutput
   extends DisassociateQualificationFromWorkerResponse,
     __MetadataBearer {}

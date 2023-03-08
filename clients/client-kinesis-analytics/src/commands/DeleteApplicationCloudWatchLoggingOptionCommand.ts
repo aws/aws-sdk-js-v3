@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteApplicationCloudWatchLoggingOptionCommand}.
+ */
 export interface DeleteApplicationCloudWatchLoggingOptionCommandInput
   extends DeleteApplicationCloudWatchLoggingOptionRequest {}
+/**
+ * The output of {@link DeleteApplicationCloudWatchLoggingOptionCommand}.
+ */
 export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
   extends DeleteApplicationCloudWatchLoggingOptionResponse,
     __MetadataBearer {}

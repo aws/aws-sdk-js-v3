@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteVpcEndpointConnectionNotificationsCommand}.
+ */
 export interface DeleteVpcEndpointConnectionNotificationsCommandInput
   extends DeleteVpcEndpointConnectionNotificationsRequest {}
+/**
+ * The output of {@link DeleteVpcEndpointConnectionNotificationsCommand}.
+ */
 export interface DeleteVpcEndpointConnectionNotificationsCommandOutput
   extends DeleteVpcEndpointConnectionNotificationsResult,
     __MetadataBearer {}

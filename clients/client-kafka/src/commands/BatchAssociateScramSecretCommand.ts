@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchAssociateScramSecretCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchAssociateScramSecretCommand}.
+ */
 export interface BatchAssociateScramSecretCommandInput extends BatchAssociateScramSecretRequest {}
+/**
+ * The output of {@link BatchAssociateScramSecretCommand}.
+ */
 export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateScramSecretResponse, __MetadataBearer {}
 
 /**

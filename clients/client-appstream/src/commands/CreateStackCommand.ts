@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateStackCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateStackCommand}.
+ */
 export interface CreateStackCommandInput extends CreateStackRequest {}
+/**
+ * The output of {@link CreateStackCommand}.
+ */
 export interface CreateStackCommandOutput extends CreateStackResult, __MetadataBearer {}
 
 /**

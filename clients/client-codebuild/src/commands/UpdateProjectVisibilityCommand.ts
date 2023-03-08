@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateProjectVisibilityCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateProjectVisibilityCommand}.
+ */
 export interface UpdateProjectVisibilityCommandInput extends UpdateProjectVisibilityInput {}
+/**
+ * The output of {@link UpdateProjectVisibilityCommand}.
+ */
 export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisibilityOutput, __MetadataBearer {}
 
 /**

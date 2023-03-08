@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeregisterContainerInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterContainerInstanceCommand}.
+ */
 export interface DeregisterContainerInstanceCommandInput extends DeregisterContainerInstanceRequest {}
+/**
+ * The output of {@link DeregisterContainerInstanceCommand}.
+ */
 export interface DeregisterContainerInstanceCommandOutput
   extends DeregisterContainerInstanceResponse,
     __MetadataBearer {}

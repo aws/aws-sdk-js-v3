@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RevokeInvitationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RevokeInvitationCommand}.
+ */
 export interface RevokeInvitationCommandInput extends RevokeInvitationRequest {}
+/**
+ * The output of {@link RevokeInvitationCommand}.
+ */
 export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse, __MetadataBearer {}
 
 /**

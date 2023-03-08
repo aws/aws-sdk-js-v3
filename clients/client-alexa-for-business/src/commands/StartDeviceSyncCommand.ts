@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartDeviceSyncCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartDeviceSyncCommand}.
+ */
 export interface StartDeviceSyncCommandInput extends StartDeviceSyncRequest {}
+/**
+ * The output of {@link StartDeviceSyncCommand}.
+ */
 export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteV2LoggingLevelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteV2LoggingLevelCommand}.
+ */
 export interface DeleteV2LoggingLevelCommandInput extends DeleteV2LoggingLevelRequest {}
+/**
+ * The output of {@link DeleteV2LoggingLevelCommand}.
+ */
 export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UntagMeetingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UntagMeetingCommand}.
+ */
 export interface UntagMeetingCommandInput extends UntagMeetingRequest {}
+/**
+ * The output of {@link UntagMeetingCommand}.
+ */
 export interface UntagMeetingCommandOutput extends __MetadataBearer {}
 
 /**

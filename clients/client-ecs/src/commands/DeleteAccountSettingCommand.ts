@@ -25,11 +25,17 @@ import {
   serializeAws_json1_1DeleteAccountSettingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteAccountSettingCommand}.
+ */
 export interface DeleteAccountSettingCommandInput extends DeleteAccountSettingRequest {}
+/**
+ * The output of {@link DeleteAccountSettingCommand}.
+ */
 export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingResponse, __MetadataBearer {}
 
 /**
- * <p>Disables an account setting for a specified IAM user, IAM role, or the root user for
+ * <p>Disables an account setting for a specified  user, role, or the root user for
  * 			an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

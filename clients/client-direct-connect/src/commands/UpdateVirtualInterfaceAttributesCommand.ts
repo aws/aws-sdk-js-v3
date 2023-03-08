@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateVirtualInterfaceAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateVirtualInterfaceAttributesCommand}.
+ */
 export interface UpdateVirtualInterfaceAttributesCommandInput extends UpdateVirtualInterfaceAttributesRequest {}
+/**
+ * The output of {@link UpdateVirtualInterfaceAttributesCommand}.
+ */
 export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**

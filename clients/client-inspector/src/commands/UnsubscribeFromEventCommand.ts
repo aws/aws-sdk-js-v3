@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UnsubscribeFromEventCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UnsubscribeFromEventCommand}.
+ */
 export interface UnsubscribeFromEventCommandInput extends UnsubscribeFromEventRequest {}
+/**
+ * The output of {@link UnsubscribeFromEventCommand}.
+ */
 export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
 
 /**

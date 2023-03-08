@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListLFTagsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListLFTagsCommand}.
+ */
 export interface ListLFTagsCommandInput extends ListLFTagsRequest {}
+/**
+ * The output of {@link ListLFTagsCommand}.
+ */
 export interface ListLFTagsCommandOutput extends ListLFTagsResponse, __MetadataBearer {}
 
 /**

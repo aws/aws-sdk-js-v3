@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1StopDataSourceSyncJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopDataSourceSyncJobCommand}.
+ */
 export interface StopDataSourceSyncJobCommandInput extends StopDataSourceSyncJobRequest {}
+/**
+ * The output of {@link StopDataSourceSyncJobCommand}.
+ */
 export interface StopDataSourceSyncJobCommandOutput extends __MetadataBearer {}
 
 /**

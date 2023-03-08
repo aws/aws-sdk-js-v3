@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1ConfirmDeviceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ConfirmDeviceCommand}.
+ */
 export interface ConfirmDeviceCommandInput extends ConfirmDeviceRequest {}
+/**
+ * The output of {@link ConfirmDeviceCommand}.
+ */
 export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __MetadataBearer {}
 
 /**

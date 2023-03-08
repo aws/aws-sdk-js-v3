@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DeleteObservabilityConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteObservabilityConfigurationCommand}.
+ */
 export interface DeleteObservabilityConfigurationCommandInput extends DeleteObservabilityConfigurationRequest {}
+/**
+ * The output of {@link DeleteObservabilityConfigurationCommand}.
+ */
 export interface DeleteObservabilityConfigurationCommandOutput
   extends DeleteObservabilityConfigurationResponse,
     __MetadataBearer {}

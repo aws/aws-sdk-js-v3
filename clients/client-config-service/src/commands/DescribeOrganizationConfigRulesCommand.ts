@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeOrganizationConfigRulesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeOrganizationConfigRulesCommand}.
+ */
 export interface DescribeOrganizationConfigRulesCommandInput extends DescribeOrganizationConfigRulesRequest {}
+/**
+ * The output of {@link DescribeOrganizationConfigRulesCommand}.
+ */
 export interface DescribeOrganizationConfigRulesCommandOutput
   extends DescribeOrganizationConfigRulesResponse,
     __MetadataBearer {}

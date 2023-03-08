@@ -25,7 +25,13 @@ import {
   serializeAws_queryListChangeSetsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListChangeSetsCommand}.
+ */
 export interface ListChangeSetsCommandInput extends ListChangeSetsInput {}
+/**
+ * The output of {@link ListChangeSetsCommand}.
+ */
 export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __MetadataBearer {}
 
 /**

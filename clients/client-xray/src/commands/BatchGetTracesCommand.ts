@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * The input for {@link BatchGetTracesCommand}.
+ */
 export interface BatchGetTracesCommandInput extends BatchGetTracesRequest {}
+/**
+ * The output of {@link BatchGetTracesCommand}.
+ */
 export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __MetadataBearer {}
 
 /**

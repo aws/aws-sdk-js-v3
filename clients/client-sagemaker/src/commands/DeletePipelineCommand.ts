@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeletePipelineCommand}.
+ */
 export interface DeletePipelineCommandInput extends DeletePipelineRequest {}
+/**
+ * The output of {@link DeletePipelineCommand}.
+ */
 export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __MetadataBearer {}
 
 /**

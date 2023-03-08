@@ -22,7 +22,13 @@ import {
 import { deserializeAws_queryListTopicsCommand, serializeAws_queryListTopicsCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link ListTopicsCommand}.
+ */
 export interface ListTopicsCommandInput extends ListTopicsInput {}
+/**
+ * The output of {@link ListTopicsCommand}.
+ */
 export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListAcceleratorsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAcceleratorsCommand}.
+ */
 export interface ListAcceleratorsCommandInput extends ListAcceleratorsRequest {}
+/**
+ * The output of {@link ListAcceleratorsCommand}.
+ */
 export interface ListAcceleratorsCommandOutput extends ListAcceleratorsResponse, __MetadataBearer {}
 
 /**

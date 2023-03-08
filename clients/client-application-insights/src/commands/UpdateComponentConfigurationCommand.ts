@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1UpdateComponentConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateComponentConfigurationCommand}.
+ */
 export interface UpdateComponentConfigurationCommandInput extends UpdateComponentConfigurationRequest {}
+/**
+ * The output of {@link UpdateComponentConfigurationCommand}.
+ */
 export interface UpdateComponentConfigurationCommandOutput
   extends UpdateComponentConfigurationResponse,
     __MetadataBearer {}

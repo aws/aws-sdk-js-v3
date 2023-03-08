@@ -25,7 +25,13 @@ import {
   serializeAws_queryStopStackSetOperationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link StopStackSetOperationCommand}.
+ */
 export interface StopStackSetOperationCommandInput extends StopStackSetOperationInput {}
+/**
+ * The output of {@link StopStackSetOperationCommand}.
+ */
 export interface StopStackSetOperationCommandOutput extends StopStackSetOperationOutput, __MetadataBearer {}
 
 /**

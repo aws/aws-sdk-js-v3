@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeImageAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeImageAttributeCommand}.
+ */
 export interface DescribeImageAttributeCommandInput extends DescribeImageAttributeRequest {}
+/**
+ * The output of {@link DescribeImageAttributeCommand}.
+ */
 export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __MetadataBearer {}
 
 /**

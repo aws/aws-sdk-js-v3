@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeprovisionPublicIpv4PoolCidrCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeprovisionPublicIpv4PoolCidrCommand}.
+ */
 export interface DeprovisionPublicIpv4PoolCidrCommandInput extends DeprovisionPublicIpv4PoolCidrRequest {}
+/**
+ * The output of {@link DeprovisionPublicIpv4PoolCidrCommand}.
+ */
 export interface DeprovisionPublicIpv4PoolCidrCommandOutput
   extends DeprovisionPublicIpv4PoolCidrResult,
     __MetadataBearer {}

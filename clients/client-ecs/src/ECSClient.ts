@@ -67,6 +67,10 @@ import {
 } from "./commands/DeleteCapacityProviderCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
+import {
+  DeleteTaskDefinitionsCommandInput,
+  DeleteTaskDefinitionsCommandOutput,
+} from "./commands/DeleteTaskDefinitionsCommand";
 import { DeleteTaskSetCommandInput, DeleteTaskSetCommandOutput } from "./commands/DeleteTaskSetCommand";
 import {
   DeregisterContainerInstanceCommandInput,
@@ -206,6 +210,7 @@ export type ServiceInputTypes =
   | DeleteCapacityProviderCommandInput
   | DeleteClusterCommandInput
   | DeleteServiceCommandInput
+  | DeleteTaskDefinitionsCommandInput
   | DeleteTaskSetCommandInput
   | DeregisterContainerInstanceCommandInput
   | DeregisterTaskDefinitionCommandInput
@@ -263,6 +268,7 @@ export type ServiceOutputTypes =
   | DeleteCapacityProviderCommandOutput
   | DeleteClusterCommandOutput
   | DeleteServiceCommandOutput
+  | DeleteTaskDefinitionsCommandOutput
   | DeleteTaskSetCommandOutput
   | DeregisterContainerInstanceCommandOutput
   | DeregisterTaskDefinitionCommandOutput

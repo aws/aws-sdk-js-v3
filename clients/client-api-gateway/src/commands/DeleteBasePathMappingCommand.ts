@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteBasePathMappingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteBasePathMappingCommand}.
+ */
 export interface DeleteBasePathMappingCommandInput extends DeleteBasePathMappingRequest {}
+/**
+ * The output of {@link DeleteBasePathMappingCommand}.
+ */
 export interface DeleteBasePathMappingCommandOutput extends __MetadataBearer {}
 
 /**

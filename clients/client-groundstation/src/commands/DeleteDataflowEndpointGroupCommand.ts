@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteDataflowEndpointGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteDataflowEndpointGroupCommand}.
+ */
 export interface DeleteDataflowEndpointGroupCommandInput extends DeleteDataflowEndpointGroupRequest {}
+/**
+ * The output of {@link DeleteDataflowEndpointGroupCommand}.
+ */
 export interface DeleteDataflowEndpointGroupCommandOutput extends DataflowEndpointGroupIdResponse, __MetadataBearer {}
 
 /**

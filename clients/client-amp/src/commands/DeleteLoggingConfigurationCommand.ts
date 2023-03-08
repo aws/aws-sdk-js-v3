@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteLoggingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteLoggingConfigurationCommand}.
+ */
 export interface DeleteLoggingConfigurationCommandInput extends DeleteLoggingConfigurationRequest {}
+/**
+ * The output of {@link DeleteLoggingConfigurationCommand}.
+ */
 export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

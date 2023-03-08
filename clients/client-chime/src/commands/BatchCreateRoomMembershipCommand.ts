@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchCreateRoomMembershipCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchCreateRoomMembershipCommand}.
+ */
 export interface BatchCreateRoomMembershipCommandInput extends BatchCreateRoomMembershipRequest {}
+/**
+ * The output of {@link BatchCreateRoomMembershipCommand}.
+ */
 export interface BatchCreateRoomMembershipCommandOutput extends BatchCreateRoomMembershipResponse, __MetadataBearer {}
 
 /**

@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1GetUserPoolMfaConfigCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetUserPoolMfaConfigCommand}.
+ */
 export interface GetUserPoolMfaConfigCommandInput extends GetUserPoolMfaConfigRequest {}
+/**
+ * The output of {@link GetUserPoolMfaConfigCommand}.
+ */
 export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigResponse, __MetadataBearer {}
 
 /**

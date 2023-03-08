@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetApplicationRevisionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetApplicationRevisionsCommand}.
+ */
 export interface BatchGetApplicationRevisionsCommandInput extends BatchGetApplicationRevisionsInput {}
+/**
+ * The output of {@link BatchGetApplicationRevisionsCommand}.
+ */
 export interface BatchGetApplicationRevisionsCommandOutput
   extends BatchGetApplicationRevisionsOutput,
     __MetadataBearer {}

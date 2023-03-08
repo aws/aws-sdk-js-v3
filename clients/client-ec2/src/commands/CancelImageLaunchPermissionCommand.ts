@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CancelImageLaunchPermissionCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CancelImageLaunchPermissionCommand}.
+ */
 export interface CancelImageLaunchPermissionCommandInput extends CancelImageLaunchPermissionRequest {}
+/**
+ * The output of {@link CancelImageLaunchPermissionCommand}.
+ */
 export interface CancelImageLaunchPermissionCommandOutput extends CancelImageLaunchPermissionResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ValidatePipelineDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ValidatePipelineDefinitionCommand}.
+ */
 export interface ValidatePipelineDefinitionCommandInput extends ValidatePipelineDefinitionInput {}
+/**
+ * The output of {@link ValidatePipelineDefinitionCommand}.
+ */
 export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelineDefinitionOutput, __MetadataBearer {}
 
 /**

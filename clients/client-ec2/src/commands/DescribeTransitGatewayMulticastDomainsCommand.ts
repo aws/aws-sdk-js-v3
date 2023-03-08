@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeTransitGatewayMulticastDomainsCommand}.
+ */
 export interface DescribeTransitGatewayMulticastDomainsCommandInput
   extends DescribeTransitGatewayMulticastDomainsRequest {}
+/**
+ * The output of {@link DescribeTransitGatewayMulticastDomainsCommand}.
+ */
 export interface DescribeTransitGatewayMulticastDomainsCommandOutput
   extends DescribeTransitGatewayMulticastDomainsResult,
     __MetadataBearer {}

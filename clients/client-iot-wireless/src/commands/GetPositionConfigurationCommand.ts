@@ -25,18 +25,24 @@ import {
   serializeAws_restJson1GetPositionConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPositionConfigurationCommand}.
+ */
 export interface GetPositionConfigurationCommandInput extends GetPositionConfigurationRequest {}
+/**
+ * The output of {@link GetPositionConfigurationCommand}.
+ */
 export interface GetPositionConfigurationCommandOutput extends GetPositionConfigurationResponse, __MetadataBearer {}
 
 /**
  * @deprecated
  *
  * <p>Get position configuration for a given resource.</p>
- *         <important>
+ *          <important>
  *             <p>This action is no longer supported. Calls to retrieve the position configuration
  *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html">GetResourcePosition</a>
  *                 API operation instead.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

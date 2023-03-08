@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisablePolicyTypeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisablePolicyTypeCommand}.
+ */
 export interface DisablePolicyTypeCommandInput extends DisablePolicyTypeRequest {}
+/**
+ * The output of {@link DisablePolicyTypeCommand}.
+ */
 export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeResponse, __MetadataBearer {}
 
 /**
@@ -34,12 +40,12 @@ export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeRespons
  *             perform this operation, you no longer can attach policies of the specified type to that
  *             root or to any organizational unit (OU) or account in that root. You can undo this by
  *             using the <a>EnablePolicyType</a> operation.</p>
- *         <p>This is an asynchronous request that Amazon Web Services performs in the background. If you disable
+ *          <p>This is an asynchronous request that Amazon Web Services performs in the background. If you disable
  *             a policy type for a root, it still appears enabled for the organization if <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features</a> are enabled for the organization. Amazon Web Services recommends that you
  *             first use <a>ListRoots</a> to see the status of policy types for a specified
  *             root, and then use this operation.</p>
- *         <p>This operation can be called only from the organization's management account.</p>
- *         <p> To view the status of available policy types in the organization, use <a>DescribeOrganization</a>.</p>
+ *          <p>This operation can be called only from the organization's management account.</p>
+ *          <p> To view the status of available policy types in the organization, use <a>DescribeOrganization</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

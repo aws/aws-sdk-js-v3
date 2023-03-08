@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteKeyPairCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteKeyPairCommand}.
+ */
 export interface DeleteKeyPairCommandInput extends DeleteKeyPairRequest {}
+/**
+ * The output of {@link DeleteKeyPairCommand}.
+ */
 export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __MetadataBearer {}
 
 /**

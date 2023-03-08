@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeNetworkAclsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeNetworkAclsCommand}.
+ */
 export interface DescribeNetworkAclsCommandInput extends DescribeNetworkAclsRequest {}
+/**
+ * The output of {@link DescribeNetworkAclsCommand}.
+ */
 export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsResult, __MetadataBearer {}
 
 /**

@@ -29,8 +29,14 @@ import {
   serializeAws_json1_1DescribeComponentConfigurationRecommendationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeComponentConfigurationRecommendationCommand}.
+ */
 export interface DescribeComponentConfigurationRecommendationCommandInput
   extends DescribeComponentConfigurationRecommendationRequest {}
+/**
+ * The output of {@link DescribeComponentConfigurationRecommendationCommand}.
+ */
 export interface DescribeComponentConfigurationRecommendationCommandOutput
   extends DescribeComponentConfigurationRecommendationResponse,
     __MetadataBearer {}

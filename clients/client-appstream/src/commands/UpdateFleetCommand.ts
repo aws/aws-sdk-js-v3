@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateFleetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateFleetCommand}.
+ */
 export interface UpdateFleetCommandInput extends UpdateFleetRequest {}
+/**
+ * The output of {@link UpdateFleetCommand}.
+ */
 export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataBearer {}
 
 /**

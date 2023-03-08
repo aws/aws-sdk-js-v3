@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1StopMeetingTranscriptionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopMeetingTranscriptionCommand}.
+ */
 export interface StopMeetingTranscriptionCommandInput extends StopMeetingTranscriptionRequest {}
+/**
+ * The output of {@link StopMeetingTranscriptionCommand}.
+ */
 export interface StopMeetingTranscriptionCommandOutput extends __MetadataBearer {}
 
 /**

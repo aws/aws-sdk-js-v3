@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * The input for {@link GetTraceSummariesCommand}.
+ */
 export interface GetTraceSummariesCommandInput extends GetTraceSummariesRequest {}
+/**
+ * The output of {@link GetTraceSummariesCommand}.
+ */
 export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult, __MetadataBearer {}
 
 /**

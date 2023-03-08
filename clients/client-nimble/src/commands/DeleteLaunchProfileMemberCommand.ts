@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteLaunchProfileMemberCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteLaunchProfileMemberCommand}.
+ */
 export interface DeleteLaunchProfileMemberCommandInput extends DeleteLaunchProfileMemberRequest {}
+/**
+ * The output of {@link DeleteLaunchProfileMemberCommand}.
+ */
 export interface DeleteLaunchProfileMemberCommandOutput extends DeleteLaunchProfileMemberResponse, __MetadataBearer {}
 
 /**

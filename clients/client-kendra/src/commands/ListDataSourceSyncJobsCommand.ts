@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListDataSourceSyncJobsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListDataSourceSyncJobsCommand}.
+ */
 export interface ListDataSourceSyncJobsCommandInput extends ListDataSourceSyncJobsRequest {}
+/**
+ * The output of {@link ListDataSourceSyncJobsCommand}.
+ */
 export interface ListDataSourceSyncJobsCommandOutput extends ListDataSourceSyncJobsResponse, __MetadataBearer {}
 
 /**

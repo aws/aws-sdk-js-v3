@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateQueueMaxContactsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateQueueMaxContactsCommand}.
+ */
 export interface UpdateQueueMaxContactsCommandInput extends UpdateQueueMaxContactsRequest {}
+/**
+ * The output of {@link UpdateQueueMaxContactsCommand}.
+ */
 export interface UpdateQueueMaxContactsCommandOutput extends __MetadataBearer {}
 
 /**

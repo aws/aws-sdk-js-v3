@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateLoggingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateLoggingConfigurationCommand}.
+ */
 export interface UpdateLoggingConfigurationCommandInput extends UpdateLoggingConfigurationRequest {}
+/**
+ * The output of {@link UpdateLoggingConfigurationCommand}.
+ */
 export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**

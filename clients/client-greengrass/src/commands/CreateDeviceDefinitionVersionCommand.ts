@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateDeviceDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateDeviceDefinitionVersionCommand}.
+ */
 export interface CreateDeviceDefinitionVersionCommandInput extends CreateDeviceDefinitionVersionRequest {}
+/**
+ * The output of {@link CreateDeviceDefinitionVersionCommand}.
+ */
 export interface CreateDeviceDefinitionVersionCommandOutput
   extends CreateDeviceDefinitionVersionResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetAccuracyMetricsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetAccuracyMetricsCommand}.
+ */
 export interface GetAccuracyMetricsCommandInput extends GetAccuracyMetricsRequest {}
+/**
+ * The output of {@link GetAccuracyMetricsCommand}.
+ */
 export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryGetGroupPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetGroupPolicyCommand}.
+ */
 export interface GetGroupPolicyCommandInput extends GetGroupPolicyRequest {}
+/**
+ * The output of {@link GetGroupPolicyCommand}.
+ */
 export interface GetGroupPolicyCommandOutput extends GetGroupPolicyResponse, __MetadataBearer {}
 
 /**

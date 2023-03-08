@@ -19,13 +19,19 @@ import {
   StopTargetedSentimentDetectionJobRequestFilterSensitiveLog,
   StopTargetedSentimentDetectionJobResponse,
   StopTargetedSentimentDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1StopTargetedSentimentDetectionJobCommand,
   serializeAws_json1_1StopTargetedSentimentDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopTargetedSentimentDetectionJobCommand}.
+ */
 export interface StopTargetedSentimentDetectionJobCommandInput extends StopTargetedSentimentDetectionJobRequest {}
+/**
+ * The output of {@link StopTargetedSentimentDetectionJobCommand}.
+ */
 export interface StopTargetedSentimentDetectionJobCommandOutput
   extends StopTargetedSentimentDetectionJobResponse,
     __MetadataBearer {}

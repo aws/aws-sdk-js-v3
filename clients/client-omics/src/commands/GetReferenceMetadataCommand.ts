@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetReferenceMetadataCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetReferenceMetadataCommand}.
+ */
 export interface GetReferenceMetadataCommandInput extends GetReferenceMetadataRequest {}
+/**
+ * The output of {@link GetReferenceMetadataCommand}.
+ */
 export interface GetReferenceMetadataCommandOutput extends GetReferenceMetadataResponse, __MetadataBearer {}
 
 /**

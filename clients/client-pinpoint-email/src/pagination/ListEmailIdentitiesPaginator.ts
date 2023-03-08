@@ -6,7 +6,6 @@ import {
   ListEmailIdentitiesCommandInput,
   ListEmailIdentitiesCommandOutput,
 } from "../commands/ListEmailIdentitiesCommand";
-import { PinpointEmail } from "../PinpointEmail";
 import { PinpointEmailClient } from "../PinpointEmailClient";
 import { PinpointEmailPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEmailIdentitiesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: PinpointEmail,
-  input: ListEmailIdentitiesCommandInput,
-  ...args: any
-): Promise<ListEmailIdentitiesCommandOutput> => {
-  // @ts-ignore
-  return await client.listEmailIdentities(input, ...args);
-};
 export async function* paginateListEmailIdentities(
   config: PinpointEmailPaginationConfiguration,
   input: ListEmailIdentitiesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListEmailIdentities(
   while (hasNext) {
     input.NextToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof PinpointEmail) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PinpointEmailClient) {
+    if (config.client instanceof PinpointEmailClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected PinpointEmail | PinpointEmailClient");

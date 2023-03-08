@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link SwitchoverBlueGreenDeploymentCommand}.
+ */
 export interface SwitchoverBlueGreenDeploymentCommandInput extends SwitchoverBlueGreenDeploymentRequest {}
+/**
+ * The output of {@link SwitchoverBlueGreenDeploymentCommand}.
+ */
 export interface SwitchoverBlueGreenDeploymentCommandOutput
   extends SwitchoverBlueGreenDeploymentResponse,
     __MetadataBearer {}

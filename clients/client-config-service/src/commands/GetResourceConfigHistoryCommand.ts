@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetResourceConfigHistoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetResourceConfigHistoryCommand}.
+ */
 export interface GetResourceConfigHistoryCommandInput extends GetResourceConfigHistoryRequest {}
+/**
+ * The output of {@link GetResourceConfigHistoryCommand}.
+ */
 export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfigHistoryResponse, __MetadataBearer {}
 
 /**

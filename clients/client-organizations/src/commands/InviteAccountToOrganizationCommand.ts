@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1InviteAccountToOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link InviteAccountToOrganizationCommand}.
+ */
 export interface InviteAccountToOrganizationCommandInput extends InviteAccountToOrganizationRequest {}
+/**
+ * The output of {@link InviteAccountToOrganizationCommand}.
+ */
 export interface InviteAccountToOrganizationCommandOutput
   extends InviteAccountToOrganizationResponse,
     __MetadataBearer {}
@@ -35,28 +41,28 @@ export interface InviteAccountToOrganizationCommandOutput
  *             Organizations sends email on your behalf to the email address that is associated with the
  *             other account's owner. The invitation is implemented as a <a>Handshake</a>
  *             whose details are in the response.</p>
- *         <important>
+ *          <important>
  *             <ul>
  *                <li>
- *                     <p>You can invite Amazon Web Services accounts only from the same seller as the management
+ *                   <p>You can invite Amazon Web Services accounts only from the same seller as the management
  *                         account. For example, if your organization's management account was created
  *                         by Amazon Internet Services Pvt. Ltd (AISPL), an Amazon Web Services seller in India, you
  *                         can invite only other AISPL accounts to your organization. You can't combine
  *                         accounts from AISPL and Amazon Web Services or from any other Amazon Web Services seller. For more
  *                         information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html">Consolidated
  *                             Billing in India</a>.</p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>If you receive an exception that indicates that you exceeded your account
+ *                   <p>If you receive an exception that indicates that you exceeded your account
  *                         limits for the organization or that the operation failed because your
  *                         organization is still initializing, wait one hour and then try again. If the
  *                         error persists after an hour, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
- *                 </li>
+ *                </li>
  *             </ul>
- *         </important>
- *         <p>If the request includes tags, then the requester must have the
+ *          </important>
+ *          <p>If the request includes tags, then the requester must have the
  *                 <code>organizations:TagResource</code> permission.</p>
- *         <p>This operation can be called only from the organization's management account.</p>
+ *          <p>This operation can be called only from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

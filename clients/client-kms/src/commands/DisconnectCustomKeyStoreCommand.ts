@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisconnectCustomKeyStoreCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisconnectCustomKeyStoreCommand}.
+ */
 export interface DisconnectCustomKeyStoreCommandInput extends DisconnectCustomKeyStoreRequest {}
+/**
+ * The output of {@link DisconnectCustomKeyStoreCommand}.
+ */
 export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
@@ -49,7 +55,6 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * properties.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a custom key store in a different Amazon Web Services account.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DisconnectCustomKeyStore</a> (IAM policy)</p>
  *          <p>

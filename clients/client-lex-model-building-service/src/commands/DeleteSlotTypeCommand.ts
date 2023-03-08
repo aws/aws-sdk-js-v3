@@ -24,7 +24,13 @@ import {
   serializeAws_restJson1DeleteSlotTypeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteSlotTypeCommand}.
+ */
 export interface DeleteSlotTypeCommandInput extends DeleteSlotTypeRequest {}
+/**
+ * The output of {@link DeleteSlotTypeCommand}.
+ */
 export interface DeleteSlotTypeCommandOutput extends __MetadataBearer {}
 
 /**

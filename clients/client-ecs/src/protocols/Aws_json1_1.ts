@@ -38,6 +38,10 @@ import {
 } from "../commands/DeleteCapacityProviderCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "../commands/DeleteClusterCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "../commands/DeleteServiceCommand";
+import {
+  DeleteTaskDefinitionsCommandInput,
+  DeleteTaskDefinitionsCommandOutput,
+} from "../commands/DeleteTaskDefinitionsCommand";
 import { DeleteTaskSetCommandInput, DeleteTaskSetCommandOutput } from "../commands/DeleteTaskSetCommand";
 import {
   DeregisterContainerInstanceCommandInput,
@@ -211,6 +215,8 @@ import {
   DeleteClusterResponse,
   DeleteServiceRequest,
   DeleteServiceResponse,
+  DeleteTaskDefinitionsRequest,
+  DeleteTaskDefinitionsResponse,
   DeleteTaskSetRequest,
   DeleteTaskSetResponse,
   Deployment,
@@ -509,6 +515,19 @@ export const serializeAws_json1_1DeleteServiceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteServiceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteTaskDefinitionsCommand = async (
+  input: DeleteTaskDefinitionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonEC2ContainerServiceV20141113.DeleteTaskDefinitions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteTaskDefinitionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1591,6 +1610,56 @@ const deserializeAws_json1_1DeleteServiceCommandError = async (
     case "ServiceNotFoundException":
     case "com.amazonaws.ecs#ServiceNotFoundException":
       throw await deserializeAws_json1_1ServiceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteTaskDefinitionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTaskDefinitionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteTaskDefinitionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteTaskDefinitionsResponse(data, context);
+  const response: DeleteTaskDefinitionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteTaskDefinitionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTaskDefinitionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ecs#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.ecs#ClientException":
+      throw await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.ecs#ServerException":
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4773,6 +4842,17 @@ const serializeAws_json1_1DeleteServiceRequest = (input: DeleteServiceRequest, c
   };
 };
 
+const serializeAws_json1_1DeleteTaskDefinitionsRequest = (
+  input: DeleteTaskDefinitionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.taskDefinitions != null && {
+      taskDefinitions: serializeAws_json1_1StringList(input.taskDefinitions, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1DeleteTaskSetRequest = (input: DeleteTaskSetRequest, context: __SerdeContext): any => {
   return {
     ...(input.cluster != null && { cluster: input.cluster }),
@@ -6850,6 +6930,19 @@ const deserializeAws_json1_1DeleteServiceResponse = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1DeleteTaskDefinitionsResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteTaskDefinitionsResponse => {
+  return {
+    failures: output.failures != null ? deserializeAws_json1_1Failures(output.failures, context) : undefined,
+    taskDefinitions:
+      output.taskDefinitions != null
+        ? deserializeAws_json1_1TaskDefinitionList(output.taskDefinitions, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteTaskSetResponse = (output: any, context: __SerdeContext): DeleteTaskSetResponse => {
   return {
     taskSet: output.taskSet != null ? deserializeAws_json1_1TaskSet(output.taskSet, context) : undefined,
@@ -8536,6 +8629,18 @@ const deserializeAws_json1_1TaskDefinition = (output: any, context: __SerdeConte
     taskRoleArn: __expectString(output.taskRoleArn),
     volumes: output.volumes != null ? deserializeAws_json1_1VolumeList(output.volumes, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1TaskDefinitionList = (output: any, context: __SerdeContext): TaskDefinition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TaskDefinition(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1TaskDefinitionPlacementConstraint = (

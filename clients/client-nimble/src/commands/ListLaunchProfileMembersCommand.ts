@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListLaunchProfileMembersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListLaunchProfileMembersCommand}.
+ */
 export interface ListLaunchProfileMembersCommandInput extends ListLaunchProfileMembersRequest {}
+/**
+ * The output of {@link ListLaunchProfileMembersCommand}.
+ */
 export interface ListLaunchProfileMembersCommandOutput extends ListLaunchProfileMembersResponse, __MetadataBearer {}
 
 /**

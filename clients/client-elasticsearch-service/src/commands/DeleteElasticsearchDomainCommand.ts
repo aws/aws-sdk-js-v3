@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DeleteElasticsearchDomainCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteElasticsearchDomainCommand}.
+ */
 export interface DeleteElasticsearchDomainCommandInput extends DeleteElasticsearchDomainRequest {}
+/**
+ * The output of {@link DeleteElasticsearchDomainCommand}.
+ */
 export interface DeleteElasticsearchDomainCommandOutput extends DeleteElasticsearchDomainResponse, __MetadataBearer {}
 
 /**

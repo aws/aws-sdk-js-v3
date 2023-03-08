@@ -29,16 +29,17 @@ import {
   serializeAws_restJson1GetAccessorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAccessorCommand}.
+ */
 export interface GetAccessorCommandInput extends GetAccessorInput {}
+/**
+ * The output of {@link GetAccessorCommand}.
+ */
 export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
- *         subject to change. We recommend that you use this feature only with
- *         test scenarios, and not in production environments.</p>
- *          </important>
- *          <p>Returns detailed information about an accessor. An accessor object is a container that has the
+ * <p>Returns detailed information about an accessor. An accessor object is a container that has the
  *          information required for token based access to your Ethereum nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

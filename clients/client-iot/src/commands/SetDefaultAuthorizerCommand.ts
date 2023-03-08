@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SetDefaultAuthorizerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SetDefaultAuthorizerCommand}.
+ */
 export interface SetDefaultAuthorizerCommandInput extends SetDefaultAuthorizerRequest {}
+/**
+ * The output of {@link SetDefaultAuthorizerCommand}.
+ */
 export interface SetDefaultAuthorizerCommandOutput extends SetDefaultAuthorizerResponse, __MetadataBearer {}
 
 /**

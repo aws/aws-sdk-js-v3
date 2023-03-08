@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListObjectChildrenCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListObjectChildrenCommand}.
+ */
 export interface ListObjectChildrenCommandInput extends ListObjectChildrenRequest {}
+/**
+ * The output of {@link ListObjectChildrenCommand}.
+ */
 export interface ListObjectChildrenCommandOutput extends ListObjectChildrenResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListHostedConfigurationVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListHostedConfigurationVersionsCommand}.
+ */
 export interface ListHostedConfigurationVersionsCommandInput extends ListHostedConfigurationVersionsRequest {}
+/**
+ * The output of {@link ListHostedConfigurationVersionsCommand}.
+ */
 export interface ListHostedConfigurationVersionsCommandOutput extends HostedConfigurationVersions, __MetadataBearer {}
 
 /**

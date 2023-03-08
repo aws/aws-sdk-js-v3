@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0CreateModelCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateModelCommand}.
+ */
 export interface CreateModelCommandInput extends CreateModelRequest {}
+/**
+ * The output of {@link CreateModelCommand}.
+ */
 export interface CreateModelCommandOutput extends CreateModelResponse, __MetadataBearer {}
 
 /**

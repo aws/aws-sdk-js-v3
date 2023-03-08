@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * The input for {@link NotifyRecommendationsReceivedCommand}.
+ */
 export interface NotifyRecommendationsReceivedCommandInput extends NotifyRecommendationsReceivedRequest {}
+/**
+ * The output of {@link NotifyRecommendationsReceivedCommand}.
+ */
 export interface NotifyRecommendationsReceivedCommandOutput
   extends NotifyRecommendationsReceivedResponse,
     __MetadataBearer {}

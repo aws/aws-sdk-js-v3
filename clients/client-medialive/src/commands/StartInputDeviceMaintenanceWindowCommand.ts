@@ -17,15 +17,23 @@ import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import {
   StartInputDeviceMaintenanceWindowRequest,
   StartInputDeviceMaintenanceWindowRequestFilterSensitiveLog,
+} from "../models/models_1";
+import {
   StartInputDeviceMaintenanceWindowResponse,
   StartInputDeviceMaintenanceWindowResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1StartInputDeviceMaintenanceWindowCommand,
   serializeAws_restJson1StartInputDeviceMaintenanceWindowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartInputDeviceMaintenanceWindowCommand}.
+ */
 export interface StartInputDeviceMaintenanceWindowCommandInput extends StartInputDeviceMaintenanceWindowRequest {}
+/**
+ * The output of {@link StartInputDeviceMaintenanceWindowCommand}.
+ */
 export interface StartInputDeviceMaintenanceWindowCommandOutput
   extends StartInputDeviceMaintenanceWindowResponse,
     __MetadataBearer {}

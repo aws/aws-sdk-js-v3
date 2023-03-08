@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeletePackageVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePackageVersionsCommand}.
+ */
 export interface DeletePackageVersionsCommandInput extends DeletePackageVersionsRequest {}
+/**
+ * The output of {@link DeletePackageVersionsCommand}.
+ */
 export interface DeletePackageVersionsCommandOutput extends DeletePackageVersionsResult, __MetadataBearer {}
 
 /**

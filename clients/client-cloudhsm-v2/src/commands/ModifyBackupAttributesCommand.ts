@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ModifyBackupAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ModifyBackupAttributesCommand}.
+ */
 export interface ModifyBackupAttributesCommandInput extends ModifyBackupAttributesRequest {}
+/**
+ * The output of {@link ModifyBackupAttributesCommand}.
+ */
 export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttributesResponse, __MetadataBearer {}
 
 /**

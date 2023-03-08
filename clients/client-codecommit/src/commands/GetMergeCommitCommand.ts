@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetMergeCommitCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetMergeCommitCommand}.
+ */
 export interface GetMergeCommitCommandInput extends GetMergeCommitInput {}
+/**
+ * The output of {@link GetMergeCommitCommand}.
+ */
 export interface GetMergeCommitCommandOutput extends GetMergeCommitOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteThreatIntelSetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteThreatIntelSetCommand}.
+ */
 export interface DeleteThreatIntelSetCommandInput extends DeleteThreatIntelSetRequest {}
+/**
+ * The output of {@link DeleteThreatIntelSetCommand}.
+ */
 export interface DeleteThreatIntelSetCommandOutput extends DeleteThreatIntelSetResponse, __MetadataBearer {}
 
 /**

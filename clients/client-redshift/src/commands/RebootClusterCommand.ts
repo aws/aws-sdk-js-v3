@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link RebootClusterCommand}.
+ */
 export interface RebootClusterCommandInput extends RebootClusterMessage {}
+/**
+ * The output of {@link RebootClusterCommand}.
+ */
 export interface RebootClusterCommandOutput extends RebootClusterResult, __MetadataBearer {}
 
 /**

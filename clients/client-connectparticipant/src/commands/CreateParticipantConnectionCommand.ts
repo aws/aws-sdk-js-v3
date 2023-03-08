@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CreateParticipantConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateParticipantConnectionCommand}.
+ */
 export interface CreateParticipantConnectionCommandInput extends CreateParticipantConnectionRequest {}
+/**
+ * The output of {@link CreateParticipantConnectionCommand}.
+ */
 export interface CreateParticipantConnectionCommandOutput
   extends CreateParticipantConnectionResponse,
     __MetadataBearer {}

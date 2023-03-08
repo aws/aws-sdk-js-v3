@@ -6,7 +6,6 @@ import {
   ListDetectMitigationActionsExecutionsCommandInput,
   ListDetectMitigationActionsExecutionsCommandOutput,
 } from "../commands/ListDetectMitigationActionsExecutionsCommand";
-import { IoT } from "../IoT";
 import { IoTClient } from "../IoTClient";
 import { IoTPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDetectMitigationActionsExecutionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoT,
-  input: ListDetectMitigationActionsExecutionsCommandInput,
-  ...args: any
-): Promise<ListDetectMitigationActionsExecutionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDetectMitigationActionsExecutions(input, ...args);
-};
 export async function* paginateListDetectMitigationActionsExecutions(
   config: IoTPaginationConfiguration,
   input: ListDetectMitigationActionsExecutionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDetectMitigationActionsExecutions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoT) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTClient) {
+    if (config.client instanceof IoTClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoT | IoTClient");

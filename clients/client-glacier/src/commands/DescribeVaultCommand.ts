@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeVaultCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeVaultCommand}.
+ */
 export interface DescribeVaultCommandInput extends DescribeVaultInput {}
+/**
+ * The output of {@link DescribeVaultCommand}.
+ */
 export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __MetadataBearer {}
 
 /**

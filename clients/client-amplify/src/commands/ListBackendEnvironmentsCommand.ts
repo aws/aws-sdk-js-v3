@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListBackendEnvironmentsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListBackendEnvironmentsCommand}.
+ */
 export interface ListBackendEnvironmentsCommandInput extends ListBackendEnvironmentsRequest {}
+/**
+ * The output of {@link ListBackendEnvironmentsCommand}.
+ */
 export interface ListBackendEnvironmentsCommandOutput extends ListBackendEnvironmentsResult, __MetadataBearer {}
 
 /**

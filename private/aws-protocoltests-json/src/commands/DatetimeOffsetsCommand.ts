@@ -19,7 +19,13 @@ import {
   serializeAws_json1_1DatetimeOffsetsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DatetimeOffsetsCommand}.
+ */
 export interface DatetimeOffsetsCommandInput {}
+/**
+ * The output of {@link DatetimeOffsetsCommand}.
+ */
 export interface DatetimeOffsetsCommandOutput extends DatetimeOffsetsOutput, __MetadataBearer {}
 
 export class DatetimeOffsetsCommand extends $Command<

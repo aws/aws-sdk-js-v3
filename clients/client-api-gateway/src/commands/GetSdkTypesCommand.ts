@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSdkTypesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSdkTypesCommand}.
+ */
 export interface GetSdkTypesCommandInput extends GetSdkTypesRequest {}
+/**
+ * The output of {@link GetSdkTypesCommand}.
+ */
 export interface GetSdkTypesCommandOutput extends SdkTypes, __MetadataBearer {}
 
 /**

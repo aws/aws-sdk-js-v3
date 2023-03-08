@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AdminRemoveUserFromGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminRemoveUserFromGroupCommand}.
+ */
 export interface AdminRemoveUserFromGroupCommandInput extends AdminRemoveUserFromGroupRequest {}
+/**
+ * The output of {@link AdminRemoveUserFromGroupCommand}.
+ */
 export interface AdminRemoveUserFromGroupCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RegisterSchemaVersionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterSchemaVersionCommand}.
+ */
 export interface RegisterSchemaVersionCommandInput extends RegisterSchemaVersionInput {}
+/**
+ * The output of {@link RegisterSchemaVersionCommand}.
+ */
 export interface RegisterSchemaVersionCommandOutput extends RegisterSchemaVersionResponse, __MetadataBearer {}
 
 /**

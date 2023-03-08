@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RejectSkillCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RejectSkillCommand}.
+ */
 export interface RejectSkillCommandInput extends RejectSkillRequest {}
+/**
+ * The output of {@link RejectSkillCommand}.
+ */
 export interface RejectSkillCommandOutput extends RejectSkillResponse, __MetadataBearer {}
 
 /**

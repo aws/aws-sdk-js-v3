@@ -20,7 +20,13 @@ import {
   serializeAws_queryRemoveRoleFromDBClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RemoveRoleFromDBClusterCommand}.
+ */
 export interface RemoveRoleFromDBClusterCommandInput extends RemoveRoleFromDBClusterMessage {}
+/**
+ * The output of {@link RemoveRoleFromDBClusterCommand}.
+ */
 export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {}
 
 /**

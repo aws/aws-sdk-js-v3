@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeprovisionIpamPoolCidrCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeprovisionIpamPoolCidrCommand}.
+ */
 export interface DeprovisionIpamPoolCidrCommandInput extends DeprovisionIpamPoolCidrRequest {}
+/**
+ * The output of {@link DeprovisionIpamPoolCidrCommand}.
+ */
 export interface DeprovisionIpamPoolCidrCommandOutput extends DeprovisionIpamPoolCidrResult, __MetadataBearer {}
 
 /**

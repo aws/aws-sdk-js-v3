@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DescribeBlueGreenDeploymentsCommand}.
+ */
 export interface DescribeBlueGreenDeploymentsCommandInput extends DescribeBlueGreenDeploymentsRequest {}
+/**
+ * The output of {@link DescribeBlueGreenDeploymentsCommand}.
+ */
 export interface DescribeBlueGreenDeploymentsCommandOutput
   extends DescribeBlueGreenDeploymentsResponse,
     __MetadataBearer {}

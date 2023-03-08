@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListWorkerBlocksCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListWorkerBlocksCommand}.
+ */
 export interface ListWorkerBlocksCommandInput extends ListWorkerBlocksRequest {}
+/**
+ * The output of {@link ListWorkerBlocksCommand}.
+ */
 export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse, __MetadataBearer {}
 
 /**

@@ -22,13 +22,19 @@ import {
 } from "../models/models_2";
 import { deserializeAws_ec2DeleteFleetsCommand, serializeAws_ec2DeleteFleetsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteFleetsCommand}.
+ */
 export interface DeleteFleetsCommandInput extends DeleteFleetsRequest {}
+/**
+ * The output of {@link DeleteFleetsCommand}.
+ */
 export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified EC2 Fleet.</p>
+ * <p>Deletes the specified EC2 Fleets.</p>
  *          <p>After you delete an EC2 Fleet, it launches no new instances.</p>
- *          <p>You must specify whether a deleted EC2 Fleet should also terminate its instances. If you
+ *          <p>You must also specify whether a deleted EC2 Fleet should terminate its instances. If you
  *          choose to terminate the instances, the EC2 Fleet enters the <code>deleted_terminating</code>
  *          state. Otherwise, the EC2 Fleet enters the <code>deleted_running</code> state, and the instances
  *          continue to run until they are interrupted or you terminate them manually.</p>

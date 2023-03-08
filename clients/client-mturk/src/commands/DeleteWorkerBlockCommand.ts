@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteWorkerBlockCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteWorkerBlockCommand}.
+ */
 export interface DeleteWorkerBlockCommandInput extends DeleteWorkerBlockRequest {}
+/**
+ * The output of {@link DeleteWorkerBlockCommand}.
+ */
 export interface DeleteWorkerBlockCommandOutput extends DeleteWorkerBlockResponse, __MetadataBearer {}
 
 /**

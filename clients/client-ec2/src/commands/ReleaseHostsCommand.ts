@@ -22,7 +22,13 @@ import {
 } from "../models/models_6";
 import { deserializeAws_ec2ReleaseHostsCommand, serializeAws_ec2ReleaseHostsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ReleaseHostsCommand}.
+ */
 export interface ReleaseHostsCommandInput extends ReleaseHostsRequest {}
+/**
+ * The output of {@link ReleaseHostsCommand}.
+ */
 export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __MetadataBearer {}
 
 /**

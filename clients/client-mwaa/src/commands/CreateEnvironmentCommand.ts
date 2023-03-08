@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateEnvironmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateEnvironmentCommand}.
+ */
 export interface CreateEnvironmentCommandInput extends CreateEnvironmentInput {}
+/**
+ * The output of {@link CreateEnvironmentCommand}.
+ */
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput, __MetadataBearer {}
 
 /**

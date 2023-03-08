@@ -29,7 +29,13 @@ import {
   serializeAws_queryDeregisterInstancesFromLoadBalancerCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeregisterInstancesFromLoadBalancerCommand}.
+ */
 export interface DeregisterInstancesFromLoadBalancerCommandInput extends DeregisterEndPointsInput {}
+/**
+ * The output of {@link DeregisterInstancesFromLoadBalancerCommand}.
+ */
 export interface DeregisterInstancesFromLoadBalancerCommandOutput extends DeregisterEndPointsOutput, __MetadataBearer {}
 
 /**

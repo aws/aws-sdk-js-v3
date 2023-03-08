@@ -26,7 +26,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_querySetSubnetsCommand, serializeAws_querySetSubnetsCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SetSubnetsCommand}.
+ */
 export interface SetSubnetsCommandInput extends SetSubnetsInput {}
+/**
+ * The output of {@link SetSubnetsCommand}.
+ */
 export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBearer {}
 
 /**

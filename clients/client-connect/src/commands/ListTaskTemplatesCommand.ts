@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListTaskTemplatesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListTaskTemplatesCommand}.
+ */
 export interface ListTaskTemplatesCommandInput extends ListTaskTemplatesRequest {}
+/**
+ * The output of {@link ListTaskTemplatesCommand}.
+ */
 export interface ListTaskTemplatesCommandOutput extends ListTaskTemplatesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopBulkDeploymentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopBulkDeploymentCommand}.
+ */
 export interface StopBulkDeploymentCommandInput extends StopBulkDeploymentRequest {}
+/**
+ * The output of {@link StopBulkDeploymentCommand}.
+ */
 export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetServiceSettingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetServiceSettingsCommand}.
+ */
 export interface GetServiceSettingsCommandInput extends GetServiceSettingsRequest {}
+/**
+ * The output of {@link GetServiceSettingsCommand}.
+ */
 export interface GetServiceSettingsCommandOutput extends GetServiceSettingsResponse, __MetadataBearer {}
 
 /**

@@ -13,15 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeProductsRequest, DescribeProductsRequestFilterSensitiveLog } from "../models/models_1";
-import { DescribeProductsResponse, DescribeProductsResponseFilterSensitiveLog } from "../models/models_2";
+import {
+  DescribeProductsRequest,
+  DescribeProductsRequestFilterSensitiveLog,
+  DescribeProductsResponse,
+  DescribeProductsResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeProductsCommand,
   serializeAws_restJson1DescribeProductsCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link DescribeProductsCommand}.
+ */
 export interface DescribeProductsCommandInput extends DescribeProductsRequest {}
+/**
+ * The output of {@link DescribeProductsCommand}.
+ */
 export interface DescribeProductsCommandOutput extends DescribeProductsResponse, __MetadataBearer {}
 
 /**

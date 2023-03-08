@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetBulkPublishDetailsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBulkPublishDetailsCommand}.
+ */
 export interface GetBulkPublishDetailsCommandInput extends GetBulkPublishDetailsRequest {}
+/**
+ * The output of {@link GetBulkPublishDetailsCommand}.
+ */
 export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetailsResponse, __MetadataBearer {}
 
 /**

@@ -14,18 +14,20 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyAddressAttributeRequest,
-  ModifyAddressAttributeRequestFilterSensitiveLog,
-  ModifyAddressAttributeResult,
-  ModifyAddressAttributeResultFilterSensitiveLog,
-} from "../models/models_5";
+import { ModifyAddressAttributeRequest, ModifyAddressAttributeRequestFilterSensitiveLog } from "../models/models_5";
+import { ModifyAddressAttributeResult, ModifyAddressAttributeResultFilterSensitiveLog } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyAddressAttributeCommand,
   serializeAws_ec2ModifyAddressAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyAddressAttributeCommand}.
+ */
 export interface ModifyAddressAttributeCommandInput extends ModifyAddressAttributeRequest {}
+/**
+ * The output of {@link ModifyAddressAttributeCommand}.
+ */
 export interface ModifyAddressAttributeCommandOutput extends ModifyAddressAttributeResult, __MetadataBearer {}
 
 /**

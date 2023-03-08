@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1PutSlotTypeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutSlotTypeCommand}.
+ */
 export interface PutSlotTypeCommandInput extends PutSlotTypeRequest {}
+/**
+ * The output of {@link PutSlotTypeCommand}.
+ */
 export interface PutSlotTypeCommandOutput extends PutSlotTypeResponse, __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1SendEventCommand, serializeAws_json1_1SendEventCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SendEventCommand}.
+ */
 export interface SendEventCommandInput extends SendEventRequest {}
+/**
+ * The output of {@link SendEventCommand}.
+ */
 export interface SendEventCommandOutput extends SendEventResult, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateCertificateOptionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateCertificateOptionsCommand}.
+ */
 export interface UpdateCertificateOptionsCommandInput extends UpdateCertificateOptionsRequest {}
+/**
+ * The output of {@link UpdateCertificateOptionsCommand}.
+ */
 export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer {}
 
 /**

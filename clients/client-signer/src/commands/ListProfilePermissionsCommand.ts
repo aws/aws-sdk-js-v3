@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
+/**
+ * The input for {@link ListProfilePermissionsCommand}.
+ */
 export interface ListProfilePermissionsCommandInput extends ListProfilePermissionsRequest {}
+/**
+ * The output of {@link ListProfilePermissionsCommand}.
+ */
 export interface ListProfilePermissionsCommandOutput extends ListProfilePermissionsResponse, __MetadataBearer {}
 
 /**

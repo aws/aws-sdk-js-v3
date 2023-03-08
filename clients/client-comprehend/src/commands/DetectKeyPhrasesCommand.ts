@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DetectKeyPhrasesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DetectKeyPhrasesCommand}.
+ */
 export interface DetectKeyPhrasesCommandInput extends DetectKeyPhrasesRequest {}
+/**
+ * The output of {@link DetectKeyPhrasesCommand}.
+ */
 export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse, __MetadataBearer {}
 
 /**

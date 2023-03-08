@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0UpdateDecoderManifestCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateDecoderManifestCommand}.
+ */
 export interface UpdateDecoderManifestCommandInput extends UpdateDecoderManifestRequest {}
+/**
+ * The output of {@link UpdateDecoderManifestCommand}.
+ */
 export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifestResponse, __MetadataBearer {}
 
 /**

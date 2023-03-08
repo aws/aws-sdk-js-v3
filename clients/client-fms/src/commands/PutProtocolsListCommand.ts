@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutProtocolsListCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutProtocolsListCommand}.
+ */
 export interface PutProtocolsListCommandInput extends PutProtocolsListRequest {}
+/**
+ * The output of {@link PutProtocolsListCommand}.
+ */
 export interface PutProtocolsListCommandOutput extends PutProtocolsListResponse, __MetadataBearer {}
 
 /**

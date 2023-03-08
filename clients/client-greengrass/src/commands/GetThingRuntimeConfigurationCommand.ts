@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetThingRuntimeConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetThingRuntimeConfigurationCommand}.
+ */
 export interface GetThingRuntimeConfigurationCommandInput extends GetThingRuntimeConfigurationRequest {}
+/**
+ * The output of {@link GetThingRuntimeConfigurationCommand}.
+ */
 export interface GetThingRuntimeConfigurationCommandOutput
   extends GetThingRuntimeConfigurationResponse,
     __MetadataBearer {}

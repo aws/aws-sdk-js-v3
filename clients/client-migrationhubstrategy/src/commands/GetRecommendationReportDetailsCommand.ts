@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetRecommendationReportDetailsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetRecommendationReportDetailsCommand}.
+ */
 export interface GetRecommendationReportDetailsCommandInput extends GetRecommendationReportDetailsRequest {}
+/**
+ * The output of {@link GetRecommendationReportDetailsCommand}.
+ */
 export interface GetRecommendationReportDetailsCommandOutput
   extends GetRecommendationReportDetailsResponse,
     __MetadataBearer {}

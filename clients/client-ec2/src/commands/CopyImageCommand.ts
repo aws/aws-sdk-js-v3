@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_ec2CopyImageCommand, serializeAws_ec2CopyImageCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CopyImageCommand}.
+ */
 export interface CopyImageCommandInput extends CopyImageRequest {}
+/**
+ * The output of {@link CopyImageCommand}.
+ */
 export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBearer {}
 
 /**

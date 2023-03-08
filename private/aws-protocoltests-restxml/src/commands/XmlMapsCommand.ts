@@ -16,7 +16,13 @@ import { XmlMapsInputOutput, XmlMapsInputOutputFilterSensitiveLog } from "../mod
 import { deserializeAws_restXmlXmlMapsCommand, serializeAws_restXmlXmlMapsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link XmlMapsCommand}.
+ */
 export interface XmlMapsCommandInput extends XmlMapsInputOutput {}
+/**
+ * The output of {@link XmlMapsCommand}.
+ */
 export interface XmlMapsCommandOutput extends XmlMapsInputOutput, __MetadataBearer {}
 
 /**

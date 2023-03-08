@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListSatellitesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSatellitesCommand}.
+ */
 export interface ListSatellitesCommandInput extends ListSatellitesRequest {}
+/**
+ * The output of {@link ListSatellitesCommand}.
+ */
 export interface ListSatellitesCommandOutput extends ListSatellitesResponse, __MetadataBearer {}
 
 /**

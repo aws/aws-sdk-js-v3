@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateProgramCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateProgramCommand}.
+ */
 export interface CreateProgramCommandInput extends CreateProgramRequest {}
+/**
+ * The output of {@link CreateProgramCommand}.
+ */
 export interface CreateProgramCommandOutput extends CreateProgramResponse, __MetadataBearer {}
 
 /**

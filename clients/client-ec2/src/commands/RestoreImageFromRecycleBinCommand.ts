@@ -25,7 +25,13 @@ import {
   serializeAws_ec2RestoreImageFromRecycleBinCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RestoreImageFromRecycleBinCommand}.
+ */
 export interface RestoreImageFromRecycleBinCommandInput extends RestoreImageFromRecycleBinRequest {}
+/**
+ * The output of {@link RestoreImageFromRecycleBinCommand}.
+ */
 export interface RestoreImageFromRecycleBinCommandOutput extends RestoreImageFromRecycleBinResult, __MetadataBearer {}
 
 /**

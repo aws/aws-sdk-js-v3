@@ -29,7 +29,13 @@ import {
   serializeAws_queryCreateLoadBalancerListenersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateLoadBalancerListenersCommand}.
+ */
 export interface CreateLoadBalancerListenersCommandInput extends CreateLoadBalancerListenerInput {}
+/**
+ * The output of {@link CreateLoadBalancerListenersCommand}.
+ */
 export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBalancerListenerOutput, __MetadataBearer {}
 
 /**

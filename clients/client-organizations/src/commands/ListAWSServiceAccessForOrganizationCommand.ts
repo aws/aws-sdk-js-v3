@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAWSServiceAccessForOrganizationCommand}.
+ */
 export interface ListAWSServiceAccessForOrganizationCommandInput extends ListAWSServiceAccessForOrganizationRequest {}
+/**
+ * The output of {@link ListAWSServiceAccessForOrganizationCommand}.
+ */
 export interface ListAWSServiceAccessForOrganizationCommandOutput
   extends ListAWSServiceAccessForOrganizationResponse,
     __MetadataBearer {}
@@ -34,11 +40,11 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  * <p>Returns a list of the Amazon Web Services services that you enabled to integrate with your
  *             organization. After a service on this list creates the resources that it requires for
  *             the integration, it can perform operations on your organization and its accounts.</p>
- *         <p>For more information about integrating other services with Organizations, including the
+ *          <p>For more information about integrating other services with Organizations, including the
  *             list of services that currently work with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating Organizations with Other
  *                 Amazon Web Services Services</a> in the <i>Organizations User Guide.</i>
  *          </p>
- *         <p>This operation can be called only from the organization's
+ *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

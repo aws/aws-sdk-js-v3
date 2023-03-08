@@ -29,8 +29,14 @@ import {
   serializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelElasticsearchServiceSoftwareUpdateCommand}.
+ */
 export interface CancelElasticsearchServiceSoftwareUpdateCommandInput
   extends CancelElasticsearchServiceSoftwareUpdateRequest {}
+/**
+ * The output of {@link CancelElasticsearchServiceSoftwareUpdateCommand}.
+ */
 export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
   extends CancelElasticsearchServiceSoftwareUpdateResponse,
     __MetadataBearer {}

@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
 
+/**
+ * The input for {@link CreateApplicationVersionCommand}.
+ */
 export interface CreateApplicationVersionCommandInput extends CreateApplicationVersionRequest {}
+/**
+ * The output of {@link CreateApplicationVersionCommand}.
+ */
 export interface CreateApplicationVersionCommandOutput extends CreateApplicationVersionResponse, __MetadataBearer {}
 
 /**

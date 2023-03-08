@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateStoreImageTaskCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateStoreImageTaskCommand}.
+ */
 export interface CreateStoreImageTaskCommandInput extends CreateStoreImageTaskRequest {}
+/**
+ * The output of {@link CreateStoreImageTaskCommand}.
+ */
 export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskResult, __MetadataBearer {}
 
 /**

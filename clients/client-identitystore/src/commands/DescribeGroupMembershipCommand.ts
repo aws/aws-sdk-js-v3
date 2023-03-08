@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeGroupMembershipCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeGroupMembershipCommand}.
+ */
 export interface DescribeGroupMembershipCommandInput extends DescribeGroupMembershipRequest {}
+/**
+ * The output of {@link DescribeGroupMembershipCommand}.
+ */
 export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembershipResponse, __MetadataBearer {}
 
 /**

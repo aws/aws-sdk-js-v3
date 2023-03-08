@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1MergePullRequestBySquashCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link MergePullRequestBySquashCommand}.
+ */
 export interface MergePullRequestBySquashCommandInput extends MergePullRequestBySquashInput {}
+/**
+ * The output of {@link MergePullRequestBySquashCommand}.
+ */
 export interface MergePullRequestBySquashCommandOutput extends MergePullRequestBySquashOutput, __MetadataBearer {}
 
 /**

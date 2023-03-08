@@ -6,25 +6,27 @@ import { RuleSetObject } from "@aws-sdk/util-endpoints";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/iot-wireless.json */
 
-const r="fn",
-s="argv",
-t="ref";
-const a=true,
-b=false,
-c="String",
-d="PartitionResult",
-e="tree",
-f="error",
-g="endpoint",
-h={"required":true,"default":false,"type":"Boolean"},
-i={[t]:"Endpoint"},
-j={[r]:"booleanEquals",[s]:[{[t]:"UseFIPS"},true]},
-k={[r]:"booleanEquals",[s]:[{[t]:"UseDualStack"},true]},
+const s="required",
+t="fn",
+u="argv",
+v="ref";
+const a="isSet",
+b="tree",
+c="error",
+d="endpoint",
+e="PartitionResult",
+f="stringEquals",
+g={[s]:false,"type":"String"},
+h={[s]:true,"default":false,"type":"Boolean"},
+i={[v]:"Endpoint"},
+j={[t]:"booleanEquals",[u]:[{[v]:"UseFIPS"},true]},
+k={[t]:"booleanEquals",[u]:[{[v]:"UseDualStack"},true]},
 l={},
-m={[r]:"booleanEquals",[s]:[true,{[r]:"getAttr",[s]:[{[t]:d},"supportsFIPS"]}]},
-n={[r]:"booleanEquals",[s]:[true,{[r]:"getAttr",[s]:[{[t]:d},"supportsDualStack"]}]},
-o=[i],
+m={[v]:"Region"},
+n={[t]:"booleanEquals",[u]:[true,{[t]:"getAttr",[u]:[{[v]:e},"supportsFIPS"]}]},
+o={[t]:"booleanEquals",[u]:[true,{[t]:"getAttr",[u]:[{[v]:e},"supportsDualStack"]}]},
 p=[j],
-q=[k];
-const _data={version:"1.0",parameters:{Region:{required:a,type:c},UseDualStack:h,UseFIPS:h,Endpoint:{required:b,type:c}},rules:[{conditions:[{[r]:"aws.partition",[s]:[{[t]:"Region"}],assign:d}],type:e,rules:[{conditions:[{[r]:"isSet",[s]:o},{[r]:"parseURL",[s]:o,assign:"url"}],type:e,rules:[{conditions:p,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{type:e,rules:[{conditions:q,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:f},{endpoint:{url:i,properties:l,headers:l},type:g}]}]},{conditions:[j,k],type:e,rules:[{conditions:[m,n],type:e,rules:[{endpoint:{url:"https://api.iotwireless-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:g}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:f}]},{conditions:p,type:e,rules:[{conditions:[m],type:e,rules:[{type:e,rules:[{endpoint:{url:"https://api.iotwireless-fips.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:g}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:f}]},{conditions:q,type:e,rules:[{conditions:[n],type:e,rules:[{endpoint:{url:"https://api.iotwireless.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:g}]},{error:"DualStack is enabled but this partition does not support DualStack",type:f}]},{endpoint:{url:"https://api.iotwireless.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:g}]}]};
+q=[k],
+r=[m];
+const _data={version:"1.0",parameters:{Region:g,UseDualStack:h,UseFIPS:h,Endpoint:g},rules:[{conditions:[{[t]:a,[u]:[i]}],type:b,rules:[{conditions:p,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:c},{type:b,rules:[{conditions:q,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:c},{endpoint:{url:i,properties:l,headers:l},type:d}]}]},{type:b,rules:[{conditions:[{[t]:a,[u]:r}],type:b,rules:[{conditions:[{[t]:"aws.partition",[u]:r,assign:e}],type:b,rules:[{conditions:[j,k],type:b,rules:[{conditions:[n,o],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://api.iotwireless-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:d}]}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:c}]},{conditions:p,type:b,rules:[{conditions:[n],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://api.iotwireless-fips.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:d}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:c}]},{conditions:q,type:b,rules:[{conditions:[o],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://api.iotwireless.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:d}]}]},{error:"DualStack is enabled but this partition does not support DualStack",type:c}]},{type:b,rules:[{conditions:[{[t]:f,[u]:[m,"ap-northeast-1"]}],endpoint:{url:"https://api.iotwireless.ap-northeast-1.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[t]:f,[u]:[m,"ap-southeast-2"]}],endpoint:{url:"https://api.iotwireless.ap-southeast-2.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[t]:f,[u]:[m,"eu-west-1"]}],endpoint:{url:"https://api.iotwireless.eu-west-1.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[t]:f,[u]:[m,"us-east-1"]}],endpoint:{url:"https://api.iotwireless.us-east-1.amazonaws.com",properties:l,headers:l},type:d},{conditions:[{[t]:f,[u]:[m,"us-west-2"]}],endpoint:{url:"https://api.iotwireless.us-west-2.amazonaws.com",properties:l,headers:l},type:d},{endpoint:{url:"https://api.iotwireless.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:d}]}]}]},{error:"Invalid Configuration: Missing Region",type:c}]}]};
 export const ruleSet: RuleSetObject = _data;

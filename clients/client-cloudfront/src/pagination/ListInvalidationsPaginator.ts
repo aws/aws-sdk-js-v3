@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CloudFront } from "../CloudFront";
 import { CloudFrontClient } from "../CloudFrontClient";
 import {
   ListInvalidationsCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListInvalidationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CloudFront,
-  input: ListInvalidationsCommandInput,
-  ...args: any
-): Promise<ListInvalidationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listInvalidations(input, ...args);
-};
 export async function* paginateListInvalidations(
   config: CloudFrontPaginationConfiguration,
   input: ListInvalidationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListInvalidations(
   while (hasNext) {
     input.Marker = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof CloudFront) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudFrontClient) {
+    if (config.client instanceof CloudFrontClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudFront | CloudFrontClient");

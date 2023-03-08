@@ -6,7 +6,6 @@ import {
   ListCustomMetricsCommandInput,
   ListCustomMetricsCommandOutput,
 } from "../commands/ListCustomMetricsCommand";
-import { IoT } from "../IoT";
 import { IoTClient } from "../IoTClient";
 import { IoTPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCustomMetricsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoT,
-  input: ListCustomMetricsCommandInput,
-  ...args: any
-): Promise<ListCustomMetricsCommandOutput> => {
-  // @ts-ignore
-  return await client.listCustomMetrics(input, ...args);
-};
 export async function* paginateListCustomMetrics(
   config: IoTPaginationConfiguration,
   input: ListCustomMetricsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListCustomMetrics(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoT) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTClient) {
+    if (config.client instanceof IoTClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoT | IoTClient");

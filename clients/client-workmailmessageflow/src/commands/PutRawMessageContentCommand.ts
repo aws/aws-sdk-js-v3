@@ -29,7 +29,13 @@ import {
   WorkMailMessageFlowClientResolvedConfig,
 } from "../WorkMailMessageFlowClient";
 
+/**
+ * The input for {@link PutRawMessageContentCommand}.
+ */
 export interface PutRawMessageContentCommandInput extends PutRawMessageContentRequest {}
+/**
+ * The output of {@link PutRawMessageContentCommand}.
+ */
 export interface PutRawMessageContentCommandOutput extends PutRawMessageContentResponse, __MetadataBearer {}
 
 /**

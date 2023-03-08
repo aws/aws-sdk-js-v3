@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetBucketLocationCommand}.
+ */
 export interface GetBucketLocationCommandInput extends GetBucketLocationRequest {}
+/**
+ * The output of {@link GetBucketLocationCommand}.
+ */
 export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput, __MetadataBearer {}
 
 /**

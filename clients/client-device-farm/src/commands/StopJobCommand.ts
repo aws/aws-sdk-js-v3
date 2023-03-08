@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1StopJobCommand, serializeAws_json1_1StopJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopJobCommand}.
+ */
 export interface StopJobCommandInput extends StopJobRequest {}
+/**
+ * The output of {@link StopJobCommand}.
+ */
 export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateClusterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateClusterCommand}.
+ */
 export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
+/**
+ * The output of {@link UpdateClusterCommand}.
+ */
 export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __MetadataBearer {}
 
 /**

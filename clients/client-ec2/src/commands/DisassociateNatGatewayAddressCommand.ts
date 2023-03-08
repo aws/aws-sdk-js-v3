@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DisassociateNatGatewayAddressCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisassociateNatGatewayAddressCommand}.
+ */
 export interface DisassociateNatGatewayAddressCommandInput extends DisassociateNatGatewayAddressRequest {}
+/**
+ * The output of {@link DisassociateNatGatewayAddressCommand}.
+ */
 export interface DisassociateNatGatewayAddressCommandOutput
   extends DisassociateNatGatewayAddressResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchAssociateUserStackCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchAssociateUserStackCommand}.
+ */
 export interface BatchAssociateUserStackCommandInput extends BatchAssociateUserStackRequest {}
+/**
+ * The output of {@link BatchAssociateUserStackCommand}.
+ */
 export interface BatchAssociateUserStackCommandOutput extends BatchAssociateUserStackResult, __MetadataBearer {}
 
 /**

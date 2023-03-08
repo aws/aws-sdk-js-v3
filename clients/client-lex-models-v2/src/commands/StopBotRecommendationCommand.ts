@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopBotRecommendationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopBotRecommendationCommand}.
+ */
 export interface StopBotRecommendationCommandInput extends StopBotRecommendationRequest {}
+/**
+ * The output of {@link StopBotRecommendationCommand}.
+ */
 export interface StopBotRecommendationCommandOutput extends StopBotRecommendationResponse, __MetadataBearer {}
 
 /**

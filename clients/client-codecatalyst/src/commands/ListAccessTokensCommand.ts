@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAccessTokensCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAccessTokensCommand}.
+ */
 export interface ListAccessTokensCommandInput extends ListAccessTokensRequest {}
+/**
+ * The output of {@link ListAccessTokensCommand}.
+ */
 export interface ListAccessTokensCommandOutput extends ListAccessTokensResponse, __MetadataBearer {}
 
 /**

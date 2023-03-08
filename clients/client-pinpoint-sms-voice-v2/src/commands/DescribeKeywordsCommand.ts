@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DescribeKeywordsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeKeywordsCommand}.
+ */
 export interface DescribeKeywordsCommandInput extends DescribeKeywordsRequest {}
+/**
+ * The output of {@link DescribeKeywordsCommand}.
+ */
 export interface DescribeKeywordsCommandOutput extends DescribeKeywordsResult, __MetadataBearer {}
 
 /**

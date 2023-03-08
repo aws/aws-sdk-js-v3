@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link DescribeAvailabilityMonitorTestCommand}.
+ */
 export interface DescribeAvailabilityMonitorTestCommandInput extends DescribeAvailabilityMonitorTestInput {}
+/**
+ * The output of {@link DescribeAvailabilityMonitorTestCommand}.
+ */
 export interface DescribeAvailabilityMonitorTestCommandOutput
   extends DescribeAvailabilityMonitorTestOutput,
     __MetadataBearer {}

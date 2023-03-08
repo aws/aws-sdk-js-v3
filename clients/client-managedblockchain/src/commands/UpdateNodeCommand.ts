@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1UpdateNodeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateNodeCommand}.
+ */
 export interface UpdateNodeCommandInput extends UpdateNodeInput {}
+/**
+ * The output of {@link UpdateNodeCommand}.
+ */
 export interface UpdateNodeCommandOutput extends UpdateNodeOutput, __MetadataBearer {}
 
 /**

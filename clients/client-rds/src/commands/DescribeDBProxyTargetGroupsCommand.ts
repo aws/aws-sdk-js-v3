@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DescribeDBProxyTargetGroupsCommand}.
+ */
 export interface DescribeDBProxyTargetGroupsCommandInput extends DescribeDBProxyTargetGroupsRequest {}
+/**
+ * The output of {@link DescribeDBProxyTargetGroupsCommand}.
+ */
 export interface DescribeDBProxyTargetGroupsCommandOutput
   extends DescribeDBProxyTargetGroupsResponse,
     __MetadataBearer {}

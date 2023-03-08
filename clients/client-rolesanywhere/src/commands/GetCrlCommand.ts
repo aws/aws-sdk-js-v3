@@ -22,7 +22,13 @@ import {
 import { deserializeAws_restJson1GetCrlCommand, serializeAws_restJson1GetCrlCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * The input for {@link GetCrlCommand}.
+ */
 export interface GetCrlCommandInput extends ScalarCrlRequest {}
+/**
+ * The output of {@link GetCrlCommand}.
+ */
 export interface GetCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**

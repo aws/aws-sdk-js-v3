@@ -23,7 +23,13 @@ import {
   serializeAws_queryDeleteEnvironmentConfigurationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteEnvironmentConfigurationCommand}.
+ */
 export interface DeleteEnvironmentConfigurationCommandInput extends DeleteEnvironmentConfigurationMessage {}
+/**
+ * The output of {@link DeleteEnvironmentConfigurationCommand}.
+ */
 export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

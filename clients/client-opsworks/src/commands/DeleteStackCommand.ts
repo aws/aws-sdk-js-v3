@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteStackCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteStackCommand}.
+ */
 export interface DeleteStackCommandInput extends DeleteStackRequest {}
+/**
+ * The output of {@link DeleteStackCommand}.
+ */
 export interface DeleteStackCommandOutput extends __MetadataBearer {}
 
 /**

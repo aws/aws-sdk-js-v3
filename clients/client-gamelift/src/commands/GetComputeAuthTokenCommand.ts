@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetComputeAuthTokenCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetComputeAuthTokenCommand}.
+ */
 export interface GetComputeAuthTokenCommandInput extends GetComputeAuthTokenInput {}
+/**
+ * The output of {@link GetComputeAuthTokenCommand}.
+ */
 export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOutput, __MetadataBearer {}
 
 /**

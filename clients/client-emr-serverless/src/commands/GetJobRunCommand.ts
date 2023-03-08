@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetJobRunCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetJobRunCommand}.
+ */
 export interface GetJobRunCommandInput extends GetJobRunRequest {}
+/**
+ * The output of {@link GetJobRunCommand}.
+ */
 export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBearer {}
 
 /**

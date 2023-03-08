@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeLoaCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLoaCommand}.
+ */
 export interface DescribeLoaCommandInput extends DescribeLoaRequest {}
+/**
+ * The output of {@link DescribeLoaCommand}.
+ */
 export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
 
 /**

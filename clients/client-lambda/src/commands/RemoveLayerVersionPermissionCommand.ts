@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1RemoveLayerVersionPermissionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RemoveLayerVersionPermissionCommand}.
+ */
 export interface RemoveLayerVersionPermissionCommandInput extends RemoveLayerVersionPermissionRequest {}
+/**
+ * The output of {@link RemoveLayerVersionPermissionCommand}.
+ */
 export interface RemoveLayerVersionPermissionCommandOutput extends __MetadataBearer {}
 
 /**

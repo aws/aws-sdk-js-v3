@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1ModifyInstanceGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ModifyInstanceGroupsCommand}.
+ */
 export interface ModifyInstanceGroupsCommandInput extends ModifyInstanceGroupsInput {}
+/**
+ * The output of {@link ModifyInstanceGroupsCommand}.
+ */
 export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
 
 /**

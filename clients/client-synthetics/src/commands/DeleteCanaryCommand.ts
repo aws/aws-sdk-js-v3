@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * The input for {@link DeleteCanaryCommand}.
+ */
 export interface DeleteCanaryCommandInput extends DeleteCanaryRequest {}
+/**
+ * The output of {@link DeleteCanaryCommand}.
+ */
 export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __MetadataBearer {}
 
 /**

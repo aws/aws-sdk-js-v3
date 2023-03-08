@@ -20,14 +20,20 @@ import {
   serializeAws_json1_1AttachPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AttachPolicyCommand}.
+ */
 export interface AttachPolicyCommandInput extends AttachPolicyRequest {}
+/**
+ * The output of {@link AttachPolicyCommand}.
+ */
 export interface AttachPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attaches a policy to a root, an organizational unit (OU), or an individual account.
  *             How the policy affects accounts depends on the type of policy. Refer to the
  *                 <i>Organizations User Guide</i> for information about each policy type:</p>
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
@@ -49,7 +55,7 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
- *         <p>This operation can be called only from the organization's management account.</p>
+ *          <p>This operation can be called only from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

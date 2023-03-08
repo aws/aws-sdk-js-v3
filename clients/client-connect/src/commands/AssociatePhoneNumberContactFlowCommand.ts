@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1AssociatePhoneNumberContactFlowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociatePhoneNumberContactFlowCommand}.
+ */
 export interface AssociatePhoneNumberContactFlowCommandInput extends AssociatePhoneNumberContactFlowRequest {}
+/**
+ * The output of {@link AssociatePhoneNumberContactFlowCommand}.
+ */
 export interface AssociatePhoneNumberContactFlowCommandOutput extends __MetadataBearer {}
 
 /**

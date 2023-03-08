@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1CreateKeyCommand, serializeAws_json1_1CreateKeyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateKeyCommand}.
+ */
 export interface CreateKeyCommandInput extends CreateKeyRequest {}
+/**
+ * The output of {@link CreateKeyCommand}.
+ */
 export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBearer {}
 
 /**
@@ -40,10 +46,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *          <note>
  *             <p>KMS has replaced the term <i>customer master key (CMK)</i> with <i>KMS key</i> and <i>KMS key</i>. The concept has not changed. To prevent breaking changes, KMS is keeping some variations of this term.</p>
  *          </note>
- *
- *
  *          <p>To create different types of KMS keys, use the following guidance:</p>
- *
  *          <dl>
  *             <dt>Symmetric encryption KMS key</dt>
  *             <dd>
@@ -171,7 +174,6 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot use this operation to
  *       create a KMS key in a different Amazon Web Services account.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateKey</a> (IAM policy). To use the
  *         <code>Tags</code> parameter, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> (IAM policy). For examples and information about related

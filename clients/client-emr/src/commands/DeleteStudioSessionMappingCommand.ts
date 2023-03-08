@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteStudioSessionMappingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteStudioSessionMappingCommand}.
+ */
 export interface DeleteStudioSessionMappingCommandInput extends DeleteStudioSessionMappingInput {}
+/**
+ * The output of {@link DeleteStudioSessionMappingCommand}.
+ */
 export interface DeleteStudioSessionMappingCommandOutput extends __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListICD10CMInferenceJobsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListICD10CMInferenceJobsCommand}.
+ */
 export interface ListICD10CMInferenceJobsCommandInput extends ListICD10CMInferenceJobsRequest {}
+/**
+ * The output of {@link ListICD10CMInferenceJobsCommand}.
+ */
 export interface ListICD10CMInferenceJobsCommandOutput extends ListICD10CMInferenceJobsResponse, __MetadataBearer {}
 
 /**

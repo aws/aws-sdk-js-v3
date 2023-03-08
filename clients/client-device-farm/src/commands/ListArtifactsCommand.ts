@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListArtifactsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListArtifactsCommand}.
+ */
 export interface ListArtifactsCommandInput extends ListArtifactsRequest {}
+/**
+ * The output of {@link ListArtifactsCommand}.
+ */
 export interface ListArtifactsCommandOutput extends ListArtifactsResult, __MetadataBearer {}
 
 /**

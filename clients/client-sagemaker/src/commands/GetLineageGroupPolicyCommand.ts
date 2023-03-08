@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link GetLineageGroupPolicyCommand}.
+ */
 export interface GetLineageGroupPolicyCommandInput extends GetLineageGroupPolicyRequest {}
+/**
+ * The output of {@link GetLineageGroupPolicyCommand}.
+ */
 export interface GetLineageGroupPolicyCommandOutput extends GetLineageGroupPolicyResponse, __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 } from "../models/models_5";
 import { deserializeAws_ec2ImportInstanceCommand, serializeAws_ec2ImportInstanceCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ImportInstanceCommand}.
+ */
 export interface ImportInstanceCommandInput extends ImportInstanceRequest {}
+/**
+ * The output of {@link ImportInstanceCommand}.
+ */
 export interface ImportInstanceCommandOutput extends ImportInstanceResult, __MetadataBearer {}
 
 /**

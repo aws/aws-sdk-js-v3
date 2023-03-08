@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link CloneReceiptRuleSetCommand}.
+ */
 export interface CloneReceiptRuleSetCommandInput extends CloneReceiptRuleSetRequest {}
+/**
+ * The output of {@link CloneReceiptRuleSetCommand}.
+ */
 export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetResponse, __MetadataBearer {}
 
 /**

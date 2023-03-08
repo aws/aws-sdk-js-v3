@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_0GetTableCommand, serializeAws_json1_0GetTableCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetTableCommand}.
+ */
 export interface GetTableCommandInput extends GetTableRequest {}
+/**
+ * The output of {@link GetTableCommand}.
+ */
 export interface GetTableCommandOutput extends GetTableResponse, __MetadataBearer {}
 
 /**

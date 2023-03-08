@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetRelationalDatabaseBlueprintsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRelationalDatabaseBlueprintsCommand}.
+ */
 export interface GetRelationalDatabaseBlueprintsCommandInput extends GetRelationalDatabaseBlueprintsRequest {}
+/**
+ * The output of {@link GetRelationalDatabaseBlueprintsCommand}.
+ */
 export interface GetRelationalDatabaseBlueprintsCommandOutput
   extends GetRelationalDatabaseBlueprintsResult,
     __MetadataBearer {}

@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1ReplaceTopicRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ReplaceTopicRuleCommand}.
+ */
 export interface ReplaceTopicRuleCommandInput extends ReplaceTopicRuleRequest {}
+/**
+ * The output of {@link ReplaceTopicRuleCommand}.
+ */
 export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link GenerateEmbedUrlForAnonymousUserCommand}.
+ */
 export interface GenerateEmbedUrlForAnonymousUserCommandInput extends GenerateEmbedUrlForAnonymousUserRequest {}
+/**
+ * The output of {@link GenerateEmbedUrlForAnonymousUserCommand}.
+ */
 export interface GenerateEmbedUrlForAnonymousUserCommandOutput
   extends GenerateEmbedUrlForAnonymousUserResponse,
     __MetadataBearer {}

@@ -6,7 +6,6 @@ import {
   GetVariablesCommandInput,
   GetVariablesCommandOutput,
 } from "../commands/GetVariablesCommand";
-import { FraudDetector } from "../FraudDetector";
 import { FraudDetectorClient } from "../FraudDetectorClient";
 import { FraudDetectorPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetVariablesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: FraudDetector,
-  input: GetVariablesCommandInput,
-  ...args: any
-): Promise<GetVariablesCommandOutput> => {
-  // @ts-ignore
-  return await client.getVariables(input, ...args);
-};
 export async function* paginateGetVariables(
   config: FraudDetectorPaginationConfiguration,
   input: GetVariablesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateGetVariables(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof FraudDetector) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FraudDetectorClient) {
+    if (config.client instanceof FraudDetectorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected FraudDetector | FraudDetectorClient");

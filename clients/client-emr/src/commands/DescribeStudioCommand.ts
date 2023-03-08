@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeStudioCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeStudioCommand}.
+ */
 export interface DescribeStudioCommandInput extends DescribeStudioInput {}
+/**
+ * The output of {@link DescribeStudioCommand}.
+ */
 export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __MetadataBearer {}
 
 /**

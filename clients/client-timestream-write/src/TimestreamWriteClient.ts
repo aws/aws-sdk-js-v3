@@ -54,10 +54,18 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import {
+  CreateBatchLoadTaskCommandInput,
+  CreateBatchLoadTaskCommandOutput,
+} from "./commands/CreateBatchLoadTaskCommand";
 import { CreateDatabaseCommandInput, CreateDatabaseCommandOutput } from "./commands/CreateDatabaseCommand";
 import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
 import { DeleteDatabaseCommandInput, DeleteDatabaseCommandOutput } from "./commands/DeleteDatabaseCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
+import {
+  DescribeBatchLoadTaskCommandInput,
+  DescribeBatchLoadTaskCommandOutput,
+} from "./commands/DescribeBatchLoadTaskCommand";
 import { DescribeDatabaseCommandInput, DescribeDatabaseCommandOutput } from "./commands/DescribeDatabaseCommand";
 import {
   DescribeEndpointsCommand,
@@ -65,12 +73,17 @@ import {
   DescribeEndpointsCommandOutput,
 } from "./commands/DescribeEndpointsCommand";
 import { DescribeTableCommandInput, DescribeTableCommandOutput } from "./commands/DescribeTableCommand";
+import { ListBatchLoadTasksCommandInput, ListBatchLoadTasksCommandOutput } from "./commands/ListBatchLoadTasksCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ResumeBatchLoadTaskCommandInput,
+  ResumeBatchLoadTaskCommandOutput,
+} from "./commands/ResumeBatchLoadTaskCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput } from "./commands/UpdateDatabaseCommand";
@@ -85,16 +98,20 @@ import {
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | CreateBatchLoadTaskCommandInput
   | CreateDatabaseCommandInput
   | CreateTableCommandInput
   | DeleteDatabaseCommandInput
   | DeleteTableCommandInput
+  | DescribeBatchLoadTaskCommandInput
   | DescribeDatabaseCommandInput
   | DescribeEndpointsCommandInput
   | DescribeTableCommandInput
+  | ListBatchLoadTasksCommandInput
   | ListDatabasesCommandInput
   | ListTablesCommandInput
   | ListTagsForResourceCommandInput
+  | ResumeBatchLoadTaskCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDatabaseCommandInput
@@ -102,16 +119,20 @@ export type ServiceInputTypes =
   | WriteRecordsCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateBatchLoadTaskCommandOutput
   | CreateDatabaseCommandOutput
   | CreateTableCommandOutput
   | DeleteDatabaseCommandOutput
   | DeleteTableCommandOutput
+  | DescribeBatchLoadTaskCommandOutput
   | DescribeDatabaseCommandOutput
   | DescribeEndpointsCommandOutput
   | DescribeTableCommandOutput
+  | ListBatchLoadTasksCommandOutput
   | ListDatabasesCommandOutput
   | ListTablesCommandOutput
   | ListTagsForResourceCommandOutput
+  | ResumeBatchLoadTaskCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDatabaseCommandOutput
@@ -278,12 +299,18 @@ export interface TimestreamWriteClientResolvedConfig extends TimestreamWriteClie
 
 /**
  * <fullname>Amazon Timestream Write</fullname>
- *          <p>Amazon Timestream is a fast, scalable, fully managed time series database service that makes it easy to store and analyze trillions of time series data points per day.
- *        With Timestream, you can easily store and analyze IoT sensor data to derive insights from your IoT applications.
- *          You can analyze industrial telemetry to streamline equipment management and maintenance.
- *          You can also store and analyze log data and metrics to improve the performance and availability of your applications.
- *        Timestream is built from the ground up to effectively ingest, process,
- *          and store time series data. It organizes data to optimize query processing. It automatically scales based on the volume of data ingested and on the query volume to ensure you receive optimal performance while inserting and querying data. As your data grows over time, Timestream’s adaptive query processing engine spans across storage tiers to provide fast analysis while reducing costs.</p>
+ *          <p>Amazon Timestream is a fast, scalable, fully managed time-series database service
+ *          that makes it easy to store and analyze trillions of time-series data points per day. With
+ *             Timestream, you can easily store and analyze IoT sensor data to derive insights
+ *          from your IoT applications. You can analyze industrial telemetry to streamline equipment
+ *          management and maintenance. You can also store and analyze log data and metrics to improve
+ *          the performance and availability of your applications. </p>
+ *          <p>Timestream is built from the ground up to effectively ingest, process, and
+ *          store time-series data. It organizes data to optimize query processing. It automatically
+ *          scales based on the volume of data ingested and on the query volume to ensure you receive
+ *          optimal performance while inserting and querying data. As your data grows over time,
+ *             Timestream’s adaptive query processing engine spans across storage tiers to
+ *          provide fast analysis while reducing costs.</p>
  */
 export class TimestreamWriteClient extends __Client<
   __HttpHandlerOptions,

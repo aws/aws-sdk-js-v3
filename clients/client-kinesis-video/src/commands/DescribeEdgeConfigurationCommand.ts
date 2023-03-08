@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeEdgeConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeEdgeConfigurationCommand}.
+ */
 export interface DescribeEdgeConfigurationCommandInput extends DescribeEdgeConfigurationInput {}
+/**
+ * The output of {@link DescribeEdgeConfigurationCommand}.
+ */
 export interface DescribeEdgeConfigurationCommandOutput extends DescribeEdgeConfigurationOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetBackendAPIModelsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBackendAPIModelsCommand}.
+ */
 export interface GetBackendAPIModelsCommandInput extends GetBackendAPIModelsRequest {}
+/**
+ * The output of {@link GetBackendAPIModelsCommand}.
+ */
 export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsResponse, __MetadataBearer {}
 
 /**

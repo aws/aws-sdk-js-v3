@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link RespondActivityTaskCanceledCommand}.
+ */
 export interface RespondActivityTaskCanceledCommandInput extends RespondActivityTaskCanceledInput {}
+/**
+ * The output of {@link RespondActivityTaskCanceledCommand}.
+ */
 export interface RespondActivityTaskCanceledCommandOutput extends __MetadataBearer {}
 
 /**

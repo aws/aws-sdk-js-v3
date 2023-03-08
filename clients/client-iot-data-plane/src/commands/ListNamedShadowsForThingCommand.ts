@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListNamedShadowsForThingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListNamedShadowsForThingCommand}.
+ */
 export interface ListNamedShadowsForThingCommandInput extends ListNamedShadowsForThingRequest {}
+/**
+ * The output of {@link ListNamedShadowsForThingCommand}.
+ */
 export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsForThingResponse, __MetadataBearer {}
 
 /**

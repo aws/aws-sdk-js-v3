@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteBucketAccessKeyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteBucketAccessKeyCommand}.
+ */
 export interface DeleteBucketAccessKeyCommandInput extends DeleteBucketAccessKeyRequest {}
+/**
+ * The output of {@link DeleteBucketAccessKeyCommand}.
+ */
 export interface DeleteBucketAccessKeyCommandOutput extends DeleteBucketAccessKeyResult, __MetadataBearer {}
 
 /**

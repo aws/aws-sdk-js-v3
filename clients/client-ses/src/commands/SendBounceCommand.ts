@@ -22,7 +22,13 @@ import {
 import { deserializeAws_querySendBounceCommand, serializeAws_querySendBounceCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link SendBounceCommand}.
+ */
 export interface SendBounceCommandInput extends SendBounceRequest {}
+/**
+ * The output of {@link SendBounceCommand}.
+ */
 export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataBearer {}
 
 /**

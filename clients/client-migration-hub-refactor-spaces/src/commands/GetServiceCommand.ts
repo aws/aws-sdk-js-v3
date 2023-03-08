@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetServiceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetServiceCommand}.
+ */
 export interface GetServiceCommandInput extends GetServiceRequest {}
+/**
+ * The output of {@link GetServiceCommand}.
+ */
 export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataBearer {}
 
 /**

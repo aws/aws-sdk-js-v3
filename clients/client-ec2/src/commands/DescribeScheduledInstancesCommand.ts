@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeScheduledInstancesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeScheduledInstancesCommand}.
+ */
 export interface DescribeScheduledInstancesCommandInput extends DescribeScheduledInstancesRequest {}
+/**
+ * The output of {@link DescribeScheduledInstancesCommand}.
+ */
 export interface DescribeScheduledInstancesCommandOutput extends DescribeScheduledInstancesResult, __MetadataBearer {}
 
 /**

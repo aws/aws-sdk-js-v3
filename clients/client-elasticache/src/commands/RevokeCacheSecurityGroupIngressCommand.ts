@@ -25,7 +25,13 @@ import {
   serializeAws_queryRevokeCacheSecurityGroupIngressCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RevokeCacheSecurityGroupIngressCommand}.
+ */
 export interface RevokeCacheSecurityGroupIngressCommandInput extends RevokeCacheSecurityGroupIngressMessage {}
+/**
+ * The output of {@link RevokeCacheSecurityGroupIngressCommand}.
+ */
 export interface RevokeCacheSecurityGroupIngressCommandOutput
   extends RevokeCacheSecurityGroupIngressResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * The input for {@link GetTimeSeriesServiceStatisticsCommand}.
+ */
 export interface GetTimeSeriesServiceStatisticsCommandInput extends GetTimeSeriesServiceStatisticsRequest {}
+/**
+ * The output of {@link GetTimeSeriesServiceStatisticsCommand}.
+ */
 export interface GetTimeSeriesServiceStatisticsCommandOutput
   extends GetTimeSeriesServiceStatisticsResult,
     __MetadataBearer {}

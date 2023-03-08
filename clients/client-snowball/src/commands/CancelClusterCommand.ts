@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * The input for {@link CancelClusterCommand}.
+ */
 export interface CancelClusterCommandInput extends CancelClusterRequest {}
+/**
+ * The output of {@link CancelClusterCommand}.
+ */
 export interface CancelClusterCommandOutput extends CancelClusterResult, __MetadataBearer {}
 
 /**

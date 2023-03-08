@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeStackDriftDetectionStatusCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeStackDriftDetectionStatusCommand}.
+ */
 export interface DescribeStackDriftDetectionStatusCommandInput extends DescribeStackDriftDetectionStatusInput {}
+/**
+ * The output of {@link DescribeStackDriftDetectionStatusCommand}.
+ */
 export interface DescribeStackDriftDetectionStatusCommandOutput
   extends DescribeStackDriftDetectionStatusOutput,
     __MetadataBearer {}

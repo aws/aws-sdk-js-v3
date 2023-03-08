@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateWorkGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateWorkGroupCommand}.
+ */
 export interface CreateWorkGroupCommandInput extends CreateWorkGroupInput {}
+/**
+ * The output of {@link CreateWorkGroupCommand}.
+ */
 export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __MetadataBearer {}
 
 /**

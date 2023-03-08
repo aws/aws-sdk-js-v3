@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link UpdateManagedInstanceRoleCommand}.
+ */
 export interface UpdateManagedInstanceRoleCommandInput extends UpdateManagedInstanceRoleRequest {}
+/**
+ * The output of {@link UpdateManagedInstanceRoleCommand}.
+ */
 export interface UpdateManagedInstanceRoleCommandOutput extends UpdateManagedInstanceRoleResult, __MetadataBearer {}
 
 /**

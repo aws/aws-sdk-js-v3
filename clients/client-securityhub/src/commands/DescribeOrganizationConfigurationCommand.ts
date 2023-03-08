@@ -18,14 +18,20 @@ import {
   DescribeOrganizationConfigurationRequestFilterSensitiveLog,
   DescribeOrganizationConfigurationResponse,
   DescribeOrganizationConfigurationResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeOrganizationConfigurationCommand,
   serializeAws_restJson1DescribeOrganizationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link DescribeOrganizationConfigurationCommand}.
+ */
 export interface DescribeOrganizationConfigurationCommandInput extends DescribeOrganizationConfigurationRequest {}
+/**
+ * The output of {@link DescribeOrganizationConfigurationCommand}.
+ */
 export interface DescribeOrganizationConfigurationCommandOutput
   extends DescribeOrganizationConfigurationResponse,
     __MetadataBearer {}

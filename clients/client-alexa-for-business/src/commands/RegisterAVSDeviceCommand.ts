@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RegisterAVSDeviceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterAVSDeviceCommand}.
+ */
 export interface RegisterAVSDeviceCommandInput extends RegisterAVSDeviceRequest {}
+/**
+ * The output of {@link RegisterAVSDeviceCommand}.
+ */
 export interface RegisterAVSDeviceCommandOutput extends RegisterAVSDeviceResponse, __MetadataBearer {}
 
 /**

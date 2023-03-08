@@ -3,6 +3,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
@@ -45,6 +46,7 @@ import {
   ContainsPiiEntitiesCommandInput,
   ContainsPiiEntitiesCommandOutput,
 } from "../commands/ContainsPiiEntitiesCommand";
+import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "../commands/CreateDatasetCommand";
 import {
   CreateDocumentClassifierCommandInput,
   CreateDocumentClassifierCommandOutput,
@@ -54,6 +56,7 @@ import {
   CreateEntityRecognizerCommandInput,
   CreateEntityRecognizerCommandOutput,
 } from "../commands/CreateEntityRecognizerCommand";
+import { CreateFlywheelCommandInput, CreateFlywheelCommandOutput } from "../commands/CreateFlywheelCommand";
 import {
   DeleteDocumentClassifierCommandInput,
   DeleteDocumentClassifierCommandOutput,
@@ -63,10 +66,12 @@ import {
   DeleteEntityRecognizerCommandInput,
   DeleteEntityRecognizerCommandOutput,
 } from "../commands/DeleteEntityRecognizerCommand";
+import { DeleteFlywheelCommandInput, DeleteFlywheelCommandOutput } from "../commands/DeleteFlywheelCommand";
 import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "../commands/DeleteResourcePolicyCommand";
+import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "../commands/DescribeDatasetCommand";
 import {
   DescribeDocumentClassificationJobCommandInput,
   DescribeDocumentClassificationJobCommandOutput,
@@ -92,6 +97,11 @@ import {
   DescribeEventsDetectionJobCommandInput,
   DescribeEventsDetectionJobCommandOutput,
 } from "../commands/DescribeEventsDetectionJobCommand";
+import { DescribeFlywheelCommandInput, DescribeFlywheelCommandOutput } from "../commands/DescribeFlywheelCommand";
+import {
+  DescribeFlywheelIterationCommandInput,
+  DescribeFlywheelIterationCommandOutput,
+} from "../commands/DescribeFlywheelIterationCommand";
 import {
   DescribeKeyPhrasesDetectionJobCommandInput,
   DescribeKeyPhrasesDetectionJobCommandOutput,
@@ -130,6 +140,7 @@ import {
   DetectTargetedSentimentCommandOutput,
 } from "../commands/DetectTargetedSentimentCommand";
 import { ImportModelCommandInput, ImportModelCommandOutput } from "../commands/ImportModelCommand";
+import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "../commands/ListDatasetsCommand";
 import {
   ListDocumentClassificationJobsCommandInput,
   ListDocumentClassificationJobsCommandOutput,
@@ -163,6 +174,11 @@ import {
   ListEventsDetectionJobsCommandInput,
   ListEventsDetectionJobsCommandOutput,
 } from "../commands/ListEventsDetectionJobsCommand";
+import {
+  ListFlywheelIterationHistoryCommandInput,
+  ListFlywheelIterationHistoryCommandOutput,
+} from "../commands/ListFlywheelIterationHistoryCommand";
+import { ListFlywheelsCommandInput, ListFlywheelsCommandOutput } from "../commands/ListFlywheelsCommand";
 import {
   ListKeyPhrasesDetectionJobsCommandInput,
   ListKeyPhrasesDetectionJobsCommandOutput,
@@ -204,6 +220,10 @@ import {
   StartEventsDetectionJobCommandInput,
   StartEventsDetectionJobCommandOutput,
 } from "../commands/StartEventsDetectionJobCommand";
+import {
+  StartFlywheelIterationCommandInput,
+  StartFlywheelIterationCommandOutput,
+} from "../commands/StartFlywheelIterationCommand";
 import {
   StartKeyPhrasesDetectionJobCommandInput,
   StartKeyPhrasesDetectionJobCommandOutput,
@@ -263,6 +283,7 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "../commands/UpdateEndpointCommand";
+import { UpdateFlywheelCommandInput, UpdateFlywheelCommandOutput } from "../commands/UpdateFlywheelCommand";
 import { ComprehendServiceException as __BaseException } from "../models/ComprehendServiceException";
 import {
   AugmentedManifestsListItem,
@@ -294,23 +315,40 @@ import {
   ClassifierMetadata,
   ClassifyDocumentRequest,
   ClassifyDocumentResponse,
-  ConcurrentModificationException,
   ContainsPiiEntitiesRequest,
   ContainsPiiEntitiesResponse,
+  CreateDatasetRequest,
+  CreateDatasetResponse,
   CreateDocumentClassifierRequest,
   CreateDocumentClassifierResponse,
   CreateEndpointRequest,
   CreateEndpointResponse,
   CreateEntityRecognizerRequest,
   CreateEntityRecognizerResponse,
+  CreateFlywheelRequest,
+  CreateFlywheelResponse,
+  DataSecurityConfig,
+  DatasetAugmentedManifestsListItem,
+  DatasetDocumentClassifierInputDataConfig,
+  DatasetEntityRecognizerAnnotations,
+  DatasetEntityRecognizerDocuments,
+  DatasetEntityRecognizerEntityList,
+  DatasetEntityRecognizerInputDataConfig,
+  DatasetFilter,
+  DatasetInputDataConfig,
+  DatasetProperties,
   DeleteDocumentClassifierRequest,
   DeleteDocumentClassifierResponse,
   DeleteEndpointRequest,
   DeleteEndpointResponse,
   DeleteEntityRecognizerRequest,
   DeleteEntityRecognizerResponse,
+  DeleteFlywheelRequest,
+  DeleteFlywheelResponse,
   DeleteResourcePolicyRequest,
   DeleteResourcePolicyResponse,
+  DescribeDatasetRequest,
+  DescribeDatasetResponse,
   DescribeDocumentClassificationJobRequest,
   DescribeDocumentClassificationJobResponse,
   DescribeDocumentClassifierRequest,
@@ -325,6 +363,10 @@ import {
   DescribeEntityRecognizerResponse,
   DescribeEventsDetectionJobRequest,
   DescribeEventsDetectionJobResponse,
+  DescribeFlywheelIterationRequest,
+  DescribeFlywheelIterationResponse,
+  DescribeFlywheelRequest,
+  DescribeFlywheelResponse,
   DescribeKeyPhrasesDetectionJobRequest,
   DescribeKeyPhrasesDetectionJobResponse,
   DescribePiiEntitiesDetectionJobRequest,
@@ -352,6 +394,7 @@ import {
   DetectTargetedSentimentRequest,
   DetectTargetedSentimentResponse,
   DocumentClass,
+  DocumentClassificationConfig,
   DocumentClassificationJobFilter,
   DocumentClassificationJobProperties,
   DocumentClassifierFilter,
@@ -373,6 +416,7 @@ import {
   EntitiesDetectionJobProperties,
   Entity,
   EntityLabel,
+  EntityRecognitionConfig,
   EntityRecognizerAnnotations,
   EntityRecognizerDocuments,
   EntityRecognizerEntityList,
@@ -381,6 +425,7 @@ import {
   EntityRecognizerInputDataConfig,
   EntityRecognizerMetadata,
   EntityRecognizerMetadataEntityTypesListItem,
+  EntityRecognizerOutputDataConfig,
   EntityRecognizerProperties,
   EntityRecognizerSummary,
   EntityTypesEvaluationMetrics,
@@ -389,6 +434,12 @@ import {
   EventsDetectionJobFilter,
   EventsDetectionJobProperties,
   ExtractedCharactersListItem,
+  FlywheelFilter,
+  FlywheelIterationFilter,
+  FlywheelIterationProperties,
+  FlywheelModelEvaluationMetrics,
+  FlywheelProperties,
+  FlywheelSummary,
   Geometry,
   ImportModelRequest,
   ImportModelResponse,
@@ -402,6 +453,8 @@ import {
   KeyPhrasesDetectionJobFilter,
   KeyPhrasesDetectionJobProperties,
   KmsKeyValidationException,
+  ListDatasetsRequest,
+  ListDatasetsResponse,
   ListDocumentClassificationJobsRequest,
   ListDocumentClassificationJobsResponse,
   ListDocumentClassifiersRequest,
@@ -420,6 +473,10 @@ import {
   ListEntityRecognizerSummariesResponse,
   ListEventsDetectionJobsRequest,
   ListEventsDetectionJobsResponse,
+  ListFlywheelIterationHistoryRequest,
+  ListFlywheelIterationHistoryResponse,
+  ListFlywheelsRequest,
+  ListFlywheelsResponse,
   ListKeyPhrasesDetectionJobsRequest,
   ListKeyPhrasesDetectionJobsResponse,
   ListPiiEntitiesDetectionJobsRequest,
@@ -460,6 +517,8 @@ import {
   StartEntitiesDetectionJobResponse,
   StartEventsDetectionJobRequest,
   StartEventsDetectionJobResponse,
+  StartFlywheelIterationRequest,
+  StartFlywheelIterationResponse,
   StartKeyPhrasesDetectionJobRequest,
   StartKeyPhrasesDetectionJobResponse,
   StartPiiEntitiesDetectionJobRequest,
@@ -482,33 +541,40 @@ import {
   StopPiiEntitiesDetectionJobResponse,
   StopSentimentDetectionJobRequest,
   StopSentimentDetectionJobResponse,
+  SyntaxToken,
+  Tag,
+  TargetedSentimentDetectionJobFilter,
+  TargetedSentimentDetectionJobProperties,
+  TargetedSentimentEntity,
+  TargetedSentimentMention,
+  TaskConfig,
+  TextSizeLimitExceededException,
+  TooManyRequestsException,
+  TooManyTagsException,
+  TopicsDetectionJobFilter,
+  TopicsDetectionJobProperties,
+  UnsupportedLanguageException,
+  VpcConfig,
+} from "../models/models_0";
+import {
+  ConcurrentModificationException,
   StopTargetedSentimentDetectionJobRequest,
   StopTargetedSentimentDetectionJobResponse,
   StopTrainingDocumentClassifierRequest,
   StopTrainingDocumentClassifierResponse,
   StopTrainingEntityRecognizerRequest,
   StopTrainingEntityRecognizerResponse,
-  SyntaxToken,
-  Tag,
   TagResourceRequest,
   TagResourceResponse,
-  TargetedSentimentDetectionJobFilter,
-  TargetedSentimentDetectionJobProperties,
-  TargetedSentimentEntity,
-  TargetedSentimentMention,
-  TextSizeLimitExceededException,
-  TooManyRequestsException,
   TooManyTagKeysException,
-  TooManyTagsException,
-  TopicsDetectionJobFilter,
-  TopicsDetectionJobProperties,
-  UnsupportedLanguageException,
   UntagResourceRequest,
   UntagResourceResponse,
+  UpdateDataSecurityConfig,
   UpdateEndpointRequest,
   UpdateEndpointResponse,
-  VpcConfig,
-} from "../models/models_0";
+  UpdateFlywheelRequest,
+  UpdateFlywheelResponse,
+} from "../models/models_1";
 
 export const serializeAws_json1_1BatchDetectDominantLanguageCommand = async (
   input: BatchDetectDominantLanguageCommandInput,
@@ -614,6 +680,19 @@ export const serializeAws_json1_1ContainsPiiEntitiesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateDatasetCommand = async (
+  input: CreateDatasetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.CreateDataset",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateDatasetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateDocumentClassifierCommand = async (
   input: CreateDocumentClassifierCommandInput,
   context: __SerdeContext
@@ -650,6 +729,19 @@ export const serializeAws_json1_1CreateEntityRecognizerCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateEntityRecognizerRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateFlywheelCommand = async (
+  input: CreateFlywheelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.CreateFlywheel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateFlywheelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -692,6 +784,19 @@ export const serializeAws_json1_1DeleteEntityRecognizerCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteFlywheelCommand = async (
+  input: DeleteFlywheelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.DeleteFlywheel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteFlywheelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
@@ -702,6 +807,19 @@ export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteResourcePolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeDatasetCommand = async (
+  input: DescribeDatasetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.DescribeDataset",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeDatasetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -793,6 +911,32 @@ export const serializeAws_json1_1DescribeEventsDetectionJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEventsDetectionJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeFlywheelCommand = async (
+  input: DescribeFlywheelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.DescribeFlywheel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFlywheelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeFlywheelIterationCommand = async (
+  input: DescribeFlywheelIterationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.DescribeFlywheelIteration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFlywheelIterationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -978,6 +1122,19 @@ export const serializeAws_json1_1ImportModelCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListDatasetsCommand = async (
+  input: ListDatasetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.ListDatasets",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListDatasetsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListDocumentClassificationJobsCommand = async (
   input: ListDocumentClassificationJobsCommandInput,
   context: __SerdeContext
@@ -1092,6 +1249,32 @@ export const serializeAws_json1_1ListEventsDetectionJobsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListEventsDetectionJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListFlywheelIterationHistoryCommand = async (
+  input: ListFlywheelIterationHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.ListFlywheelIterationHistory",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListFlywheelIterationHistoryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListFlywheelsCommand = async (
+  input: ListFlywheelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.ListFlywheels",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListFlywheelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1235,6 +1418,19 @@ export const serializeAws_json1_1StartEventsDetectionJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartEventsDetectionJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StartFlywheelIterationCommand = async (
+  input: StartFlywheelIterationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.StartFlywheelIteration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartFlywheelIterationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1456,6 +1652,19 @@ export const serializeAws_json1_1UpdateEndpointCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateEndpointRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateFlywheelCommand = async (
+  input: UpdateFlywheelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.UpdateFlywheel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateFlywheelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1874,6 +2083,65 @@ const deserializeAws_json1_1ContainsPiiEntitiesCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1CreateDatasetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDatasetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateDatasetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateDatasetResponse(data, context);
+  const response: CreateDatasetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateDatasetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDatasetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.comprehend#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.comprehend#ResourceLimitExceededException":
+      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehend#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.comprehend#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1CreateDocumentClassifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2060,6 +2328,74 @@ const deserializeAws_json1_1CreateEntityRecognizerCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1CreateFlywheelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFlywheelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateFlywheelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateFlywheelResponse(data, context);
+  const response: CreateFlywheelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateFlywheelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFlywheelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "KmsKeyValidationException":
+    case "com.amazonaws.comprehend#KmsKeyValidationException":
+      throw await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.comprehend#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.comprehend#ResourceLimitExceededException":
+      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehend#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.comprehend#ResourceUnavailableException":
+      throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.comprehend#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+    case "UnsupportedLanguageException":
+    case "com.amazonaws.comprehend#UnsupportedLanguageException":
+      throw await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1DeleteDocumentClassifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2225,6 +2561,62 @@ const deserializeAws_json1_1DeleteEntityRecognizerCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1DeleteFlywheelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFlywheelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteFlywheelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteFlywheelResponse(data, context);
+  const response: DeleteFlywheelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteFlywheelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFlywheelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.comprehend#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehend#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.comprehend#ResourceUnavailableException":
+      throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2261,6 +2653,56 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeDatasetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDatasetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeDatasetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeDatasetResponse(data, context);
+  const response: DescribeDatasetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeDatasetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDatasetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehend#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2608,6 +3050,106 @@ const deserializeAws_json1_1DescribeEventsDetectionJobCommandError = async (
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
       throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeFlywheelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFlywheelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeFlywheelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFlywheelResponse(data, context);
+  const response: DescribeFlywheelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFlywheelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFlywheelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehend#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeFlywheelIterationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFlywheelIterationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeFlywheelIterationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFlywheelIterationResponse(data, context);
+  const response: DescribeFlywheelIterationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFlywheelIterationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFlywheelIterationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehend#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
       throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
@@ -3334,6 +3876,59 @@ const deserializeAws_json1_1ImportModelCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListDatasetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatasetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListDatasetsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListDatasetsResponse(data, context);
+  const response: ListDatasetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListDatasetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatasetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidFilterException":
+    case "com.amazonaws.comprehend#InvalidFilterException":
+      throw await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehend#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ListDocumentClassificationJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3746,6 +4341,109 @@ const deserializeAws_json1_1ListEventsDetectionJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEventsDetectionJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidFilterException":
+    case "com.amazonaws.comprehend#InvalidFilterException":
+      throw await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListFlywheelIterationHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFlywheelIterationHistoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListFlywheelIterationHistoryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListFlywheelIterationHistoryResponse(data, context);
+  const response: ListFlywheelIterationHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListFlywheelIterationHistoryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFlywheelIterationHistoryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidFilterException":
+    case "com.amazonaws.comprehend#InvalidFilterException":
+      throw await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehend#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListFlywheelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFlywheelsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListFlywheelsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListFlywheelsResponse(data, context);
+  const response: ListFlywheelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListFlywheelsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFlywheelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4332,6 +5030,59 @@ const deserializeAws_json1_1StartEventsDetectionJobCommandError = async (
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
       throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1StartFlywheelIterationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartFlywheelIterationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartFlywheelIterationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartFlywheelIterationResponse(data, context);
+  const response: StartFlywheelIterationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartFlywheelIterationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartFlywheelIterationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.comprehend#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehend#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5202,6 +5953,59 @@ const deserializeAws_json1_1UpdateEndpointCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateFlywheelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFlywheelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateFlywheelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateFlywheelResponse(data, context);
+  const response: UpdateFlywheelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateFlywheelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFlywheelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "KmsKeyValidationException":
+    case "com.amazonaws.comprehend#KmsKeyValidationException":
+      throw await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehend#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 const deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -5514,6 +6318,20 @@ const serializeAws_json1_1ContainsPiiEntitiesRequest = (
   };
 };
 
+const serializeAws_json1_1CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeContext): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.DatasetName != null && { DatasetName: input.DatasetName }),
+    ...(input.DatasetType != null && { DatasetType: input.DatasetType }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
+    ...(input.InputDataConfig != null && {
+      InputDataConfig: serializeAws_json1_1DatasetInputDataConfig(input.InputDataConfig, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateDocumentClassifierRequest = (
   input: CreateDocumentClassifierRequest,
   context: __SerdeContext
@@ -5545,6 +6363,7 @@ const serializeAws_json1_1CreateEndpointRequest = (input: CreateEndpointRequest,
     ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.DesiredInferenceUnits != null && { DesiredInferenceUnits: input.DesiredInferenceUnits }),
     ...(input.EndpointName != null && { EndpointName: input.EndpointName }),
+    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
     ...(input.ModelArn != null && { ModelArn: input.ModelArn }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
@@ -5571,12 +6390,150 @@ const serializeAws_json1_1CreateEntityRecognizerRequest = (
   };
 };
 
+const serializeAws_json1_1CreateFlywheelRequest = (input: CreateFlywheelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ActiveModelArn != null && { ActiveModelArn: input.ActiveModelArn }),
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.DataLakeS3Uri != null && { DataLakeS3Uri: input.DataLakeS3Uri }),
+    ...(input.DataSecurityConfig != null && {
+      DataSecurityConfig: serializeAws_json1_1DataSecurityConfig(input.DataSecurityConfig, context),
+    }),
+    ...(input.FlywheelName != null && { FlywheelName: input.FlywheelName }),
+    ...(input.ModelType != null && { ModelType: input.ModelType }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.TaskConfig != null && { TaskConfig: serializeAws_json1_1TaskConfig(input.TaskConfig, context) }),
+  };
+};
+
 const serializeAws_json1_1CustomerInputStringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_json1_1DataSecurityConfig = (input: DataSecurityConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.DataLakeKmsKeyId != null && { DataLakeKmsKeyId: input.DataLakeKmsKeyId }),
+    ...(input.ModelKmsKeyId != null && { ModelKmsKeyId: input.ModelKmsKeyId }),
+    ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VpcConfig != null && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
+  };
+};
+
+const serializeAws_json1_1DatasetAugmentedManifestsList = (
+  input: DatasetAugmentedManifestsListItem[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1DatasetAugmentedManifestsListItem(entry, context);
+    });
+};
+
+const serializeAws_json1_1DatasetAugmentedManifestsListItem = (
+  input: DatasetAugmentedManifestsListItem,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AnnotationDataS3Uri != null && { AnnotationDataS3Uri: input.AnnotationDataS3Uri }),
+    ...(input.AttributeNames != null && {
+      AttributeNames: serializeAws_json1_1AttributeNamesList(input.AttributeNames, context),
+    }),
+    ...(input.DocumentType != null && { DocumentType: input.DocumentType }),
+    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
+    ...(input.SourceDocumentsS3Uri != null && { SourceDocumentsS3Uri: input.SourceDocumentsS3Uri }),
+  };
+};
+
+const serializeAws_json1_1DatasetDocumentClassifierInputDataConfig = (
+  input: DatasetDocumentClassifierInputDataConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LabelDelimiter != null && { LabelDelimiter: input.LabelDelimiter }),
+    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
+  };
+};
+
+const serializeAws_json1_1DatasetEntityRecognizerAnnotations = (
+  input: DatasetEntityRecognizerAnnotations,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
+  };
+};
+
+const serializeAws_json1_1DatasetEntityRecognizerDocuments = (
+  input: DatasetEntityRecognizerDocuments,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InputFormat != null && { InputFormat: input.InputFormat }),
+    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
+  };
+};
+
+const serializeAws_json1_1DatasetEntityRecognizerEntityList = (
+  input: DatasetEntityRecognizerEntityList,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
+  };
+};
+
+const serializeAws_json1_1DatasetEntityRecognizerInputDataConfig = (
+  input: DatasetEntityRecognizerInputDataConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Annotations != null && {
+      Annotations: serializeAws_json1_1DatasetEntityRecognizerAnnotations(input.Annotations, context),
+    }),
+    ...(input.Documents != null && {
+      Documents: serializeAws_json1_1DatasetEntityRecognizerDocuments(input.Documents, context),
+    }),
+    ...(input.EntityList != null && {
+      EntityList: serializeAws_json1_1DatasetEntityRecognizerEntityList(input.EntityList, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1DatasetFilter = (input: DatasetFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.DatasetType != null && { DatasetType: input.DatasetType }),
+    ...(input.Status != null && { Status: input.Status }),
+  };
+};
+
+const serializeAws_json1_1DatasetInputDataConfig = (input: DatasetInputDataConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.AugmentedManifests != null && {
+      AugmentedManifests: serializeAws_json1_1DatasetAugmentedManifestsList(input.AugmentedManifests, context),
+    }),
+    ...(input.DataFormat != null && { DataFormat: input.DataFormat }),
+    ...(input.DocumentClassifierInputDataConfig != null && {
+      DocumentClassifierInputDataConfig: serializeAws_json1_1DatasetDocumentClassifierInputDataConfig(
+        input.DocumentClassifierInputDataConfig,
+        context
+      ),
+    }),
+    ...(input.EntityRecognizerInputDataConfig != null && {
+      EntityRecognizerInputDataConfig: serializeAws_json1_1DatasetEntityRecognizerInputDataConfig(
+        input.EntityRecognizerInputDataConfig,
+        context
+      ),
+    }),
+  };
 };
 
 const serializeAws_json1_1DeleteDocumentClassifierRequest = (
@@ -5603,6 +6560,12 @@ const serializeAws_json1_1DeleteEntityRecognizerRequest = (
   };
 };
 
+const serializeAws_json1_1DeleteFlywheelRequest = (input: DeleteFlywheelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
+  };
+};
+
 const serializeAws_json1_1DeleteResourcePolicyRequest = (
   input: DeleteResourcePolicyRequest,
   context: __SerdeContext
@@ -5610,6 +6573,12 @@ const serializeAws_json1_1DeleteResourcePolicyRequest = (
   return {
     ...(input.PolicyRevisionId != null && { PolicyRevisionId: input.PolicyRevisionId }),
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+  };
+};
+
+const serializeAws_json1_1DescribeDatasetRequest = (input: DescribeDatasetRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DatasetArn != null && { DatasetArn: input.DatasetArn }),
   };
 };
 
@@ -5670,6 +6639,22 @@ const serializeAws_json1_1DescribeEventsDetectionJobRequest = (
 ): any => {
   return {
     ...(input.JobId != null && { JobId: input.JobId }),
+  };
+};
+
+const serializeAws_json1_1DescribeFlywheelIterationRequest = (
+  input: DescribeFlywheelIterationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
+    ...(input.FlywheelIterationId != null && { FlywheelIterationId: input.FlywheelIterationId }),
+  };
+};
+
+const serializeAws_json1_1DescribeFlywheelRequest = (input: DescribeFlywheelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
   };
 };
 
@@ -5789,6 +6774,16 @@ const serializeAws_json1_1DetectTargetedSentimentRequest = (
   };
 };
 
+const serializeAws_json1_1DocumentClassificationConfig = (
+  input: DocumentClassificationConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Labels != null && { Labels: serializeAws_json1_1LabelsList(input.Labels, context) }),
+    ...(input.Mode != null && { Mode: input.Mode }),
+  };
+};
+
 const serializeAws_json1_1DocumentClassificationJobFilter = (
   input: DocumentClassificationJobFilter,
   context: __SerdeContext
@@ -5847,6 +6842,7 @@ const serializeAws_json1_1DocumentClassifierOutputDataConfig = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.FlywheelStatsS3Prefix != null && { FlywheelStatsS3Prefix: input.FlywheelStatsS3Prefix }),
     ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
     ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
   };
@@ -5894,6 +6890,12 @@ const serializeAws_json1_1EntitiesDetectionJobFilter = (
     ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
     ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
     ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_json1_1EntityRecognitionConfig = (input: EntityRecognitionConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.EntityTypes != null && { EntityTypes: serializeAws_json1_1EntityTypesList(input.EntityTypes, context) }),
   };
 };
 
@@ -5995,6 +6997,25 @@ const serializeAws_json1_1EventsDetectionJobFilter = (
   };
 };
 
+const serializeAws_json1_1FlywheelFilter = (input: FlywheelFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.Status != null && { Status: input.Status }),
+  };
+};
+
+const serializeAws_json1_1FlywheelIterationFilter = (input: FlywheelIterationFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+  };
+};
+
 const serializeAws_json1_1ImportModelRequest = (input: ImportModelRequest, context: __SerdeContext): any => {
   return {
     ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
@@ -6025,6 +7046,23 @@ const serializeAws_json1_1KeyPhrasesDetectionJobFilter = (
     ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
     ...(input.SubmitTimeAfter != null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
     ...(input.SubmitTimeBefore != null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_json1_1LabelsList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ListDatasetsRequest = (input: ListDatasetsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Filter != null && { Filter: serializeAws_json1_1DatasetFilter(input.Filter, context) }),
+    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -6119,6 +7157,26 @@ const serializeAws_json1_1ListEventsDetectionJobsRequest = (
 ): any => {
   return {
     ...(input.Filter != null && { Filter: serializeAws_json1_1EventsDetectionJobFilter(input.Filter, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListFlywheelIterationHistoryRequest = (
+  input: ListFlywheelIterationHistoryRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filter != null && { Filter: serializeAws_json1_1FlywheelIterationFilter(input.Filter, context) }),
+    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListFlywheelsRequest = (input: ListFlywheelsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Filter != null && { Filter: serializeAws_json1_1FlywheelFilter(input.Filter, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
@@ -6277,6 +7335,7 @@ const serializeAws_json1_1StartDocumentClassificationJobRequest = (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.DocumentClassifierArn != null && { DocumentClassifierArn: input.DocumentClassifierArn }),
+    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
     ...(input.InputDataConfig != null && {
       InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
     }),
@@ -6318,6 +7377,7 @@ const serializeAws_json1_1StartEntitiesDetectionJobRequest = (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.EntityRecognizerArn != null && { EntityRecognizerArn: input.EntityRecognizerArn }),
+    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
     ...(input.InputDataConfig != null && {
       InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
     }),
@@ -6351,6 +7411,16 @@ const serializeAws_json1_1StartEventsDetectionJobRequest = (
     ...(input.TargetEventTypes != null && {
       TargetEventTypes: serializeAws_json1_1TargetEventTypes(input.TargetEventTypes, context),
     }),
+  };
+};
+
+const serializeAws_json1_1StartFlywheelIterationRequest = (
+  input: StartFlywheelIterationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
   };
 };
 
@@ -6600,6 +7670,21 @@ const serializeAws_json1_1TargetEventTypes = (input: string[], context: __SerdeC
     });
 };
 
+const serializeAws_json1_1TaskConfig = (input: TaskConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.DocumentClassificationConfig != null && {
+      DocumentClassificationConfig: serializeAws_json1_1DocumentClassificationConfig(
+        input.DocumentClassificationConfig,
+        context
+      ),
+    }),
+    ...(input.EntityRecognitionConfig != null && {
+      EntityRecognitionConfig: serializeAws_json1_1EntityRecognitionConfig(input.EntityRecognitionConfig, context),
+    }),
+    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
+  };
+};
+
 const serializeAws_json1_1TopicsDetectionJobFilter = (
   input: TopicsDetectionJobFilter,
   context: __SerdeContext
@@ -6619,12 +7704,35 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
   };
 };
 
+const serializeAws_json1_1UpdateDataSecurityConfig = (
+  input: UpdateDataSecurityConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ModelKmsKeyId != null && { ModelKmsKeyId: input.ModelKmsKeyId }),
+    ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VpcConfig != null && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
+  };
+};
+
 const serializeAws_json1_1UpdateEndpointRequest = (input: UpdateEndpointRequest, context: __SerdeContext): any => {
   return {
     ...(input.DesiredDataAccessRoleArn != null && { DesiredDataAccessRoleArn: input.DesiredDataAccessRoleArn }),
     ...(input.DesiredInferenceUnits != null && { DesiredInferenceUnits: input.DesiredInferenceUnits }),
     ...(input.DesiredModelArn != null && { DesiredModelArn: input.DesiredModelArn }),
     ...(input.EndpointArn != null && { EndpointArn: input.EndpointArn }),
+    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
+  };
+};
+
+const serializeAws_json1_1UpdateFlywheelRequest = (input: UpdateFlywheelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ActiveModelArn != null && { ActiveModelArn: input.ActiveModelArn }),
+    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.DataSecurityConfig != null && {
+      DataSecurityConfig: serializeAws_json1_1UpdateDataSecurityConfig(input.DataSecurityConfig, context),
+    }),
+    ...(input.FlywheelArn != null && { FlywheelArn: input.FlywheelArn }),
   };
 };
 
@@ -6951,6 +8059,12 @@ const deserializeAws_json1_1ContainsPiiEntitiesResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateDatasetResponse = (output: any, context: __SerdeContext): CreateDatasetResponse => {
+  return {
+    DatasetArn: __expectString(output.DatasetArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateDocumentClassifierResponse = (
   output: any,
   context: __SerdeContext
@@ -6963,6 +8077,7 @@ const deserializeAws_json1_1CreateDocumentClassifierResponse = (
 const deserializeAws_json1_1CreateEndpointResponse = (output: any, context: __SerdeContext): CreateEndpointResponse => {
   return {
     EndpointArn: __expectString(output.EndpointArn),
+    ModelArn: __expectString(output.ModelArn),
   } as any;
 };
 
@@ -6973,6 +8088,53 @@ const deserializeAws_json1_1CreateEntityRecognizerResponse = (
   return {
     EntityRecognizerArn: __expectString(output.EntityRecognizerArn),
   } as any;
+};
+
+const deserializeAws_json1_1CreateFlywheelResponse = (output: any, context: __SerdeContext): CreateFlywheelResponse => {
+  return {
+    ActiveModelArn: __expectString(output.ActiveModelArn),
+    FlywheelArn: __expectString(output.FlywheelArn),
+  } as any;
+};
+
+const deserializeAws_json1_1DataSecurityConfig = (output: any, context: __SerdeContext): DataSecurityConfig => {
+  return {
+    DataLakeKmsKeyId: __expectString(output.DataLakeKmsKeyId),
+    ModelKmsKeyId: __expectString(output.ModelKmsKeyId),
+    VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
+    VpcConfig: output.VpcConfig != null ? deserializeAws_json1_1VpcConfig(output.VpcConfig, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DatasetProperties = (output: any, context: __SerdeContext): DatasetProperties => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DatasetArn: __expectString(output.DatasetArn),
+    DatasetName: __expectString(output.DatasetName),
+    DatasetS3Uri: __expectString(output.DatasetS3Uri),
+    DatasetType: __expectString(output.DatasetType),
+    Description: __expectString(output.Description),
+    EndTime:
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    Message: __expectString(output.Message),
+    NumberOfDocuments: __expectLong(output.NumberOfDocuments),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1DatasetPropertiesList = (output: any, context: __SerdeContext): DatasetProperties[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DatasetProperties(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1DeleteDocumentClassifierResponse = (
@@ -6993,11 +8155,27 @@ const deserializeAws_json1_1DeleteEntityRecognizerResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1DeleteFlywheelResponse = (output: any, context: __SerdeContext): DeleteFlywheelResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteResourcePolicyResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteResourcePolicyResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DescribeDatasetResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeDatasetResponse => {
+  return {
+    DatasetProperties:
+      output.DatasetProperties != null
+        ? deserializeAws_json1_1DatasetProperties(output.DatasetProperties, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeDocumentClassificationJobResponse = (
@@ -7083,6 +8261,30 @@ const deserializeAws_json1_1DescribeEventsDetectionJobResponse = (
     EventsDetectionJobProperties:
       output.EventsDetectionJobProperties != null
         ? deserializeAws_json1_1EventsDetectionJobProperties(output.EventsDetectionJobProperties, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeFlywheelIterationResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeFlywheelIterationResponse => {
+  return {
+    FlywheelIterationProperties:
+      output.FlywheelIterationProperties != null
+        ? deserializeAws_json1_1FlywheelIterationProperties(output.FlywheelIterationProperties, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeFlywheelResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeFlywheelResponse => {
+  return {
+    FlywheelProperties:
+      output.FlywheelProperties != null
+        ? deserializeAws_json1_1FlywheelProperties(output.FlywheelProperties, context)
         : undefined,
   } as any;
 };
@@ -7249,6 +8451,16 @@ const deserializeAws_json1_1DocumentClass = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_json1_1DocumentClassificationConfig = (
+  output: any,
+  context: __SerdeContext
+): DocumentClassificationConfig => {
+  return {
+    Labels: output.Labels != null ? deserializeAws_json1_1LabelsList(output.Labels, context) : undefined,
+    Mode: __expectString(output.Mode),
+  } as any;
+};
+
 const deserializeAws_json1_1DocumentClassificationJobProperties = (
   output: any,
   context: __SerdeContext
@@ -7258,6 +8470,7 @@ const deserializeAws_json1_1DocumentClassificationJobProperties = (
     DocumentClassifierArn: __expectString(output.DocumentClassifierArn),
     EndTime:
       output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    FlywheelArn: __expectString(output.FlywheelArn),
     InputDataConfig:
       output.InputDataConfig != null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
@@ -7329,6 +8542,7 @@ const deserializeAws_json1_1DocumentClassifierOutputDataConfig = (
   context: __SerdeContext
 ): DocumentClassifierOutputDataConfig => {
   return {
+    FlywheelStatsS3Prefix: __expectString(output.FlywheelStatsS3Prefix),
     KmsKeyId: __expectString(output.KmsKeyId),
     S3Uri: __expectString(output.S3Uri),
   } as any;
@@ -7347,6 +8561,7 @@ const deserializeAws_json1_1DocumentClassifierProperties = (
     DocumentClassifierArn: __expectString(output.DocumentClassifierArn),
     EndTime:
       output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    FlywheelArn: __expectString(output.FlywheelArn),
     InputDataConfig:
       output.InputDataConfig != null
         ? deserializeAws_json1_1DocumentClassifierInputDataConfig(output.InputDataConfig, context)
@@ -7521,6 +8736,7 @@ const deserializeAws_json1_1EndpointProperties = (output: any, context: __SerdeC
     DesiredInferenceUnits: __expectInt32(output.DesiredInferenceUnits),
     DesiredModelArn: __expectString(output.DesiredModelArn),
     EndpointArn: __expectString(output.EndpointArn),
+    FlywheelArn: __expectString(output.FlywheelArn),
     LastModifiedTime:
       output.LastModifiedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
@@ -7606,6 +8822,16 @@ const deserializeAws_json1_1EntityLabel = (output: any, context: __SerdeContext)
   return {
     Name: __expectString(output.Name),
     Score: __limitedParseFloat32(output.Score),
+  } as any;
+};
+
+const deserializeAws_json1_1EntityRecognitionConfig = (
+  output: any,
+  context: __SerdeContext
+): EntityRecognitionConfig => {
+  return {
+    EntityTypes:
+      output.EntityTypes != null ? deserializeAws_json1_1EntityTypesList(output.EntityTypes, context) : undefined,
   } as any;
 };
 
@@ -7737,6 +8963,15 @@ const deserializeAws_json1_1EntityRecognizerMetadataEntityTypesListItem = (
   } as any;
 };
 
+const deserializeAws_json1_1EntityRecognizerOutputDataConfig = (
+  output: any,
+  context: __SerdeContext
+): EntityRecognizerOutputDataConfig => {
+  return {
+    FlywheelStatsS3Prefix: __expectString(output.FlywheelStatsS3Prefix),
+  } as any;
+};
+
 const deserializeAws_json1_1EntityRecognizerProperties = (
   output: any,
   context: __SerdeContext
@@ -7746,6 +8981,7 @@ const deserializeAws_json1_1EntityRecognizerProperties = (
     EndTime:
       output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     EntityRecognizerArn: __expectString(output.EntityRecognizerArn),
+    FlywheelArn: __expectString(output.FlywheelArn),
     InputDataConfig:
       output.InputDataConfig != null
         ? deserializeAws_json1_1EntityRecognizerInputDataConfig(output.InputDataConfig, context)
@@ -7753,6 +8989,10 @@ const deserializeAws_json1_1EntityRecognizerProperties = (
     LanguageCode: __expectString(output.LanguageCode),
     Message: __expectString(output.Message),
     ModelKmsKeyId: __expectString(output.ModelKmsKeyId),
+    OutputDataConfig:
+      output.OutputDataConfig != null
+        ? deserializeAws_json1_1EntityRecognizerOutputDataConfig(output.OutputDataConfig, context)
+        : undefined,
     RecognizerMetadata:
       output.RecognizerMetadata != null
         ? deserializeAws_json1_1EntityRecognizerMetadata(output.RecognizerMetadata, context)
@@ -7914,6 +9154,120 @@ const deserializeAws_json1_1ExtractedCharactersListItem = (
   } as any;
 };
 
+const deserializeAws_json1_1FlywheelIterationProperties = (
+  output: any,
+  context: __SerdeContext
+): FlywheelIterationProperties => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    EndTime:
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    EvaluatedModelArn: __expectString(output.EvaluatedModelArn),
+    EvaluatedModelMetrics:
+      output.EvaluatedModelMetrics != null
+        ? deserializeAws_json1_1FlywheelModelEvaluationMetrics(output.EvaluatedModelMetrics, context)
+        : undefined,
+    EvaluationManifestS3Prefix: __expectString(output.EvaluationManifestS3Prefix),
+    FlywheelArn: __expectString(output.FlywheelArn),
+    FlywheelIterationId: __expectString(output.FlywheelIterationId),
+    Message: __expectString(output.Message),
+    Status: __expectString(output.Status),
+    TrainedModelArn: __expectString(output.TrainedModelArn),
+    TrainedModelMetrics:
+      output.TrainedModelMetrics != null
+        ? deserializeAws_json1_1FlywheelModelEvaluationMetrics(output.TrainedModelMetrics, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1FlywheelIterationPropertiesList = (
+  output: any,
+  context: __SerdeContext
+): FlywheelIterationProperties[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FlywheelIterationProperties(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1FlywheelModelEvaluationMetrics = (
+  output: any,
+  context: __SerdeContext
+): FlywheelModelEvaluationMetrics => {
+  return {
+    AverageAccuracy: __limitedParseDouble(output.AverageAccuracy),
+    AverageF1Score: __limitedParseDouble(output.AverageF1Score),
+    AveragePrecision: __limitedParseDouble(output.AveragePrecision),
+    AverageRecall: __limitedParseDouble(output.AverageRecall),
+  } as any;
+};
+
+const deserializeAws_json1_1FlywheelProperties = (output: any, context: __SerdeContext): FlywheelProperties => {
+  return {
+    ActiveModelArn: __expectString(output.ActiveModelArn),
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
+    DataLakeS3Uri: __expectString(output.DataLakeS3Uri),
+    DataSecurityConfig:
+      output.DataSecurityConfig != null
+        ? deserializeAws_json1_1DataSecurityConfig(output.DataSecurityConfig, context)
+        : undefined,
+    FlywheelArn: __expectString(output.FlywheelArn),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    LatestFlywheelIteration: __expectString(output.LatestFlywheelIteration),
+    Message: __expectString(output.Message),
+    ModelType: __expectString(output.ModelType),
+    Status: __expectString(output.Status),
+    TaskConfig: output.TaskConfig != null ? deserializeAws_json1_1TaskConfig(output.TaskConfig, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1FlywheelSummary = (output: any, context: __SerdeContext): FlywheelSummary => {
+  return {
+    ActiveModelArn: __expectString(output.ActiveModelArn),
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DataLakeS3Uri: __expectString(output.DataLakeS3Uri),
+    FlywheelArn: __expectString(output.FlywheelArn),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    LatestFlywheelIteration: __expectString(output.LatestFlywheelIteration),
+    Message: __expectString(output.Message),
+    ModelType: __expectString(output.ModelType),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1FlywheelSummaryList = (output: any, context: __SerdeContext): FlywheelSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FlywheelSummary(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1Geometry = (output: any, context: __SerdeContext): Geometry => {
   return {
     BoundingBox:
@@ -8039,6 +9393,28 @@ const deserializeAws_json1_1KmsKeyValidationException = (
   } as any;
 };
 
+const deserializeAws_json1_1LabelsList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ListDatasetsResponse = (output: any, context: __SerdeContext): ListDatasetsResponse => {
+  return {
+    DatasetPropertiesList:
+      output.DatasetPropertiesList != null
+        ? deserializeAws_json1_1DatasetPropertiesList(output.DatasetPropertiesList, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListDocumentClassificationJobsResponse = (
   output: any,
   context: __SerdeContext
@@ -8154,6 +9530,29 @@ const deserializeAws_json1_1ListEventsDetectionJobsResponse = (
     EventsDetectionJobPropertiesList:
       output.EventsDetectionJobPropertiesList != null
         ? deserializeAws_json1_1EventsDetectionJobPropertiesList(output.EventsDetectionJobPropertiesList, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListFlywheelIterationHistoryResponse = (
+  output: any,
+  context: __SerdeContext
+): ListFlywheelIterationHistoryResponse => {
+  return {
+    FlywheelIterationPropertiesList:
+      output.FlywheelIterationPropertiesList != null
+        ? deserializeAws_json1_1FlywheelIterationPropertiesList(output.FlywheelIterationPropertiesList, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListFlywheelsResponse = (output: any, context: __SerdeContext): ListFlywheelsResponse => {
+  return {
+    FlywheelSummaryList:
+      output.FlywheelSummaryList != null
+        ? deserializeAws_json1_1FlywheelSummaryList(output.FlywheelSummaryList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
@@ -8819,6 +10218,7 @@ const deserializeAws_json1_1StartDocumentClassificationJobResponse = (
   context: __SerdeContext
 ): StartDocumentClassificationJobResponse => {
   return {
+    DocumentClassifierArn: __expectString(output.DocumentClassifierArn),
     JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobStatus: __expectString(output.JobStatus),
@@ -8841,6 +10241,7 @@ const deserializeAws_json1_1StartEntitiesDetectionJobResponse = (
   context: __SerdeContext
 ): StartEntitiesDetectionJobResponse => {
   return {
+    EntityRecognizerArn: __expectString(output.EntityRecognizerArn),
     JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobStatus: __expectString(output.JobStatus),
@@ -8855,6 +10256,16 @@ const deserializeAws_json1_1StartEventsDetectionJobResponse = (
     JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobStatus: __expectString(output.JobStatus),
+  } as any;
+};
+
+const deserializeAws_json1_1StartFlywheelIterationResponse = (
+  output: any,
+  context: __SerdeContext
+): StartFlywheelIterationResponse => {
+  return {
+    FlywheelArn: __expectString(output.FlywheelArn),
+    FlywheelIterationId: __expectString(output.FlywheelIterationId),
   } as any;
 };
 
@@ -9142,6 +10553,20 @@ const deserializeAws_json1_1TargetEventTypes = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_json1_1TaskConfig = (output: any, context: __SerdeContext): TaskConfig => {
+  return {
+    DocumentClassificationConfig:
+      output.DocumentClassificationConfig != null
+        ? deserializeAws_json1_1DocumentClassificationConfig(output.DocumentClassificationConfig, context)
+        : undefined,
+    EntityRecognitionConfig:
+      output.EntityRecognitionConfig != null
+        ? deserializeAws_json1_1EntityRecognitionConfig(output.EntityRecognitionConfig, context)
+        : undefined,
+    LanguageCode: __expectString(output.LanguageCode),
+  } as any;
+};
+
 const deserializeAws_json1_1TextSizeLimitExceededException = (
   output: any,
   context: __SerdeContext
@@ -9233,7 +10658,18 @@ const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1UpdateEndpointResponse = (output: any, context: __SerdeContext): UpdateEndpointResponse => {
-  return {} as any;
+  return {
+    DesiredModelArn: __expectString(output.DesiredModelArn),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateFlywheelResponse = (output: any, context: __SerdeContext): UpdateFlywheelResponse => {
+  return {
+    FlywheelProperties:
+      output.FlywheelProperties != null
+        ? deserializeAws_json1_1FlywheelProperties(output.FlywheelProperties, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {

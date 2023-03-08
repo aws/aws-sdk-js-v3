@@ -6,7 +6,6 @@ import {
   ListGroupResourcesCommandInput,
   ListGroupResourcesCommandOutput,
 } from "../commands/ListGroupResourcesCommand";
-import { Synthetics } from "../Synthetics";
 import { SyntheticsClient } from "../SyntheticsClient";
 import { SyntheticsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListGroupResourcesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Synthetics,
-  input: ListGroupResourcesCommandInput,
-  ...args: any
-): Promise<ListGroupResourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.listGroupResources(input, ...args);
-};
 export async function* paginateListGroupResources(
   config: SyntheticsPaginationConfiguration,
   input: ListGroupResourcesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListGroupResources(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Synthetics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SyntheticsClient) {
+    if (config.client instanceof SyntheticsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Synthetics | SyntheticsClient");

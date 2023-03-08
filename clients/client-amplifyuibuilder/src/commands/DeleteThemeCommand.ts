@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteThemeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteThemeCommand}.
+ */
 export interface DeleteThemeCommandInput extends DeleteThemeRequest {}
+/**
+ * The output of {@link DeleteThemeCommand}.
+ */
 export interface DeleteThemeCommandOutput extends __MetadataBearer {}
 
 /**

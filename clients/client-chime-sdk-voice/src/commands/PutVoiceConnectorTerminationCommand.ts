@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutVoiceConnectorTerminationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutVoiceConnectorTerminationCommand}.
+ */
 export interface PutVoiceConnectorTerminationCommandInput extends PutVoiceConnectorTerminationRequest {}
+/**
+ * The output of {@link PutVoiceConnectorTerminationCommand}.
+ */
 export interface PutVoiceConnectorTerminationCommandOutput
   extends PutVoiceConnectorTerminationResponse,
     __MetadataBearer {}

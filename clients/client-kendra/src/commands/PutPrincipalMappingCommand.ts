@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1PutPrincipalMappingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutPrincipalMappingCommand}.
+ */
 export interface PutPrincipalMappingCommandInput extends PutPrincipalMappingRequest {}
+/**
+ * The output of {@link PutPrincipalMappingCommand}.
+ */
 export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
 
 /**

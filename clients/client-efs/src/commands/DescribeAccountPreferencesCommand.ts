@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeAccountPreferencesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeAccountPreferencesCommand}.
+ */
 export interface DescribeAccountPreferencesCommandInput extends DescribeAccountPreferencesRequest {}
+/**
+ * The output of {@link DescribeAccountPreferencesCommand}.
+ */
 export interface DescribeAccountPreferencesCommandOutput extends DescribeAccountPreferencesResponse, __MetadataBearer {}
 
 /**

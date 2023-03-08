@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartGameSessionPlacementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartGameSessionPlacementCommand}.
+ */
 export interface StartGameSessionPlacementCommandInput extends StartGameSessionPlacementInput {}
+/**
+ * The output of {@link StartGameSessionPlacementCommand}.
+ */
 export interface StartGameSessionPlacementCommandOutput extends StartGameSessionPlacementOutput, __MetadataBearer {}
 
 /**

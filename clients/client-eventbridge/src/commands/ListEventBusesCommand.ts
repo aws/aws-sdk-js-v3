@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListEventBusesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListEventBusesCommand}.
+ */
 export interface ListEventBusesCommandInput extends ListEventBusesRequest {}
+/**
+ * The output of {@link ListEventBusesCommand}.
+ */
 export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __MetadataBearer {}
 
 /**

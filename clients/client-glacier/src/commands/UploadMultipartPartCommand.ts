@@ -25,6 +25,9 @@ import {
   serializeAws_restJson1UploadMultipartPartCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UploadMultipartPartCommand}.
+ */
 type UploadMultipartPartCommandInputType = Omit<UploadMultipartPartInput, "body"> & {
   /**
    * For *`UploadMultipartPartInput["body"]`*, see {@link UploadMultipartPartInput.body}.
@@ -35,6 +38,9 @@ type UploadMultipartPartCommandInputType = Omit<UploadMultipartPartInput, "body"
  * This interface extends from `UploadMultipartPartInput` interface. There are more parameters than `body` defined in {@link UploadMultipartPartInput}
  */
 export interface UploadMultipartPartCommandInput extends UploadMultipartPartCommandInputType {}
+/**
+ * The output of {@link UploadMultipartPartCommand}.
+ */
 export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOutput, __MetadataBearer {}
 
 /**

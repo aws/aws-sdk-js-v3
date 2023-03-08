@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CloudWatch } from "../CloudWatch";
 import { CloudWatchClient } from "../CloudWatchClient";
 import { ListMetricsCommand, ListMetricsCommandInput, ListMetricsCommandOutput } from "../commands/ListMetricsCommand";
 import { CloudWatchPaginationConfiguration } from "./Interfaces";
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMetricsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CloudWatch,
-  input: ListMetricsCommandInput,
-  ...args: any
-): Promise<ListMetricsCommandOutput> => {
-  // @ts-ignore
-  return await client.listMetrics(input, ...args);
-};
 export async function* paginateListMetrics(
   config: CloudWatchPaginationConfiguration,
   input: ListMetricsCommandInput,
@@ -39,9 +27,7 @@ export async function* paginateListMetrics(
   let page: ListMetricsCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof CloudWatch) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudWatchClient) {
+    if (config.client instanceof CloudWatchClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudWatch | CloudWatchClient");

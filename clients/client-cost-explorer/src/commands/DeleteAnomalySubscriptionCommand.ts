@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteAnomalySubscriptionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteAnomalySubscriptionCommand}.
+ */
 export interface DeleteAnomalySubscriptionCommandInput extends DeleteAnomalySubscriptionRequest {}
+/**
+ * The output of {@link DeleteAnomalySubscriptionCommand}.
+ */
 export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**

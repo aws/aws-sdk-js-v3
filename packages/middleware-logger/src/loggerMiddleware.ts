@@ -16,35 +16,33 @@ export const loggerMiddleware =
     context: HandlerExecutionContext
   ): InitializeHandler<any, Output> =>
   async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
-    const response = await next(args);
-    const {
-      clientName,
-      commandName,
-      logger,
-      inputFilterSensitiveLog,
-      outputFilterSensitiveLog,
-      dynamoDbDocumentClientOptions = {},
-    } = context;
+    const { clientName, commandName, logger, dynamoDbDocumentClientOptions = {} } = context;
 
     const { overrideInputFilterSensitiveLog, overrideOutputFilterSensitiveLog } = dynamoDbDocumentClientOptions;
+    const inputFilterSensitiveLog = overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog;
+    const outputFilterSensitiveLog = overrideOutputFilterSensitiveLog ?? context.outputFilterSensitiveLog;
 
-    if (!logger) {
-      return response;
-    }
-
-    if (typeof logger.info === "function") {
+    try {
+      const response = await next(args);
       const { $metadata, ...outputWithoutMetadata } = response.output;
-
-      logger.info({
+      logger?.info?.({
         clientName,
         commandName,
-        input: (overrideInputFilterSensitiveLog ?? inputFilterSensitiveLog)(args.input),
-        output: (overrideOutputFilterSensitiveLog ?? outputFilterSensitiveLog)(outputWithoutMetadata),
+        input: inputFilterSensitiveLog(args.input),
+        output: outputFilterSensitiveLog(outputWithoutMetadata),
         metadata: $metadata,
       });
+      return response;
+    } catch (error) {
+      logger?.error?.({
+        clientName,
+        commandName,
+        input: inputFilterSensitiveLog(args.input),
+        error,
+        metadata: (error as any).$metadata,
+      });
+      throw error;
     }
-
-    return response;
   };
 
 export const loggerMiddlewareOptions: InitializeHandlerOptions & AbsoluteLocation = {

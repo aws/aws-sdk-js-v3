@@ -19,13 +19,19 @@ import {
   UpdateEndpointRequestFilterSensitiveLog,
   UpdateEndpointResponse,
   UpdateEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateEndpointCommand,
   serializeAws_json1_1UpdateEndpointCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateEndpointCommand}.
+ */
 export interface UpdateEndpointCommandInput extends UpdateEndpointRequest {}
+/**
+ * The output of {@link UpdateEndpointCommand}.
+ */
 export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __MetadataBearer {}
 
 /**

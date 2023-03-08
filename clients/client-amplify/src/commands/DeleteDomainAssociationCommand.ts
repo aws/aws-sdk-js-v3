@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteDomainAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteDomainAssociationCommand}.
+ */
 export interface DeleteDomainAssociationCommandInput extends DeleteDomainAssociationRequest {}
+/**
+ * The output of {@link DeleteDomainAssociationCommand}.
+ */
 export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssociationResult, __MetadataBearer {}
 
 /**

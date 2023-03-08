@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1CreateCustomRoutingListenerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateCustomRoutingListenerCommand}.
+ */
 export interface CreateCustomRoutingListenerCommandInput extends CreateCustomRoutingListenerRequest {}
+/**
+ * The output of {@link CreateCustomRoutingListenerCommand}.
+ */
 export interface CreateCustomRoutingListenerCommandOutput
   extends CreateCustomRoutingListenerResponse,
     __MetadataBearer {}

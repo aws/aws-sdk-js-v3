@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeDatasetExportJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeDatasetExportJobCommand}.
+ */
 export interface DescribeDatasetExportJobCommandInput extends DescribeDatasetExportJobRequest {}
+/**
+ * The output of {@link DescribeDatasetExportJobCommand}.
+ */
 export interface DescribeDatasetExportJobCommandOutput extends DescribeDatasetExportJobResponse, __MetadataBearer {}
 
 /**

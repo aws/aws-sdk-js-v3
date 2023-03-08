@@ -24,7 +24,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link PostUnionWithJsonNameCommand}.
+ */
 export interface PostUnionWithJsonNameCommandInput extends PostUnionWithJsonNameInput {}
+/**
+ * The output of {@link PostUnionWithJsonNameCommand}.
+ */
 export interface PostUnionWithJsonNameCommandOutput extends PostUnionWithJsonNameOutput, __MetadataBearer {}
 
 /**

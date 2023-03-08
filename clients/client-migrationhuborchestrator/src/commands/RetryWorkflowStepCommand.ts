@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1RetryWorkflowStepCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RetryWorkflowStepCommand}.
+ */
 export interface RetryWorkflowStepCommandInput extends RetryWorkflowStepRequest {}
+/**
+ * The output of {@link RetryWorkflowStepCommand}.
+ */
 export interface RetryWorkflowStepCommandOutput extends RetryWorkflowStepResponse, __MetadataBearer {}
 
 /**

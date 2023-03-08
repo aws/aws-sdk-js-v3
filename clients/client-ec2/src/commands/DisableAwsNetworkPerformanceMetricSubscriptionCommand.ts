@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DisableAwsNetworkPerformanceMetricSubscriptionCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisableAwsNetworkPerformanceMetricSubscriptionCommand}.
+ */
 export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandInput
   extends DisableAwsNetworkPerformanceMetricSubscriptionRequest {}
+/**
+ * The output of {@link DisableAwsNetworkPerformanceMetricSubscriptionCommand}.
+ */
 export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput
   extends DisableAwsNetworkPerformanceMetricSubscriptionResult,
     __MetadataBearer {}

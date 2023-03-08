@@ -22,7 +22,13 @@ import {
 import { deserializeAws_json1_1ListUsersCommand, serializeAws_json1_1ListUsersCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link ListUsersCommand}.
+ */
 export interface ListUsersCommandInput extends ListUsersRequest {}
+/**
+ * The output of {@link ListUsersCommand}.
+ */
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**

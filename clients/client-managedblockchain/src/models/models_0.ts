@@ -35,12 +35,7 @@ export enum AccessorType {
 }
 
 /**
- * <important>
- *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
- *         subject to change. We recommend that you use this feature only with
- *         test scenarios, and not in production environments.</p>
- *          </important>
- *          <p>The properties of the Accessor.</p>
+ * <p>The properties of the Accessor.</p>
  */
 export interface Accessor {
   /**
@@ -79,15 +74,16 @@ export interface Accessor {
    *             Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The tags assigned to the Accessor.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
- * <important>
- *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
- *         subject to change. We recommend that you use this feature only with
- *         test scenarios, and not in production environments.</p>
- *          </important>
- *          <p>A summary of accessor properties.</p>
+ * <p>A summary of accessor properties.</p>
  */
 export interface AccessorSummary {
   /**
@@ -164,6 +160,15 @@ export interface CreateAccessorInput {
    *          </note>
    */
   AccessorType: AccessorType | string | undefined;
+
+  /**
+   * <p>Tags to assign to the Accessor.</p>
+   *          <p> Each tag consists of a key and an optional value. You can specify
+   *           multiple key-value pairs in a single request with an overall maximum of 50 tags
+   *           allowed per resource.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
 export interface CreateAccessorOutput {
@@ -286,6 +291,32 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * <p></p>
+ */
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p></p>
+   */
+  ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
+  }
+}
+
+/**
  * <p>Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.</p>
  */
 export interface MemberFabricConfiguration {
@@ -376,8 +407,9 @@ export interface MemberConfiguration {
   LogPublishingConfiguration?: MemberLogPublishingConfiguration;
 
   /**
-   * <p>Tags assigned to the member. Tags consist of a key and optional value. For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   * <p>Tags assigned to the member. Tags consist of a key and optional value. </p>
    *          <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
   Tags?: Record<string, string>;
 
@@ -474,32 +506,6 @@ export class ResourceNotReadyException extends __BaseException {
     });
     Object.setPrototypeOf(this, ResourceNotReadyException.prototype);
     this.Message = opts.Message;
-  }
-}
-
-/**
- * <p></p>
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p></p>
-   */
-  ResourceName?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
   }
 }
 
@@ -600,8 +606,10 @@ export interface CreateNetworkInput {
   MemberConfiguration: MemberConfiguration | undefined;
 
   /**
-   * <p>Tags to assign to the network. Each tag consists of a key and optional value.</p>
-   *          <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>
+   * <p>Tags to assign to the network.</p>
+   *          <p> Each tag consists of a key and an optional value. You can specify
+   *           multiple key-value pairs in a single request with an overall maximum of 50 tags
+   *           allowed per resource.</p>
    *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
   Tags?: Record<string, string>;
@@ -722,8 +730,10 @@ export interface CreateNodeInput {
   NodeConfiguration: NodeConfiguration | undefined;
 
   /**
-   * <p>Tags to assign to the node. Each tag consists of a key and optional value.</p>
-   *          <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>
+   * <p>Tags to assign to the node.</p>
+   *          <p> Each tag consists of a key and an optional value. You can specify
+   *           multiple key-value pairs in a single request with an overall maximum of 50 tags
+   *           allowed per resource.</p>
    *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
   Tags?: Record<string, string>;
@@ -810,8 +820,10 @@ export interface CreateProposalInput {
   Description?: string;
 
   /**
-   * <p>Tags to assign to the proposal. Each tag consists of a key and optional value.</p>
-   *          <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource. If the proposal is for a network invitation, the invitation inherits the tags added to the proposal.</p>
+   * <p>Tags to assign to the proposal.</p>
+   *          <p> Each tag consists of a key and an optional value. You can specify
+   *           multiple key-value pairs in a single request with an overall maximum of 50 tags
+   *           allowed per resource.</p>
    *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
   Tags?: Record<string, string>;
@@ -1030,7 +1042,8 @@ export interface Member {
   CreationDate?: Date;
 
   /**
-   * <p>Tags assigned to the member. Tags consist of a key and optional value. For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   * <p>Tags assigned to the member. Tags consist of a key and optional value.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
   Tags?: Record<string, string>;
 

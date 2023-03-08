@@ -24,7 +24,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link PutBucketAccelerateConfigurationCommand}.
+ */
 export interface PutBucketAccelerateConfigurationCommandInput extends PutBucketAccelerateConfigurationRequest {}
+/**
+ * The output of {@link PutBucketAccelerateConfigurationCommand}.
+ */
 export interface PutBucketAccelerateConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

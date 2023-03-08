@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetCommitCommand, serializeAws_json1_1GetCommitCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCommitCommand}.
+ */
 export interface GetCommitCommandInput extends GetCommitInput {}
+/**
+ * The output of {@link GetCommitCommand}.
+ */
 export interface GetCommitCommandOutput extends GetCommitOutput, __MetadataBearer {}
 
 /**

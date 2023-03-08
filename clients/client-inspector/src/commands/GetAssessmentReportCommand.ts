@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetAssessmentReportCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetAssessmentReportCommand}.
+ */
 export interface GetAssessmentReportCommandInput extends GetAssessmentReportRequest {}
+/**
+ * The output of {@link GetAssessmentReportCommand}.
+ */
 export interface GetAssessmentReportCommandOutput extends GetAssessmentReportResponse, __MetadataBearer {}
 
 /**

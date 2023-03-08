@@ -6,7 +6,6 @@ import {
   ListResolverRuleAssociationsCommandInput,
   ListResolverRuleAssociationsCommandOutput,
 } from "../commands/ListResolverRuleAssociationsCommand";
-import { Route53Resolver } from "../Route53Resolver";
 import { Route53ResolverClient } from "../Route53ResolverClient";
 import { Route53ResolverPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListResolverRuleAssociationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Route53Resolver,
-  input: ListResolverRuleAssociationsCommandInput,
-  ...args: any
-): Promise<ListResolverRuleAssociationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listResolverRuleAssociations(input, ...args);
-};
 export async function* paginateListResolverRuleAssociations(
   config: Route53ResolverPaginationConfiguration,
   input: ListResolverRuleAssociationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListResolverRuleAssociations(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Route53Resolver) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof Route53ResolverClient) {
+    if (config.client instanceof Route53ResolverClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Route53Resolver | Route53ResolverClient");

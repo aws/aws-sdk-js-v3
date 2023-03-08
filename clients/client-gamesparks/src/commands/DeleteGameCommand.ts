@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteGameCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteGameCommand}.
+ */
 export interface DeleteGameCommandInput extends DeleteGameRequest {}
+/**
+ * The output of {@link DeleteGameCommand}.
+ */
 export interface DeleteGameCommandOutput extends DeleteGameResult, __MetadataBearer {}
 
 /**

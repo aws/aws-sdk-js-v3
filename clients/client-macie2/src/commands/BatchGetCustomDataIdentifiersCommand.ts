@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchGetCustomDataIdentifiersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchGetCustomDataIdentifiersCommand}.
+ */
 export interface BatchGetCustomDataIdentifiersCommandInput extends BatchGetCustomDataIdentifiersRequest {}
+/**
+ * The output of {@link BatchGetCustomDataIdentifiersCommand}.
+ */
 export interface BatchGetCustomDataIdentifiersCommandOutput
   extends BatchGetCustomDataIdentifiersResponse,
     __MetadataBearer {}

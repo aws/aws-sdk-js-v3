@@ -122,7 +122,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The input failed to meet the constraints specified by the AWS service in a specified field.</p>
+ * <p>The input failed to meet the constraints specified by the Amazon Web Services service in a specified field.</p>
  */
 export interface ValidationExceptionField {
   /**
@@ -459,7 +459,7 @@ export interface DisableRegionRequest {
 
   /**
    * <p>Specifies the Region-code for a given Region name (for example, <code>af-south-1</code>). When
-   *             you disable a Region, AWS performs actions to deactivate that Region in your account, such
+   *             you disable a Region, Amazon Web Services performs actions to deactivate that Region in your account, such
    *             as destroying IAM resources in the Region. This process takes a few minutes for most
    *             accounts, but this can take several hours. You cannot enable the Region until the
    *             disabling process is fully completed.</p>
@@ -492,7 +492,7 @@ export interface EnableRegionRequest {
 
   /**
    * <p>Specifies the Region-code for a given Region name (for example, <code>af-south-1</code>). When
-   *             you enable a Region, AWS performs actions to prepare your account in that Region, such
+   *             you enable a Region, Amazon Web Services performs actions to prepare your account in that Region, such
    *             as distributing your IAM resources to the Region. This process takes a few minutes for
    *             most accounts, but it can take several hours. You cannot use the Region until this
    *             process is complete. Furthermore, you cannot disable the Region until the enabling

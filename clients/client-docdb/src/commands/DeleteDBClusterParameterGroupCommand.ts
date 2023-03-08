@@ -23,7 +23,13 @@ import {
   serializeAws_queryDeleteDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteDBClusterParameterGroupCommand}.
+ */
 export interface DeleteDBClusterParameterGroupCommandInput extends DeleteDBClusterParameterGroupMessage {}
+/**
+ * The output of {@link DeleteDBClusterParameterGroupCommand}.
+ */
 export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**

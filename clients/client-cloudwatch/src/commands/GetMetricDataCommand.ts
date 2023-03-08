@@ -25,7 +25,13 @@ import {
   serializeAws_queryGetMetricDataCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetMetricDataCommand}.
+ */
 export interface GetMetricDataCommandInput extends GetMetricDataInput {}
+/**
+ * The output of {@link GetMetricDataCommand}.
+ */
 export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __MetadataBearer {}
 
 /**

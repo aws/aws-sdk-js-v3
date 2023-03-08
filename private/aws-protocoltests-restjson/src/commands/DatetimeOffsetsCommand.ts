@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link DatetimeOffsetsCommand}.
+ */
 export interface DatetimeOffsetsCommandInput {}
+/**
+ * The output of {@link DatetimeOffsetsCommand}.
+ */
 export interface DatetimeOffsetsCommandOutput extends DatetimeOffsetsOutput, __MetadataBearer {}
 
 export class DatetimeOffsetsCommand extends $Command<

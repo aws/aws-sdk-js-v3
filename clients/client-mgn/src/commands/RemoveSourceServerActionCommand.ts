@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RemoveSourceServerActionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RemoveSourceServerActionCommand}.
+ */
 export interface RemoveSourceServerActionCommandInput extends RemoveSourceServerActionRequest {}
+/**
+ * The output of {@link RemoveSourceServerActionCommand}.
+ */
 export interface RemoveSourceServerActionCommandOutput extends RemoveSourceServerActionResponse, __MetadataBearer {}
 
 /**

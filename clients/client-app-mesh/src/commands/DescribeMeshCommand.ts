@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeMeshCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeMeshCommand}.
+ */
 export interface DescribeMeshCommandInput extends DescribeMeshInput {}
+/**
+ * The output of {@link DescribeMeshCommand}.
+ */
 export interface DescribeMeshCommandOutput extends DescribeMeshOutput, __MetadataBearer {}
 
 /**

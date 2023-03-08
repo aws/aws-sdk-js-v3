@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartBlueprintRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartBlueprintRunCommand}.
+ */
 export interface StartBlueprintRunCommandInput extends StartBlueprintRunRequest {}
+/**
+ * The output of {@link StartBlueprintRunCommand}.
+ */
 export interface StartBlueprintRunCommandOutput extends StartBlueprintRunResponse, __MetadataBearer {}
 
 /**

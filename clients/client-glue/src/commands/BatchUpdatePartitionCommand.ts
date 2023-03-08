@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchUpdatePartitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchUpdatePartitionCommand}.
+ */
 export interface BatchUpdatePartitionCommandInput extends BatchUpdatePartitionRequest {}
+/**
+ * The output of {@link BatchUpdatePartitionCommand}.
+ */
 export interface BatchUpdatePartitionCommandOutput extends BatchUpdatePartitionResponse, __MetadataBearer {}
 
 /**

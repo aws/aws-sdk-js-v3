@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link CreatePortfolioShareCommand}.
+ */
 export interface CreatePortfolioShareCommandInput extends CreatePortfolioShareInput {}
+/**
+ * The output of {@link CreatePortfolioShareCommand}.
+ */
 export interface CreatePortfolioShareCommandOutput extends CreatePortfolioShareOutput, __MetadataBearer {}
 
 /**
@@ -34,12 +40,11 @@ export interface CreatePortfolioShareCommandOutput extends CreatePortfolioShareO
  *          organization or by a delegated administrator. You can share portfolios to an organization,
  *          an organizational unit, or a specific account.</p>
  *          <p>Note that if a delegated admin is de-registered, they can no longer create portfolio shares.</p>
- *         <p>
+ *          <p>
  *             <code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio share to an organization node.</p>
  *          <p>You can't share a shared resource, including portfolios that contain a shared product.</p>
  *          <p>If the portfolio share with the specified account or organization node already exists, this action will have no effect
  *          and will not return an error. To update an existing share, you must use the <code> UpdatePortfolioShare</code> API instead. </p>
- *
  *          <note>
  *             <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is
  *          then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin,

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link CancelArchivalCommand}.
+ */
 export interface CancelArchivalCommandInput extends CancelArchivalInput {}
+/**
+ * The output of {@link CancelArchivalCommand}.
+ */
 export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __MetadataBearer {}
 
 /**

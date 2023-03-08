@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListFiltersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListFiltersCommand}.
+ */
 export interface ListFiltersCommandInput extends ListFiltersRequest {}
+/**
+ * The output of {@link ListFiltersCommand}.
+ */
 export interface ListFiltersCommandOutput extends ListFiltersResponse, __MetadataBearer {}
 
 /**

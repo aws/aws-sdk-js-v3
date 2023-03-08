@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetProtectionStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetProtectionStatusCommand}.
+ */
 export interface GetProtectionStatusCommandInput extends GetProtectionStatusRequest {}
+/**
+ * The output of {@link GetProtectionStatusCommand}.
+ */
 export interface GetProtectionStatusCommandOutput extends GetProtectionStatusResponse, __MetadataBearer {}
 
 /**

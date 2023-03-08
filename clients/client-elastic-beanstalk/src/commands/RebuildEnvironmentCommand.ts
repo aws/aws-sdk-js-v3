@@ -20,7 +20,13 @@ import {
   serializeAws_queryRebuildEnvironmentCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RebuildEnvironmentCommand}.
+ */
 export interface RebuildEnvironmentCommandInput extends RebuildEnvironmentMessage {}
+/**
+ * The output of {@link RebuildEnvironmentCommand}.
+ */
 export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
 
 /**

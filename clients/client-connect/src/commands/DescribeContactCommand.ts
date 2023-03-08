@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeContactCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeContactCommand}.
+ */
 export interface DescribeContactCommandInput extends DescribeContactRequest {}
+/**
+ * The output of {@link DescribeContactCommand}.
+ */
 export interface DescribeContactCommandOutput extends DescribeContactResponse, __MetadataBearer {}
 
 /**

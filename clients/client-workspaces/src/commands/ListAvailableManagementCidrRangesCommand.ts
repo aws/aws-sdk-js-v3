@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link ListAvailableManagementCidrRangesCommand}.
+ */
 export interface ListAvailableManagementCidrRangesCommandInput extends ListAvailableManagementCidrRangesRequest {}
+/**
+ * The output of {@link ListAvailableManagementCidrRangesCommand}.
+ */
 export interface ListAvailableManagementCidrRangesCommandOutput
   extends ListAvailableManagementCidrRangesResult,
     __MetadataBearer {}

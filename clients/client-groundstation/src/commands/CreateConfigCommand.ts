@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateConfigCommand}.
+ */
 export interface CreateConfigCommandInput extends CreateConfigRequest {}
+/**
+ * The output of {@link CreateConfigCommand}.
+ */
 export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataBearer {}
 
 /**

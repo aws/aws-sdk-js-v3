@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link DeleteConnectorCommand}.
+ */
 export interface DeleteConnectorCommandInput extends DeleteConnectorRequest {}
+/**
+ * The output of {@link DeleteConnectorCommand}.
+ */
 export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
 
 /**

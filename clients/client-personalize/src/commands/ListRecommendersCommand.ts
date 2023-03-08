@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListRecommendersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListRecommendersCommand}.
+ */
 export interface ListRecommendersCommandInput extends ListRecommendersRequest {}
+/**
+ * The output of {@link ListRecommendersCommand}.
+ */
 export interface ListRecommendersCommandOutput extends ListRecommendersResponse, __MetadataBearer {}
 
 /**

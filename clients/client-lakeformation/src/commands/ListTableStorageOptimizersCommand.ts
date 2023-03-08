@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListTableStorageOptimizersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListTableStorageOptimizersCommand}.
+ */
 export interface ListTableStorageOptimizersCommandInput extends ListTableStorageOptimizersRequest {}
+/**
+ * The output of {@link ListTableStorageOptimizersCommand}.
+ */
 export interface ListTableStorageOptimizersCommandOutput extends ListTableStorageOptimizersResponse, __MetadataBearer {}
 
 /**

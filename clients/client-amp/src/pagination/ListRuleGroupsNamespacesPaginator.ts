@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { Amp } from "../Amp";
 import { AmpClient } from "../AmpClient";
 import {
   ListRuleGroupsNamespacesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRuleGroupsNamespacesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Amp,
-  input: ListRuleGroupsNamespacesCommandInput,
-  ...args: any
-): Promise<ListRuleGroupsNamespacesCommandOutput> => {
-  // @ts-ignore
-  return await client.listRuleGroupsNamespaces(input, ...args);
-};
 export async function* paginateListRuleGroupsNamespaces(
   config: AmpPaginationConfiguration,
   input: ListRuleGroupsNamespacesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListRuleGroupsNamespaces(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Amp) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AmpClient) {
+    if (config.client instanceof AmpClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Amp | AmpClient");

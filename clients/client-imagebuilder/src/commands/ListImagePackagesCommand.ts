@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListImagePackagesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListImagePackagesCommand}.
+ */
 export interface ListImagePackagesCommandInput extends ListImagePackagesRequest {}
+/**
+ * The output of {@link ListImagePackagesCommand}.
+ */
 export interface ListImagePackagesCommandOutput extends ListImagePackagesResponse, __MetadataBearer {}
 
 /**

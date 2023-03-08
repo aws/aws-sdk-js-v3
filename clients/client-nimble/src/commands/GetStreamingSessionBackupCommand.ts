@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetStreamingSessionBackupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetStreamingSessionBackupCommand}.
+ */
 export interface GetStreamingSessionBackupCommandInput extends GetStreamingSessionBackupRequest {}
+/**
+ * The output of {@link GetStreamingSessionBackupCommand}.
+ */
 export interface GetStreamingSessionBackupCommandOutput extends GetStreamingSessionBackupResponse, __MetadataBearer {}
 
 /**

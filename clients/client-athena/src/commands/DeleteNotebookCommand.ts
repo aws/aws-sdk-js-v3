@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteNotebookCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteNotebookCommand}.
+ */
 export interface DeleteNotebookCommandInput extends DeleteNotebookInput {}
+/**
+ * The output of {@link DeleteNotebookCommand}.
+ */
 export interface DeleteNotebookCommandOutput extends DeleteNotebookOutput, __MetadataBearer {}
 
 /**

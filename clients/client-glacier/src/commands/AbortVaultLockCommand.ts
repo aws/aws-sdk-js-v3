@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1AbortVaultLockCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AbortVaultLockCommand}.
+ */
 export interface AbortVaultLockCommandInput extends AbortVaultLockInput {}
+/**
+ * The output of {@link AbortVaultLockCommand}.
+ */
 export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
 
 /**

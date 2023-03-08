@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateContactFromAddressBookCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateContactFromAddressBookCommand}.
+ */
 export interface DisassociateContactFromAddressBookCommandInput extends DisassociateContactFromAddressBookRequest {}
+/**
+ * The output of {@link DisassociateContactFromAddressBookCommand}.
+ */
 export interface DisassociateContactFromAddressBookCommandOutput
   extends DisassociateContactFromAddressBookResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * The input for {@link UpdateMapRunCommand}.
+ */
 export interface UpdateMapRunCommandInput extends UpdateMapRunInput {}
+/**
+ * The output of {@link UpdateMapRunCommand}.
+ */
 export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1InitiateLayerUploadCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link InitiateLayerUploadCommand}.
+ */
 export interface InitiateLayerUploadCommandInput extends InitiateLayerUploadRequest {}
+/**
+ * The output of {@link InitiateLayerUploadCommand}.
+ */
 export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadResponse, __MetadataBearer {}
 
 /**

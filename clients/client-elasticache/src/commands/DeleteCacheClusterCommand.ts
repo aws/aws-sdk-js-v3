@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteCacheClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteCacheClusterCommand}.
+ */
 export interface DeleteCacheClusterCommandInput extends DeleteCacheClusterMessage {}
+/**
+ * The output of {@link DeleteCacheClusterCommand}.
+ */
 export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResult, __MetadataBearer {}
 
 /**

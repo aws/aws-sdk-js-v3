@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DetachThingPrincipalCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DetachThingPrincipalCommand}.
+ */
 export interface DetachThingPrincipalCommandInput extends DetachThingPrincipalRequest {}
+/**
+ * The output of {@link DetachThingPrincipalCommand}.
+ */
 export interface DetachThingPrincipalCommandOutput extends DetachThingPrincipalResponse, __MetadataBearer {}
 
 /**

@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1GetRelationalDatabaseMasterUserPasswordCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRelationalDatabaseMasterUserPasswordCommand}.
+ */
 export interface GetRelationalDatabaseMasterUserPasswordCommandInput
   extends GetRelationalDatabaseMasterUserPasswordRequest {}
+/**
+ * The output of {@link GetRelationalDatabaseMasterUserPasswordCommand}.
+ */
 export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
   extends GetRelationalDatabaseMasterUserPasswordResult,
     __MetadataBearer {}

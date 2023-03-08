@@ -23,24 +23,30 @@ import {
   serializeAws_json1_1DeregisterDelegatedAdministratorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterDelegatedAdministratorCommand}.
+ */
 export interface DeregisterDelegatedAdministratorCommandInput extends DeregisterDelegatedAdministratorRequest {}
+/**
+ * The output of {@link DeregisterDelegatedAdministratorCommand}.
+ */
 export interface DeregisterDelegatedAdministratorCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified member Amazon Web Services account as a delegated administrator for the
  *             specified Amazon Web Services service.</p>
- *         <important>
+ *          <important>
  *             <p>Deregistering a delegated administrator can have unintended impacts on the
  *                 functionality of the enabled Amazon Web Services service. See the documentation for the enabled
  *                 service before you deregister a delegated administrator so that you understand any
  *                 potential impacts.</p>
- *         </important>
- *         <p>You can run this action only for Amazon Web Services services that support this
+ *          </important>
+ *          <p>You can run this action only for Amazon Web Services services that support this
  *     feature. For a current list of services that support it, see the column <i>Supports
  *     Delegated Administrator</i> in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">Amazon Web Services Services that you can use with
  *     Organizations</a> in the <i>Organizations User Guide.</i>
  *          </p>
- *         <p>This operation can be called only from the organization's management account.</p>
+ *          <p>This operation can be called only from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

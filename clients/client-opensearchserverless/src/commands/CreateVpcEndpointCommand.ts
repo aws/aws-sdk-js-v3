@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0CreateVpcEndpointCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateVpcEndpointCommand}.
+ */
 export interface CreateVpcEndpointCommandInput extends CreateVpcEndpointRequest {}
+/**
+ * The output of {@link CreateVpcEndpointCommand}.
+ */
 export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateParameterGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateParameterGroupCommand}.
+ */
 export interface UpdateParameterGroupCommandInput extends UpdateParameterGroupRequest {}
+/**
+ * The output of {@link UpdateParameterGroupCommand}.
+ */
 export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupResponse, __MetadataBearer {}
 
 /**

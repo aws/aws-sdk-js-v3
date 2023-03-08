@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link GetBucketReplicationCommand}.
+ */
 export interface GetBucketReplicationCommandInput extends GetBucketReplicationRequest {}
+/**
+ * The output of {@link GetBucketReplicationCommand}.
+ */
 export interface GetBucketReplicationCommandOutput extends GetBucketReplicationOutput, __MetadataBearer {}
 
 /**

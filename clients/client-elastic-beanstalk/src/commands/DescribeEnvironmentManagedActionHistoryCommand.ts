@@ -25,8 +25,14 @@ import {
   serializeAws_queryDescribeEnvironmentManagedActionHistoryCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeEnvironmentManagedActionHistoryCommand}.
+ */
 export interface DescribeEnvironmentManagedActionHistoryCommandInput
   extends DescribeEnvironmentManagedActionHistoryRequest {}
+/**
+ * The output of {@link DescribeEnvironmentManagedActionHistoryCommand}.
+ */
 export interface DescribeEnvironmentManagedActionHistoryCommandOutput
   extends DescribeEnvironmentManagedActionHistoryResult,
     __MetadataBearer {}

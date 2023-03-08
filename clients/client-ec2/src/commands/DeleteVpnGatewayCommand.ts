@@ -20,7 +20,13 @@ import {
   serializeAws_ec2DeleteVpnGatewayCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteVpnGatewayCommand}.
+ */
 export interface DeleteVpnGatewayCommandInput extends DeleteVpnGatewayRequest {}
+/**
+ * The output of {@link DeleteVpnGatewayCommand}.
+ */
 export interface DeleteVpnGatewayCommandOutput extends __MetadataBearer {}
 
 /**

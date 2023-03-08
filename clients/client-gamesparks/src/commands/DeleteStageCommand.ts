@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteStageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteStageCommand}.
+ */
 export interface DeleteStageCommandInput extends DeleteStageRequest {}
+/**
+ * The output of {@link DeleteStageCommand}.
+ */
 export interface DeleteStageCommandOutput extends DeleteStageResult, __MetadataBearer {}
 
 /**

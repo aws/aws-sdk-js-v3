@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListMulticastGroupsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListMulticastGroupsCommand}.
+ */
 export interface ListMulticastGroupsCommandInput extends ListMulticastGroupsRequest {}
+/**
+ * The output of {@link ListMulticastGroupsCommand}.
+ */
 export interface ListMulticastGroupsCommandOutput extends ListMulticastGroupsResponse, __MetadataBearer {}
 
 /**

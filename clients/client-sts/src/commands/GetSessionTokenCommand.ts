@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
+/**
+ * The input for {@link GetSessionTokenCommand}.
+ */
 export interface GetSessionTokenCommandInput extends GetSessionTokenRequest {}
+/**
+ * The output of {@link GetSessionTokenCommand}.
+ */
 export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, __MetadataBearer {}
 
 /**

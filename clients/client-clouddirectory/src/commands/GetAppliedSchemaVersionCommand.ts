@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAppliedSchemaVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAppliedSchemaVersionCommand}.
+ */
 export interface GetAppliedSchemaVersionCommandInput extends GetAppliedSchemaVersionRequest {}
+/**
+ * The output of {@link GetAppliedSchemaVersionCommand}.
+ */
 export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVersionResponse, __MetadataBearer {}
 
 /**

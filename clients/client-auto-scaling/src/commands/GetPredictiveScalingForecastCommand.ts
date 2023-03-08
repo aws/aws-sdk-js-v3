@@ -25,7 +25,13 @@ import {
   serializeAws_queryGetPredictiveScalingForecastCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetPredictiveScalingForecastCommand}.
+ */
 export interface GetPredictiveScalingForecastCommandInput extends GetPredictiveScalingForecastType {}
+/**
+ * The output of {@link GetPredictiveScalingForecastCommand}.
+ */
 export interface GetPredictiveScalingForecastCommandOutput
   extends GetPredictiveScalingForecastAnswer,
     __MetadataBearer {}

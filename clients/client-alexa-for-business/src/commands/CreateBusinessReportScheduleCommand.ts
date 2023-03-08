@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateBusinessReportScheduleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateBusinessReportScheduleCommand}.
+ */
 export interface CreateBusinessReportScheduleCommandInput extends CreateBusinessReportScheduleRequest {}
+/**
+ * The output of {@link CreateBusinessReportScheduleCommand}.
+ */
 export interface CreateBusinessReportScheduleCommandOutput
   extends CreateBusinessReportScheduleResponse,
     __MetadataBearer {}

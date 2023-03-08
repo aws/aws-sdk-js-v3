@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeFleetLocationUtilizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeFleetLocationUtilizationCommand}.
+ */
 export interface DescribeFleetLocationUtilizationCommandInput extends DescribeFleetLocationUtilizationInput {}
+/**
+ * The output of {@link DescribeFleetLocationUtilizationCommand}.
+ */
 export interface DescribeFleetLocationUtilizationCommandOutput
   extends DescribeFleetLocationUtilizationOutput,
     __MetadataBearer {}

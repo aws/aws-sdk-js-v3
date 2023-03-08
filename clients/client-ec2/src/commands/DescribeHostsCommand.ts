@@ -22,7 +22,13 @@ import {
 } from "../models/models_3";
 import { deserializeAws_ec2DescribeHostsCommand, serializeAws_ec2DescribeHostsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeHostsCommand}.
+ */
 export interface DescribeHostsCommandInput extends DescribeHostsRequest {}
+/**
+ * The output of {@link DescribeHostsCommand}.
+ */
 export interface DescribeHostsCommandOutput extends DescribeHostsResult, __MetadataBearer {}
 
 /**

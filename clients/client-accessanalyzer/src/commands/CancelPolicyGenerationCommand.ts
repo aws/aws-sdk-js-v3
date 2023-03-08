@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelPolicyGenerationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelPolicyGenerationCommand}.
+ */
 export interface CancelPolicyGenerationCommandInput extends CancelPolicyGenerationRequest {}
+/**
+ * The output of {@link CancelPolicyGenerationCommand}.
+ */
 export interface CancelPolicyGenerationCommandOutput extends CancelPolicyGenerationResponse, __MetadataBearer {}
 
 /**

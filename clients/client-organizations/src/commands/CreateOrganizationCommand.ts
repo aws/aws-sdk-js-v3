@@ -25,16 +25,22 @@ import {
   serializeAws_json1_1CreateOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateOrganizationCommand}.
+ */
 export interface CreateOrganizationCommandInput extends CreateOrganizationRequest {}
+/**
+ * The output of {@link CreateOrganizationCommand}.
+ */
 export interface CreateOrganizationCommandOutput extends CreateOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Web Services organization. The account whose user is calling the
  *                 <code>CreateOrganization</code> operation automatically becomes the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">management account</a> of the new organization.</p>
- *         <p>This operation must be called using credentials from the account that is to become the
+ *          <p>This operation must be called using credentials from the account that is to become the
  *             new organization's management account. The principal must also have the relevant IAM
  *             permissions.</p>
- *         <p>By default (or if you set the <code>FeatureSet</code> parameter to <code>ALL</code>),
+ *          <p>By default (or if you set the <code>FeatureSet</code> parameter to <code>ALL</code>),
  *             the new organization is created with all features enabled and service control policies
  *             automatically enabled in the root. If you instead choose to create the organization
  *             supporting only the consolidated billing features by setting the <code>FeatureSet</code>

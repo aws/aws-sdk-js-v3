@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateNodeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateNodeCommand}.
+ */
 export interface AssociateNodeCommandInput extends AssociateNodeRequest {}
+/**
+ * The output of {@link AssociateNodeCommand}.
+ */
 export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __MetadataBearer {}
 
 /**

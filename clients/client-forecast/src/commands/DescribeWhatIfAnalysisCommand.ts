@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeWhatIfAnalysisCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeWhatIfAnalysisCommand}.
+ */
 export interface DescribeWhatIfAnalysisCommandInput extends DescribeWhatIfAnalysisRequest {}
+/**
+ * The output of {@link DescribeWhatIfAnalysisCommand}.
+ */
 export interface DescribeWhatIfAnalysisCommandOutput extends DescribeWhatIfAnalysisResponse, __MetadataBearer {}
 
 /**

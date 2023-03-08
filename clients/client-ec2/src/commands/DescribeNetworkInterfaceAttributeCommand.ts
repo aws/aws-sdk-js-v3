@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeNetworkInterfaceAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeNetworkInterfaceAttributeCommand}.
+ */
 export interface DescribeNetworkInterfaceAttributeCommandInput extends DescribeNetworkInterfaceAttributeRequest {}
+/**
+ * The output of {@link DescribeNetworkInterfaceAttributeCommand}.
+ */
 export interface DescribeNetworkInterfaceAttributeCommandOutput
   extends DescribeNetworkInterfaceAttributeResult,
     __MetadataBearer {}

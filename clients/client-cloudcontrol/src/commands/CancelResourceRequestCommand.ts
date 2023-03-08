@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0CancelResourceRequestCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CancelResourceRequestCommand}.
+ */
 export interface CancelResourceRequestCommandInput extends CancelResourceRequestInput {}
+/**
+ * The output of {@link CancelResourceRequestCommand}.
+ */
 export interface CancelResourceRequestCommandOutput extends CancelResourceRequestOutput, __MetadataBearer {}
 
 /**

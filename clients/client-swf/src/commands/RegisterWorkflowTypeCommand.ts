@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link RegisterWorkflowTypeCommand}.
+ */
 export interface RegisterWorkflowTypeCommandInput extends RegisterWorkflowTypeInput {}
+/**
+ * The output of {@link RegisterWorkflowTypeCommand}.
+ */
 export interface RegisterWorkflowTypeCommandOutput extends __MetadataBearer {}
 
 /**

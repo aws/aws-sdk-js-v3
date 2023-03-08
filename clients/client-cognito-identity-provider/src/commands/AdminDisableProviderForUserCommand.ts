@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminDisableProviderForUserCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminDisableProviderForUserCommand}.
+ */
 export interface AdminDisableProviderForUserCommandInput extends AdminDisableProviderForUserRequest {}
+/**
+ * The output of {@link AdminDisableProviderForUserCommand}.
+ */
 export interface AdminDisableProviderForUserCommandOutput
   extends AdminDisableProviderForUserResponse,
     __MetadataBearer {}

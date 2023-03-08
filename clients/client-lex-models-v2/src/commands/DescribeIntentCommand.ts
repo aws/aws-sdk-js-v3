@@ -21,7 +21,13 @@ import {
   serializeAws_restJson1DescribeIntentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeIntentCommand}.
+ */
 export interface DescribeIntentCommandInput extends DescribeIntentRequest {}
+/**
+ * The output of {@link DescribeIntentCommand}.
+ */
 export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __MetadataBearer {}
 
 /**

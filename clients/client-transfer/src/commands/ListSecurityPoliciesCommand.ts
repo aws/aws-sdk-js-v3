@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link ListSecurityPoliciesCommand}.
+ */
 export interface ListSecurityPoliciesCommandInput extends ListSecurityPoliciesRequest {}
+/**
+ * The output of {@link ListSecurityPoliciesCommand}.
+ */
 export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesResponse, __MetadataBearer {}
 
 /**

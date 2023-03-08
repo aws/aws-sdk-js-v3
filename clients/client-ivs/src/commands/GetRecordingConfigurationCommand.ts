@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetRecordingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetRecordingConfigurationCommand}.
+ */
 export interface GetRecordingConfigurationCommandInput extends GetRecordingConfigurationRequest {}
+/**
+ * The output of {@link GetRecordingConfigurationCommand}.
+ */
 export interface GetRecordingConfigurationCommandOutput extends GetRecordingConfigurationResponse, __MetadataBearer {}
 
 /**

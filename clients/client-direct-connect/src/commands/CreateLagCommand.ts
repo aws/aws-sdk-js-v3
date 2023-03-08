@@ -17,7 +17,13 @@ import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import { CreateLagRequest, CreateLagRequestFilterSensitiveLog, Lag, LagFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_json1_1CreateLagCommand, serializeAws_json1_1CreateLagCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateLagCommand}.
+ */
 export interface CreateLagCommandInput extends CreateLagRequest {}
+/**
+ * The output of {@link CreateLagCommand}.
+ */
 export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1TerminateTargetInstancesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link TerminateTargetInstancesCommand}.
+ */
 export interface TerminateTargetInstancesCommandInput extends TerminateTargetInstancesRequest {}
+/**
+ * The output of {@link TerminateTargetInstancesCommand}.
+ */
 export interface TerminateTargetInstancesCommandOutput extends TerminateTargetInstancesResponse, __MetadataBearer {}
 
 /**

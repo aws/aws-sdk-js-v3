@@ -25,13 +25,19 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
+/**
+ * The input for {@link PutRumMetricsDestinationCommand}.
+ */
 export interface PutRumMetricsDestinationCommandInput extends PutRumMetricsDestinationRequest {}
+/**
+ * The output of {@link PutRumMetricsDestinationCommand}.
+ */
 export interface PutRumMetricsDestinationCommandOutput extends PutRumMetricsDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates a destination to receive extended metrics from CloudWatch RUM. You can send
  *          extended metrics to CloudWatch or to a CloudWatch Evidently experiment.</p>
- *          <p>For more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrics.html">AddRumMetrics</a>.</p>
+ *          <p>For more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.html">BatchCreateRumMetricDefinitions</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

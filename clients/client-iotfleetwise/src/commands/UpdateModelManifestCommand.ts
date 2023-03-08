@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0UpdateModelManifestCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateModelManifestCommand}.
+ */
 export interface UpdateModelManifestCommandInput extends UpdateModelManifestRequest {}
+/**
+ * The output of {@link UpdateModelManifestCommand}.
+ */
 export interface UpdateModelManifestCommandOutput extends UpdateModelManifestResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ExportProjectCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ExportProjectCommand}.
+ */
 export interface ExportProjectCommandInput extends ExportProjectRequest {}
+/**
+ * The output of {@link ExportProjectCommand}.
+ */
 export interface ExportProjectCommandOutput extends ExportProjectResult, __MetadataBearer {}
 
 /**

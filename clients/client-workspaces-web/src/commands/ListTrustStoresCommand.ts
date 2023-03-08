@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * The input for {@link ListTrustStoresCommand}.
+ */
 export interface ListTrustStoresCommandInput extends ListTrustStoresRequest {}
+/**
+ * The output of {@link ListTrustStoresCommand}.
+ */
 export interface ListTrustStoresCommandOutput extends ListTrustStoresResponse, __MetadataBearer {}
 
 /**

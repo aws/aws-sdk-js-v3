@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryTestTypeCommand, serializeAws_queryTestTypeCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link TestTypeCommand}.
+ */
 export interface TestTypeCommandInput extends TestTypeInput {}
+/**
+ * The output of {@link TestTypeCommand}.
+ */
 export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer {}
 
 /**

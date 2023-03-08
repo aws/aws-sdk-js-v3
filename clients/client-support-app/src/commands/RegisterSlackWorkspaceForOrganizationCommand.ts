@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
+/**
+ * The input for {@link RegisterSlackWorkspaceForOrganizationCommand}.
+ */
 export interface RegisterSlackWorkspaceForOrganizationCommandInput
   extends RegisterSlackWorkspaceForOrganizationRequest {}
+/**
+ * The output of {@link RegisterSlackWorkspaceForOrganizationCommand}.
+ */
 export interface RegisterSlackWorkspaceForOrganizationCommandOutput
   extends RegisterSlackWorkspaceForOrganizationResult,
     __MetadataBearer {}

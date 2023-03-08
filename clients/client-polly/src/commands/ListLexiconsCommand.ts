@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListLexiconsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListLexiconsCommand}.
+ */
 export interface ListLexiconsCommandInput extends ListLexiconsInput {}
+/**
+ * The output of {@link ListLexiconsCommand}.
+ */
 export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __MetadataBearer {}
 
 /**

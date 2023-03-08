@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1GetIdCommand, serializeAws_json1_1GetIdCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetIdCommand}.
+ */
 export interface GetIdCommandInput extends GetIdInput {}
+/**
+ * The output of {@link GetIdCommand}.
+ */
 export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
 
 /**

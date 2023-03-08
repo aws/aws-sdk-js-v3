@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link SearchDataSourcesCommand}.
+ */
 export interface SearchDataSourcesCommandInput extends SearchDataSourcesRequest {}
+/**
+ * The output of {@link SearchDataSourcesCommand}.
+ */
 export interface SearchDataSourcesCommandOutput extends SearchDataSourcesResponse, __MetadataBearer {}
 
 /**

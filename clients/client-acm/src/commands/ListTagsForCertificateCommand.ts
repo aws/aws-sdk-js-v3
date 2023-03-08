@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListTagsForCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTagsForCertificateCommand}.
+ */
 export interface ListTagsForCertificateCommandInput extends ListTagsForCertificateRequest {}
+/**
+ * The output of {@link ListTagsForCertificateCommand}.
+ */
 export interface ListTagsForCertificateCommandOutput extends ListTagsForCertificateResponse, __MetadataBearer {}
 
 /**

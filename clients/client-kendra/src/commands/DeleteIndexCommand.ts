@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteIndexCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteIndexCommand}.
+ */
 export interface DeleteIndexCommandInput extends DeleteIndexRequest {}
+/**
+ * The output of {@link DeleteIndexCommand}.
+ */
 export interface DeleteIndexCommandOutput extends __MetadataBearer {}
 
 /**

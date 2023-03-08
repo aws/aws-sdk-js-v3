@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListThemesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListThemesCommand}.
+ */
 export interface ListThemesCommandInput extends ListThemesRequest {}
+/**
+ * The output of {@link ListThemesCommand}.
+ */
 export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataBearer {}
 
 /**

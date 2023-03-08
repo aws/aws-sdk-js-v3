@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListThingRegistrationTasksCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListThingRegistrationTasksCommand}.
+ */
 export interface ListThingRegistrationTasksCommandInput extends ListThingRegistrationTasksRequest {}
+/**
+ * The output of {@link ListThingRegistrationTasksCommand}.
+ */
 export interface ListThingRegistrationTasksCommandOutput extends ListThingRegistrationTasksResponse, __MetadataBearer {}
 
 /**

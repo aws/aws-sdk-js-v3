@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link DescribePatchPropertiesCommand}.
+ */
 export interface DescribePatchPropertiesCommandInput extends DescribePatchPropertiesRequest {}
+/**
+ * The output of {@link DescribePatchPropertiesCommand}.
+ */
 export interface DescribePatchPropertiesCommandOutput extends DescribePatchPropertiesResult, __MetadataBearer {}
 
 /**

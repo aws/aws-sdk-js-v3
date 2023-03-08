@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteApnsChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteApnsChannelCommand}.
+ */
 export interface DeleteApnsChannelCommandInput extends DeleteApnsChannelRequest {}
+/**
+ * The output of {@link DeleteApnsChannelCommand}.
+ */
 export interface DeleteApnsChannelCommandOutput extends DeleteApnsChannelResponse, __MetadataBearer {}
 
 /**

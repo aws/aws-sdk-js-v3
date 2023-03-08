@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1ListAssociationsForLicenseConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAssociationsForLicenseConfigurationCommand}.
+ */
 export interface ListAssociationsForLicenseConfigurationCommandInput
   extends ListAssociationsForLicenseConfigurationRequest {}
+/**
+ * The output of {@link ListAssociationsForLicenseConfigurationCommand}.
+ */
 export interface ListAssociationsForLicenseConfigurationCommandOutput
   extends ListAssociationsForLicenseConfigurationResponse,
     __MetadataBearer {}

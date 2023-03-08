@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListStreamingSessionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListStreamingSessionsCommand}.
+ */
 export interface ListStreamingSessionsCommandInput extends ListStreamingSessionsRequest {}
+/**
+ * The output of {@link ListStreamingSessionsCommand}.
+ */
 export interface ListStreamingSessionsCommandOutput extends ListStreamingSessionsResponse, __MetadataBearer {}
 
 /**

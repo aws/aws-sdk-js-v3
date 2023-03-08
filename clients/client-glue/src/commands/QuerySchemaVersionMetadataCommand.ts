@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1QuerySchemaVersionMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link QuerySchemaVersionMetadataCommand}.
+ */
 export interface QuerySchemaVersionMetadataCommandInput extends QuerySchemaVersionMetadataInput {}
+/**
+ * The output of {@link QuerySchemaVersionMetadataCommand}.
+ */
 export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVersionMetadataResponse, __MetadataBearer {}
 
 /**

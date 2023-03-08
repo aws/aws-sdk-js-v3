@@ -6,7 +6,6 @@ import {
   ListThesauriCommandInput,
   ListThesauriCommandOutput,
 } from "../commands/ListThesauriCommand";
-import { Kendra } from "../Kendra";
 import { KendraClient } from "../KendraClient";
 import { KendraPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListThesauriCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Kendra,
-  input: ListThesauriCommandInput,
-  ...args: any
-): Promise<ListThesauriCommandOutput> => {
-  // @ts-ignore
-  return await client.listThesauri(input, ...args);
-};
 export async function* paginateListThesauri(
   config: KendraPaginationConfiguration,
   input: ListThesauriCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListThesauri(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Kendra) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KendraClient) {
+    if (config.client instanceof KendraClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Kendra | KendraClient");

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateClusterKafkaVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateClusterKafkaVersionCommand}.
+ */
 export interface UpdateClusterKafkaVersionCommandInput extends UpdateClusterKafkaVersionRequest {}
+/**
+ * The output of {@link UpdateClusterKafkaVersionCommand}.
+ */
 export interface UpdateClusterKafkaVersionCommandOutput extends UpdateClusterKafkaVersionResponse, __MetadataBearer {}
 
 /**

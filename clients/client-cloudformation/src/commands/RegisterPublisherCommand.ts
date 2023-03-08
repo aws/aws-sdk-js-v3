@@ -25,7 +25,13 @@ import {
   serializeAws_queryRegisterPublisherCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RegisterPublisherCommand}.
+ */
 export interface RegisterPublisherCommandInput extends RegisterPublisherInput {}
+/**
+ * The output of {@link RegisterPublisherCommand}.
+ */
 export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutAccountPreferencesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutAccountPreferencesCommand}.
+ */
 export interface PutAccountPreferencesCommandInput extends PutAccountPreferencesRequest {}
+/**
+ * The output of {@link PutAccountPreferencesCommand}.
+ */
 export interface PutAccountPreferencesCommandOutput extends PutAccountPreferencesResponse, __MetadataBearer {}
 
 /**

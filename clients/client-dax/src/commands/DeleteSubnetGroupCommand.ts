@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteSubnetGroupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteSubnetGroupCommand}.
+ */
 export interface DeleteSubnetGroupCommandInput extends DeleteSubnetGroupRequest {}
+/**
+ * The output of {@link DeleteSubnetGroupCommand}.
+ */
 export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupResponse, __MetadataBearer {}
 
 /**

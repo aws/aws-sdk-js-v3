@@ -22,7 +22,13 @@ import {
 import { deserializeAws_queryPublishBatchCommand, serializeAws_queryPublishBatchCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link PublishBatchCommand}.
+ */
 export interface PublishBatchCommandInput extends PublishBatchInput {}
+/**
+ * The output of {@link PublishBatchCommand}.
+ */
 export interface PublishBatchCommandOutput extends PublishBatchResponse, __MetadataBearer {}
 
 /**

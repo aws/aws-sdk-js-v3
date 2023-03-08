@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * The input for {@link AssociateLensesCommand}.
+ */
 export interface AssociateLensesCommandInput extends AssociateLensesInput {}
+/**
+ * The output of {@link AssociateLensesCommand}.
+ */
 export interface AssociateLensesCommandOutput extends __MetadataBearer {}
 
 /**

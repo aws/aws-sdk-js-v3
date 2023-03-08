@@ -6,7 +6,6 @@ import {
   ListSnapshotBlocksCommandInput,
   ListSnapshotBlocksCommandOutput,
 } from "../commands/ListSnapshotBlocksCommand";
-import { EBS } from "../EBS";
 import { EBSClient } from "../EBSClient";
 import { EBSPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSnapshotBlocksCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: EBS,
-  input: ListSnapshotBlocksCommandInput,
-  ...args: any
-): Promise<ListSnapshotBlocksCommandOutput> => {
-  // @ts-ignore
-  return await client.listSnapshotBlocks(input, ...args);
-};
 export async function* paginateListSnapshotBlocks(
   config: EBSPaginationConfiguration,
   input: ListSnapshotBlocksCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListSnapshotBlocks(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof EBS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EBSClient) {
+    if (config.client instanceof EBSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EBS | EBSClient");

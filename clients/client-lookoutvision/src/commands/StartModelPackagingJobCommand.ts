@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartModelPackagingJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartModelPackagingJobCommand}.
+ */
 export interface StartModelPackagingJobCommandInput extends StartModelPackagingJobRequest {}
+/**
+ * The output of {@link StartModelPackagingJobCommand}.
+ */
 export interface StartModelPackagingJobCommandOutput extends StartModelPackagingJobResponse, __MetadataBearer {}
 
 /**

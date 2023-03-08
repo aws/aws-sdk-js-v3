@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteStreamingSessionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteStreamingSessionCommand}.
+ */
 export interface DeleteStreamingSessionCommandInput extends DeleteStreamingSessionRequest {}
+/**
+ * The output of {@link DeleteStreamingSessionCommand}.
+ */
 export interface DeleteStreamingSessionCommandOutput extends DeleteStreamingSessionResponse, __MetadataBearer {}
 
 /**

@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListAttacksCommand, ListAttacksCommandInput, ListAttacksCommandOutput } from "../commands/ListAttacksCommand";
-import { Shield } from "../Shield";
 import { ShieldClient } from "../ShieldClient";
 import { ShieldPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAttacksCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Shield,
-  input: ListAttacksCommandInput,
-  ...args: any
-): Promise<ListAttacksCommandOutput> => {
-  // @ts-ignore
-  return await client.listAttacks(input, ...args);
-};
 export async function* paginateListAttacks(
   config: ShieldPaginationConfiguration,
   input: ListAttacksCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListAttacks(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Shield) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ShieldClient) {
+    if (config.client instanceof ShieldClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Shield | ShieldClient");

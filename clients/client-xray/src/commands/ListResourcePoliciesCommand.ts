@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * The input for {@link ListResourcePoliciesCommand}.
+ */
 export interface ListResourcePoliciesCommandInput extends ListResourcePoliciesRequest {}
+/**
+ * The output of {@link ListResourcePoliciesCommand}.
+ */
 export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesResult, __MetadataBearer {}
 
 /**

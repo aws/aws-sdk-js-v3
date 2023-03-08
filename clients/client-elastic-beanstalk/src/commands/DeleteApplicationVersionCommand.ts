@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteApplicationVersionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteApplicationVersionCommand}.
+ */
 export interface DeleteApplicationVersionCommandInput extends DeleteApplicationVersionMessage {}
+/**
+ * The output of {@link DeleteApplicationVersionCommand}.
+ */
 export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer {}
 
 /**

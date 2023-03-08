@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetFailbackReplicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetFailbackReplicationConfigurationCommand}.
+ */
 export interface GetFailbackReplicationConfigurationCommandInput extends GetFailbackReplicationConfigurationRequest {}
+/**
+ * The output of {@link GetFailbackReplicationConfigurationCommand}.
+ */
 export interface GetFailbackReplicationConfigurationCommandOutput
   extends GetFailbackReplicationConfigurationResponse,
     __MetadataBearer {}

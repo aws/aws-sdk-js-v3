@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link DescribeReceiptRuleCommand}.
+ */
 export interface DescribeReceiptRuleCommandInput extends DescribeReceiptRuleRequest {}
+/**
+ * The output of {@link DescribeReceiptRuleCommand}.
+ */
 export interface DescribeReceiptRuleCommandOutput extends DescribeReceiptRuleResponse, __MetadataBearer {}
 
 /**

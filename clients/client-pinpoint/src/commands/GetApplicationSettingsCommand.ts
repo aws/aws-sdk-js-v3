@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetApplicationSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetApplicationSettingsCommand}.
+ */
 export interface GetApplicationSettingsCommandInput extends GetApplicationSettingsRequest {}
+/**
+ * The output of {@link GetApplicationSettingsCommand}.
+ */
 export interface GetApplicationSettingsCommandOutput extends GetApplicationSettingsResponse, __MetadataBearer {}
 
 /**

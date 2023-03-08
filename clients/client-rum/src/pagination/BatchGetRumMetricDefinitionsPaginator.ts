@@ -6,7 +6,6 @@ import {
   BatchGetRumMetricDefinitionsCommandInput,
   BatchGetRumMetricDefinitionsCommandOutput,
 } from "../commands/BatchGetRumMetricDefinitionsCommand";
-import { RUM } from "../RUM";
 import { RUMClient } from "../RUMClient";
 import { RUMPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new BatchGetRumMetricDefinitionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: RUM,
-  input: BatchGetRumMetricDefinitionsCommandInput,
-  ...args: any
-): Promise<BatchGetRumMetricDefinitionsCommandOutput> => {
-  // @ts-ignore
-  return await client.batchGetRumMetricDefinitions(input, ...args);
-};
 export async function* paginateBatchGetRumMetricDefinitions(
   config: RUMPaginationConfiguration,
   input: BatchGetRumMetricDefinitionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateBatchGetRumMetricDefinitions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof RUM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RUMClient) {
+    if (config.client instanceof RUMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RUM | RUMClient");

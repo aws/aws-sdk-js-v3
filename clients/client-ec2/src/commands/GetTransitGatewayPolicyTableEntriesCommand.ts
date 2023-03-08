@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetTransitGatewayPolicyTableEntriesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetTransitGatewayPolicyTableEntriesCommand}.
+ */
 export interface GetTransitGatewayPolicyTableEntriesCommandInput extends GetTransitGatewayPolicyTableEntriesRequest {}
+/**
+ * The output of {@link GetTransitGatewayPolicyTableEntriesCommand}.
+ */
 export interface GetTransitGatewayPolicyTableEntriesCommandOutput
   extends GetTransitGatewayPolicyTableEntriesResult,
     __MetadataBearer {}

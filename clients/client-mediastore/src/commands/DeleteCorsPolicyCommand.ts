@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteCorsPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteCorsPolicyCommand}.
+ */
 export interface DeleteCorsPolicyCommandInput extends DeleteCorsPolicyInput {}
+/**
+ * The output of {@link DeleteCorsPolicyCommand}.
+ */
 export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, __MetadataBearer {}
 
 /**

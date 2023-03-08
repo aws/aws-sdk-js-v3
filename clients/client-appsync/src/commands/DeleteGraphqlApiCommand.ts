@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteGraphqlApiCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteGraphqlApiCommand}.
+ */
 export interface DeleteGraphqlApiCommandInput extends DeleteGraphqlApiRequest {}
+/**
+ * The output of {@link DeleteGraphqlApiCommand}.
+ */
 export interface DeleteGraphqlApiCommandOutput extends DeleteGraphqlApiResponse, __MetadataBearer {}
 
 /**

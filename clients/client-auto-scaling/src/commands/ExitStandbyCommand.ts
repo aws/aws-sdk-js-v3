@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryExitStandbyCommand, serializeAws_queryExitStandbyCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ExitStandbyCommand}.
+ */
 export interface ExitStandbyCommandInput extends ExitStandbyQuery {}
+/**
+ * The output of {@link ExitStandbyCommand}.
+ */
 export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataBearer {}
 
 /**

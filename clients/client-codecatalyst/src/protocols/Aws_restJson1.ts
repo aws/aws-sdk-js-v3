@@ -69,6 +69,10 @@ import {
 } from "../commands/StartDevEnvironmentSessionCommand";
 import { StopDevEnvironmentCommandInput, StopDevEnvironmentCommandOutput } from "../commands/StopDevEnvironmentCommand";
 import {
+  StopDevEnvironmentSessionCommandInput,
+  StopDevEnvironmentSessionCommandOutput,
+} from "../commands/StopDevEnvironmentSessionCommand";
+import {
   UpdateDevEnvironmentCommandInput,
   UpdateDevEnvironmentCommandOutput,
 } from "../commands/UpdateDevEnvironmentCommand";
@@ -710,6 +714,31 @@ export const serializeAws_restJson1StopDevEnvironmentCommand = async (
   });
 };
 
+export const serializeAws_restJson1StopDevEnvironmentSessionCommand = async (
+  input: StopDevEnvironmentSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/session/{sessionId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateDevEnvironmentCommand = async (
   input: UpdateDevEnvironmentCommandInput,
   context: __SerdeContext
@@ -776,6 +805,9 @@ export const deserializeAws_restJson1CreateAccessTokenCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.accessTokenId != null) {
+    contents.accessTokenId = __expectString(data.accessTokenId);
+  }
   if (data.expiresTime != null) {
     contents.expiresTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.expiresTime));
   }
@@ -2115,6 +2147,71 @@ const deserializeAws_restJson1StopDevEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopDevEnvironmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.codecatalyst#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.codecatalyst#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.codecatalyst#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.codecatalyst#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1StopDevEnvironmentSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopDevEnvironmentSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StopDevEnvironmentSessionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.id != null) {
+    contents.id = __expectString(data.id);
+  }
+  if (data.projectName != null) {
+    contents.projectName = __expectString(data.projectName);
+  }
+  if (data.sessionId != null) {
+    contents.sessionId = __expectString(data.sessionId);
+  }
+  if (data.spaceName != null) {
+    contents.spaceName = __expectString(data.spaceName);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1StopDevEnvironmentSessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopDevEnvironmentSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

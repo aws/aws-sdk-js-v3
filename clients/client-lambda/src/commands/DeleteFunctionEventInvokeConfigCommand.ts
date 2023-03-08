@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteFunctionEventInvokeConfigCommand}.
+ */
 export interface DeleteFunctionEventInvokeConfigCommandInput extends DeleteFunctionEventInvokeConfigRequest {}
+/**
+ * The output of {@link DeleteFunctionEventInvokeConfigCommand}.
+ */
 export interface DeleteFunctionEventInvokeConfigCommandOutput extends __MetadataBearer {}
 
 /**

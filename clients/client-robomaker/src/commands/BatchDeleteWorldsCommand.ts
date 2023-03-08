@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * The input for {@link BatchDeleteWorldsCommand}.
+ */
 export interface BatchDeleteWorldsCommandInput extends BatchDeleteWorldsRequest {}
+/**
+ * The output of {@link BatchDeleteWorldsCommand}.
+ */
 export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsResponse, __MetadataBearer {}
 
 /**

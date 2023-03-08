@@ -20,7 +20,13 @@ import {
   serializeAws_queryCreateOrUpdateTagsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateOrUpdateTagsCommand}.
+ */
 export interface CreateOrUpdateTagsCommandInput extends CreateOrUpdateTagsType {}
+/**
+ * The output of {@link CreateOrUpdateTagsCommand}.
+ */
 export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
 
 /**

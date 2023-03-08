@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteEventSourceMappingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteEventSourceMappingCommand}.
+ */
 export interface DeleteEventSourceMappingCommandInput extends DeleteEventSourceMappingRequest {}
+/**
+ * The output of {@link DeleteEventSourceMappingCommand}.
+ */
 export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**

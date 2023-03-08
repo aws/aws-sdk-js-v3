@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteCustomDataIdentifierCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteCustomDataIdentifierCommand}.
+ */
 export interface DeleteCustomDataIdentifierCommandInput extends DeleteCustomDataIdentifierRequest {}
+/**
+ * The output of {@link DeleteCustomDataIdentifierCommand}.
+ */
 export interface DeleteCustomDataIdentifierCommandOutput extends DeleteCustomDataIdentifierResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAlertsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAlertsCommand}.
+ */
 export interface ListAlertsCommandInput extends ListAlertsRequest {}
+/**
+ * The output of {@link ListAlertsCommand}.
+ */
 export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataBearer {}
 
 /**

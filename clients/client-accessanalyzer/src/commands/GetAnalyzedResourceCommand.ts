@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAnalyzedResourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAnalyzedResourceCommand}.
+ */
 export interface GetAnalyzedResourceCommandInput extends GetAnalyzedResourceRequest {}
+/**
+ * The output of {@link GetAnalyzedResourceCommand}.
+ */
 export interface GetAnalyzedResourceCommandOutput extends GetAnalyzedResourceResponse, __MetadataBearer {}
 
 /**

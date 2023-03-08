@@ -25,11 +25,17 @@ import {
   serializeAws_restJson1DeleteTrackerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteTrackerCommand}.
+ */
 export interface DeleteTrackerCommandInput extends DeleteTrackerRequest {}
+/**
+ * The output of {@link DeleteTrackerCommand}.
+ */
 export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a tracker resource from your AWS account.</p>
+ * <p>Deletes a tracker resource from your Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently. If the tracker resource is in use, you may
  *                 encounter an error. Make sure that the target resource isn't a dependency for your

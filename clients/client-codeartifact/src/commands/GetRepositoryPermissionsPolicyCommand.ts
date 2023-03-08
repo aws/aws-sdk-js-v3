@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetRepositoryPermissionsPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetRepositoryPermissionsPolicyCommand}.
+ */
 export interface GetRepositoryPermissionsPolicyCommandInput extends GetRepositoryPermissionsPolicyRequest {}
+/**
+ * The output of {@link GetRepositoryPermissionsPolicyCommand}.
+ */
 export interface GetRepositoryPermissionsPolicyCommandOutput
   extends GetRepositoryPermissionsPolicyResult,
     __MetadataBearer {}

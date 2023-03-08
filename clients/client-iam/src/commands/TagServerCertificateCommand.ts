@@ -20,7 +20,13 @@ import {
   serializeAws_queryTagServerCertificateCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link TagServerCertificateCommand}.
+ */
 export interface TagServerCertificateCommandInput extends TagServerCertificateRequest {}
+/**
+ * The output of {@link TagServerCertificateCommand}.
+ */
 export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**

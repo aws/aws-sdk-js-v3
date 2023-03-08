@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteVirtualServiceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteVirtualServiceCommand}.
+ */
 export interface DeleteVirtualServiceCommandInput extends DeleteVirtualServiceInput {}
+/**
+ * The output of {@link DeleteVirtualServiceCommand}.
+ */
 export interface DeleteVirtualServiceCommandOutput extends DeleteVirtualServiceOutput, __MetadataBearer {}
 
 /**

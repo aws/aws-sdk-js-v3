@@ -16,7 +16,13 @@ import { XmlListsOutput, XmlListsOutputFilterSensitiveLog } from "../models/mode
 import { deserializeAws_queryXmlListsCommand, serializeAws_queryXmlListsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * The input for {@link XmlListsCommand}.
+ */
 export interface XmlListsCommandInput {}
+/**
+ * The output of {@link XmlListsCommand}.
+ */
 export interface XmlListsCommandOutput extends XmlListsOutput, __MetadataBearer {}
 
 /**

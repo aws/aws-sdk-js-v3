@@ -36,6 +36,14 @@ import {
   BatchEnableStandardsCommandOutput,
 } from "../commands/BatchEnableStandardsCommand";
 import {
+  BatchGetSecurityControlsCommandInput,
+  BatchGetSecurityControlsCommandOutput,
+} from "../commands/BatchGetSecurityControlsCommand";
+import {
+  BatchGetStandardsControlAssociationsCommandInput,
+  BatchGetStandardsControlAssociationsCommandOutput,
+} from "../commands/BatchGetStandardsControlAssociationsCommand";
+import {
   BatchImportFindingsCommandInput,
   BatchImportFindingsCommandOutput,
 } from "../commands/BatchImportFindingsCommand";
@@ -43,6 +51,10 @@ import {
   BatchUpdateFindingsCommandInput,
   BatchUpdateFindingsCommandOutput,
 } from "../commands/BatchUpdateFindingsCommand";
+import {
+  BatchUpdateStandardsControlAssociationsCommandInput,
+  BatchUpdateStandardsControlAssociationsCommandOutput,
+} from "../commands/BatchUpdateStandardsControlAssociationsCommand";
 import { CreateActionTargetCommandInput, CreateActionTargetCommandOutput } from "../commands/CreateActionTargetCommand";
 import {
   CreateFindingAggregatorCommandInput,
@@ -140,6 +152,14 @@ import {
   ListOrganizationAdminAccountsCommandInput,
   ListOrganizationAdminAccountsCommandOutput,
 } from "../commands/ListOrganizationAdminAccountsCommand";
+import {
+  ListSecurityControlDefinitionsCommandInput,
+  ListSecurityControlDefinitionsCommandOutput,
+} from "../commands/ListSecurityControlDefinitionsCommand";
+import {
+  ListStandardsControlAssociationsCommandInput,
+  ListStandardsControlAssociationsCommandOutput,
+} from "../commands/ListStandardsControlAssociationsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -436,7 +456,6 @@ import {
   AwsIamAccessKeySessionContextAttributes,
   AwsIamAccessKeySessionContextSessionIssuer,
   AwsIamAttachedManagedPolicy,
-  AwsIamGroupPolicy,
   AwsMountPoint,
   CidrBlockAssociation,
   City,
@@ -463,6 +482,7 @@ import {
 import {
   _Record,
   AwsIamGroupDetails,
+  AwsIamGroupPolicy,
   AwsIamInstanceProfile,
   AwsIamInstanceProfileRole,
   AwsIamPermissionsBoundary,
@@ -638,7 +658,6 @@ import {
   FirewallPolicyStatelessCustomActionsDetails,
   FirewallPolicyStatelessRuleGroupReferencesDetails,
   ImportFindingsError,
-  IntegrationType,
   IpFilter,
   KeywordFilter,
   Malware,
@@ -655,7 +674,6 @@ import {
   PatchSummary,
   PortRange,
   ProcessDetails,
-  Product,
   Range,
   Recommendation,
   RelatedFinding,
@@ -683,11 +701,15 @@ import {
   RuleGroupVariables,
   RuleGroupVariablesIpSetsDetails,
   RuleGroupVariablesPortSetsDetails,
+  SecurityControl,
   SensitiveDataDetections,
   SensitiveDataResult,
   Severity,
   SeverityUpdate,
   SoftwarePackage,
+  StandardsControlAssociationDetail,
+  StandardsControlAssociationId,
+  StandardsControlAssociationUpdate,
   StandardsStatusReason,
   StandardsSubscription,
   StandardsSubscriptionRequest,
@@ -698,6 +720,9 @@ import {
   StringFilter,
   Threat,
   ThreatIntelIndicator,
+  UnprocessedSecurityControl,
+  UnprocessedStandardsControlAssociation,
+  UnprocessedStandardsControlAssociationUpdate,
   VolumeMount,
   Vulnerability,
   VulnerabilityVendor,
@@ -712,11 +737,15 @@ import {
   Insight,
   InsightResults,
   InsightResultValue,
+  IntegrationType,
   Invitation,
   Member,
+  Product,
+  SecurityControlDefinition,
   SortCriterion,
   Standard,
   StandardsControl,
+  StandardsControlAssociationSummary,
   StandardsManagedBy,
 } from "../models/models_2";
 import { SecurityHubServiceException as __BaseException } from "../models/SecurityHubServiceException";
@@ -829,6 +858,62 @@ export const serializeAws_restJson1BatchEnableStandardsCommand = async (
   });
 };
 
+export const serializeAws_restJson1BatchGetSecurityControlsCommand = async (
+  input: BatchGetSecurityControlsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/securityControls/batchGet";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.SecurityControlIds != null && {
+      SecurityControlIds: serializeAws_restJson1StringList(input.SecurityControlIds, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1BatchGetStandardsControlAssociationsCommand = async (
+  input: BatchGetStandardsControlAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations/batchGet";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.StandardsControlAssociationIds != null && {
+      StandardsControlAssociationIds: serializeAws_restJson1StandardsControlAssociationIds(
+        input.StandardsControlAssociationIds,
+        context
+      ),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1BatchImportFindingsCommand = async (
   input: BatchImportFindingsCommandInput,
   context: __SerdeContext
@@ -882,6 +967,35 @@ export const serializeAws_restJson1BatchUpdateFindingsCommand = async (
     }),
     ...(input.VerificationState != null && { VerificationState: input.VerificationState }),
     ...(input.Workflow != null && { Workflow: serializeAws_restJson1WorkflowUpdate(input.Workflow, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand = async (
+  input: BatchUpdateStandardsControlAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.StandardsControlAssociationUpdates != null && {
+      StandardsControlAssociationUpdates: serializeAws_restJson1StandardsControlAssociationUpdates(
+        input.StandardsControlAssociationUpdates,
+        context
+      ),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1509,6 +1623,7 @@ export const serializeAws_restJson1EnableSecurityHubCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts";
   let body: any;
   body = JSON.stringify({
+    ...(input.ControlFindingGenerator != null && { ControlFindingGenerator: input.ControlFindingGenerator }),
     ...(input.EnableDefaultStandards != null && { EnableDefaultStandards: input.EnableDefaultStandards }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
@@ -1895,6 +2010,57 @@ export const serializeAws_restJson1ListOrganizationAdminAccountsCommand = async 
   });
 };
 
+export const serializeAws_restJson1ListSecurityControlDefinitionsCommand = async (
+  input: ListSecurityControlDefinitionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/securityControls/definitions";
+  const query: any = map({
+    StandardsArn: [, input.StandardsArn!],
+    NextToken: [, input.NextToken!],
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListStandardsControlAssociationsCommand = async (
+  input: ListStandardsControlAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations";
+  const query: any = map({
+    SecurityControlId: [, __expectNonNull(input.SecurityControlId!, `SecurityControlId`)],
+    NextToken: [, input.NextToken!],
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
@@ -2119,6 +2285,7 @@ export const serializeAws_restJson1UpdateSecurityHubConfigurationCommand = async
   let body: any;
   body = JSON.stringify({
     ...(input.AutoEnableControls != null && { AutoEnableControls: input.AutoEnableControls }),
+    ...(input.ControlFindingGenerator != null && { ControlFindingGenerator: input.ControlFindingGenerator }),
   });
   return new __HttpRequest({
     protocol,
@@ -2371,6 +2538,118 @@ const deserializeAws_restJson1BatchEnableStandardsCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1BatchGetSecurityControlsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetSecurityControlsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchGetSecurityControlsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.SecurityControls != null) {
+    contents.SecurityControls = deserializeAws_restJson1SecurityControls(data.SecurityControls, context);
+  }
+  if (data.UnprocessedIds != null) {
+    contents.UnprocessedIds = deserializeAws_restJson1UnprocessedSecurityControls(data.UnprocessedIds, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1BatchGetSecurityControlsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetSecurityControlsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await deserializeAws_restJson1InvalidAccessExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1BatchGetStandardsControlAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetStandardsControlAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchGetStandardsControlAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.StandardsControlAssociationDetails != null) {
+    contents.StandardsControlAssociationDetails = deserializeAws_restJson1StandardsControlAssociationDetails(
+      data.StandardsControlAssociationDetails,
+      context
+    );
+  }
+  if (data.UnprocessedAssociations != null) {
+    contents.UnprocessedAssociations = deserializeAws_restJson1UnprocessedStandardsControlAssociations(
+      data.UnprocessedAssociations,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1BatchGetStandardsControlAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetStandardsControlAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await deserializeAws_restJson1InvalidAccessExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1BatchImportFindingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2457,6 +2736,59 @@ const deserializeAws_restJson1BatchUpdateFindingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpdateFindingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await deserializeAws_restJson1InvalidAccessExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateStandardsControlAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchUpdateStandardsControlAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.UnprocessedAssociationUpdates != null) {
+    contents.UnprocessedAssociationUpdates = deserializeAws_restJson1UnprocessedStandardsControlAssociationUpdates(
+      data.UnprocessedAssociationUpdates,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1BatchUpdateStandardsControlAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateStandardsControlAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3085,6 +3417,9 @@ export const deserializeAws_restJson1DescribeHubCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AutoEnableControls != null) {
     contents.AutoEnableControls = __expectBoolean(data.AutoEnableControls);
+  }
+  if (data.ControlFindingGenerator != null) {
+    contents.ControlFindingGenerator = __expectString(data.ControlFindingGenerator);
   }
   if (data.HubArn != null) {
     contents.HubArn = __expectString(data.HubArn);
@@ -4574,6 +4909,118 @@ const deserializeAws_restJson1ListOrganizationAdminAccountsCommandError = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOrganizationAdminAccountsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await deserializeAws_restJson1InvalidAccessExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListSecurityControlDefinitionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSecurityControlDefinitionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListSecurityControlDefinitionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.SecurityControlDefinitions != null) {
+    contents.SecurityControlDefinitions = deserializeAws_restJson1SecurityControlDefinitions(
+      data.SecurityControlDefinitions,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListSecurityControlDefinitionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSecurityControlDefinitionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await deserializeAws_restJson1InvalidAccessExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListStandardsControlAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStandardsControlAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListStandardsControlAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.StandardsControlAssociationSummaries != null) {
+    contents.StandardsControlAssociationSummaries = deserializeAws_restJson1StandardsControlAssociationSummaries(
+      data.StandardsControlAssociationSummaries,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListStandardsControlAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStandardsControlAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -15561,6 +16008,50 @@ const serializeAws_restJson1SortCriterion = (input: SortCriterion, context: __Se
     ...(input.Field != null && { Field: input.Field }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
   };
+};
+
+const serializeAws_restJson1StandardsControlAssociationId = (
+  input: StandardsControlAssociationId,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SecurityControlId != null && { SecurityControlId: input.SecurityControlId }),
+    ...(input.StandardsArn != null && { StandardsArn: input.StandardsArn }),
+  };
+};
+
+const serializeAws_restJson1StandardsControlAssociationIds = (
+  input: StandardsControlAssociationId[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1StandardsControlAssociationId(entry, context);
+    });
+};
+
+const serializeAws_restJson1StandardsControlAssociationUpdate = (
+  input: StandardsControlAssociationUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AssociationStatus != null && { AssociationStatus: input.AssociationStatus }),
+    ...(input.SecurityControlId != null && { SecurityControlId: input.SecurityControlId }),
+    ...(input.StandardsArn != null && { StandardsArn: input.StandardsArn }),
+    ...(input.UpdatedReason != null && { UpdatedReason: input.UpdatedReason }),
+  };
+};
+
+const serializeAws_restJson1StandardsControlAssociationUpdates = (
+  input: StandardsControlAssociationUpdate[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1StandardsControlAssociationUpdate(entry, context);
+    });
 };
 
 const serializeAws_restJson1StandardsInputParameterMap = (
@@ -27186,6 +27677,59 @@ const deserializeAws_restJson1RuleGroupVariablesPortSetsDetails = (
   } as any;
 };
 
+const deserializeAws_restJson1SecurityControl = (output: any, context: __SerdeContext): SecurityControl => {
+  return {
+    Description: __expectString(output.Description),
+    RemediationUrl: __expectString(output.RemediationUrl),
+    SecurityControlArn: __expectString(output.SecurityControlArn),
+    SecurityControlId: __expectString(output.SecurityControlId),
+    SecurityControlStatus: __expectString(output.SecurityControlStatus),
+    SeverityRating: __expectString(output.SeverityRating),
+    Title: __expectString(output.Title),
+  } as any;
+};
+
+const deserializeAws_restJson1SecurityControlDefinition = (
+  output: any,
+  context: __SerdeContext
+): SecurityControlDefinition => {
+  return {
+    CurrentRegionAvailability: __expectString(output.CurrentRegionAvailability),
+    Description: __expectString(output.Description),
+    RemediationUrl: __expectString(output.RemediationUrl),
+    SecurityControlId: __expectString(output.SecurityControlId),
+    SeverityRating: __expectString(output.SeverityRating),
+    Title: __expectString(output.Title),
+  } as any;
+};
+
+const deserializeAws_restJson1SecurityControlDefinitions = (
+  output: any,
+  context: __SerdeContext
+): SecurityControlDefinition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SecurityControlDefinition(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1SecurityControls = (output: any, context: __SerdeContext): SecurityControl[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SecurityControl(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1SecurityGroups = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -27331,6 +27875,116 @@ const deserializeAws_restJson1StandardsControl = (output: any, context: __SerdeC
     SeverityRating: __expectString(output.SeverityRating),
     StandardsControlArn: __expectString(output.StandardsControlArn),
     Title: __expectString(output.Title),
+  } as any;
+};
+
+const deserializeAws_restJson1StandardsControlArnList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1StandardsControlAssociationDetail = (
+  output: any,
+  context: __SerdeContext
+): StandardsControlAssociationDetail => {
+  return {
+    AssociationStatus: __expectString(output.AssociationStatus),
+    RelatedRequirements:
+      output.RelatedRequirements != null
+        ? deserializeAws_restJson1RelatedRequirementsList(output.RelatedRequirements, context)
+        : undefined,
+    SecurityControlArn: __expectString(output.SecurityControlArn),
+    SecurityControlId: __expectString(output.SecurityControlId),
+    StandardsArn: __expectString(output.StandardsArn),
+    StandardsControlArns:
+      output.StandardsControlArns != null
+        ? deserializeAws_restJson1StandardsControlArnList(output.StandardsControlArns, context)
+        : undefined,
+    StandardsControlDescription: __expectString(output.StandardsControlDescription),
+    StandardsControlTitle: __expectString(output.StandardsControlTitle),
+    UpdatedAt:
+      output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedAt)) : undefined,
+    UpdatedReason: __expectString(output.UpdatedReason),
+  } as any;
+};
+
+const deserializeAws_restJson1StandardsControlAssociationDetails = (
+  output: any,
+  context: __SerdeContext
+): StandardsControlAssociationDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StandardsControlAssociationDetail(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1StandardsControlAssociationId = (
+  output: any,
+  context: __SerdeContext
+): StandardsControlAssociationId => {
+  return {
+    SecurityControlId: __expectString(output.SecurityControlId),
+    StandardsArn: __expectString(output.StandardsArn),
+  } as any;
+};
+
+const deserializeAws_restJson1StandardsControlAssociationSummaries = (
+  output: any,
+  context: __SerdeContext
+): StandardsControlAssociationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StandardsControlAssociationSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1StandardsControlAssociationSummary = (
+  output: any,
+  context: __SerdeContext
+): StandardsControlAssociationSummary => {
+  return {
+    AssociationStatus: __expectString(output.AssociationStatus),
+    RelatedRequirements:
+      output.RelatedRequirements != null
+        ? deserializeAws_restJson1RelatedRequirementsList(output.RelatedRequirements, context)
+        : undefined,
+    SecurityControlArn: __expectString(output.SecurityControlArn),
+    SecurityControlId: __expectString(output.SecurityControlId),
+    StandardsArn: __expectString(output.StandardsArn),
+    StandardsControlDescription: __expectString(output.StandardsControlDescription),
+    StandardsControlTitle: __expectString(output.StandardsControlTitle),
+    UpdatedAt:
+      output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedAt)) : undefined,
+    UpdatedReason: __expectString(output.UpdatedReason),
+  } as any;
+};
+
+const deserializeAws_restJson1StandardsControlAssociationUpdate = (
+  output: any,
+  context: __SerdeContext
+): StandardsControlAssociationUpdate => {
+  return {
+    AssociationStatus: __expectString(output.AssociationStatus),
+    SecurityControlId: __expectString(output.SecurityControlId),
+    StandardsArn: __expectString(output.StandardsArn),
+    UpdatedReason: __expectString(output.UpdatedReason),
   } as any;
 };
 
@@ -27566,6 +28220,90 @@ const deserializeAws_restJson1TypeList = (output: any, context: __SerdeContext):
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1UnprocessedSecurityControl = (
+  output: any,
+  context: __SerdeContext
+): UnprocessedSecurityControl => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorReason: __expectString(output.ErrorReason),
+    SecurityControlId: __expectString(output.SecurityControlId),
+  } as any;
+};
+
+const deserializeAws_restJson1UnprocessedSecurityControls = (
+  output: any,
+  context: __SerdeContext
+): UnprocessedSecurityControl[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UnprocessedSecurityControl(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1UnprocessedStandardsControlAssociation = (
+  output: any,
+  context: __SerdeContext
+): UnprocessedStandardsControlAssociation => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorReason: __expectString(output.ErrorReason),
+    StandardsControlAssociationId:
+      output.StandardsControlAssociationId != null
+        ? deserializeAws_restJson1StandardsControlAssociationId(output.StandardsControlAssociationId, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1UnprocessedStandardsControlAssociations = (
+  output: any,
+  context: __SerdeContext
+): UnprocessedStandardsControlAssociation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UnprocessedStandardsControlAssociation(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1UnprocessedStandardsControlAssociationUpdate = (
+  output: any,
+  context: __SerdeContext
+): UnprocessedStandardsControlAssociationUpdate => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorReason: __expectString(output.ErrorReason),
+    StandardsControlAssociationUpdate:
+      output.StandardsControlAssociationUpdate != null
+        ? deserializeAws_restJson1StandardsControlAssociationUpdate(output.StandardsControlAssociationUpdate, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1UnprocessedStandardsControlAssociationUpdates = (
+  output: any,
+  context: __SerdeContext
+): UnprocessedStandardsControlAssociationUpdate[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UnprocessedStandardsControlAssociationUpdate(entry, context);
     });
   return retVal;
 };

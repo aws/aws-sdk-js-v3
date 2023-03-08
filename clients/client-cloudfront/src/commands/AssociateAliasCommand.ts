@@ -20,7 +20,13 @@ import {
   serializeAws_restXmlAssociateAliasCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link AssociateAliasCommand}.
+ */
 export interface AssociateAliasCommandInput extends AssociateAliasRequest {}
+/**
+ * The output of {@link AssociateAliasCommand}.
+ */
 export interface AssociateAliasCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeInstanceRefreshesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeInstanceRefreshesCommand}.
+ */
 export interface DescribeInstanceRefreshesCommandInput extends DescribeInstanceRefreshesType {}
+/**
+ * The output of {@link DescribeInstanceRefreshesCommand}.
+ */
 export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstanceRefreshesAnswer, __MetadataBearer {}
 
 /**

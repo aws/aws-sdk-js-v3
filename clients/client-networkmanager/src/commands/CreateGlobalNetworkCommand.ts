@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateGlobalNetworkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateGlobalNetworkCommand}.
+ */
 export interface CreateGlobalNetworkCommandInput extends CreateGlobalNetworkRequest {}
+/**
+ * The output of {@link CreateGlobalNetworkCommand}.
+ */
 export interface CreateGlobalNetworkCommandOutput extends CreateGlobalNetworkResponse, __MetadataBearer {}
 
 /**

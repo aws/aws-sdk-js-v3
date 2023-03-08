@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteVirtualMFADeviceCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteVirtualMFADeviceCommand}.
+ */
 export interface DeleteVirtualMFADeviceCommandInput extends DeleteVirtualMFADeviceRequest {}
+/**
+ * The output of {@link DeleteVirtualMFADeviceCommand}.
+ */
 export interface DeleteVirtualMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**

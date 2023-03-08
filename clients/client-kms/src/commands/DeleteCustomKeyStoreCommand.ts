@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteCustomKeyStoreCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteCustomKeyStoreCommand}.
+ */
 export interface DeleteCustomKeyStoreCommandInput extends DeleteCustomKeyStoreRequest {}
+/**
+ * The output of {@link DeleteCustomKeyStoreCommand}.
+ */
 export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
@@ -56,7 +62,6 @@ export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreR
  * properties.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a custom key store in a different Amazon Web Services account.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DeleteCustomKeyStore</a> (IAM policy)</p>
  *          <p>

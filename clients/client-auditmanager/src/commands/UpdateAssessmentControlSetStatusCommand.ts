@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateAssessmentControlSetStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateAssessmentControlSetStatusCommand}.
+ */
 export interface UpdateAssessmentControlSetStatusCommandInput extends UpdateAssessmentControlSetStatusRequest {}
+/**
+ * The output of {@link UpdateAssessmentControlSetStatusCommand}.
+ */
 export interface UpdateAssessmentControlSetStatusCommandOutput
   extends UpdateAssessmentControlSetStatusResponse,
     __MetadataBearer {}

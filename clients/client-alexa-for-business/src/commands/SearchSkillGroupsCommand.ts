@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SearchSkillGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SearchSkillGroupsCommand}.
+ */
 export interface SearchSkillGroupsCommandInput extends SearchSkillGroupsRequest {}
+/**
+ * The output of {@link SearchSkillGroupsCommand}.
+ */
 export interface SearchSkillGroupsCommandOutput extends SearchSkillGroupsResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1CancelJobExecutionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelJobExecutionCommand}.
+ */
 export interface CancelJobExecutionCommandInput extends CancelJobExecutionRequest {}
+/**
+ * The output of {@link CancelJobExecutionCommand}.
+ */
 export interface CancelJobExecutionCommandOutput extends __MetadataBearer {}
 
 /**

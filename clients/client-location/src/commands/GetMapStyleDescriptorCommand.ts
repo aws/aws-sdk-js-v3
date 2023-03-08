@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetMapStyleDescriptorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetMapStyleDescriptorCommand}.
+ */
 export interface GetMapStyleDescriptorCommandInput extends GetMapStyleDescriptorRequest {}
+/**
+ * The output of {@link GetMapStyleDescriptorCommand}.
+ */
 export interface GetMapStyleDescriptorCommandOutput extends GetMapStyleDescriptorResponse, __MetadataBearer {}
 
 /**

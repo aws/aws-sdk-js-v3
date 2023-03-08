@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeLaunchConfigurationsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeLaunchConfigurationsCommand}.
+ */
 export interface DescribeLaunchConfigurationsCommandInput extends LaunchConfigurationNamesType {}
+/**
+ * The output of {@link DescribeLaunchConfigurationsCommand}.
+ */
 export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigurationsType, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateClusterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateClusterCommand}.
+ */
 export interface CreateClusterCommandInput extends CreateClusterRequest {}
+/**
+ * The output of {@link CreateClusterCommand}.
+ */
 export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
 
 /**
@@ -35,7 +41,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *          <note>
  *             <p>When you call the <a>CreateCluster</a> API operation, Amazon ECS attempts to
  * 				create the Amazon ECS service-linked role for your account. This is so that it can manage
- * 				required resources in other Amazon Web Services services on your behalf. However, if the IAM user
+ * 				required resources in other Amazon Web Services services on your behalf. However, if the user
  * 				that makes the call doesn't have permissions to create the service-linked role, it
  * 				isn't created. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
  * 					service-linked roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>

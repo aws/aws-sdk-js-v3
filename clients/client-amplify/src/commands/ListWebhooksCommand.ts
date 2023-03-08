@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListWebhooksCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListWebhooksCommand}.
+ */
 export interface ListWebhooksCommandInput extends ListWebhooksRequest {}
+/**
+ * The output of {@link ListWebhooksCommand}.
+ */
 export interface ListWebhooksCommandOutput extends ListWebhooksResult, __MetadataBearer {}
 
 /**

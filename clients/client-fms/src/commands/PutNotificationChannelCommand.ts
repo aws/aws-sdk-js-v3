@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1PutNotificationChannelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutNotificationChannelCommand}.
+ */
 export interface PutNotificationChannelCommandInput extends PutNotificationChannelRequest {}
+/**
+ * The output of {@link PutNotificationChannelCommand}.
+ */
 export interface PutNotificationChannelCommandOutput extends __MetadataBearer {}
 
 /**

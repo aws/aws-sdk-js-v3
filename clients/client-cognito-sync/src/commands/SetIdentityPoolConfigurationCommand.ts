@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SetIdentityPoolConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SetIdentityPoolConfigurationCommand}.
+ */
 export interface SetIdentityPoolConfigurationCommandInput extends SetIdentityPoolConfigurationRequest {}
+/**
+ * The output of {@link SetIdentityPoolConfigurationCommand}.
+ */
 export interface SetIdentityPoolConfigurationCommandOutput
   extends SetIdentityPoolConfigurationResponse,
     __MetadataBearer {}

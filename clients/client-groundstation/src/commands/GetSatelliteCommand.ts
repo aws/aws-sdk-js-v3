@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSatelliteCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSatelliteCommand}.
+ */
 export interface GetSatelliteCommandInput extends GetSatelliteRequest {}
+/**
+ * The output of {@link GetSatelliteCommand}.
+ */
 export interface GetSatelliteCommandOutput extends GetSatelliteResponse, __MetadataBearer {}
 
 /**

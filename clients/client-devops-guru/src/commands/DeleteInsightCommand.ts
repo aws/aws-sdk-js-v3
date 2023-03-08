@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteInsightCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteInsightCommand}.
+ */
 export interface DeleteInsightCommandInput extends DeleteInsightRequest {}
+/**
+ * The output of {@link DeleteInsightCommand}.
+ */
 export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __MetadataBearer {}
 
 /**

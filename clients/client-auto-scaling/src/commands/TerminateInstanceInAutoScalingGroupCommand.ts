@@ -25,7 +25,13 @@ import {
   serializeAws_queryTerminateInstanceInAutoScalingGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link TerminateInstanceInAutoScalingGroupCommand}.
+ */
 export interface TerminateInstanceInAutoScalingGroupCommandInput extends TerminateInstanceInAutoScalingGroupType {}
+/**
+ * The output of {@link TerminateInstanceInAutoScalingGroupCommand}.
+ */
 export interface TerminateInstanceInAutoScalingGroupCommandOutput extends ActivityType, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteDBClusterEndpointCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteDBClusterEndpointCommand}.
+ */
 export interface DeleteDBClusterEndpointCommandInput extends DeleteDBClusterEndpointMessage {}
+/**
+ * The output of {@link DeleteDBClusterEndpointCommand}.
+ */
 export interface DeleteDBClusterEndpointCommandOutput extends DeleteDBClusterEndpointOutput, __MetadataBearer {}
 
 /**

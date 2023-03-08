@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PurchaseProvisionedCapacityCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PurchaseProvisionedCapacityCommand}.
+ */
 export interface PurchaseProvisionedCapacityCommandInput extends PurchaseProvisionedCapacityInput {}
+/**
+ * The output of {@link PurchaseProvisionedCapacityCommand}.
+ */
 export interface PurchaseProvisionedCapacityCommandOutput extends PurchaseProvisionedCapacityOutput, __MetadataBearer {}
 
 /**

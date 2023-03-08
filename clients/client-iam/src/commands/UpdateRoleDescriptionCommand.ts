@@ -25,7 +25,13 @@ import {
   serializeAws_queryUpdateRoleDescriptionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateRoleDescriptionCommand}.
+ */
 export interface UpdateRoleDescriptionCommandInput extends UpdateRoleDescriptionRequest {}
+/**
+ * The output of {@link UpdateRoleDescriptionCommand}.
+ */
 export interface UpdateRoleDescriptionCommandOutput extends UpdateRoleDescriptionResponse, __MetadataBearer {}
 
 /**

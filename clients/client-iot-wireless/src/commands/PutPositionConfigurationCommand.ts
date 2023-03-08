@@ -25,17 +25,23 @@ import {
   serializeAws_restJson1PutPositionConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutPositionConfigurationCommand}.
+ */
 export interface PutPositionConfigurationCommandInput extends PutPositionConfigurationRequest {}
+/**
+ * The output of {@link PutPositionConfigurationCommand}.
+ */
 export interface PutPositionConfigurationCommandOutput extends PutPositionConfigurationResponse, __MetadataBearer {}
 
 /**
  * @deprecated
  *
  * <p>Put position configuration for a given resource.</p>
- *         <important>
+ *          <important>
  *             <p>This action is no longer supported. Calls to update the position configuration
  *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html">UpdateResourcePosition</a> API operation instead.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -25,27 +25,38 @@ import {
   serializeAws_json1_0UpdateTableCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateTableCommand}.
+ */
 export interface UpdateTableCommandInput extends UpdateTableInput {}
+/**
+ * The output of {@link UpdateTableCommand}.
+ */
 export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataBearer {}
 
 /**
  * <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
  *             Streams settings for a given table.</p>
- *         <p>You can only perform one of the following operations at once:</p>
- *         <ul>
+ *          <important>
+ *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
+ *                 of global tables.
+ *             </p>
+ *          </important>
+ *          <p>You can only perform one of the following operations at once:</p>
+ *          <ul>
  *             <li>
- *                 <p>Modify the provisioned throughput settings of the table.</p>
+ *                <p>Modify the provisioned throughput settings of the table.</p>
  *             </li>
  *             <li>
- *                 <p>Remove a global secondary index from the table.</p>
+ *                <p>Remove a global secondary index from the table.</p>
  *             </li>
  *             <li>
- *                 <p>Create a new global secondary index on the table. After the index begins
+ *                <p>Create a new global secondary index on the table. After the index begins
  *                     backfilling, you can use <code>UpdateTable</code> to perform other
  *                     operations.</p>
  *             </li>
  *          </ul>
- *         <p>
+ *          <p>
  *             <code>UpdateTable</code> is an asynchronous operation; while it is executing, the table
  *             status changes from <code>ACTIVE</code> to <code>UPDATING</code>. While it is
  *                 <code>UPDATING</code>, you cannot issue another <code>UpdateTable</code> request.

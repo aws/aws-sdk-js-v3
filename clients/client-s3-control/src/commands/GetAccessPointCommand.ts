@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link GetAccessPointCommand}.
+ */
 export interface GetAccessPointCommandInput extends GetAccessPointRequest {}
+/**
+ * The output of {@link GetAccessPointCommand}.
+ */
 export interface GetAccessPointCommandOutput extends GetAccessPointResult, __MetadataBearer {}
 
 /**

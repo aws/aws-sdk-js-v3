@@ -22,7 +22,13 @@ import {
 import { deserializeAws_querySubscribeCommand, serializeAws_querySubscribeCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link SubscribeCommand}.
+ */
 export interface SubscribeCommandInput extends SubscribeInput {}
+/**
+ * The output of {@link SubscribeCommand}.
+ */
 export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBearer {}
 
 /**

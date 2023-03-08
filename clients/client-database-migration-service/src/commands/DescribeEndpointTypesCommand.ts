@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeEndpointTypesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeEndpointTypesCommand}.
+ */
 export interface DescribeEndpointTypesCommandInput extends DescribeEndpointTypesMessage {}
+/**
+ * The output of {@link DescribeEndpointTypesCommand}.
+ */
 export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointTypesResponse, __MetadataBearer {}
 
 /**

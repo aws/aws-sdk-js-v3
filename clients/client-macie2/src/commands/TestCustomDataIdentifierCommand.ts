@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1TestCustomDataIdentifierCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link TestCustomDataIdentifierCommand}.
+ */
 export interface TestCustomDataIdentifierCommandInput extends TestCustomDataIdentifierRequest {}
+/**
+ * The output of {@link TestCustomDataIdentifierCommand}.
+ */
 export interface TestCustomDataIdentifierCommandOutput extends TestCustomDataIdentifierResponse, __MetadataBearer {}
 
 /**

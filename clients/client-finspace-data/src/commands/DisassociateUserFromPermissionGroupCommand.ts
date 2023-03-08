@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociateUserFromPermissionGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateUserFromPermissionGroupCommand}.
+ */
 export interface DisassociateUserFromPermissionGroupCommandInput extends DisassociateUserFromPermissionGroupRequest {}
+/**
+ * The output of {@link DisassociateUserFromPermissionGroupCommand}.
+ */
 export interface DisassociateUserFromPermissionGroupCommandOutput
   extends DisassociateUserFromPermissionGroupResponse,
     __MetadataBearer {}

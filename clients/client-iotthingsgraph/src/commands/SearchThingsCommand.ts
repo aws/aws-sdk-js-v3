@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SearchThingsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SearchThingsCommand}.
+ */
 export interface SearchThingsCommandInput extends SearchThingsRequest {}
+/**
+ * The output of {@link SearchThingsCommand}.
+ */
 export interface SearchThingsCommandOutput extends SearchThingsResponse, __MetadataBearer {}
 
 /**

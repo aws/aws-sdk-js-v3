@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDeploymentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDeploymentCommand}.
+ */
 export interface GetDeploymentCommandInput extends GetDeploymentRequest {}
+/**
+ * The output of {@link GetDeploymentCommand}.
+ */
 export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __MetadataBearer {}
 
 /**

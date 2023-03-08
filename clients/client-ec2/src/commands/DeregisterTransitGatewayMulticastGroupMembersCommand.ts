@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeregisterTransitGatewayMulticastGroupMembersCommand}.
+ */
 export interface DeregisterTransitGatewayMulticastGroupMembersCommandInput
   extends DeregisterTransitGatewayMulticastGroupMembersRequest {}
+/**
+ * The output of {@link DeregisterTransitGatewayMulticastGroupMembersCommand}.
+ */
 export interface DeregisterTransitGatewayMulticastGroupMembersCommandOutput
   extends DeregisterTransitGatewayMulticastGroupMembersResult,
     __MetadataBearer {}

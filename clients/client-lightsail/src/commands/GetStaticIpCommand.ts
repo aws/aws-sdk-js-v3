@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetStaticIpCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetStaticIpCommand}.
+ */
 export interface GetStaticIpCommandInput extends GetStaticIpRequest {}
+/**
+ * The output of {@link GetStaticIpCommand}.
+ */
 export interface GetStaticIpCommandOutput extends GetStaticIpResult, __MetadataBearer {}
 
 /**

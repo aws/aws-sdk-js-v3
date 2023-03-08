@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteConformancePackCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteConformancePackCommand}.
+ */
 export interface DeleteConformancePackCommandInput extends DeleteConformancePackRequest {}
+/**
+ * The output of {@link DeleteConformancePackCommand}.
+ */
 export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
 
 /**

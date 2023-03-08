@@ -25,13 +25,20 @@ import {
   serializeAws_restJson1DescribeWorkspaceAuthenticationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeWorkspaceAuthenticationCommand}.
+ */
 export interface DescribeWorkspaceAuthenticationCommandInput extends DescribeWorkspaceAuthenticationRequest {}
+/**
+ * The output of {@link DescribeWorkspaceAuthenticationCommand}.
+ */
 export interface DescribeWorkspaceAuthenticationCommandOutput
   extends DescribeWorkspaceAuthenticationResponse,
     __MetadataBearer {}
 
 /**
- * <p>Displays information about the authentication methods used in one Amazon Managed Grafana workspace.</p>
+ * <p>Displays information about the authentication methods used in one Amazon Managed Grafana
+ *             workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

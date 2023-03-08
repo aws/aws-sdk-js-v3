@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListComputeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListComputeCommand}.
+ */
 export interface ListComputeCommandInput extends ListComputeInput {}
+/**
+ * The output of {@link ListComputeCommand}.
+ */
 export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataBearer {}
 
 /**

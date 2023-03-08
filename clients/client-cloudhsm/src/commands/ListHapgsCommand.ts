@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1ListHapgsCommand, serializeAws_json1_1ListHapgsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListHapgsCommand}.
+ */
 export interface ListHapgsCommandInput extends ListHapgsRequest {}
+/**
+ * The output of {@link ListHapgsCommand}.
+ */
 export interface ListHapgsCommandOutput extends ListHapgsResponse, __MetadataBearer {}
 
 /**

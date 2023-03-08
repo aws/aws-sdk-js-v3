@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SearchFlowExecutionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SearchFlowExecutionsCommand}.
+ */
 export interface SearchFlowExecutionsCommandInput extends SearchFlowExecutionsRequest {}
+/**
+ * The output of {@link SearchFlowExecutionsCommand}.
+ */
 export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link CreateAuthenticationProfileCommand}.
+ */
 export interface CreateAuthenticationProfileCommandInput extends CreateAuthenticationProfileMessage {}
+/**
+ * The output of {@link CreateAuthenticationProfileCommand}.
+ */
 export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenticationProfileResult, __MetadataBearer {}
 
 /**

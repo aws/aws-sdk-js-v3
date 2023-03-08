@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteEmailIdentityCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteEmailIdentityCommand}.
+ */
 export interface DeleteEmailIdentityCommandInput extends DeleteEmailIdentityRequest {}
+/**
+ * The output of {@link DeleteEmailIdentityCommand}.
+ */
 export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityResponse, __MetadataBearer {}
 
 /**

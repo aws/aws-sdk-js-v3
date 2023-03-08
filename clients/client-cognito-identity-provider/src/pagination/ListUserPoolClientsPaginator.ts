@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CognitoIdentityProvider } from "../CognitoIdentityProvider";
 import { CognitoIdentityProviderClient } from "../CognitoIdentityProviderClient";
 import {
   ListUserPoolClientsCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListUserPoolClientsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CognitoIdentityProvider,
-  input: ListUserPoolClientsCommandInput,
-  ...args: any
-): Promise<ListUserPoolClientsCommandOutput> => {
-  // @ts-ignore
-  return await client.listUserPoolClients(input, ...args);
-};
 export async function* paginateListUserPoolClients(
   config: CognitoIdentityProviderPaginationConfiguration,
   input: ListUserPoolClientsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListUserPoolClients(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CognitoIdentityProvider) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CognitoIdentityProviderClient) {
+    if (config.client instanceof CognitoIdentityProviderClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CognitoIdentityProvider | CognitoIdentityProviderClient");

@@ -27,6 +27,9 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link UploadPartCommand}.
+ */
 type UploadPartCommandInputType = Omit<UploadPartRequest, "Body"> & {
   /**
    * For *`UploadPartRequest["Body"]`*, see {@link UploadPartRequest.Body}.
@@ -37,6 +40,9 @@ type UploadPartCommandInputType = Omit<UploadPartRequest, "Body"> & {
  * This interface extends from `UploadPartRequest` interface. There are more parameters than `Body` defined in {@link UploadPartRequest}
  */
 export interface UploadPartCommandInput extends UploadPartCommandInputType {}
+/**
+ * The output of {@link UploadPartCommand}.
+ */
 export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBearer {}
 
 /**

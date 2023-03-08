@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetQueryStateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetQueryStateCommand}.
+ */
 export interface GetQueryStateCommandInput extends GetQueryStateRequest {}
+/**
+ * The output of {@link GetQueryStateCommand}.
+ */
 export interface GetQueryStateCommandOutput extends GetQueryStateResponse, __MetadataBearer {}
 
 /**

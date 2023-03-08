@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DisassociateKmsKeyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateKmsKeyCommand}.
+ */
 export interface DisassociateKmsKeyCommandInput extends DisassociateKmsKeyRequest {}
+/**
+ * The output of {@link DisassociateKmsKeyCommand}.
+ */
 export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
 
 /**

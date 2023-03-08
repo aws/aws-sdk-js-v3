@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeTasksCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeTasksCommand}.
+ */
 export interface DescribeTasksCommandInput extends DescribeTasksRequest {}
+/**
+ * The output of {@link DescribeTasksCommand}.
+ */
 export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __MetadataBearer {}
 
 /**

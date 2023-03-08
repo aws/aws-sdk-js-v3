@@ -6,7 +6,6 @@ import {
   ListPlaybackKeyPairsCommandInput,
   ListPlaybackKeyPairsCommandOutput,
 } from "../commands/ListPlaybackKeyPairsCommand";
-import { Ivs } from "../Ivs";
 import { IvsClient } from "../IvsClient";
 import { IvsPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPlaybackKeyPairsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Ivs,
-  input: ListPlaybackKeyPairsCommandInput,
-  ...args: any
-): Promise<ListPlaybackKeyPairsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPlaybackKeyPairs(input, ...args);
-};
 export async function* paginateListPlaybackKeyPairs(
   config: IvsPaginationConfiguration,
   input: ListPlaybackKeyPairsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListPlaybackKeyPairs(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Ivs) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IvsClient) {
+    if (config.client instanceof IvsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Ivs | IvsClient");

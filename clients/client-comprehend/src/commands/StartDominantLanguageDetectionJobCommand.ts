@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartDominantLanguageDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartDominantLanguageDetectionJobCommand}.
+ */
 export interface StartDominantLanguageDetectionJobCommandInput extends StartDominantLanguageDetectionJobRequest {}
+/**
+ * The output of {@link StartDominantLanguageDetectionJobCommand}.
+ */
 export interface StartDominantLanguageDetectionJobCommandOutput
   extends StartDominantLanguageDetectionJobResponse,
     __MetadataBearer {}

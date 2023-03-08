@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateFilterCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateFilterCommand}.
+ */
 export interface CreateFilterCommandInput extends CreateFilterRequest {}
+/**
+ * The output of {@link CreateFilterCommand}.
+ */
 export interface CreateFilterCommandOutput extends CreateFilterResponse, __MetadataBearer {}
 
 /**

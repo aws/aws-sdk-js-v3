@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListNotebookSessionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListNotebookSessionsCommand}.
+ */
 export interface ListNotebookSessionsCommandInput extends ListNotebookSessionsRequest {}
+/**
+ * The output of {@link ListNotebookSessionsCommand}.
+ */
 export interface ListNotebookSessionsCommandOutput extends ListNotebookSessionsResponse, __MetadataBearer {}
 
 /**

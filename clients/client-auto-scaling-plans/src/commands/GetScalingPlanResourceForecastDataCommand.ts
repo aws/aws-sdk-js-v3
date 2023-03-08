@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetScalingPlanResourceForecastDataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetScalingPlanResourceForecastDataCommand}.
+ */
 export interface GetScalingPlanResourceForecastDataCommandInput extends GetScalingPlanResourceForecastDataRequest {}
+/**
+ * The output of {@link GetScalingPlanResourceForecastDataCommand}.
+ */
 export interface GetScalingPlanResourceForecastDataCommandOutput
   extends GetScalingPlanResourceForecastDataResponse,
     __MetadataBearer {}

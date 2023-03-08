@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * The input for {@link ListOperationsCommand}.
+ */
 export interface ListOperationsCommandInput extends ListOperationsRequest {}
+/**
+ * The output of {@link ListOperationsCommand}.
+ */
 export interface ListOperationsCommandOutput extends ListOperationsResponse, __MetadataBearer {}
 
 /**

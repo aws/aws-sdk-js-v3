@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateUserDefinedFunctionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateUserDefinedFunctionCommand}.
+ */
 export interface UpdateUserDefinedFunctionCommandInput extends UpdateUserDefinedFunctionRequest {}
+/**
+ * The output of {@link UpdateUserDefinedFunctionCommand}.
+ */
 export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefinedFunctionResponse, __MetadataBearer {}
 
 /**

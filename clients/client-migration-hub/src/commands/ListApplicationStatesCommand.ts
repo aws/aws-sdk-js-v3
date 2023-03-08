@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListApplicationStatesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListApplicationStatesCommand}.
+ */
 export interface ListApplicationStatesCommandInput extends ListApplicationStatesRequest {}
+/**
+ * The output of {@link ListApplicationStatesCommand}.
+ */
 export interface ListApplicationStatesCommandOutput extends ListApplicationStatesResult, __MetadataBearer {}
 
 /**

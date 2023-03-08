@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAccountStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAccountStatusCommand}.
+ */
 export interface GetAccountStatusCommandInput extends GetAccountStatusRequest {}
+/**
+ * The output of {@link GetAccountStatusCommand}.
+ */
 export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse, __MetadataBearer {}
 
 /**

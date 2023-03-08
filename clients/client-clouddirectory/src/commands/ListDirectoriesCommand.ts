@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListDirectoriesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDirectoriesCommand}.
+ */
 export interface ListDirectoriesCommandInput extends ListDirectoriesRequest {}
+/**
+ * The output of {@link ListDirectoriesCommand}.
+ */
 export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, __MetadataBearer {}
 
 /**

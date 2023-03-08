@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeInsightRulesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeInsightRulesCommand}.
+ */
 export interface DescribeInsightRulesCommandInput extends DescribeInsightRulesInput {}
+/**
+ * The output of {@link DescribeInsightRulesCommand}.
+ */
 export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesOutput, __MetadataBearer {}
 
 /**

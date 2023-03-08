@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociatePersonasToEntitiesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociatePersonasToEntitiesCommand}.
+ */
 export interface AssociatePersonasToEntitiesCommandInput extends AssociatePersonasToEntitiesRequest {}
+/**
+ * The output of {@link AssociatePersonasToEntitiesCommand}.
+ */
 export interface AssociatePersonasToEntitiesCommandOutput
   extends AssociatePersonasToEntitiesResponse,
     __MetadataBearer {}

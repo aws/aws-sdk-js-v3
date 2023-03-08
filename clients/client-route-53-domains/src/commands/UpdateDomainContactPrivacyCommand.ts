@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link UpdateDomainContactPrivacyCommand}.
+ */
 export interface UpdateDomainContactPrivacyCommandInput extends UpdateDomainContactPrivacyRequest {}
+/**
+ * The output of {@link UpdateDomainContactPrivacyCommand}.
+ */
 export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainContactPrivacyResponse, __MetadataBearer {}
 
 /**

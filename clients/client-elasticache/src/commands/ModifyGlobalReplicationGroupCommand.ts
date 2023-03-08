@@ -25,7 +25,13 @@ import {
   serializeAws_queryModifyGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyGlobalReplicationGroupCommand}.
+ */
 export interface ModifyGlobalReplicationGroupCommandInput extends ModifyGlobalReplicationGroupMessage {}
+/**
+ * The output of {@link ModifyGlobalReplicationGroupCommand}.
+ */
 export interface ModifyGlobalReplicationGroupCommandOutput
   extends ModifyGlobalReplicationGroupResult,
     __MetadataBearer {}

@@ -24,7 +24,13 @@ import {
   serializeAws_json1_1RemoveEndpointsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RemoveEndpointsCommand}.
+ */
 export interface RemoveEndpointsCommandInput extends RemoveEndpointsRequest {}
+/**
+ * The output of {@link RemoveEndpointsCommand}.
+ */
 export interface RemoveEndpointsCommandOutput extends __MetadataBearer {}
 
 /**

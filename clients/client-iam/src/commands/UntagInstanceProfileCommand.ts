@@ -20,7 +20,13 @@ import {
   serializeAws_queryUntagInstanceProfileCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UntagInstanceProfileCommand}.
+ */
 export interface UntagInstanceProfileCommandInput extends UntagInstanceProfileRequest {}
+/**
+ * The output of {@link UntagInstanceProfileCommand}.
+ */
 export interface UntagInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**

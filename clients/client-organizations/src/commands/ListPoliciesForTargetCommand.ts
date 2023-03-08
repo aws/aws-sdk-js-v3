@@ -25,14 +25,20 @@ import {
   serializeAws_json1_1ListPoliciesForTargetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListPoliciesForTargetCommand}.
+ */
 export interface ListPoliciesForTargetCommandInput extends ListPoliciesForTargetRequest {}
+/**
+ * The output of {@link ListPoliciesForTargetCommand}.
+ */
 export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTargetResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the policies that are directly attached to the specified target root,
  *             organizational unit (OU), or account. You must specify the policy type that you want
  *             included in the returned list.</p>
- *         <note>
+ *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
  * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
  * occasionally return an empty set of results even when there are more results available. The
@@ -40,7 +46,7 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  *                <i>only</i>
  * when there are no more results to display.</p>
  *          </note>
- *         <p>This operation can be called only from the organization's
+ *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

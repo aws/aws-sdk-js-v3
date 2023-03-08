@@ -18,14 +18,20 @@ import {
   DescribeHubRequestFilterSensitiveLog,
   DescribeHubResponse,
   DescribeHubResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeHubCommand,
   serializeAws_restJson1DescribeHubCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link DescribeHubCommand}.
+ */
 export interface DescribeHubCommandInput extends DescribeHubRequest {}
+/**
+ * The output of {@link DescribeHubCommand}.
+ */
 export interface DescribeHubCommandOutput extends DescribeHubResponse, __MetadataBearer {}
 
 /**

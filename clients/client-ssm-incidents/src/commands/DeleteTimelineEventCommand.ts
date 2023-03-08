@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
+/**
+ * The input for {@link DeleteTimelineEventCommand}.
+ */
 export interface DeleteTimelineEventCommandInput extends DeleteTimelineEventInput {}
+/**
+ * The output of {@link DeleteTimelineEventCommand}.
+ */
 export interface DeleteTimelineEventCommandOutput extends DeleteTimelineEventOutput, __MetadataBearer {}
 
 /**

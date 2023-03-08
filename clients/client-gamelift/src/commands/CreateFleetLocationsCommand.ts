@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateFleetLocationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateFleetLocationsCommand}.
+ */
 export interface CreateFleetLocationsCommandInput extends CreateFleetLocationsInput {}
+/**
+ * The output of {@link CreateFleetLocationsCommand}.
+ */
 export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsOutput, __MetadataBearer {}
 
 /**

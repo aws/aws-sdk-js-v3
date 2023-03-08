@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link PutDedicatedIpWarmupAttributesCommand}.
+ */
 export interface PutDedicatedIpWarmupAttributesCommandInput extends PutDedicatedIpWarmupAttributesRequest {}
+/**
+ * The output of {@link PutDedicatedIpWarmupAttributesCommand}.
+ */
 export interface PutDedicatedIpWarmupAttributesCommandOutput
   extends PutDedicatedIpWarmupAttributesResponse,
     __MetadataBearer {}

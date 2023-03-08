@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateNotebookCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateNotebookCommand}.
+ */
 export interface CreateNotebookCommandInput extends CreateNotebookInput {}
+/**
+ * The output of {@link CreateNotebookCommand}.
+ */
 export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_queryGetAccountPasswordPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetAccountPasswordPolicyCommand}.
+ */
 export interface GetAccountPasswordPolicyCommandInput {}
+/**
+ * The output of {@link GetAccountPasswordPolicyCommand}.
+ */
 export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswordPolicyResponse, __MetadataBearer {}
 
 /**

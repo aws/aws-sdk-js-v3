@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link UpdateProfileCommand}.
+ */
 export interface UpdateProfileCommandInput extends UpdateProfileRequest {}
+/**
+ * The output of {@link UpdateProfileCommand}.
+ */
 export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __MetadataBearer {}
 
 /**

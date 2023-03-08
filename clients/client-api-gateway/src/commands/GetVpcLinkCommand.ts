@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetVpcLinkCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetVpcLinkCommand}.
+ */
 export interface GetVpcLinkCommandInput extends GetVpcLinkRequest {}
+/**
+ * The output of {@link GetVpcLinkCommand}.
+ */
 export interface GetVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
 
 /**

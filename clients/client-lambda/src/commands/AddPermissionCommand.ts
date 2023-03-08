@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AddPermissionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AddPermissionCommand}.
+ */
 export interface AddPermissionCommandInput extends AddPermissionRequest {}
+/**
+ * The output of {@link AddPermissionCommand}.
+ */
 export interface AddPermissionCommandOutput extends AddPermissionResponse, __MetadataBearer {}
 
 /**

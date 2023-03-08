@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DescribeFeatureMetadataCommand}.
+ */
 export interface DescribeFeatureMetadataCommandInput extends DescribeFeatureMetadataRequest {}
+/**
+ * The output of {@link DescribeFeatureMetadataCommand}.
+ */
 export interface DescribeFeatureMetadataCommandOutput extends DescribeFeatureMetadataResponse, __MetadataBearer {}
 
 /**

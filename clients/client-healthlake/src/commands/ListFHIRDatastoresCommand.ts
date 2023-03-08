@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListFHIRDatastoresCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListFHIRDatastoresCommand}.
+ */
 export interface ListFHIRDatastoresCommandInput extends ListFHIRDatastoresRequest {}
+/**
+ * The output of {@link ListFHIRDatastoresCommand}.
+ */
 export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresResponse, __MetadataBearer {}
 
 /**

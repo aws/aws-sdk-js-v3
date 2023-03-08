@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutOrganizationConfigRuleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutOrganizationConfigRuleCommand}.
+ */
 export interface PutOrganizationConfigRuleCommandInput extends PutOrganizationConfigRuleRequest {}
+/**
+ * The output of {@link PutOrganizationConfigRuleCommand}.
+ */
 export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationConfigRuleResponse, __MetadataBearer {}
 
 /**

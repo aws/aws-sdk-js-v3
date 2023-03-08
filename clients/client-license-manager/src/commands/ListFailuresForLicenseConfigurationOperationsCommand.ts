@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListFailuresForLicenseConfigurationOperationsCommand}.
+ */
 export interface ListFailuresForLicenseConfigurationOperationsCommandInput
   extends ListFailuresForLicenseConfigurationOperationsRequest {}
+/**
+ * The output of {@link ListFailuresForLicenseConfigurationOperationsCommand}.
+ */
 export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
   extends ListFailuresForLicenseConfigurationOperationsResponse,
     __MetadataBearer {}

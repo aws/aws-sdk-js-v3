@@ -20,13 +20,19 @@ import {
   serializeAws_json1_1MoveAccountCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link MoveAccountCommand}.
+ */
 export interface MoveAccountCommandInput extends MoveAccountRequest {}
+/**
+ * The output of {@link MoveAccountCommand}.
+ */
 export interface MoveAccountCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Moves an account from its current source parent root or organizational unit (OU) to
  *             the specified destination parent root or OU.</p>
- *         <p>This operation can be called only from the organization's management account.</p>
+ *          <p>This operation can be called only from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

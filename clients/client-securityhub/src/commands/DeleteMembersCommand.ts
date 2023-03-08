@@ -18,14 +18,20 @@ import {
   DeleteMembersRequestFilterSensitiveLog,
   DeleteMembersResponse,
   DeleteMembersResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DeleteMembersCommand,
   serializeAws_restJson1DeleteMembersCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link DeleteMembersCommand}.
+ */
 export interface DeleteMembersCommandInput extends DeleteMembersRequest {}
+/**
+ * The output of {@link DeleteMembersCommand}.
+ */
 export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __MetadataBearer {}
 
 /**

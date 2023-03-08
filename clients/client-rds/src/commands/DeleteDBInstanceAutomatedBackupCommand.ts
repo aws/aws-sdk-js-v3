@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DeleteDBInstanceAutomatedBackupCommand}.
+ */
 export interface DeleteDBInstanceAutomatedBackupCommandInput extends DeleteDBInstanceAutomatedBackupMessage {}
+/**
+ * The output of {@link DeleteDBInstanceAutomatedBackupCommand}.
+ */
 export interface DeleteDBInstanceAutomatedBackupCommandOutput
   extends DeleteDBInstanceAutomatedBackupResult,
     __MetadataBearer {}

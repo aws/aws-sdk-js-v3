@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreatePolicyVersionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreatePolicyVersionCommand}.
+ */
 export interface CreatePolicyVersionCommandInput extends CreatePolicyVersionRequest {}
+/**
+ * The output of {@link CreatePolicyVersionCommand}.
+ */
 export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionResponse, __MetadataBearer {}
 
 /**

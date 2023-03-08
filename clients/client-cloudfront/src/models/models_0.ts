@@ -1090,44 +1090,41 @@ export enum CachePolicyCookieBehavior {
 }
 
 /**
- * <p>An object that determines whether any cookies in viewer requests (and if so, which
- * 			cookies) are included in the cache key and automatically included in requests that CloudFront
- * 			sends to the origin.</p>
+ * <p>An object that determines whether any cookies in viewer requests (and if so, which cookies)
+ * 			are included in the cache key and in requests that CloudFront sends to the origin.</p>
  */
 export interface CachePolicyCookiesConfig {
   /**
-   * <p>Determines whether any cookies in viewer requests are included in the cache key and
-   * 			automatically included in requests that CloudFront sends to the origin. Valid values
-   * 			are:</p>
+   * <p>Determines whether any cookies in viewer requests are included in the cache key and in
+   * 			requests that CloudFront sends to the origin. Valid values are:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>none</code> – Cookies in viewer requests are not included in the cache
-   * 					key and are not automatically included in requests that CloudFront sends to the
-   * 					origin. Even when this field is set to <code>none</code>, any cookies that are
-   * 					listed in an <code>OriginRequestPolicy</code>
-   *                   <i>are</i> included in origin requests.</p>
+   *                   <code>none</code> – No cookies in viewer requests are included in the cache key or in
+   * 					requests that CloudFront sends to the origin. Even when this field is set to
+   * 					<code>none</code>, any cookies that are listed in an
+   * 					<code>OriginRequestPolicy</code>
+   *                   <i>are</i> included in origin
+   * 					requests.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>whitelist</code> – The cookies in viewer requests that are listed in the
-   * 						<code>CookieNames</code> type are included in the cache key and
-   * 					automatically included in requests that CloudFront sends to the origin.</p>
+   *                   <code>whitelist</code> – Only the cookies in viewer requests that are listed in the
+   * 					<code>CookieNames</code> type are included in the cache key and in requests that
+   * 					CloudFront sends to the origin.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>allExcept</code> – All cookies in viewer requests that are
-   * 							<i>
-   *                      <b>not</b>
-   *                   </i> listed in the
-   * 						<code>CookieNames</code> type are included in the cache key and
-   * 					automatically included in requests that CloudFront sends to the origin.</p>
+   *                   <code>allExcept</code> – All cookies in viewer requests are included in the cache key and
+   * 					in requests that CloudFront sends to the origin, <i>
+   *                      <b>except</b>
+   *                   </i> for those that are listed in the
+   * 					<code>CookieNames</code> type, which are not included.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>all</code> – All cookies in viewer requests are included in the cache
-   * 					key and are automatically included in requests that CloudFront sends to the
-   * 					origin.</p>
+   *                   <code>all</code> – All cookies in viewer requests are included in the cache key and in
+   * 					requests that CloudFront sends to the origin.</p>
    *             </li>
    *          </ul>
    */
@@ -1145,28 +1142,26 @@ export enum CachePolicyHeaderBehavior {
 }
 
 /**
- * <p>An object that determines whether any HTTP headers (and if so, which headers) are
- * 			included in the cache key and automatically included in requests that CloudFront sends to the
- * 			origin.</p>
+ * <p>An object that determines whether any HTTP headers (and if so, which headers) are included
+ * 			in the cache key and in requests that CloudFront sends to the origin.</p>
  */
 export interface CachePolicyHeadersConfig {
   /**
-   * <p>Determines whether any HTTP headers are included in the cache key and automatically
-   * 			included in requests that CloudFront sends to the origin. Valid values are:</p>
+   * <p>Determines whether any HTTP headers are included in the cache key and in requests that CloudFront
+   * 			sends to the origin. Valid values are:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>none</code> – HTTP headers are not included in the cache key and are not
-   * 					automatically included in requests that CloudFront sends to the origin. Even when this
-   * 					field is set to <code>none</code>, any headers that are listed in an
-   * 						<code>OriginRequestPolicy</code>
+   *                   <code>none</code> – No HTTP headers are included in the cache key or in requests that CloudFront
+   * 					sends to the origin. Even when this field is set to <code>none</code>, any
+   * 					headers that are listed in an <code>OriginRequestPolicy</code>
    *                   <i>are</i> included in origin requests.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>whitelist</code> – The HTTP headers that are listed in the
-   * 						<code>Headers</code> type are included in the cache key and are
-   * 					automatically included in requests that CloudFront sends to the origin.</p>
+   *                   <code>whitelist</code> – Only the HTTP headers that are listed in the <code>Headers</code>
+   * 					type are included in the cache key and in requests that CloudFront sends to the
+   * 					origin.</p>
    *             </li>
    *          </ul>
    */
@@ -1201,44 +1196,42 @@ export interface QueryStringNames {
 }
 
 /**
- * <p>An object that determines whether any URL query strings in viewer requests (and if so,
- * 			which query strings) are included in the cache key and automatically included in
- * 			requests that CloudFront sends to the origin.</p>
+ * <p>An object that determines whether any URL query strings in viewer requests (and if so, which
+ * 			query strings) are included in the cache key and in requests that CloudFront sends to the
+ * 			origin.</p>
  */
 export interface CachePolicyQueryStringsConfig {
   /**
-   * <p>Determines whether any URL query strings in viewer requests are included in the cache
-   * 			key and automatically included in requests that CloudFront sends to the origin. Valid values
-   * 			are:</p>
+   * <p>Determines whether any URL query strings in viewer requests are included in the cache key
+   * 			and in requests that CloudFront sends to the origin. Valid values are:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>none</code> – Query strings in viewer requests are not included in the
-   * 					cache key and are not automatically included in requests that CloudFront sends to the
-   * 					origin. Even when this field is set to <code>none</code>, any query strings that
-   * 					are listed in an <code>OriginRequestPolicy</code>
-   *                   <i>are</i> included in origin requests.</p>
+   *                   <code>none</code> – No query strings in viewer requests are included in the cache key or
+   * 					in requests that CloudFront sends to the origin. Even when this field is set to
+   * 					<code>none</code>, any query strings that are listed in an
+   * 					<code>OriginRequestPolicy</code>
+   *                   <i>are</i> included in origin
+   * 					requests.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>whitelist</code> – The query strings in viewer requests that are listed
-   * 					in the <code>QueryStringNames</code> type are included in the cache key and
-   * 					automatically included in requests that CloudFront sends to the origin.</p>
+   *                   <code>whitelist</code> – Only the query strings in viewer requests that are listed in the
+   * 					<code>QueryStringNames</code> type are included in the cache key and in requests
+   * 					that CloudFront sends to the origin.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>allExcept</code> – All query strings in viewer requests that are
-   * 							<i>
-   *                      <b>not</b>
-   *                   </i> listed in the
-   * 						<code>QueryStringNames</code> type are included in the cache key and
-   * 					automatically included in requests that CloudFront sends to the origin.</p>
+   *                   <code>allExcept</code> – All query strings in viewer requests are included in the cache
+   * 					key and in requests that CloudFront sends to the origin, <i>
+   *                      <b>except</b>
+   *                   </i> those that are listed in the
+   * 					<code>QueryStringNames</code> type, which are not included.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>all</code> – All query strings in viewer requests are included in the
-   * 					cache key and are automatically included in requests that CloudFront sends to the
-   * 					origin.</p>
+   *                   <code>all</code> – All query strings in viewer requests are included in the cache key and
+   * 					in requests that CloudFront sends to the origin.</p>
    *             </li>
    *          </ul>
    */
@@ -1249,11 +1242,10 @@ export interface CachePolicyQueryStringsConfig {
    *                <b>are</b>
    *             </i> or <i>
    *                <b>are
-   * 					not</b>
-   *             </i> included in the cache key and automatically included
-   * 			in requests that CloudFront sends to the origin. The behavior depends on whether the
-   * 				<code>QueryStringBehavior</code> field in the
-   * 				<code>CachePolicyQueryStringsConfig</code> type is set to <code>whitelist</code>
+   * 			not</b>
+   *             </i> included in the cache key and in requests that CloudFront sends to
+   * 			the origin. The behavior depends on whether the <code>QueryStringBehavior</code> field
+   * 			in the <code>CachePolicyQueryStringsConfig</code> type is set to <code>whitelist</code>
    * 			(the listed query strings <i>
    *                <b>are</b>
    *             </i>
@@ -1269,11 +1261,11 @@ export interface CachePolicyQueryStringsConfig {
  * <p>This object determines the values that CloudFront includes in the cache key. These values
  * 			can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to
  * 			find an object in its cache that it can return to the viewer.</p>
- *          <p>The headers, cookies, and query strings that are included in the cache key are
- * 			automatically included in requests that CloudFront sends to the origin. CloudFront sends a request
- * 			when it can't find an object in its cache that matches the request's cache key. If you
- * 			want to send values to the origin but <i>not</i> include them in the cache
- * 			key, use <code>OriginRequestPolicy</code>.</p>
+ *          <p>The headers, cookies, and query strings that are included in the cache key are also included
+ * 			in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find an
+ * 			object in its cache that matches the request's cache key. If you want to send values to
+ * 			the origin but <i>not</i> include them in the cache key, use
+ * 			<code>OriginRequestPolicy</code>.</p>
  */
 export interface ParametersInCacheKeyAndForwardedToOrigin {
   /**
@@ -1347,23 +1339,21 @@ export interface ParametersInCacheKeyAndForwardedToOrigin {
   EnableAcceptEncodingBrotli?: boolean;
 
   /**
-   * <p>An object that determines whether any HTTP headers (and if so, which headers) are
-   * 			included in the cache key and automatically included in requests that CloudFront sends to the
-   * 			origin.</p>
+   * <p>An object that determines whether any HTTP headers (and if so, which headers) are included
+   * 			in the cache key and in requests that CloudFront sends to the origin.</p>
    */
   HeadersConfig: CachePolicyHeadersConfig | undefined;
 
   /**
-   * <p>An object that determines whether any cookies in viewer requests (and if so, which
-   * 			cookies) are included in the cache key and automatically included in requests that CloudFront
-   * 			sends to the origin.</p>
+   * <p>An object that determines whether any cookies in viewer requests (and if so, which cookies)
+   * 			are included in the cache key and in requests that CloudFront sends to the origin.</p>
    */
   CookiesConfig: CachePolicyCookiesConfig | undefined;
 
   /**
-   * <p>An object that determines whether any URL query strings in viewer requests (and if so,
-   * 			which query strings) are included in the cache key and automatically included in
-   * 			requests that CloudFront sends to the origin.</p>
+   * <p>An object that determines whether any URL query strings in viewer requests (and if so, which
+   * 			query strings) are included in the cache key and in requests that CloudFront sends to the
+   * 			origin.</p>
    */
   QueryStringsConfig: CachePolicyQueryStringsConfig | undefined;
 }
@@ -1382,11 +1372,11 @@ export interface ParametersInCacheKeyAndForwardedToOrigin {
  * 					objects to stay in the CloudFront cache.</p>
  *             </li>
  *          </ul>
- *          <p>The headers, cookies, and query strings that are included in the cache key are
- * 			automatically included in requests that CloudFront sends to the origin. CloudFront sends a request
- * 			when it can't find a valid object in its cache that matches the request's cache key. If
- * 			you want to send values to the origin but <i>not</i> include them in the
- * 			cache key, use <code>OriginRequestPolicy</code>.</p>
+ *          <p>The headers, cookies, and query strings that are included in the cache key are also included
+ * 			in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a
+ * 			valid object in its cache that matches the request's cache key. If you want to send
+ * 			values to the origin but <i>not</i> include them in the cache key, use
+ * 			<code>OriginRequestPolicy</code>.</p>
  */
 export interface CachePolicyConfig {
   /**
@@ -1435,9 +1425,9 @@ export interface CachePolicyConfig {
   MinTTL: number | undefined;
 
   /**
-   * <p>The HTTP headers, cookies, and URL query strings to include in the cache key. The
-   * 			values included in the cache key are automatically included in requests that CloudFront sends
-   * 			to the origin.</p>
+   * <p>The HTTP headers, cookies, and URL query strings to include in the cache key. The values
+   * 			included in the cache key are also included in requests that CloudFront sends to the
+   * 			origin.</p>
    */
   ParametersInCacheKeyAndForwardedToOrigin?: ParametersInCacheKeyAndForwardedToOrigin;
 }
@@ -1457,11 +1447,11 @@ export interface CachePolicyConfig {
  * 					objects to stay in the CloudFront cache.</p>
  *             </li>
  *          </ul>
- *          <p>The headers, cookies, and query strings that are included in the cache key are
- * 			automatically included in requests that CloudFront sends to the origin. CloudFront sends a request
- * 			when it can't find a valid object in its cache that matches the request's cache key. If
- * 			you want to send values to the origin but <i>not</i> include them in the
- * 			cache key, use <code>OriginRequestPolicy</code>.</p>
+ *          <p>The headers, cookies, and query strings that are included in the cache key are also included
+ * 			in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a
+ * 			valid object in its cache that matches the request's cache key. If you want to send
+ * 			values to the origin but <i>not</i> include them in the cache key, use
+ * 			<code>OriginRequestPolicy</code>.</p>
  */
 export interface CachePolicy {
   /**
@@ -6347,6 +6337,7 @@ export class TooManyOriginAccessControls extends __BaseException {
 
 export enum OriginRequestPolicyCookieBehavior {
   all = "all",
+  allExcept = "allExcept",
   none = "none",
   whitelist = "whitelist",
 }
@@ -6362,21 +6353,30 @@ export interface OriginRequestPolicyCookiesConfig {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>none</code> – Cookies in viewer requests are not included in requests
-   * 					that CloudFront sends to the origin. Even when this field is set to <code>none</code>,
-   * 					any cookies that are listed in a <code>CachePolicy</code>
-   *                   <i>are</i> included in origin requests.</p>
+   *                   <code>none</code> – No cookies in viewer requests are included in requests that CloudFront sends
+   * 					to the origin. Even when this field is set to <code>none</code>, any cookies
+   * 					that are listed in a <code>CachePolicy</code>
+   *                   <i>are</i> included
+   * 					in origin requests.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>whitelist</code> – The cookies in viewer requests that are listed in the
-   * 						<code>CookieNames</code> type are included in requests that CloudFront sends to
-   * 					the origin.</p>
+   *                   <code>whitelist</code> – Only the cookies in viewer requests that are listed in the
+   * 					<code>CookieNames</code> type are included in requests that CloudFront sends to the
+   * 					origin.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>all</code> – All cookies in viewer requests are included in requests
    * 					that CloudFront sends to the origin.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>allExcept</code> – All cookies in viewer requests are included in
+   * 					requests that CloudFront sends to the origin, <i>
+   *                      <b>except</b>
+   *                   </i> for those listed in the <code>CookieNames</code>
+   * 					type, which are not included.</p>
    *             </li>
    *          </ul>
    */
@@ -6389,6 +6389,7 @@ export interface OriginRequestPolicyCookiesConfig {
 }
 
 export enum OriginRequestPolicyHeaderBehavior {
+  allExcept = "allExcept",
   allViewer = "allViewer",
   allViewerAndWhitelistCloudFront = "allViewerAndWhitelistCloudFront",
   none = "none",
@@ -6406,16 +6407,16 @@ export interface OriginRequestPolicyHeadersConfig {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>none</code> – HTTP headers are not included in requests that CloudFront sends
-   * 					to the origin. Even when this field is set to <code>none</code>, any headers
-   * 					that are listed in a <code>CachePolicy</code>
-   *                   <i>are</i> included in origin requests.</p>
+   *                   <code>none</code> – No HTTP headers in viewer requests are included in requests that CloudFront
+   * 					sends to the origin. Even when this field is set to <code>none</code>, any
+   * 					headers that are listed in a <code>CachePolicy</code>
+   *                   <i>are</i>
+   * 					included in origin requests.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>whitelist</code> – The HTTP headers that are listed in the
-   * 						<code>Headers</code> type are included in requests that CloudFront sends to the
-   * 					origin.</p>
+   *                   <code>whitelist</code> – Only the HTTP headers that are listed in the <code>Headers</code>
+   * 					type are included in requests that CloudFront sends to the origin.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6429,6 +6430,14 @@ export interface OriginRequestPolicyHeadersConfig {
    * 						<code>Headers</code> type are included in requests that CloudFront sends to the
    * 					origin. The additional headers are added by CloudFront.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>allExcept</code> – All HTTP headers in viewer requests are included in
+   * 					requests that CloudFront sends to the origin, <i>
+   *                      <b>except</b>
+   *                   </i> for those listed in the <code>Headers</code> type,
+   * 					which are not included.</p>
+   *             </li>
    *          </ul>
    */
   HeaderBehavior: OriginRequestPolicyHeaderBehavior | string | undefined;
@@ -6441,6 +6450,7 @@ export interface OriginRequestPolicyHeadersConfig {
 
 export enum OriginRequestPolicyQueryStringBehavior {
   all = "all",
+  allExcept = "allExcept",
   none = "none",
   whitelist = "whitelist",
 }
@@ -6456,30 +6466,51 @@ export interface OriginRequestPolicyQueryStringsConfig {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>none</code> – Query strings in viewer requests are not included in
-   * 					requests that CloudFront sends to the origin. Even when this field is set to
-   * 						<code>none</code>, any query strings that are listed in a
-   * 						<code>CachePolicy</code>
-   *                   <i>are</i> included in origin requests.</p>
+   *                   <code>none</code> – No query strings in viewer requests are included in requests that CloudFront
+   * 					sends to the origin. Even when this field is set to <code>none</code>, any query
+   * 					strings that are listed in a <code>CachePolicy</code>
+   *                   <i>are</i>
+   * 					included in origin requests.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>whitelist</code> – The query strings in viewer requests that are listed
-   * 					in the <code>QueryStringNames</code> type are included in requests that CloudFront
+   *                   <code>whitelist</code> – Only the query strings in viewer requests that are listed in the
+   * 					<code>QueryStringNames</code> type are included in requests that CloudFront sends to
+   * 					the origin.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>all</code> – All query strings in viewer requests are included in requests that CloudFront
    * 					sends to the origin.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>all</code> – All query strings in viewer requests are included in
-   * 					requests that CloudFront sends to the origin.</p>
+   *                   <code>allExcept</code> – All query strings in viewer requests are included in
+   * 					requests that CloudFront sends to the origin, <i>
+   *                      <b>except</b>
+   *                   </i> for those listed in the
+   * 					<code>QueryStringNames</code> type, which are not included.</p>
    *             </li>
    *          </ul>
    */
   QueryStringBehavior: OriginRequestPolicyQueryStringBehavior | string | undefined;
 
   /**
-   * <p>Contains a list of the query strings in viewer requests that are included in requests
-   * 			that CloudFront sends to the origin.</p>
+   * <p>Contains the specific query strings in viewer requests that either <i>
+   *                <b>are</b>
+   *             </i> or <i>
+   *                <b>are
+   * 			not</b>
+   *             </i> included in requests that CloudFront sends to the origin. The
+   * 			behavior depends on whether the <code>QueryStringBehavior</code> field in the
+   * 			<code>OriginRequestPolicyQueryStringsConfig</code> type is set to <code>whitelist</code>
+   * 			(the listed query strings <i>
+   *                <b>are</b>
+   *             </i>
+   * 			included) or <code>allExcept</code> (the listed query strings <i>
+   *                <b>are not</b>
+   *             </i> included, but all other query strings
+   * 			are).</p>
    */
   QueryStrings?: QueryStringNames;
 }

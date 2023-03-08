@@ -29,7 +29,13 @@ import {
   serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link EnableAvailabilityZonesForLoadBalancerCommand}.
+ */
 export interface EnableAvailabilityZonesForLoadBalancerCommandInput extends AddAvailabilityZonesInput {}
+/**
+ * The output of {@link EnableAvailabilityZonesForLoadBalancerCommand}.
+ */
 export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
   extends AddAvailabilityZonesOutput,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ConfirmTransitVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ConfirmTransitVirtualInterfaceCommand}.
+ */
 export interface ConfirmTransitVirtualInterfaceCommandInput extends ConfirmTransitVirtualInterfaceRequest {}
+/**
+ * The output of {@link ConfirmTransitVirtualInterfaceCommand}.
+ */
 export interface ConfirmTransitVirtualInterfaceCommandOutput
   extends ConfirmTransitVirtualInterfaceResponse,
     __MetadataBearer {}

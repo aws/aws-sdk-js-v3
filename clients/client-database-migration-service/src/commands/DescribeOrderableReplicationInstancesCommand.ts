@@ -29,8 +29,14 @@ import {
   serializeAws_json1_1DescribeOrderableReplicationInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeOrderableReplicationInstancesCommand}.
+ */
 export interface DescribeOrderableReplicationInstancesCommandInput
   extends DescribeOrderableReplicationInstancesMessage {}
+/**
+ * The output of {@link DescribeOrderableReplicationInstancesCommand}.
+ */
 export interface DescribeOrderableReplicationInstancesCommandOutput
   extends DescribeOrderableReplicationInstancesResponse,
     __MetadataBearer {}

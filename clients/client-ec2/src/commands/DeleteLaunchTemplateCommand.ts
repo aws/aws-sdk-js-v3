@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteLaunchTemplateCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteLaunchTemplateCommand}.
+ */
 export interface DeleteLaunchTemplateCommandInput extends DeleteLaunchTemplateRequest {}
+/**
+ * The output of {@link DeleteLaunchTemplateCommand}.
+ */
 export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateResult, __MetadataBearer {}
 
 /**

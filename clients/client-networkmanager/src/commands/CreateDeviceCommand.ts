@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateDeviceCommand}.
+ */
 export interface CreateDeviceCommandInput extends CreateDeviceRequest {}
+/**
+ * The output of {@link CreateDeviceCommand}.
+ */
 export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DescribeOperatingSystemsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeOperatingSystemsCommand}.
+ */
 export interface DescribeOperatingSystemsCommandInput {}
+/**
+ * The output of {@link DescribeOperatingSystemsCommand}.
+ */
 export interface DescribeOperatingSystemsCommandOutput extends DescribeOperatingSystemsResponse, __MetadataBearer {}
 
 /**

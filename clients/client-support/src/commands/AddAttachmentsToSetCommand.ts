@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
+/**
+ * The input for {@link AddAttachmentsToSetCommand}.
+ */
 export interface AddAttachmentsToSetCommandInput extends AddAttachmentsToSetRequest {}
+/**
+ * The output of {@link AddAttachmentsToSetCommand}.
+ */
 export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetResponse, __MetadataBearer {}
 
 /**

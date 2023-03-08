@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link DescribeChapCredentialsCommand}.
+ */
 export interface DescribeChapCredentialsCommandInput extends DescribeChapCredentialsInput {}
+/**
+ * The output of {@link DescribeChapCredentialsCommand}.
+ */
 export interface DescribeChapCredentialsCommandOutput extends DescribeChapCredentialsOutput, __MetadataBearer {}
 
 /**

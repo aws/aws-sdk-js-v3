@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * The input for {@link CreateGroupCommand}.
+ */
 export interface CreateGroupCommandInput extends CreateGroupRequest {}
+/**
+ * The output of {@link CreateGroupCommand}.
+ */
 export interface CreateGroupCommandOutput extends CreateGroupResponse, __MetadataBearer {}
 
 /**

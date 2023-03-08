@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteRegistrationCodeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteRegistrationCodeCommand}.
+ */
 export interface DeleteRegistrationCodeCommandInput extends DeleteRegistrationCodeRequest {}
+/**
+ * The output of {@link DeleteRegistrationCodeCommand}.
+ */
 export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationCodeResponse, __MetadataBearer {}
 
 /**

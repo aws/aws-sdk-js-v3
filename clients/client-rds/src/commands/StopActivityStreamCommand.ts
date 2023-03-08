@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link StopActivityStreamCommand}.
+ */
 export interface StopActivityStreamCommandInput extends StopActivityStreamRequest {}
+/**
+ * The output of {@link StopActivityStreamCommand}.
+ */
 export interface StopActivityStreamCommandOutput extends StopActivityStreamResponse, __MetadataBearer {}
 
 /**

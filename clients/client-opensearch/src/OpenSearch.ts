@@ -177,6 +177,11 @@ import {
   ListPackagesForDomainCommandInput,
   ListPackagesForDomainCommandOutput,
 } from "./commands/ListPackagesForDomainCommand";
+import {
+  ListScheduledActionsCommand,
+  ListScheduledActionsCommandInput,
+  ListScheduledActionsCommandOutput,
+} from "./commands/ListScheduledActionsCommand";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   ListVersionsCommand,
@@ -229,6 +234,11 @@ import {
   UpdatePackageCommandInput,
   UpdatePackageCommandOutput,
 } from "./commands/UpdatePackageCommand";
+import {
+  UpdateScheduledActionCommand,
+  UpdateScheduledActionCommandInput,
+  UpdateScheduledActionCommandOutput,
+} from "./commands/UpdateScheduledActionCommand";
 import {
   UpdateVpcEndpointCommand,
   UpdateVpcEndpointCommandInput,
@@ -1442,6 +1452,41 @@ export class OpenSearch extends OpenSearchClient {
   }
 
   /**
+   * <p>Retrieves a list of configuration changes that are scheduled for a domain. These changes can
+   *    be <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
+   *     updates</a> or <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
+   *      Auto-Tune enhancements</a>.</p>
+   */
+  public listScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListScheduledActionsCommandOutput>;
+  public listScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    cb: (err: any, data?: ListScheduledActionsCommandOutput) => void
+  ): void;
+  public listScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListScheduledActionsCommandOutput) => void
+  ): void;
+  public listScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListScheduledActionsCommandOutput) => void),
+    cb?: (err: any, data?: ListScheduledActionsCommandOutput) => void
+  ): Promise<ListScheduledActionsCommandOutput> | void {
+    const command = new ListScheduledActionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns all resource tags for an Amazon OpenSearch Service domain. For more information, see
    *    <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging Amazon OpenSearch Service domains</a>.</p>
    */
@@ -1810,6 +1855,41 @@ export class OpenSearch extends OpenSearchClient {
     cb?: (err: any, data?: UpdatePackageCommandOutput) => void
   ): Promise<UpdatePackageCommandOutput> | void {
     const command = new UpdatePackageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Reschedules a planned domain configuration change for a later time. This change can be a
+   *    scheduled <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
+   *     update</a> or a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
+   *      Auto-Tune enhancement</a>.</p>
+   */
+  public updateScheduledAction(
+    args: UpdateScheduledActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateScheduledActionCommandOutput>;
+  public updateScheduledAction(
+    args: UpdateScheduledActionCommandInput,
+    cb: (err: any, data?: UpdateScheduledActionCommandOutput) => void
+  ): void;
+  public updateScheduledAction(
+    args: UpdateScheduledActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateScheduledActionCommandOutput) => void
+  ): void;
+  public updateScheduledAction(
+    args: UpdateScheduledActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateScheduledActionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateScheduledActionCommandOutput) => void
+  ): Promise<UpdateScheduledActionCommandOutput> | void {
+    const command = new UpdateScheduledActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

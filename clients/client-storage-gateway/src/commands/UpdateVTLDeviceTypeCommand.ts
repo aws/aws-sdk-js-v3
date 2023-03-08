@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link UpdateVTLDeviceTypeCommand}.
+ */
 export interface UpdateVTLDeviceTypeCommandInput extends UpdateVTLDeviceTypeInput {}
+/**
+ * The output of {@link UpdateVTLDeviceTypeCommand}.
+ */
 export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOutput, __MetadataBearer {}
 
 /**

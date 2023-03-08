@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteStoredQueryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteStoredQueryCommand}.
+ */
 export interface DeleteStoredQueryCommandInput extends DeleteStoredQueryRequest {}
+/**
+ * The output of {@link DeleteStoredQueryCommand}.
+ */
 export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryResponse, __MetadataBearer {}
 
 /**

@@ -17,7 +17,13 @@ import { UnsubscribeInput, UnsubscribeInputFilterSensitiveLog } from "../models/
 import { deserializeAws_queryUnsubscribeCommand, serializeAws_queryUnsubscribeCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link UnsubscribeCommand}.
+ */
 export interface UnsubscribeCommandInput extends UnsubscribeInput {}
+/**
+ * The output of {@link UnsubscribeCommand}.
+ */
 export interface UnsubscribeCommandOutput extends __MetadataBearer {}
 
 /**

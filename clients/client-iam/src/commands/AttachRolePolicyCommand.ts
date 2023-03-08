@@ -20,7 +20,13 @@ import {
   serializeAws_queryAttachRolePolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link AttachRolePolicyCommand}.
+ */
 export interface AttachRolePolicyCommandInput extends AttachRolePolicyRequest {}
+/**
+ * The output of {@link AttachRolePolicyCommand}.
+ */
 export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**

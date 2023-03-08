@@ -24,7 +24,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link HttpPrefixHeadersCommand}.
+ */
 export interface HttpPrefixHeadersCommandInput extends HttpPrefixHeadersInput {}
+/**
+ * The output of {@link HttpPrefixHeadersCommand}.
+ */
 export interface HttpPrefixHeadersCommandOutput extends HttpPrefixHeadersOutput, __MetadataBearer {}
 
 /**

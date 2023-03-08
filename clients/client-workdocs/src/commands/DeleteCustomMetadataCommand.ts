@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link DeleteCustomMetadataCommand}.
+ */
 export interface DeleteCustomMetadataCommandInput extends DeleteCustomMetadataRequest {}
+/**
+ * The output of {@link DeleteCustomMetadataCommand}.
+ */
 export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataResponse, __MetadataBearer {}
 
 /**

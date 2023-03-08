@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * The input for {@link GetResourcePolicyCommand}.
+ */
 export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest {}
+/**
+ * The output of {@link GetResourcePolicyCommand}.
+ */
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**

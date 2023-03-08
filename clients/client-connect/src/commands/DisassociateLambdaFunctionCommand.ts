@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DisassociateLambdaFunctionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateLambdaFunctionCommand}.
+ */
 export interface DisassociateLambdaFunctionCommandInput extends DisassociateLambdaFunctionRequest {}
+/**
+ * The output of {@link DisassociateLambdaFunctionCommand}.
+ */
 export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link ModifyDBClusterSnapshotAttributeCommand}.
+ */
 export interface ModifyDBClusterSnapshotAttributeCommandInput extends ModifyDBClusterSnapshotAttributeMessage {}
+/**
+ * The output of {@link ModifyDBClusterSnapshotAttributeCommand}.
+ */
 export interface ModifyDBClusterSnapshotAttributeCommandOutput
   extends ModifyDBClusterSnapshotAttributeResult,
     __MetadataBearer {}

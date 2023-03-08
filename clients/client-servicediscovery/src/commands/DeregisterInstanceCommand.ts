@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * The input for {@link DeregisterInstanceCommand}.
+ */
 export interface DeregisterInstanceCommandInput extends DeregisterInstanceRequest {}
+/**
+ * The output of {@link DeregisterInstanceCommand}.
+ */
 export interface DeregisterInstanceCommandOutput extends DeregisterInstanceResponse, __MetadataBearer {}
 
 /**

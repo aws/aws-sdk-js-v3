@@ -22,7 +22,13 @@ import {
 } from "../models/models_2";
 import { deserializeAws_json1_1UpdateJobCommand, serializeAws_json1_1UpdateJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateJobCommand}.
+ */
 export interface UpdateJobCommandInput extends UpdateJobRequest {}
+/**
+ * The output of {@link UpdateJobCommand}.
+ */
 export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBearer {}
 
 /**

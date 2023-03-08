@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeactivateDeviceIdentifierCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeactivateDeviceIdentifierCommand}.
+ */
 export interface DeactivateDeviceIdentifierCommandInput extends DeactivateDeviceIdentifierRequest {}
+/**
+ * The output of {@link DeactivateDeviceIdentifierCommand}.
+ */
 export interface DeactivateDeviceIdentifierCommandOutput extends DeactivateDeviceIdentifierResponse, __MetadataBearer {}
 
 /**

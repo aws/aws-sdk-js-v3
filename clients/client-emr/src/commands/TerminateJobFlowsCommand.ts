@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1TerminateJobFlowsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link TerminateJobFlowsCommand}.
+ */
 export interface TerminateJobFlowsCommandInput extends TerminateJobFlowsInput {}
+/**
+ * The output of {@link TerminateJobFlowsCommand}.
+ */
 export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
 
 /**

@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link NoInputAndOutputCommand}.
+ */
 export interface NoInputAndOutputCommandInput {}
+/**
+ * The output of {@link NoInputAndOutputCommand}.
+ */
 export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, __MetadataBearer {}
 
 /**

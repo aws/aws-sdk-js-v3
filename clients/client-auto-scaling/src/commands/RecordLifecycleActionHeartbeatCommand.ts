@@ -25,7 +25,13 @@ import {
   serializeAws_queryRecordLifecycleActionHeartbeatCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RecordLifecycleActionHeartbeatCommand}.
+ */
 export interface RecordLifecycleActionHeartbeatCommandInput extends RecordLifecycleActionHeartbeatType {}
+/**
+ * The output of {@link RecordLifecycleActionHeartbeatCommand}.
+ */
 export interface RecordLifecycleActionHeartbeatCommandOutput
   extends RecordLifecycleActionHeartbeatAnswer,
     __MetadataBearer {}

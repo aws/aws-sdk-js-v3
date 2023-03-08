@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
+/**
+ * The input for {@link DeleteTerminologyCommand}.
+ */
 export interface DeleteTerminologyCommandInput extends DeleteTerminologyRequest {}
+/**
+ * The output of {@link DeleteTerminologyCommand}.
+ */
 export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
 
 /**

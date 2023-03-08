@@ -25,7 +25,13 @@ import {
   serializeAws_queryPromoteReadReplicaDBClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PromoteReadReplicaDBClusterCommand}.
+ */
 export interface PromoteReadReplicaDBClusterCommandInput extends PromoteReadReplicaDBClusterMessage {}
+/**
+ * The output of {@link PromoteReadReplicaDBClusterCommand}.
+ */
 export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadReplicaDBClusterResult, __MetadataBearer {}
 
 /**

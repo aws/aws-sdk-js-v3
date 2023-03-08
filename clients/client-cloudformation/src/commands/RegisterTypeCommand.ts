@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryRegisterTypeCommand, serializeAws_queryRegisterTypeCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RegisterTypeCommand}.
+ */
 export interface RegisterTypeCommandInput extends RegisterTypeInput {}
+/**
+ * The output of {@link RegisterTypeCommand}.
+ */
 export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __MetadataBearer {}
 
 /**

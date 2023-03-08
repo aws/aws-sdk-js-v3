@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDomainPermissionsPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDomainPermissionsPolicyCommand}.
+ */
 export interface GetDomainPermissionsPolicyCommandInput extends GetDomainPermissionsPolicyRequest {}
+/**
+ * The output of {@link GetDomainPermissionsPolicyCommand}.
+ */
 export interface GetDomainPermissionsPolicyCommandOutput extends GetDomainPermissionsPolicyResult, __MetadataBearer {}
 
 /**

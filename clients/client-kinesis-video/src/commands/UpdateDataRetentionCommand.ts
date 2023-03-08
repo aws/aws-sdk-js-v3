@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateDataRetentionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateDataRetentionCommand}.
+ */
 export interface UpdateDataRetentionCommandInput extends UpdateDataRetentionInput {}
+/**
+ * The output of {@link UpdateDataRetentionCommand}.
+ */
 export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOutput, __MetadataBearer {}
 
 /**

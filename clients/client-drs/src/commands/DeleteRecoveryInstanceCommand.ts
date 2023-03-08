@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteRecoveryInstanceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteRecoveryInstanceCommand}.
+ */
 export interface DeleteRecoveryInstanceCommandInput extends DeleteRecoveryInstanceRequest {}
+/**
+ * The output of {@link DeleteRecoveryInstanceCommand}.
+ */
 export interface DeleteRecoveryInstanceCommandOutput extends __MetadataBearer {}
 
 /**

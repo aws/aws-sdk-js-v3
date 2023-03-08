@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateConfigurationProfileCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateConfigurationProfileCommand}.
+ */
 export interface UpdateConfigurationProfileCommandInput extends UpdateConfigurationProfileRequest {}
+/**
+ * The output of {@link UpdateConfigurationProfileCommand}.
+ */
 export interface UpdateConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**

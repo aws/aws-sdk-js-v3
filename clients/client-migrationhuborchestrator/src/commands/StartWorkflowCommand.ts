@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1StartWorkflowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartWorkflowCommand}.
+ */
 export interface StartWorkflowCommandInput extends StartMigrationWorkflowRequest {}
+/**
+ * The output of {@link StartWorkflowCommand}.
+ */
 export interface StartWorkflowCommandOutput extends StartMigrationWorkflowResponse, __MetadataBearer {}
 
 /**

@@ -6,7 +6,6 @@ import {
   ListDataflowEndpointGroupsCommandInput,
   ListDataflowEndpointGroupsCommandOutput,
 } from "../commands/ListDataflowEndpointGroupsCommand";
-import { GroundStation } from "../GroundStation";
 import { GroundStationClient } from "../GroundStationClient";
 import { GroundStationPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDataflowEndpointGroupsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: GroundStation,
-  input: ListDataflowEndpointGroupsCommandInput,
-  ...args: any
-): Promise<ListDataflowEndpointGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDataflowEndpointGroups(input, ...args);
-};
 export async function* paginateListDataflowEndpointGroups(
   config: GroundStationPaginationConfiguration,
   input: ListDataflowEndpointGroupsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDataflowEndpointGroups(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof GroundStation) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GroundStationClient) {
+    if (config.client instanceof GroundStationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GroundStation | GroundStationClient");

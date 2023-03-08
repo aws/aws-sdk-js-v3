@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1SuggestCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SuggestCommand}.
+ */
 export interface SuggestCommandInput extends SuggestRequest {}
+/**
+ * The output of {@link SuggestCommand}.
+ */
 export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer {}
 
 /**

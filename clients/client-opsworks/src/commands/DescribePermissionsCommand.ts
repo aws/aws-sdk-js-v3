@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribePermissionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribePermissionsCommand}.
+ */
 export interface DescribePermissionsCommandInput extends DescribePermissionsRequest {}
+/**
+ * The output of {@link DescribePermissionsCommand}.
+ */
 export interface DescribePermissionsCommandOutput extends DescribePermissionsResult, __MetadataBearer {}
 
 /**

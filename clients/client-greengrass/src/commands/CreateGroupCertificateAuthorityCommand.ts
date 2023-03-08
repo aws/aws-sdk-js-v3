@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateGroupCertificateAuthorityCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateGroupCertificateAuthorityCommand}.
+ */
 export interface CreateGroupCertificateAuthorityCommandInput extends CreateGroupCertificateAuthorityRequest {}
+/**
+ * The output of {@link CreateGroupCertificateAuthorityCommand}.
+ */
 export interface CreateGroupCertificateAuthorityCommandOutput
   extends CreateGroupCertificateAuthorityResponse,
     __MetadataBearer {}

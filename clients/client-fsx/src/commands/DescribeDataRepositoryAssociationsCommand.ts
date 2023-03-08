@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeDataRepositoryAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeDataRepositoryAssociationsCommand}.
+ */
 export interface DescribeDataRepositoryAssociationsCommandInput extends DescribeDataRepositoryAssociationsRequest {}
+/**
+ * The output of {@link DescribeDataRepositoryAssociationsCommand}.
+ */
 export interface DescribeDataRepositoryAssociationsCommandOutput
   extends DescribeDataRepositoryAssociationsResponse,
     __MetadataBearer {}

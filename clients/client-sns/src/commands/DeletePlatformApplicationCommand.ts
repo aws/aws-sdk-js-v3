@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link DeletePlatformApplicationCommand}.
+ */
 export interface DeletePlatformApplicationCommandInput extends DeletePlatformApplicationInput {}
+/**
+ * The output of {@link DeletePlatformApplicationCommand}.
+ */
 export interface DeletePlatformApplicationCommandOutput extends __MetadataBearer {}
 
 /**

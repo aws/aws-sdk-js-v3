@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateWebLoginTokenCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateWebLoginTokenCommand}.
+ */
 export interface CreateWebLoginTokenCommandInput extends CreateWebLoginTokenRequest {}
+/**
+ * The output of {@link CreateWebLoginTokenCommand}.
+ */
 export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenResponse, __MetadataBearer {}
 
 /**

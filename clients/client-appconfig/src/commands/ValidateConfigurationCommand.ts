@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1ValidateConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ValidateConfigurationCommand}.
+ */
 export interface ValidateConfigurationCommandInput extends ValidateConfigurationRequest {}
+/**
+ * The output of {@link ValidateConfigurationCommand}.
+ */
 export interface ValidateConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

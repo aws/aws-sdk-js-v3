@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchDeleteConnectionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchDeleteConnectionCommand}.
+ */
 export interface BatchDeleteConnectionCommandInput extends BatchDeleteConnectionRequest {}
+/**
+ * The output of {@link BatchDeleteConnectionCommand}.
+ */
 export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectionResponse, __MetadataBearer {}
 
 /**

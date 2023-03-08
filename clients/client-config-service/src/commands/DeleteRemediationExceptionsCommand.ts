@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteRemediationExceptionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteRemediationExceptionsCommand}.
+ */
 export interface DeleteRemediationExceptionsCommandInput extends DeleteRemediationExceptionsRequest {}
+/**
+ * The output of {@link DeleteRemediationExceptionsCommand}.
+ */
 export interface DeleteRemediationExceptionsCommandOutput
   extends DeleteRemediationExceptionsResponse,
     __MetadataBearer {}

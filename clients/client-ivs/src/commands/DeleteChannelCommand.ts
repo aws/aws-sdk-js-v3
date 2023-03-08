@@ -20,16 +20,21 @@ import {
   serializeAws_restJson1DeleteChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteChannelCommand}.
+ */
 export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
+/**
+ * The output of {@link DeleteChannelCommand}.
+ */
 export interface DeleteChannelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified channel and its associated stream keys.</p>
  *          <p>If you try to delete a live channel, you will get an error (409 ConflictException). To
  *       delete a channel that is live, call <a>StopStream</a>, wait for the Amazon
- *       EventBridge "Stream End" event (to verify that the stream's state was changed from Live to
- *       Offline), then call DeleteChannel. (See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html"> Using EventBridge with Amazon IVS</a>.)
- *     </p>
+ *       EventBridge "Stream End" event (to verify that the stream's state is no longer Live), then
+ *       call DeleteChannel. (See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html"> Using EventBridge with Amazon IVS</a>.) </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

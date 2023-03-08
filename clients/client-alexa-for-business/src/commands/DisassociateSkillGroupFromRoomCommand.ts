@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateSkillGroupFromRoomCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateSkillGroupFromRoomCommand}.
+ */
 export interface DisassociateSkillGroupFromRoomCommandInput extends DisassociateSkillGroupFromRoomRequest {}
+/**
+ * The output of {@link DisassociateSkillGroupFromRoomCommand}.
+ */
 export interface DisassociateSkillGroupFromRoomCommandOutput
   extends DisassociateSkillGroupFromRoomResponse,
     __MetadataBearer {}

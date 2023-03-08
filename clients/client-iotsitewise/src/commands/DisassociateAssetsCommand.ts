@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DisassociateAssetsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateAssetsCommand}.
+ */
 export interface DisassociateAssetsCommandInput extends DisassociateAssetsRequest {}
+/**
+ * The output of {@link DisassociateAssetsCommand}.
+ */
 export interface DisassociateAssetsCommandOutput extends __MetadataBearer {}
 
 /**

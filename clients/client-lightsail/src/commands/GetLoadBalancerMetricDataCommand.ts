@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetLoadBalancerMetricDataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetLoadBalancerMetricDataCommand}.
+ */
 export interface GetLoadBalancerMetricDataCommandInput extends GetLoadBalancerMetricDataRequest {}
+/**
+ * The output of {@link GetLoadBalancerMetricDataCommand}.
+ */
 export interface GetLoadBalancerMetricDataCommandOutput extends GetLoadBalancerMetricDataResult, __MetadataBearer {}
 
 /**

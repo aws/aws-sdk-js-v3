@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link NotifyAppValidationOutputCommand}.
+ */
 export interface NotifyAppValidationOutputCommandInput extends NotifyAppValidationOutputRequest {}
+/**
+ * The output of {@link NotifyAppValidationOutputCommand}.
+ */
 export interface NotifyAppValidationOutputCommandOutput extends NotifyAppValidationOutputResponse, __MetadataBearer {}
 
 /**

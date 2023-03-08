@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetWorkspaceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetWorkspaceCommand}.
+ */
 export interface GetWorkspaceCommandInput extends GetWorkspaceRequest {}
+/**
+ * The output of {@link GetWorkspaceCommand}.
+ */
 export interface GetWorkspaceCommandOutput extends GetWorkspaceResponse, __MetadataBearer {}
 
 /**

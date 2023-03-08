@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1CreateBranchCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateBranchCommand}.
+ */
 export interface CreateBranchCommandInput extends CreateBranchInput {}
+/**
+ * The output of {@link CreateBranchCommand}.
+ */
 export interface CreateBranchCommandOutput extends __MetadataBearer {}
 
 /**

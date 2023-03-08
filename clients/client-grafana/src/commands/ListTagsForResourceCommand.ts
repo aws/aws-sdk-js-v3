@@ -25,13 +25,20 @@ import {
   serializeAws_restJson1ListTagsForResourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+/**
+ * The output of {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>The <code>ListTagsForResource</code> operation returns the tags that
- *             are associated with the Amazon Managed Service for Grafana resource specified by the <code>resourceArn</code>.
- *             Currently, the only resource that can be tagged is a workspace. </p>
+ * <p>The <code>ListTagsForResource</code> operation returns the tags that are associated
+ *             with the Amazon Managed Service for Grafana resource specified by the
+ *                 <code>resourceArn</code>. Currently, the only resource that can be tagged is a
+ *             workspace. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListConfigurationsCommand}.
+ */
 export interface ListConfigurationsCommandInput extends ListConfigurationsRequest {}
+/**
+ * The output of {@link ListConfigurationsCommand}.
+ */
 export interface ListConfigurationsCommandOutput extends ListConfigurationsResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeReportDefinitionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeReportDefinitionsCommand}.
+ */
 export interface DescribeReportDefinitionsCommandInput extends DescribeReportDefinitionsRequest {}
+/**
+ * The output of {@link DescribeReportDefinitionsCommand}.
+ */
 export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDefinitionsResponse, __MetadataBearer {}
 
 /**

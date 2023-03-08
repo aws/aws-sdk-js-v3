@@ -264,7 +264,7 @@ export interface PIClientResolvedConfig extends PIClientResolvedConfigType {}
  *                   </i>. </p>
  *             </li>
  *             <li>
- *               <p>To learn more about Performance Insights and Amazon DocumentDB clusters, go to the <i>
+ *                <p>To learn more about Performance Insights and Amazon DocumentDB clusters, go to the <i>
  *                      <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html"> Amazon DocumentDB Developer Guide</a>
  *                   </i>.</p>
  *             </li>

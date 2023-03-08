@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListFlowsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListFlowsCommand}.
+ */
 export interface ListFlowsCommandInput extends ListFlowsRequest {}
+/**
+ * The output of {@link ListFlowsCommand}.
+ */
 export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBearer {}
 
 /**

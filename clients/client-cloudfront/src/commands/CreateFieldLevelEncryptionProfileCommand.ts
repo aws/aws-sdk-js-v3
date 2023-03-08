@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlCreateFieldLevelEncryptionProfileCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link CreateFieldLevelEncryptionProfileCommand}.
+ */
 export interface CreateFieldLevelEncryptionProfileCommandInput extends CreateFieldLevelEncryptionProfileRequest {}
+/**
+ * The output of {@link CreateFieldLevelEncryptionProfileCommand}.
+ */
 export interface CreateFieldLevelEncryptionProfileCommandOutput
   extends CreateFieldLevelEncryptionProfileResult,
     __MetadataBearer {}

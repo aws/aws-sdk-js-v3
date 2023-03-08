@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StopMonitoringMembersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopMonitoringMembersCommand}.
+ */
 export interface StopMonitoringMembersCommandInput extends StopMonitoringMembersRequest {}
+/**
+ * The output of {@link StopMonitoringMembersCommand}.
+ */
 export interface StopMonitoringMembersCommandOutput extends StopMonitoringMembersResponse, __MetadataBearer {}
 
 /**

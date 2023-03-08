@@ -23,7 +23,13 @@ import {
   serializeAws_queryDescribeAutoScalingNotificationTypesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeAutoScalingNotificationTypesCommand}.
+ */
 export interface DescribeAutoScalingNotificationTypesCommandInput {}
+/**
+ * The output of {@link DescribeAutoScalingNotificationTypesCommand}.
+ */
 export interface DescribeAutoScalingNotificationTypesCommandOutput
   extends DescribeAutoScalingNotificationTypesAnswer,
     __MetadataBearer {}

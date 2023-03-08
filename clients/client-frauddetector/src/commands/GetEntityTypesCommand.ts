@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetEntityTypesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetEntityTypesCommand}.
+ */
 export interface GetEntityTypesCommandInput extends GetEntityTypesRequest {}
+/**
+ * The output of {@link GetEntityTypesCommand}.
+ */
 export interface GetEntityTypesCommandOutput extends GetEntityTypesResult, __MetadataBearer {}
 
 /**

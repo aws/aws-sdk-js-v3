@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeComplianceByResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeComplianceByResourceCommand}.
+ */
 export interface DescribeComplianceByResourceCommandInput extends DescribeComplianceByResourceRequest {}
+/**
+ * The output of {@link DescribeComplianceByResourceCommand}.
+ */
 export interface DescribeComplianceByResourceCommandOutput
   extends DescribeComplianceByResourceResponse,
     __MetadataBearer {}

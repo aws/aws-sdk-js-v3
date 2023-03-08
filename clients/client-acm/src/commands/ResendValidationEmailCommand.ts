@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1ResendValidationEmailCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ResendValidationEmailCommand}.
+ */
 export interface ResendValidationEmailCommandInput extends ResendValidationEmailRequest {}
+/**
+ * The output of {@link ResendValidationEmailCommand}.
+ */
 export interface ResendValidationEmailCommandOutput extends __MetadataBearer {}
 
 /**

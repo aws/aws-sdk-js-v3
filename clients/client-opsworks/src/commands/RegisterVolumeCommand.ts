@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RegisterVolumeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterVolumeCommand}.
+ */
 export interface RegisterVolumeCommandInput extends RegisterVolumeRequest {}
+/**
+ * The output of {@link RegisterVolumeCommand}.
+ */
 export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __MetadataBearer {}
 
 /**

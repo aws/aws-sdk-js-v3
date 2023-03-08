@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociateConnectPeerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateConnectPeerCommand}.
+ */
 export interface DisassociateConnectPeerCommandInput extends DisassociateConnectPeerRequest {}
+/**
+ * The output of {@link DisassociateConnectPeerCommand}.
+ */
 export interface DisassociateConnectPeerCommandOutput extends DisassociateConnectPeerResponse, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_queryDeleteUserPermissionsBoundaryCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteUserPermissionsBoundaryCommand}.
+ */
 export interface DeleteUserPermissionsBoundaryCommandInput extends DeleteUserPermissionsBoundaryRequest {}
+/**
+ * The output of {@link DeleteUserPermissionsBoundaryCommand}.
+ */
 export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**

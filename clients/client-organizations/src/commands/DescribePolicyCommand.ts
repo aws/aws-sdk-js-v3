@@ -25,12 +25,18 @@ import {
   serializeAws_json1_1DescribePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribePolicyCommand}.
+ */
 export interface DescribePolicyCommandInput extends DescribePolicyRequest {}
+/**
+ * The output of {@link DescribePolicyCommand}.
+ */
 export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a policy.</p>
- *         <p>This operation can be called only from the organization's
+ *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

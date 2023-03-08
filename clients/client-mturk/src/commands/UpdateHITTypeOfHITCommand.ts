@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateHITTypeOfHITCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateHITTypeOfHITCommand}.
+ */
 export interface UpdateHITTypeOfHITCommandInput extends UpdateHITTypeOfHITRequest {}
+/**
+ * The output of {@link UpdateHITTypeOfHITCommand}.
+ */
 export interface UpdateHITTypeOfHITCommandOutput extends UpdateHITTypeOfHITResponse, __MetadataBearer {}
 
 /**

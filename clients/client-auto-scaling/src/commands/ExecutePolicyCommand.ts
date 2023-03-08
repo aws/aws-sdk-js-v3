@@ -20,7 +20,13 @@ import {
   serializeAws_queryExecutePolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ExecutePolicyCommand}.
+ */
 export interface ExecutePolicyCommandInput extends ExecutePolicyType {}
+/**
+ * The output of {@link ExecutePolicyCommand}.
+ */
 export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetBuiltinSlotTypesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetBuiltinSlotTypesCommand}.
+ */
 export interface GetBuiltinSlotTypesCommandInput extends GetBuiltinSlotTypesRequest {}
+/**
+ * The output of {@link GetBuiltinSlotTypesCommand}.
+ */
 export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesResponse, __MetadataBearer {}
 
 /**

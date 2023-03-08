@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateStackCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateStackCommand}.
+ */
 export interface UpdateStackCommandInput extends UpdateStackRequest {}
+/**
+ * The output of {@link UpdateStackCommand}.
+ */
 export interface UpdateStackCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListStudioMembersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListStudioMembersCommand}.
+ */
 export interface ListStudioMembersCommandInput extends ListStudioMembersRequest {}
+/**
+ * The output of {@link ListStudioMembersCommand}.
+ */
 export interface ListStudioMembersCommandOutput extends ListStudioMembersResponse, __MetadataBearer {}
 
 /**

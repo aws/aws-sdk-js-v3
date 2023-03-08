@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link DistributeDatasetEntriesCommand}.
+ */
 export interface DistributeDatasetEntriesCommandInput extends DistributeDatasetEntriesRequest {}
+/**
+ * The output of {@link DistributeDatasetEntriesCommand}.
+ */
 export interface DistributeDatasetEntriesCommandOutput extends DistributeDatasetEntriesResponse, __MetadataBearer {}
 
 /**

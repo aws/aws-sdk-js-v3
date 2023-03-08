@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1NotifyWorkersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link NotifyWorkersCommand}.
+ */
 export interface NotifyWorkersCommandInput extends NotifyWorkersRequest {}
+/**
+ * The output of {@link NotifyWorkersCommand}.
+ */
 export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __MetadataBearer {}
 
 /**

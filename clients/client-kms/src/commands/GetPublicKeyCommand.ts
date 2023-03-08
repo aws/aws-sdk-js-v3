@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetPublicKeyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetPublicKeyCommand}.
+ */
 export interface GetPublicKeyCommandInput extends GetPublicKeyRequest {}
+/**
+ * The output of {@link GetPublicKeyCommand}.
+ */
 export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __MetadataBearer {}
 
 /**
@@ -39,7 +45,6 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *       public key within KMS, you benefit from the authentication, authorization, and logging that
  *       are part of every KMS operation. You also reduce of risk of encrypting data that cannot be
  *       decrypted. These features are not effective outside of KMS.</p>
- *
  *          <p>To help you use the public key safely outside of KMS, <code>GetPublicKey</code> returns
  *       important information about the public key in the response, including:</p>
  *          <ul>
@@ -74,7 +79,6 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *             <b>Cross-account use</b>:
  *       Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetPublicKey</a> (key policy)</p>
  *          <p>

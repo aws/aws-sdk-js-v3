@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link ResumeSessionCommand}.
+ */
 export interface ResumeSessionCommandInput extends ResumeSessionRequest {}
+/**
+ * The output of {@link ResumeSessionCommand}.
+ */
 export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __MetadataBearer {}
 
 /**

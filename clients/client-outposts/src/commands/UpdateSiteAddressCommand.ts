@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateSiteAddressCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateSiteAddressCommand}.
+ */
 export interface UpdateSiteAddressCommandInput extends UpdateSiteAddressInput {}
+/**
+ * The output of {@link UpdateSiteAddressCommand}.
+ */
 export interface UpdateSiteAddressCommandOutput extends UpdateSiteAddressOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListImportFailuresCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListImportFailuresCommand}.
+ */
 export interface ListImportFailuresCommandInput extends ListImportFailuresRequest {}
+/**
+ * The output of {@link ListImportFailuresCommand}.
+ */
 export interface ListImportFailuresCommandOutput extends ListImportFailuresResponse, __MetadataBearer {}
 
 /**

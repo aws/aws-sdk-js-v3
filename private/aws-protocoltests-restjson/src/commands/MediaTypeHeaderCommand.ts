@@ -24,7 +24,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link MediaTypeHeaderCommand}.
+ */
 export interface MediaTypeHeaderCommandInput extends MediaTypeHeaderInput {}
+/**
+ * The output of {@link MediaTypeHeaderCommand}.
+ */
 export interface MediaTypeHeaderCommandOutput extends MediaTypeHeaderOutput, __MetadataBearer {}
 
 /**

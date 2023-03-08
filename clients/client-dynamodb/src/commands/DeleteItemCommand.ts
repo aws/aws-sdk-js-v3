@@ -25,19 +25,25 @@ import {
   serializeAws_json1_0DeleteItemCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteItemCommand}.
+ */
 export interface DeleteItemCommandInput extends DeleteItemInput {}
+/**
+ * The output of {@link DeleteItemCommand}.
+ */
 export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a single item in a table by primary key. You can perform a conditional delete
  *             operation that deletes the item if it exists, or if it has an expected attribute
  *             value.</p>
- *         <p>In addition to deleting an item, you can also return the item's attribute values in
+ *          <p>In addition to deleting an item, you can also return the item's attribute values in
  *             the same operation, using the <code>ReturnValues</code> parameter.</p>
- *         <p>Unless you specify conditions, the <code>DeleteItem</code> is an idempotent operation;
+ *          <p>Unless you specify conditions, the <code>DeleteItem</code> is an idempotent operation;
  *             running it multiple times on the same item or attribute does <i>not</i>
  *             result in an error response.</p>
- *         <p>Conditional deletes are useful for deleting items only if specific conditions are met.
+ *          <p>Conditional deletes are useful for deleting items only if specific conditions are met.
  *             If those conditions are met, DynamoDB performs the delete. Otherwise, the item is not
  *             deleted.</p>
  * @example

@@ -1565,6 +1565,7 @@ export interface GetServerStrategiesResponse {
 
 export enum GroupName {
   EXTERNAL_ID = "ExternalId",
+  EXTERNAL_SOURCE_TYPE = "ExternalSourceType",
 }
 
 /**
@@ -2088,6 +2089,7 @@ export interface StartAssessmentResponse {
 
 export enum DataSourceType {
   ADS = "ApplicationDiscoveryService",
+  IMPORT = "Import",
   MPA = "MPA",
 }
 

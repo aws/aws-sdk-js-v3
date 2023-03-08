@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetMapGlyphsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetMapGlyphsCommand}.
+ */
 export interface GetMapGlyphsCommandInput extends GetMapGlyphsRequest {}
+/**
+ * The output of {@link GetMapGlyphsCommand}.
+ */
 export interface GetMapGlyphsCommandOutput extends GetMapGlyphsResponse, __MetadataBearer {}
 
 /**

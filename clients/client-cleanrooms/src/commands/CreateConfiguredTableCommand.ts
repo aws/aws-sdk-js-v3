@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateConfiguredTableCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateConfiguredTableCommand}.
+ */
 export interface CreateConfiguredTableCommandInput extends CreateConfiguredTableInput {}
+/**
+ * The output of {@link CreateConfiguredTableCommand}.
+ */
 export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTableOutput, __MetadataBearer {}
 
 /**

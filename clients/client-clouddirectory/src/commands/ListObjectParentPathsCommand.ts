@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListObjectParentPathsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListObjectParentPathsCommand}.
+ */
 export interface ListObjectParentPathsCommandInput extends ListObjectParentPathsRequest {}
+/**
+ * The output of {@link ListObjectParentPathsCommand}.
+ */
 export interface ListObjectParentPathsCommandOutput extends ListObjectParentPathsResponse, __MetadataBearer {}
 
 /**

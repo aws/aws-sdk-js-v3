@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListReleaseLabelsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListReleaseLabelsCommand}.
+ */
 export interface ListReleaseLabelsCommandInput extends ListReleaseLabelsInput {}
+/**
+ * The output of {@link ListReleaseLabelsCommand}.
+ */
 export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput, __MetadataBearer {}
 
 /**

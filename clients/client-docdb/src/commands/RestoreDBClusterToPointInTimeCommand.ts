@@ -25,7 +25,13 @@ import {
   serializeAws_queryRestoreDBClusterToPointInTimeCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RestoreDBClusterToPointInTimeCommand}.
+ */
 export interface RestoreDBClusterToPointInTimeCommandInput extends RestoreDBClusterToPointInTimeMessage {}
+/**
+ * The output of {@link RestoreDBClusterToPointInTimeCommand}.
+ */
 export interface RestoreDBClusterToPointInTimeCommandOutput
   extends RestoreDBClusterToPointInTimeResult,
     __MetadataBearer {}

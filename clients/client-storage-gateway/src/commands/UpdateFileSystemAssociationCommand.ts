@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link UpdateFileSystemAssociationCommand}.
+ */
 export interface UpdateFileSystemAssociationCommandInput extends UpdateFileSystemAssociationInput {}
+/**
+ * The output of {@link UpdateFileSystemAssociationCommand}.
+ */
 export interface UpdateFileSystemAssociationCommandOutput extends UpdateFileSystemAssociationOutput, __MetadataBearer {}
 
 /**

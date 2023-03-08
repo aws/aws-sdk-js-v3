@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SendInvitationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SendInvitationCommand}.
+ */
 export interface SendInvitationCommandInput extends SendInvitationRequest {}
+/**
+ * The output of {@link SendInvitationCommand}.
+ */
 export interface SendInvitationCommandOutput extends SendInvitationResponse, __MetadataBearer {}
 
 /**

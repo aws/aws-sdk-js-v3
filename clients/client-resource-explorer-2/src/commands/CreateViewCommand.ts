@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * The input for {@link CreateViewCommand}.
+ */
 export interface CreateViewCommandInput extends CreateViewInput {}
+/**
+ * The output of {@link CreateViewCommand}.
+ */
 export interface CreateViewCommandOutput extends CreateViewOutput, __MetadataBearer {}
 
 /**

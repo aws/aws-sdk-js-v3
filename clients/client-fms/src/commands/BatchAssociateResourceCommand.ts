@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchAssociateResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchAssociateResourceCommand}.
+ */
 export interface BatchAssociateResourceCommandInput extends BatchAssociateResourceRequest {}
+/**
+ * The output of {@link BatchAssociateResourceCommand}.
+ */
 export interface BatchAssociateResourceCommandOutput extends BatchAssociateResourceResponse, __MetadataBearer {}
 
 /**

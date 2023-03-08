@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link AddRoleToDBInstanceCommand}.
+ */
 export interface AddRoleToDBInstanceCommandInput extends AddRoleToDBInstanceMessage {}
+/**
+ * The output of {@link AddRoleToDBInstanceCommand}.
+ */
 export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
 
 /**

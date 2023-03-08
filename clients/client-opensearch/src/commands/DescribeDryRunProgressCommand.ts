@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeDryRunProgressCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeDryRunProgressCommand}.
+ */
 export interface DescribeDryRunProgressCommandInput extends DescribeDryRunProgressRequest {}
+/**
+ * The output of {@link DescribeDryRunProgressCommand}.
+ */
 export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgressResponse, __MetadataBearer {}
 
 /**

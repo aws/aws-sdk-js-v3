@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListVirtualNodesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListVirtualNodesCommand}.
+ */
 export interface ListVirtualNodesCommandInput extends ListVirtualNodesInput {}
+/**
+ * The output of {@link ListVirtualNodesCommand}.
+ */
 export interface ListVirtualNodesCommandOutput extends ListVirtualNodesOutput, __MetadataBearer {}
 
 /**

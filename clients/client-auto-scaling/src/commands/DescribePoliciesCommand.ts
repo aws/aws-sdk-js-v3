@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribePoliciesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribePoliciesCommand}.
+ */
 export interface DescribePoliciesCommandInput extends DescribePoliciesType {}
+/**
+ * The output of {@link DescribePoliciesCommand}.
+ */
 export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataBearer {}
 
 /**

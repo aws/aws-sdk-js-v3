@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link ListThemeAliasesCommand}.
+ */
 export interface ListThemeAliasesCommandInput extends ListThemeAliasesRequest {}
+/**
+ * The output of {@link ListThemeAliasesCommand}.
+ */
 export interface ListThemeAliasesCommandOutput extends ListThemeAliasesResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DescribeRecommendationExportJobsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeRecommendationExportJobsCommand}.
+ */
 export interface DescribeRecommendationExportJobsCommandInput extends DescribeRecommendationExportJobsRequest {}
+/**
+ * The output of {@link DescribeRecommendationExportJobsCommand}.
+ */
 export interface DescribeRecommendationExportJobsCommandOutput
   extends DescribeRecommendationExportJobsResponse,
     __MetadataBearer {}

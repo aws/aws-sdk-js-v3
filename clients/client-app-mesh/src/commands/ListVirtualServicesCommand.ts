@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListVirtualServicesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListVirtualServicesCommand}.
+ */
 export interface ListVirtualServicesCommandInput extends ListVirtualServicesInput {}
+/**
+ * The output of {@link ListVirtualServicesCommand}.
+ */
 export interface ListVirtualServicesCommandOutput extends ListVirtualServicesOutput, __MetadataBearer {}
 
 /**

@@ -23,19 +23,25 @@ import {
   serializeAws_json1_1RegisterDelegatedAdministratorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterDelegatedAdministratorCommand}.
+ */
 export interface RegisterDelegatedAdministratorCommandInput extends RegisterDelegatedAdministratorRequest {}
+/**
+ * The output of {@link RegisterDelegatedAdministratorCommand}.
+ */
 export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables the specified member account to administer the Organizations features of the specified
  *             Amazon Web Services service. It grants read-only access to Organizations service data. The account still
  *             requires IAM permissions to access and administer the Amazon Web Services service.</p>
- *         <p>You can run this action only for Amazon Web Services services that support this
+ *          <p>You can run this action only for Amazon Web Services services that support this
  *     feature. For a current list of services that support it, see the column <i>Supports
  *     Delegated Administrator</i> in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">Amazon Web Services Services that you can use with
  *     Organizations</a> in the <i>Organizations User Guide.</i>
  *          </p>
- *         <p>This operation can be called only from the organization's management account.</p>
+ *          <p>This operation can be called only from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

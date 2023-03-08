@@ -110,11 +110,12 @@ import {
   HypervisorType,
   IdFormat,
   InstanceBlockDeviceMapping,
+  InstanceBootModeValues,
   InstanceLifecycleType,
   InstanceMaintenanceOptions,
   InstanceMetadataOptionsResponse,
   InstanceNetworkInterface,
-  InstanceState,
+  InstanceStateName,
   LicenseConfiguration,
   Monitoring,
   PermissionGroup,
@@ -122,6 +123,62 @@ import {
   ProductCode,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * <p>Describes the current state of an instance.</p>
+ */
+export interface InstanceState {
+  /**
+   * <p>The state of the instance as a 16-bit unsigned integer. </p>
+   *          <p>The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values
+   *             between 256 and 65,535. These numerical values are used for internal purposes and should
+   *             be ignored.</p>
+   *          <p>The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values
+   *             between 0 and 255. </p>
+   *          <p>The valid values for instance-state-code will all be in the range of the low byte and
+   *             they are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>0</code> : <code>pending</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>16</code> : <code>running</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>32</code> : <code>shutting-down</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>48</code> : <code>terminated</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>64</code> : <code>stopping</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>80</code> : <code>stopped</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in
+   *             decimal.</p>
+   */
+  Code?: number;
+
+  /**
+   * <p>The current state of the instance.</p>
+   */
+  Name?: InstanceStateName | string;
+}
 
 /**
  * <p>Describes an instance.</p>
@@ -391,7 +448,13 @@ export interface Instance {
   EnclaveOptions?: EnclaveOptions;
 
   /**
-   * <p>The boot mode of the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
+   * <p>The boot mode that was specified by the AMI. If the value is <code>uefi-preferred</code>,
+   *             the AMI supports both UEFI and Legacy BIOS. The <code>currentInstanceBootMode</code> parameter
+   *             is the boot mode that is used to boot the instance at launch or start.</p>
+   *          <note>
+   *             <p>The operating system contained in the AMI must be configured to support the specified boot mode.</p>
+   *          </note>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
    */
   BootMode?: BootModeValues | string;
@@ -436,6 +499,12 @@ export interface Instance {
    * <p>Provides information on the recovery and maintenance options of your instance.</p>
    */
   MaintenanceOptions?: InstanceMaintenanceOptions;
+
+  /**
+   * <p>The boot mode that is used to boot the instance at launch or start. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
+   */
+  CurrentInstanceBootMode?: InstanceBootModeValues | string;
 }
 
 /**
@@ -478,8 +547,8 @@ export interface DescribeInstancesResult {
   Reservations?: Reservation[];
 
   /**
-   * <p>The token to include in another request to get the next page of items.
-   *             This value is <code>null</code> when there are no more items to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -574,16 +643,15 @@ export interface DescribeInstanceStatusRequest {
   InstanceIds?: string[];
 
   /**
-   * <p>The maximum number of items to return for this request. To retrieve the next page of
-   *             items, make another request with the token returned in the output. This value
-   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
-   *             parameter in the same call. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>You cannot specify this parameter and the instance IDs parameter in the same request.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token returned from a previous paginated request.
-   *             Pagination continues from the end of the items returned by the previous request.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -754,8 +822,8 @@ export interface DescribeInstanceStatusResult {
   InstanceStatuses?: InstanceStatus[];
 
   /**
-   * <p>The token to include in another request to get the next page of items.
-   *             This value is <code>null</code> when there are no more items to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -4560,7 +4628,12 @@ export interface DescribeReservedInstancesRequest {
   OfferingType?: OfferingTypeValues | string;
 }
 
-export type RIProductDescription = "Linux/UNIX" | "Linux/UNIX (Amazon VPC)" | "Windows" | "Windows (Amazon VPC)";
+export enum RIProductDescription {
+  Linux_UNIX = "Linux/UNIX",
+  Linux_UNIX_Amazon_VPC_ = "Linux/UNIX (Amazon VPC)",
+  Windows = "Windows",
+  Windows_Amazon_VPC_ = "Windows (Amazon VPC)",
+}
 
 export enum RecurringChargeFrequency {
   Hourly = "Hourly",
@@ -6451,14 +6524,15 @@ export interface DescribeSpotFleetInstancesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 1
-   *             and 1000. The default value is 1000. To retrieve the remaining results, make another
-   *             call with the returned <code>NextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 
@@ -6479,8 +6553,8 @@ export interface DescribeSpotFleetInstancesResponse {
   ActiveInstances?: ActiveInstance[];
 
   /**
-   * <p>The token required to retrieve the next set of results. This value is
-   *                 <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 
@@ -6515,14 +6589,15 @@ export interface DescribeSpotFleetRequestHistoryRequest {
   EventType?: EventType | string;
 
   /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 1
-   *             and 1000. The default value is 1000. To retrieve the remaining results, make another
-   *             call with the returned <code>NextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 
@@ -6591,14 +6666,14 @@ export interface DescribeSpotFleetRequestHistoryResponse {
    * <p>The last date and time for the events, in UTC format (for example,
    *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
    *             All records up to this time were retrieved.</p>
-   *          <p>If <code>nextToken</code> indicates that there are more results, this value is not
+   *          <p>If <code>nextToken</code> indicates that there are more items, this value is not
    *             present.</p>
    */
   LastEvaluatedTime?: Date;
 
   /**
-   * <p>The token required to retrieve the next set of results. This value is
-   *                 <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 
@@ -6627,14 +6702,15 @@ export interface DescribeSpotFleetRequestsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 1
-   *             and 1000. The default value is 1000. To retrieve the remaining results, make another
-   *             call with the returned <code>NextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 
@@ -6936,7 +7012,7 @@ export interface SpotFleetLaunchSpecification {
   SubnetId?: string;
 
   /**
-   * <p>The Base64-encoded user data that instances use when starting up.</p>
+   * <p>The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.</p>
    */
   UserData?: string;
 
@@ -6956,7 +7032,7 @@ export interface SpotFleetLaunchSpecification {
    *          identify instance types with those attributes.</p>
    *          <note>
    *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
-   *                <code>InstanceType</code>.</p>
+   *             <code>InstanceType</code>.</p>
    *          </note>
    */
   InstanceRequirements?: InstanceRequirements;
@@ -6973,7 +7049,7 @@ export interface LaunchTemplateOverrides {
 
   /**
    * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to
-   *             increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   *          increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
    *          <important>
    *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
    *          </important>
@@ -6997,17 +7073,17 @@ export interface LaunchTemplateOverrides {
 
   /**
    * <p>The priority for the launch template override. The highest priority is launched
-   *             first.</p>
+   *          first.</p>
    *          <p>If <code>OnDemandAllocationStrategy</code> is set to <code>prioritized</code>, Spot Fleet
-   *             uses priority to determine which launch template override to use first in fulfilling
-   *             On-Demand capacity.</p>
+   *          uses priority to determine which launch template override to use first in fulfilling
+   *          On-Demand capacity.</p>
    *          <p>If the Spot <code>AllocationStrategy</code> is set to
-   *                 <code>capacityOptimizedPrioritized</code>, Spot Fleet uses priority on a best-effort basis
-   *             to determine which launch template override to use in fulfilling Spot capacity, but
-   *             optimizes for capacity first.</p>
+   *          <code>capacityOptimizedPrioritized</code>, Spot Fleet uses priority on a best-effort basis
+   *          to determine which launch template override to use in fulfilling Spot capacity, but
+   *          optimizes for capacity first.</p>
    *          <p>Valid values are whole numbers starting at <code>0</code>. The lower the number, the
-   *             higher the priority. If no number is set, the launch template override has the lowest
-   *             priority. You can set the same priority for different launch template overrides.</p>
+   *          higher the priority. If no number is set, the launch template override has the lowest
+   *          priority. You can set the same priority for different launch template overrides.</p>
    */
   Priority?: number;
 
@@ -7018,7 +7094,7 @@ export interface LaunchTemplateOverrides {
    *          when you specify a list of instance types.</p>
    *          <note>
    *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
-   *                <code>InstanceType</code>.</p>
+   *             <code>InstanceType</code>.</p>
    *          </note>
    */
   InstanceRequirements?: InstanceRequirements;
@@ -7035,7 +7111,7 @@ export interface LaunchTemplateConfig {
 
   /**
    * <p>Any parameters that you specify override the same parameters in the launch
-   *             template.</p>
+   *          template.</p>
    */
   Overrides?: LaunchTemplateOverrides[];
 }
@@ -7464,8 +7540,8 @@ export interface SpotFleetRequestConfig {
  */
 export interface DescribeSpotFleetRequestsResponse {
   /**
-   * <p>The token required to retrieve the next set of results. This value is
-   *                 <code>null</code> when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 
@@ -7691,15 +7767,14 @@ export interface DescribeSpotInstanceRequestsRequest {
   SpotInstanceRequestIds?: string[];
 
   /**
-   * <p>The token to request the next set of results. This value is <code>null</code> when
-   *             there are no more results to return.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 5
-   *             and 1000. To retrieve the remaining results, make another call with the returned
-   *                 <code>NextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -7720,7 +7795,7 @@ export interface RunInstancesMonitoringEnabled {
  */
 export interface LaunchSpecification {
   /**
-   * <p>The Base64-encoded user data for the instance.</p>
+   * <p>The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.</p>
    */
   UserData?: string;
 
@@ -7958,8 +8033,8 @@ export interface DescribeSpotInstanceRequestsResult {
   SpotInstanceRequests?: SpotInstanceRequest[];
 
   /**
-   * <p>The token to use to retrieve the next set of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -8033,14 +8108,14 @@ export interface DescribeSpotPriceHistoryRequest {
   InstanceTypes?: (_InstanceType | string)[];
 
   /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 1
-   *             and 1000. The default value is 1000. To retrieve the remaining results, make another
-   *             call with the returned <code>NextToken</code> value.</p>
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
@@ -8101,8 +8176,8 @@ export interface SpotPrice {
  */
 export interface DescribeSpotPriceHistoryResult {
   /**
-   * <p>The token required to retrieve the next set of results. This value is null or an empty
-   *             string when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 
@@ -8255,14 +8330,15 @@ export interface DescribeStoreImageTasksRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *       results, make another call with the returned <code>NextToken</code> value. This value can be
-   *       between 1 and 200. You cannot specify this parameter and the <code>ImageIDs</code> parameter
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>You cannot specify this parameter and the <code>ImageIDs</code> parameter
    *       in the same call.</p>
    */
   MaxResults?: number;
@@ -8317,8 +8393,8 @@ export interface DescribeStoreImageTasksResult {
   StoreImageTaskResults?: StoreImageTaskResult[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *       when there are no more results to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
    */
   NextToken?: string;
 }
@@ -10426,10 +10502,12 @@ export interface VolumeStatusEvent {
   InstanceId?: string;
 }
 
-export enum VolumeStatusName {
-  io_enabled = "io-enabled",
-  io_performance = "io-performance",
-}
+/**
+ * @internal
+ */
+export const InstanceStateFilterSensitiveLog = (obj: InstanceState): any => ({
+  ...obj,
+});
 
 /**
  * @internal

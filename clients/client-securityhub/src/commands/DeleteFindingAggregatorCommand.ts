@@ -18,14 +18,20 @@ import {
   DeleteFindingAggregatorRequestFilterSensitiveLog,
   DeleteFindingAggregatorResponse,
   DeleteFindingAggregatorResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DeleteFindingAggregatorCommand,
   serializeAws_restJson1DeleteFindingAggregatorCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link DeleteFindingAggregatorCommand}.
+ */
 export interface DeleteFindingAggregatorCommandInput extends DeleteFindingAggregatorRequest {}
+/**
+ * The output of {@link DeleteFindingAggregatorCommand}.
+ */
 export interface DeleteFindingAggregatorCommandOutput extends DeleteFindingAggregatorResponse, __MetadataBearer {}
 
 /**

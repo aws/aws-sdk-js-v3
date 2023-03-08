@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link ListCustomVerificationEmailTemplatesCommand}.
+ */
 export interface ListCustomVerificationEmailTemplatesCommandInput extends ListCustomVerificationEmailTemplatesRequest {}
+/**
+ * The output of {@link ListCustomVerificationEmailTemplatesCommand}.
+ */
 export interface ListCustomVerificationEmailTemplatesCommandOutput
   extends ListCustomVerificationEmailTemplatesResponse,
     __MetadataBearer {}

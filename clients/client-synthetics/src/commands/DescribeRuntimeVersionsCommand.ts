@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * The input for {@link DescribeRuntimeVersionsCommand}.
+ */
 export interface DescribeRuntimeVersionsCommandInput extends DescribeRuntimeVersionsRequest {}
+/**
+ * The output of {@link DescribeRuntimeVersionsCommand}.
+ */
 export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVersionsResponse, __MetadataBearer {}
 
 /**

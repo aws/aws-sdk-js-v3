@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DeleteRecommendationPreferencesCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteRecommendationPreferencesCommand}.
+ */
 export interface DeleteRecommendationPreferencesCommandInput extends DeleteRecommendationPreferencesRequest {}
+/**
+ * The output of {@link DeleteRecommendationPreferencesCommand}.
+ */
 export interface DeleteRecommendationPreferencesCommandOutput
   extends DeleteRecommendationPreferencesResponse,
     __MetadataBearer {}

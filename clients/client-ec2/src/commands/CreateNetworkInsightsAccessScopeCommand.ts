@@ -25,7 +25,13 @@ import {
   serializeAws_ec2CreateNetworkInsightsAccessScopeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateNetworkInsightsAccessScopeCommand}.
+ */
 export interface CreateNetworkInsightsAccessScopeCommandInput extends CreateNetworkInsightsAccessScopeRequest {}
+/**
+ * The output of {@link CreateNetworkInsightsAccessScopeCommand}.
+ */
 export interface CreateNetworkInsightsAccessScopeCommandOutput
   extends CreateNetworkInsightsAccessScopeResult,
     __MetadataBearer {}

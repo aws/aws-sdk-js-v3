@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
+/**
+ * The input for {@link DescribeSpeakerEnrollmentJobCommand}.
+ */
 export interface DescribeSpeakerEnrollmentJobCommandInput extends DescribeSpeakerEnrollmentJobRequest {}
+/**
+ * The output of {@link DescribeSpeakerEnrollmentJobCommand}.
+ */
 export interface DescribeSpeakerEnrollmentJobCommandOutput
   extends DescribeSpeakerEnrollmentJobResponse,
     __MetadataBearer {}

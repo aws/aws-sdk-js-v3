@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteApplicationReferenceDataSourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteApplicationReferenceDataSourceCommand}.
+ */
 export interface DeleteApplicationReferenceDataSourceCommandInput extends DeleteApplicationReferenceDataSourceRequest {}
+/**
+ * The output of {@link DeleteApplicationReferenceDataSourceCommand}.
+ */
 export interface DeleteApplicationReferenceDataSourceCommandOutput
   extends DeleteApplicationReferenceDataSourceResponse,
     __MetadataBearer {}

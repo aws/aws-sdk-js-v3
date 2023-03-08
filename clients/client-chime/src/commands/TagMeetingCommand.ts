@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1TagMeetingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link TagMeetingCommand}.
+ */
 export interface TagMeetingCommandInput extends TagMeetingRequest {}
+/**
+ * The output of {@link TagMeetingCommand}.
+ */
 export interface TagMeetingCommandOutput extends __MetadataBearer {}
 
 /**

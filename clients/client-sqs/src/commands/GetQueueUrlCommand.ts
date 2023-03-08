@@ -22,7 +22,13 @@ import {
 import { deserializeAws_queryGetQueueUrlCommand, serializeAws_queryGetQueueUrlCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link GetQueueUrlCommand}.
+ */
 export interface GetQueueUrlCommandInput extends GetQueueUrlRequest {}
+/**
+ * The output of {@link GetQueueUrlCommand}.
+ */
 export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataBearer {}
 
 /**

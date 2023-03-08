@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListFleetsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListFleetsCommand}.
+ */
 export interface ListFleetsCommandInput extends ListFleetsRequest {}
+/**
+ * The output of {@link ListFleetsCommand}.
+ */
 export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataBearer {}
 
 /**

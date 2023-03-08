@@ -6,7 +6,6 @@ import {
   ListDeviceFleetsCommandInput,
   ListDeviceFleetsCommandOutput,
 } from "../commands/ListDeviceFleetsCommand";
-import { SageMaker } from "../SageMaker";
 import { SageMakerClient } from "../SageMakerClient";
 import { SageMakerPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDeviceFleetsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SageMaker,
-  input: ListDeviceFleetsCommandInput,
-  ...args: any
-): Promise<ListDeviceFleetsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDeviceFleets(input, ...args);
-};
 export async function* paginateListDeviceFleets(
   config: SageMakerPaginationConfiguration,
   input: ListDeviceFleetsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDeviceFleets(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SageMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SageMakerClient) {
+    if (config.client instanceof SageMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SageMaker | SageMakerClient");

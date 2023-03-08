@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link StartFaceSearchCommand}.
+ */
 export interface StartFaceSearchCommandInput extends StartFaceSearchRequest {}
+/**
+ * The output of {@link StartFaceSearchCommand}.
+ */
 export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, __MetadataBearer {}
 
 /**

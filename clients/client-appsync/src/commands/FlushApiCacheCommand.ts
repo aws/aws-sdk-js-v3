@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1FlushApiCacheCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link FlushApiCacheCommand}.
+ */
 export interface FlushApiCacheCommandInput extends FlushApiCacheRequest {}
+/**
+ * The output of {@link FlushApiCacheCommand}.
+ */
 export interface FlushApiCacheCommandOutput extends FlushApiCacheResponse, __MetadataBearer {}
 
 /**

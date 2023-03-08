@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchPutGeofenceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchPutGeofenceCommand}.
+ */
 export interface BatchPutGeofenceCommandInput extends BatchPutGeofenceRequest {}
+/**
+ * The output of {@link BatchPutGeofenceCommand}.
+ */
 export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse, __MetadataBearer {}
 
 /**

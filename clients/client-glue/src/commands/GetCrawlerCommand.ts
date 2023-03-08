@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCrawlerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCrawlerCommand}.
+ */
 export interface GetCrawlerCommandInput extends GetCrawlerRequest {}
+/**
+ * The output of {@link GetCrawlerCommand}.
+ */
 export interface GetCrawlerCommandOutput extends GetCrawlerResponse, __MetadataBearer {}
 
 /**

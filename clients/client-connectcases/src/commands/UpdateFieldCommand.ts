@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateFieldCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateFieldCommand}.
+ */
 export interface UpdateFieldCommandInput extends UpdateFieldRequest {}
+/**
+ * The output of {@link UpdateFieldCommand}.
+ */
 export interface UpdateFieldCommandOutput extends UpdateFieldResponse, __MetadataBearer {}
 
 /**

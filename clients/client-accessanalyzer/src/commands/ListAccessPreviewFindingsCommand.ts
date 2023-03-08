@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAccessPreviewFindingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAccessPreviewFindingsCommand}.
+ */
 export interface ListAccessPreviewFindingsCommandInput extends ListAccessPreviewFindingsRequest {}
+/**
+ * The output of {@link ListAccessPreviewFindingsCommand}.
+ */
 export interface ListAccessPreviewFindingsCommandOutput extends ListAccessPreviewFindingsResponse, __MetadataBearer {}
 
 /**

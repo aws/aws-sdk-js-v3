@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteIndexFieldCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteIndexFieldCommand}.
+ */
 export interface DeleteIndexFieldCommandInput extends DeleteIndexFieldRequest {}
+/**
+ * The output of {@link DeleteIndexFieldCommand}.
+ */
 export interface DeleteIndexFieldCommandOutput extends DeleteIndexFieldResponse, __MetadataBearer {}
 
 /**

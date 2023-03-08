@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0PutLoggingOptionsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link PutLoggingOptionsCommand}.
+ */
 export interface PutLoggingOptionsCommandInput extends PutLoggingOptionsRequest {}
+/**
+ * The output of {@link PutLoggingOptionsCommand}.
+ */
 export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsResponse, __MetadataBearer {}
 
 /**

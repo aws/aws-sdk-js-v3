@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListDeviceIdentifiersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDeviceIdentifiersCommand}.
+ */
 export interface ListDeviceIdentifiersCommandInput extends ListDeviceIdentifiersRequest {}
+/**
+ * The output of {@link ListDeviceIdentifiersCommand}.
+ */
 export interface ListDeviceIdentifiersCommandOutput extends ListDeviceIdentifiersResponse, __MetadataBearer {}
 
 /**

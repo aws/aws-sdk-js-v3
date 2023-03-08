@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetInstanceCommand}.
+ */
 export interface GetInstanceCommandInput extends GetInstanceRequest {}
+/**
+ * The output of {@link GetInstanceCommand}.
+ */
 export interface GetInstanceCommandOutput extends GetInstanceResult, __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1VerifyMacCommand, serializeAws_json1_1VerifyMacCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link VerifyMacCommand}.
+ */
 export interface VerifyMacCommandInput extends VerifyMacRequest {}
+/**
+ * The output of {@link VerifyMacCommand}.
+ */
 export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBearer {}
 
 /**
@@ -42,7 +48,6 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter. </p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:VerifyMac</a> (key policy)</p>
  *          <p>

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyClientVpnEndpointCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyClientVpnEndpointCommand}.
+ */
 export interface ModifyClientVpnEndpointCommandInput extends ModifyClientVpnEndpointRequest {}
+/**
+ * The output of {@link ModifyClientVpnEndpointCommand}.
+ */
 export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEndpointResult, __MetadataBearer {}
 
 /**

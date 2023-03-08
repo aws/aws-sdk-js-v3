@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetSchemaVersionsDiffCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetSchemaVersionsDiffCommand}.
+ */
 export interface GetSchemaVersionsDiffCommandInput extends GetSchemaVersionsDiffInput {}
+/**
+ * The output of {@link GetSchemaVersionsDiffCommand}.
+ */
 export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDiffResponse, __MetadataBearer {}
 
 /**

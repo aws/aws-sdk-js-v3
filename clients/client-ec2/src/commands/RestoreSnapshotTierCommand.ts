@@ -25,7 +25,13 @@ import {
   serializeAws_ec2RestoreSnapshotTierCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RestoreSnapshotTierCommand}.
+ */
 export interface RestoreSnapshotTierCommandInput extends RestoreSnapshotTierRequest {}
+/**
+ * The output of {@link RestoreSnapshotTierCommand}.
+ */
 export interface RestoreSnapshotTierCommandOutput extends RestoreSnapshotTierResult, __MetadataBearer {}
 
 /**

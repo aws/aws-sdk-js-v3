@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeInsightCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeInsightCommand}.
+ */
 export interface DescribeInsightCommandInput extends DescribeInsightRequest {}
+/**
+ * The output of {@link DescribeInsightCommand}.
+ */
 export interface DescribeInsightCommandOutput extends DescribeInsightResponse, __MetadataBearer {}
 
 /**

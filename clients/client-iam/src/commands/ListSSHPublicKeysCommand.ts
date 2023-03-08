@@ -25,7 +25,13 @@ import {
   serializeAws_queryListSSHPublicKeysCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListSSHPublicKeysCommand}.
+ */
 export interface ListSSHPublicKeysCommandInput extends ListSSHPublicKeysRequest {}
+/**
+ * The output of {@link ListSSHPublicKeysCommand}.
+ */
 export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysResponse, __MetadataBearer {}
 
 /**

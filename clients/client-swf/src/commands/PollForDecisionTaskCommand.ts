@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link PollForDecisionTaskCommand}.
+ */
 export interface PollForDecisionTaskCommandInput extends PollForDecisionTaskInput {}
+/**
+ * The output of {@link PollForDecisionTaskCommand}.
+ */
 export interface PollForDecisionTaskCommandOutput extends DecisionTask, __MetadataBearer {}
 
 /**

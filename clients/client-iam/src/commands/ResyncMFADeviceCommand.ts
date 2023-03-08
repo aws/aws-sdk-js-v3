@@ -20,7 +20,13 @@ import {
   serializeAws_queryResyncMFADeviceCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ResyncMFADeviceCommand}.
+ */
 export interface ResyncMFADeviceCommandInput extends ResyncMFADeviceRequest {}
+/**
+ * The output of {@link ResyncMFADeviceCommand}.
+ */
 export interface ResyncMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link RebootWorkspacesCommand}.
+ */
 export interface RebootWorkspacesCommandInput extends RebootWorkspacesRequest {}
+/**
+ * The output of {@link RebootWorkspacesCommand}.
+ */
 export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, __MetadataBearer {}
 
 /**

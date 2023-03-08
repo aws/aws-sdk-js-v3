@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteOutcomeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteOutcomeCommand}.
+ */
 export interface DeleteOutcomeCommandInput extends DeleteOutcomeRequest {}
+/**
+ * The output of {@link DeleteOutcomeCommand}.
+ */
 export interface DeleteOutcomeCommandOutput extends DeleteOutcomeResult, __MetadataBearer {}
 
 /**

@@ -245,6 +245,97 @@ export interface ApplyPendingMaintenanceActionResponse {
 }
 
 /**
+ * <p>Provides information about the required target engine settings.</p>
+ */
+export interface RecommendationSettings {
+  /**
+   * <p>The size of your target instance. Fleet Advisor calculates this value based on your
+   *             data collection type, such as total capacity and resource utilization. Valid values
+   *             include <code>"total-capacity"</code> and <code>"utilization"</code>.</p>
+   */
+  InstanceSizingType: string | undefined;
+
+  /**
+   * <p>The deployment option for your target engine. For production databases, Fleet Advisor
+   *             chooses Multi-AZ deployment. For development or test databases, Fleet Advisor chooses
+   *             Single-AZ deployment. Valid values include <code>"development"</code> and
+   *                 <code>"production"</code>.</p>
+   */
+  WorkloadType: string | undefined;
+}
+
+/**
+ * <p>Provides information about the source database to analyze and provide target
+ *             recommendations according to the specified requirements.</p>
+ */
+export interface StartRecommendationsRequestEntry {
+  /**
+   * <p>The identifier of the source database.</p>
+   */
+  DatabaseId: string | undefined;
+
+  /**
+   * <p>The required target engine settings.</p>
+   */
+  Settings: RecommendationSettings | undefined;
+}
+
+export interface BatchStartRecommendationsRequest {
+  /**
+   * <p>Provides information about source databases to analyze. After this analysis, Fleet
+   *             Advisor recommends target engines for each source database.</p>
+   */
+  Data?: StartRecommendationsRequestEntry[];
+}
+
+/**
+ * <p>Provides information about the errors that occurred during the analysis of the source
+ *             database.</p>
+ */
+export interface BatchStartRecommendationsErrorEntry {
+  /**
+   * <p>The identifier of the source database.</p>
+   */
+  DatabaseId?: string;
+
+  /**
+   * <p>The information about the error.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The code of an error that occurred during the analysis of the source database.</p>
+   */
+  Code?: string;
+}
+
+export interface BatchStartRecommendationsResponse {
+  /**
+   * <p>A list with error details about the analysis of each source database.</p>
+   */
+  ErrorEntries?: BatchStartRecommendationsErrorEntry[];
+}
+
+/**
+ * <p>The resource is in a state that prevents it from being used for database migration.</p>
+ */
+export class InvalidResourceStateFault extends __BaseException {
+  readonly name: "InvalidResourceStateFault" = "InvalidResourceStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceStateFault, __BaseException>) {
+    super({
+      name: "InvalidResourceStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceStateFault.prototype);
+  }
+}
+
+/**
  * <p></p>
  */
 export interface CancelReplicationTaskAssessmentRunMessage {
@@ -403,25 +494,6 @@ export interface CancelReplicationTaskAssessmentRunResponse {
    *          run.</p>
    */
   ReplicationTaskAssessmentRun?: ReplicationTaskAssessmentRun;
-}
-
-/**
- * <p>The resource is in a state that prevents it from being used for database migration.</p>
- */
-export class InvalidResourceStateFault extends __BaseException {
-  readonly name: "InvalidResourceStateFault" = "InvalidResourceStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidResourceStateFault, __BaseException>) {
-    super({
-      name: "InvalidResourceStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidResourceStateFault.prototype);
-  }
 }
 
 /**
@@ -597,15 +669,15 @@ export interface GcpMySQLSettings {
   /**
    * <p>Specifies a script to run immediately after DMS connects to the endpoint.
    *          The migration task continues running regardless if the SQL statement succeeds or fails.</p>
-   *
    *          <p>For this parameter, provide the code of the script itself, not the name of a file containing the script. </p>
    */
   AfterConnectScript?: string;
 
   /**
-   * <p>Adjusts the behavior of DMS when migrating from an SQL Server source database
-   *          that is hosted as part of an Always On availability group cluster. If you need DMS
-   *          to poll all the nodes in the Always On cluster for transaction backups, set this attribute to <code>false</code>. </p>
+   * <p>Cleans and recreates table metadata information on the replication instance
+   *          when a mismatch occurs. For example, in a situation where running an alter DDL
+   *          on the table could result in different information about the table cached in the
+   *          replication instance.  </p>
    */
   CleanSourceMetadataOnMismatch?: boolean;
 
@@ -645,7 +717,6 @@ export interface GcpMySQLSettings {
    *          threads to use to load the data into the MySQL-compatible target database. Setting a large number of
    *          threads can have an adverse effect on database performance, because a separate connection is required
    *          for each thread. The default is one.</p>
-   *
    *          <p>Example: <code>parallelLoadThreads=1</code>
    *          </p>
    */
@@ -657,21 +728,19 @@ export interface GcpMySQLSettings {
   Password?: string;
 
   /**
-   * <p></p>
+   * <p>Endpoint TCP port.</p>
    */
   Port?: number;
 
   /**
-   * <p>Endpoint TCP port.</p>
+   * <p>The MySQL host name.</p>
    */
   ServerName?: string;
 
   /**
    * <p>Specifies the time zone for the source MySQL database.</p>
-   *
    *          <p>Example: <code>serverTimezone=US/Pacific;</code>
    *          </p>
-   *
    *          <p>Note: Do not enclose time zones in single quotes.</p>
    */
   ServerTimezone?: string;
@@ -1083,7 +1152,10 @@ export interface MicrosoftSQLServerSettings {
   SafeguardPolicy?: SafeguardPolicy | string;
 
   /**
-   * <p>Fully qualified domain name of the endpoint.</p>
+   * <p>Fully qualified domain name of the endpoint. For an Amazon RDS SQL Server instance, this is the
+   *          output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html">DescribeDBInstances</a>,
+   *       in the <code>
+   *                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</code> field.</p>
    */
   ServerName?: string;
 
@@ -1271,10 +1343,10 @@ export interface MySQLSettings {
   AfterConnectScript?: string;
 
   /**
-   * <p>Adjusts the behavior of DMS when migrating from an SQL Server source database
-   *          that is hosted as part of an Always On availability group cluster.  If you need DMS to poll
-   *          all the nodes in the Always On cluster for transaction backups, set this attribute to
-   *          <code>false</code>.</p>
+   * <p>Cleans and recreates table metadata information on the replication instance
+   *          when a mismatch occurs. For example, in a situation where running an alter DDL
+   *          on the table could result in different information about the table cached in the
+   *          replication instance.  </p>
    */
   CleanSourceMetadataOnMismatch?: boolean;
 
@@ -1337,7 +1409,14 @@ export interface MySQLSettings {
   Port?: number;
 
   /**
-   * <p>Fully qualified domain name of the endpoint.</p>
+   * <p>The host name of the endpoint database. </p>
+   *          <p>For an Amazon RDS MySQL instance, this is the
+   *          output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html">DescribeDBInstances</a>,
+   *          in the <code>
+   *                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</code> field.</p>
+   *          <p>For an Aurora MySQL instance, this is the
+   *          output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html">DescribeDBClusters</a>,
+   *          in the <code>Endpoint</code> field.</p>
    */
   ServerName?: string;
 
@@ -1715,6 +1794,10 @@ export interface OracleSettings {
 
   /**
    * <p>Fully qualified domain name of the endpoint.</p>
+   *          <p>For an Amazon RDS Oracle instance, this is the
+   *          output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html">DescribeDBInstances</a>,
+   *          in the <code>
+   *                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</code> field.</p>
    */
   ServerName?: string;
 
@@ -1922,7 +2005,14 @@ export interface PostgreSQLSettings {
   Port?: number;
 
   /**
-   * <p>Fully qualified domain name of the endpoint.</p>
+   * <p>The host name of the endpoint database. </p>
+   *          <p>For an Amazon RDS PostgreSQL instance, this is the
+   *          output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html">DescribeDBInstances</a>,
+   *          in the <code>
+   *                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</code> field.</p>
+   *          <p>For an Aurora PostgreSQL instance, this is the
+   *          output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html">DescribeDBClusters</a>,
+   *          in the <code>Endpoint</code> field.</p>
    */
   ServerName?: string;
 
@@ -2602,19 +2692,15 @@ export interface S3Settings {
    *             <code>false</code>, every CDC record is written without a first field to indicate the
    *          INSERT operation at the source. For more information about how these settings work
    *          together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating Source DB Operations in Migrated S3 Data</a> in the <i>Database Migration Service User Guide.</i>.</p>
-   *
    *          <note>
-   *
-   *                <p>DMS supports the interaction described preceding between the
+   *             <p>DMS supports the interaction described preceding between the
    *                <code>CdcInsertsOnly</code> and <code>IncludeOpForFullLoad</code> parameters in
    *             versions 3.1.4 and later. </p>
-   *
-   *                <p>
+   *             <p>
    *                <code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't
    *             both be set to <code>true</code> for the same endpoint. Set either
    *                <code>CdcInsertsOnly</code> or <code>CdcInsertsAndUpdates</code> to <code>true</code>
    *             for the same endpoint, but not both.</p>
-   *
    *          </note>
    */
   CdcInsertsOnly?: boolean;
@@ -2661,11 +2747,10 @@ export interface S3Settings {
    *          this parameter to <code>true</code> for S3 endpoint object
    *          files that are .parquet formatted only if you plan to query or process the data with Athena or Glue.</p>
    *          <note>
-   *               <p>DMS writes any <code>TIMESTAMP</code> column
+   *             <p>DMS writes any <code>TIMESTAMP</code> column
    *                   values written to an S3 file in .csv format with
    *                   microsecond precision.</p>
-   *
-   *                <p>Setting <code>ParquetTimestampInMillisecond</code> has no effect on the string
+   *             <p>Setting <code>ParquetTimestampInMillisecond</code> has no effect on the string
    *             format of the timestamp column value that is inserted by setting the
    *                <code>TimestampColumnName</code> parameter.</p>
    *          </note>
@@ -2687,16 +2772,13 @@ export interface S3Settings {
    *          operations at the source. For more information about how these settings work together, see
    *             <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating Source DB Operations in Migrated S3 Data</a> in the <i>Database Migration Service User Guide.</i>.</p>
    *          <note>
-   *
    *             <p>DMS supports the use of the <code>CdcInsertsAndUpdates</code> parameter in
    *             versions 3.3.1 and later.</p>
-   *
    *             <p>
    *                <code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't
    *             both be set to <code>true</code> for the same endpoint. Set either
    *             <code>CdcInsertsOnly</code> or <code>CdcInsertsAndUpdates</code> to <code>true</code>
    *             for the same endpoint, but not both.</p>
-   *
    *          </note>
    */
   CdcInsertsAndUpdates?: boolean;
@@ -2794,7 +2876,6 @@ export interface S3Settings {
    *          the time data is written to target. For full load, when <code>useTaskStartTimeForFullLoadTimestamp</code>
    *          is set to <code>true</code>, each row of the timestamp column contains the task start time. For CDC loads,
    *          each row of the timestamp column contains the transaction commit time.</p>
-   *
    *          <p>When <code>useTaskStartTimeForFullLoadTimestamp</code> is set to <code>false</code>, the full load timestamp
    *          in the timestamp column increments with the time data arrives at the target. </p>
    */
@@ -3613,7 +3694,7 @@ export interface CreateEventSubscriptionMessage {
   /**
    * <p>A list of identifiers for which DMS provides notification events.</p>
    *          <p>If you don't specify a value, notifications are provided for all sources.</p>
-   *         <p>If you specify multiple values, they must be of the same type. For example, if you
+   *          <p>If you specify multiple values, they must be of the same type. For example, if you
    *             specify a database instance ID, then all of the other values must be database instance
    *             IDs.</p>
    */
@@ -3996,6 +4077,13 @@ export interface CreateReplicationInstanceMessage {
    *             <code>true</code>.</p>
    *          <p>Default: <code>true</code>
    *          </p>
+   *          <p>When <code>AutoMinorVersionUpgrade</code> is enabled, DMS uses the current default
+   *          engine version when you create a replication instance. For example, if you set
+   *             <code>EngineVersion</code> to a lower version number than the current default version,
+   *          DMS uses the default version.</p>
+   *          <p>If <code>AutoMinorVersionUpgrade</code>
+   *             <i>isn’t</i> enabled when you create a replication instance, DMS uses the
+   *          engine version specified by the <code>EngineVersion</code> parameter. </p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
@@ -4226,7 +4314,6 @@ export interface ReplicationInstance {
 
   /**
    * <p>The status of the replication instance. The possible return values include:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -4653,7 +4740,7 @@ export interface CreateReplicationTaskMessage {
    * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
    *          either server time or commit time.</p>
    *          <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p>
-   *          <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “</p>
+   *          <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12“</p>
    */
   CdcStopPosition?: string;
 
@@ -5016,7 +5103,7 @@ export interface ReplicationTask {
    * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
    *          either server time or commit time.</p>
    *          <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p>
-   *          <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “</p>
+   *          <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12“</p>
    */
   CdcStopPosition?: string;
 
@@ -6030,20 +6117,18 @@ export interface DescribeFleetAdvisorCollectorsRequest {
   /**
    * <p> If you specify any of the following filters, the output includes information for only
    *             those collectors that meet the filter criteria:</p>
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
-   *                   <code>collector-referenced-id</code> – The ID of the collector agent, for example
-   *                         <code>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</code>.</p>
+   *                   <code>collector-referenced-id</code> – The ID of the collector agent,
+   *                     for example <code>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>collector-name</code> – The name of the collector agent.</p>
    *             </li>
    *          </ul>
-   *
-   *         <p>An example is: <code>describe-fleet-advisor-collectors --filter
+   *          <p>An example is: <code>describe-fleet-advisor-collectors --filter
    *                 Name="collector-referenced-id",Values="d4610ac5-e323-4ad9-bc50-eaf7249dfe9d"</code>
    *          </p>
    */
@@ -6055,9 +6140,10 @@ export interface DescribeFleetAdvisorCollectorsRequest {
   MaxRecords?: number;
 
   /**
-   * <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of
-   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
-   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * <p>If <code>NextToken</code> is returned by a previous response, there are more results
+   *             available. The value of <code>NextToken</code> is a unique pagination token for each
+   *             page. Make the call again using the returned token to retrieve the next page. Keep all
+   *             other arguments unchanged. </p>
    */
   NextToken?: string;
 }
@@ -6203,8 +6289,9 @@ export interface DescribeFleetAdvisorCollectorsResponse {
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
-   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
-   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   *                 <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             again using the returned token to retrieve the next page. Keep all other arguments
+   *             unchanged. </p>
    */
   NextToken?: string;
 }
@@ -6213,8 +6300,7 @@ export interface DescribeFleetAdvisorDatabasesRequest {
   /**
    * <p> If you specify any of the following filters, the output includes information for only
    *             those databases that meet the filter criteria: </p>
-   *
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>database-id</code> – The ID of the database.</p>
@@ -6229,19 +6315,20 @@ export interface DescribeFleetAdvisorDatabasesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>server-ip-address</code> – The IP address of the database server.</p>
+   *                   <code>server-ip-address</code> – The IP address of the database
+   *                     server.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>database-ip-address</code> – The IP address of the database.</p>
+   *                   <code>database-ip-address</code> – The IP address of the
+   *                     database.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>collector-name</code> – The name of the associated Fleet Advisor collector.</p>
    *             </li>
    *          </ul>
-   *
-   *             <p>An example is: <code>describe-fleet-advisor-databases --filter
+   *          <p>An example is: <code>describe-fleet-advisor-databases --filter
    *                 Name="database-id",Values="45"</code>
    *          </p>
    */
@@ -6253,9 +6340,10 @@ export interface DescribeFleetAdvisorDatabasesRequest {
   MaxRecords?: number;
 
   /**
-   * <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of
-   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
-   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * <p>If <code>NextToken</code> is returned by a previous response, there are more results
+   *             available. The value of <code>NextToken</code> is a unique pagination token for each
+   *             page. Make the call again using the returned token to retrieve the next page. Keep all
+   *             other arguments unchanged. </p>
    */
   NextToken?: string;
 }
@@ -6369,7 +6457,8 @@ export interface DatabaseResponse {
   Server?: ServerShortInfoResponse;
 
   /**
-   * <p>The software details of a database in a Fleet Advisor collector inventory, such as database engine and version.</p>
+   * <p>The software details of a database in a Fleet Advisor collector inventory, such as database engine and
+   *             version.</p>
    */
   SoftwareDetails?: DatabaseInstanceSoftwareDetailsResponse;
 
@@ -6381,14 +6470,16 @@ export interface DatabaseResponse {
 
 export interface DescribeFleetAdvisorDatabasesResponse {
   /**
-   * <p>Provides descriptions of the Fleet Advisor collector databases, including the database's collector, ID, and name.</p>
+   * <p>Provides descriptions of the Fleet Advisor collector databases, including the database's collector, ID,
+   *             and name.</p>
    */
   Databases?: DatabaseResponse[];
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
-   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
-   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   *                 <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             again using the returned token to retrieve the next page. Keep all other arguments
+   *             unchanged. </p>
    */
   NextToken?: string;
 }
@@ -6400,9 +6491,10 @@ export interface DescribeFleetAdvisorLsaAnalysisRequest {
   MaxRecords?: number;
 
   /**
-   * <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of
-   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
-   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * <p>If <code>NextToken</code> is returned by a previous response, there are more results
+   *             available. The value of <code>NextToken</code> is a unique pagination token for each
+   *             page. Make the call again using the returned token to retrieve the next page. Keep all
+   *             other arguments unchanged. </p>
    */
   NextToken?: string;
 }
@@ -6430,8 +6522,9 @@ export interface DescribeFleetAdvisorLsaAnalysisResponse {
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
-   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
-   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   *                 <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             again using the returned token to retrieve the next page. Keep all other arguments
+   *             unchanged. </p>
    */
   NextToken?: string;
 }
@@ -6440,16 +6533,15 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryRequest {
   /**
    * <p> If you specify any of the following filters, the output includes information for only
    *             those schema objects that meet the filter criteria:</p>
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>schema-id</code> – The ID of the schema, for example
    *                         <code>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</code>.</p>
    *             </li>
    *          </ul>
-   *
-   *         <p>Example: <code>describe-fleet-advisor-schema-object-summary --filter Name="schema-id",Values="50"</code>
+   *          <p>Example: <code>describe-fleet-advisor-schema-object-summary --filter
+   *                 Name="schema-id",Values="50"</code>
    *          </p>
    */
   Filters?: Filter[];
@@ -6460,9 +6552,10 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryRequest {
   MaxRecords?: number;
 
   /**
-   * <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of
-   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
-   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * <p>If <code>NextToken</code> is returned by a previous response, there are more results
+   *             available. The value of <code>NextToken</code> is a unique pagination token for each
+   *             page. Make the call again using the returned token to retrieve the next page. Keep all
+   *             other arguments unchanged. </p>
    */
   NextToken?: string;
 }
@@ -6477,8 +6570,9 @@ export interface FleetAdvisorSchemaObjectResponse {
   SchemaId?: string;
 
   /**
-   * <p>The type of the schema object, as reported by the database engine. Examples include the following:</p>
-   *         <ul>
+   * <p>The type of the schema object, as reported by the database engine. Examples include
+   *             the following:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>function</code>
@@ -6527,8 +6621,9 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryResponse {
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
-   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
-   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   *                 <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             again using the returned token to retrieve the next page. Keep all other arguments
+   *             unchanged. </p>
    */
   NextToken?: string;
 }
@@ -6537,12 +6632,11 @@ export interface DescribeFleetAdvisorSchemasRequest {
   /**
    * <p> If you specify any of the following filters, the output includes information for only
    *             those schemas that meet the filter criteria:</p>
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>complexity</code> – The schema's complexity, for example
-   *                     <code>Simple</code>.</p>
+   *                         <code>Simple</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6550,7 +6644,8 @@ export interface DescribeFleetAdvisorSchemasRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>database-ip-address</code> – The IP address of the schema's database.</p>
+   *                   <code>database-ip-address</code> – The IP address of the schema's
+   *                     database.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6558,15 +6653,18 @@ export interface DescribeFleetAdvisorSchemasRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>database-engine</code> – The name of the schema database's engine.</p>
+   *                   <code>database-engine</code> – The name of the schema database's
+   *                     engine.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>original-schema-name</code> – The name of the schema's database's main schema.</p>
+   *                   <code>original-schema-name</code> – The name of the schema's database's
+   *                     main schema.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>schema-id</code> – The ID of the schema, for example <code>15</code>.</p>
+   *                   <code>schema-id</code> – The ID of the schema, for example
+   *                         <code>15</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6574,11 +6672,11 @@ export interface DescribeFleetAdvisorSchemasRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>server-ip-address</code> – The IP address of the schema database's server.</p>
+   *                   <code>server-ip-address</code> – The IP address of the schema
+   *                     database's server.</p>
    *             </li>
    *          </ul>
-   *
-   *         <p>An example is: <code>describe-fleet-advisor-schemas --filter
+   *          <p>An example is: <code>describe-fleet-advisor-schemas --filter
    *                 Name="schema-id",Values="50"</code>
    *          </p>
    */
@@ -6590,9 +6688,10 @@ export interface DescribeFleetAdvisorSchemasRequest {
   MaxRecords?: number;
 
   /**
-   * <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of
-   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
-   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * <p>If <code>NextToken</code> is returned by a previous response, there are more results
+   *             available. The value of <code>NextToken</code> is a unique pagination token for each
+   *             page. Make the call again using the returned token to retrieve the next page. Keep all
+   *             other arguments unchanged. </p>
    */
   NextToken?: string;
 }
@@ -6712,8 +6811,9 @@ export interface DescribeFleetAdvisorSchemasResponse {
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
-   *             <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned
-   *             token to retrieve the next page. Keep all other arguments unchanged. </p>
+   *                 <code>NextToken</code> is a unique pagination token for each page. Make the call
+   *             again using the returned token to retrieve the next page. Keep all other arguments
+   *             unchanged. </p>
    */
   NextToken?: string;
 }
@@ -6741,6 +6841,7 @@ export interface DescribeOrderableReplicationInstancesMessage {
 
 export enum ReleaseStatusValues {
   BETA = "beta",
+  PROD = "prod",
 }
 
 /**
@@ -6871,6 +6972,315 @@ export interface DescribePendingMaintenanceActionsResponse {
    *          by <code>MaxRecords</code>. </p>
    */
   Marker?: string;
+}
+
+export interface DescribeRecommendationLimitationsRequest {
+  /**
+   * <p>Filters applied to the limitations described in the form of key-value pairs.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than
+   *             the specified <code>MaxRecords</code> value, Fleet Advisor includes a pagination token
+   *             in the response so that you can retrieve the remaining results.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>Specifies the unique pagination token that makes it possible to display the next page
+   *             of results. If this parameter is specified, the response includes only records beyond
+   *             the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   *          <p>If <code>NextToken</code> is returned by a previous response, there are more results
+   *             available. The value of <code>NextToken</code> is a unique pagination token for each
+   *             page. Make the call again using the returned token to retrieve the next page. Keep all
+   *             other arguments unchanged.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Provides information about the limitations of target Amazon Web Services engines.</p>
+ *          <p>Your source database might include features that the target Amazon Web Services engine doesn't
+ *             support. Fleet Advisor lists these features as limitations. You should consider these
+ *             limitations during database migration. For each limitation, Fleet Advisor recommends an
+ *             action that you can take to address or avoid this limitation.</p>
+ */
+export interface Limitation {
+  /**
+   * <p>The identifier of the source database.</p>
+   */
+  DatabaseId?: string;
+
+  /**
+   * <p>The name of the target engine that Fleet Advisor should use in the target engine
+   *             recommendation. Valid values include <code>"rds-aurora-mysql"</code>,
+   *                 <code>"rds-aurora-postgresql"</code>, <code>"rds-mysql"</code>,
+   *                 <code>"rds-oracle"</code>, <code>"rds-sql-server"</code>, and
+   *                 <code>"rds-postgresql"</code>.</p>
+   */
+  EngineName?: string;
+
+  /**
+   * <p>The name of the limitation. Describes unsupported database features, migration action
+   *             items, and other limitations.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A description of the limitation. Provides additional information about the limitation,
+   *             and includes recommended actions that you can take to address or avoid this
+   *             limitation.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The impact of the limitation. You can use this parameter to prioritize limitations
+   *             that you want to address. Valid values include <code>"Blocker"</code>,
+   *                 <code>"High"</code>, <code>"Medium"</code>, and <code>"Low"</code>.</p>
+   */
+  Impact?: string;
+
+  /**
+   * <p>The type of the limitation, such as action required, upgrade required, and limited
+   *             feature.</p>
+   */
+  Type?: string;
+}
+
+export interface DescribeRecommendationLimitationsResponse {
+  /**
+   * <p>The unique pagination token returned for you to pass to a subsequent request. Fleet
+   *             Advisor returns this token when the number of records in the response is greater than
+   *             the <code>MaxRecords</code> value. To retrieve the next page, make the call again using
+   *             the returned token and keeping all other arguments unchanged.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The list of limitations for recommendations of target Amazon Web Services engines.</p>
+   */
+  Limitations?: Limitation[];
+}
+
+export interface DescribeRecommendationsRequest {
+  /**
+   * <p>Filters applied to the target engine recommendations described in the form of
+   *             key-value pairs.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than
+   *             the specified <code>MaxRecords</code> value, Fleet Advisor includes a pagination token
+   *             in the response so that you can retrieve the remaining results.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>Specifies the unique pagination token that makes it possible to display the next page
+   *             of results. If this parameter is specified, the response includes only records beyond
+   *             the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   *          <p>If <code>NextToken</code> is returned by a previous response, there are more results
+   *             available. The value of <code>NextToken</code> is a unique pagination token for each
+   *             page. Make the call again using the returned token to retrieve the next page. Keep all
+   *             other arguments unchanged.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Provides information that describes the requirements to the target engine on
+ *             Amazon RDS.</p>
+ */
+export interface RdsRequirements {
+  /**
+   * <p>The required target Amazon RDS engine edition.</p>
+   */
+  EngineEdition?: string;
+
+  /**
+   * <p>The required number of virtual CPUs (vCPU) on the Amazon RDS DB instance.</p>
+   */
+  InstanceVcpu?: number;
+
+  /**
+   * <p>The required memory on the Amazon RDS DB instance.</p>
+   */
+  InstanceMemory?: number;
+
+  /**
+   * <p>The required Amazon RDS DB instance storage size.</p>
+   */
+  StorageSize?: number;
+
+  /**
+   * <p>The required number of I/O operations completed each second (IOPS) on your Amazon RDS DB
+   *             instance.</p>
+   */
+  StorageIops?: number;
+
+  /**
+   * <p>The required deployment option for the Amazon RDS DB instance. Valid values include
+   *                 <code>"MULTI_AZ"</code> for Multi-AZ deployments and <code>"SINGLE_AZ"</code> for
+   *             Single-AZ deployments.</p>
+   */
+  DeploymentOption?: string;
+}
+
+/**
+ * <p>Provides information that describes the configuration of the recommended target engine
+ *             on Amazon RDS.</p>
+ */
+export interface RdsConfiguration {
+  /**
+   * <p>Describes the recommended target Amazon RDS engine edition.</p>
+   */
+  EngineEdition?: string;
+
+  /**
+   * <p>Describes the recommended target Amazon RDS instance type.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>Describes the number of virtual CPUs (vCPU) on the recommended Amazon RDS DB instance that
+   *             meets your requirements.</p>
+   */
+  InstanceVcpu?: number;
+
+  /**
+   * <p>Describes the memory on the recommended Amazon RDS DB instance that meets your
+   *             requirements.</p>
+   */
+  InstanceMemory?: number;
+
+  /**
+   * <p>Describes the storage type of the recommended Amazon RDS DB instance that meets your
+   *             requirements.</p>
+   *          <p>Amazon RDS provides three storage types: General Purpose SSD (also known as gp2 and gp3),
+   *             Provisioned IOPS SSD (also known as io1), and magnetic (also known as standard).</p>
+   */
+  StorageType?: string;
+
+  /**
+   * <p>Describes the storage size of the recommended Amazon RDS DB instance that meets your
+   *             requirements.</p>
+   */
+  StorageSize?: number;
+
+  /**
+   * <p>Describes the number of I/O operations completed each second (IOPS) on the recommended
+   *             Amazon RDS DB instance that meets your requirements.</p>
+   */
+  StorageIops?: number;
+
+  /**
+   * <p>Describes the deployment option for the recommended Amazon RDS DB instance. The deployment
+   *             options include Multi-AZ and Single-AZ deployments. Valid values include
+   *                 <code>"MULTI_AZ"</code> and <code>"SINGLE_AZ"</code>.</p>
+   */
+  DeploymentOption?: string;
+}
+
+/**
+ * <p>Provides information that describes a recommendation of a target engine on
+ *             Amazon RDS.</p>
+ */
+export interface RdsRecommendation {
+  /**
+   * <p>Supplemental information about the requirements to the recommended target database on
+   *             Amazon RDS.</p>
+   */
+  RequirementsToTarget?: RdsRequirements;
+
+  /**
+   * <p>Supplemental information about the configuration of the recommended target database on
+   *             Amazon RDS.</p>
+   */
+  TargetConfiguration?: RdsConfiguration;
+}
+
+/**
+ * <p>Provides information about the target engine for the specified source database.</p>
+ */
+export interface RecommendationData {
+  /**
+   * <p>The recommendation of a target Amazon RDS database engine.</p>
+   */
+  RdsEngine?: RdsRecommendation;
+}
+
+/**
+ * <p>Provides information that describes a recommendation of a target engine.</p>
+ *          <p>A <i>recommendation</i> is a set of possible Amazon Web Services target engines that
+ *             you can choose to migrate your source on-premises database. In this set, Fleet Advisor
+ *             suggests a single target engine as the right sized migration destination. To determine
+ *             this rightsized migration destination, Fleet Advisor uses the inventory metadata and
+ *             metrics from data collector. You can use recommendations before the start of migration
+ *             to save costs and reduce risks.</p>
+ *          <p>With recommendations, you can explore different target options and compare metrics, so
+ *             you can make an informed decision when you choose the migration target.</p>
+ */
+export interface Recommendation {
+  /**
+   * <p>The identifier of the source database for which Fleet Advisor provided this
+   *             recommendation.</p>
+   */
+  DatabaseId?: string;
+
+  /**
+   * <p>The name of the target engine. Valid values include <code>"rds-aurora-mysql"</code>,
+   *                 <code>"rds-aurora-postgresql"</code>, <code>"rds-mysql"</code>,
+   *                 <code>"rds-oracle"</code>, <code>"rds-sql-server"</code>, and
+   *                 <code>"rds-postgresql"</code>.</p>
+   */
+  EngineName?: string;
+
+  /**
+   * <p>The date when Fleet Advisor created the target engine recommendation.</p>
+   */
+  CreatedDate?: string;
+
+  /**
+   * <p>The status of the target engine recommendation. Valid values include
+   *                 <code>"alternate"</code>, <code>"in-progress"</code>, <code>"not-viable"</code>, and
+   *                 <code>"recommended"</code>.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>Indicates that this target is the rightsized migration destination.</p>
+   */
+  Preferred?: boolean;
+
+  /**
+   * <p>The settings in JSON format for the preferred target engine parameters. These
+   *             parameters include capacity, resource utilization, and the usage type (production,
+   *             development, or testing).</p>
+   */
+  Settings?: RecommendationSettings;
+
+  /**
+   * <p>The recommendation of a target engine for the specified source database.</p>
+   */
+  Data?: RecommendationData;
+}
+
+export interface DescribeRecommendationsResponse {
+  /**
+   * <p>The unique pagination token returned for you to pass to a subsequent request. Fleet
+   *             Advisor returns this token when the number of records in the response is greater than
+   *             the <code>MaxRecords</code> value. To retrieve the next page, make the call again using
+   *             the returned token and keeping all other arguments unchanged.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The list of recommendations of target engines that Fleet Advisor created for the
+   *             source database.</p>
+   */
+  Recommendations?: Recommendation[];
 }
 
 /**
@@ -7670,7 +8080,7 @@ export interface ImportCertificateMessage {
   /**
    * <p>The location of an imported Oracle Wallet certificate for use with SSL. Provide the name of a <code>.sso</code> file
    *           using the <code>fileb://</code> prefix. You can't provide the certificate inline.</p>
-   *           <p>Example: <code>filebase64("${path.root}/rds-ca-2019-root.sso")</code>
+   *          <p>Example: <code>filebase64("${path.root}/rds-ca-2019-root.sso")</code>
    *          </p>
    */
   CertificateWallet?: Uint8Array;
@@ -8154,6 +8564,13 @@ export interface ModifyReplicationInstanceMessage {
    *                <p>DMS has enabled automatic patching for the given engine version. </p>
    *             </li>
    *          </ul>
+   *          <p>When <code>AutoMinorVersionUpgrade</code> is enabled, DMS uses the current default
+   *          engine version when you modify a replication instance. For example, if you set
+   *          <code>EngineVersion</code> to a lower version number than the current default version,
+   *          DMS uses the default version.</p>
+   *          <p>If <code>AutoMinorVersionUpgrade</code>
+   *             <i>isn’t</i> enabled when you modify a replication instance, DMS uses the
+   *          engine version specified by the <code>EngineVersion</code> parameter.</p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
@@ -8326,7 +8743,7 @@ export interface ModifyReplicationTaskMessage {
    * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
    *          either server time or commit time.</p>
    *          <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p>
-   *          <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “</p>
+   *          <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12“</p>
    */
   CdcStopPosition?: string;
 
@@ -8508,6 +8925,24 @@ export interface RunFleetAdvisorLsaAnalysisResponse {
   Status?: string;
 }
 
+export interface StartRecommendationsRequest {
+  /**
+   * <p>The identifier of the source database to analyze and provide recommendations
+   *             for.</p>
+   */
+  DatabaseId: string | undefined;
+
+  /**
+   * <p>The settings in JSON format that Fleet Advisor uses to determine target engine
+   *             recommendations. These parameters include target instance sizing and availability and
+   *             durability settings. For target instance sizing, Fleet Advisor supports the following
+   *             two options: total capacity and resource utilization. For availability and durability,
+   *             Fleet Advisor supports the following two options: production (Multi-AZ deployments) and
+   *             Dev/Test (Single-AZ deployments).</p>
+   */
+  Settings: RecommendationSettings | undefined;
+}
+
 export enum StartReplicationTaskTypeValue {
   RELOAD_TARGET = "reload-target",
   RESUME_PROCESSING = "resume-processing",
@@ -8526,11 +8961,15 @@ export interface StartReplicationTaskMessage {
   /**
    * <p>The type of replication task to start.</p>
    *          <p>When the migration type is <code>full-load</code> or <code>full-load-and-cdc</code>, the only valid value
-   *            for the first run of the task is <code>start-replication</code>. You use <code>reload-target</code> to restart
-   *        the task and <code>resume-processing</code> to resume the task.</p>
-   *          <p>When the migration type is <code>cdc</code>, you use <code>start-replication</code> to start or restart
-   *        the task, and <code>resume-processing</code> to resume the task. <code>reload-target</code> is not a valid value for
-   *        a task with migration type of <code>cdc</code>.</p>
+   *            for the first run of the task is <code>start-replication</code>. This option will start the migration.</p>
+   *          <p>You can also use <a>ReloadTables</a> to reload specific tables that failed during migration instead
+   *          of restarting the task.</p>
+   *          <p>The <code>resume-processing</code> option isn't applicable for a full-load task,
+   *          because you can't resume partially loaded tables during the full load phase.</p>
+   *          <p>For a <code>full-load-and-cdc</code> task, DMS migrates table data, and then applies data changes
+   *          that occur on the source. To load all the tables again, and start capturing source changes,
+   *          use <code>reload-target</code>. Otherwise use <code>resume-processing</code>, to replicate the
+   *          changes from the last stop position.</p>
    */
   StartReplicationTaskType: StartReplicationTaskTypeValue | string | undefined;
 
@@ -8565,7 +9004,7 @@ export interface StartReplicationTaskMessage {
    * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
    *          either server time or commit time.</p>
    *          <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p>
-   *          <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “</p>
+   *          <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12“</p>
    */
   CdcStopPosition?: string;
 }
@@ -8846,6 +9285,43 @@ export const ResourcePendingMaintenanceActionsFilterSensitiveLog = (obj: Resourc
 export const ApplyPendingMaintenanceActionResponseFilterSensitiveLog = (
   obj: ApplyPendingMaintenanceActionResponse
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationSettingsFilterSensitiveLog = (obj: RecommendationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartRecommendationsRequestEntryFilterSensitiveLog = (obj: StartRecommendationsRequestEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchStartRecommendationsRequestFilterSensitiveLog = (obj: BatchStartRecommendationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchStartRecommendationsErrorEntryFilterSensitiveLog = (
+  obj: BatchStartRecommendationsErrorEntry
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchStartRecommendationsResponseFilterSensitiveLog = (obj: BatchStartRecommendationsResponse): any => ({
   ...obj,
 });
 
@@ -9772,6 +10248,80 @@ export const DescribePendingMaintenanceActionsResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const DescribeRecommendationLimitationsRequestFilterSensitiveLog = (
+  obj: DescribeRecommendationLimitationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LimitationFilterSensitiveLog = (obj: Limitation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRecommendationLimitationsResponseFilterSensitiveLog = (
+  obj: DescribeRecommendationLimitationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRecommendationsRequestFilterSensitiveLog = (obj: DescribeRecommendationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RdsRequirementsFilterSensitiveLog = (obj: RdsRequirements): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RdsConfigurationFilterSensitiveLog = (obj: RdsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RdsRecommendationFilterSensitiveLog = (obj: RdsRecommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationDataFilterSensitiveLog = (obj: RecommendationData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationFilterSensitiveLog = (obj: Recommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRecommendationsResponseFilterSensitiveLog = (obj: DescribeRecommendationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeRefreshSchemasStatusMessageFilterSensitiveLog = (
   obj: DescribeRefreshSchemasStatusMessage
 ): any => ({
@@ -10174,6 +10724,13 @@ export const RemoveTagsFromResourceResponseFilterSensitiveLog = (obj: RemoveTags
  * @internal
  */
 export const RunFleetAdvisorLsaAnalysisResponseFilterSensitiveLog = (obj: RunFleetAdvisorLsaAnalysisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartRecommendationsRequestFilterSensitiveLog = (obj: StartRecommendationsRequest): any => ({
   ...obj,
 });
 

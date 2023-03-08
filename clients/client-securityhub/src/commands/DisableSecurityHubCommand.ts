@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link DisableSecurityHubCommand}.
+ */
 export interface DisableSecurityHubCommandInput extends DisableSecurityHubRequest {}
+/**
+ * The output of {@link DisableSecurityHubCommand}.
+ */
 export interface DisableSecurityHubCommandOutput extends DisableSecurityHubResponse, __MetadataBearer {}
 
 /**

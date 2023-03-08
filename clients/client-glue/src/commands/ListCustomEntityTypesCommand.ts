@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListCustomEntityTypesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListCustomEntityTypesCommand}.
+ */
 export interface ListCustomEntityTypesCommandInput extends ListCustomEntityTypesRequest {}
+/**
+ * The output of {@link ListCustomEntityTypesCommand}.
+ */
 export interface ListCustomEntityTypesCommandOutput extends ListCustomEntityTypesResponse, __MetadataBearer {}
 
 /**

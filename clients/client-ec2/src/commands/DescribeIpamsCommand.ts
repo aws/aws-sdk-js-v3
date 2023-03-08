@@ -22,7 +22,13 @@ import {
 } from "../models/models_4";
 import { deserializeAws_ec2DescribeIpamsCommand, serializeAws_ec2DescribeIpamsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeIpamsCommand}.
+ */
 export interface DescribeIpamsCommandInput extends DescribeIpamsRequest {}
+/**
+ * The output of {@link DescribeIpamsCommand}.
+ */
 export interface DescribeIpamsCommandOutput extends DescribeIpamsResult, __MetadataBearer {}
 
 /**

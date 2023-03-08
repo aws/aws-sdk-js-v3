@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateLocationHdfsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateLocationHdfsCommand}.
+ */
 export interface CreateLocationHdfsCommandInput extends CreateLocationHdfsRequest {}
+/**
+ * The output of {@link CreateLocationHdfsCommand}.
+ */
 export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsResponse, __MetadataBearer {}
 
 /**

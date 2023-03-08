@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1ListStepsCommand, serializeAws_json1_1ListStepsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListStepsCommand}.
+ */
 export interface ListStepsCommandInput extends ListStepsInput {}
+/**
+ * The output of {@link ListStepsCommand}.
+ */
 export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBearer {}
 
 /**

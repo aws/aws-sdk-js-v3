@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListRecoveryPointsByResourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListRecoveryPointsByResourceCommand}.
+ */
 export interface ListRecoveryPointsByResourceCommandInput extends ListRecoveryPointsByResourceInput {}
+/**
+ * The output of {@link ListRecoveryPointsByResourceCommand}.
+ */
 export interface ListRecoveryPointsByResourceCommandOutput
   extends ListRecoveryPointsByResourceOutput,
     __MetadataBearer {}

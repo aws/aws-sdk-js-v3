@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDetectorsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDetectorsCommand}.
+ */
 export interface GetDetectorsCommandInput extends GetDetectorsRequest {}
+/**
+ * The output of {@link GetDetectorsCommand}.
+ */
 export interface GetDetectorsCommandOutput extends GetDetectorsResult, __MetadataBearer {}
 
 /**

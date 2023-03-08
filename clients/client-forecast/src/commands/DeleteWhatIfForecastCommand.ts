@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteWhatIfForecastCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteWhatIfForecastCommand}.
+ */
 export interface DeleteWhatIfForecastCommandInput extends DeleteWhatIfForecastRequest {}
+/**
+ * The output of {@link DeleteWhatIfForecastCommand}.
+ */
 export interface DeleteWhatIfForecastCommandOutput extends __MetadataBearer {}
 
 /**

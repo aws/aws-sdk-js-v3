@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteTypedLinkFacetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteTypedLinkFacetCommand}.
+ */
 export interface DeleteTypedLinkFacetCommandInput extends DeleteTypedLinkFacetRequest {}
+/**
+ * The output of {@link DeleteTypedLinkFacetCommand}.
+ */
 export interface DeleteTypedLinkFacetCommandOutput extends DeleteTypedLinkFacetResponse, __MetadataBearer {}
 
 /**

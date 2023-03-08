@@ -29,8 +29,14 @@ import {
   serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SetLoadBalancerPoliciesForBackendServerCommand}.
+ */
 export interface SetLoadBalancerPoliciesForBackendServerCommandInput
   extends SetLoadBalancerPoliciesForBackendServerInput {}
+/**
+ * The output of {@link SetLoadBalancerPoliciesForBackendServerCommand}.
+ */
 export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
   extends SetLoadBalancerPoliciesForBackendServerOutput,
     __MetadataBearer {}

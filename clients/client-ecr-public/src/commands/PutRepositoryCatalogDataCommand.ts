@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutRepositoryCatalogDataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutRepositoryCatalogDataCommand}.
+ */
 export interface PutRepositoryCatalogDataCommandInput extends PutRepositoryCatalogDataRequest {}
+/**
+ * The output of {@link PutRepositoryCatalogDataCommand}.
+ */
 export interface PutRepositoryCatalogDataCommandOutput extends PutRepositoryCatalogDataResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateDeploymentStrategyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateDeploymentStrategyCommand}.
+ */
 export interface CreateDeploymentStrategyCommandInput extends CreateDeploymentStrategyRequest {}
+/**
+ * The output of {@link CreateDeploymentStrategyCommand}.
+ */
 export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrategy, __MetadataBearer {}
 
 /**

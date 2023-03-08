@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetListElementsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetListElementsCommand}.
+ */
 export interface GetListElementsCommandInput extends GetListElementsRequest {}
+/**
+ * The output of {@link GetListElementsCommand}.
+ */
 export interface GetListElementsCommandOutput extends GetListElementsResult, __MetadataBearer {}
 
 /**

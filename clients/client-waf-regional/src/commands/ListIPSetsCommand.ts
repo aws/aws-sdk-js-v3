@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link ListIPSetsCommand}.
+ */
 export interface ListIPSetsCommandInput extends ListIPSetsRequest {}
+/**
+ * The output of {@link ListIPSetsCommand}.
+ */
 export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataBearer {}
 
 /**

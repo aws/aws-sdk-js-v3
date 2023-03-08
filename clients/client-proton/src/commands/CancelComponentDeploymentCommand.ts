@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * The input for {@link CancelComponentDeploymentCommand}.
+ */
 export interface CancelComponentDeploymentCommandInput extends CancelComponentDeploymentInput {}
+/**
+ * The output of {@link CancelComponentDeploymentCommand}.
+ */
 export interface CancelComponentDeploymentCommandOutput extends CancelComponentDeploymentOutput, __MetadataBearer {}
 
 /**

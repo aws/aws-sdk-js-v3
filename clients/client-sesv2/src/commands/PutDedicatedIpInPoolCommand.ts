@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link PutDedicatedIpInPoolCommand}.
+ */
 export interface PutDedicatedIpInPoolCommandInput extends PutDedicatedIpInPoolRequest {}
+/**
+ * The output of {@link PutDedicatedIpInPoolCommand}.
+ */
 export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolResponse, __MetadataBearer {}
 
 /**

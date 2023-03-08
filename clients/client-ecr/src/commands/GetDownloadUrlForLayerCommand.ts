@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetDownloadUrlForLayerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDownloadUrlForLayerCommand}.
+ */
 export interface GetDownloadUrlForLayerCommandInput extends GetDownloadUrlForLayerRequest {}
+/**
+ * The output of {@link GetDownloadUrlForLayerCommand}.
+ */
 export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLayerResponse, __MetadataBearer {}
 
 /**

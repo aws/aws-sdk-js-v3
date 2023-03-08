@@ -23,7 +23,13 @@ import {
   serializeAws_json1_0DeleteRescoreExecutionPlanCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DeleteRescoreExecutionPlanCommand}.
+ */
 export interface DeleteRescoreExecutionPlanCommandInput extends DeleteRescoreExecutionPlanRequest {}
+/**
+ * The output of {@link DeleteRescoreExecutionPlanCommand}.
+ */
 export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBearer {}
 
 /**

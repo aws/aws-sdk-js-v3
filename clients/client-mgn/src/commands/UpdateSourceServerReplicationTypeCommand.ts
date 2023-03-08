@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateSourceServerReplicationTypeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateSourceServerReplicationTypeCommand}.
+ */
 export interface UpdateSourceServerReplicationTypeCommandInput extends UpdateSourceServerReplicationTypeRequest {}
+/**
+ * The output of {@link UpdateSourceServerReplicationTypeCommand}.
+ */
 export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**

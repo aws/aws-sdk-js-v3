@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * The input for {@link ListLensSharesCommand}.
+ */
 export interface ListLensSharesCommandInput extends ListLensSharesInput {}
+/**
+ * The output of {@link ListLensSharesCommand}.
+ */
 export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __MetadataBearer {}
 
 /**

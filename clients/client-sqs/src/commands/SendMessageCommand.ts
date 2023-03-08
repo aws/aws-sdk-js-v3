@@ -23,7 +23,13 @@ import {
 import { deserializeAws_querySendMessageCommand, serializeAws_querySendMessageCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * The input for {@link SendMessageCommand}.
+ */
 export interface SendMessageCommandInput extends SendMessageRequest {}
+/**
+ * The output of {@link SendMessageCommand}.
+ */
 export interface SendMessageCommandOutput extends SendMessageResult, __MetadataBearer {}
 
 /**

@@ -25,8 +25,14 @@ import {
   serializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateFirewallEncryptionConfigurationCommand}.
+ */
 export interface UpdateFirewallEncryptionConfigurationCommandInput
   extends UpdateFirewallEncryptionConfigurationRequest {}
+/**
+ * The output of {@link UpdateFirewallEncryptionConfigurationCommand}.
+ */
 export interface UpdateFirewallEncryptionConfigurationCommandOutput
   extends UpdateFirewallEncryptionConfigurationResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link DescribeInstanceAssociationsStatusCommand}.
+ */
 export interface DescribeInstanceAssociationsStatusCommandInput extends DescribeInstanceAssociationsStatusRequest {}
+/**
+ * The output of {@link DescribeInstanceAssociationsStatusCommand}.
+ */
 export interface DescribeInstanceAssociationsStatusCommandOutput
   extends DescribeInstanceAssociationsStatusResult,
     __MetadataBearer {}

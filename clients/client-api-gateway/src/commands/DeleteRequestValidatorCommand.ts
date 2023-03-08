@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteRequestValidatorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteRequestValidatorCommand}.
+ */
 export interface DeleteRequestValidatorCommandInput extends DeleteRequestValidatorRequest {}
+/**
+ * The output of {@link DeleteRequestValidatorCommand}.
+ */
 export interface DeleteRequestValidatorCommandOutput extends __MetadataBearer {}
 
 /**

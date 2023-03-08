@@ -25,13 +25,19 @@ import {
   serializeAws_json1_1ListAccountsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAccountsCommand}.
+ */
 export interface ListAccountsCommandInput extends ListAccountsRequest {}
+/**
+ * The output of {@link ListAccountsCommand}.
+ */
 export interface ListAccountsCommandOutput extends ListAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the accounts in the organization. To request only the accounts in a
  *             specified root or organizational unit (OU), use the <a>ListAccountsForParent</a> operation instead.</p>
- *         <note>
+ *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
  * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
  * occasionally return an empty set of results even when there are more results available. The
@@ -39,7 +45,7 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *                <i>only</i>
  * when there are no more results to display.</p>
  *          </note>
- *         <p>This operation can be called only from the organization's
+ *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

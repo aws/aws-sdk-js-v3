@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link RegisterToWorkMailCommand}.
+ */
 export interface RegisterToWorkMailCommandInput extends RegisterToWorkMailRequest {}
+/**
+ * The output of {@link RegisterToWorkMailCommand}.
+ */
 export interface RegisterToWorkMailCommandOutput extends RegisterToWorkMailResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_querySimulatePrincipalPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SimulatePrincipalPolicyCommand}.
+ */
 export interface SimulatePrincipalPolicyCommandInput extends SimulatePrincipalPolicyRequest {}
+/**
+ * The output of {@link SimulatePrincipalPolicyCommand}.
+ */
 export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResponse, __MetadataBearer {}
 
 /**

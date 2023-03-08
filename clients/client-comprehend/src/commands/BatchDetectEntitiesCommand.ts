@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchDetectEntitiesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchDetectEntitiesCommand}.
+ */
 export interface BatchDetectEntitiesCommandInput extends BatchDetectEntitiesRequest {}
+/**
+ * The output of {@link BatchDetectEntitiesCommand}.
+ */
 export interface BatchDetectEntitiesCommandOutput extends BatchDetectEntitiesResponse, __MetadataBearer {}
 
 /**

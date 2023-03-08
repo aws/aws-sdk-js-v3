@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DescribeValidDBInstanceModificationsCommand}.
+ */
 export interface DescribeValidDBInstanceModificationsCommandInput extends DescribeValidDBInstanceModificationsMessage {}
+/**
+ * The output of {@link DescribeValidDBInstanceModificationsCommand}.
+ */
 export interface DescribeValidDBInstanceModificationsCommandOutput
   extends DescribeValidDBInstanceModificationsResult,
     __MetadataBearer {}

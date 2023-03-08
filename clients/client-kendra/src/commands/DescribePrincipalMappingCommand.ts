@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribePrincipalMappingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribePrincipalMappingCommand}.
+ */
 export interface DescribePrincipalMappingCommandInput extends DescribePrincipalMappingRequest {}
+/**
+ * The output of {@link DescribePrincipalMappingCommand}.
+ */
 export interface DescribePrincipalMappingCommandOutput extends DescribePrincipalMappingResponse, __MetadataBearer {}
 
 /**

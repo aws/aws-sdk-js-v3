@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListVpcConnectorsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListVpcConnectorsCommand}.
+ */
 export interface ListVpcConnectorsCommandInput extends ListVpcConnectorsRequest {}
+/**
+ * The output of {@link ListVpcConnectorsCommand}.
+ */
 export interface ListVpcConnectorsCommandOutput extends ListVpcConnectorsResponse, __MetadataBearer {}
 
 /**

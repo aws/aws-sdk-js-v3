@@ -25,16 +25,22 @@ import {
   serializeAws_restJson1CreateMapCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateMapCommand}.
+ */
 export interface CreateMapCommandInput extends CreateMapRequest {}
+/**
+ * The output of {@link CreateMapCommand}.
+ */
 export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a map resource in your AWS account, which provides map tiles of different
+ * <p>Creates a map resource in your Amazon Web Services account, which provides map tiles of different
  *             styles sourced from global location data providers.</p>
  *          <note>
  *             <p>If your application is tracking or routing assets you use in your business, such
  *                 as delivery vehicles or employees, you must not use Esri as your geolocation
- *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
+ *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
  *                     service terms</a> for more details.</p>
  *          </note>
  * @example

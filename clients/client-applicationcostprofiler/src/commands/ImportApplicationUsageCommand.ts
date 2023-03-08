@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1ImportApplicationUsageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ImportApplicationUsageCommand}.
+ */
 export interface ImportApplicationUsageCommandInput extends ImportApplicationUsageRequest {}
+/**
+ * The output of {@link ImportApplicationUsageCommand}.
+ */
 export interface ImportApplicationUsageCommandOutput extends ImportApplicationUsageResult, __MetadataBearer {}
 
 /**

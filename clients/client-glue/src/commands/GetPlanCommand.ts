@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_json1_1GetPlanCommand, serializeAws_json1_1GetPlanCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetPlanCommand}.
+ */
 export interface GetPlanCommandInput extends GetPlanRequest {}
+/**
+ * The output of {@link GetPlanCommand}.
+ */
 export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer {}
 
 /**

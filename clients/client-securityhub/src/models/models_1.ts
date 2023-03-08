@@ -4,10 +4,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import {
   AccountDetails,
   Action,
-  ActionTarget,
   Adjustment,
   AssociatedStandard,
-  AutoEnableStandards,
+  AssociationStatus,
   AwsApiGatewayRestApiDetails,
   AwsApiGatewayStageDetails,
   AwsApiGatewayV2ApiDetails,
@@ -52,9 +51,18 @@ import {
   AwsElbv2LoadBalancerDetails,
   AwsIamAccessKeyDetails,
   AwsIamAttachedManagedPolicy,
-  AwsIamGroupPolicy,
 } from "./models_0";
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+
+/**
+ * <p>A managed policy that is attached to the IAM group.</p>
+ */
+export interface AwsIamGroupPolicy {
+  /**
+   * <p>The name of the policy.</p>
+   */
+  PolicyName?: string;
+}
 
 /**
  * <p>Contains details about an IAM group.</p>
@@ -3314,7 +3322,8 @@ export interface AwsRedshiftClusterClusterSecurityGroup {
 }
 
 /**
- * <p>Information about a cross-Region snapshot copy.</p>
+ * <p>You can configure Amazon Redshift to copy snapshots for a cluster to another Amazon Web Services Region. This parameter
+ *          provides information about a cross-Region snapshot copy.</p>
  */
 export interface AwsRedshiftClusterClusterSnapshotCopyStatus {
   /**
@@ -3324,8 +3333,8 @@ export interface AwsRedshiftClusterClusterSnapshotCopyStatus {
   DestinationRegion?: string;
 
   /**
-   * <p>The number of days that manual snapshots are retained in the destination region after
-   *          they are copied from a source region.</p>
+   * <p>The number of days that manual snapshots are retained in the destination Region after
+   *          they are copied from a source Region.</p>
    *          <p>If the value is <code>-1</code>,
    *          then the manual snapshot is retained indefinitely.</p>
    *          <p>Valid values: Either <code>-1</code>
@@ -7596,7 +7605,7 @@ export interface Resource {
 /**
  * <p>The severity of the finding.</p>
  *          <p>The finding provider can provide the initial severity. The finding provider can only
- *          update the severity if it has not been updated using
+ *          update the severity if it hasn't been updated using
  *          <code>BatchUpdateFindings</code>.</p>
  *          <p>The finding must have either <code>Label</code> or <code>Normalized</code> populated. If
  *          only one of these attributes is populated, then Security Hub automatically populates the other
@@ -9353,6 +9362,291 @@ export interface BatchEnableStandardsResponse {
   StandardsSubscriptions?: StandardsSubscription[];
 }
 
+export interface BatchGetSecurityControlsRequest {
+  /**
+   * <p> A list of security controls (identified with <code>SecurityControlId</code>,
+   *             <code>SecurityControlArn</code>, or a mix of both parameters). The security control ID
+   *          or Amazon Resource Name (ARN) is the same across standards. </p>
+   */
+  SecurityControlIds: string[] | undefined;
+}
+
+export enum ControlStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export enum SeverityRating {
+  CRITICAL = "CRITICAL",
+  HIGH = "HIGH",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+}
+
+/**
+ * <p>
+ *          A security control in Security Hub describes a security best practice related to a specific resource.
+ *       </p>
+ */
+export interface SecurityControl {
+  /**
+   * <p>
+   *          The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Service name and a
+   *          number, such as APIGateway.3.
+   *       </p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) for a security control across standards, such as
+   *             <code>arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1</code>. This
+   *          parameter doesn't mention a specific standard. </p>
+   */
+  SecurityControlArn: string | undefined;
+
+  /**
+   * <p>The title of a security control.
+   *       </p>
+   */
+  Title: string | undefined;
+
+  /**
+   * <p> The description of a security control across standards. This typically summarizes how
+   *             Security Hub evaluates the control and the conditions under which it produces a
+   *          failed finding. This parameter doesn't reference a specific standard. </p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>
+   *          A link to Security Hub documentation that explains how to remediate a failed finding for a security control.
+   *       </p>
+   */
+  RemediationUrl: string | undefined;
+
+  /**
+   * <p>
+   *          The severity of a security control. For more information about how Security Hub determines control severity, see
+   *          <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the
+   *          <i>Security Hub User Guide</i>.
+   *       </p>
+   */
+  SeverityRating: SeverityRating | string | undefined;
+
+  /**
+   * <p>
+   *          The status of a security control based on the compliance status of its findings. For more information about how control
+   *          status is determined, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-overall-status.html">Determining the overall status of a control from its findings</a> in the
+   *          <i>Security Hub User Guide</i>.
+   *       </p>
+   */
+  SecurityControlStatus: ControlStatus | string | undefined;
+}
+
+export enum UnprocessedErrorCode {
+  ACCESS_DENIED = "ACCESS_DENIED",
+  INVALID_INPUT = "INVALID_INPUT",
+  LIMIT_EXCEEDED = "LIMIT_EXCEEDED",
+  NOT_FOUND = "NOT_FOUND",
+}
+
+/**
+ * <p> Provides details about a security control for which a response couldn't be returned. </p>
+ */
+export interface UnprocessedSecurityControl {
+  /**
+   * <p> The control (identified with <code>SecurityControlId</code>,
+   *             <code>SecurityControlArn</code>, or a mix of both parameters) for which a response
+   *          couldn't be returned. </p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p>
+   *          The error code for the unprocessed security control.
+   *       </p>
+   */
+  ErrorCode: UnprocessedErrorCode | string | undefined;
+
+  /**
+   * <p>
+   *          The reason why the security control was unprocessed.
+   *       </p>
+   */
+  ErrorReason?: string;
+}
+
+export interface BatchGetSecurityControlsResponse {
+  /**
+   * <p>
+   *          An array that returns the identifier, Amazon Resource Name (ARN), and other details about a security control.
+   *          The same information is returned whether the request includes <code>SecurityControlId</code> or <code>SecurityControlArn</code>.
+   *       </p>
+   */
+  SecurityControls: SecurityControl[] | undefined;
+
+  /**
+   * <p>
+   *          A security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) for which
+   *          details cannot be returned.
+   *       </p>
+   */
+  UnprocessedIds?: UnprocessedSecurityControl[];
+}
+
+/**
+ * <p>
+ *          An array with one or more objects that includes a security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters)
+ *          and the Amazon Resource Name (ARN) of a standard. The security control ID or ARN is the same across standards.
+ *       </p>
+ */
+export interface StandardsControlAssociationId {
+  /**
+   * <p>
+   *          The unique identifier (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) of a security
+   *          control across standards.
+   *       </p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p>
+   *          The ARN of a standard.
+   *       </p>
+   */
+  StandardsArn: string | undefined;
+}
+
+export interface BatchGetStandardsControlAssociationsRequest {
+  /**
+   * <p>
+   *          An array with one or more objects that includes a security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) and the Amazon Resource Name (ARN) of a standard.
+   *          This field is used to query the enablement status of a control in a specified standard. The security control ID or ARN is the same across standards.
+   *       </p>
+   */
+  StandardsControlAssociationIds: StandardsControlAssociationId[] | undefined;
+}
+
+/**
+ * <p> Provides details about a control's enablement status in a specified standard. </p>
+ */
+export interface StandardsControlAssociationDetail {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of a security standard.
+   *       </p>
+   */
+  StandardsArn: string | undefined;
+
+  /**
+   * <p>
+   *          The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Service
+   *          name and a number, such as APIGateway.3.
+   *       </p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p> The ARN of a security control across standards, such as
+   *             <code>arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1</code>. This
+   *          parameter doesn't mention a specific standard. </p>
+   */
+  SecurityControlArn: string | undefined;
+
+  /**
+   * <p>
+   *          Specifies whether a control is enabled or disabled in a specified standard.
+   *       </p>
+   */
+  AssociationStatus: AssociationStatus | string | undefined;
+
+  /**
+   * <p>
+   *          The requirement that underlies a control in the compliance framework related to the standard.
+   *       </p>
+   */
+  RelatedRequirements?: string[];
+
+  /**
+   * <p>
+   *          The time at which the enablement status of the control in the specified standard was last updated.
+   *       </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>
+   *          The reason for updating the enablement status of a control in a specified standard.
+   *       </p>
+   */
+  UpdatedReason?: string;
+
+  /**
+   * <p>
+   *          The title of a control. This field may reference a specific standard.
+   *       </p>
+   */
+  StandardsControlTitle?: string;
+
+  /**
+   * <p>
+   *          The description of a control. This typically summarizes how Security Hub evaluates the control and the
+   *          conditions under which it produces a failed finding. This parameter may reference a specific standard.
+   *       </p>
+   */
+  StandardsControlDescription?: string;
+
+  /**
+   * <p> Provides the input parameter that Security Hub uses to call the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateStandardsControl.html">UpdateStandardsControl</a> API. This API can be used to enable or disable a control
+   *          in a specified standard. </p>
+   */
+  StandardsControlArns?: string[];
+}
+
+/**
+ * <p> Provides details about which
+ *          control's enablement status couldn't be retrieved in a specified standard when calling <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">BatchUpdateStandardsControlAssociations</a>. This parameter also provides details
+ *          about why the request was unprocessed. </p>
+ */
+export interface UnprocessedStandardsControlAssociation {
+  /**
+   * <p> An array with one or more objects that includes a security control (identified with
+   *             <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both
+   *          parameters) and the Amazon Resource Name (ARN) of a standard. This parameter shows the
+   *          specific controls for which the enablement status couldn't be retrieved in specified standards when
+   *          calling <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">BatchUpdateStandardsControlAssociations</a>. </p>
+   */
+  StandardsControlAssociationId: StandardsControlAssociationId | undefined;
+
+  /**
+   * <p>The error code for the unprocessed standard and control association.
+   *       </p>
+   */
+  ErrorCode: UnprocessedErrorCode | string | undefined;
+
+  /**
+   * <p>The reason why the standard and control association was unprocessed. </p>
+   */
+  ErrorReason?: string;
+}
+
+export interface BatchGetStandardsControlAssociationsResponse {
+  /**
+   * <p>Provides the enablement status of a security control in a specified standard and other details for the control in relation to
+   *          the specified standard.
+   *       </p>
+   */
+  StandardsControlAssociationDetails: StandardsControlAssociationDetail[] | undefined;
+
+  /**
+   * <p>
+   *          A security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) whose enablement
+   *          status in a specified standard cannot be returned.
+   *       </p>
+   */
+  UnprocessedAssociations?: UnprocessedStandardsControlAssociation[];
+}
+
 export interface BatchImportFindingsRequest {
   /**
    * <p>A list of findings to import. To successfully import a finding, it must follow the
@@ -9730,9 +10024,80 @@ export interface BatchUpdateFindingsResponse {
   UnprocessedFindings: BatchUpdateFindingsUnprocessedFinding[] | undefined;
 }
 
-export enum ControlStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
+/**
+ * <p>An array of requested updates to the enablement status of controls in specified
+ *          standards. The objects in the array include a security control ID, the Amazon Resource Name (ARN) of the standard, the requested
+ *          enablement status, and the reason for updating the enablement status.</p>
+ */
+export interface StandardsControlAssociationUpdate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the standard in which you want to update the
+   *          control's enablement status.</p>
+   */
+  StandardsArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the security control whose enablement status you want to update.</p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p>The desired enablement status of the control in the standard.</p>
+   */
+  AssociationStatus: AssociationStatus | string | undefined;
+
+  /**
+   * <p>The reason for updating the control's enablement status in the standard.</p>
+   */
+  UpdatedReason?: string;
+}
+
+export interface BatchUpdateStandardsControlAssociationsRequest {
+  /**
+   * <p>
+   *          Updates the enablement status of a security control in a specified standard.
+   *       </p>
+   */
+  StandardsControlAssociationUpdates: StandardsControlAssociationUpdate[] | undefined;
+}
+
+/**
+ * <p>Provides details about which control's enablement status could not be updated in a
+ *          specified standard when calling the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">BatchUpdateStandardsControlAssociations</a> API. This parameter also provides
+ *          details about why the request was unprocessed. </p>
+ */
+export interface UnprocessedStandardsControlAssociationUpdate {
+  /**
+   * <p>An array of control and standard associations for which an update failed when calling
+   *          <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">BatchUpdateStandardsControlAssociations</a>.
+   *       </p>
+   */
+  StandardsControlAssociationUpdate: StandardsControlAssociationUpdate | undefined;
+
+  /**
+   * <p>The error code for the unprocessed update of the control's enablement status in the
+   *          specified standard.</p>
+   */
+  ErrorCode: UnprocessedErrorCode | string | undefined;
+
+  /**
+   * <p>The reason why a control's enablement status in the specified standard couldn't be updated. </p>
+   */
+  ErrorReason?: string;
+}
+
+export interface BatchUpdateStandardsControlAssociationsResponse {
+  /**
+   * <p>
+   *          A security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) whose enablement status in a specified standard couldn't be updated.
+   *       </p>
+   */
+  UnprocessedAssociationUpdates?: UnprocessedStandardsControlAssociationUpdate[];
+}
+
+export enum ControlFindingGenerator {
+  SECURITY_CONTROL = "SECURITY_CONTROL",
+  STANDARD_CONTROL = "STANDARD_CONTROL",
 }
 
 export interface CreateActionTargetRequest {
@@ -9754,7 +10119,7 @@ export interface CreateActionTargetRequest {
 
 export interface CreateActionTargetResponse {
   /**
-   * <p>The ARN for the custom action target.</p>
+   * <p>The Amazon Resource Name (ARN) for the custom action target.</p>
    */
   ActionTargetArn: string | undefined;
 }
@@ -9914,7 +10279,7 @@ export interface DeclineInvitationsResponse {
 
 export interface DeleteActionTargetRequest {
   /**
-   * <p>The ARN of the custom action target to delete.</p>
+   * <p>The Amazon Resource Name (ARN) of the custom action target to delete.</p>
    */
   ActionTargetArn: string | undefined;
 }
@@ -9926,242 +10291,12 @@ export interface DeleteActionTargetResponse {
   ActionTargetArn: string | undefined;
 }
 
-export interface DeleteFindingAggregatorRequest {
-  /**
-   * <p>The ARN of the finding aggregator to delete. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
-   */
-  FindingAggregatorArn: string | undefined;
-}
-
-export interface DeleteFindingAggregatorResponse {}
-
-export interface DeleteInsightRequest {
-  /**
-   * <p>The ARN of the insight to delete.</p>
-   */
-  InsightArn: string | undefined;
-}
-
-export interface DeleteInsightResponse {
-  /**
-   * <p>The ARN of the insight that was deleted.</p>
-   */
-  InsightArn: string | undefined;
-}
-
-export interface DeleteInvitationsRequest {
-  /**
-   * <p>The list of the account IDs that sent the invitations to delete.</p>
-   */
-  AccountIds: string[] | undefined;
-}
-
-export interface DeleteInvitationsResponse {
-  /**
-   * <p>The list of Amazon Web Services accounts for which the invitations were not deleted. For each account,
-   *          the list includes the account ID and the email address.</p>
-   */
-  UnprocessedAccounts?: Result[];
-}
-
-export interface DeleteMembersRequest {
-  /**
-   * <p>The list of account IDs for the member accounts to delete.</p>
-   */
-  AccountIds: string[] | undefined;
-}
-
-export interface DeleteMembersResponse {
-  /**
-   * <p>The list of Amazon Web Services accounts that were not deleted. For each account, the list includes the
-   *          account ID and the email address.</p>
-   */
-  UnprocessedAccounts?: Result[];
-}
-
-export interface DescribeActionTargetsRequest {
-  /**
-   * <p>A list of custom action target ARNs for the custom action targets to retrieve.</p>
-   */
-  ActionTargetArns?: string[];
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>DescribeActionTargets</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface DescribeActionTargetsResponse {
-  /**
-   * <p>A list of <code>ActionTarget</code> objects. Each object includes the <code>ActionTargetArn</code>,
-   *             <code>Description</code>, and <code>Name</code> of a custom action target available in
-   *          Security Hub.</p>
-   */
-  ActionTargets: ActionTarget[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeHubRequest {
-  /**
-   * <p>The ARN of the Hub resource to retrieve.</p>
-   */
-  HubArn?: string;
-}
-
-export interface DescribeHubResponse {
-  /**
-   * <p>The ARN of the Hub resource that was retrieved.</p>
-   */
-  HubArn?: string;
-
-  /**
-   * <p>The date and time when Security Hub was enabled in the account.</p>
-   */
-  SubscribedAt?: string;
-
-  /**
-   * <p>Whether to automatically enable new controls when they are added to standards that are
-   *          enabled.</p>
-   *          <p>If set to <code>true</code>, then new controls for enabled standards are enabled
-   *          automatically. If set to <code>false</code>, then new controls are not enabled.</p>
-   */
-  AutoEnableControls?: boolean;
-}
-
-export interface DescribeOrganizationConfigurationRequest {}
-
-export interface DescribeOrganizationConfigurationResponse {
-  /**
-   * <p>Whether to automatically enable Security Hub for new accounts in the organization.</p>
-   *          <p>If set to <code>true</code>, then Security Hub is enabled for new accounts. If set to false,
-   *          then new accounts are not added automatically.</p>
-   */
-  AutoEnable?: boolean;
-
-  /**
-   * <p>Whether the maximum number of allowed member accounts are already associated with the
-   *          Security Hub administrator account.</p>
-   */
-  MemberAccountLimitReached?: boolean;
-
-  /**
-   * <p>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
-   *          for new member accounts in the organization.</p>
-   *          <p>The default value of this parameter is equal to <code>DEFAULT</code>.</p>
-   *          <p>If equal to <code>DEFAULT</code>, then Security Hub default standards are automatically enabled for new member
-   *          accounts. If equal to <code>NONE</code>, then default standards are not automatically enabled for new member
-   *          accounts.</p>
-   */
-  AutoEnableStandards?: AutoEnableStandards | string;
-}
-
-export interface DescribeProductsRequest {
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>DescribeProducts</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The ARN of the integration to return.</p>
-   */
-  ProductArn?: string;
-}
-
-export enum IntegrationType {
-  RECEIVE_FINDINGS_FROM_SECURITY_HUB = "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
-  SEND_FINDINGS_TO_SECURITY_HUB = "SEND_FINDINGS_TO_SECURITY_HUB",
-  UPDATE_FINDINGS_IN_SECURITY_HUB = "UPDATE_FINDINGS_IN_SECURITY_HUB",
-}
-
 /**
- * <p>Contains details about a product.</p>
+ * @internal
  */
-export interface Product {
-  /**
-   * <p>The ARN assigned to the product.</p>
-   */
-  ProductArn: string | undefined;
-
-  /**
-   * <p>The name of the product.</p>
-   */
-  ProductName?: string;
-
-  /**
-   * <p>The name of the company that provides the product.</p>
-   */
-  CompanyName?: string;
-
-  /**
-   * <p>A description of the product.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The categories assigned to the product.</p>
-   */
-  Categories?: string[];
-
-  /**
-   * <p>The types of integration that the product supports. Available values are the
-   *          following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SEND_FINDINGS_TO_SECURITY_HUB</code> - The integration sends
-   *                findings to Security Hub.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RECEIVE_FINDINGS_FROM_SECURITY_HUB</code> - The integration
-   *                receives findings from Security Hub.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FINDINGS_IN_SECURITY_HUB</code> - The integration does not send new findings to Security Hub, but does make updates to the findings that it receives from Security Hub.</p>
-   *             </li>
-   *          </ul>
-   */
-  IntegrationTypes?: (IntegrationType | string)[];
-
-  /**
-   * <p>For integrations with Amazon Web Services services, the Amazon Web Services Console URL from which to activate the service.</p>
-   *          <p>For integrations with third-party products, the Amazon Web Services Marketplace URL from which to subscribe to or purchase the product.</p>
-   */
-  MarketplaceUrl?: string;
-
-  /**
-   * <p>The URL to the service or product documentation about the integration with Security Hub, including how to activate the integration.</p>
-   */
-  ActivationUrl?: string;
-
-  /**
-   * <p>The resource policy associated with the product.</p>
-   */
-  ProductSubscriptionResourcePolicy?: string;
-}
+export const AwsIamGroupPolicyFilterSensitiveLog = (obj: AwsIamGroupPolicy): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11998,6 +12133,75 @@ export const BatchEnableStandardsResponseFilterSensitiveLog = (obj: BatchEnableS
 /**
  * @internal
  */
+export const BatchGetSecurityControlsRequestFilterSensitiveLog = (obj: BatchGetSecurityControlsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecurityControlFilterSensitiveLog = (obj: SecurityControl): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnprocessedSecurityControlFilterSensitiveLog = (obj: UnprocessedSecurityControl): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetSecurityControlsResponseFilterSensitiveLog = (obj: BatchGetSecurityControlsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StandardsControlAssociationIdFilterSensitiveLog = (obj: StandardsControlAssociationId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetStandardsControlAssociationsRequestFilterSensitiveLog = (
+  obj: BatchGetStandardsControlAssociationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StandardsControlAssociationDetailFilterSensitiveLog = (obj: StandardsControlAssociationDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnprocessedStandardsControlAssociationFilterSensitiveLog = (
+  obj: UnprocessedStandardsControlAssociation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetStandardsControlAssociationsResponseFilterSensitiveLog = (
+  obj: BatchGetStandardsControlAssociationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const BatchImportFindingsRequestFilterSensitiveLog = (obj: BatchImportFindingsRequest): any => ({
   ...obj,
 });
@@ -12057,6 +12261,40 @@ export const BatchUpdateFindingsUnprocessedFindingFilterSensitiveLog = (
  * @internal
  */
 export const BatchUpdateFindingsResponseFilterSensitiveLog = (obj: BatchUpdateFindingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StandardsControlAssociationUpdateFilterSensitiveLog = (obj: StandardsControlAssociationUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateStandardsControlAssociationsRequestFilterSensitiveLog = (
+  obj: BatchUpdateStandardsControlAssociationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnprocessedStandardsControlAssociationUpdateFilterSensitiveLog = (
+  obj: UnprocessedStandardsControlAssociationUpdate
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateStandardsControlAssociationsResponseFilterSensitiveLog = (
+  obj: BatchUpdateStandardsControlAssociationsResponse
+): any => ({
   ...obj,
 });
 
@@ -12148,121 +12386,5 @@ export const DeleteActionTargetRequestFilterSensitiveLog = (obj: DeleteActionTar
  * @internal
  */
 export const DeleteActionTargetResponseFilterSensitiveLog = (obj: DeleteActionTargetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFindingAggregatorRequestFilterSensitiveLog = (obj: DeleteFindingAggregatorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFindingAggregatorResponseFilterSensitiveLog = (obj: DeleteFindingAggregatorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInsightRequestFilterSensitiveLog = (obj: DeleteInsightRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInsightResponseFilterSensitiveLog = (obj: DeleteInsightResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInvitationsRequestFilterSensitiveLog = (obj: DeleteInvitationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInvitationsResponseFilterSensitiveLog = (obj: DeleteInvitationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMembersRequestFilterSensitiveLog = (obj: DeleteMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMembersResponseFilterSensitiveLog = (obj: DeleteMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActionTargetsRequestFilterSensitiveLog = (obj: DescribeActionTargetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActionTargetsResponseFilterSensitiveLog = (obj: DescribeActionTargetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHubRequestFilterSensitiveLog = (obj: DescribeHubRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHubResponseFilterSensitiveLog = (obj: DescribeHubResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrganizationConfigurationRequestFilterSensitiveLog = (
-  obj: DescribeOrganizationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrganizationConfigurationResponseFilterSensitiveLog = (
-  obj: DescribeOrganizationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProductsRequestFilterSensitiveLog = (obj: DescribeProductsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProductFilterSensitiveLog = (obj: Product): any => ({
   ...obj,
 });

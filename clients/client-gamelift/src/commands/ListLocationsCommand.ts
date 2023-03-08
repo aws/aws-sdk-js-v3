@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListLocationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListLocationsCommand}.
+ */
 export interface ListLocationsCommandInput extends ListLocationsInput {}
+/**
+ * The output of {@link ListLocationsCommand}.
+ */
 export interface ListLocationsCommandOutput extends ListLocationsOutput, __MetadataBearer {}
 
 /**

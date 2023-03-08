@@ -25,11 +25,17 @@ import {
   serializeAws_restJson1ListTrackersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListTrackersCommand}.
+ */
 export interface ListTrackersCommandInput extends ListTrackersRequest {}
+/**
+ * The output of {@link ListTrackersCommand}.
+ */
 export interface ListTrackersCommandOutput extends ListTrackersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists tracker resources in your AWS account.</p>
+ * <p>Lists tracker resources in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

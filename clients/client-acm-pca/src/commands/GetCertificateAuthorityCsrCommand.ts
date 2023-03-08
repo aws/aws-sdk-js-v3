@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCertificateAuthorityCsrCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCertificateAuthorityCsrCommand}.
+ */
 export interface GetCertificateAuthorityCsrCommandInput extends GetCertificateAuthorityCsrRequest {}
+/**
+ * The output of {@link GetCertificateAuthorityCsrCommand}.
+ */
 export interface GetCertificateAuthorityCsrCommandOutput extends GetCertificateAuthorityCsrResponse, __MetadataBearer {}
 
 /**

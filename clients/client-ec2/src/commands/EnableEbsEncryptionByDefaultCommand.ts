@@ -25,7 +25,13 @@ import {
   serializeAws_ec2EnableEbsEncryptionByDefaultCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link EnableEbsEncryptionByDefaultCommand}.
+ */
 export interface EnableEbsEncryptionByDefaultCommandInput extends EnableEbsEncryptionByDefaultRequest {}
+/**
+ * The output of {@link EnableEbsEncryptionByDefaultCommand}.
+ */
 export interface EnableEbsEncryptionByDefaultCommandOutput
   extends EnableEbsEncryptionByDefaultResult,
     __MetadataBearer {}

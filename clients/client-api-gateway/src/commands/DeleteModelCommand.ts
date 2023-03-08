@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteModelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteModelCommand}.
+ */
 export interface DeleteModelCommandInput extends DeleteModelRequest {}
+/**
+ * The output of {@link DeleteModelCommand}.
+ */
 export interface DeleteModelCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * The input for {@link DeleteNamespaceCommand}.
+ */
 export interface DeleteNamespaceCommandInput extends DeleteNamespaceRequest {}
+/**
+ * The output of {@link DeleteNamespaceCommand}.
+ */
 export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, __MetadataBearer {}
 
 /**

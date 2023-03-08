@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_ec2CreateRouteCommand, serializeAws_ec2CreateRouteCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateRouteCommand}.
+ */
 export interface CreateRouteCommandInput extends CreateRouteRequest {}
+/**
+ * The output of {@link CreateRouteCommand}.
+ */
 export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataBearer {}
 
 /**

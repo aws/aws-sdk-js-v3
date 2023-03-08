@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link RejectDataShareCommand}.
+ */
 export interface RejectDataShareCommandInput extends RejectDataShareMessage {}
+/**
+ * The output of {@link RejectDataShareCommand}.
+ */
 export interface RejectDataShareCommandOutput extends DataShare, __MetadataBearer {}
 
 /**

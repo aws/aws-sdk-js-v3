@@ -25,12 +25,18 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link CreateMonitoringScheduleCommand}.
+ */
 export interface CreateMonitoringScheduleCommandInput extends CreateMonitoringScheduleRequest {}
+/**
+ * The output of {@link CreateMonitoringScheduleCommand}.
+ */
 export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to monitor the data
- *          captured for an Amazon SageMaker Endoint.</p>
+ *          captured for an Amazon SageMaker Endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreatePublicVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreatePublicVirtualInterfaceCommand}.
+ */
 export interface CreatePublicVirtualInterfaceCommandInput extends CreatePublicVirtualInterfaceRequest {}
+/**
+ * The output of {@link CreatePublicVirtualInterfaceCommand}.
+ */
 export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**

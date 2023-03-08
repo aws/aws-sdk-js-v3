@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ImportVmImageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ImportVmImageCommand}.
+ */
 export interface ImportVmImageCommandInput extends ImportVmImageRequest {}
+/**
+ * The output of {@link ImportVmImageCommand}.
+ */
 export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __MetadataBearer {}
 
 /**

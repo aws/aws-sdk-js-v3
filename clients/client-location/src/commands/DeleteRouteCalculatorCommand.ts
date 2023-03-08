@@ -25,11 +25,17 @@ import {
   serializeAws_restJson1DeleteRouteCalculatorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteRouteCalculatorCommand}.
+ */
 export interface DeleteRouteCalculatorCommandInput extends DeleteRouteCalculatorRequest {}
+/**
+ * The output of {@link DeleteRouteCalculatorCommand}.
+ */
 export interface DeleteRouteCalculatorCommandOutput extends DeleteRouteCalculatorResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a route calculator resource from your AWS account.</p>
+ * <p>Deletes a route calculator resource from your Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently.</p>
  *          </note>

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1MonitorContactCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link MonitorContactCommand}.
+ */
 export interface MonitorContactCommandInput extends MonitorContactRequest {}
+/**
+ * The output of {@link MonitorContactCommand}.
+ */
 export interface MonitorContactCommandOutput extends MonitorContactResponse, __MetadataBearer {}
 
 /**

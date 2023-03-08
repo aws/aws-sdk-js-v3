@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1RemovePermissionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RemovePermissionCommand}.
+ */
 export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
+/**
+ * The output of {@link RemovePermissionCommand}.
+ */
 export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**

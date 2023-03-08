@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0UpdateHypervisorCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateHypervisorCommand}.
+ */
 export interface UpdateHypervisorCommandInput extends UpdateHypervisorInput {}
+/**
+ * The output of {@link UpdateHypervisorCommand}.
+ */
 export interface UpdateHypervisorCommandOutput extends UpdateHypervisorOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetClusterSessionCredentialsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetClusterSessionCredentialsCommand}.
+ */
 export interface GetClusterSessionCredentialsCommandInput extends GetClusterSessionCredentialsInput {}
+/**
+ * The output of {@link GetClusterSessionCredentialsCommand}.
+ */
 export interface GetClusterSessionCredentialsCommandOutput
   extends GetClusterSessionCredentialsOutput,
     __MetadataBearer {}

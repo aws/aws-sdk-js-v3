@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminCreateUserCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminCreateUserCommand}.
+ */
 export interface AdminCreateUserCommandInput extends AdminCreateUserRequest {}
+/**
+ * The output of {@link AdminCreateUserCommand}.
+ */
 export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, __MetadataBearer {}
 
 /**

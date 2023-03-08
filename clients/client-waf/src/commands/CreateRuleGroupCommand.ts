@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * The input for {@link CreateRuleGroupCommand}.
+ */
 export interface CreateRuleGroupCommandInput extends CreateRuleGroupRequest {}
+/**
+ * The output of {@link CreateRuleGroupCommand}.
+ */
 export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, __MetadataBearer {}
 
 /**

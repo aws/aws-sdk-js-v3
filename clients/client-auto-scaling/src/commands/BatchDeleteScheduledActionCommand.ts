@@ -25,7 +25,13 @@ import {
   serializeAws_queryBatchDeleteScheduledActionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link BatchDeleteScheduledActionCommand}.
+ */
 export interface BatchDeleteScheduledActionCommandInput extends BatchDeleteScheduledActionType {}
+/**
+ * The output of {@link BatchDeleteScheduledActionCommand}.
+ */
 export interface BatchDeleteScheduledActionCommandOutput extends BatchDeleteScheduledActionAnswer, __MetadataBearer {}
 
 /**

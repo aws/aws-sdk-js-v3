@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0RestoreTableToPointInTimeCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link RestoreTableToPointInTimeCommand}.
+ */
 export interface RestoreTableToPointInTimeCommandInput extends RestoreTableToPointInTimeInput {}
+/**
+ * The output of {@link RestoreTableToPointInTimeCommand}.
+ */
 export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPointInTimeOutput, __MetadataBearer {}
 
 /**
@@ -33,51 +39,50 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  *                 <code>EarliestRestorableDateTime</code> and <code>LatestRestorableDateTime</code>.
  *             You can restore your table to any point in time during the last 35 days. Any number of
  *             users can execute up to 4 concurrent restores (any type of restore) in a given account. </p>
- *         <p> When you restore using point in time recovery, DynamoDB restores your table data to
+ *          <p> When you restore using point in time recovery, DynamoDB restores your table data to
  *             the state based on the selected date and time (day:hour:minute:second) to a new table. </p>
- *         <p> Along with data, the following are also included on the new restored table using
+ *          <p> Along with data, the following are also included on the new restored table using
  *             point in time recovery: </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Global secondary indexes (GSIs)</p>
+ *                <p>Global secondary indexes (GSIs)</p>
  *             </li>
  *             <li>
- *                 <p>Local secondary indexes (LSIs)</p>
+ *                <p>Local secondary indexes (LSIs)</p>
  *             </li>
  *             <li>
- *                 <p>Provisioned read and write capacity</p>
+ *                <p>Provisioned read and write capacity</p>
  *             </li>
  *             <li>
- *                 <p>Encryption settings</p>
- *                 <important>
- *                     <p> All these settings come from the current settings of the source table at
+ *                <p>Encryption settings</p>
+ *                <important>
+ *                   <p> All these settings come from the current settings of the source table at
  *                         the time of restore. </p>
- *                 </important>
+ *                </important>
  *             </li>
  *          </ul>
- *
- *         <p>You must manually set up the following on the restored table:</p>
- *         <ul>
+ *          <p>You must manually set up the following on the restored table:</p>
+ *          <ul>
  *             <li>
- *                 <p>Auto scaling policies</p>
+ *                <p>Auto scaling policies</p>
  *             </li>
  *             <li>
- *                 <p>IAM policies</p>
+ *                <p>IAM policies</p>
  *             </li>
  *             <li>
- *                 <p>Amazon CloudWatch metrics and alarms</p>
+ *                <p>Amazon CloudWatch metrics and alarms</p>
  *             </li>
  *             <li>
- *                 <p>Tags</p>
+ *                <p>Tags</p>
  *             </li>
  *             <li>
- *                 <p>Stream settings</p>
+ *                <p>Stream settings</p>
  *             </li>
  *             <li>
- *                 <p>Time to Live (TTL) settings</p>
+ *                <p>Time to Live (TTL) settings</p>
  *             </li>
  *             <li>
- *                 <p>Point in time recovery settings</p>
+ *                <p>Point in time recovery settings</p>
  *             </li>
  *          </ul>
  * @example

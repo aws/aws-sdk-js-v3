@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetRepositoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRepositoryCommand}.
+ */
 export interface GetRepositoryCommandInput extends GetRepositoryInput {}
+/**
+ * The output of {@link GetRepositoryCommand}.
+ */
 export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __MetadataBearer {}
 
 /**

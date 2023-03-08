@@ -19,10 +19,16 @@ import {
   GetDisksRequestFilterSensitiveLog,
   GetDisksResult,
   GetDisksResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { deserializeAws_json1_1GetDisksCommand, serializeAws_json1_1GetDisksCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDisksCommand}.
+ */
 export interface GetDisksCommandInput extends GetDisksRequest {}
+/**
+ * The output of {@link GetDisksCommand}.
+ */
 export interface GetDisksCommandOutput extends GetDisksResult, __MetadataBearer {}
 
 /**

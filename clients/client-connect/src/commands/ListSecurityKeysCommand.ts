@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListSecurityKeysCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSecurityKeysCommand}.
+ */
 export interface ListSecurityKeysCommandInput extends ListSecurityKeysRequest {}
+/**
+ * The output of {@link ListSecurityKeysCommand}.
+ */
 export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse, __MetadataBearer {}
 
 /**

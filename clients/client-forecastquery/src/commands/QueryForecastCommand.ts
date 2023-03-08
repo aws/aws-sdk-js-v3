@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1QueryForecastCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link QueryForecastCommand}.
+ */
 export interface QueryForecastCommandInput extends QueryForecastRequest {}
+/**
+ * The output of {@link QueryForecastCommand}.
+ */
 export interface QueryForecastCommandOutput extends QueryForecastResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeDBInstancesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeDBInstancesCommand}.
+ */
 export interface DescribeDBInstancesCommandInput extends DescribeDBInstancesMessage {}
+/**
+ * The output of {@link DescribeDBInstancesCommand}.
+ */
 export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __MetadataBearer {}
 
 /**

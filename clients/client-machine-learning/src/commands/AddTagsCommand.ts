@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1AddTagsCommand, serializeAws_json1_1AddTagsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AddTagsCommand}.
+ */
 export interface AddTagsCommandInput extends AddTagsInput {}
+/**
+ * The output of {@link AddTagsCommand}.
+ */
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**

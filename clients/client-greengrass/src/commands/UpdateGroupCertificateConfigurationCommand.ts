@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateGroupCertificateConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateGroupCertificateConfigurationCommand}.
+ */
 export interface UpdateGroupCertificateConfigurationCommandInput extends UpdateGroupCertificateConfigurationRequest {}
+/**
+ * The output of {@link UpdateGroupCertificateConfigurationCommand}.
+ */
 export interface UpdateGroupCertificateConfigurationCommandOutput
   extends UpdateGroupCertificateConfigurationResponse,
     __MetadataBearer {}

@@ -20,7 +20,13 @@ import {
   serializeAws_ec2ModifySnapshotAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifySnapshotAttributeCommand}.
+ */
 export interface ModifySnapshotAttributeCommandInput extends ModifySnapshotAttributeRequest {}
+/**
+ * The output of {@link ModifySnapshotAttributeCommand}.
+ */
 export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {}
 
 /**

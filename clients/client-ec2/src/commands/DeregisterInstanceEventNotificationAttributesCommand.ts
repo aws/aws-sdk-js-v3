@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DeregisterInstanceEventNotificationAttributesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeregisterInstanceEventNotificationAttributesCommand}.
+ */
 export interface DeregisterInstanceEventNotificationAttributesCommandInput
   extends DeregisterInstanceEventNotificationAttributesRequest {}
+/**
+ * The output of {@link DeregisterInstanceEventNotificationAttributesCommand}.
+ */
 export interface DeregisterInstanceEventNotificationAttributesCommandOutput
   extends DeregisterInstanceEventNotificationAttributesResult,
     __MetadataBearer {}

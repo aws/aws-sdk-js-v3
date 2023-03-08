@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeCertificateCommand}.
+ */
 export interface DescribeCertificateCommandInput extends DescribeCertificateRequest {}
+/**
+ * The output of {@link DescribeCertificateCommand}.
+ */
 export interface DescribeCertificateCommandOutput extends DescribeCertificateResult, __MetadataBearer {}
 
 /**

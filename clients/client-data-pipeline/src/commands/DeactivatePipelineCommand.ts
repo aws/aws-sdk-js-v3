@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeactivatePipelineCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeactivatePipelineCommand}.
+ */
 export interface DeactivatePipelineCommandInput extends DeactivatePipelineInput {}
+/**
+ * The output of {@link DeactivatePipelineCommand}.
+ */
 export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutput, __MetadataBearer {}
 
 /**

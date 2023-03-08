@@ -20,7 +20,13 @@ import {
   serializeAws_ec2ResetSnapshotAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ResetSnapshotAttributeCommand}.
+ */
 export interface ResetSnapshotAttributeCommandInput extends ResetSnapshotAttributeRequest {}
+/**
+ * The output of {@link ResetSnapshotAttributeCommand}.
+ */
 export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
 
 /**

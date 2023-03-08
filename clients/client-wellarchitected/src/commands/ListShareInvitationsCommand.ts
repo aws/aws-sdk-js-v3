@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * The input for {@link ListShareInvitationsCommand}.
+ */
 export interface ListShareInvitationsCommandInput extends ListShareInvitationsInput {}
+/**
+ * The output of {@link ListShareInvitationsCommand}.
+ */
 export interface ListShareInvitationsCommandOutput extends ListShareInvitationsOutput, __MetadataBearer {}
 
 /**

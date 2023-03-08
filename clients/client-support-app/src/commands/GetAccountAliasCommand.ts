@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
+/**
+ * The input for {@link GetAccountAliasCommand}.
+ */
 export interface GetAccountAliasCommandInput extends GetAccountAliasRequest {}
+/**
+ * The output of {@link GetAccountAliasCommand}.
+ */
 export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __MetadataBearer {}
 
 /**

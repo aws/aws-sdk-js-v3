@@ -26,15 +26,19 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
+/**
+ * The input for {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandInput extends TagResourceRequest {}
+/**
+ * The output of {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *     Associate a set of tags with a Timestream resource. You can then activate
- *     these user-defined tags so that they appear on the Billing and Cost
- *     Management console for cost allocation tracking.
- * </p>
+ * <p> Associates a set of tags with a Timestream resource. You can then activate
+ *          these user-defined tags so that they appear on the Billing and Cost Management console for
+ *          cost allocation tracking. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

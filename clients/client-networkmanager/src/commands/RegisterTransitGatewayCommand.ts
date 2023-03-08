@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RegisterTransitGatewayCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RegisterTransitGatewayCommand}.
+ */
 export interface RegisterTransitGatewayCommandInput extends RegisterTransitGatewayRequest {}
+/**
+ * The output of {@link RegisterTransitGatewayCommand}.
+ */
 export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGatewayResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeSolutionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeSolutionCommand}.
+ */
 export interface DescribeSolutionCommandInput extends DescribeSolutionRequest {}
+/**
+ * The output of {@link DescribeSolutionCommand}.
+ */
 export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse, __MetadataBearer {}
 
 /**

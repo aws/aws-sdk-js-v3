@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1GetPhoneNumberSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPhoneNumberSettingsCommand}.
+ */
 export interface GetPhoneNumberSettingsCommandInput {}
+/**
+ * The output of {@link GetPhoneNumberSettingsCommand}.
+ */
 export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSettingsResponse, __MetadataBearer {}
 
 /**

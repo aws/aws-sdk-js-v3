@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ValidatePolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ValidatePolicyCommand}.
+ */
 export interface ValidatePolicyCommandInput extends ValidatePolicyRequest {}
+/**
+ * The output of {@link ValidatePolicyCommand}.
+ */
 export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __MetadataBearer {}
 
 /**

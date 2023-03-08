@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateRunGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateRunGroupCommand}.
+ */
 export interface UpdateRunGroupCommandInput extends UpdateRunGroupRequest {}
+/**
+ * The output of {@link UpdateRunGroupCommand}.
+ */
 export interface UpdateRunGroupCommandOutput extends __MetadataBearer {}
 
 /**

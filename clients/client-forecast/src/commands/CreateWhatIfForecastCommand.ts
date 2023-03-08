@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateWhatIfForecastCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateWhatIfForecastCommand}.
+ */
 export interface CreateWhatIfForecastCommandInput extends CreateWhatIfForecastRequest {}
+/**
+ * The output of {@link CreateWhatIfForecastCommand}.
+ */
 export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastResponse, __MetadataBearer {}
 
 /**

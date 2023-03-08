@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateRoomCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateRoomCommand}.
+ */
 export interface CreateRoomCommandInput extends CreateRoomRequest {}
+/**
+ * The output of {@link CreateRoomCommand}.
+ */
 export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataBearer {}
 
 /**

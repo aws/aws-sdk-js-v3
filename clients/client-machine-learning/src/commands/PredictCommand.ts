@@ -23,7 +23,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1PredictCommand, serializeAws_json1_1PredictCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PredictCommand}.
+ */
 export interface PredictCommandInput extends PredictInput {}
+/**
+ * The output of {@link PredictCommand}.
+ */
 export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
 
 /**

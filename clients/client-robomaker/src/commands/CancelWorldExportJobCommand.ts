@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * The input for {@link CancelWorldExportJobCommand}.
+ */
 export interface CancelWorldExportJobCommandInput extends CancelWorldExportJobRequest {}
+/**
+ * The output of {@link CancelWorldExportJobCommand}.
+ */
 export interface CancelWorldExportJobCommandOutput extends CancelWorldExportJobResponse, __MetadataBearer {}
 
 /**

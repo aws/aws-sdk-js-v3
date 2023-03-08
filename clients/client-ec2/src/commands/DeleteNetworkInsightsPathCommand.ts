@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteNetworkInsightsPathCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteNetworkInsightsPathCommand}.
+ */
 export interface DeleteNetworkInsightsPathCommandInput extends DeleteNetworkInsightsPathRequest {}
+/**
+ * The output of {@link DeleteNetworkInsightsPathCommand}.
+ */
 export interface DeleteNetworkInsightsPathCommandOutput extends DeleteNetworkInsightsPathResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteGlobalClusterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteGlobalClusterCommand}.
+ */
 export interface DeleteGlobalClusterCommandInput extends DeleteGlobalClusterMessage {}
+/**
+ * The output of {@link DeleteGlobalClusterCommand}.
+ */
 export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterResult, __MetadataBearer {}
 
 /**

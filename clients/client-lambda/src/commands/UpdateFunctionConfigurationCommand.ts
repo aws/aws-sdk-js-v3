@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateFunctionConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateFunctionConfigurationCommand}.
+ */
 export interface UpdateFunctionConfigurationCommandInput extends UpdateFunctionConfigurationRequest {}
+/**
+ * The output of {@link UpdateFunctionConfigurationCommand}.
+ */
 export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**

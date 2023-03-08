@@ -17,7 +17,13 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { ReplaceRouteRequest, ReplaceRouteRequestFilterSensitiveLog } from "../models/models_6";
 import { deserializeAws_ec2ReplaceRouteCommand, serializeAws_ec2ReplaceRouteCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ReplaceRouteCommand}.
+ */
 export interface ReplaceRouteCommandInput extends ReplaceRouteRequest {}
+/**
+ * The output of {@link ReplaceRouteCommand}.
+ */
 export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
 
 /**

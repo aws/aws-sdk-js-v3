@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CodePipeline } from "../CodePipeline";
 import { CodePipelineClient } from "../CodePipelineClient";
 import {
   ListTagsForResourceCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTagsForResourceCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CodePipeline,
-  input: ListTagsForResourceCommandInput,
-  ...args: any
-): Promise<ListTagsForResourceCommandOutput> => {
-  // @ts-ignore
-  return await client.listTagsForResource(input, ...args);
-};
 export async function* paginateListTagsForResource(
   config: CodePipelinePaginationConfiguration,
   input: ListTagsForResourceCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListTagsForResource(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof CodePipeline) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodePipelineClient) {
+    if (config.client instanceof CodePipelineClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodePipeline | CodePipelineClient");

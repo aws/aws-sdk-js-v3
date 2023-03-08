@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link GetHostedZoneCountCommand}.
+ */
 export interface GetHostedZoneCountCommandInput extends GetHostedZoneCountRequest {}
+/**
+ * The output of {@link GetHostedZoneCountCommand}.
+ */
 export interface GetHostedZoneCountCommandOutput extends GetHostedZoneCountResponse, __MetadataBearer {}
 
 /**

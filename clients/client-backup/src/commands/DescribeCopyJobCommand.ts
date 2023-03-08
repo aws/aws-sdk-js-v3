@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeCopyJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeCopyJobCommand}.
+ */
 export interface DescribeCopyJobCommandInput extends DescribeCopyJobInput {}
+/**
+ * The output of {@link DescribeCopyJobCommand}.
+ */
 export interface DescribeCopyJobCommandOutput extends DescribeCopyJobOutput, __MetadataBearer {}
 
 /**

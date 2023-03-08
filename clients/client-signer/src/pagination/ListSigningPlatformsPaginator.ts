@@ -6,7 +6,6 @@ import {
   ListSigningPlatformsCommandInput,
   ListSigningPlatformsCommandOutput,
 } from "../commands/ListSigningPlatformsCommand";
-import { Signer } from "../Signer";
 import { SignerClient } from "../SignerClient";
 import { SignerPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSigningPlatformsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Signer,
-  input: ListSigningPlatformsCommandInput,
-  ...args: any
-): Promise<ListSigningPlatformsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSigningPlatforms(input, ...args);
-};
 export async function* paginateListSigningPlatforms(
   config: SignerPaginationConfiguration,
   input: ListSigningPlatformsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListSigningPlatforms(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Signer) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SignerClient) {
+    if (config.client instanceof SignerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Signer | SignerClient");

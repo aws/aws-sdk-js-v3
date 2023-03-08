@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetPresetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPresetCommand}.
+ */
 export interface GetPresetCommandInput extends GetPresetRequest {}
+/**
+ * The output of {@link GetPresetCommand}.
+ */
 export interface GetPresetCommandOutput extends GetPresetResponse, __MetadataBearer {}
 
 /**

@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListWorldsCommand, ListWorldsCommandInput, ListWorldsCommandOutput } from "../commands/ListWorldsCommand";
-import { RoboMaker } from "../RoboMaker";
 import { RoboMakerClient } from "../RoboMakerClient";
 import { RoboMakerPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWorldsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: RoboMaker,
-  input: ListWorldsCommandInput,
-  ...args: any
-): Promise<ListWorldsCommandOutput> => {
-  // @ts-ignore
-  return await client.listWorlds(input, ...args);
-};
 export async function* paginateListWorlds(
   config: RoboMakerPaginationConfiguration,
   input: ListWorldsCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListWorlds(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof RoboMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RoboMakerClient) {
+    if (config.client instanceof RoboMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RoboMaker | RoboMakerClient");

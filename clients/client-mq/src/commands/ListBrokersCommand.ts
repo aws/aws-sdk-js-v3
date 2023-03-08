@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListBrokersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListBrokersCommand}.
+ */
 export interface ListBrokersCommandInput extends ListBrokersRequest {}
+/**
+ * The output of {@link ListBrokersCommand}.
+ */
 export interface ListBrokersCommandOutput extends ListBrokersResponse, __MetadataBearer {}
 
 /**

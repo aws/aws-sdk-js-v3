@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteWhatIfAnalysisCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteWhatIfAnalysisCommand}.
+ */
 export interface DeleteWhatIfAnalysisCommandInput extends DeleteWhatIfAnalysisRequest {}
+/**
+ * The output of {@link DeleteWhatIfAnalysisCommand}.
+ */
 export interface DeleteWhatIfAnalysisCommandOutput extends __MetadataBearer {}
 
 /**

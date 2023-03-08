@@ -16,7 +16,13 @@ import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import { XmlIntEnumsOutput, XmlIntEnumsOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_ec2XmlIntEnumsCommand, serializeAws_ec2XmlIntEnumsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link XmlIntEnumsCommand}.
+ */
 export interface XmlIntEnumsCommandInput {}
+/**
+ * The output of {@link XmlIntEnumsCommand}.
+ */
 export interface XmlIntEnumsCommandOutput extends XmlIntEnumsOutput, __MetadataBearer {}
 
 /**

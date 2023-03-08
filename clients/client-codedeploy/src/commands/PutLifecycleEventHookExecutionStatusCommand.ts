@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutLifecycleEventHookExecutionStatusCommand}.
+ */
 export interface PutLifecycleEventHookExecutionStatusCommandInput extends PutLifecycleEventHookExecutionStatusInput {}
+/**
+ * The output of {@link PutLifecycleEventHookExecutionStatusCommand}.
+ */
 export interface PutLifecycleEventHookExecutionStatusCommandOutput
   extends PutLifecycleEventHookExecutionStatusOutput,
     __MetadataBearer {}

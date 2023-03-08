@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateVirtualMFADeviceCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateVirtualMFADeviceCommand}.
+ */
 export interface CreateVirtualMFADeviceCommandInput extends CreateVirtualMFADeviceRequest {}
+/**
+ * The output of {@link CreateVirtualMFADeviceCommand}.
+ */
 export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADeviceResponse, __MetadataBearer {}
 
 /**

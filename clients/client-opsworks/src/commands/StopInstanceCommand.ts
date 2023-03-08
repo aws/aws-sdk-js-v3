@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1StopInstanceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopInstanceCommand}.
+ */
 export interface StopInstanceCommandInput extends StopInstanceRequest {}
+/**
+ * The output of {@link StopInstanceCommand}.
+ */
 export interface StopInstanceCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ReplaceNetworkAclAssociationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ReplaceNetworkAclAssociationCommand}.
+ */
 export interface ReplaceNetworkAclAssociationCommandInput extends ReplaceNetworkAclAssociationRequest {}
+/**
+ * The output of {@link ReplaceNetworkAclAssociationCommand}.
+ */
 export interface ReplaceNetworkAclAssociationCommandOutput
   extends ReplaceNetworkAclAssociationResult,
     __MetadataBearer {}

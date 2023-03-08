@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CodeGuruProfiler } from "../CodeGuruProfiler";
 import { CodeGuruProfilerClient } from "../CodeGuruProfilerClient";
 import {
   ListFindingsReportsCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFindingsReportsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CodeGuruProfiler,
-  input: ListFindingsReportsCommandInput,
-  ...args: any
-): Promise<ListFindingsReportsCommandOutput> => {
-  // @ts-ignore
-  return await client.listFindingsReports(input, ...args);
-};
 export async function* paginateListFindingsReports(
   config: CodeGuruProfilerPaginationConfiguration,
   input: ListFindingsReportsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListFindingsReports(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof CodeGuruProfiler) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodeGuruProfilerClient) {
+    if (config.client instanceof CodeGuruProfilerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodeGuruProfiler | CodeGuruProfilerClient");

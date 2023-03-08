@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
+/**
+ * The input for {@link ListSpeakersCommand}.
+ */
 export interface ListSpeakersCommandInput extends ListSpeakersRequest {}
+/**
+ * The output of {@link ListSpeakersCommand}.
+ */
 export interface ListSpeakersCommandOutput extends ListSpeakersResponse, __MetadataBearer {}
 
 /**

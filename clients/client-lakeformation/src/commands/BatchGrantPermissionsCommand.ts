@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchGrantPermissionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchGrantPermissionsCommand}.
+ */
 export interface BatchGrantPermissionsCommandInput extends BatchGrantPermissionsRequest {}
+/**
+ * The output of {@link BatchGrantPermissionsCommand}.
+ */
 export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermissionsResponse, __MetadataBearer {}
 
 /**

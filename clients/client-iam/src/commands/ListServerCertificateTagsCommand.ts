@@ -25,7 +25,13 @@ import {
   serializeAws_queryListServerCertificateTagsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListServerCertificateTagsCommand}.
+ */
 export interface ListServerCertificateTagsCommandInput extends ListServerCertificateTagsRequest {}
+/**
+ * The output of {@link ListServerCertificateTagsCommand}.
+ */
 export interface ListServerCertificateTagsCommandOutput extends ListServerCertificateTagsResponse, __MetadataBearer {}
 
 /**

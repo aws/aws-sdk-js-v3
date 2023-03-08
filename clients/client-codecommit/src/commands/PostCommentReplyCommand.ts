@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PostCommentReplyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PostCommentReplyCommand}.
+ */
 export interface PostCommentReplyCommandInput extends PostCommentReplyInput {}
+/**
+ * The output of {@link PostCommentReplyCommand}.
+ */
 export interface PostCommentReplyCommandOutput extends PostCommentReplyOutput, __MetadataBearer {}
 
 /**

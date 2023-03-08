@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateAccessControlConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateAccessControlConfigurationCommand}.
+ */
 export interface UpdateAccessControlConfigurationCommandInput extends UpdateAccessControlConfigurationRequest {}
+/**
+ * The output of {@link UpdateAccessControlConfigurationCommand}.
+ */
 export interface UpdateAccessControlConfigurationCommandOutput
   extends UpdateAccessControlConfigurationResponse,
     __MetadataBearer {}

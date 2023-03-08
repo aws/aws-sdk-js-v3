@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1UpdateUserAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateUserAttributesCommand}.
+ */
 export interface UpdateUserAttributesCommandInput extends UpdateUserAttributesRequest {}
+/**
+ * The output of {@link UpdateUserAttributesCommand}.
+ */
 export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesResponse, __MetadataBearer {}
 
 /**

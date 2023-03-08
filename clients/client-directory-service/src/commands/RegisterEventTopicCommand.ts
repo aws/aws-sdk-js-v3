@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RegisterEventTopicCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RegisterEventTopicCommand}.
+ */
 export interface RegisterEventTopicCommandInput extends RegisterEventTopicRequest {}
+/**
+ * The output of {@link RegisterEventTopicCommand}.
+ */
 export interface RegisterEventTopicCommandOutput extends RegisterEventTopicResult, __MetadataBearer {}
 
 /**

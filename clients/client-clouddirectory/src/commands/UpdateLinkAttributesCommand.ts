@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateLinkAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateLinkAttributesCommand}.
+ */
 export interface UpdateLinkAttributesCommandInput extends UpdateLinkAttributesRequest {}
+/**
+ * The output of {@link UpdateLinkAttributesCommand}.
+ */
 export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesResponse, __MetadataBearer {}
 
 /**

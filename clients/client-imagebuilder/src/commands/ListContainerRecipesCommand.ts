@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListContainerRecipesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListContainerRecipesCommand}.
+ */
 export interface ListContainerRecipesCommandInput extends ListContainerRecipesRequest {}
+/**
+ * The output of {@link ListContainerRecipesCommand}.
+ */
 export interface ListContainerRecipesCommandOutput extends ListContainerRecipesResponse, __MetadataBearer {}
 
 /**

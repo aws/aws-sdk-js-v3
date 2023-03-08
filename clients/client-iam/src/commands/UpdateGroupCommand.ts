@@ -17,7 +17,13 @@ import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { UpdateGroupRequest, UpdateGroupRequestFilterSensitiveLog } from "../models/models_1";
 import { deserializeAws_queryUpdateGroupCommand, serializeAws_queryUpdateGroupCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateGroupCommand}.
+ */
 export interface UpdateGroupCommandInput extends UpdateGroupRequest {}
+/**
+ * The output of {@link UpdateGroupCommand}.
+ */
 export interface UpdateGroupCommandOutput extends __MetadataBearer {}
 
 /**

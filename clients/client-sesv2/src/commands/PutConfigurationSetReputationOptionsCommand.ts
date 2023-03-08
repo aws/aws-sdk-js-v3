@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link PutConfigurationSetReputationOptionsCommand}.
+ */
 export interface PutConfigurationSetReputationOptionsCommandInput extends PutConfigurationSetReputationOptionsRequest {}
+/**
+ * The output of {@link PutConfigurationSetReputationOptionsCommand}.
+ */
 export interface PutConfigurationSetReputationOptionsCommandOutput
   extends PutConfigurationSetReputationOptionsResponse,
     __MetadataBearer {}

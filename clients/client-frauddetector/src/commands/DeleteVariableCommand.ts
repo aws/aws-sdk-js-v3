@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteVariableCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteVariableCommand}.
+ */
 export interface DeleteVariableCommandInput extends DeleteVariableRequest {}
+/**
+ * The output of {@link DeleteVariableCommand}.
+ */
 export interface DeleteVariableCommandOutput extends DeleteVariableResult, __MetadataBearer {}
 
 /**

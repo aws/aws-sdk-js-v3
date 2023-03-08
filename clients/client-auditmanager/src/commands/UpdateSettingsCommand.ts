@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateSettingsCommand}.
+ */
 export interface UpdateSettingsCommandInput extends UpdateSettingsRequest {}
+/**
+ * The output of {@link UpdateSettingsCommand}.
+ */
 export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __MetadataBearer {}
 
 /**

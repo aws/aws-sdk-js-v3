@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DescribePlacementCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribePlacementCommand}.
+ */
 export interface DescribePlacementCommandInput extends DescribePlacementRequest {}
+/**
+ * The output of {@link DescribePlacementCommand}.
+ */
 export interface DescribePlacementCommandOutput extends DescribePlacementResponse, __MetadataBearer {}
 
 /**

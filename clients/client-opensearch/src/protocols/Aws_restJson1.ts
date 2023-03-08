@@ -121,6 +121,10 @@ import {
   ListPackagesForDomainCommandInput,
   ListPackagesForDomainCommandOutput,
 } from "../commands/ListPackagesForDomainCommand";
+import {
+  ListScheduledActionsCommandInput,
+  ListScheduledActionsCommandOutput,
+} from "../commands/ListScheduledActionsCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
 import { ListVersionsCommandInput, ListVersionsCommandOutput } from "../commands/ListVersionsCommand";
 import {
@@ -151,6 +155,10 @@ import {
 } from "../commands/StartServiceSoftwareUpdateCommand";
 import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "../commands/UpdateDomainConfigCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "../commands/UpdatePackageCommand";
+import {
+  UpdateScheduledActionCommandInput,
+  UpdateScheduledActionCommandOutput,
+} from "../commands/UpdateScheduledActionCommand";
 import { UpdateVpcEndpointCommandInput, UpdateVpcEndpointCommandOutput } from "../commands/UpdateVpcEndpointCommand";
 import { UpgradeDomainCommandInput, UpgradeDomainCommandOutput } from "../commands/UpgradeDomainCommand";
 import {
@@ -217,6 +225,9 @@ import {
   MasterUserOptions,
   NodeToNodeEncryptionOptions,
   NodeToNodeEncryptionOptionsStatus,
+  OffPeakWindow,
+  OffPeakWindowOptions,
+  OffPeakWindowOptionsStatus,
   OptionStatus,
   OutboundConnection,
   OutboundConnectionStatus,
@@ -231,10 +242,14 @@ import {
   SAMLIdp,
   SAMLOptionsInput,
   SAMLOptionsOutput,
+  ScheduledAction,
   ScheduledAutoTuneDetails,
   ServiceSoftwareOptions,
+  SlotNotAvailableException,
   SnapshotOptions,
   SnapshotOptionsStatus,
+  SoftwareUpdateOptions,
+  SoftwareUpdateOptionsStatus,
   StorageType,
   StorageTypeLimit,
   Tag,
@@ -249,6 +264,7 @@ import {
   VpcEndpointError,
   VpcEndpointSummary,
   VPCOptions,
+  WindowStartTime,
   ZoneAwarenessConfig,
 } from "../models/models_0";
 import { OpenSearchServiceException as __BaseException } from "../models/OpenSearchServiceException";
@@ -432,8 +448,14 @@ export const serializeAws_restJson1CreateDomainCommand = async (
         context
       ),
     }),
+    ...(input.OffPeakWindowOptions != null && {
+      OffPeakWindowOptions: serializeAws_restJson1OffPeakWindowOptions(input.OffPeakWindowOptions, context),
+    }),
     ...(input.SnapshotOptions != null && {
       SnapshotOptions: serializeAws_restJson1SnapshotOptions(input.SnapshotOptions, context),
+    }),
+    ...(input.SoftwareUpdateOptions != null && {
+      SoftwareUpdateOptions: serializeAws_restJson1SoftwareUpdateOptions(input.SoftwareUpdateOptions, context),
     }),
     ...(input.TagList != null && { TagList: serializeAws_restJson1TagList(input.TagList, context) }),
     ...(input.VPCOptions != null && { VPCOptions: serializeAws_restJson1VPCOptions(input.VPCOptions, context) }),
@@ -1255,6 +1277,33 @@ export const serializeAws_restJson1ListPackagesForDomainCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListScheduledActionsCommand = async (
+  input: ListScheduledActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/scheduledActions";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
@@ -1502,7 +1551,9 @@ export const serializeAws_restJson1StartServiceSoftwareUpdateCommand = async (
     "/2021-01-01/opensearch/serviceSoftwareUpdate/start";
   let body: any;
   body = JSON.stringify({
+    ...(input.DesiredStartTime != null && { DesiredStartTime: input.DesiredStartTime }),
     ...(input.DomainName != null && { DomainName: input.DomainName }),
+    ...(input.ScheduleAt != null && { ScheduleAt: input.ScheduleAt }),
   });
   return new __HttpRequest({
     protocol,
@@ -1566,8 +1617,14 @@ export const serializeAws_restJson1UpdateDomainConfigCommand = async (
         context
       ),
     }),
+    ...(input.OffPeakWindowOptions != null && {
+      OffPeakWindowOptions: serializeAws_restJson1OffPeakWindowOptions(input.OffPeakWindowOptions, context),
+    }),
     ...(input.SnapshotOptions != null && {
       SnapshotOptions: serializeAws_restJson1SnapshotOptions(input.SnapshotOptions, context),
+    }),
+    ...(input.SoftwareUpdateOptions != null && {
+      SoftwareUpdateOptions: serializeAws_restJson1SoftwareUpdateOptions(input.SoftwareUpdateOptions, context),
     }),
     ...(input.VPCOptions != null && { VPCOptions: serializeAws_restJson1VPCOptions(input.VPCOptions, context) }),
   });
@@ -1606,6 +1663,36 @@ export const serializeAws_restJson1UpdatePackageCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateScheduledActionCommand = async (
+  input: UpdateScheduledActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/scheduledAction/update";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ActionID != null && { ActionID: input.ActionID }),
+    ...(input.ActionType != null && { ActionType: input.ActionType }),
+    ...(input.DesiredStartTime != null && { DesiredStartTime: input.DesiredStartTime }),
+    ...(input.ScheduleAt != null && { ScheduleAt: input.ScheduleAt }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -3595,6 +3682,62 @@ const deserializeAws_restJson1ListPackagesForDomainCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListScheduledActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListScheduledActionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListScheduledActionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.ScheduledActions != null) {
+    contents.ScheduledActions = deserializeAws_restJson1ScheduledActionsList(data.ScheduledActions, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListScheduledActionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListScheduledActionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.opensearch#InvalidPaginationTokenException":
+      throw await deserializeAws_restJson1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4231,6 +4374,65 @@ const deserializeAws_restJson1UpdatePackageCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateScheduledActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateScheduledActionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateScheduledActionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ScheduledAction != null) {
+    contents.ScheduledAction = deserializeAws_restJson1ScheduledAction(data.ScheduledAction, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateScheduledActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateScheduledActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.opensearch#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.opensearch#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "SlotNotAvailableException":
+    case "com.amazonaws.opensearch#SlotNotAvailableException":
+      throw await deserializeAws_restJson1SlotNotAvailableExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdateVpcEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4519,6 +4721,25 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const deserializeAws_restJson1SlotNotAvailableExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SlotNotAvailableException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.SlotSuggestions != null) {
+    contents.SlotSuggestions = deserializeAws_restJson1SlotList(data.SlotSuggestions, context);
+  }
+  if (data.message != null) {
+    contents.message = __expectString(data.message);
+  }
+  const exception = new SlotNotAvailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1ValidationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4595,6 +4816,7 @@ const serializeAws_restJson1AutoTuneOptions = (input: AutoTuneOptions, context: 
       MaintenanceSchedules: serializeAws_restJson1AutoTuneMaintenanceScheduleList(input.MaintenanceSchedules, context),
     }),
     ...(input.RollbackOnDisable != null && { RollbackOnDisable: input.RollbackOnDisable }),
+    ...(input.UseOffPeakWindow != null && { UseOffPeakWindow: input.UseOffPeakWindow }),
   };
 };
 
@@ -4604,6 +4826,7 @@ const serializeAws_restJson1AutoTuneOptionsInput = (input: AutoTuneOptionsInput,
     ...(input.MaintenanceSchedules != null && {
       MaintenanceSchedules: serializeAws_restJson1AutoTuneMaintenanceScheduleList(input.MaintenanceSchedules, context),
     }),
+    ...(input.UseOffPeakWindow != null && { UseOffPeakWindow: input.UseOffPeakWindow }),
   };
 };
 
@@ -4786,6 +5009,23 @@ const serializeAws_restJson1NodeToNodeEncryptionOptions = (
   };
 };
 
+const serializeAws_restJson1OffPeakWindow = (input: OffPeakWindow, context: __SerdeContext): any => {
+  return {
+    ...(input.WindowStartTime != null && {
+      WindowStartTime: serializeAws_restJson1WindowStartTime(input.WindowStartTime, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1OffPeakWindowOptions = (input: OffPeakWindowOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.OffPeakWindow != null && {
+      OffPeakWindow: serializeAws_restJson1OffPeakWindow(input.OffPeakWindow, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1PackageSource = (input: PackageSource, context: __SerdeContext): any => {
   return {
     ...(input.S3BucketName != null && { S3BucketName: input.S3BucketName }),
@@ -4815,6 +5055,12 @@ const serializeAws_restJson1SAMLOptionsInput = (input: SAMLOptionsInput, context
 const serializeAws_restJson1SnapshotOptions = (input: SnapshotOptions, context: __SerdeContext): any => {
   return {
     ...(input.AutomatedSnapshotStartHour != null && { AutomatedSnapshotStartHour: input.AutomatedSnapshotStartHour }),
+  };
+};
+
+const serializeAws_restJson1SoftwareUpdateOptions = (input: SoftwareUpdateOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.AutoSoftwareUpdateEnabled != null && { AutoSoftwareUpdateEnabled: input.AutoSoftwareUpdateEnabled }),
   };
 };
 
@@ -4863,6 +5109,13 @@ const serializeAws_restJson1VPCOptions = (input: VPCOptions, context: __SerdeCon
       SecurityGroupIds: serializeAws_restJson1StringList(input.SecurityGroupIds, context),
     }),
     ...(input.SubnetIds != null && { SubnetIds: serializeAws_restJson1StringList(input.SubnetIds, context) }),
+  };
+};
+
+const serializeAws_restJson1WindowStartTime = (input: WindowStartTime, context: __SerdeContext): any => {
+  return {
+    ...(input.Hours != null && { Hours: input.Hours }),
+    ...(input.Minutes != null && { Minutes: input.Minutes }),
   };
 };
 
@@ -5032,6 +5285,7 @@ const deserializeAws_restJson1AutoTuneOptions = (output: any, context: __SerdeCo
         ? deserializeAws_restJson1AutoTuneMaintenanceScheduleList(output.MaintenanceSchedules, context)
         : undefined,
     RollbackOnDisable: __expectString(output.RollbackOnDisable),
+    UseOffPeakWindow: __expectBoolean(output.UseOffPeakWindow),
   } as any;
 };
 
@@ -5039,6 +5293,7 @@ const deserializeAws_restJson1AutoTuneOptionsOutput = (output: any, context: __S
   return {
     ErrorMessage: __expectString(output.ErrorMessage),
     State: __expectString(output.State),
+    UseOffPeakWindow: __expectBoolean(output.UseOffPeakWindow),
   } as any;
 };
 
@@ -5261,9 +5516,17 @@ const deserializeAws_restJson1DomainConfig = (output: any, context: __SerdeConte
       output.NodeToNodeEncryptionOptions != null
         ? deserializeAws_restJson1NodeToNodeEncryptionOptionsStatus(output.NodeToNodeEncryptionOptions, context)
         : undefined,
+    OffPeakWindowOptions:
+      output.OffPeakWindowOptions != null
+        ? deserializeAws_restJson1OffPeakWindowOptionsStatus(output.OffPeakWindowOptions, context)
+        : undefined,
     SnapshotOptions:
       output.SnapshotOptions != null
         ? deserializeAws_restJson1SnapshotOptionsStatus(output.SnapshotOptions, context)
+        : undefined,
+    SoftwareUpdateOptions:
+      output.SoftwareUpdateOptions != null
+        ? deserializeAws_restJson1SoftwareUpdateOptionsStatus(output.SoftwareUpdateOptions, context)
         : undefined,
     VPCOptions:
       output.VPCOptions != null ? deserializeAws_restJson1VPCDerivedInfoStatus(output.VPCOptions, context) : undefined,
@@ -5405,6 +5668,10 @@ const deserializeAws_restJson1DomainStatus = (output: any, context: __SerdeConte
       output.NodeToNodeEncryptionOptions != null
         ? deserializeAws_restJson1NodeToNodeEncryptionOptions(output.NodeToNodeEncryptionOptions, context)
         : undefined,
+    OffPeakWindowOptions:
+      output.OffPeakWindowOptions != null
+        ? deserializeAws_restJson1OffPeakWindowOptions(output.OffPeakWindowOptions, context)
+        : undefined,
     Processing: __expectBoolean(output.Processing),
     ServiceSoftwareOptions:
       output.ServiceSoftwareOptions != null
@@ -5413,6 +5680,10 @@ const deserializeAws_restJson1DomainStatus = (output: any, context: __SerdeConte
     SnapshotOptions:
       output.SnapshotOptions != null
         ? deserializeAws_restJson1SnapshotOptions(output.SnapshotOptions, context)
+        : undefined,
+    SoftwareUpdateOptions:
+      output.SoftwareUpdateOptions != null
+        ? deserializeAws_restJson1SoftwareUpdateOptions(output.SoftwareUpdateOptions, context)
         : undefined,
     UpgradeProcessing: __expectBoolean(output.UpgradeProcessing),
     VPCOptions:
@@ -5713,6 +5984,33 @@ const deserializeAws_restJson1NodeToNodeEncryptionOptionsStatus = (
   } as any;
 };
 
+const deserializeAws_restJson1OffPeakWindow = (output: any, context: __SerdeContext): OffPeakWindow => {
+  return {
+    WindowStartTime:
+      output.WindowStartTime != null
+        ? deserializeAws_restJson1WindowStartTime(output.WindowStartTime, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1OffPeakWindowOptions = (output: any, context: __SerdeContext): OffPeakWindowOptions => {
+  return {
+    Enabled: __expectBoolean(output.Enabled),
+    OffPeakWindow:
+      output.OffPeakWindow != null ? deserializeAws_restJson1OffPeakWindow(output.OffPeakWindow, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1OffPeakWindowOptionsStatus = (
+  output: any,
+  context: __SerdeContext
+): OffPeakWindowOptionsStatus => {
+  return {
+    Options: output.Options != null ? deserializeAws_restJson1OffPeakWindowOptions(output.Options, context) : undefined,
+    Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1OptionStatus = (output: any, context: __SerdeContext): OptionStatus => {
   return {
     CreationDate:
@@ -5933,6 +6231,32 @@ const deserializeAws_restJson1SAMLOptionsOutput = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1ScheduledAction = (output: any, context: __SerdeContext): ScheduledAction => {
+  return {
+    Cancellable: __expectBoolean(output.Cancellable),
+    Description: __expectString(output.Description),
+    Id: __expectString(output.Id),
+    Mandatory: __expectBoolean(output.Mandatory),
+    ScheduledBy: __expectString(output.ScheduledBy),
+    ScheduledTime: __expectLong(output.ScheduledTime),
+    Severity: __expectString(output.Severity),
+    Status: __expectString(output.Status),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1ScheduledActionsList = (output: any, context: __SerdeContext): ScheduledAction[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ScheduledAction(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1ScheduledAutoTuneDetails = (
   output: any,
   context: __SerdeContext
@@ -5964,6 +6288,18 @@ const deserializeAws_restJson1ServiceSoftwareOptions = (
   } as any;
 };
 
+const deserializeAws_restJson1SlotList = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectLong(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1SnapshotOptions = (output: any, context: __SerdeContext): SnapshotOptions => {
   return {
     AutomatedSnapshotStartHour: __expectInt32(output.AutomatedSnapshotStartHour),
@@ -5973,6 +6309,23 @@ const deserializeAws_restJson1SnapshotOptions = (output: any, context: __SerdeCo
 const deserializeAws_restJson1SnapshotOptionsStatus = (output: any, context: __SerdeContext): SnapshotOptionsStatus => {
   return {
     Options: output.Options != null ? deserializeAws_restJson1SnapshotOptions(output.Options, context) : undefined,
+    Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SoftwareUpdateOptions = (output: any, context: __SerdeContext): SoftwareUpdateOptions => {
+  return {
+    AutoSoftwareUpdateEnabled: __expectBoolean(output.AutoSoftwareUpdateEnabled),
+  } as any;
+};
+
+const deserializeAws_restJson1SoftwareUpdateOptionsStatus = (
+  output: any,
+  context: __SerdeContext
+): SoftwareUpdateOptionsStatus => {
+  return {
+    Options:
+      output.Options != null ? deserializeAws_restJson1SoftwareUpdateOptions(output.Options, context) : undefined,
     Status: output.Status != null ? deserializeAws_restJson1OptionStatus(output.Status, context) : undefined,
   } as any;
 };
@@ -6220,6 +6573,13 @@ const deserializeAws_restJson1VpcEndpointSummaryList = (output: any, context: __
       return deserializeAws_restJson1VpcEndpointSummary(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1WindowStartTime = (output: any, context: __SerdeContext): WindowStartTime => {
+  return {
+    Hours: __expectLong(output.Hours),
+    Minutes: __expectLong(output.Minutes),
+  } as any;
 };
 
 const deserializeAws_restJson1ZoneAwarenessConfig = (output: any, context: __SerdeContext): ZoneAwarenessConfig => {

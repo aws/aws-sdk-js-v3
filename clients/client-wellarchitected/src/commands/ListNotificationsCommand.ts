@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * The input for {@link ListNotificationsCommand}.
+ */
 export interface ListNotificationsCommandInput extends ListNotificationsInput {}
+/**
+ * The output of {@link ListNotificationsCommand}.
+ */
 export interface ListNotificationsCommandOutput extends ListNotificationsOutput, __MetadataBearer {}
 
 /**

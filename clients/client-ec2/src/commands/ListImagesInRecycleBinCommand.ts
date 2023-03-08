@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ListImagesInRecycleBinCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ListImagesInRecycleBinCommand}.
+ */
 export interface ListImagesInRecycleBinCommandInput extends ListImagesInRecycleBinRequest {}
+/**
+ * The output of {@link ListImagesInRecycleBinCommand}.
+ */
 export interface ListImagesInRecycleBinCommandOutput extends ListImagesInRecycleBinResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeRouteTablesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeRouteTablesCommand}.
+ */
 export interface DescribeRouteTablesCommandInput extends DescribeRouteTablesRequest {}
+/**
+ * The output of {@link DescribeRouteTablesCommand}.
+ */
 export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesResult, __MetadataBearer {}
 
 /**

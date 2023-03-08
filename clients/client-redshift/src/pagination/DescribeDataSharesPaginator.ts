@@ -6,7 +6,6 @@ import {
   DescribeDataSharesCommandInput,
   DescribeDataSharesCommandOutput,
 } from "../commands/DescribeDataSharesCommand";
-import { Redshift } from "../Redshift";
 import { RedshiftClient } from "../RedshiftClient";
 import { RedshiftPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeDataSharesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Redshift,
-  input: DescribeDataSharesCommandInput,
-  ...args: any
-): Promise<DescribeDataSharesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeDataShares(input, ...args);
-};
 export async function* paginateDescribeDataShares(
   config: RedshiftPaginationConfiguration,
   input: DescribeDataSharesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeDataShares(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof Redshift) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RedshiftClient) {
+    if (config.client instanceof RedshiftClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Redshift | RedshiftClient");

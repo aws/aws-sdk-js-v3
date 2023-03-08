@@ -25,8 +25,14 @@ import {
   serializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyVpcEndpointServicePayerResponsibilityCommand}.
+ */
 export interface ModifyVpcEndpointServicePayerResponsibilityCommandInput
   extends ModifyVpcEndpointServicePayerResponsibilityRequest {}
+/**
+ * The output of {@link ModifyVpcEndpointServicePayerResponsibilityCommand}.
+ */
 export interface ModifyVpcEndpointServicePayerResponsibilityCommandOutput
   extends ModifyVpcEndpointServicePayerResponsibilityResult,
     __MetadataBearer {}

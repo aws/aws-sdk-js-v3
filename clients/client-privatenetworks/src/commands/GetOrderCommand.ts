@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetOrderCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetOrderCommand}.
+ */
 export interface GetOrderCommandInput extends GetOrderRequest {}
+/**
+ * The output of {@link GetOrderCommand}.
+ */
 export interface GetOrderCommandOutput extends GetOrderResponse, __MetadataBearer {}
 
 /**

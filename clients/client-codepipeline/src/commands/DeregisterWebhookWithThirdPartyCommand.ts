@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterWebhookWithThirdPartyCommand}.
+ */
 export interface DeregisterWebhookWithThirdPartyCommandInput extends DeregisterWebhookWithThirdPartyInput {}
+/**
+ * The output of {@link DeregisterWebhookWithThirdPartyCommand}.
+ */
 export interface DeregisterWebhookWithThirdPartyCommandOutput
   extends DeregisterWebhookWithThirdPartyOutput,
     __MetadataBearer {}

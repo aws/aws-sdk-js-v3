@@ -6,7 +6,6 @@ import {
   ListResourceProfileDetectionsCommandInput,
   ListResourceProfileDetectionsCommandOutput,
 } from "../commands/ListResourceProfileDetectionsCommand";
-import { Macie2 } from "../Macie2";
 import { Macie2Client } from "../Macie2Client";
 import { Macie2PaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListResourceProfileDetectionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Macie2,
-  input: ListResourceProfileDetectionsCommandInput,
-  ...args: any
-): Promise<ListResourceProfileDetectionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listResourceProfileDetections(input, ...args);
-};
 export async function* paginateListResourceProfileDetections(
   config: Macie2PaginationConfiguration,
   input: ListResourceProfileDetectionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListResourceProfileDetections(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Macie2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof Macie2Client) {
+    if (config.client instanceof Macie2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Macie2 | Macie2Client");

@@ -217,3 +217,54 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CancelZonalShift
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/classes/cancelzonalshiftcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/interfaces/cancelzonalshiftcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/interfaces/cancelzonalshiftcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetManagedResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/classes/getmanagedresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/interfaces/getmanagedresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/interfaces/getmanagedresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListManagedResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/classes/listmanagedresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/interfaces/listmanagedresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/interfaces/listmanagedresourcescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListZonalShifts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/classes/listzonalshiftscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/interfaces/listzonalshiftscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/interfaces/listzonalshiftscommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartZonalShift
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/classes/startzonalshiftcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/interfaces/startzonalshiftcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/interfaces/startzonalshiftcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateZonalShift
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/classes/updatezonalshiftcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/interfaces/updatezonalshiftcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-arc-zonal-shift/interfaces/updatezonalshiftcommandoutput.html)
+
+</details>

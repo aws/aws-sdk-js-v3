@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchDeleteDelegationByAssessmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchDeleteDelegationByAssessmentCommand}.
+ */
 export interface BatchDeleteDelegationByAssessmentCommandInput extends BatchDeleteDelegationByAssessmentRequest {}
+/**
+ * The output of {@link BatchDeleteDelegationByAssessmentCommand}.
+ */
 export interface BatchDeleteDelegationByAssessmentCommandOutput
   extends BatchDeleteDelegationByAssessmentResponse,
     __MetadataBearer {}

@@ -20,7 +20,13 @@ import {
   serializeAws_queryCreateAccountAliasCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateAccountAliasCommand}.
+ */
 export interface CreateAccountAliasCommandInput extends CreateAccountAliasRequest {}
+/**
+ * The output of {@link CreateAccountAliasCommand}.
+ */
 export interface CreateAccountAliasCommandOutput extends __MetadataBearer {}
 
 /**

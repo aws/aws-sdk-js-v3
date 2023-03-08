@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetActiveNamesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetActiveNamesCommand}.
+ */
 export interface GetActiveNamesCommandInput extends GetActiveNamesRequest {}
+/**
+ * The output of {@link GetActiveNamesCommand}.
+ */
 export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __MetadataBearer {}
 
 /**

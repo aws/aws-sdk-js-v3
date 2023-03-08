@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeOrganizationOverviewCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeOrganizationOverviewCommand}.
+ */
 export interface DescribeOrganizationOverviewCommandInput extends DescribeOrganizationOverviewRequest {}
+/**
+ * The output of {@link DescribeOrganizationOverviewCommand}.
+ */
 export interface DescribeOrganizationOverviewCommandOutput
   extends DescribeOrganizationOverviewResponse,
     __MetadataBearer {}

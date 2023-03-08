@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DisableSnapshotCopyCommand}.
+ */
 export interface DisableSnapshotCopyCommandInput extends DisableSnapshotCopyMessage {}
+/**
+ * The output of {@link DisableSnapshotCopyCommand}.
+ */
 export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyResult, __MetadataBearer {}
 
 /**

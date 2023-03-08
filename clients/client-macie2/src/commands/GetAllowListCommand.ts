@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetAllowListCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetAllowListCommand}.
+ */
 export interface GetAllowListCommandInput extends GetAllowListRequest {}
+/**
+ * The output of {@link GetAllowListCommand}.
+ */
 export interface GetAllowListCommandOutput extends GetAllowListResponse, __MetadataBearer {}
 
 /**

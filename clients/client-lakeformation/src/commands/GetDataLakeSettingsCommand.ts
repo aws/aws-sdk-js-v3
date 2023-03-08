@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetDataLakeSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetDataLakeSettingsCommand}.
+ */
 export interface GetDataLakeSettingsCommandInput extends GetDataLakeSettingsRequest {}
+/**
+ * The output of {@link GetDataLakeSettingsCommand}.
+ */
 export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsResponse, __MetadataBearer {}
 
 /**

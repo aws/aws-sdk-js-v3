@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link DeleteReplicationJobCommand}.
+ */
 export interface DeleteReplicationJobCommandInput extends DeleteReplicationJobRequest {}
+/**
+ * The output of {@link DeleteReplicationJobCommand}.
+ */
 export interface DeleteReplicationJobCommandOutput extends DeleteReplicationJobResponse, __MetadataBearer {}
 
 /**

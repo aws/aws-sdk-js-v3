@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetImageRecipePolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetImageRecipePolicyCommand}.
+ */
 export interface GetImageRecipePolicyCommandInput extends GetImageRecipePolicyRequest {}
+/**
+ * The output of {@link GetImageRecipePolicyCommand}.
+ */
 export interface GetImageRecipePolicyCommandOutput extends GetImageRecipePolicyResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateDestinationCommand}.
+ */
 export interface CreateDestinationCommandInput extends CreateDestinationRequest {}
+/**
+ * The output of {@link CreateDestinationCommand}.
+ */
 export interface CreateDestinationCommandOutput extends CreateDestinationResponse, __MetadataBearer {}
 
 /**

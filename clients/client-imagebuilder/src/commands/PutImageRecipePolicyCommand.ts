@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutImageRecipePolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutImageRecipePolicyCommand}.
+ */
 export interface PutImageRecipePolicyCommandInput extends PutImageRecipePolicyRequest {}
+/**
+ * The output of {@link PutImageRecipePolicyCommand}.
+ */
 export interface PutImageRecipePolicyCommandOutput extends PutImageRecipePolicyResponse, __MetadataBearer {}
 
 /**

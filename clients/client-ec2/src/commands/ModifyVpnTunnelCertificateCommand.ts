@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyVpnTunnelCertificateCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyVpnTunnelCertificateCommand}.
+ */
 export interface ModifyVpnTunnelCertificateCommandInput extends ModifyVpnTunnelCertificateRequest {}
+/**
+ * The output of {@link ModifyVpnTunnelCertificateCommand}.
+ */
 export interface ModifyVpnTunnelCertificateCommandOutput extends ModifyVpnTunnelCertificateResult, __MetadataBearer {}
 
 /**

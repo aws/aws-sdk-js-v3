@@ -6,7 +6,6 @@ import {
   ListExperienceEntitiesCommandInput,
   ListExperienceEntitiesCommandOutput,
 } from "../commands/ListExperienceEntitiesCommand";
-import { Kendra } from "../Kendra";
 import { KendraClient } from "../KendraClient";
 import { KendraPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListExperienceEntitiesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Kendra,
-  input: ListExperienceEntitiesCommandInput,
-  ...args: any
-): Promise<ListExperienceEntitiesCommandOutput> => {
-  // @ts-ignore
-  return await client.listExperienceEntities(input, ...args);
-};
 export async function* paginateListExperienceEntities(
   config: KendraPaginationConfiguration,
   input: ListExperienceEntitiesCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListExperienceEntities(
   let page: ListExperienceEntitiesCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof Kendra) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KendraClient) {
+    if (config.client instanceof KendraClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Kendra | KendraClient");

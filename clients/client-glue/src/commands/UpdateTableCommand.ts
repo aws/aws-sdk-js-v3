@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateTableCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateTableCommand}.
+ */
 export interface UpdateTableCommandInput extends UpdateTableRequest {}
+/**
+ * The output of {@link UpdateTableCommand}.
+ */
 export interface UpdateTableCommandOutput extends UpdateTableResponse, __MetadataBearer {}
 
 /**

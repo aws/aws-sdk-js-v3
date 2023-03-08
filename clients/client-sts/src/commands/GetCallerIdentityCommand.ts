@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
+/**
+ * The input for {@link GetCallerIdentityCommand}.
+ */
 export interface GetCallerIdentityCommandInput extends GetCallerIdentityRequest {}
+/**
+ * The output of {@link GetCallerIdentityCommand}.
+ */
 export interface GetCallerIdentityCommandOutput extends GetCallerIdentityResponse, __MetadataBearer {}
 
 /**

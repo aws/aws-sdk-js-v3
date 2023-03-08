@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteColumnStatisticsForTableCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteColumnStatisticsForTableCommand}.
+ */
 export interface DeleteColumnStatisticsForTableCommandInput extends DeleteColumnStatisticsForTableRequest {}
+/**
+ * The output of {@link DeleteColumnStatisticsForTableCommand}.
+ */
 export interface DeleteColumnStatisticsForTableCommandOutput
   extends DeleteColumnStatisticsForTableResponse,
     __MetadataBearer {}

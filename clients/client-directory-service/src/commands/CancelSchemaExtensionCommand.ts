@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CancelSchemaExtensionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CancelSchemaExtensionCommand}.
+ */
 export interface CancelSchemaExtensionCommandInput extends CancelSchemaExtensionRequest {}
+/**
+ * The output of {@link CancelSchemaExtensionCommand}.
+ */
 export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensionResult, __MetadataBearer {}
 
 /**

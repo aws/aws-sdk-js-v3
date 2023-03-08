@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryListRoleTagsCommand, serializeAws_queryListRoleTagsCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListRoleTagsCommand}.
+ */
 export interface ListRoleTagsCommandInput extends ListRoleTagsRequest {}
+/**
+ * The output of {@link ListRoleTagsCommand}.
+ */
 export interface ListRoleTagsCommandOutput extends ListRoleTagsResponse, __MetadataBearer {}
 
 /**

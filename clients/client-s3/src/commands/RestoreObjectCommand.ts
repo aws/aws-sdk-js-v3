@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link RestoreObjectCommand}.
+ */
 export interface RestoreObjectCommandInput extends RestoreObjectRequest {}
+/**
+ * The output of {@link RestoreObjectCommand}.
+ */
 export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __MetadataBearer {}
 
 /**

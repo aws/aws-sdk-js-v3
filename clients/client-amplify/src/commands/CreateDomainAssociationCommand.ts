@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateDomainAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateDomainAssociationCommand}.
+ */
 export interface CreateDomainAssociationCommandInput extends CreateDomainAssociationRequest {}
+/**
+ * The output of {@link CreateDomainAssociationCommand}.
+ */
 export interface CreateDomainAssociationCommandOutput extends CreateDomainAssociationResult, __MetadataBearer {}
 
 /**

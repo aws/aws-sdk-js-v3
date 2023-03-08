@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListApprovedOriginsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListApprovedOriginsCommand}.
+ */
 export interface ListApprovedOriginsCommandInput extends ListApprovedOriginsRequest {}
+/**
+ * The output of {@link ListApprovedOriginsCommand}.
+ */
 export interface ListApprovedOriginsCommandOutput extends ListApprovedOriginsResponse, __MetadataBearer {}
 
 /**

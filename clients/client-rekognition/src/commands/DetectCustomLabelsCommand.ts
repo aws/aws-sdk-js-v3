@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link DetectCustomLabelsCommand}.
+ */
 export interface DetectCustomLabelsCommandInput extends DetectCustomLabelsRequest {}
+/**
+ * The output of {@link DetectCustomLabelsCommand}.
+ */
 export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsResponse, __MetadataBearer {}
 
 /**

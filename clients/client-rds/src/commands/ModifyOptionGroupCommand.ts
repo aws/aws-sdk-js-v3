@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link ModifyOptionGroupCommand}.
+ */
 export interface ModifyOptionGroupCommandInput extends ModifyOptionGroupMessage {}
+/**
+ * The output of {@link ModifyOptionGroupCommand}.
+ */
 export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult, __MetadataBearer {}
 
 /**

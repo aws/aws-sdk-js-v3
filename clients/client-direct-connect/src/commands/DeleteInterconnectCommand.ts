@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteInterconnectCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteInterconnectCommand}.
+ */
 export interface DeleteInterconnectCommandInput extends DeleteInterconnectRequest {}
+/**
+ * The output of {@link DeleteInterconnectCommand}.
+ */
 export interface DeleteInterconnectCommandOutput extends DeleteInterconnectResponse, __MetadataBearer {}
 
 /**

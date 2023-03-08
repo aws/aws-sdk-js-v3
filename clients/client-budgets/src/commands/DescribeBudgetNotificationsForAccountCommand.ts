@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1DescribeBudgetNotificationsForAccountCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeBudgetNotificationsForAccountCommand}.
+ */
 export interface DescribeBudgetNotificationsForAccountCommandInput
   extends DescribeBudgetNotificationsForAccountRequest {}
+/**
+ * The output of {@link DescribeBudgetNotificationsForAccountCommand}.
+ */
 export interface DescribeBudgetNotificationsForAccountCommandOutput
   extends DescribeBudgetNotificationsForAccountResponse,
     __MetadataBearer {}

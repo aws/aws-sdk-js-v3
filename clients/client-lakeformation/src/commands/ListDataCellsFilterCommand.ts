@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListDataCellsFilterCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDataCellsFilterCommand}.
+ */
 export interface ListDataCellsFilterCommandInput extends ListDataCellsFilterRequest {}
+/**
+ * The output of {@link ListDataCellsFilterCommand}.
+ */
 export interface ListDataCellsFilterCommandOutput extends ListDataCellsFilterResponse, __MetadataBearer {}
 
 /**

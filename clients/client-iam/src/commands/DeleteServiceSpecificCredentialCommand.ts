@@ -23,7 +23,13 @@ import {
   serializeAws_queryDeleteServiceSpecificCredentialCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteServiceSpecificCredentialCommand}.
+ */
 export interface DeleteServiceSpecificCredentialCommandInput extends DeleteServiceSpecificCredentialRequest {}
+/**
+ * The output of {@link DeleteServiceSpecificCredentialCommand}.
+ */
 export interface DeleteServiceSpecificCredentialCommandOutput extends __MetadataBearer {}
 
 /**

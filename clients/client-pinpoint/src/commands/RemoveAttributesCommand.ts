@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RemoveAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RemoveAttributesCommand}.
+ */
 export interface RemoveAttributesCommandInput extends RemoveAttributesRequest {}
+/**
+ * The output of {@link RemoveAttributesCommand}.
+ */
 export interface RemoveAttributesCommandOutput extends RemoveAttributesResponse, __MetadataBearer {}
 
 /**

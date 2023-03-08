@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateHoursOfOperationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateHoursOfOperationCommand}.
+ */
 export interface CreateHoursOfOperationCommandInput extends CreateHoursOfOperationRequest {}
+/**
+ * The output of {@link CreateHoursOfOperationCommand}.
+ */
 export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperationResponse, __MetadataBearer {}
 
 /**

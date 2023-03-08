@@ -25,11 +25,17 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link GetSearchSuggestionsCommand}.
+ */
 export interface GetSearchSuggestionsCommandInput extends GetSearchSuggestionsRequest {}
+/**
+ * The output of {@link GetSearchSuggestionsCommand}.
+ */
 export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsResponse, __MetadataBearer {}
 
 /**
- * <p>An auto-complete API for the search functionality in the Amazon SageMaker console. It returns
+ * <p>An auto-complete API for the search functionality in the SageMaker console. It returns
  *       suggestions of possible matches for the property name to use in <code>Search</code>
  *       queries. Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>, and
  *       <code>Metrics</code>.</p>

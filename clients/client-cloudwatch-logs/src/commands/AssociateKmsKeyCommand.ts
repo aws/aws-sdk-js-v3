@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1AssociateKmsKeyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateKmsKeyCommand}.
+ */
 export interface AssociateKmsKeyCommandInput extends AssociateKmsKeyRequest {}
+/**
+ * The output of {@link AssociateKmsKeyCommand}.
+ */
 export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
 
 /**

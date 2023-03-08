@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * The input for {@link DeleteProfileCommand}.
+ */
 export interface DeleteProfileCommandInput extends ScalarProfileRequest {}
+/**
+ * The output of {@link DeleteProfileCommand}.
+ */
 export interface DeleteProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**

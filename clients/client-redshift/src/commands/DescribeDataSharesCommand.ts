@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DescribeDataSharesCommand}.
+ */
 export interface DescribeDataSharesCommandInput extends DescribeDataSharesMessage {}
+/**
+ * The output of {@link DescribeDataSharesCommand}.
+ */
 export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResult, __MetadataBearer {}
 
 /**

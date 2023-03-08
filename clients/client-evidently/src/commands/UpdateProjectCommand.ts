@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateProjectCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateProjectCommand}.
+ */
 export interface UpdateProjectCommandInput extends UpdateProjectRequest {}
+/**
+ * The output of {@link UpdateProjectCommand}.
+ */
 export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __MetadataBearer {}
 
 /**

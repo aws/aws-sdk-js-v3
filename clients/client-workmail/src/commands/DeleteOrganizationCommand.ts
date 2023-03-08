@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link DeleteOrganizationCommand}.
+ */
 export interface DeleteOrganizationCommandInput extends DeleteOrganizationRequest {}
+/**
+ * The output of {@link DeleteOrganizationCommand}.
+ */
 export interface DeleteOrganizationCommandOutput extends DeleteOrganizationResponse, __MetadataBearer {}
 
 /**

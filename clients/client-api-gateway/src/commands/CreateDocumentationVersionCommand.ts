@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateDocumentationVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateDocumentationVersionCommand}.
+ */
 export interface CreateDocumentationVersionCommandInput extends CreateDocumentationVersionRequest {}
+/**
+ * The output of {@link CreateDocumentationVersionCommand}.
+ */
 export interface CreateDocumentationVersionCommandOutput extends DocumentationVersion, __MetadataBearer {}
 
 /**

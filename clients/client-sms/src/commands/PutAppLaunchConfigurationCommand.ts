@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * The input for {@link PutAppLaunchConfigurationCommand}.
+ */
 export interface PutAppLaunchConfigurationCommandInput extends PutAppLaunchConfigurationRequest {}
+/**
+ * The output of {@link PutAppLaunchConfigurationCommand}.
+ */
 export interface PutAppLaunchConfigurationCommandOutput extends PutAppLaunchConfigurationResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetJourneyExecutionMetricsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetJourneyExecutionMetricsCommand}.
+ */
 export interface GetJourneyExecutionMetricsCommandInput extends GetJourneyExecutionMetricsRequest {}
+/**
+ * The output of {@link GetJourneyExecutionMetricsCommand}.
+ */
 export interface GetJourneyExecutionMetricsCommandOutput extends GetJourneyExecutionMetricsResponse, __MetadataBearer {}
 
 /**

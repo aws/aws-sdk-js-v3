@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CodeCatalyst } from "../CodeCatalyst";
 import { CodeCatalystClient } from "../CodeCatalystClient";
 import {
   ListDevEnvironmentsCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDevEnvironmentsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CodeCatalyst,
-  input: ListDevEnvironmentsCommandInput,
-  ...args: any
-): Promise<ListDevEnvironmentsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDevEnvironments(input, ...args);
-};
 export async function* paginateListDevEnvironments(
   config: CodeCatalystPaginationConfiguration,
   input: ListDevEnvironmentsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDevEnvironments(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof CodeCatalyst) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodeCatalystClient) {
+    if (config.client instanceof CodeCatalystClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodeCatalyst | CodeCatalystClient");

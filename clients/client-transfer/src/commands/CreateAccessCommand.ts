@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link CreateAccessCommand}.
+ */
 export interface CreateAccessCommandInput extends CreateAccessRequest {}
+/**
+ * The output of {@link CreateAccessCommand}.
+ */
 export interface CreateAccessCommandOutput extends CreateAccessResponse, __MetadataBearer {}
 
 /**

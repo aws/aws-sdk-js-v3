@@ -25,8 +25,14 @@ import {
   serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand}.
+ */
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput
   extends BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {}
+/**
+ * The output of {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand}.
+ */
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
   extends BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutVerificationStateOnViolationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutVerificationStateOnViolationCommand}.
+ */
 export interface PutVerificationStateOnViolationCommandInput extends PutVerificationStateOnViolationRequest {}
+/**
+ * The output of {@link PutVerificationStateOnViolationCommand}.
+ */
 export interface PutVerificationStateOnViolationCommandOutput
   extends PutVerificationStateOnViolationResponse,
     __MetadataBearer {}

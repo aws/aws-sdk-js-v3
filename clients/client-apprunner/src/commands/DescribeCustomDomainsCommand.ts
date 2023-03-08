@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DescribeCustomDomainsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeCustomDomainsCommand}.
+ */
 export interface DescribeCustomDomainsCommandInput extends DescribeCustomDomainsRequest {}
+/**
+ * The output of {@link DescribeCustomDomainsCommand}.
+ */
 export interface DescribeCustomDomainsCommandOutput extends DescribeCustomDomainsResponse, __MetadataBearer {}
 
 /**

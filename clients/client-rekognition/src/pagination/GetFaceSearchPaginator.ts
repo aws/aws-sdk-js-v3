@@ -6,7 +6,6 @@ import {
   GetFaceSearchCommandInput,
   GetFaceSearchCommandOutput,
 } from "../commands/GetFaceSearchCommand";
-import { Rekognition } from "../Rekognition";
 import { RekognitionClient } from "../RekognitionClient";
 import { RekognitionPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetFaceSearchCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Rekognition,
-  input: GetFaceSearchCommandInput,
-  ...args: any
-): Promise<GetFaceSearchCommandOutput> => {
-  // @ts-ignore
-  return await client.getFaceSearch(input, ...args);
-};
 export async function* paginateGetFaceSearch(
   config: RekognitionPaginationConfiguration,
   input: GetFaceSearchCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateGetFaceSearch(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Rekognition) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RekognitionClient) {
+    if (config.client instanceof RekognitionClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Rekognition | RekognitionClient");

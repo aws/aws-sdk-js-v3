@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetRecommenderConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetRecommenderConfigurationsCommand}.
+ */
 export interface GetRecommenderConfigurationsCommandInput extends GetRecommenderConfigurationsRequest {}
+/**
+ * The output of {@link GetRecommenderConfigurationsCommand}.
+ */
 export interface GetRecommenderConfigurationsCommandOutput
   extends GetRecommenderConfigurationsResponse,
     __MetadataBearer {}

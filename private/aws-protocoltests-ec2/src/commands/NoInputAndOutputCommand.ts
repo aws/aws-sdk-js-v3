@@ -19,7 +19,13 @@ import {
   serializeAws_ec2NoInputAndOutputCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link NoInputAndOutputCommand}.
+ */
 export interface NoInputAndOutputCommandInput {}
+/**
+ * The output of {@link NoInputAndOutputCommand}.
+ */
 export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, __MetadataBearer {}
 
 /**

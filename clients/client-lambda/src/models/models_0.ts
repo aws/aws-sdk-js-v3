@@ -372,7 +372,7 @@ export interface AddPermissionRequest {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   FunctionUrlAuthType?: FunctionUrlAuthType | string;
@@ -618,6 +618,39 @@ export interface DestinationConfig {
    * <p>The destination configuration for failed invocations.</p>
    */
   OnFailure?: OnFailure;
+}
+
+export enum FullDocument {
+  Default = "Default",
+  UpdateLookup = "UpdateLookup",
+}
+
+/**
+ * <p>
+ *       Specific configuration settings for a DocumentDB event source.
+ *     </p>
+ */
+export interface DocumentDBEventSourceConfig {
+  /**
+   * <p>
+   *       The name of the database to consume within the DocumentDB cluster.
+   *     </p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>
+   *       The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+   *     </p>
+   */
+  CollectionName?: string;
+
+  /**
+   * <p>
+   *       Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
+   *     </p>
+   */
+  FullDocument?: FullDocument | string;
 }
 
 /**
@@ -956,6 +989,11 @@ export interface CreateEventSourceMappingRequest {
    * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
    */
   ScalingConfig?: ScalingConfig;
+
+  /**
+   * <p>Specific configuration settings for a DocumentDB event source.</p>
+   */
+  DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig;
 }
 
 /**
@@ -1105,6 +1143,11 @@ export interface EventSourceMappingConfiguration {
    * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
    */
   ScalingConfig?: ScalingConfig;
+
+  /**
+   * <p>Specific configuration settings for a DocumentDB event source.</p>
+   */
+  DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig;
 }
 
 /**
@@ -1398,8 +1441,8 @@ export interface CreateFunctionRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.
-   *         </p>
+   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p>
+   *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
   Runtime?: Runtime | string;
 
@@ -1467,8 +1510,7 @@ export interface CreateFunctionRequest {
   Environment?: Environment;
 
   /**
-   * <p>The ARN of the Key Management Service (KMS) key that's used to encrypt your function's environment
-   *       variables. If it's not provided, Lambda uses a default service key.</p>
+   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>. When <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> is activated, this key is also used to encrypt your function's snapshot. If you don't provide a customer managed key, Lambda uses a default service key.</p>
    */
   KMSKeyArn?: string;
 
@@ -1836,7 +1878,7 @@ export interface FunctionConfiguration {
   Environment?: EnvironmentResponse;
 
   /**
-   * <p>The KMS key that's used to encrypt the function's environment variables. This key is
+   * <p>The KMS key that's used to encrypt the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>. When <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> is activated, this key is also used to encrypt the function's snapshot. This key is
    *       returned only if you've configured a customer managed key.</p>
    */
   KMSKeyArn?: string;
@@ -2044,7 +2086,7 @@ export interface CreateFunctionUrlConfigRequest {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
@@ -2069,7 +2111,7 @@ export interface CreateFunctionUrlConfigResponse {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
@@ -2742,7 +2784,7 @@ export interface GetFunctionUrlConfigResponse {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
@@ -3065,9 +3107,14 @@ export interface GetRuntimeManagementConfigResponse {
 
   /**
    * <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>Manual</b>, the ARN is returned, otherwise <code>null</code>
-   *     is returned.</p>
+   *       is returned.</p>
    */
   RuntimeVersionArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of your function.</p>
+   */
+  FunctionArn?: string;
 }
 
 /**
@@ -4142,7 +4189,7 @@ export interface FunctionUrlConfig {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
@@ -5230,6 +5277,11 @@ export interface UpdateEventSourceMappingRequest {
    * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
    */
   ScalingConfig?: ScalingConfig;
+
+  /**
+   * <p>Specific configuration settings for a DocumentDB event source.</p>
+   */
+  DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig;
 }
 
 export interface UpdateFunctionCodeRequest {
@@ -5378,8 +5430,8 @@ export interface UpdateFunctionConfigurationRequest {
   Environment?: Environment;
 
   /**
-   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.
-   *         </p>
+   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p>
+   *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
   Runtime?: Runtime | string;
 
@@ -5390,8 +5442,7 @@ export interface UpdateFunctionConfigurationRequest {
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
-   * <p>The ARN of the Key Management Service (KMS) key that's used to encrypt your function's environment
-   *       variables. If it's not provided, Lambda uses a default service key.</p>
+   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>. When <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> is activated, this key is also used to encrypt your function's snapshot. If you don't provide a customer managed key, Lambda uses a default service key.</p>
    */
   KMSKeyArn?: string;
 
@@ -5536,7 +5587,7 @@ export interface UpdateFunctionUrlConfigRequest {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType?: FunctionUrlAuthType | string;
@@ -5561,7 +5612,7 @@ export interface UpdateFunctionUrlConfigResponse {
 
   /**
    * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
-   *   IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+   *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
@@ -5708,6 +5759,13 @@ export const OnSuccessFilterSensitiveLog = (obj: OnSuccess): any => ({
  * @internal
  */
 export const DestinationConfigFilterSensitiveLog = (obj: DestinationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentDBEventSourceConfigFilterSensitiveLog = (obj: DocumentDBEventSourceConfig): any => ({
   ...obj,
 });
 

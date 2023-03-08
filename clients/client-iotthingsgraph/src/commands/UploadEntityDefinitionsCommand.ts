@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UploadEntityDefinitionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UploadEntityDefinitionsCommand}.
+ */
 export interface UploadEntityDefinitionsCommandInput extends UploadEntityDefinitionsRequest {}
+/**
+ * The output of {@link UploadEntityDefinitionsCommand}.
+ */
 export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefinitionsResponse, __MetadataBearer {}
 
 /**

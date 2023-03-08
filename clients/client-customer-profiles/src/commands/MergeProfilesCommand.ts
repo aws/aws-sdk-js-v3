@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1MergeProfilesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link MergeProfilesCommand}.
+ */
 export interface MergeProfilesCommandInput extends MergeProfilesRequest {}
+/**
+ * The output of {@link MergeProfilesCommand}.
+ */
 export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __MetadataBearer {}
 
 /**

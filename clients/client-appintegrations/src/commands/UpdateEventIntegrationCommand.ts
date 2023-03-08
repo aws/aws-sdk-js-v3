@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateEventIntegrationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateEventIntegrationCommand}.
+ */
 export interface UpdateEventIntegrationCommandInput extends UpdateEventIntegrationRequest {}
+/**
+ * The output of {@link UpdateEventIntegrationCommand}.
+ */
 export interface UpdateEventIntegrationCommandOutput extends UpdateEventIntegrationResponse, __MetadataBearer {}
 
 /**

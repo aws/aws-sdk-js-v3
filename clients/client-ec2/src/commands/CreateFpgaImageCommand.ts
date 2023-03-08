@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_ec2CreateFpgaImageCommand, serializeAws_ec2CreateFpgaImageCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link CreateFpgaImageCommand}.
+ */
 export interface CreateFpgaImageCommandInput extends CreateFpgaImageRequest {}
+/**
+ * The output of {@link CreateFpgaImageCommand}.
+ */
 export interface CreateFpgaImageCommandOutput extends CreateFpgaImageResult, __MetadataBearer {}
 
 /**

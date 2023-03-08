@@ -23,7 +23,13 @@ import {
   serializeAws_json1_1DetachElasticLoadBalancerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DetachElasticLoadBalancerCommand}.
+ */
 export interface DetachElasticLoadBalancerCommandInput extends DetachElasticLoadBalancerRequest {}
+/**
+ * The output of {@link DetachElasticLoadBalancerCommand}.
+ */
 export interface DetachElasticLoadBalancerCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteSuggesterCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteSuggesterCommand}.
+ */
 export interface DeleteSuggesterCommandInput extends DeleteSuggesterRequest {}
+/**
+ * The output of {@link DeleteSuggesterCommand}.
+ */
 export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, __MetadataBearer {}
 
 /**

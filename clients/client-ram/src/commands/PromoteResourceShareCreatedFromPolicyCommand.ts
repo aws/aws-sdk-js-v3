@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * The input for {@link PromoteResourceShareCreatedFromPolicyCommand}.
+ */
 export interface PromoteResourceShareCreatedFromPolicyCommandInput
   extends PromoteResourceShareCreatedFromPolicyRequest {}
+/**
+ * The output of {@link PromoteResourceShareCreatedFromPolicyCommand}.
+ */
 export interface PromoteResourceShareCreatedFromPolicyCommandOutput
   extends PromoteResourceShareCreatedFromPolicyResponse,
     __MetadataBearer {}

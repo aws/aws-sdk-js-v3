@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1InferICD10CMCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link InferICD10CMCommand}.
+ */
 export interface InferICD10CMCommandInput extends InferICD10CMRequest {}
+/**
+ * The output of {@link InferICD10CMCommand}.
+ */
 export interface InferICD10CMCommandOutput extends InferICD10CMResponse, __MetadataBearer {}
 
 /**

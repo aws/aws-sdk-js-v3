@@ -25,27 +25,33 @@ import {
   serializeAws_json1_1ListTagsForResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+/**
+ * The output of {@link ListTagsForResourceCommand}.
+ */
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Lists tags that are attached to the specified resource.</p>
- *         <p>You can attach tags to the following resources in Organizations.</p>
- *         <ul>
+ *          <p>You can attach tags to the following resources in Organizations.</p>
+ *          <ul>
  *             <li>
- *                 <p>Amazon Web Services account</p>
+ *                <p>Amazon Web Services account</p>
  *             </li>
  *             <li>
- *                 <p>Organization root</p>
+ *                <p>Organization root</p>
  *             </li>
  *             <li>
- *                 <p>Organizational unit (OU)</p>
+ *                <p>Organizational unit (OU)</p>
  *             </li>
  *             <li>
- *                 <p>Policy (any type)</p>
+ *                <p>Policy (any type)</p>
  *             </li>
  *          </ul>
- *         <p>This operation can be called only from the organization's
+ *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

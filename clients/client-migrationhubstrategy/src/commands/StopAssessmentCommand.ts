@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1StopAssessmentCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StopAssessmentCommand}.
+ */
 export interface StopAssessmentCommandInput extends StopAssessmentRequest {}
+/**
+ * The output of {@link StopAssessmentCommand}.
+ */
 export interface StopAssessmentCommandOutput extends StopAssessmentResponse, __MetadataBearer {}
 
 /**

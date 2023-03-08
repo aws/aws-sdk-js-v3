@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1ListHsmsCommand, serializeAws_json1_1ListHsmsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListHsmsCommand}.
+ */
 export interface ListHsmsCommandInput extends ListHsmsRequest {}
+/**
+ * The output of {@link ListHsmsCommand}.
+ */
 export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StopKeyPhrasesDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopKeyPhrasesDetectionJobCommand}.
+ */
 export interface StopKeyPhrasesDetectionJobCommandInput extends StopKeyPhrasesDetectionJobRequest {}
+/**
+ * The output of {@link StopKeyPhrasesDetectionJobCommand}.
+ */
 export interface StopKeyPhrasesDetectionJobCommandOutput extends StopKeyPhrasesDetectionJobResponse, __MetadataBearer {}
 
 /**

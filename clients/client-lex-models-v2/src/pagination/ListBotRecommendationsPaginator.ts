@@ -6,7 +6,6 @@ import {
   ListBotRecommendationsCommandInput,
   ListBotRecommendationsCommandOutput,
 } from "../commands/ListBotRecommendationsCommand";
-import { LexModelsV2 } from "../LexModelsV2";
 import { LexModelsV2Client } from "../LexModelsV2Client";
 import { LexModelsV2PaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBotRecommendationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: LexModelsV2,
-  input: ListBotRecommendationsCommandInput,
-  ...args: any
-): Promise<ListBotRecommendationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listBotRecommendations(input, ...args);
-};
 export async function* paginateListBotRecommendations(
   config: LexModelsV2PaginationConfiguration,
   input: ListBotRecommendationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListBotRecommendations(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof LexModelsV2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LexModelsV2Client) {
+    if (config.client instanceof LexModelsV2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LexModelsV2 | LexModelsV2Client");

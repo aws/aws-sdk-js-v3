@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateCacheSubnetGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateCacheSubnetGroupCommand}.
+ */
 export interface CreateCacheSubnetGroupCommandInput extends CreateCacheSubnetGroupMessage {}
+/**
+ * The output of {@link CreateCacheSubnetGroupCommand}.
+ */
 export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGroupResult, __MetadataBearer {}
 
 /**

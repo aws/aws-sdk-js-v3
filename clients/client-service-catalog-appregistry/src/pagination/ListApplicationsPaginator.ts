@@ -6,7 +6,6 @@ import {
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
 } from "../commands/ListApplicationsCommand";
-import { ServiceCatalogAppRegistry } from "../ServiceCatalogAppRegistry";
 import { ServiceCatalogAppRegistryClient } from "../ServiceCatalogAppRegistryClient";
 import { ServiceCatalogAppRegistryPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListApplicationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ServiceCatalogAppRegistry,
-  input: ListApplicationsCommandInput,
-  ...args: any
-): Promise<ListApplicationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listApplications(input, ...args);
-};
 export async function* paginateListApplications(
   config: ServiceCatalogAppRegistryPaginationConfiguration,
   input: ListApplicationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListApplications(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ServiceCatalogAppRegistry) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServiceCatalogAppRegistryClient) {
+    if (config.client instanceof ServiceCatalogAppRegistryClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ServiceCatalogAppRegistry | ServiceCatalogAppRegistryClient");

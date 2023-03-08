@@ -444,7 +444,7 @@ export interface CreateCustomerGatewayRequest {
    * <p>For devices that support BGP, the customer gateway's BGP ASN.</p>
    *          <p>Default: 65000</p>
    */
-  BgpAsn: number | undefined;
+  BgpAsn?: number;
 
   /**
    * <p>
@@ -1591,6 +1591,8 @@ export interface Placement {
 export interface FleetLaunchTemplateOverridesRequest {
   /**
    * <p>The instance type.</p>
+   *          <p>
+   *             <code>mac1.metal</code> is not supported as a launch template override.</p>
    *          <note>
    *             <p>If you specify <code>InstanceType</code>, you can't specify
    *                <code>InstanceRequirements</code>.</p>
@@ -1648,7 +1650,7 @@ export interface FleetLaunchTemplateOverridesRequest {
    *          identify instance types with those attributes.</p>
    *          <note>
    *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
-   *                <code>InstanceType</code>.</p>
+   *             <code>InstanceType</code>.</p>
    *          </note>
    */
   InstanceRequirements?: InstanceRequirementsRequest;
@@ -2643,6 +2645,8 @@ export interface PlacementResponse {
 export interface FleetLaunchTemplateOverrides {
   /**
    * <p>The instance type.</p>
+   *          <p>
+   *             <code>mac1.metal</code> is not supported as a launch template override.</p>
    *          <note>
    *             <p>If you specify <code>InstanceType</code>, you can't specify
    *                <code>InstanceRequirements</code>.</p>

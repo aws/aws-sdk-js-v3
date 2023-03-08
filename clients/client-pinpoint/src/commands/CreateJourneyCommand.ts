@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateJourneyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateJourneyCommand}.
+ */
 export interface CreateJourneyCommandInput extends CreateJourneyRequest {}
+/**
+ * The output of {@link CreateJourneyCommand}.
+ */
 export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __MetadataBearer {}
 
 /**

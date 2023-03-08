@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * The input for {@link DeleteLedgerCommand}.
+ */
 export interface DeleteLedgerCommandInput extends DeleteLedgerRequest {}
+/**
+ * The output of {@link DeleteLedgerCommand}.
+ */
 export interface DeleteLedgerCommandOutput extends __MetadataBearer {}
 
 /**

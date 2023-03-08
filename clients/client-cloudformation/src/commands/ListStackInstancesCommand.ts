@@ -25,7 +25,13 @@ import {
   serializeAws_queryListStackInstancesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListStackInstancesCommand}.
+ */
 export interface ListStackInstancesCommandInput extends ListStackInstancesInput {}
+/**
+ * The output of {@link ListStackInstancesCommand}.
+ */
 export interface ListStackInstancesCommandOutput extends ListStackInstancesOutput, __MetadataBearer {}
 
 /**

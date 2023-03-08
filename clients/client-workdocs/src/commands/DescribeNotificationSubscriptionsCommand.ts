@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * The input for {@link DescribeNotificationSubscriptionsCommand}.
+ */
 export interface DescribeNotificationSubscriptionsCommandInput extends DescribeNotificationSubscriptionsRequest {}
+/**
+ * The output of {@link DescribeNotificationSubscriptionsCommand}.
+ */
 export interface DescribeNotificationSubscriptionsCommandOutput
   extends DescribeNotificationSubscriptionsResponse,
     __MetadataBearer {}

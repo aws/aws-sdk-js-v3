@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateAllowListCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateAllowListCommand}.
+ */
 export interface UpdateAllowListCommandInput extends UpdateAllowListRequest {}
+/**
+ * The output of {@link UpdateAllowListCommand}.
+ */
 export interface UpdateAllowListCommandOutput extends UpdateAllowListResponse, __MetadataBearer {}
 
 /**

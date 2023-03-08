@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeFastLaunchImagesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeFastLaunchImagesCommand}.
+ */
 export interface DescribeFastLaunchImagesCommandInput extends DescribeFastLaunchImagesRequest {}
+/**
+ * The output of {@link DescribeFastLaunchImagesCommand}.
+ */
 export interface DescribeFastLaunchImagesCommandOutput extends DescribeFastLaunchImagesResult, __MetadataBearer {}
 
 /**

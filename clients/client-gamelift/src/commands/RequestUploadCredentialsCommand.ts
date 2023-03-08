@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RequestUploadCredentialsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RequestUploadCredentialsCommand}.
+ */
 export interface RequestUploadCredentialsCommandInput extends RequestUploadCredentialsInput {}
+/**
+ * The output of {@link RequestUploadCredentialsCommand}.
+ */
 export interface RequestUploadCredentialsCommandOutput extends RequestUploadCredentialsOutput, __MetadataBearer {}
 
 /**

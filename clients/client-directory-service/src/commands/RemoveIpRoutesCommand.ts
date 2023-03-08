@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RemoveIpRoutesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RemoveIpRoutesCommand}.
+ */
 export interface RemoveIpRoutesCommandInput extends RemoveIpRoutesRequest {}
+/**
+ * The output of {@link RemoveIpRoutesCommand}.
+ */
 export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __MetadataBearer {}
 
 /**

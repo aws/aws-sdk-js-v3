@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link DeregisterTargetFromMaintenanceWindowCommand}.
+ */
 export interface DeregisterTargetFromMaintenanceWindowCommandInput
   extends DeregisterTargetFromMaintenanceWindowRequest {}
+/**
+ * The output of {@link DeregisterTargetFromMaintenanceWindowCommand}.
+ */
 export interface DeregisterTargetFromMaintenanceWindowCommandOutput
   extends DeregisterTargetFromMaintenanceWindowResult,
     __MetadataBearer {}

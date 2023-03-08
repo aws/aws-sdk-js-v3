@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1StartLifecyclePolicyPreviewCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StartLifecyclePolicyPreviewCommand}.
+ */
 export interface StartLifecyclePolicyPreviewCommandInput extends StartLifecyclePolicyPreviewRequest {}
+/**
+ * The output of {@link StartLifecyclePolicyPreviewCommand}.
+ */
 export interface StartLifecyclePolicyPreviewCommandOutput
   extends StartLifecyclePolicyPreviewResponse,
     __MetadataBearer {}

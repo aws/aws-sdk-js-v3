@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteDeviceFleetCommand}.
+ */
 export interface DeleteDeviceFleetCommandInput extends DeleteDeviceFleetRequest {}
+/**
+ * The output of {@link DeleteDeviceFleetCommand}.
+ */
 export interface DeleteDeviceFleetCommandOutput extends __MetadataBearer {}
 
 /**

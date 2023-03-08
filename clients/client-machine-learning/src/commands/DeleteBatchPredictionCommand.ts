@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteBatchPredictionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteBatchPredictionCommand}.
+ */
 export interface DeleteBatchPredictionCommandInput extends DeleteBatchPredictionInput {}
+/**
+ * The output of {@link DeleteBatchPredictionCommand}.
+ */
 export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictionOutput, __MetadataBearer {}
 
 /**

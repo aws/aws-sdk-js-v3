@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CodeBuild } from "../CodeBuild";
 import { CodeBuildClient } from "../CodeBuildClient";
 import {
   ListBuildBatchesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBuildBatchesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CodeBuild,
-  input: ListBuildBatchesCommandInput,
-  ...args: any
-): Promise<ListBuildBatchesCommandOutput> => {
-  // @ts-ignore
-  return await client.listBuildBatches(input, ...args);
-};
 export async function* paginateListBuildBatches(
   config: CodeBuildPaginationConfiguration,
   input: ListBuildBatchesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListBuildBatches(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof CodeBuild) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodeBuildClient) {
+    if (config.client instanceof CodeBuildClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodeBuild | CodeBuildClient");

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutKMSEncryptionKeyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutKMSEncryptionKeyCommand}.
+ */
 export interface PutKMSEncryptionKeyCommandInput extends PutKMSEncryptionKeyRequest {}
+/**
+ * The output of {@link PutKMSEncryptionKeyCommand}.
+ */
 export interface PutKMSEncryptionKeyCommandOutput extends PutKMSEncryptionKeyResult, __MetadataBearer {}
 
 /**

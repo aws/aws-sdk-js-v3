@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateServiceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateServiceCommand}.
+ */
 export interface UpdateServiceCommandInput extends UpdateServiceRequest {}
+/**
+ * The output of {@link UpdateServiceCommand}.
+ */
 export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __MetadataBearer {}
 
 /**
@@ -136,7 +142,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *          </ul>
  *          <note>
  *             <p>You must have a service-linked role when you update any of the following service
- * 				properties. If you specified a custom IAM role when you created the service, Amazon ECS
+ * 				properties. If you specified a custom role when you created the service, Amazon ECS
  * 				automatically replaces the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Service.html#ECS-Type-Service-roleArn">roleARN</a> associated with the service with the ARN of your
  * 				service-linked role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Service-linked roles</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *             <ul>

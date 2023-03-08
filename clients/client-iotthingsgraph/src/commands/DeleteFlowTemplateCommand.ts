@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteFlowTemplateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteFlowTemplateCommand}.
+ */
 export interface DeleteFlowTemplateCommandInput extends DeleteFlowTemplateRequest {}
+/**
+ * The output of {@link DeleteFlowTemplateCommand}.
+ */
 export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateResponse, __MetadataBearer {}
 
 /**

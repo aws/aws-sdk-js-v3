@@ -6,7 +6,6 @@ import {
   BatchGetAssetPropertyAggregatesCommandInput,
   BatchGetAssetPropertyAggregatesCommandOutput,
 } from "../commands/BatchGetAssetPropertyAggregatesCommand";
-import { IoTSiteWise } from "../IoTSiteWise";
 import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new BatchGetAssetPropertyAggregatesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoTSiteWise,
-  input: BatchGetAssetPropertyAggregatesCommandInput,
-  ...args: any
-): Promise<BatchGetAssetPropertyAggregatesCommandOutput> => {
-  // @ts-ignore
-  return await client.batchGetAssetPropertyAggregates(input, ...args);
-};
 export async function* paginateBatchGetAssetPropertyAggregates(
   config: IoTSiteWisePaginationConfiguration,
   input: BatchGetAssetPropertyAggregatesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateBatchGetAssetPropertyAggregates(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTSiteWise) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTSiteWiseClient) {
+    if (config.client instanceof IoTSiteWiseClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTSiteWise | IoTSiteWiseClient");

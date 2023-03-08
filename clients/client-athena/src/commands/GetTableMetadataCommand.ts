@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetTableMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetTableMetadataCommand}.
+ */
 export interface GetTableMetadataCommandInput extends GetTableMetadataInput {}
+/**
+ * The output of {@link GetTableMetadataCommand}.
+ */
 export interface GetTableMetadataCommandOutput extends GetTableMetadataOutput, __MetadataBearer {}
 
 /**

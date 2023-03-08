@@ -25,15 +25,22 @@ import {
   serializeAws_restJson1TagResourceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandInput extends TagResourceRequest {}
+/**
+ * The output of {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>The <code>TagResource</code> operation associates tags with an Amazon Managed Grafana resource.
- *             Currently, the only resource that can be tagged is workspaces. </p>
- *          <p>If you specify a new tag key for the resource, this tag is appended to the list of tags associated
- *             with the resource.  If you specify a tag key that is already associated with the resource, the new tag
- *             value that you specify replaces the previous value for that tag.</p>
+ * <p>The <code>TagResource</code> operation associates tags with an Amazon Managed Grafana
+ *             resource. Currently, the only resource that can be tagged is workspaces. </p>
+ *          <p>If you specify a new tag key for the resource, this tag is appended to the list of
+ *             tags associated with the resource. If you specify a tag key that is already associated
+ *             with the resource, the new tag value that you specify replaces the previous value for
+ *             that tag.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

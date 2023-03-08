@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateRevisionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateRevisionCommand}.
+ */
 export interface UpdateRevisionCommandInput extends UpdateRevisionRequest {}
+/**
+ * The output of {@link UpdateRevisionCommand}.
+ */
 export interface UpdateRevisionCommandOutput extends UpdateRevisionResponse, __MetadataBearer {}
 
 /**

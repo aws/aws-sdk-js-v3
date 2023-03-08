@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetMetricPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetMetricPolicyCommand}.
+ */
 export interface GetMetricPolicyCommandInput extends GetMetricPolicyInput {}
+/**
+ * The output of {@link GetMetricPolicyCommand}.
+ */
 export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteDBParameterGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteDBParameterGroupCommand}.
+ */
 export interface DeleteDBParameterGroupCommandInput extends DeleteDBParameterGroupMessage {}
+/**
+ * The output of {@link DeleteDBParameterGroupCommand}.
+ */
 export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**

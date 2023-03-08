@@ -36927,6 +36927,10 @@ const deserializeAws_json1_1RecommendationJobInferenceBenchmark = (
       output.EndpointConfiguration != null
         ? deserializeAws_json1_1EndpointOutputConfiguration(output.EndpointConfiguration, context)
         : undefined,
+    EndpointMetrics:
+      output.EndpointMetrics != null
+        ? deserializeAws_json1_1InferenceMetrics(output.EndpointMetrics, context)
+        : undefined,
     FailureReason: __expectString(output.FailureReason),
     Metrics: output.Metrics != null ? deserializeAws_json1_1RecommendationMetrics(output.Metrics, context) : undefined,
     ModelConfiguration:

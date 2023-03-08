@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link DeleteConnectionAliasCommand}.
+ */
 export interface DeleteConnectionAliasCommandInput extends DeleteConnectionAliasRequest {}
+/**
+ * The output of {@link DeleteConnectionAliasCommand}.
+ */
 export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAliasResult, __MetadataBearer {}
 
 /**

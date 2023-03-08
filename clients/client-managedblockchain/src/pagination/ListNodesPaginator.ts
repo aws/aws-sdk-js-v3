@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "../commands/ListNodesCommand";
-import { ManagedBlockchain } from "../ManagedBlockchain";
 import { ManagedBlockchainClient } from "../ManagedBlockchainClient";
 import { ManagedBlockchainPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListNodesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ManagedBlockchain,
-  input: ListNodesCommandInput,
-  ...args: any
-): Promise<ListNodesCommandOutput> => {
-  // @ts-ignore
-  return await client.listNodes(input, ...args);
-};
 export async function* paginateListNodes(
   config: ManagedBlockchainPaginationConfiguration,
   input: ListNodesCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListNodes(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ManagedBlockchain) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ManagedBlockchainClient) {
+    if (config.client instanceof ManagedBlockchainClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ManagedBlockchain | ManagedBlockchainClient");

@@ -29,7 +29,13 @@ import {
   serializeAws_querySetLoadBalancerListenerSSLCertificateCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SetLoadBalancerListenerSSLCertificateCommand}.
+ */
 export interface SetLoadBalancerListenerSSLCertificateCommandInput extends SetLoadBalancerListenerSSLCertificateInput {}
+/**
+ * The output of {@link SetLoadBalancerListenerSSLCertificateCommand}.
+ */
 export interface SetLoadBalancerListenerSSLCertificateCommandOutput
   extends SetLoadBalancerListenerSSLCertificateOutput,
     __MetadataBearer {}

@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_queryListUserTagsCommand, serializeAws_queryListUserTagsCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListUserTagsCommand}.
+ */
 export interface ListUserTagsCommandInput extends ListUserTagsRequest {}
+/**
+ * The output of {@link ListUserTagsCommand}.
+ */
 export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __MetadataBearer {}
 
 /**

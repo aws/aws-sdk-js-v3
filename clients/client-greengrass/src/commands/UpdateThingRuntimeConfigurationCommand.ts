@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateThingRuntimeConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateThingRuntimeConfigurationCommand}.
+ */
 export interface UpdateThingRuntimeConfigurationCommandInput extends UpdateThingRuntimeConfigurationRequest {}
+/**
+ * The output of {@link UpdateThingRuntimeConfigurationCommand}.
+ */
 export interface UpdateThingRuntimeConfigurationCommandOutput
   extends UpdateThingRuntimeConfigurationResponse,
     __MetadataBearer {}

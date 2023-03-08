@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0PutRecommendationPreferencesCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link PutRecommendationPreferencesCommand}.
+ */
 export interface PutRecommendationPreferencesCommandInput extends PutRecommendationPreferencesRequest {}
+/**
+ * The output of {@link PutRecommendationPreferencesCommand}.
+ */
 export interface PutRecommendationPreferencesCommandOutput
   extends PutRecommendationPreferencesResponse,
     __MetadataBearer {}

@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteApplicationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteApplicationCommand}.
+ */
 export interface DeleteApplicationCommandInput extends DeleteApplicationMessage {}
+/**
+ * The output of {@link DeleteApplicationCommand}.
+ */
 export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
 
 /**

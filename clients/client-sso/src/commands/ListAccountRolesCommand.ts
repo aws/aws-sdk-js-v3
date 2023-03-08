@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
+/**
+ * The input for {@link ListAccountRolesCommand}.
+ */
 export interface ListAccountRolesCommandInput extends ListAccountRolesRequest {}
+/**
+ * The output of {@link ListAccountRolesCommand}.
+ */
 export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse, __MetadataBearer {}
 
 /**

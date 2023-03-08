@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisassociateRepositoryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisassociateRepositoryCommand}.
+ */
 export interface DisassociateRepositoryCommandInput extends DisassociateRepositoryRequest {}
+/**
+ * The output of {@link DisassociateRepositoryCommand}.
+ */
 export interface DisassociateRepositoryCommandOutput extends DisassociateRepositoryResponse, __MetadataBearer {}
 
 /**

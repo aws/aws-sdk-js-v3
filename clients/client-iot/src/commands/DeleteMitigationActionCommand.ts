@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteMitigationActionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteMitigationActionCommand}.
+ */
 export interface DeleteMitigationActionCommandInput extends DeleteMitigationActionRequest {}
+/**
+ * The output of {@link DeleteMitigationActionCommand}.
+ */
 export interface DeleteMitigationActionCommandOutput extends DeleteMitigationActionResponse, __MetadataBearer {}
 
 /**

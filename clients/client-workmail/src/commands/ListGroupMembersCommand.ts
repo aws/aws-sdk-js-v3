@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link ListGroupMembersCommand}.
+ */
 export interface ListGroupMembersCommandInput extends ListGroupMembersRequest {}
+/**
+ * The output of {@link ListGroupMembersCommand}.
+ */
 export interface ListGroupMembersCommandOutput extends ListGroupMembersResponse, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_ec2ModifySubnetAttributeCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifySubnetAttributeCommand}.
+ */
 export interface ModifySubnetAttributeCommandInput extends ModifySubnetAttributeRequest {}
+/**
+ * The output of {@link ModifySubnetAttributeCommand}.
+ */
 export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1GetGlobalSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetGlobalSettingsCommand}.
+ */
 export interface GetGlobalSettingsCommandInput {}
+/**
+ * The output of {@link GetGlobalSettingsCommand}.
+ */
 export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsResponse, __MetadataBearer {}
 
 export class GetGlobalSettingsCommand extends $Command<

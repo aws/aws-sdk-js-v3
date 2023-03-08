@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetMLModelCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetMLModelCommand}.
+ */
 export interface GetMLModelCommandInput extends GetMLModelInput {}
+/**
+ * The output of {@link GetMLModelCommand}.
+ */
 export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBearer {}
 
 /**

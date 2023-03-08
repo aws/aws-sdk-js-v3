@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetRelationalDatabaseSnapshotsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRelationalDatabaseSnapshotsCommand}.
+ */
 export interface GetRelationalDatabaseSnapshotsCommandInput extends GetRelationalDatabaseSnapshotsRequest {}
+/**
+ * The output of {@link GetRelationalDatabaseSnapshotsCommand}.
+ */
 export interface GetRelationalDatabaseSnapshotsCommandOutput
   extends GetRelationalDatabaseSnapshotsResult,
     __MetadataBearer {}

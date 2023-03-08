@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateWorkspaceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateWorkspaceCommand}.
+ */
 export interface UpdateWorkspaceCommandInput extends UpdateWorkspaceRequest {}
+/**
+ * The output of {@link UpdateWorkspaceCommand}.
+ */
 export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, __MetadataBearer {}
 
 /**

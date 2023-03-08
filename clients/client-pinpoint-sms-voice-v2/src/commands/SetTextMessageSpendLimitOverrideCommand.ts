@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0SetTextMessageSpendLimitOverrideCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link SetTextMessageSpendLimitOverrideCommand}.
+ */
 export interface SetTextMessageSpendLimitOverrideCommandInput extends SetTextMessageSpendLimitOverrideRequest {}
+/**
+ * The output of {@link SetTextMessageSpendLimitOverrideCommand}.
+ */
 export interface SetTextMessageSpendLimitOverrideCommandOutput
   extends SetTextMessageSpendLimitOverrideResult,
     __MetadataBearer {}

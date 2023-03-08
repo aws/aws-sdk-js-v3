@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeScalableTargetsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeScalableTargetsCommand}.
+ */
 export interface DescribeScalableTargetsCommandInput extends DescribeScalableTargetsRequest {}
+/**
+ * The output of {@link DescribeScalableTargetsCommand}.
+ */
 export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTargetsResponse, __MetadataBearer {}
 
 /**

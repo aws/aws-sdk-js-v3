@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribePullThroughCacheRulesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribePullThroughCacheRulesCommand}.
+ */
 export interface DescribePullThroughCacheRulesCommandInput extends DescribePullThroughCacheRulesRequest {}
+/**
+ * The output of {@link DescribePullThroughCacheRulesCommand}.
+ */
 export interface DescribePullThroughCacheRulesCommandOutput
   extends DescribePullThroughCacheRulesResponse,
     __MetadataBearer {}

@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
 
+/**
+ * The input for {@link ListAssociatedRoute53HealthChecksCommand}.
+ */
 export interface ListAssociatedRoute53HealthChecksCommandInput extends ListAssociatedRoute53HealthChecksRequest {}
+/**
+ * The output of {@link ListAssociatedRoute53HealthChecksCommand}.
+ */
 export interface ListAssociatedRoute53HealthChecksCommandOutput
   extends ListAssociatedRoute53HealthChecksResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeDocumentClassificationJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeDocumentClassificationJobCommand}.
+ */
 export interface DescribeDocumentClassificationJobCommandInput extends DescribeDocumentClassificationJobRequest {}
+/**
+ * The output of {@link DescribeDocumentClassificationJobCommand}.
+ */
 export interface DescribeDocumentClassificationJobCommandOutput
   extends DescribeDocumentClassificationJobResponse,
     __MetadataBearer {}

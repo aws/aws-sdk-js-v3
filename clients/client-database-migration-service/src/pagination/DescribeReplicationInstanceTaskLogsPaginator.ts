@@ -6,7 +6,6 @@ import {
   DescribeReplicationInstanceTaskLogsCommandInput,
   DescribeReplicationInstanceTaskLogsCommandOutput,
 } from "../commands/DescribeReplicationInstanceTaskLogsCommand";
-import { DatabaseMigrationService } from "../DatabaseMigrationService";
 import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
 import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeReplicationInstanceTaskLogsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: DatabaseMigrationService,
-  input: DescribeReplicationInstanceTaskLogsCommandInput,
-  ...args: any
-): Promise<DescribeReplicationInstanceTaskLogsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeReplicationInstanceTaskLogs(input, ...args);
-};
 export async function* paginateDescribeReplicationInstanceTaskLogs(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeReplicationInstanceTaskLogsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeReplicationInstanceTaskLogs(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof DatabaseMigrationService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DatabaseMigrationServiceClient) {
+    if (config.client instanceof DatabaseMigrationServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DatabaseMigrationService | DatabaseMigrationServiceClient");

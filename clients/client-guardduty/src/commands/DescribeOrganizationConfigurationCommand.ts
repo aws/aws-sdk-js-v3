@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeOrganizationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeOrganizationConfigurationCommand}.
+ */
 export interface DescribeOrganizationConfigurationCommandInput extends DescribeOrganizationConfigurationRequest {}
+/**
+ * The output of {@link DescribeOrganizationConfigurationCommand}.
+ */
 export interface DescribeOrganizationConfigurationCommandOutput
   extends DescribeOrganizationConfigurationResponse,
     __MetadataBearer {}
@@ -33,6 +39,9 @@ export interface DescribeOrganizationConfigurationCommandOutput
 /**
  * <p>Returns information about the account selected as the delegated administrator for
  *       GuardDuty.</p>
+ *          <p>There might be regional differences because some data sources might not be
+ *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+ *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

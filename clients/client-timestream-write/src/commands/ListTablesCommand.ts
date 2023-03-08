@@ -26,14 +26,19 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
+/**
+ * The input for {@link ListTablesCommand}.
+ */
 export interface ListTablesCommandInput extends ListTablesRequest {}
+/**
+ * The output of {@link ListTablesCommand}.
+ */
 export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataBearer {}
 
 /**
- * <p>A list of tables, along with the name, status and retention properties of each table.
- *          See
- *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-table.html">code sample</a> for details.
- *       </p>
+ * <p>Provides a list of tables, along with the name, status, and retention properties of each
+ *          table. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-table.html">code sample</a>
+ *          for details. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

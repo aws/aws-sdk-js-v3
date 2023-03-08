@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlGetKeyGroupCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link GetKeyGroupCommand}.
+ */
 export interface GetKeyGroupCommandInput extends GetKeyGroupRequest {}
+/**
+ * The output of {@link GetKeyGroupCommand}.
+ */
 export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataBearer {}
 
 /**

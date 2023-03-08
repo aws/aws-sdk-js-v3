@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListChangedBlocksCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListChangedBlocksCommand}.
+ */
 export interface ListChangedBlocksCommandInput extends ListChangedBlocksRequest {}
+/**
+ * The output of {@link ListChangedBlocksCommand}.
+ */
 export interface ListChangedBlocksCommandOutput extends ListChangedBlocksResponse, __MetadataBearer {}
 
 /**

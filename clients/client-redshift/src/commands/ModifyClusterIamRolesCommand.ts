@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link ModifyClusterIamRolesCommand}.
+ */
 export interface ModifyClusterIamRolesCommandInput extends ModifyClusterIamRolesMessage {}
+/**
+ * The output of {@link ModifyClusterIamRolesCommand}.
+ */
 export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRolesResult, __MetadataBearer {}
 
 /**

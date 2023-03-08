@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListClusterOperationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListClusterOperationsCommand}.
+ */
 export interface ListClusterOperationsCommandInput extends ListClusterOperationsRequest {}
+/**
+ * The output of {@link ListClusterOperationsCommand}.
+ */
 export interface ListClusterOperationsCommandOutput extends ListClusterOperationsResponse, __MetadataBearer {}
 
 /**

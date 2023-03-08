@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateMacSecKeyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateMacSecKeyCommand}.
+ */
 export interface DisassociateMacSecKeyCommandInput extends DisassociateMacSecKeyRequest {}
+/**
+ * The output of {@link DisassociateMacSecKeyCommand}.
+ */
 export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKeyResponse, __MetadataBearer {}
 
 /**

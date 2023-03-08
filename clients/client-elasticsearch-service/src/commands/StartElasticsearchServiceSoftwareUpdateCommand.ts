@@ -29,8 +29,14 @@ import {
   serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartElasticsearchServiceSoftwareUpdateCommand}.
+ */
 export interface StartElasticsearchServiceSoftwareUpdateCommandInput
   extends StartElasticsearchServiceSoftwareUpdateRequest {}
+/**
+ * The output of {@link StartElasticsearchServiceSoftwareUpdateCommand}.
+ */
 export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
   extends StartElasticsearchServiceSoftwareUpdateResponse,
     __MetadataBearer {}

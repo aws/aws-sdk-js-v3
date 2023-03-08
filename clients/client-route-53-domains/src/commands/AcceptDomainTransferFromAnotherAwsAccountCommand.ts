@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link AcceptDomainTransferFromAnotherAwsAccountCommand}.
+ */
 export interface AcceptDomainTransferFromAnotherAwsAccountCommandInput
   extends AcceptDomainTransferFromAnotherAwsAccountRequest {}
+/**
+ * The output of {@link AcceptDomainTransferFromAnotherAwsAccountCommand}.
+ */
 export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
   extends AcceptDomainTransferFromAnotherAwsAccountResponse,
     __MetadataBearer {}

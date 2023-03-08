@@ -533,7 +533,7 @@ export interface CdmaObj {
   BaseLat?: number;
 
   /**
-   * <p>CDMA base station longtitude in degrees.</p>
+   * <p>CDMA base station longitude in degrees.</p>
    */
   BaseLng?: number;
 
@@ -1279,6 +1279,25 @@ export interface CreateFuotaTaskRequest {
    * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The percentage of added redundant fragments. For example, if firmware file is
+   *             100 bytes and fragment size is 10 bytes, with <code>RedundancyPercent</code> set to 50(%),
+   *             the final number of encoded fragments is (100 / 10) + (100 / 10 * 50%) = 15.</p>
+   */
+  RedundancyPercent?: number;
+
+  /**
+   * <p>The size of each fragment in bytes. Currently only supported in fuota tasks with multicast groups.</p>
+   */
+  FragmentSizeBytes?: number;
+
+  /**
+   * <p>The interval of sending fragments in milliseconds. Currently the interval will be rounded to the nearest second.
+   *             Note that this interval only controls the timing when the cloud sends the fragments down.
+   *             The actual delay of receiving fragments at device side depends on the device's class and the communication delay with the cloud.</p>
+   */
+  FragmentIntervalMS?: number;
 }
 
 export interface CreateFuotaTaskResponse {
@@ -2682,6 +2701,25 @@ export interface GetFuotaTaskResponse {
    * <p>Created at timestamp for the resource.</p>
    */
   CreatedAt?: Date;
+
+  /**
+   * <p>The percentage of added redundant fragments. For example, if firmware file is
+   *             100 bytes and fragment size is 10 bytes, with <code>RedundancyPercent</code> set to 50(%),
+   *             the final number of encoded fragments is (100 / 10) + (100 / 10 * 50%) = 15.</p>
+   */
+  RedundancyPercent?: number;
+
+  /**
+   * <p>The size of each fragment in bytes. Currently only supported in fuota tasks with multicast groups.</p>
+   */
+  FragmentSizeBytes?: number;
+
+  /**
+   * <p>The interval of sending fragments in milliseconds. Currently the interval will be rounded to the nearest second.
+   *             Note that this interval only controls the timing when the cloud sends the fragments down.
+   *             The actual delay of receiving fragments at device side depends on the device's class and the communication delay with the cloud.</p>
+   */
+  FragmentIntervalMS?: number;
 }
 
 export interface GetLogLevelsByResourceTypesRequest {}
@@ -3141,8 +3179,8 @@ export interface Gnss {
   CaptureTimeAccuracy?: number;
 
   /**
-   * <p>Optional assistance position information, specified using latitude and longitude values in degrees.
-   *           The co-ordinates are inside the WGS84 reference frame.</p>
+   * <p>Optional assistance position information, specified using latitude and longitude values
+   *             in degrees. The coordinates are inside the WGS84 reference frame.</p>
    */
   AssistPosition?: number[];
 
@@ -3210,8 +3248,9 @@ export interface GetPositionEstimateRequest {
   Gnss?: Gnss;
 
   /**
-   * <p>Optional information that specifies the time when the position information will be resolved. It
-   *         uses the UNIX timestamp format. If not specified, the time at which the request was received will be used.</p>
+   * <p>Optional information that specifies the time when the position information will be
+   *             resolved. It uses the Unix timestamp format. If not specified, the time at which the
+   *             request was received will be used.</p>
    */
   Timestamp?: Date;
 }
@@ -3291,8 +3330,9 @@ export interface GetResourceLogLevelResponse {
 
 export interface GetResourcePositionRequest {
   /**
-   * <p>The identifier of the resource for which position information is retrieved. It can be the wireless
-   *         device ID or the wireless gateway ID depending on the resource type.</p>
+   * <p>The identifier of the resource for which position information is retrieved. It can be
+   *             the wireless device ID or the wireless gateway ID, depending on the resource
+   *             type.</p>
    */
   ResourceIdentifier: string | undefined;
 

@@ -59,6 +59,7 @@ import {
   CreateGeofenceCollectionCommandInput,
   CreateGeofenceCollectionCommandOutput,
 } from "../commands/CreateGeofenceCollectionCommand";
+import { CreateKeyCommandInput, CreateKeyCommandOutput } from "../commands/CreateKeyCommand";
 import { CreateMapCommandInput, CreateMapCommandOutput } from "../commands/CreateMapCommand";
 import { CreatePlaceIndexCommandInput, CreatePlaceIndexCommandOutput } from "../commands/CreatePlaceIndexCommand";
 import {
@@ -70,6 +71,7 @@ import {
   DeleteGeofenceCollectionCommandInput,
   DeleteGeofenceCollectionCommandOutput,
 } from "../commands/DeleteGeofenceCollectionCommand";
+import { DeleteKeyCommandInput, DeleteKeyCommandOutput } from "../commands/DeleteKeyCommand";
 import { DeleteMapCommandInput, DeleteMapCommandOutput } from "../commands/DeleteMapCommand";
 import { DeletePlaceIndexCommandInput, DeletePlaceIndexCommandOutput } from "../commands/DeletePlaceIndexCommand";
 import {
@@ -81,6 +83,7 @@ import {
   DescribeGeofenceCollectionCommandInput,
   DescribeGeofenceCollectionCommandOutput,
 } from "../commands/DescribeGeofenceCollectionCommand";
+import { DescribeKeyCommandInput, DescribeKeyCommandOutput } from "../commands/DescribeKeyCommand";
 import { DescribeMapCommandInput, DescribeMapCommandOutput } from "../commands/DescribeMapCommand";
 import { DescribePlaceIndexCommandInput, DescribePlaceIndexCommandOutput } from "../commands/DescribePlaceIndexCommand";
 import {
@@ -115,6 +118,7 @@ import {
   ListGeofenceCollectionsCommandOutput,
 } from "../commands/ListGeofenceCollectionsCommand";
 import { ListGeofencesCommandInput, ListGeofencesCommandOutput } from "../commands/ListGeofencesCommand";
+import { ListKeysCommandInput, ListKeysCommandOutput } from "../commands/ListKeysCommand";
 import { ListMapsCommandInput, ListMapsCommandOutput } from "../commands/ListMapsCommand";
 import { ListPlaceIndexesCommandInput, ListPlaceIndexesCommandOutput } from "../commands/ListPlaceIndexesCommand";
 import {
@@ -149,6 +153,7 @@ import {
   UpdateGeofenceCollectionCommandInput,
   UpdateGeofenceCollectionCommandOutput,
 } from "../commands/UpdateGeofenceCollectionCommand";
+import { UpdateKeyCommandInput, UpdateKeyCommandOutput } from "../commands/UpdateKeyCommand";
 import { UpdateMapCommandInput, UpdateMapCommandOutput } from "../commands/UpdateMapCommand";
 import { UpdatePlaceIndexCommandInput, UpdatePlaceIndexCommandOutput } from "../commands/UpdatePlaceIndexCommand";
 import {
@@ -159,6 +164,8 @@ import { UpdateTrackerCommandInput, UpdateTrackerCommandOutput } from "../comman
 import { LocationServiceException as __BaseException } from "../models/LocationServiceException";
 import {
   AccessDeniedException,
+  ApiKeyFilter,
+  ApiKeyRestrictions,
   BatchDeleteDevicePositionHistoryError,
   BatchDeleteGeofenceError,
   BatchEvaluateGeofencesError,
@@ -184,6 +191,7 @@ import {
   ListDevicePositionsResponseEntry,
   ListGeofenceCollectionsResponseEntry,
   ListGeofenceResponseEntry,
+  ListKeysResponseEntry,
   ListMapsResponseEntry,
   ListPlaceIndexesResponseEntry,
   ListRouteCalculatorsResponseEntry,
@@ -627,6 +635,44 @@ export const serializeAws_restJson1CreateGeofenceCollectionCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateKeyCommand = async (
+  input: CreateKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metadata/v0/keys";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.ExpireTime != null && { ExpireTime: input.ExpireTime.toISOString().split(".")[0] + "Z" }),
+    ...(input.KeyName != null && { KeyName: input.KeyName }),
+    ...(input.NoExpiry != null && { NoExpiry: input.NoExpiry }),
+    ...(input.Restrictions != null && {
+      Restrictions: serializeAws_restJson1ApiKeyRestrictions(input.Restrictions, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "metadata." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateMapCommand = async (
   input: CreateMapCommandInput,
   context: __SerdeContext
@@ -810,6 +856,34 @@ export const serializeAws_restJson1DeleteGeofenceCollectionCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteKeyCommand = async (
+  input: DeleteKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metadata/v0/keys/{KeyName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "KeyName", () => input.KeyName!, "{KeyName}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "metadata." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteMapCommand = async (
   input: DeleteMapCommandInput,
   context: __SerdeContext
@@ -949,6 +1023,34 @@ export const serializeAws_restJson1DescribeGeofenceCollectionCommand = async (
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "geofencing." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeKeyCommand = async (
+  input: DescribeKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metadata/v0/keys/{KeyName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "KeyName", () => input.KeyName!, "{KeyName}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "metadata." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1240,6 +1342,9 @@ export const serializeAws_restJson1GetMapGlyphsCommand = async (
     "{FontUnicodeRange}",
     false
   );
+  const query: any = map({
+    key: [, input.Key!],
+  });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1255,6 +1360,7 @@ export const serializeAws_restJson1GetMapGlyphsCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1270,6 +1376,9 @@ export const serializeAws_restJson1GetMapSpritesCommand = async (
     "/maps/v0/maps/{MapName}/sprites/{FileName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "MapName", () => input.MapName!, "{MapName}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "FileName", () => input.FileName!, "{FileName}", false);
+  const query: any = map({
+    key: [, input.Key!],
+  });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1285,6 +1394,7 @@ export const serializeAws_restJson1GetMapSpritesCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1298,6 +1408,9 @@ export const serializeAws_restJson1GetMapStyleDescriptorCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps/{MapName}/style-descriptor";
   resolvedPath = __resolvedPath(resolvedPath, input, "MapName", () => input.MapName!, "{MapName}", false);
+  const query: any = map({
+    key: [, input.Key!],
+  });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1313,6 +1426,7 @@ export const serializeAws_restJson1GetMapStyleDescriptorCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1329,6 +1443,9 @@ export const serializeAws_restJson1GetMapTileCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Z", () => input.Z!, "{Z}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "X", () => input.X!, "{X}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "Y", () => input.Y!, "{Y}", false);
+  const query: any = map({
+    key: [, input.Key!],
+  });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1344,6 +1461,7 @@ export const serializeAws_restJson1GetMapTileCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1477,6 +1595,39 @@ export const serializeAws_restJson1ListGeofencesCommand = async (
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "geofencing." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListKeysCommand = async (
+  input: ListKeysCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metadata/v0/list-keys";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Filter != null && { Filter: serializeAws_restJson1ApiKeyFilter(input.Filter, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "metadata." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1939,6 +2090,45 @@ export const serializeAws_restJson1UpdateGeofenceCollectionCommand = async (
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "geofencing." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateKeyCommand = async (
+  input: UpdateKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metadata/v0/keys/{KeyName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "KeyName", () => input.KeyName!, "{KeyName}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.ExpireTime != null && { ExpireTime: input.ExpireTime.toISOString().split(".")[0] + "Z" }),
+    ...(input.ForceUpdate != null && { ForceUpdate: input.ForceUpdate }),
+    ...(input.NoExpiry != null && { NoExpiry: input.NoExpiry }),
+    ...(input.Restrictions != null && {
+      Restrictions: serializeAws_restJson1ApiKeyRestrictions(input.Restrictions, context),
+    }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "metadata." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -2664,6 +2854,71 @@ const deserializeAws_restJson1CreateGeofenceCollectionCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateKeyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateKeyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CreateTime != null) {
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
+  }
+  if (data.Key != null) {
+    contents.Key = __expectString(data.Key);
+  }
+  if (data.KeyArn != null) {
+    contents.KeyArn = __expectString(data.KeyArn);
+  }
+  if (data.KeyName != null) {
+    contents.KeyName = __expectString(data.KeyName);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.location#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.location#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.location#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.location#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.location#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.location#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1CreateMapCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2959,6 +3214,56 @@ const deserializeAws_restJson1DeleteGeofenceCollectionCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DeleteKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteKeyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteKeyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.location#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.location#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.location#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.location#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.location#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1DeleteMapCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3204,6 +3509,83 @@ const deserializeAws_restJson1DescribeGeofenceCollectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGeofenceCollectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.location#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.location#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.location#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.location#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.location#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DescribeKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeKeyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeKeyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CreateTime != null) {
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreateTime));
+  }
+  if (data.Description != null) {
+    contents.Description = __expectString(data.Description);
+  }
+  if (data.ExpireTime != null) {
+    contents.ExpireTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.ExpireTime));
+  }
+  if (data.Key != null) {
+    contents.Key = __expectString(data.Key);
+  }
+  if (data.KeyArn != null) {
+    contents.KeyArn = __expectString(data.KeyArn);
+  }
+  if (data.KeyName != null) {
+    contents.KeyName = __expectString(data.KeyName);
+  }
+  if (data.Restrictions != null) {
+    contents.Restrictions = deserializeAws_restJson1ApiKeyRestrictions(data.Restrictions, context);
+  }
+  if (data.Tags != null) {
+    contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
+  }
+  if (data.UpdateTime != null) {
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3796,6 +4178,7 @@ export const deserializeAws_restJson1GetMapGlyphsCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
     ContentType: [, output.headers["content-type"]],
+    CacheControl: [, output.headers["cache-control"]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Blob = data;
@@ -3848,6 +4231,7 @@ export const deserializeAws_restJson1GetMapSpritesCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
     ContentType: [, output.headers["content-type"]],
+    CacheControl: [, output.headers["cache-control"]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Blob = data;
@@ -3900,6 +4284,7 @@ export const deserializeAws_restJson1GetMapStyleDescriptorCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
     ContentType: [, output.headers["content-type"]],
+    CacheControl: [, output.headers["cache-control"]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Blob = data;
@@ -3952,6 +4337,7 @@ export const deserializeAws_restJson1GetMapTileCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
     ContentType: [, output.headers["content-type"]],
+    CacheControl: [, output.headers["cache-control"]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Blob = data;
@@ -4192,6 +4578,59 @@ const deserializeAws_restJson1ListGeofencesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.location#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.location#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.location#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListKeysCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListKeysCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListKeysCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Entries != null) {
+    contents.Entries = deserializeAws_restJson1ListKeysResponseEntryList(data.Entries, context);
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListKeysCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListKeysCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.location#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.location#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.location#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -4919,6 +5358,65 @@ const deserializeAws_restJson1UpdateGeofenceCollectionCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKeyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateKeyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.KeyArn != null) {
+    contents.KeyArn = __expectString(data.KeyArn);
+  }
+  if (data.KeyName != null) {
+    contents.KeyName = __expectString(data.KeyName);
+  }
+  if (data.UpdateTime != null) {
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.UpdateTime));
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.location#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.location#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.location#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.location#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.location#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdateMapCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5274,6 +5772,34 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1ApiKeyActionList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1ApiKeyFilter = (input: ApiKeyFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.KeyStatus != null && { KeyStatus: input.KeyStatus }),
+  };
+};
+
+const serializeAws_restJson1ApiKeyRestrictions = (input: ApiKeyRestrictions, context: __SerdeContext): any => {
+  return {
+    ...(input.AllowActions != null && {
+      AllowActions: serializeAws_restJson1ApiKeyActionList(input.AllowActions, context),
+    }),
+    ...(input.AllowReferers != null && {
+      AllowReferers: serializeAws_restJson1RefererPatternList(input.AllowReferers, context),
+    }),
+    ...(input.AllowResources != null && {
+      AllowResources: serializeAws_restJson1GeoArnList(input.AllowResources, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1BatchPutGeofenceRequestEntry = (
   input: BatchPutGeofenceRequestEntry,
   context: __SerdeContext
@@ -5380,6 +5906,14 @@ const serializeAws_restJson1DevicePositionUpdateList = (
     });
 };
 
+const serializeAws_restJson1GeoArnList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1GeofenceGeometry = (input: GeofenceGeometry, context: __SerdeContext): any => {
   return {
     ...(input.Circle != null && { Circle: serializeAws_restJson1Circle(input.Circle, context) }),
@@ -5449,6 +5983,14 @@ const serializeAws_restJson1PropertyMap = (input: Record<string, string>, contex
   }, {});
 };
 
+const serializeAws_restJson1RefererPatternList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
@@ -5481,6 +6023,31 @@ const serializeAws_restJson1WaypointPositionList = (input: number[][], context: 
     .map((entry) => {
       return serializeAws_restJson1Position(entry, context);
     });
+};
+
+const deserializeAws_restJson1ApiKeyActionList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ApiKeyRestrictions = (output: any, context: __SerdeContext): ApiKeyRestrictions => {
+  return {
+    AllowActions:
+      output.AllowActions != null ? deserializeAws_restJson1ApiKeyActionList(output.AllowActions, context) : undefined,
+    AllowReferers:
+      output.AllowReferers != null
+        ? deserializeAws_restJson1RefererPatternList(output.AllowReferers, context)
+        : undefined,
+    AllowResources:
+      output.AllowResources != null ? deserializeAws_restJson1GeoArnList(output.AllowResources, context) : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1ArnList = (output: any, context: __SerdeContext): string[] => {
@@ -5772,6 +6339,18 @@ const deserializeAws_restJson1DevicePositionList = (output: any, context: __Serd
   return retVal;
 };
 
+const deserializeAws_restJson1GeoArnList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1GeofenceGeometry = (output: any, context: __SerdeContext): GeofenceGeometry => {
   return {
     Circle: output.Circle != null ? deserializeAws_restJson1Circle(output.Circle, context) : undefined,
@@ -5935,6 +6514,38 @@ const deserializeAws_restJson1ListGeofenceResponseEntryList = (
         return null as any;
       }
       return deserializeAws_restJson1ListGeofenceResponseEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ListKeysResponseEntry = (output: any, context: __SerdeContext): ListKeysResponseEntry => {
+  return {
+    CreateTime:
+      output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreateTime)) : undefined,
+    Description: __expectString(output.Description),
+    ExpireTime:
+      output.ExpireTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ExpireTime)) : undefined,
+    KeyName: __expectString(output.KeyName),
+    Restrictions:
+      output.Restrictions != null
+        ? deserializeAws_restJson1ApiKeyRestrictions(output.Restrictions, context)
+        : undefined,
+    UpdateTime:
+      output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdateTime)) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ListKeysResponseEntryList = (
+  output: any,
+  context: __SerdeContext
+): ListKeysResponseEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ListKeysResponseEntry(entry, context);
     });
   return retVal;
 };
@@ -6129,6 +6740,18 @@ const deserializeAws_restJson1PropertyMap = (output: any, context: __SerdeContex
     acc[key] = __expectString(value) as any;
     return acc;
   }, {});
+};
+
+const deserializeAws_restJson1RefererPatternList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1RouteMatrix = (output: any, context: __SerdeContext): RouteMatrixEntry[][] => {

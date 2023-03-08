@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetPortfolioPreferencesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPortfolioPreferencesCommand}.
+ */
 export interface GetPortfolioPreferencesCommandInput extends GetPortfolioPreferencesRequest {}
+/**
+ * The output of {@link GetPortfolioPreferencesCommand}.
+ */
 export interface GetPortfolioPreferencesCommandOutput extends GetPortfolioPreferencesResponse, __MetadataBearer {}
 
 /**

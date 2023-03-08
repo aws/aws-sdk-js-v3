@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateClusterConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateClusterConfigurationCommand}.
+ */
 export interface UpdateClusterConfigurationCommandInput extends UpdateClusterConfigurationRequest {}
+/**
+ * The output of {@link UpdateClusterConfigurationCommand}.
+ */
 export interface UpdateClusterConfigurationCommandOutput extends UpdateClusterConfigurationResponse, __MetadataBearer {}
 
 /**

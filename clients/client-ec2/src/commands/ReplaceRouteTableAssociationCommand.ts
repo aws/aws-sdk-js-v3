@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ReplaceRouteTableAssociationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ReplaceRouteTableAssociationCommand}.
+ */
 export interface ReplaceRouteTableAssociationCommandInput extends ReplaceRouteTableAssociationRequest {}
+/**
+ * The output of {@link ReplaceRouteTableAssociationCommand}.
+ */
 export interface ReplaceRouteTableAssociationCommandOutput
   extends ReplaceRouteTableAssociationResult,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2AssignIpv6AddressesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link AssignIpv6AddressesCommand}.
+ */
 export interface AssignIpv6AddressesCommandInput extends AssignIpv6AddressesRequest {}
+/**
+ * The output of {@link AssignIpv6AddressesCommand}.
+ */
 export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesResult, __MetadataBearer {}
 
 /**

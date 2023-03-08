@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateConnectorDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateConnectorDefinitionCommand}.
+ */
 export interface UpdateConnectorDefinitionCommandInput extends UpdateConnectorDefinitionRequest {}
+/**
+ * The output of {@link UpdateConnectorDefinitionCommand}.
+ */
 export interface UpdateConnectorDefinitionCommandOutput extends UpdateConnectorDefinitionResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateIndexCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateIndexCommand}.
+ */
 export interface CreateIndexCommandInput extends CreateIndexRequest {}
+/**
+ * The output of {@link CreateIndexCommand}.
+ */
 export interface CreateIndexCommandOutput extends CreateIndexResponse, __MetadataBearer {}
 
 /**

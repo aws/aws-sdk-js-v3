@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeregisterAppInstanceUserEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeregisterAppInstanceUserEndpointCommand}.
+ */
 export interface DeregisterAppInstanceUserEndpointCommandInput extends DeregisterAppInstanceUserEndpointRequest {}
+/**
+ * The output of {@link DeregisterAppInstanceUserEndpointCommand}.
+ */
 export interface DeregisterAppInstanceUserEndpointCommandOutput extends __MetadataBearer {}
 
 /**

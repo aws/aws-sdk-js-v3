@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
+/**
+ * The input for {@link DescribeAppVersionCommand}.
+ */
 export interface DescribeAppVersionCommandInput extends DescribeAppVersionRequest {}
+/**
+ * The output of {@link DescribeAppVersionCommand}.
+ */
 export interface DescribeAppVersionCommandOutput extends DescribeAppVersionResponse, __MetadataBearer {}
 
 /**

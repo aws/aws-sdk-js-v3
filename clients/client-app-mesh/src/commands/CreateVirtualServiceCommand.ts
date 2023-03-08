@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateVirtualServiceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateVirtualServiceCommand}.
+ */
 export interface CreateVirtualServiceCommandInput extends CreateVirtualServiceInput {}
+/**
+ * The output of {@link CreateVirtualServiceCommand}.
+ */
 export interface CreateVirtualServiceCommandOutput extends CreateVirtualServiceOutput, __MetadataBearer {}
 
 /**

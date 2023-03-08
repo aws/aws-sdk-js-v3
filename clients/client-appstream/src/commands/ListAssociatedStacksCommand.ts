@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListAssociatedStacksCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAssociatedStacksCommand}.
+ */
 export interface ListAssociatedStacksCommandInput extends ListAssociatedStacksRequest {}
+/**
+ * The output of {@link ListAssociatedStacksCommand}.
+ */
 export interface ListAssociatedStacksCommandOutput extends ListAssociatedStacksResult, __MetadataBearer {}
 
 /**

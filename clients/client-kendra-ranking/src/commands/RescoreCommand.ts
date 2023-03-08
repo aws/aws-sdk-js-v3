@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_0RescoreCommand, serializeAws_json1_0RescoreCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link RescoreCommand}.
+ */
 export interface RescoreCommandInput extends RescoreRequest {}
+/**
+ * The output of {@link RescoreCommand}.
+ */
 export interface RescoreCommandOutput extends RescoreResult, __MetadataBearer {}
 
 /**

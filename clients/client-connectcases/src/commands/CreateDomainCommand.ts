@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateDomainCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateDomainCommand}.
+ */
 export interface CreateDomainCommandInput extends CreateDomainRequest {}
+/**
+ * The output of {@link CreateDomainCommand}.
+ */
 export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
 
 /**
@@ -35,7 +41,9 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *          <important>
  *             <p>This will not associate your connect instance to Cases domain. Instead, use the
  *           Amazon Connect
- *         <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html">CreateIntegrationAssociation</a> API.</p>
+ *         <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html">CreateIntegrationAssociation</a> API. You need specific IAM
+ *         permissions to successfully associate the Cases domain. For more information, see
+ *           <a href="https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam">Onboard to Cases</a>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

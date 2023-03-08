@@ -25,7 +25,13 @@ import {
   serializeAws_queryListStackSetOperationResultsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListStackSetOperationResultsCommand}.
+ */
 export interface ListStackSetOperationResultsCommandInput extends ListStackSetOperationResultsInput {}
+/**
+ * The output of {@link ListStackSetOperationResultsCommand}.
+ */
 export interface ListStackSetOperationResultsCommandOutput
   extends ListStackSetOperationResultsOutput,
     __MetadataBearer {}

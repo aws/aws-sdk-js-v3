@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribePipelinesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribePipelinesCommand}.
+ */
 export interface DescribePipelinesCommandInput extends DescribePipelinesInput {}
+/**
+ * The output of {@link DescribePipelinesCommand}.
+ */
 export interface DescribePipelinesCommandOutput extends DescribePipelinesOutput, __MetadataBearer {}
 
 /**

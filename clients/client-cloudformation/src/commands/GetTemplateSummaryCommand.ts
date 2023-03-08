@@ -25,7 +25,13 @@ import {
   serializeAws_queryGetTemplateSummaryCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link GetTemplateSummaryCommand}.
+ */
 export interface GetTemplateSummaryCommandInput extends GetTemplateSummaryInput {}
+/**
+ * The output of {@link GetTemplateSummaryCommand}.
+ */
 export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutput, __MetadataBearer {}
 
 /**

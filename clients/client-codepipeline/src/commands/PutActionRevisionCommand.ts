@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutActionRevisionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutActionRevisionCommand}.
+ */
 export interface PutActionRevisionCommandInput extends PutActionRevisionInput {}
+/**
+ * The output of {@link PutActionRevisionCommand}.
+ */
 export interface PutActionRevisionCommandOutput extends PutActionRevisionOutput, __MetadataBearer {}
 
 /**

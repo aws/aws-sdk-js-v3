@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchDisassociateAssessmentReportEvidenceCommand}.
+ */
 export interface BatchDisassociateAssessmentReportEvidenceCommandInput
   extends BatchDisassociateAssessmentReportEvidenceRequest {}
+/**
+ * The output of {@link BatchDisassociateAssessmentReportEvidenceCommand}.
+ */
 export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
   extends BatchDisassociateAssessmentReportEvidenceResponse,
     __MetadataBearer {}

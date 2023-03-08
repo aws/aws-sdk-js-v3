@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetPullRequestOverrideStateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetPullRequestOverrideStateCommand}.
+ */
 export interface GetPullRequestOverrideStateCommandInput extends GetPullRequestOverrideStateInput {}
+/**
+ * The output of {@link GetPullRequestOverrideStateCommand}.
+ */
 export interface GetPullRequestOverrideStateCommandOutput extends GetPullRequestOverrideStateOutput, __MetadataBearer {}
 
 /**

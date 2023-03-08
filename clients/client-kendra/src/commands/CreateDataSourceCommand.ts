@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateDataSourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateDataSourceCommand}.
+ */
 export interface CreateDataSourceCommandInput extends CreateDataSourceRequest {}
+/**
+ * The output of {@link CreateDataSourceCommand}.
+ */
 export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse, __MetadataBearer {}
 
 /**

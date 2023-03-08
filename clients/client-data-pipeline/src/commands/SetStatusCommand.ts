@@ -17,7 +17,13 @@ import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { SetStatusInput, SetStatusInputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_json1_1SetStatusCommand, serializeAws_json1_1SetStatusCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SetStatusCommand}.
+ */
 export interface SetStatusCommandInput extends SetStatusInput {}
+/**
+ * The output of {@link SetStatusCommand}.
+ */
 export interface SetStatusCommandOutput extends __MetadataBearer {}
 
 /**

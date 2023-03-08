@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
+/**
+ * The input for {@link DeleteSlackChannelConfigurationCommand}.
+ */
 export interface DeleteSlackChannelConfigurationCommandInput extends DeleteSlackChannelConfigurationRequest {}
+/**
+ * The output of {@link DeleteSlackChannelConfigurationCommand}.
+ */
 export interface DeleteSlackChannelConfigurationCommandOutput
   extends DeleteSlackChannelConfigurationResult,
     __MetadataBearer {}

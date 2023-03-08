@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeReplicationGroupsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeReplicationGroupsCommand}.
+ */
 export interface DescribeReplicationGroupsCommandInput extends DescribeReplicationGroupsMessage {}
+/**
+ * The output of {@link DescribeReplicationGroupsCommand}.
+ */
 export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroupMessage, __MetadataBearer {}
 
 /**

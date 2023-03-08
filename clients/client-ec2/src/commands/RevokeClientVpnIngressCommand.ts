@@ -25,7 +25,13 @@ import {
   serializeAws_ec2RevokeClientVpnIngressCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RevokeClientVpnIngressCommand}.
+ */
 export interface RevokeClientVpnIngressCommandInput extends RevokeClientVpnIngressRequest {}
+/**
+ * The output of {@link RevokeClientVpnIngressCommand}.
+ */
 export interface RevokeClientVpnIngressCommandOutput extends RevokeClientVpnIngressResult, __MetadataBearer {}
 
 /**

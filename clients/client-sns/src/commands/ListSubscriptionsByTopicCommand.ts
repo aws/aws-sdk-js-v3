@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link ListSubscriptionsByTopicCommand}.
+ */
 export interface ListSubscriptionsByTopicCommandInput extends ListSubscriptionsByTopicInput {}
+/**
+ * The output of {@link ListSubscriptionsByTopicCommand}.
+ */
 export interface ListSubscriptionsByTopicCommandOutput extends ListSubscriptionsByTopicResponse, __MetadataBearer {}
 
 /**

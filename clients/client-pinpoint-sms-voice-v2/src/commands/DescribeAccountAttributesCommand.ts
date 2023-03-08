@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0DescribeAccountAttributesCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeAccountAttributesCommand}.
+ */
 export interface DescribeAccountAttributesCommandInput extends DescribeAccountAttributesRequest {}
+/**
+ * The output of {@link DescribeAccountAttributesCommand}.
+ */
 export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResult, __MetadataBearer {}
 
 /**

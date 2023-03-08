@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * The input for {@link GetFindingAggregatorCommand}.
+ */
 export interface GetFindingAggregatorCommandInput extends GetFindingAggregatorRequest {}
+/**
+ * The output of {@link GetFindingAggregatorCommand}.
+ */
 export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorResponse, __MetadataBearer {}
 
 /**

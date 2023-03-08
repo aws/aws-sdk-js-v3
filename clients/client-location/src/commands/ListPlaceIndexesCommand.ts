@@ -25,11 +25,17 @@ import {
   serializeAws_restJson1ListPlaceIndexesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPlaceIndexesCommand}.
+ */
 export interface ListPlaceIndexesCommandInput extends ListPlaceIndexesRequest {}
+/**
+ * The output of {@link ListPlaceIndexesCommand}.
+ */
 export interface ListPlaceIndexesCommandOutput extends ListPlaceIndexesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists place index resources in your AWS account.</p>
+ * <p>Lists place index resources in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

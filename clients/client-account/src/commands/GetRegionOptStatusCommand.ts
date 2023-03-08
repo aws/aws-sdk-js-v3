@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetRegionOptStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetRegionOptStatusCommand}.
+ */
 export interface GetRegionOptStatusCommandInput extends GetRegionOptStatusRequest {}
+/**
+ * The output of {@link GetRegionOptStatusCommand}.
+ */
 export interface GetRegionOptStatusCommandOutput extends GetRegionOptStatusResponse, __MetadataBearer {}
 
 /**

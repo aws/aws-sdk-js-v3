@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * The input for {@link CreateKeySigningKeyCommand}.
+ */
 export interface CreateKeySigningKeyCommandInput extends CreateKeySigningKeyRequest {}
+/**
+ * The output of {@link CreateKeySigningKeyCommand}.
+ */
 export interface CreateKeySigningKeyCommandOutput extends CreateKeySigningKeyResponse, __MetadataBearer {}
 
 /**

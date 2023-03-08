@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateDomainNameCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateDomainNameCommand}.
+ */
 export interface UpdateDomainNameCommandInput extends UpdateDomainNameRequest {}
+/**
+ * The output of {@link UpdateDomainNameCommand}.
+ */
 export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2TerminateClientVpnConnectionsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link TerminateClientVpnConnectionsCommand}.
+ */
 export interface TerminateClientVpnConnectionsCommandInput extends TerminateClientVpnConnectionsRequest {}
+/**
+ * The output of {@link TerminateClientVpnConnectionsCommand}.
+ */
 export interface TerminateClientVpnConnectionsCommandOutput
   extends TerminateClientVpnConnectionsResult,
     __MetadataBearer {}

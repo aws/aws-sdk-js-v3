@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListVPCEConfigurationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListVPCEConfigurationsCommand}.
+ */
 export interface ListVPCEConfigurationsCommandInput extends ListVPCEConfigurationsRequest {}
+/**
+ * The output of {@link ListVPCEConfigurationsCommand}.
+ */
 export interface ListVPCEConfigurationsCommandOutput extends ListVPCEConfigurationsResult, __MetadataBearer {}
 
 /**

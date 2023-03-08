@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetMLTaskRunsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetMLTaskRunsCommand}.
+ */
 export interface GetMLTaskRunsCommandInput extends GetMLTaskRunsRequest {}
+/**
+ * The output of {@link GetMLTaskRunsCommand}.
+ */
 export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __MetadataBearer {}
 
 /**

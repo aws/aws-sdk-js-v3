@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListWirelessGatewaysCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListWirelessGatewaysCommand}.
+ */
 export interface ListWirelessGatewaysCommandInput extends ListWirelessGatewaysRequest {}
+/**
+ * The output of {@link ListWirelessGatewaysCommand}.
+ */
 export interface ListWirelessGatewaysCommandOutput extends ListWirelessGatewaysResponse, __MetadataBearer {}
 
 /**

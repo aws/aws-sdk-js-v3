@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetEBSVolumeRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetEBSVolumeRecommendationsCommand}.
+ */
 export interface GetEBSVolumeRecommendationsCommandInput extends GetEBSVolumeRecommendationsRequest {}
+/**
+ * The output of {@link GetEBSVolumeRecommendationsCommand}.
+ */
 export interface GetEBSVolumeRecommendationsCommandOutput
   extends GetEBSVolumeRecommendationsResponse,
     __MetadataBearer {}

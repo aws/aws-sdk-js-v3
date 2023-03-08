@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListAvailableZonesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListAvailableZonesCommand}.
+ */
 export interface ListAvailableZonesCommandInput extends ListAvailableZonesRequest {}
+/**
+ * The output of {@link ListAvailableZonesCommand}.
+ */
 export interface ListAvailableZonesCommandOutput extends ListAvailableZonesResponse, __MetadataBearer {}
 
 /**

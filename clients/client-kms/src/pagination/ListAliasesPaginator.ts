@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
-import { KMS } from "../KMS";
 import { KMSClient } from "../KMSClient";
 import { KMSPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAliasesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: KMS,
-  input: ListAliasesCommandInput,
-  ...args: any
-): Promise<ListAliasesCommandOutput> => {
-  // @ts-ignore
-  return await client.listAliases(input, ...args);
-};
 export async function* paginateListAliases(
   config: KMSPaginationConfiguration,
   input: ListAliasesCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListAliases(
   while (hasNext) {
     input.Marker = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof KMS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KMSClient) {
+    if (config.client instanceof KMSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected KMS | KMSClient");

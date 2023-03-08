@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1DescribeUserImportJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeUserImportJobCommand}.
+ */
 export interface DescribeUserImportJobCommandInput extends DescribeUserImportJobRequest {}
+/**
+ * The output of {@link DescribeUserImportJobCommand}.
+ */
 export interface DescribeUserImportJobCommandOutput extends DescribeUserImportJobResponse, __MetadataBearer {}
 
 /**

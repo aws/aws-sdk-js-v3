@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteSnapshotCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteSnapshotCommand}.
+ */
 export interface DeleteSnapshotCommandInput extends DeleteSnapshotMessage {}
+/**
+ * The output of {@link DeleteSnapshotCommand}.
+ */
 export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __MetadataBearer {}
 
 /**

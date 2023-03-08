@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateServiceLinkedRoleCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateServiceLinkedRoleCommand}.
+ */
 export interface CreateServiceLinkedRoleCommandInput extends CreateServiceLinkedRoleRequest {}
+/**
+ * The output of {@link CreateServiceLinkedRoleCommand}.
+ */
 export interface CreateServiceLinkedRoleCommandOutput extends CreateServiceLinkedRoleResponse, __MetadataBearer {}
 
 /**

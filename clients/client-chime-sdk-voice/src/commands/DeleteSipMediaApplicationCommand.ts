@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteSipMediaApplicationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteSipMediaApplicationCommand}.
+ */
 export interface DeleteSipMediaApplicationCommandInput extends DeleteSipMediaApplicationRequest {}
+/**
+ * The output of {@link DeleteSipMediaApplicationCommand}.
+ */
 export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer {}
 
 export class DeleteSipMediaApplicationCommand extends $Command<

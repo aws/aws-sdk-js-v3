@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutProfileObjectTypeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutProfileObjectTypeCommand}.
+ */
 export interface PutProfileObjectTypeCommandInput extends PutProfileObjectTypeRequest {}
+/**
+ * The output of {@link PutProfileObjectTypeCommand}.
+ */
 export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeResponse, __MetadataBearer {}
 
 /**

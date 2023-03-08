@@ -6,7 +6,6 @@ import {
   ListThreatIntelSetsCommandInput,
   ListThreatIntelSetsCommandOutput,
 } from "../commands/ListThreatIntelSetsCommand";
-import { GuardDuty } from "../GuardDuty";
 import { GuardDutyClient } from "../GuardDutyClient";
 import { GuardDutyPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListThreatIntelSetsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: GuardDuty,
-  input: ListThreatIntelSetsCommandInput,
-  ...args: any
-): Promise<ListThreatIntelSetsCommandOutput> => {
-  // @ts-ignore
-  return await client.listThreatIntelSets(input, ...args);
-};
 export async function* paginateListThreatIntelSets(
   config: GuardDutyPaginationConfiguration,
   input: ListThreatIntelSetsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListThreatIntelSets(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof GuardDuty) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GuardDutyClient) {
+    if (config.client instanceof GuardDutyClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GuardDuty | GuardDutyClient");

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SearchRoutingProfilesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SearchRoutingProfilesCommand}.
+ */
 export interface SearchRoutingProfilesCommandInput extends SearchRoutingProfilesRequest {}
+/**
+ * The output of {@link SearchRoutingProfilesCommand}.
+ */
 export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfilesResponse, __MetadataBearer {}
 
 /**

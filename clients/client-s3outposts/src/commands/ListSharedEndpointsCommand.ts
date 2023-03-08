@@ -25,20 +25,26 @@ import {
 } from "../protocols/Aws_restJson1";
 import { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
 
+/**
+ * The input for {@link ListSharedEndpointsCommand}.
+ */
 export interface ListSharedEndpointsCommandInput extends ListSharedEndpointsRequest {}
+/**
+ * The output of {@link ListSharedEndpointsCommand}.
+ */
 export interface ListSharedEndpointsCommandOutput extends ListSharedEndpointsResult, __MetadataBearer {}
 
 /**
  * <p>Lists all endpoints associated with an Outpost that has been shared by Amazon Web Services Resource Access Manager (RAM).</p>
- *         <p>Related actions include:</p>
- *         <ul>
+ *          <p>Related actions include:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html">CreateEndpoint</a>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a>
  *                </p>
  *             </li>

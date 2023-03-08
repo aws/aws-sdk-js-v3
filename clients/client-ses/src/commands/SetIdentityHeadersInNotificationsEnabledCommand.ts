@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link SetIdentityHeadersInNotificationsEnabledCommand}.
+ */
 export interface SetIdentityHeadersInNotificationsEnabledCommandInput
   extends SetIdentityHeadersInNotificationsEnabledRequest {}
+/**
+ * The output of {@link SetIdentityHeadersInNotificationsEnabledCommand}.
+ */
 export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
   extends SetIdentityHeadersInNotificationsEnabledResponse,
     __MetadataBearer {}

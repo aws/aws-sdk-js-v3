@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * The input for {@link DeleteWorkgroupCommand}.
+ */
 export interface DeleteWorkgroupCommandInput extends DeleteWorkgroupRequest {}
+/**
+ * The output of {@link DeleteWorkgroupCommand}.
+ */
 export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, __MetadataBearer {}
 
 /**

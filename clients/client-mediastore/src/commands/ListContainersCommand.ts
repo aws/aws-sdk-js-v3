@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListContainersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListContainersCommand}.
+ */
 export interface ListContainersCommandInput extends ListContainersInput {}
+/**
+ * The output of {@link ListContainersCommand}.
+ */
 export interface ListContainersCommandOutput extends ListContainersOutput, __MetadataBearer {}
 
 /**

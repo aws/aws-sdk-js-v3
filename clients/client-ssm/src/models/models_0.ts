@@ -282,9 +282,10 @@ export interface Alarm {
  */
 export interface AlarmConfiguration {
   /**
-   * <p>If you specify <code>true</code> for this value, your automation or command continue to run
-   *    even if we can't gather information about the state of your CloudWatch alarm. The default
-   *    value is <code>false</code>.</p>
+   * <p>When this value is <i>true</i>, your automation or command continues to run in
+   *    cases where we can’t retrieve alarm status information from CloudWatch. In cases
+   *    where we successfully retrieve an alarm status of OK or INSUFFICIENT_DATA, the automation or
+   *    command continues to run, regardless of this value. Default is <i>false</i>.</p>
    */
   IgnorePollAlarmFailure?: boolean;
 
@@ -979,7 +980,7 @@ export interface CreateAssociationRequest {
    * <p>The name of the SSM Command document or Automation runbook that contains the configuration
    *    information for the managed node.</p>
    *          <p>You can specify Amazon Web Services-predefined documents, documents you created, or a document that is
-   *    shared with you from another account.</p>
+   *    shared with you from another Amazon Web Services account.</p>
    *          <p>For Systems Manager documents (SSM documents) that are shared with you from other Amazon Web Services accounts, you
    *    must specify the complete SSM document ARN, in the following format:</p>
    *          <p>
@@ -1888,16 +1889,19 @@ export interface DocumentRequires {
   RequireType?: string;
 
   /**
-   * <p>An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and can't be changed.</p>
+   * <p>An optional field specifying the version of the artifact associated with the document. For
+   *    example, "Release 12, Update 6". This value is unique across all versions of a document, and
+   *    can't be changed.</p>
    */
   VersionName?: string;
 }
 
 export interface CreateDocumentRequest {
   /**
-   * <p>The content for the new SSM document in JSON or YAML format. We recommend storing the
-   *    contents for your new document in an external JSON or YAML file and referencing the file in a
-   *    command.</p>
+   * <p>The content for the new SSM document in JSON or YAML format. The content of the document
+   *    must not exceed 64KB. This quota also includes the content specified for input parameters at
+   *    runtime. We recommend storing the contents for your new document in an external JSON or YAML file
+   *    and referencing the file in a command.</p>
    *          <p>For examples, see the following topics in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <ul>
    *             <li>
@@ -2046,8 +2050,8 @@ export enum DocumentParameterType {
 }
 
 /**
- * <p>Parameters specified in a System Manager document that run on the server when the command is
- *    run. </p>
+ * <p>Parameters specified in a Systems Manager document that run on the server when the command is run.
+ *   </p>
  */
 export interface DocumentParameter {
   /**
@@ -2157,7 +2161,7 @@ export interface DocumentDescription {
   VersionName?: string;
 
   /**
-   * <p>The Amazon Web Services user account that created the document.</p>
+   * <p>The Amazon Web Services user that created the document.</p>
    */
   Owner?: string;
 

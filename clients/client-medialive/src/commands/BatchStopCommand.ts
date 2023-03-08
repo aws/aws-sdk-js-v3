@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchStopCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchStopCommand}.
+ */
 export interface BatchStopCommandInput extends BatchStopRequest {}
+/**
+ * The output of {@link BatchStopCommand}.
+ */
 export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2RejectTransitGatewayVpcAttachmentCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link RejectTransitGatewayVpcAttachmentCommand}.
+ */
 export interface RejectTransitGatewayVpcAttachmentCommandInput extends RejectTransitGatewayVpcAttachmentRequest {}
+/**
+ * The output of {@link RejectTransitGatewayVpcAttachmentCommand}.
+ */
 export interface RejectTransitGatewayVpcAttachmentCommandOutput
   extends RejectTransitGatewayVpcAttachmentResult,
     __MetadataBearer {}

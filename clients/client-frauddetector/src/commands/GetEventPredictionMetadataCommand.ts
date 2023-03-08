@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetEventPredictionMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetEventPredictionMetadataCommand}.
+ */
 export interface GetEventPredictionMetadataCommandInput extends GetEventPredictionMetadataRequest {}
+/**
+ * The output of {@link GetEventPredictionMetadataCommand}.
+ */
 export interface GetEventPredictionMetadataCommandOutput extends GetEventPredictionMetadataResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link CancelMaintenanceWindowExecutionCommand}.
+ */
 export interface CancelMaintenanceWindowExecutionCommandInput extends CancelMaintenanceWindowExecutionRequest {}
+/**
+ * The output of {@link CancelMaintenanceWindowExecutionCommand}.
+ */
 export interface CancelMaintenanceWindowExecutionCommandOutput
   extends CancelMaintenanceWindowExecutionResult,
     __MetadataBearer {}

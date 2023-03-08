@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListCollaborationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListCollaborationsCommand}.
+ */
 export interface ListCollaborationsCommandInput extends ListCollaborationsInput {}
+/**
+ * The output of {@link ListCollaborationsCommand}.
+ */
 export interface ListCollaborationsCommandOutput extends ListCollaborationsOutput, __MetadataBearer {}
 
 /**

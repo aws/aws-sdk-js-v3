@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteRegistryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteRegistryCommand}.
+ */
 export interface DeleteRegistryCommandInput extends DeleteRegistryInput {}
+/**
+ * The output of {@link DeleteRegistryCommand}.
+ */
 export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __MetadataBearer {}
 
 /**

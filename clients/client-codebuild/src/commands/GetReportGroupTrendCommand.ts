@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetReportGroupTrendCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetReportGroupTrendCommand}.
+ */
 export interface GetReportGroupTrendCommandInput extends GetReportGroupTrendInput {}
+/**
+ * The output of {@link GetReportGroupTrendCommand}.
+ */
 export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOutput, __MetadataBearer {}
 
 /**

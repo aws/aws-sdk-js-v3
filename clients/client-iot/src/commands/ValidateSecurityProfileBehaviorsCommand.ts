@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ValidateSecurityProfileBehaviorsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ValidateSecurityProfileBehaviorsCommand}.
+ */
 export interface ValidateSecurityProfileBehaviorsCommandInput extends ValidateSecurityProfileBehaviorsRequest {}
+/**
+ * The output of {@link ValidateSecurityProfileBehaviorsCommand}.
+ */
 export interface ValidateSecurityProfileBehaviorsCommandOutput
   extends ValidateSecurityProfileBehaviorsResponse,
     __MetadataBearer {}

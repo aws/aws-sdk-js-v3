@@ -26,7 +26,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * The input for {@link PutJobTaggingCommand}.
+ */
 export interface PutJobTaggingCommandInput extends PutJobTaggingRequest {}
+/**
+ * The output of {@link PutJobTaggingCommand}.
+ */
 export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __MetadataBearer {}
 
 /**

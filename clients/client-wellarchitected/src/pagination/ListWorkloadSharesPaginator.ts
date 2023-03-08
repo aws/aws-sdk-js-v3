@@ -6,7 +6,6 @@ import {
   ListWorkloadSharesCommandInput,
   ListWorkloadSharesCommandOutput,
 } from "../commands/ListWorkloadSharesCommand";
-import { WellArchitected } from "../WellArchitected";
 import { WellArchitectedClient } from "../WellArchitectedClient";
 import { WellArchitectedPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWorkloadSharesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: WellArchitected,
-  input: ListWorkloadSharesCommandInput,
-  ...args: any
-): Promise<ListWorkloadSharesCommandOutput> => {
-  // @ts-ignore
-  return await client.listWorkloadShares(input, ...args);
-};
 export async function* paginateListWorkloadShares(
   config: WellArchitectedPaginationConfiguration,
   input: ListWorkloadSharesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListWorkloadShares(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof WellArchitected) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WellArchitectedClient) {
+    if (config.client instanceof WellArchitectedClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WellArchitected | WellArchitectedClient");

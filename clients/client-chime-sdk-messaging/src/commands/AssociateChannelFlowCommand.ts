@@ -24,7 +24,13 @@ import {
   serializeAws_restJson1AssociateChannelFlowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateChannelFlowCommand}.
+ */
 export interface AssociateChannelFlowCommandInput extends AssociateChannelFlowRequest {}
+/**
+ * The output of {@link AssociateChannelFlowCommand}.
+ */
 export interface AssociateChannelFlowCommandOutput extends __MetadataBearer {}
 
 /**

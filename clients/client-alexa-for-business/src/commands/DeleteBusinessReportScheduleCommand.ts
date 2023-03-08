@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteBusinessReportScheduleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteBusinessReportScheduleCommand}.
+ */
 export interface DeleteBusinessReportScheduleCommandInput extends DeleteBusinessReportScheduleRequest {}
+/**
+ * The output of {@link DeleteBusinessReportScheduleCommand}.
+ */
 export interface DeleteBusinessReportScheduleCommandOutput
   extends DeleteBusinessReportScheduleResponse,
     __MetadataBearer {}

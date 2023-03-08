@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeLocationEfsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLocationEfsCommand}.
+ */
 export interface DescribeLocationEfsCommandInput extends DescribeLocationEfsRequest {}
+/**
+ * The output of {@link DescribeLocationEfsCommand}.
+ */
 export interface DescribeLocationEfsCommandOutput extends DescribeLocationEfsResponse, __MetadataBearer {}
 
 /**

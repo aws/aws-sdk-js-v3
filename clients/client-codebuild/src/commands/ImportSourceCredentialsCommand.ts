@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ImportSourceCredentialsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ImportSourceCredentialsCommand}.
+ */
 export interface ImportSourceCredentialsCommandInput extends ImportSourceCredentialsInput {}
+/**
+ * The output of {@link ImportSourceCredentialsCommand}.
+ */
 export interface ImportSourceCredentialsCommandOutput extends ImportSourceCredentialsOutput, __MetadataBearer {}
 
 /**

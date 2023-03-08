@@ -25,7 +25,13 @@ import {
   serializeAws_queryListInstanceProfileTagsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListInstanceProfileTagsCommand}.
+ */
 export interface ListInstanceProfileTagsCommandInput extends ListInstanceProfileTagsRequest {}
+/**
+ * The output of {@link ListInstanceProfileTagsCommand}.
+ */
 export interface ListInstanceProfileTagsCommandOutput extends ListInstanceProfileTagsResponse, __MetadataBearer {}
 
 /**

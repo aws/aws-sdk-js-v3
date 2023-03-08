@@ -25,7 +25,13 @@ import {
   serializeAws_queryListManagedInsightRulesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ListManagedInsightRulesCommand}.
+ */
 export interface ListManagedInsightRulesCommandInput extends ListManagedInsightRulesInput {}
+/**
+ * The output of {@link ListManagedInsightRulesCommand}.
+ */
 export interface ListManagedInsightRulesCommandOutput extends ListManagedInsightRulesOutput, __MetadataBearer {}
 
 /**

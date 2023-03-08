@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
+/**
+ * The input for {@link DescribeFraudsterRegistrationJobCommand}.
+ */
 export interface DescribeFraudsterRegistrationJobCommandInput extends DescribeFraudsterRegistrationJobRequest {}
+/**
+ * The output of {@link DescribeFraudsterRegistrationJobCommand}.
+ */
 export interface DescribeFraudsterRegistrationJobCommandOutput
   extends DescribeFraudsterRegistrationJobResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DetectPiiEntitiesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DetectPiiEntitiesCommand}.
+ */
 export interface DetectPiiEntitiesCommandInput extends DetectPiiEntitiesRequest {}
+/**
+ * The output of {@link DetectPiiEntitiesCommand}.
+ */
 export interface DetectPiiEntitiesCommandOutput extends DetectPiiEntitiesResponse, __MetadataBearer {}
 
 /**

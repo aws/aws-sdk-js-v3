@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeLocationObjectStorageCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLocationObjectStorageCommand}.
+ */
 export interface DescribeLocationObjectStorageCommandInput extends DescribeLocationObjectStorageRequest {}
+/**
+ * The output of {@link DescribeLocationObjectStorageCommand}.
+ */
 export interface DescribeLocationObjectStorageCommandOutput
   extends DescribeLocationObjectStorageResponse,
     __MetadataBearer {}

@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1AssociateLexBotCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateLexBotCommand}.
+ */
 export interface AssociateLexBotCommandInput extends AssociateLexBotRequest {}
+/**
+ * The output of {@link AssociateLexBotCommand}.
+ */
 export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1EvaluateExpressionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link EvaluateExpressionCommand}.
+ */
 export interface EvaluateExpressionCommandInput extends EvaluateExpressionInput {}
+/**
+ * The output of {@link EvaluateExpressionCommand}.
+ */
 export interface EvaluateExpressionCommandOutput extends EvaluateExpressionOutput, __MetadataBearer {}
 
 /**

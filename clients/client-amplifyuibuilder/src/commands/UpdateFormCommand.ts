@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateFormCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateFormCommand}.
+ */
 export interface UpdateFormCommandInput extends UpdateFormRequest {}
+/**
+ * The output of {@link UpdateFormCommand}.
+ */
 export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataBearer {}
 
 /**

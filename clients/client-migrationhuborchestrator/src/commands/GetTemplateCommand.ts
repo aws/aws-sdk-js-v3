@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetTemplateCommand}.
+ */
 export interface GetTemplateCommandInput extends GetMigrationWorkflowTemplateRequest {}
+/**
+ * The output of {@link GetTemplateCommand}.
+ */
 export interface GetTemplateCommandOutput extends GetMigrationWorkflowTemplateResponse, __MetadataBearer {}
 
 /**

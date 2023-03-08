@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeletePortalCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePortalCommand}.
+ */
 export interface DeletePortalCommandInput extends DeletePortalRequest {}
+/**
+ * The output of {@link DeletePortalCommand}.
+ */
 export interface DeletePortalCommandOutput extends DeletePortalResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListInputDeviceTransfersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListInputDeviceTransfersCommand}.
+ */
 export interface ListInputDeviceTransfersCommandInput extends ListInputDeviceTransfersRequest {}
+/**
+ * The output of {@link ListInputDeviceTransfersCommand}.
+ */
 export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTransfersResponse, __MetadataBearer {}
 
 /**

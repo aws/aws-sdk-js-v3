@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CreateWorkflowStepGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateWorkflowStepGroupCommand}.
+ */
 export interface CreateWorkflowStepGroupCommandInput extends CreateWorkflowStepGroupRequest {}
+/**
+ * The output of {@link CreateWorkflowStepGroupCommand}.
+ */
 export interface CreateWorkflowStepGroupCommandOutput extends CreateWorkflowStepGroupResponse, __MetadataBearer {}
 
 /**

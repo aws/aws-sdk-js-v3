@@ -20,7 +20,13 @@ import {
   serializeAws_queryEnableAlarmActionsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link EnableAlarmActionsCommand}.
+ */
 export interface EnableAlarmActionsCommandInput extends EnableAlarmActionsInput {}
+/**
+ * The output of {@link EnableAlarmActionsCommand}.
+ */
 export interface EnableAlarmActionsCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetSpaceCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetSpaceCommand}.
+ */
 export interface GetSpaceCommandInput extends GetSpaceRequest {}
+/**
+ * The output of {@link GetSpaceCommand}.
+ */
 export interface GetSpaceCommandOutput extends GetSpaceResponse, __MetadataBearer {}
 
 /**

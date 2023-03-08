@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link XmlAttributesCommand}.
+ */
 export interface XmlAttributesCommandInput extends XmlAttributesInputOutput {}
+/**
+ * The output of {@link XmlAttributesCommand}.
+ */
 export interface XmlAttributesCommandOutput extends XmlAttributesInputOutput, __MetadataBearer {}
 
 /**

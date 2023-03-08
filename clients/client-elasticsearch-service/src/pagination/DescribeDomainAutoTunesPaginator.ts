@@ -6,7 +6,6 @@ import {
   DescribeDomainAutoTunesCommandInput,
   DescribeDomainAutoTunesCommandOutput,
 } from "../commands/DescribeDomainAutoTunesCommand";
-import { ElasticsearchService } from "../ElasticsearchService";
 import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
 import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeDomainAutoTunesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: ElasticsearchService,
-  input: DescribeDomainAutoTunesCommandInput,
-  ...args: any
-): Promise<DescribeDomainAutoTunesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeDomainAutoTunes(input, ...args);
-};
 export async function* paginateDescribeDomainAutoTunes(
   config: ElasticsearchServicePaginationConfiguration,
   input: DescribeDomainAutoTunesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeDomainAutoTunes(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ElasticsearchService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElasticsearchServiceClient) {
+    if (config.client instanceof ElasticsearchServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElasticsearchService | ElasticsearchServiceClient");

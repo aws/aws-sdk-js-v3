@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
+/**
+ * The input for {@link ListLanguagesCommand}.
+ */
 export interface ListLanguagesCommandInput extends ListLanguagesRequest {}
+/**
+ * The output of {@link ListLanguagesCommand}.
+ */
 export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __MetadataBearer {}
 
 /**

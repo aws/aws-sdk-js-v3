@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteStreamKeyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteStreamKeyCommand}.
+ */
 export interface DeleteStreamKeyCommandInput extends DeleteStreamKeyRequest {}
+/**
+ * The output of {@link DeleteStreamKeyCommand}.
+ */
 export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
 
 /**

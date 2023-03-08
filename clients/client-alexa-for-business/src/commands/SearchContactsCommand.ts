@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1SearchContactsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link SearchContactsCommand}.
+ */
 export interface SearchContactsCommandInput extends SearchContactsRequest {}
+/**
+ * The output of {@link SearchContactsCommand}.
+ */
 export interface SearchContactsCommandOutput extends SearchContactsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link QueryLineageCommand}.
+ */
 export interface QueryLineageCommandInput extends QueryLineageRequest {}
+/**
+ * The output of {@link QueryLineageCommand}.
+ */
 export interface QueryLineageCommandOutput extends QueryLineageResponse, __MetadataBearer {}
 
 /**

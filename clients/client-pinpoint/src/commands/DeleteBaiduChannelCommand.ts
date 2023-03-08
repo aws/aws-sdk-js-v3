@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteBaiduChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteBaiduChannelCommand}.
+ */
 export interface DeleteBaiduChannelCommandInput extends DeleteBaiduChannelRequest {}
+/**
+ * The output of {@link DeleteBaiduChannelCommand}.
+ */
 export interface DeleteBaiduChannelCommandOutput extends DeleteBaiduChannelResponse, __MetadataBearer {}
 
 /**

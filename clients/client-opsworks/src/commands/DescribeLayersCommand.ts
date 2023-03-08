@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeLayersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeLayersCommand}.
+ */
 export interface DescribeLayersCommandInput extends DescribeLayersRequest {}
+/**
+ * The output of {@link DescribeLayersCommand}.
+ */
 export interface DescribeLayersCommandOutput extends DescribeLayersResult, __MetadataBearer {}
 
 /**

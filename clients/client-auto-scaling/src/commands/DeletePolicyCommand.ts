@@ -17,7 +17,13 @@ import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import { DeletePolicyType, DeletePolicyTypeFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryDeletePolicyCommand, serializeAws_queryDeletePolicyCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeletePolicyCommand}.
+ */
 export interface DeletePolicyCommandInput extends DeletePolicyType {}
+/**
+ * The output of {@link DeletePolicyCommand}.
+ */
 export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**

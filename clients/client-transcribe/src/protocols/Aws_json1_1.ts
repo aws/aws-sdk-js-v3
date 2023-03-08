@@ -2851,6 +2851,7 @@ const serializeAws_json1_1CreateVocabularyFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.VocabularyFilterFileUri != null && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
@@ -2861,6 +2862,7 @@ const serializeAws_json1_1CreateVocabularyFilterRequest = (
 
 const serializeAws_json1_1CreateVocabularyRequest = (input: CreateVocabularyRequest, context: __SerdeContext): any => {
   return {
+    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
     ...(input.Phrases != null && { Phrases: serializeAws_json1_1Phrases(input.Phrases, context) }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
@@ -3482,6 +3484,7 @@ const serializeAws_json1_1UpdateVocabularyFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.VocabularyFilterFileUri != null && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
     ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
     ...(input.Words != null && { Words: serializeAws_json1_1Words(input.Words, context) }),
@@ -3490,6 +3493,7 @@ const serializeAws_json1_1UpdateVocabularyFilterRequest = (
 
 const serializeAws_json1_1UpdateVocabularyRequest = (input: UpdateVocabularyRequest, context: __SerdeContext): any => {
   return {
+    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
     ...(input.Phrases != null && { Phrases: serializeAws_json1_1Phrases(input.Phrases, context) }),
     ...(input.VocabularyFileUri != null && { VocabularyFileUri: input.VocabularyFileUri }),

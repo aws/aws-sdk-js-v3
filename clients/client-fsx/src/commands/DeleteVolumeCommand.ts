@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteVolumeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteVolumeCommand}.
+ */
 export interface DeleteVolumeCommandInput extends DeleteVolumeRequest {}
+/**
+ * The output of {@link DeleteVolumeCommand}.
+ */
 export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __MetadataBearer {}
 
 /**

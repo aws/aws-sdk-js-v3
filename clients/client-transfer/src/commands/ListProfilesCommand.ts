@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link ListProfilesCommand}.
+ */
 export interface ListProfilesCommandInput extends ListProfilesRequest {}
+/**
+ * The output of {@link ListProfilesCommand}.
+ */
 export interface ListProfilesCommandOutput extends ListProfilesResponse, __MetadataBearer {}
 
 /**

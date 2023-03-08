@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteScheduledActionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteScheduledActionCommand}.
+ */
 export interface DeleteScheduledActionCommandInput extends DeleteScheduledActionType {}
+/**
+ * The output of {@link DeleteScheduledActionCommand}.
+ */
 export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
 
 /**

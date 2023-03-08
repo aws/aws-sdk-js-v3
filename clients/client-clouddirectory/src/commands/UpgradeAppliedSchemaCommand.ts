@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpgradeAppliedSchemaCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpgradeAppliedSchemaCommand}.
+ */
 export interface UpgradeAppliedSchemaCommandInput extends UpgradeAppliedSchemaRequest {}
+/**
+ * The output of {@link UpgradeAppliedSchemaCommand}.
+ */
 export interface UpgradeAppliedSchemaCommandOutput extends UpgradeAppliedSchemaResponse, __MetadataBearer {}
 
 /**

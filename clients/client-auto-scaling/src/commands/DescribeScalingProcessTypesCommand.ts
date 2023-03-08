@@ -20,7 +20,13 @@ import {
   serializeAws_queryDescribeScalingProcessTypesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeScalingProcessTypesCommand}.
+ */
 export interface DescribeScalingProcessTypesCommandInput {}
+/**
+ * The output of {@link DescribeScalingProcessTypesCommand}.
+ */
 export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType, __MetadataBearer {}
 
 /**

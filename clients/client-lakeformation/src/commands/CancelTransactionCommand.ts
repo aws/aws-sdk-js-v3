@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CancelTransactionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelTransactionCommand}.
+ */
 export interface CancelTransactionCommandInput extends CancelTransactionRequest {}
+/**
+ * The output of {@link CancelTransactionCommand}.
+ */
 export interface CancelTransactionCommandOutput extends CancelTransactionResponse, __MetadataBearer {}
 
 /**

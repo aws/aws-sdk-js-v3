@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifySnapshotTierCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifySnapshotTierCommand}.
+ */
 export interface ModifySnapshotTierCommandInput extends ModifySnapshotTierRequest {}
+/**
+ * The output of {@link ModifySnapshotTierCommand}.
+ */
 export interface ModifySnapshotTierCommandOutput extends ModifySnapshotTierResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateThingShadowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateThingShadowCommand}.
+ */
 export interface UpdateThingShadowCommandInput extends UpdateThingShadowRequest {}
+/**
+ * The output of {@link UpdateThingShadowCommand}.
+ */
 export interface UpdateThingShadowCommandOutput extends UpdateThingShadowResponse, __MetadataBearer {}
 
 /**

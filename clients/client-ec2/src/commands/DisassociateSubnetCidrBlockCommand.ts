@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DisassociateSubnetCidrBlockCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DisassociateSubnetCidrBlockCommand}.
+ */
 export interface DisassociateSubnetCidrBlockCommandInput extends DisassociateSubnetCidrBlockRequest {}
+/**
+ * The output of {@link DisassociateSubnetCidrBlockCommand}.
+ */
 export interface DisassociateSubnetCidrBlockCommandOutput extends DisassociateSubnetCidrBlockResult, __MetadataBearer {}
 
 /**

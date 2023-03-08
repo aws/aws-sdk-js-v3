@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartMonitoringMembersCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartMonitoringMembersCommand}.
+ */
 export interface StartMonitoringMembersCommandInput extends StartMonitoringMembersRequest {}
+/**
+ * The output of {@link StartMonitoringMembersCommand}.
+ */
 export interface StartMonitoringMembersCommandOutput extends StartMonitoringMembersResponse, __MetadataBearer {}
 
 /**

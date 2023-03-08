@@ -20,7 +20,13 @@ import {
   serializeAws_querySetDesiredCapacityCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link SetDesiredCapacityCommand}.
+ */
 export interface SetDesiredCapacityCommandInput extends SetDesiredCapacityType {}
+/**
+ * The output of {@link SetDesiredCapacityCommand}.
+ */
 export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
 
 /**

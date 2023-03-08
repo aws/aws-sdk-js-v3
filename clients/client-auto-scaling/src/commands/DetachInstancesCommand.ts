@@ -25,7 +25,13 @@ import {
   serializeAws_queryDetachInstancesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DetachInstancesCommand}.
+ */
 export interface DetachInstancesCommandInput extends DetachInstancesQuery {}
+/**
+ * The output of {@link DetachInstancesCommand}.
+ */
 export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __MetadataBearer {}
 
 /**

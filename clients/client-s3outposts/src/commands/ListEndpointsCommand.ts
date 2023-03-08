@@ -25,20 +25,26 @@ import {
 } from "../protocols/Aws_restJson1";
 import { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
 
+/**
+ * The input for {@link ListEndpointsCommand}.
+ */
 export interface ListEndpointsCommandInput extends ListEndpointsRequest {}
+/**
+ * The output of {@link ListEndpointsCommand}.
+ */
 export interface ListEndpointsCommandOutput extends ListEndpointsResult, __MetadataBearer {}
 
 /**
  * <p>Lists endpoints associated with the specified Outpost. </p>
- *         <p>Related actions include:</p>
- *         <ul>
+ *          <p>Related actions include:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html">CreateEndpoint</a>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a>
  *                </p>
  *             </li>

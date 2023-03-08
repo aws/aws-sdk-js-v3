@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListInputRoutingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListInputRoutingsCommand}.
+ */
 export interface ListInputRoutingsCommandInput extends ListInputRoutingsRequest {}
+/**
+ * The output of {@link ListInputRoutingsCommand}.
+ */
 export interface ListInputRoutingsCommandOutput extends ListInputRoutingsResponse, __MetadataBearer {}
 
 /**

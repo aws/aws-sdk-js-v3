@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeVerifiedAccessEndpointsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeVerifiedAccessEndpointsCommand}.
+ */
 export interface DescribeVerifiedAccessEndpointsCommandInput extends DescribeVerifiedAccessEndpointsRequest {}
+/**
+ * The output of {@link DescribeVerifiedAccessEndpointsCommand}.
+ */
 export interface DescribeVerifiedAccessEndpointsCommandOutput
   extends DescribeVerifiedAccessEndpointsResult,
     __MetadataBearer {}

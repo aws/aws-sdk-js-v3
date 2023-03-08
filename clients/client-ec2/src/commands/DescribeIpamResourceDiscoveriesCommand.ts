@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeIpamResourceDiscoveriesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeIpamResourceDiscoveriesCommand}.
+ */
 export interface DescribeIpamResourceDiscoveriesCommandInput extends DescribeIpamResourceDiscoveriesRequest {}
+/**
+ * The output of {@link DescribeIpamResourceDiscoveriesCommand}.
+ */
 export interface DescribeIpamResourceDiscoveriesCommandOutput
   extends DescribeIpamResourceDiscoveriesResult,
     __MetadataBearer {}

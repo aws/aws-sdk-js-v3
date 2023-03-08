@@ -6,7 +6,6 @@ import {
   GetPropertyValueHistoryCommandInput,
   GetPropertyValueHistoryCommandOutput,
 } from "../commands/GetPropertyValueHistoryCommand";
-import { IoTTwinMaker } from "../IoTTwinMaker";
 import { IoTTwinMakerClient } from "../IoTTwinMakerClient";
 import { IoTTwinMakerPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetPropertyValueHistoryCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoTTwinMaker,
-  input: GetPropertyValueHistoryCommandInput,
-  ...args: any
-): Promise<GetPropertyValueHistoryCommandOutput> => {
-  // @ts-ignore
-  return await client.getPropertyValueHistory(input, ...args);
-};
 export async function* paginateGetPropertyValueHistory(
   config: IoTTwinMakerPaginationConfiguration,
   input: GetPropertyValueHistoryCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateGetPropertyValueHistory(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTTwinMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTTwinMakerClient) {
+    if (config.client instanceof IoTTwinMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTTwinMaker | IoTTwinMakerClient");

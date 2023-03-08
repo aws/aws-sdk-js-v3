@@ -25,7 +25,13 @@ import {
   serializeAws_ec2MoveAddressToVpcCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link MoveAddressToVpcCommand}.
+ */
 export interface MoveAddressToVpcCommandInput extends MoveAddressToVpcRequest {}
+/**
+ * The output of {@link MoveAddressToVpcCommand}.
+ */
 export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, __MetadataBearer {}
 
 /**

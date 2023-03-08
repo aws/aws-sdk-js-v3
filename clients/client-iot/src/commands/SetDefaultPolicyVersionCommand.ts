@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1SetDefaultPolicyVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SetDefaultPolicyVersionCommand}.
+ */
 export interface SetDefaultPolicyVersionCommandInput extends SetDefaultPolicyVersionRequest {}
+/**
+ * The output of {@link SetDefaultPolicyVersionCommand}.
+ */
 export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**

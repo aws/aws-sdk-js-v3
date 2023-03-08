@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateServiceSpecificCredentialCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateServiceSpecificCredentialCommand}.
+ */
 export interface CreateServiceSpecificCredentialCommandInput extends CreateServiceSpecificCredentialRequest {}
+/**
+ * The output of {@link CreateServiceSpecificCredentialCommand}.
+ */
 export interface CreateServiceSpecificCredentialCommandOutput
   extends CreateServiceSpecificCredentialResponse,
     __MetadataBearer {}

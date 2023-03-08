@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link RecursiveShapesCommand}.
+ */
 export interface RecursiveShapesCommandInput extends RecursiveShapesInputOutput {}
+/**
+ * The output of {@link RecursiveShapesCommand}.
+ */
 export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput, __MetadataBearer {}
 
 /**

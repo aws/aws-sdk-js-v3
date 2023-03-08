@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AssociateWirelessGatewayWithThingCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateWirelessGatewayWithThingCommand}.
+ */
 export interface AssociateWirelessGatewayWithThingCommandInput extends AssociateWirelessGatewayWithThingRequest {}
+/**
+ * The output of {@link AssociateWirelessGatewayWithThingCommand}.
+ */
 export interface AssociateWirelessGatewayWithThingCommandOutput
   extends AssociateWirelessGatewayWithThingResponse,
     __MetadataBearer {}

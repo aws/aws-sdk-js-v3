@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0AssociateSubnetsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link AssociateSubnetsCommand}.
+ */
 export interface AssociateSubnetsCommandInput extends AssociateSubnetsRequest {}
+/**
+ * The output of {@link AssociateSubnetsCommand}.
+ */
 export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse, __MetadataBearer {}
 
 /**

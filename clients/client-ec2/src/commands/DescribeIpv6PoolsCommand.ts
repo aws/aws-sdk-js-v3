@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribeIpv6PoolsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeIpv6PoolsCommand}.
+ */
 export interface DescribeIpv6PoolsCommandInput extends DescribeIpv6PoolsRequest {}
+/**
+ * The output of {@link DescribeIpv6PoolsCommand}.
+ */
 export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult, __MetadataBearer {}
 
 /**

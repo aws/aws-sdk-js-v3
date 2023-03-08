@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeJobFlowsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeJobFlowsCommand}.
+ */
 export interface DescribeJobFlowsCommandInput extends DescribeJobFlowsInput {}
+/**
+ * The output of {@link DescribeJobFlowsCommand}.
+ */
 export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, __MetadataBearer {}
 
 /**

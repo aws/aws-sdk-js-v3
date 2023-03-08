@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * The input for {@link DeleteContentCommand}.
+ */
 export interface DeleteContentCommandInput extends DeleteContentRequest {}
+/**
+ * The output of {@link DeleteContentCommand}.
+ */
 export interface DeleteContentCommandOutput extends DeleteContentResponse, __MetadataBearer {}
 
 /**

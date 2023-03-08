@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetPreparedStatementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetPreparedStatementCommand}.
+ */
 export interface BatchGetPreparedStatementCommandInput extends BatchGetPreparedStatementInput {}
+/**
+ * The output of {@link BatchGetPreparedStatementCommand}.
+ */
 export interface BatchGetPreparedStatementCommandOutput extends BatchGetPreparedStatementOutput, __MetadataBearer {}
 
 /**

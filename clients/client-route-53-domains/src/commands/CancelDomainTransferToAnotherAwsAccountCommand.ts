@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link CancelDomainTransferToAnotherAwsAccountCommand}.
+ */
 export interface CancelDomainTransferToAnotherAwsAccountCommandInput
   extends CancelDomainTransferToAnotherAwsAccountRequest {}
+/**
+ * The output of {@link CancelDomainTransferToAnotherAwsAccountCommand}.
+ */
 export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
   extends CancelDomainTransferToAnotherAwsAccountResponse,
     __MetadataBearer {}

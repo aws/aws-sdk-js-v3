@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdatePackageVersionsStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdatePackageVersionsStatusCommand}.
+ */
 export interface UpdatePackageVersionsStatusCommandInput extends UpdatePackageVersionsStatusRequest {}
+/**
+ * The output of {@link UpdatePackageVersionsStatusCommand}.
+ */
 export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageVersionsStatusResult, __MetadataBearer {}
 
 /**

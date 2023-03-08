@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartModelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartModelCommand}.
+ */
 export interface StartModelCommandInput extends StartModelRequest {}
+/**
+ * The output of {@link StartModelCommand}.
+ */
 export interface StartModelCommandOutput extends StartModelResponse, __MetadataBearer {}
 
 /**

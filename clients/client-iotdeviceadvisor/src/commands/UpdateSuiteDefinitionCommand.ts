@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateSuiteDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateSuiteDefinitionCommand}.
+ */
 export interface UpdateSuiteDefinitionCommandInput extends UpdateSuiteDefinitionRequest {}
+/**
+ * The output of {@link UpdateSuiteDefinitionCommand}.
+ */
 export interface UpdateSuiteDefinitionCommandOutput extends UpdateSuiteDefinitionResponse, __MetadataBearer {}
 
 /**

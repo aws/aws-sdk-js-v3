@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListInferenceExecutionsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListInferenceExecutionsCommand}.
+ */
 export interface ListInferenceExecutionsCommandInput extends ListInferenceExecutionsRequest {}
+/**
+ * The output of {@link ListInferenceExecutionsCommand}.
+ */
 export interface ListInferenceExecutionsCommandOutput extends ListInferenceExecutionsResponse, __MetadataBearer {}
 
 /**

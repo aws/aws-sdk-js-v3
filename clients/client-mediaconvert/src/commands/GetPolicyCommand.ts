@@ -14,14 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { GetPolicyRequest, GetPolicyRequestFilterSensitiveLog } from "../models/models_1";
-import { GetPolicyResponse, GetPolicyResponseFilterSensitiveLog } from "../models/models_2";
+import {
+  GetPolicyRequest,
+  GetPolicyRequestFilterSensitiveLog,
+  GetPolicyResponse,
+  GetPolicyResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1GetPolicyCommand,
   serializeAws_restJson1GetPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPolicyCommand}.
+ */
 export interface GetPolicyCommandInput extends GetPolicyRequest {}
+/**
+ * The output of {@link GetPolicyCommand}.
+ */
 export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBearer {}
 
 /**

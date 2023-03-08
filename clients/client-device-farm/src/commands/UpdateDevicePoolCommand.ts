@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateDevicePoolCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateDevicePoolCommand}.
+ */
 export interface UpdateDevicePoolCommandInput extends UpdateDevicePoolRequest {}
+/**
+ * The output of {@link UpdateDevicePoolCommand}.
+ */
 export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, __MetadataBearer {}
 
 /**

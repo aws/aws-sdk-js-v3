@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ArchiveApplicationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ArchiveApplicationCommand}.
+ */
 export interface ArchiveApplicationCommandInput extends ArchiveApplicationRequest {}
+/**
+ * The output of {@link ArchiveApplicationCommand}.
+ */
 export interface ArchiveApplicationCommandOutput extends Application, __MetadataBearer {}
 
 /**

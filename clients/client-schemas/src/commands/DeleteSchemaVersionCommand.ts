@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * The input for {@link DeleteSchemaVersionCommand}.
+ */
 export interface DeleteSchemaVersionCommandInput extends DeleteSchemaVersionRequest {}
+/**
+ * The output of {@link DeleteSchemaVersionCommand}.
+ */
 export interface DeleteSchemaVersionCommandOutput extends __MetadataBearer {}
 
 /**

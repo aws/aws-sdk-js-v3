@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1BatchGetDataQualityResultCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link BatchGetDataQualityResultCommand}.
+ */
 export interface BatchGetDataQualityResultCommandInput extends BatchGetDataQualityResultRequest {}
+/**
+ * The output of {@link BatchGetDataQualityResultCommand}.
+ */
 export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQualityResultResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateApplicationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateApplicationCommand}.
+ */
 export interface UpdateApplicationCommandInput extends UpdateApplicationRequest {}
+/**
+ * The output of {@link UpdateApplicationCommand}.
+ */
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeImageReplicationStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeImageReplicationStatusCommand}.
+ */
 export interface DescribeImageReplicationStatusCommandInput extends DescribeImageReplicationStatusRequest {}
+/**
+ * The output of {@link DescribeImageReplicationStatusCommand}.
+ */
 export interface DescribeImageReplicationStatusCommandOutput
   extends DescribeImageReplicationStatusResponse,
     __MetadataBearer {}

@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateWorkspaceAliasCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateWorkspaceAliasCommand}.
+ */
 export interface UpdateWorkspaceAliasCommandInput extends UpdateWorkspaceAliasRequest {}
+/**
+ * The output of {@link UpdateWorkspaceAliasCommand}.
+ */
 export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
 
 /**

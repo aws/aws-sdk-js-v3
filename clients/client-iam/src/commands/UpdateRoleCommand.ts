@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_queryUpdateRoleCommand, serializeAws_queryUpdateRoleCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateRoleCommand}.
+ */
 export interface UpdateRoleCommandInput extends UpdateRoleRequest {}
+/**
+ * The output of {@link UpdateRoleCommand}.
+ */
 export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataBearer {}
 
 /**

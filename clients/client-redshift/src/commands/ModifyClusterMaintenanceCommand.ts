@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link ModifyClusterMaintenanceCommand}.
+ */
 export interface ModifyClusterMaintenanceCommandInput extends ModifyClusterMaintenanceMessage {}
+/**
+ * The output of {@link ModifyClusterMaintenanceCommand}.
+ */
 export interface ModifyClusterMaintenanceCommandOutput extends ModifyClusterMaintenanceResult, __MetadataBearer {}
 
 /**

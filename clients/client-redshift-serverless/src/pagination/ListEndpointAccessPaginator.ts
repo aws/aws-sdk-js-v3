@@ -6,7 +6,6 @@ import {
   ListEndpointAccessCommandInput,
   ListEndpointAccessCommandOutput,
 } from "../commands/ListEndpointAccessCommand";
-import { RedshiftServerless } from "../RedshiftServerless";
 import { RedshiftServerlessClient } from "../RedshiftServerlessClient";
 import { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEndpointAccessCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: RedshiftServerless,
-  input: ListEndpointAccessCommandInput,
-  ...args: any
-): Promise<ListEndpointAccessCommandOutput> => {
-  // @ts-ignore
-  return await client.listEndpointAccess(input, ...args);
-};
 export async function* paginateListEndpointAccess(
   config: RedshiftServerlessPaginationConfiguration,
   input: ListEndpointAccessCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListEndpointAccess(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof RedshiftServerless) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RedshiftServerlessClient) {
+    if (config.client instanceof RedshiftServerlessClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RedshiftServerless | RedshiftServerlessClient");

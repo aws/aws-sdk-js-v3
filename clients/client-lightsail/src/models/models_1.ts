@@ -18,7 +18,10 @@ import {
   ContainerImage,
   ContainerService,
   ContainerServicePowerName,
+  CostEstimate,
   Disk,
+  DiskSnapshot,
+  DistributionBundle,
   DistributionMetricName,
   Domain,
   DomainEntry,
@@ -41,6 +44,196 @@ import {
   Tag,
   TreatMissingData,
 } from "./models_0";
+
+export interface GetCostEstimateRequest {
+  /**
+   * <p>The resource name.</p>
+   */
+  resourceName: string | undefined;
+
+  /**
+   * <p>The cost estimate start time.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify
+   *             <code>1538424000</code> as the start time.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The cost estimate end time.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify
+   *             <code>1538427600</code> as the end time.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
+   */
+  endTime: Date | undefined;
+}
+
+/**
+ * <p>Describes the estimated cost or usage that a budget tracks.</p>
+ */
+export interface ResourceBudgetEstimate {
+  /**
+   * <p>The resource name.</p>
+   */
+  resourceName?: string;
+
+  /**
+   * <p>The type of resource the budget will track.</p>
+   */
+  resourceType?: ResourceType | string;
+
+  /**
+   * <p>The cost estimate for the specified budget.</p>
+   */
+  costEstimates?: CostEstimate[];
+
+  /**
+   * <p>The estimate start time.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>The estimate end time.</p>
+   */
+  endTime?: Date;
+}
+
+export interface GetCostEstimateResult {
+  /**
+   * <p>Returns the estimate's forecasted cost or usage.</p>
+   */
+  resourcesBudgetEstimate?: ResourceBudgetEstimate[];
+}
+
+export interface GetDiskRequest {
+  /**
+   * <p>The name of the disk (e.g., <code>my-disk</code>).</p>
+   */
+  diskName: string | undefined;
+}
+
+export interface GetDiskResult {
+  /**
+   * <p>An object containing information about the disk.</p>
+   */
+  disk?: Disk;
+}
+
+export interface GetDisksRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetDisks</code> request. If your results are
+   *       paginated, the response will return a next page token that you can specify as the page token
+   *       in a subsequent request.</p>
+   */
+  pageToken?: string;
+}
+
+export interface GetDisksResult {
+  /**
+   * <p>An array of objects containing information about all block storage disks.</p>
+   */
+  disks?: Disk[];
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDisks</code> request and specify
+   *       the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
+}
+
+export interface GetDiskSnapshotRequest {
+  /**
+   * <p>The name of the disk snapshot (e.g., <code>my-disk-snapshot</code>).</p>
+   */
+  diskSnapshotName: string | undefined;
+}
+
+export interface GetDiskSnapshotResult {
+  /**
+   * <p>An object containing information about the disk snapshot.</p>
+   */
+  diskSnapshot?: DiskSnapshot;
+}
+
+export interface GetDiskSnapshotsRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetDiskSnapshots</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
+   */
+  pageToken?: string;
+}
+
+export interface GetDiskSnapshotsResult {
+  /**
+   * <p>An array of objects containing information about all block storage disk snapshots.</p>
+   */
+  diskSnapshots?: DiskSnapshot[];
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDiskSnapshots</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
+}
+
+export interface GetDistributionBundlesRequest {}
+
+export interface GetDistributionBundlesResult {
+  /**
+   * <p>An object that describes a distribution bundle.</p>
+   */
+  bundles?: DistributionBundle[];
+}
+
+export interface GetDistributionLatestCacheResetRequest {
+  /**
+   * <p>The name of the distribution for which to return the timestamp of the last cache
+   *       reset.</p>
+   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
+   *       can specify.</p>
+   *          <p>When omitted, the response includes the latest cache reset timestamp of all your
+   *       distributions.</p>
+   */
+  distributionName?: string;
+}
+
+export interface GetDistributionLatestCacheResetResult {
+  /**
+   * <p>The status of the last cache reset.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The timestamp of the last cache reset (e.g., <code>1479734909.17</code>) in Unix time
+   *       format.</p>
+   */
+  createTime?: Date;
+}
 
 export interface GetDistributionMetricDataRequest {
   /**
@@ -4498,6 +4691,20 @@ export interface SetResourceAccessForBucketResult {
   operations?: Operation[];
 }
 
+export interface StartGUISessionRequest {
+  /**
+   * <p>The resource name.</p>
+   */
+  resourceName: string | undefined;
+}
+
+export interface StartGUISessionResult {
+  /**
+   * <p>The available API operations.</p>
+   */
+  operations?: Operation[];
+}
+
 export interface StartInstanceRequest {
   /**
    * <p>The name of the instance (a virtual private server) to start.</p>
@@ -4524,6 +4731,20 @@ export interface StartRelationalDatabaseResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
+   */
+  operations?: Operation[];
+}
+
+export interface StopGUISessionRequest {
+  /**
+   * <p>The resource name.</p>
+   */
+  resourceName: string | undefined;
+}
+
+export interface StopGUISessionResult {
+  /**
+   * <p>The available API operations.</p>
    */
   operations?: Operation[];
 }
@@ -5162,6 +5383,115 @@ export interface UpdateRelationalDatabaseParametersResult {
    */
   operations?: Operation[];
 }
+
+/**
+ * @internal
+ */
+export const GetCostEstimateRequestFilterSensitiveLog = (obj: GetCostEstimateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceBudgetEstimateFilterSensitiveLog = (obj: ResourceBudgetEstimate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCostEstimateResultFilterSensitiveLog = (obj: GetCostEstimateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiskRequestFilterSensitiveLog = (obj: GetDiskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiskResultFilterSensitiveLog = (obj: GetDiskResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDisksRequestFilterSensitiveLog = (obj: GetDisksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDisksResultFilterSensitiveLog = (obj: GetDisksResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiskSnapshotRequestFilterSensitiveLog = (obj: GetDiskSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiskSnapshotResultFilterSensitiveLog = (obj: GetDiskSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiskSnapshotsRequestFilterSensitiveLog = (obj: GetDiskSnapshotsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiskSnapshotsResultFilterSensitiveLog = (obj: GetDiskSnapshotsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionBundlesRequestFilterSensitiveLog = (obj: GetDistributionBundlesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionBundlesResultFilterSensitiveLog = (obj: GetDistributionBundlesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionLatestCacheResetRequestFilterSensitiveLog = (
+  obj: GetDistributionLatestCacheResetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionLatestCacheResetResultFilterSensitiveLog = (
+  obj: GetDistributionLatestCacheResetResult
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -6185,6 +6515,20 @@ export const SetResourceAccessForBucketResultFilterSensitiveLog = (obj: SetResou
 /**
  * @internal
  */
+export const StartGUISessionRequestFilterSensitiveLog = (obj: StartGUISessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartGUISessionResultFilterSensitiveLog = (obj: StartGUISessionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const StartInstanceRequestFilterSensitiveLog = (obj: StartInstanceRequest): any => ({
   ...obj,
 });
@@ -6207,6 +6551,20 @@ export const StartRelationalDatabaseRequestFilterSensitiveLog = (obj: StartRelat
  * @internal
  */
 export const StartRelationalDatabaseResultFilterSensitiveLog = (obj: StartRelationalDatabaseResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopGUISessionRequestFilterSensitiveLog = (obj: StopGUISessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopGUISessionResultFilterSensitiveLog = (obj: StopGUISessionResult): any => ({
   ...obj,
 });
 

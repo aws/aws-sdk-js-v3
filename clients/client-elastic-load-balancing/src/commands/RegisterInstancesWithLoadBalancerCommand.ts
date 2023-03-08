@@ -29,7 +29,13 @@ import {
   serializeAws_queryRegisterInstancesWithLoadBalancerCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RegisterInstancesWithLoadBalancerCommand}.
+ */
 export interface RegisterInstancesWithLoadBalancerCommandInput extends RegisterEndPointsInput {}
+/**
+ * The output of {@link RegisterInstancesWithLoadBalancerCommand}.
+ */
 export interface RegisterInstancesWithLoadBalancerCommandOutput extends RegisterEndPointsOutput, __MetadataBearer {}
 
 /**

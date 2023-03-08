@@ -29,8 +29,14 @@ import {
   serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeElasticsearchInstanceTypeLimitsCommand}.
+ */
 export interface DescribeElasticsearchInstanceTypeLimitsCommandInput
   extends DescribeElasticsearchInstanceTypeLimitsRequest {}
+/**
+ * The output of {@link DescribeElasticsearchInstanceTypeLimitsCommand}.
+ */
 export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput
   extends DescribeElasticsearchInstanceTypeLimitsResponse,
     __MetadataBearer {}

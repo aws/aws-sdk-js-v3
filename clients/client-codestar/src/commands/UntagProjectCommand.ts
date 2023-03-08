@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UntagProjectCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UntagProjectCommand}.
+ */
 export interface UntagProjectCommandInput extends UntagProjectRequest {}
+/**
+ * The output of {@link UntagProjectCommand}.
+ */
 export interface UntagProjectCommandOutput extends UntagProjectResult, __MetadataBearer {}
 
 /**

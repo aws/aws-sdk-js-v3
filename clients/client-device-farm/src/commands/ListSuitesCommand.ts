@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListSuitesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListSuitesCommand}.
+ */
 export interface ListSuitesCommandInput extends ListSuitesRequest {}
+/**
+ * The output of {@link ListSuitesCommand}.
+ */
 export interface ListSuitesCommandOutput extends ListSuitesResult, __MetadataBearer {}
 
 /**

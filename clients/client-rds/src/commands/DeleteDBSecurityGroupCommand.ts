@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link DeleteDBSecurityGroupCommand}.
+ */
 export interface DeleteDBSecurityGroupCommandInput extends DeleteDBSecurityGroupMessage {}
+/**
+ * The output of {@link DeleteDBSecurityGroupCommand}.
+ */
 export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**

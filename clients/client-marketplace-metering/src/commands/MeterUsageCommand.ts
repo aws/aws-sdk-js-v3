@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1MeterUsageCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link MeterUsageCommand}.
+ */
 export interface MeterUsageCommandInput extends MeterUsageRequest {}
+/**
+ * The output of {@link MeterUsageCommand}.
+ */
 export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBearer {}
 
 /**

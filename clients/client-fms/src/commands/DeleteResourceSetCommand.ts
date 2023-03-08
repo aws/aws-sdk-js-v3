@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteResourceSetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteResourceSetCommand}.
+ */
 export interface DeleteResourceSetCommandInput extends DeleteResourceSetRequest {}
+/**
+ * The output of {@link DeleteResourceSetCommand}.
+ */
 export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
 
 /**

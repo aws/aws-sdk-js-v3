@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * The input for {@link UpdateManagedRuleSetVersionExpiryDateCommand}.
+ */
 export interface UpdateManagedRuleSetVersionExpiryDateCommandInput
   extends UpdateManagedRuleSetVersionExpiryDateRequest {}
+/**
+ * The output of {@link UpdateManagedRuleSetVersionExpiryDateCommand}.
+ */
 export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
   extends UpdateManagedRuleSetVersionExpiryDateResponse,
     __MetadataBearer {}

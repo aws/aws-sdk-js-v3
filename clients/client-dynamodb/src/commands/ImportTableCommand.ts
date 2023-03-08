@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ImportTableCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ImportTableCommand}.
+ */
 export interface ImportTableCommandInput extends ImportTableInput {}
+/**
+ * The output of {@link ImportTableCommand}.
+ */
 export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataBearer {}
 
 /**

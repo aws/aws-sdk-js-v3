@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RemoveFlowMediaStreamCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RemoveFlowMediaStreamCommand}.
+ */
 export interface RemoveFlowMediaStreamCommandInput extends RemoveFlowMediaStreamRequest {}
+/**
+ * The output of {@link RemoveFlowMediaStreamCommand}.
+ */
 export interface RemoveFlowMediaStreamCommandOutput extends RemoveFlowMediaStreamResponse, __MetadataBearer {}
 
 /**

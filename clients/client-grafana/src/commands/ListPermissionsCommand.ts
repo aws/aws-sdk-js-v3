@@ -25,17 +25,22 @@ import {
   serializeAws_restJson1ListPermissionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListPermissionsCommand}.
+ */
 export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
+/**
+ * The output of {@link ListPermissionsCommand}.
+ */
 export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the users and groups who have the Grafana <code>Admin</code> and
- *             <code>Editor</code> roles in this workspace. If you use this
- *             operation without specifying <code>userId</code> or <code>groupId</code>, the operation returns
- *             the roles of all users
- *             and groups. If you specify a <code>userId</code> or a <code>groupId</code>, only the roles
- *             for that user or group are returned. If you do this, you can specify only one <code>userId</code> or
- *             one <code>groupId</code>.</p>
+ *                 <code>Editor</code> roles in this workspace. If you use this operation without
+ *             specifying <code>userId</code> or <code>groupId</code>, the operation returns the roles
+ *             of all users and groups. If you specify a <code>userId</code> or a <code>groupId</code>,
+ *             only the roles for that user or group are returned. If you do this, you can specify only
+ *             one <code>userId</code> or one <code>groupId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

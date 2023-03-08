@@ -25,8 +25,14 @@ import {
   serializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link ListDistributionsByOriginRequestPolicyIdCommand}.
+ */
 export interface ListDistributionsByOriginRequestPolicyIdCommandInput
   extends ListDistributionsByOriginRequestPolicyIdRequest {}
+/**
+ * The output of {@link ListDistributionsByOriginRequestPolicyIdCommand}.
+ */
 export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
   extends ListDistributionsByOriginRequestPolicyIdResult,
     __MetadataBearer {}

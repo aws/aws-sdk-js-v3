@@ -20,7 +20,13 @@ import {
   serializeAws_ec2DeleteVpnConnectionRouteCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteVpnConnectionRouteCommand}.
+ */
 export interface DeleteVpnConnectionRouteCommandInput extends DeleteVpnConnectionRouteRequest {}
+/**
+ * The output of {@link DeleteVpnConnectionRouteCommand}.
+ */
 export interface DeleteVpnConnectionRouteCommandOutput extends __MetadataBearer {}
 
 /**

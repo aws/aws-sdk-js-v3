@@ -29,7 +29,13 @@ import {
   serializeAws_queryDescribeListenerCertificatesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeListenerCertificatesCommand}.
+ */
 export interface DescribeListenerCertificatesCommandInput extends DescribeListenerCertificatesInput {}
+/**
+ * The output of {@link DescribeListenerCertificatesCommand}.
+ */
 export interface DescribeListenerCertificatesCommandOutput
   extends DescribeListenerCertificatesOutput,
     __MetadataBearer {}

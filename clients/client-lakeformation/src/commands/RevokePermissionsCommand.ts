@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RevokePermissionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RevokePermissionsCommand}.
+ */
 export interface RevokePermissionsCommandInput extends RevokePermissionsRequest {}
+/**
+ * The output of {@link RevokePermissionsCommand}.
+ */
 export interface RevokePermissionsCommandOutput extends RevokePermissionsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListSourceLocationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSourceLocationsCommand}.
+ */
 export interface ListSourceLocationsCommandInput extends ListSourceLocationsRequest {}
+/**
+ * The output of {@link ListSourceLocationsCommand}.
+ */
 export interface ListSourceLocationsCommandOutput extends ListSourceLocationsResponse, __MetadataBearer {}
 
 /**

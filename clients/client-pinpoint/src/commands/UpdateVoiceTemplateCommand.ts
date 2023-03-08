@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateVoiceTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateVoiceTemplateCommand}.
+ */
 export interface UpdateVoiceTemplateCommandInput extends UpdateVoiceTemplateRequest {}
+/**
+ * The output of {@link UpdateVoiceTemplateCommand}.
+ */
 export interface UpdateVoiceTemplateCommandOutput extends UpdateVoiceTemplateResponse, __MetadataBearer {}
 
 /**

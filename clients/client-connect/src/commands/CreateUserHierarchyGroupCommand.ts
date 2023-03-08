@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateUserHierarchyGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateUserHierarchyGroupCommand}.
+ */
 export interface CreateUserHierarchyGroupCommandInput extends CreateUserHierarchyGroupRequest {}
+/**
+ * The output of {@link CreateUserHierarchyGroupCommand}.
+ */
 export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarchyGroupResponse, __MetadataBearer {}
 
 /**

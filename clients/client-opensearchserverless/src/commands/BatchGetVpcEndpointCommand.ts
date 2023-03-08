@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0BatchGetVpcEndpointCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link BatchGetVpcEndpointCommand}.
+ */
 export interface BatchGetVpcEndpointCommandInput extends BatchGetVpcEndpointRequest {}
+/**
+ * The output of {@link BatchGetVpcEndpointCommand}.
+ */
 export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointResponse, __MetadataBearer {}
 
 /**

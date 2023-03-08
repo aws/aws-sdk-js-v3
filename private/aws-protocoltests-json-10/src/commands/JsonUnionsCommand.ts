@@ -24,7 +24,13 @@ import {
   serializeAws_json1_0JsonUnionsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link JsonUnionsCommand}.
+ */
 export interface JsonUnionsCommandInput extends JsonUnionsInput {}
+/**
+ * The output of {@link JsonUnionsCommand}.
+ */
 export interface JsonUnionsCommandOutput extends JsonUnionsOutput, __MetadataBearer {}
 
 /**

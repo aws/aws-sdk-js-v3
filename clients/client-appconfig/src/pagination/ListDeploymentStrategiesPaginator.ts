@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { AppConfig } from "../AppConfig";
 import { AppConfigClient } from "../AppConfigClient";
 import {
   ListDeploymentStrategiesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDeploymentStrategiesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: AppConfig,
-  input: ListDeploymentStrategiesCommandInput,
-  ...args: any
-): Promise<ListDeploymentStrategiesCommandOutput> => {
-  // @ts-ignore
-  return await client.listDeploymentStrategies(input, ...args);
-};
 export async function* paginateListDeploymentStrategies(
   config: AppConfigPaginationConfiguration,
   input: ListDeploymentStrategiesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListDeploymentStrategies(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof AppConfig) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AppConfigClient) {
+    if (config.client instanceof AppConfigClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AppConfig | AppConfigClient");

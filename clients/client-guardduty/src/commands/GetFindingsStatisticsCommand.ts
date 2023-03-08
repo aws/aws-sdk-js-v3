@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetFindingsStatisticsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetFindingsStatisticsCommand}.
+ */
 export interface GetFindingsStatisticsCommandInput extends GetFindingsStatisticsRequest {}
+/**
+ * The output of {@link GetFindingsStatisticsCommand}.
+ */
 export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatisticsResponse, __MetadataBearer {}
 
 /**

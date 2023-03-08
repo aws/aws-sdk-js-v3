@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListSentimentDetectionJobsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListSentimentDetectionJobsCommand}.
+ */
 export interface ListSentimentDetectionJobsCommandInput extends ListSentimentDetectionJobsRequest {}
+/**
+ * The output of {@link ListSentimentDetectionJobsCommand}.
+ */
 export interface ListSentimentDetectionJobsCommandOutput extends ListSentimentDetectionJobsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_queryDeleteUserGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteUserGroupCommand}.
+ */
 export interface DeleteUserGroupCommandInput extends DeleteUserGroupMessage {}
+/**
+ * The output of {@link DeleteUserGroupCommand}.
+ */
 export interface DeleteUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**

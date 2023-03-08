@@ -25,7 +25,13 @@ import {
   serializeAws_ec2PurchaseReservedInstancesOfferingCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link PurchaseReservedInstancesOfferingCommand}.
+ */
 export interface PurchaseReservedInstancesOfferingCommandInput extends PurchaseReservedInstancesOfferingRequest {}
+/**
+ * The output of {@link PurchaseReservedInstancesOfferingCommand}.
+ */
 export interface PurchaseReservedInstancesOfferingCommandOutput
   extends PurchaseReservedInstancesOfferingResult,
     __MetadataBearer {}

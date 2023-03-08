@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeletePackagingGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePackagingGroupCommand}.
+ */
 export interface DeletePackagingGroupCommandInput extends DeletePackagingGroupRequest {}
+/**
+ * The output of {@link DeletePackagingGroupCommand}.
+ */
 export interface DeletePackagingGroupCommandOutput extends DeletePackagingGroupResponse, __MetadataBearer {}
 
 /**

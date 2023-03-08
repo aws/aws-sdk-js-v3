@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteGcmChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteGcmChannelCommand}.
+ */
 export interface DeleteGcmChannelCommandInput extends DeleteGcmChannelRequest {}
+/**
+ * The output of {@link DeleteGcmChannelCommand}.
+ */
 export interface DeleteGcmChannelCommandOutput extends DeleteGcmChannelResponse, __MetadataBearer {}
 
 /**

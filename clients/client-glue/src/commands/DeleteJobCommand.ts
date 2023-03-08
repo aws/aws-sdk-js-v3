@@ -22,7 +22,13 @@ import {
 } from "../models/models_1";
 import { deserializeAws_json1_1DeleteJobCommand, serializeAws_json1_1DeleteJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteJobCommand}.
+ */
 export interface DeleteJobCommandInput extends DeleteJobRequest {}
+/**
+ * The output of {@link DeleteJobCommand}.
+ */
 export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBearer {}
 
 /**

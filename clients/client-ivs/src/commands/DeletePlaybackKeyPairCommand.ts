@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeletePlaybackKeyPairCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePlaybackKeyPairCommand}.
+ */
 export interface DeletePlaybackKeyPairCommandInput extends DeletePlaybackKeyPairRequest {}
+/**
+ * The output of {@link DeletePlaybackKeyPairCommand}.
+ */
 export interface DeletePlaybackKeyPairCommandOutput extends DeletePlaybackKeyPairResponse, __MetadataBearer {}
 
 /**

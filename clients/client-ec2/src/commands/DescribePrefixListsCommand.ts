@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DescribePrefixListsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribePrefixListsCommand}.
+ */
 export interface DescribePrefixListsCommandInput extends DescribePrefixListsRequest {}
+/**
+ * The output of {@link DescribePrefixListsCommand}.
+ */
 export interface DescribePrefixListsCommandOutput extends DescribePrefixListsResult, __MetadataBearer {}
 
 /**

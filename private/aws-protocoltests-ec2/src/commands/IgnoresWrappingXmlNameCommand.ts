@@ -19,7 +19,13 @@ import {
   serializeAws_ec2IgnoresWrappingXmlNameCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link IgnoresWrappingXmlNameCommand}.
+ */
 export interface IgnoresWrappingXmlNameCommandInput {}
+/**
+ * The output of {@link IgnoresWrappingXmlNameCommand}.
+ */
 export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlNameOutput, __MetadataBearer {}
 
 /**

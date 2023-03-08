@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link StopPipelineExecutionCommand}.
+ */
 export interface StopPipelineExecutionCommandInput extends StopPipelineExecutionRequest {}
+/**
+ * The output of {@link StopPipelineExecutionCommand}.
+ */
 export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutionResponse, __MetadataBearer {}
 
 /**

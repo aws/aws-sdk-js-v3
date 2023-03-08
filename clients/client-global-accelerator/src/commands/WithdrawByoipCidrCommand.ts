@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1WithdrawByoipCidrCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link WithdrawByoipCidrCommand}.
+ */
 export interface WithdrawByoipCidrCommandInput extends WithdrawByoipCidrRequest {}
+/**
+ * The output of {@link WithdrawByoipCidrCommand}.
+ */
 export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResponse, __MetadataBearer {}
 
 /**

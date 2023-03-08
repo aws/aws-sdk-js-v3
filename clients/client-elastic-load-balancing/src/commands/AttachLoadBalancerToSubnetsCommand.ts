@@ -29,7 +29,13 @@ import {
   serializeAws_queryAttachLoadBalancerToSubnetsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link AttachLoadBalancerToSubnetsCommand}.
+ */
 export interface AttachLoadBalancerToSubnetsCommandInput extends AttachLoadBalancerToSubnetsInput {}
+/**
+ * The output of {@link AttachLoadBalancerToSubnetsCommand}.
+ */
 export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBalancerToSubnetsOutput, __MetadataBearer {}
 
 /**

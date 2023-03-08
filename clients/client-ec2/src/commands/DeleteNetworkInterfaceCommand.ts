@@ -20,7 +20,13 @@ import {
   serializeAws_ec2DeleteNetworkInterfaceCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteNetworkInterfaceCommand}.
+ */
 export interface DeleteNetworkInterfaceCommandInput extends DeleteNetworkInterfaceRequest {}
+/**
+ * The output of {@link DeleteNetworkInterfaceCommand}.
+ */
 export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
 
 /**

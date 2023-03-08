@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateClassifierCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateClassifierCommand}.
+ */
 export interface UpdateClassifierCommandInput extends UpdateClassifierRequest {}
+/**
+ * The output of {@link UpdateClassifierCommand}.
+ */
 export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse, __MetadataBearer {}
 
 /**

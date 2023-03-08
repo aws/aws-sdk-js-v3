@@ -32,7 +32,13 @@ import {
   serializeAws_restJson1GetMediaCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetMediaCommand}.
+ */
 export interface GetMediaCommandInput extends GetMediaInput {}
+/**
+ * The output of {@link GetMediaCommand}.
+ */
 export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutput, "Payload">, __MetadataBearer {}
 
 /**

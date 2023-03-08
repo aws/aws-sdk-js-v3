@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListFindingAggregationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListFindingAggregationsCommand}.
+ */
 export interface ListFindingAggregationsCommandInput extends ListFindingAggregationsRequest {}
+/**
+ * The output of {@link ListFindingAggregationsCommand}.
+ */
 export interface ListFindingAggregationsCommandOutput extends ListFindingAggregationsResponse, __MetadataBearer {}
 
 /**

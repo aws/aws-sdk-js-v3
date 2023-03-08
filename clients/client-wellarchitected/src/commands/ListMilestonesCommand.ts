@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * The input for {@link ListMilestonesCommand}.
+ */
 export interface ListMilestonesCommandInput extends ListMilestonesInput {}
+/**
+ * The output of {@link ListMilestonesCommand}.
+ */
 export interface ListMilestonesCommandOutput extends ListMilestonesOutput, __MetadataBearer {}
 
 /**

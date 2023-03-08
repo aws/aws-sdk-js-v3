@@ -22,7 +22,13 @@ import {
 import { deserializeAws_queryCancelResizeCommand, serializeAws_queryCancelResizeCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link CancelResizeCommand}.
+ */
 export interface CancelResizeCommandInput extends CancelResizeMessage {}
+/**
+ * The output of {@link CancelResizeCommand}.
+ */
 export interface CancelResizeCommandOutput extends ResizeProgressMessage, __MetadataBearer {}
 
 /**

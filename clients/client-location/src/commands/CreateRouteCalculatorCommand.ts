@@ -25,18 +25,24 @@ import {
   serializeAws_restJson1CreateRouteCalculatorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateRouteCalculatorCommand}.
+ */
 export interface CreateRouteCalculatorCommandInput extends CreateRouteCalculatorRequest {}
+/**
+ * The output of {@link CreateRouteCalculatorCommand}.
+ */
 export interface CreateRouteCalculatorCommandOutput extends CreateRouteCalculatorResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a route calculator resource in your AWS account.</p>
+ * <p>Creates a route calculator resource in your Amazon Web Services account.</p>
  *          <p>You can send requests to a route calculator resource to estimate travel time,
  *             distance, and get directions. A route calculator sources traffic and road network data
  *             from your chosen data provider.</p>
  *          <note>
  *             <p>If your application is tracking or routing assets you use in your business, such
  *                 as delivery vehicles or employees, you must not use Esri as your geolocation
- *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
+ *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
  *                     service terms</a> for more details.</p>
  *          </note>
  * @example

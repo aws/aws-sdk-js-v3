@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutPipelineDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutPipelineDefinitionCommand}.
+ */
 export interface PutPipelineDefinitionCommandInput extends PutPipelineDefinitionInput {}
+/**
+ * The output of {@link PutPipelineDefinitionCommand}.
+ */
 export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitionOutput, __MetadataBearer {}
 
 /**

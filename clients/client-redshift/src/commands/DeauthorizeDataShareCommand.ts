@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DeauthorizeDataShareCommand}.
+ */
 export interface DeauthorizeDataShareCommandInput extends DeauthorizeDataShareMessage {}
+/**
+ * The output of {@link DeauthorizeDataShareCommand}.
+ */
 export interface DeauthorizeDataShareCommandOutput extends DataShare, __MetadataBearer {}
 
 /**

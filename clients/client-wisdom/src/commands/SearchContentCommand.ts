@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * The input for {@link SearchContentCommand}.
+ */
 export interface SearchContentCommandInput extends SearchContentRequest {}
+/**
+ * The output of {@link SearchContentCommand}.
+ */
 export interface SearchContentCommandOutput extends SearchContentResponse, __MetadataBearer {}
 
 /**

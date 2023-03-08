@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1AcceptCertificateTransferCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AcceptCertificateTransferCommand}.
+ */
 export interface AcceptCertificateTransferCommandInput extends AcceptCertificateTransferRequest {}
+/**
+ * The output of {@link AcceptCertificateTransferCommand}.
+ */
 export interface AcceptCertificateTransferCommandOutput extends __MetadataBearer {}
 
 /**

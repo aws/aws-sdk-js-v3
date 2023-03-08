@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GenerateDataKeyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GenerateDataKeyCommand}.
+ */
 export interface GenerateDataKeyCommandInput extends GenerateDataKeyRequest {}
+/**
+ * The output of {@link GenerateDataKeyCommand}.
+ */
 export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, __MetadataBearer {}
 
 /**
@@ -34,23 +40,18 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *       key that you specify. The bytes in the plaintext key are random; they are not related
  *       to the caller or the KMS key. You can use the plaintext key to encrypt your data outside of KMS
  *       and store the encrypted data key with the encrypted data.</p>
- *
  *          <p>To generate a data key, specify the symmetric encryption KMS key that will be used to
  *       encrypt the data key. You cannot use an asymmetric KMS key to encrypt data keys. To get the
  *       type of your KMS key, use the <a>DescribeKey</a> operation.</p>
- *
  *          <p>You must also specify the length of the data key. Use either the <code>KeySpec</code> or
  *       <code>NumberOfBytes</code> parameters (but not both). For 128-bit and 256-bit data keys, use
  *       the <code>KeySpec</code> parameter.</p>
- *
- *          <p>To generate an SM4 data key (China Regions only), specify a <code>KeySpec</code> value of
- *       <code>AES_128</code> or <code>NumberOfBytes</code> value of <code>128</code>. The symmetric
+ *          <p>To generate a 128-bit SM4 data key (China Regions only), specify a <code>KeySpec</code> value of
+ *       <code>AES_128</code> or a <code>NumberOfBytes</code> value of <code>16</code>. The symmetric
  *       encryption key used in China Regions to encrypt your data key is an SM4 encryption key.</p>
- *
  *          <p>To get only an encrypted copy of the data key, use <a>GenerateDataKeyWithoutPlaintext</a>. To generate an asymmetric data key pair, use
  *       the <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a> operation. To get a cryptographically secure
  *       random byte string, use <a>GenerateRandom</a>.</p>
- *
  *          <p>You can use an optional encryption context to add additional security to the encryption
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
@@ -96,7 +97,6 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateDataKey</a> (key policy)</p>
  *          <p>

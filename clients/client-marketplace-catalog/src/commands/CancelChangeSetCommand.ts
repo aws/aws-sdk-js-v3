@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1CancelChangeSetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CancelChangeSetCommand}.
+ */
 export interface CancelChangeSetCommandInput extends CancelChangeSetRequest {}
+/**
+ * The output of {@link CancelChangeSetCommand}.
+ */
 export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, __MetadataBearer {}
 
 /**

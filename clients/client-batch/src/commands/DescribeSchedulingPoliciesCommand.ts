@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DescribeSchedulingPoliciesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeSchedulingPoliciesCommand}.
+ */
 export interface DescribeSchedulingPoliciesCommandInput extends DescribeSchedulingPoliciesRequest {}
+/**
+ * The output of {@link DescribeSchedulingPoliciesCommand}.
+ */
 export interface DescribeSchedulingPoliciesCommandOutput extends DescribeSchedulingPoliciesResponse, __MetadataBearer {}
 
 /**

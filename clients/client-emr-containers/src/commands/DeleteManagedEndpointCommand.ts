@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteManagedEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteManagedEndpointCommand}.
+ */
 export interface DeleteManagedEndpointCommandInput extends DeleteManagedEndpointRequest {}
+/**
+ * The output of {@link DeleteManagedEndpointCommand}.
+ */
 export interface DeleteManagedEndpointCommandOutput extends DeleteManagedEndpointResponse, __MetadataBearer {}
 
 /**

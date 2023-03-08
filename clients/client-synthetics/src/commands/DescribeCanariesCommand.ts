@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * The input for {@link DescribeCanariesCommand}.
+ */
 export interface DescribeCanariesCommandInput extends DescribeCanariesRequest {}
+/**
+ * The output of {@link DescribeCanariesCommand}.
+ */
 export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse, __MetadataBearer {}
 
 /**

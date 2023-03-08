@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link TerminateWorkspacesCommand}.
+ */
 export interface TerminateWorkspacesCommandInput extends TerminateWorkspacesRequest {}
+/**
+ * The output of {@link TerminateWorkspacesCommand}.
+ */
 export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesResult, __MetadataBearer {}
 
 /**

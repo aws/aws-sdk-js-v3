@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link RegisterDomainCommand}.
+ */
 export interface RegisterDomainCommandInput extends RegisterDomainRequest {}
+/**
+ * The output of {@link RegisterDomainCommand}.
+ */
 export interface RegisterDomainCommandOutput extends RegisterDomainResponse, __MetadataBearer {}
 
 /**

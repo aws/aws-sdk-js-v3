@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateImageGenerationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateImageGenerationConfigurationCommand}.
+ */
 export interface UpdateImageGenerationConfigurationCommandInput extends UpdateImageGenerationConfigurationInput {}
+/**
+ * The output of {@link UpdateImageGenerationConfigurationCommand}.
+ */
 export interface UpdateImageGenerationConfigurationCommandOutput
   extends UpdateImageGenerationConfigurationOutput,
     __MetadataBearer {}

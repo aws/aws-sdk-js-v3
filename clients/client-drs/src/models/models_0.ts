@@ -289,6 +289,11 @@ export interface DataReplicationInfo {
    * <p>Error in data replication.</p>
    */
   dataReplicationError?: DataReplicationError;
+
+  /**
+   * <p>AWS Availability zone into which data is being replicated.</p>
+   */
+  stagingAvailabilityZone?: string;
 }
 
 export enum LastLaunchResult {
@@ -323,6 +328,14 @@ export interface LifeCycleLastLaunchInitiated {
   type?: LastLaunchType | string;
 }
 
+export enum LaunchStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  LAUNCHED = "LAUNCHED",
+  PENDING = "PENDING",
+  TERMINATED = "TERMINATED",
+}
+
 /**
  * <p>An object containing information regarding the last launch of a Source Server.</p>
  */
@@ -331,6 +344,11 @@ export interface LifeCycleLastLaunch {
    * <p>An object containing information regarding the initiation of the last launch of a Source Server.</p>
    */
   initiated?: LifeCycleLastLaunchInitiated;
+
+  /**
+   * <p>Status of Source Server's last launch.</p>
+   */
+  status?: LaunchStatus | string;
 }
 
 /**
@@ -1208,14 +1226,6 @@ export enum InitiatedBy {
   TERMINATE_RECOVERY_INSTANCES = "TERMINATE_RECOVERY_INSTANCES",
 }
 
-export enum LaunchStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  LAUNCHED = "LAUNCHED",
-  PENDING = "PENDING",
-  TERMINATED = "TERMINATED",
-}
-
 /**
  * <p>Represents a server participating in an asynchronous Job.</p>
  */
@@ -1518,6 +1528,11 @@ export interface RecoveryInstanceDataReplicationInfo {
    * <p>Information about Data Replication</p>
    */
   dataReplicationError?: RecoveryInstanceDataReplicationError;
+
+  /**
+   * <p>AWS Availability zone into which data is being replicated.</p>
+   */
+  stagingAvailabilityZone?: string;
 }
 
 export enum EC2InstanceState {
@@ -1730,9 +1745,14 @@ export interface RecoveryInstance {
   isDrill?: boolean;
 
   /**
-   * <p>Environment (On Premises / AWS) of the instance that the recovery instance originated from. </p>
+   * <p>Environment (On Premises / AWS) of the instance that the recovery instance originated from.</p>
    */
   originEnvironment?: OriginEnvironment | string;
+
+  /**
+   * <p>AWS availability zone associated with the recovery instance.</p>
+   */
+  originAvailabilityZone?: string;
 }
 
 export interface DescribeRecoveryInstancesResponse {
@@ -2317,7 +2337,7 @@ export interface ReplicationConfigurationReplicatedDisk {
   throughput?: number;
 
   /**
-   * <p>When <code>stagingDiskType</code> is set to Auto, this field shows the current staging disk EBS volume type as it is constantly updated by the service. This is a read-only field.</p>
+   * <p>The Staging Disk EBS volume type to be used during replication when <code>stagingDiskType</code> is set to Auto. This is a read-only field.</p>
    */
   optimizedStagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | string;
 }

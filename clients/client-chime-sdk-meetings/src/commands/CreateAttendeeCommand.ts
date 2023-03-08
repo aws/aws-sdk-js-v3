@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateAttendeeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateAttendeeCommand}.
+ */
 export interface CreateAttendeeCommandInput extends CreateAttendeeRequest {}
+/**
+ * The output of {@link CreateAttendeeCommand}.
+ */
 export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchGetChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchGetChannelCommand}.
+ */
 export interface BatchGetChannelCommandInput extends BatchGetChannelRequest {}
+/**
+ * The output of {@link BatchGetChannelCommand}.
+ */
 export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, __MetadataBearer {}
 
 /**

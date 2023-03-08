@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DetectSyntaxCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DetectSyntaxCommand}.
+ */
 export interface DetectSyntaxCommandInput extends DetectSyntaxRequest {}
+/**
+ * The output of {@link DetectSyntaxCommand}.
+ */
 export interface DetectSyntaxCommandOutput extends DetectSyntaxResponse, __MetadataBearer {}
 
 /**

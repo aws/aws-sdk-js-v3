@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link DeleteMailboxPermissionsCommand}.
+ */
 export interface DeleteMailboxPermissionsCommandInput extends DeleteMailboxPermissionsRequest {}
+/**
+ * The output of {@link DeleteMailboxPermissionsCommand}.
+ */
 export interface DeleteMailboxPermissionsCommandOutput extends DeleteMailboxPermissionsResponse, __MetadataBearer {}
 
 /**

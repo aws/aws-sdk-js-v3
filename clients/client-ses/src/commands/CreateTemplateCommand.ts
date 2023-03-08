@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link CreateTemplateCommand}.
+ */
 export interface CreateTemplateCommandInput extends CreateTemplateRequest {}
+/**
+ * The output of {@link CreateTemplateCommand}.
+ */
 export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __MetadataBearer {}
 
 /**

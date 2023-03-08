@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1RollbackApplicationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RollbackApplicationCommand}.
+ */
 export interface RollbackApplicationCommandInput extends RollbackApplicationRequest {}
+/**
+ * The output of {@link RollbackApplicationCommand}.
+ */
 export interface RollbackApplicationCommandOutput extends RollbackApplicationResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetGameSessionLogUrlCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetGameSessionLogUrlCommand}.
+ */
 export interface GetGameSessionLogUrlCommandInput extends GetGameSessionLogUrlInput {}
+/**
+ * The output of {@link GetGameSessionLogUrlCommand}.
+ */
 export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlOutput, __MetadataBearer {}
 
 /**

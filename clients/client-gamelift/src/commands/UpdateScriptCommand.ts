@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateScriptCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateScriptCommand}.
+ */
 export interface UpdateScriptCommandInput extends UpdateScriptInput {}
+/**
+ * The output of {@link UpdateScriptCommand}.
+ */
 export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __MetadataBearer {}
 
 /**

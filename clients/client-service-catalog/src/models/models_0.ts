@@ -3361,13 +3361,10 @@ export interface ParameterConstraints {
 
   /**
    * <p>A string that explains a constraint when the constraint is violated. For example, without a constraint description, a parameter that has an allowed pattern of <code>[A-Za-z0-9]+</code> displays the following error message when the user specifies an invalid value:</p>
-   *
    *          <p>
    *             <code>Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+</code>
    *          </p>
-   *
    *          <p>By adding a constraint description, such as must only contain letters (uppercase and lowercase) and numbers, you can display the following customized error message:</p>
-   *
    *          <p>
    *             <code>Malformed input-Parameter MyParameter must only contain uppercase and lowercase letters and numbers.</code>
    *          </p>
@@ -6599,7 +6596,6 @@ export interface UpdateProvisionedProductPropertiesInput {
    *          calls a provisioning operation such as <code>UpdateProvisionedProduct</code>,
    *             <code>TerminateProvisionedProduct</code>, or
    *             <code>ExecuteProvisionedProductServiceAction</code>. Only a role ARN is valid. A user ARN is invalid. </p>
-   *
    *          <p>The <code>OWNER</code> key accepts IAM user ARNs, IAM role ARNs, and STS
    *          assumed-role ARNs. The owner is the user that has permission to see, update, terminate, and
    *          execute service actions in the provisioned product.</p>

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * The input for {@link DeleteRobotCommand}.
+ */
 export interface DeleteRobotCommandInput extends DeleteRobotRequest {}
+/**
+ * The output of {@link DeleteRobotCommand}.
+ */
 export interface DeleteRobotCommandOutput extends DeleteRobotResponse, __MetadataBearer {}
 
 /**

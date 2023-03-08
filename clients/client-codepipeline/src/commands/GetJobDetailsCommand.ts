@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetJobDetailsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetJobDetailsCommand}.
+ */
 export interface GetJobDetailsCommandInput extends GetJobDetailsInput {}
+/**
+ * The output of {@link GetJobDetailsCommand}.
+ */
 export interface GetJobDetailsCommandOutput extends GetJobDetailsOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * The input for {@link DeleteEmailTemplateCommand}.
+ */
 export interface DeleteEmailTemplateCommandInput extends DeleteEmailTemplateRequest {}
+/**
+ * The output of {@link DeleteEmailTemplateCommand}.
+ */
 export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateResponse, __MetadataBearer {}
 
 /**

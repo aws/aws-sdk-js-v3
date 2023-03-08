@@ -25,7 +25,13 @@ import {
   serializeAws_queryStopMetricStreamsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link StopMetricStreamsCommand}.
+ */
 export interface StopMetricStreamsCommandInput extends StopMetricStreamsInput {}
+/**
+ * The output of {@link StopMetricStreamsCommand}.
+ */
 export interface StopMetricStreamsCommandOutput extends StopMetricStreamsOutput, __MetadataBearer {}
 
 /**

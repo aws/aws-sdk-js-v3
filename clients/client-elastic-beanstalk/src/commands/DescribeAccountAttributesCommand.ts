@@ -20,7 +20,13 @@ import {
   serializeAws_queryDescribeAccountAttributesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeAccountAttributesCommand}.
+ */
 export interface DescribeAccountAttributesCommandInput {}
+/**
+ * The output of {@link DescribeAccountAttributesCommand}.
+ */
 export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResult, __MetadataBearer {}
 
 /**

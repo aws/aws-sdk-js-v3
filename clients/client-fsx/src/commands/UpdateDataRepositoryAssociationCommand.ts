@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateDataRepositoryAssociationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateDataRepositoryAssociationCommand}.
+ */
 export interface UpdateDataRepositoryAssociationCommandInput extends UpdateDataRepositoryAssociationRequest {}
+/**
+ * The output of {@link UpdateDataRepositoryAssociationCommand}.
+ */
 export interface UpdateDataRepositoryAssociationCommandOutput
   extends UpdateDataRepositoryAssociationResponse,
     __MetadataBearer {}

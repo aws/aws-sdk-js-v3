@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetClassificationScopeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetClassificationScopeCommand}.
+ */
 export interface GetClassificationScopeCommandInput extends GetClassificationScopeRequest {}
+/**
+ * The output of {@link GetClassificationScopeCommand}.
+ */
 export interface GetClassificationScopeCommandOutput extends GetClassificationScopeResponse, __MetadataBearer {}
 
 /**

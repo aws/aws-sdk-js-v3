@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutConformancePackCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutConformancePackCommand}.
+ */
 export interface PutConformancePackCommandInput extends PutConformancePackRequest {}
+/**
+ * The output of {@link PutConformancePackCommand}.
+ */
 export interface PutConformancePackCommandOutput extends PutConformancePackResponse, __MetadataBearer {}
 
 /**

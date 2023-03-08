@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateRepositoryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateRepositoryCommand}.
+ */
 export interface CreateRepositoryCommandInput extends CreateRepositoryInput {}
+/**
+ * The output of {@link CreateRepositoryCommand}.
+ */
 export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, __MetadataBearer {}
 
 /**

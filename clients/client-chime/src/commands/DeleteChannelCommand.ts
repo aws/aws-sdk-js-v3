@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteChannelCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteChannelCommand}.
+ */
 export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
+/**
+ * The output of {@link DeleteChannelCommand}.
+ */
 export interface DeleteChannelCommandOutput extends __MetadataBearer {}
 
 /**

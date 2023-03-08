@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1CreateLocationSmbCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateLocationSmbCommand}.
+ */
 export interface CreateLocationSmbCommandInput extends CreateLocationSmbRequest {}
+/**
+ * The output of {@link CreateLocationSmbCommand}.
+ */
 export interface CreateLocationSmbCommandOutput extends CreateLocationSmbResponse, __MetadataBearer {}
 
 /**

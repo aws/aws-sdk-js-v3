@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * The input for {@link DeletePortfolioCommand}.
+ */
 export interface DeletePortfolioCommandInput extends DeletePortfolioInput {}
+/**
+ * The output of {@link DeletePortfolioCommand}.
+ */
 export interface DeletePortfolioCommandOutput extends DeletePortfolioOutput, __MetadataBearer {}
 
 /**

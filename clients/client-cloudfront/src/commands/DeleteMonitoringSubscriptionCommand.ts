@@ -25,7 +25,13 @@ import {
   serializeAws_restXmlDeleteMonitoringSubscriptionCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link DeleteMonitoringSubscriptionCommand}.
+ */
 export interface DeleteMonitoringSubscriptionCommandInput extends DeleteMonitoringSubscriptionRequest {}
+/**
+ * The output of {@link DeleteMonitoringSubscriptionCommand}.
+ */
 export interface DeleteMonitoringSubscriptionCommandOutput
   extends DeleteMonitoringSubscriptionResult,
     __MetadataBearer {}

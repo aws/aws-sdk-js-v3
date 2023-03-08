@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListWavesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListWavesCommand}.
+ */
 export interface ListWavesCommandInput extends ListWavesRequest {}
+/**
+ * The output of {@link ListWavesCommand}.
+ */
 export interface ListWavesCommandOutput extends ListWavesResponse, __MetadataBearer {}
 
 /**

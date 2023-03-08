@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
+/**
+ * The input for {@link CreateDomainCommand}.
+ */
 export interface CreateDomainCommandInput extends CreateDomainRequest {}
+/**
+ * The output of {@link CreateDomainCommand}.
+ */
 export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
 
 /**

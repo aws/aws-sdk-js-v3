@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdatePhoneNumberCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdatePhoneNumberCommand}.
+ */
 export interface UpdatePhoneNumberCommandInput extends UpdatePhoneNumberRequest {}
+/**
+ * The output of {@link UpdatePhoneNumberCommand}.
+ */
 export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**

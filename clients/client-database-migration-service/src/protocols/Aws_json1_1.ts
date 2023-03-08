@@ -25,6 +25,10 @@ import {
   ApplyPendingMaintenanceActionCommandOutput,
 } from "../commands/ApplyPendingMaintenanceActionCommand";
 import {
+  BatchStartRecommendationsCommandInput,
+  BatchStartRecommendationsCommandOutput,
+} from "../commands/BatchStartRecommendationsCommand";
+import {
   CancelReplicationTaskAssessmentRunCommandInput,
   CancelReplicationTaskAssessmentRunCommandOutput,
 } from "../commands/CancelReplicationTaskAssessmentRunCommand";
@@ -143,6 +147,14 @@ import {
   DescribePendingMaintenanceActionsCommandOutput,
 } from "../commands/DescribePendingMaintenanceActionsCommand";
 import {
+  DescribeRecommendationLimitationsCommandInput,
+  DescribeRecommendationLimitationsCommandOutput,
+} from "../commands/DescribeRecommendationLimitationsCommand";
+import {
+  DescribeRecommendationsCommandInput,
+  DescribeRecommendationsCommandOutput,
+} from "../commands/DescribeRecommendationsCommand";
+import {
   DescribeRefreshSchemasStatusCommandInput,
   DescribeRefreshSchemasStatusCommandOutput,
 } from "../commands/DescribeRefreshSchemasStatusCommand";
@@ -220,6 +232,10 @@ import {
   RunFleetAdvisorLsaAnalysisCommandOutput,
 } from "../commands/RunFleetAdvisorLsaAnalysisCommand";
 import {
+  StartRecommendationsCommandInput,
+  StartRecommendationsCommandOutput,
+} from "../commands/StartRecommendationsCommand";
+import {
   StartReplicationTaskAssessmentCommandInput,
   StartReplicationTaskAssessmentCommandOutput,
 } from "../commands/StartReplicationTaskAssessmentCommand";
@@ -249,6 +265,9 @@ import {
   ApplyPendingMaintenanceActionMessage,
   ApplyPendingMaintenanceActionResponse,
   AvailabilityZone,
+  BatchStartRecommendationsErrorEntry,
+  BatchStartRecommendationsRequest,
+  BatchStartRecommendationsResponse,
   CancelReplicationTaskAssessmentRunMessage,
   CancelReplicationTaskAssessmentRunResponse,
   Certificate,
@@ -325,6 +344,10 @@ import {
   DescribeOrderableReplicationInstancesResponse,
   DescribePendingMaintenanceActionsMessage,
   DescribePendingMaintenanceActionsResponse,
+  DescribeRecommendationLimitationsRequest,
+  DescribeRecommendationLimitationsResponse,
+  DescribeRecommendationsRequest,
+  DescribeRecommendationsResponse,
   DescribeRefreshSchemasStatusMessage,
   DescribeRefreshSchemasStatusResponse,
   DescribeReplicationInstancesMessage,
@@ -376,6 +399,7 @@ import {
   KMSKeyNotAccessibleFault,
   KMSNotFoundFault,
   KMSThrottlingFault,
+  Limitation,
   ListTagsForResourceMessage,
   ListTagsForResourceResponse,
   MicrosoftSQLServerSettings,
@@ -398,8 +422,14 @@ import {
   OrderableReplicationInstance,
   PendingMaintenanceAction,
   PostgreSQLSettings,
+  RdsConfiguration,
+  RdsRecommendation,
+  RdsRequirements,
   RebootReplicationInstanceMessage,
   RebootReplicationInstanceResponse,
+  Recommendation,
+  RecommendationData,
+  RecommendationSettings,
   RedisSettings,
   RedshiftSettings,
   RefreshSchemasMessage,
@@ -433,6 +463,8 @@ import {
   ServerShortInfoResponse,
   SNSInvalidTopicFault,
   SNSNoAuthorizationFault,
+  StartRecommendationsRequest,
+  StartRecommendationsRequestEntry,
   StartReplicationTaskAssessmentMessage,
   StartReplicationTaskAssessmentResponse,
   StartReplicationTaskAssessmentRunMessage,
@@ -480,6 +512,19 @@ export const serializeAws_json1_1ApplyPendingMaintenanceActionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ApplyPendingMaintenanceActionMessage(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1BatchStartRecommendationsCommand = async (
+  input: BatchStartRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonDMSv20160101.BatchStartRecommendations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1BatchStartRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -925,6 +970,32 @@ export const serializeAws_json1_1DescribePendingMaintenanceActionsCommand = asyn
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeRecommendationLimitationsCommand = async (
+  input: DescribeRecommendationLimitationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonDMSv20160101.DescribeRecommendationLimitations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeRecommendationLimitationsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeRecommendationsCommand = async (
+  input: DescribeRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonDMSv20160101.DescribeRecommendations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeRecommendationsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeRefreshSchemasStatusCommand = async (
   input: DescribeRefreshSchemasStatusCommandInput,
   context: __SerdeContext
@@ -1223,6 +1294,19 @@ export const serializeAws_json1_1RunFleetAdvisorLsaAnalysisCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StartRecommendationsCommand = async (
+  input: StartRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonDMSv20160101.StartRecommendations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartRecommendationsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StartReplicationTaskCommand = async (
   input: StartReplicationTaskCommandInput,
   context: __SerdeContext
@@ -1369,6 +1453,53 @@ const deserializeAws_json1_1ApplyPendingMaintenanceActionCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1BatchStartRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchStartRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1BatchStartRecommendationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1BatchStartRecommendationsResponse(data, context);
+  const response: BatchStartRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1BatchStartRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchStartRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await deserializeAws_json1_1AccessDeniedFaultResponse(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
@@ -2900,6 +3031,94 @@ const deserializeAws_json1_1DescribePendingMaintenanceActionsCommandError = asyn
   }
 };
 
+export const deserializeAws_json1_1DescribeRecommendationLimitationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRecommendationLimitationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeRecommendationLimitationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeRecommendationLimitationsResponse(data, context);
+  const response: DescribeRecommendationLimitationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeRecommendationLimitationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRecommendationLimitationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await deserializeAws_json1_1AccessDeniedFaultResponse(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeRecommendationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeRecommendationsResponse(data, context);
+  const response: DescribeRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await deserializeAws_json1_1AccessDeniedFaultResponse(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1DescribeRefreshSchemasStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3969,6 +4188,50 @@ const deserializeAws_json1_1RunFleetAdvisorLsaAnalysisCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1StartRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartRecommendationsCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: StartRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await deserializeAws_json1_1AccessDeniedFaultResponse(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1StartReplicationTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4629,6 +4892,15 @@ const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): 
     });
 };
 
+const serializeAws_json1_1BatchStartRecommendationsRequest = (
+  input: BatchStartRecommendationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Data != null && { Data: serializeAws_json1_1StartRecommendationsRequestEntryList(input.Data, context) }),
+  };
+};
+
 const serializeAws_json1_1CancelReplicationTaskAssessmentRunMessage = (
   input: CancelReplicationTaskAssessmentRunMessage,
   context: __SerdeContext
@@ -5086,6 +5358,28 @@ const serializeAws_json1_1DescribePendingMaintenanceActionsMessage = (
     ...(input.Marker != null && { Marker: input.Marker }),
     ...(input.MaxRecords != null && { MaxRecords: input.MaxRecords }),
     ...(input.ReplicationInstanceArn != null && { ReplicationInstanceArn: input.ReplicationInstanceArn }),
+  };
+};
+
+const serializeAws_json1_1DescribeRecommendationLimitationsRequest = (
+  input: DescribeRecommendationLimitationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.MaxRecords != null && { MaxRecords: input.MaxRecords }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1DescribeRecommendationsRequest = (
+  input: DescribeRecommendationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.MaxRecords != null && { MaxRecords: input.MaxRecords }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5746,6 +6040,13 @@ const serializeAws_json1_1RebootReplicationInstanceMessage = (
   };
 };
 
+const serializeAws_json1_1RecommendationSettings = (input: RecommendationSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.InstanceSizingType != null && { InstanceSizingType: input.InstanceSizingType }),
+    ...(input.WorkloadType != null && { WorkloadType: input.WorkloadType }),
+  };
+};
+
 const serializeAws_json1_1RedisSettings = (input: RedisSettings, context: __SerdeContext): any => {
   return {
     ...(input.AuthPassword != null && { AuthPassword: input.AuthPassword }),
@@ -5882,6 +6183,37 @@ const serializeAws_json1_1SourceIdsList = (input: string[], context: __SerdeCont
     .filter((e: any) => e != null)
     .map((entry) => {
       return entry;
+    });
+};
+
+const serializeAws_json1_1StartRecommendationsRequest = (
+  input: StartRecommendationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DatabaseId != null && { DatabaseId: input.DatabaseId }),
+    ...(input.Settings != null && { Settings: serializeAws_json1_1RecommendationSettings(input.Settings, context) }),
+  };
+};
+
+const serializeAws_json1_1StartRecommendationsRequestEntry = (
+  input: StartRecommendationsRequestEntry,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DatabaseId != null && { DatabaseId: input.DatabaseId }),
+    ...(input.Settings != null && { Settings: serializeAws_json1_1RecommendationSettings(input.Settings, context) }),
+  };
+};
+
+const serializeAws_json1_1StartRecommendationsRequestEntryList = (
+  input: StartRecommendationsRequestEntry[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1StartRecommendationsRequestEntry(entry, context);
     });
 };
 
@@ -6079,6 +6411,44 @@ const deserializeAws_json1_1AvailabilityZonesList = (output: any, context: __Ser
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_json1_1BatchStartRecommendationsErrorEntry = (
+  output: any,
+  context: __SerdeContext
+): BatchStartRecommendationsErrorEntry => {
+  return {
+    Code: __expectString(output.Code),
+    DatabaseId: __expectString(output.DatabaseId),
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1BatchStartRecommendationsErrorEntryList = (
+  output: any,
+  context: __SerdeContext
+): BatchStartRecommendationsErrorEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BatchStartRecommendationsErrorEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1BatchStartRecommendationsResponse = (
+  output: any,
+  context: __SerdeContext
+): BatchStartRecommendationsResponse => {
+  return {
+    ErrorEntries:
+      output.ErrorEntries != null
+        ? deserializeAws_json1_1BatchStartRecommendationsErrorEntryList(output.ErrorEntries, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1CancelReplicationTaskAssessmentRunResponse = (
@@ -6630,6 +7000,30 @@ const deserializeAws_json1_1DescribePendingMaintenanceActionsResponse = (
     PendingMaintenanceActions:
       output.PendingMaintenanceActions != null
         ? deserializeAws_json1_1PendingMaintenanceActions(output.PendingMaintenanceActions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeRecommendationLimitationsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeRecommendationLimitationsResponse => {
+  return {
+    Limitations:
+      output.Limitations != null ? deserializeAws_json1_1LimitationList(output.Limitations, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeRecommendationsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeRecommendationsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    Recommendations:
+      output.Recommendations != null
+        ? deserializeAws_json1_1RecommendationList(output.Recommendations, context)
         : undefined,
   } as any;
 };
@@ -7286,6 +7680,29 @@ const deserializeAws_json1_1KMSThrottlingFault = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1Limitation = (output: any, context: __SerdeContext): Limitation => {
+  return {
+    DatabaseId: __expectString(output.DatabaseId),
+    Description: __expectString(output.Description),
+    EngineName: __expectString(output.EngineName),
+    Impact: __expectString(output.Impact),
+    Name: __expectString(output.Name),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1LimitationList = (output: any, context: __SerdeContext): Limitation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Limitation(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
@@ -7595,6 +8012,43 @@ const deserializeAws_json1_1PostgreSQLSettings = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1RdsConfiguration = (output: any, context: __SerdeContext): RdsConfiguration => {
+  return {
+    DeploymentOption: __expectString(output.DeploymentOption),
+    EngineEdition: __expectString(output.EngineEdition),
+    InstanceMemory: __limitedParseDouble(output.InstanceMemory),
+    InstanceType: __expectString(output.InstanceType),
+    InstanceVcpu: __limitedParseDouble(output.InstanceVcpu),
+    StorageIops: __expectInt32(output.StorageIops),
+    StorageSize: __expectInt32(output.StorageSize),
+    StorageType: __expectString(output.StorageType),
+  } as any;
+};
+
+const deserializeAws_json1_1RdsRecommendation = (output: any, context: __SerdeContext): RdsRecommendation => {
+  return {
+    RequirementsToTarget:
+      output.RequirementsToTarget != null
+        ? deserializeAws_json1_1RdsRequirements(output.RequirementsToTarget, context)
+        : undefined,
+    TargetConfiguration:
+      output.TargetConfiguration != null
+        ? deserializeAws_json1_1RdsConfiguration(output.TargetConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RdsRequirements = (output: any, context: __SerdeContext): RdsRequirements => {
+  return {
+    DeploymentOption: __expectString(output.DeploymentOption),
+    EngineEdition: __expectString(output.EngineEdition),
+    InstanceMemory: __limitedParseDouble(output.InstanceMemory),
+    InstanceVcpu: __limitedParseDouble(output.InstanceVcpu),
+    StorageIops: __expectInt32(output.StorageIops),
+    StorageSize: __expectInt32(output.StorageSize),
+  } as any;
+};
+
 const deserializeAws_json1_1RebootReplicationInstanceResponse = (
   output: any,
   context: __SerdeContext
@@ -7604,6 +8058,45 @@ const deserializeAws_json1_1RebootReplicationInstanceResponse = (
       output.ReplicationInstance != null
         ? deserializeAws_json1_1ReplicationInstance(output.ReplicationInstance, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Recommendation = (output: any, context: __SerdeContext): Recommendation => {
+  return {
+    CreatedDate: __expectString(output.CreatedDate),
+    Data: output.Data != null ? deserializeAws_json1_1RecommendationData(output.Data, context) : undefined,
+    DatabaseId: __expectString(output.DatabaseId),
+    EngineName: __expectString(output.EngineName),
+    Preferred: __expectBoolean(output.Preferred),
+    Settings:
+      output.Settings != null ? deserializeAws_json1_1RecommendationSettings(output.Settings, context) : undefined,
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1RecommendationData = (output: any, context: __SerdeContext): RecommendationData => {
+  return {
+    RdsEngine:
+      output.RdsEngine != null ? deserializeAws_json1_1RdsRecommendation(output.RdsEngine, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RecommendationList = (output: any, context: __SerdeContext): Recommendation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Recommendation(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1RecommendationSettings = (output: any, context: __SerdeContext): RecommendationSettings => {
+  return {
+    InstanceSizingType: __expectString(output.InstanceSizingType),
+    WorkloadType: __expectString(output.WorkloadType),
   } as any;
 };
 

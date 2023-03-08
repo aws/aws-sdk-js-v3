@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * The input for {@link ListTrustAnchorsCommand}.
+ */
 export interface ListTrustAnchorsCommandInput extends ListRequest {}
+/**
+ * The output of {@link ListTrustAnchorsCommand}.
+ */
 export interface ListTrustAnchorsCommandOutput extends ListTrustAnchorsResponse, __MetadataBearer {}
 
 /**

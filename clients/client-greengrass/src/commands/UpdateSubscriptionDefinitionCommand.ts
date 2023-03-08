@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateSubscriptionDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateSubscriptionDefinitionCommand}.
+ */
 export interface UpdateSubscriptionDefinitionCommandInput extends UpdateSubscriptionDefinitionRequest {}
+/**
+ * The output of {@link UpdateSubscriptionDefinitionCommand}.
+ */
 export interface UpdateSubscriptionDefinitionCommandOutput
   extends UpdateSubscriptionDefinitionResponse,
     __MetadataBearer {}

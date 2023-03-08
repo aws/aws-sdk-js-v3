@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetSnapshotsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetSnapshotsCommand}.
+ */
 export interface GetSnapshotsCommandInput extends GetSnapshotsRequest {}
+/**
+ * The output of {@link GetSnapshotsCommand}.
+ */
 export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __MetadataBearer {}
 
 /**

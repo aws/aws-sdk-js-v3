@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeTrailsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeTrailsCommand}.
+ */
 export interface DescribeTrailsCommandInput extends DescribeTrailsRequest {}
+/**
+ * The output of {@link DescribeTrailsCommand}.
+ */
 export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __MetadataBearer {}
 
 /**

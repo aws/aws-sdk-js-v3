@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListRecoveryPointsByLegalHoldCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListRecoveryPointsByLegalHoldCommand}.
+ */
 export interface ListRecoveryPointsByLegalHoldCommandInput extends ListRecoveryPointsByLegalHoldInput {}
+/**
+ * The output of {@link ListRecoveryPointsByLegalHoldCommand}.
+ */
 export interface ListRecoveryPointsByLegalHoldCommandOutput
   extends ListRecoveryPointsByLegalHoldOutput,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1QueryObjectsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link QueryObjectsCommand}.
+ */
 export interface QueryObjectsCommandInput extends QueryObjectsInput {}
+/**
+ * The output of {@link QueryObjectsCommand}.
+ */
 export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __MetadataBearer {}
 
 /**

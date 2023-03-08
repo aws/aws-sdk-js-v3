@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListSecurityProfilesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListSecurityProfilesCommand}.
+ */
 export interface ListSecurityProfilesCommandInput extends ListSecurityProfilesRequest {}
+/**
+ * The output of {@link ListSecurityProfilesCommand}.
+ */
 export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DescribeHomeRegionControlsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeHomeRegionControlsCommand}.
+ */
 export interface DescribeHomeRegionControlsCommandInput extends DescribeHomeRegionControlsRequest {}
+/**
+ * The output of {@link DescribeHomeRegionControlsCommand}.
+ */
 export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeRegionControlsResult, __MetadataBearer {}
 
 /**

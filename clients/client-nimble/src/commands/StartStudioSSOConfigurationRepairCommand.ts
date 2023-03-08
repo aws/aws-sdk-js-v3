@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartStudioSSOConfigurationRepairCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartStudioSSOConfigurationRepairCommand}.
+ */
 export interface StartStudioSSOConfigurationRepairCommandInput extends StartStudioSSOConfigurationRepairRequest {}
+/**
+ * The output of {@link StartStudioSSOConfigurationRepairCommand}.
+ */
 export interface StartStudioSSOConfigurationRepairCommandOutput
   extends StartStudioSSOConfigurationRepairResponse,
     __MetadataBearer {}

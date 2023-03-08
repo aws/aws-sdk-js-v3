@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ExecuteCommandCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ExecuteCommandCommand}.
+ */
 export interface ExecuteCommandCommandInput extends ExecuteCommandRequest {}
+/**
+ * The output of {@link ExecuteCommandCommand}.
+ */
 export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __MetadataBearer {}
 
 /**

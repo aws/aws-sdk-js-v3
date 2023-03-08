@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { AppMesh } from "../AppMesh";
 import { AppMeshClient } from "../AppMeshClient";
 import {
   ListGatewayRoutesCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListGatewayRoutesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: AppMesh,
-  input: ListGatewayRoutesCommandInput,
-  ...args: any
-): Promise<ListGatewayRoutesCommandOutput> => {
-  // @ts-ignore
-  return await client.listGatewayRoutes(input, ...args);
-};
 export async function* paginateListGatewayRoutes(
   config: AppMeshPaginationConfiguration,
   input: ListGatewayRoutesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListGatewayRoutes(
   while (hasNext) {
     input.nextToken = token;
     input["limit"] = config.pageSize;
-    if (config.client instanceof AppMesh) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AppMeshClient) {
+    if (config.client instanceof AppMeshClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AppMesh | AppMeshClient");

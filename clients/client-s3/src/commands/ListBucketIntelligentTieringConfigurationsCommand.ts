@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link ListBucketIntelligentTieringConfigurationsCommand}.
+ */
 export interface ListBucketIntelligentTieringConfigurationsCommandInput
   extends ListBucketIntelligentTieringConfigurationsRequest {}
+/**
+ * The output of {@link ListBucketIntelligentTieringConfigurationsCommand}.
+ */
 export interface ListBucketIntelligentTieringConfigurationsCommandOutput
   extends ListBucketIntelligentTieringConfigurationsOutput,
     __MetadataBearer {}

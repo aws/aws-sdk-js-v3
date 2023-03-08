@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DisableControlCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DisableControlCommand}.
+ */
 export interface DisableControlCommandInput extends DisableControlInput {}
+/**
+ * The output of {@link DisableControlCommand}.
+ */
 export interface DisableControlCommandOutput extends DisableControlOutput, __MetadataBearer {}
 
 /**

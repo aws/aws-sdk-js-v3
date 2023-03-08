@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeEntityAggregatesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeEntityAggregatesCommand}.
+ */
 export interface DescribeEntityAggregatesCommandInput extends DescribeEntityAggregatesRequest {}
+/**
+ * The output of {@link DescribeEntityAggregatesCommand}.
+ */
 export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAggregatesResponse, __MetadataBearer {}
 
 /**

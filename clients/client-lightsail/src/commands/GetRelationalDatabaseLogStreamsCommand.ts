@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetRelationalDatabaseLogStreamsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRelationalDatabaseLogStreamsCommand}.
+ */
 export interface GetRelationalDatabaseLogStreamsCommandInput extends GetRelationalDatabaseLogStreamsRequest {}
+/**
+ * The output of {@link GetRelationalDatabaseLogStreamsCommand}.
+ */
 export interface GetRelationalDatabaseLogStreamsCommandOutput
   extends GetRelationalDatabaseLogStreamsResult,
     __MetadataBearer {}

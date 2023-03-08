@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteIpamResourceDiscoveryCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteIpamResourceDiscoveryCommand}.
+ */
 export interface DeleteIpamResourceDiscoveryCommandInput extends DeleteIpamResourceDiscoveryRequest {}
+/**
+ * The output of {@link DeleteIpamResourceDiscoveryCommand}.
+ */
 export interface DeleteIpamResourceDiscoveryCommandOutput extends DeleteIpamResourceDiscoveryResult, __MetadataBearer {}
 
 /**

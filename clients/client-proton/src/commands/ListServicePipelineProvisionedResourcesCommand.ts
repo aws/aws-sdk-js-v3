@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * The input for {@link ListServicePipelineProvisionedResourcesCommand}.
+ */
 export interface ListServicePipelineProvisionedResourcesCommandInput
   extends ListServicePipelineProvisionedResourcesInput {}
+/**
+ * The output of {@link ListServicePipelineProvisionedResourcesCommand}.
+ */
 export interface ListServicePipelineProvisionedResourcesCommandOutput
   extends ListServicePipelineProvisionedResourcesOutput,
     __MetadataBearer {}

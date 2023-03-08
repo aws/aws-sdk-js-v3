@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DetachClassicLinkVpcCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DetachClassicLinkVpcCommand}.
+ */
 export interface DetachClassicLinkVpcCommandInput extends DetachClassicLinkVpcRequest {}
+/**
+ * The output of {@link DetachClassicLinkVpcCommand}.
+ */
 export interface DetachClassicLinkVpcCommandOutput extends DetachClassicLinkVpcResult, __MetadataBearer {}
 
 /**

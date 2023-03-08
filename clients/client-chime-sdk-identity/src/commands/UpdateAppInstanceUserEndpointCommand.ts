@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateAppInstanceUserEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateAppInstanceUserEndpointCommand}.
+ */
 export interface UpdateAppInstanceUserEndpointCommandInput extends UpdateAppInstanceUserEndpointRequest {}
+/**
+ * The output of {@link UpdateAppInstanceUserEndpointCommand}.
+ */
 export interface UpdateAppInstanceUserEndpointCommandOutput
   extends UpdateAppInstanceUserEndpointResponse,
     __MetadataBearer {}

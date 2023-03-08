@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutConferencePreferenceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutConferencePreferenceCommand}.
+ */
 export interface PutConferencePreferenceCommandInput extends PutConferencePreferenceRequest {}
+/**
+ * The output of {@link PutConferencePreferenceCommand}.
+ */
 export interface PutConferencePreferenceCommandOutput extends PutConferencePreferenceResponse, __MetadataBearer {}
 
 /**

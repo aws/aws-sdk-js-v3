@@ -25,11 +25,20 @@ import {
   serializeAws_restJson1UpdateMemberDetectorsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateMemberDetectorsCommand}.
+ */
 export interface UpdateMemberDetectorsCommandInput extends UpdateMemberDetectorsRequest {}
+/**
+ * The output of {@link UpdateMemberDetectorsCommand}.
+ */
 export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetectorsResponse, __MetadataBearer {}
 
 /**
  * <p>Contains information on member accounts to be updated.</p>
+ *          <p>There might be regional differences because some data sources might not be
+ *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+ *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

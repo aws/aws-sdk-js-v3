@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * The input for {@link GenerateMobileSdkReleaseUrlCommand}.
+ */
 export interface GenerateMobileSdkReleaseUrlCommandInput extends GenerateMobileSdkReleaseUrlRequest {}
+/**
+ * The output of {@link GenerateMobileSdkReleaseUrlCommand}.
+ */
 export interface GenerateMobileSdkReleaseUrlCommandOutput
   extends GenerateMobileSdkReleaseUrlResponse,
     __MetadataBearer {}

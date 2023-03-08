@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * The input for {@link RevokeDomainAccessCommand}.
+ */
 export interface RevokeDomainAccessCommandInput extends RevokeDomainAccessRequest {}
+/**
+ * The output of {@link RevokeDomainAccessCommand}.
+ */
 export interface RevokeDomainAccessCommandOutput extends RevokeDomainAccessResponse, __MetadataBearer {}
 
 /**

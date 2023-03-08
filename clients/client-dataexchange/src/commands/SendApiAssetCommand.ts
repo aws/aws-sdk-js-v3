@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1SendApiAssetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SendApiAssetCommand}.
+ */
 export interface SendApiAssetCommandInput extends SendApiAssetRequest {}
+/**
+ * The output of {@link SendApiAssetCommand}.
+ */
 export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1AddLayerVersionPermissionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AddLayerVersionPermissionCommand}.
+ */
 export interface AddLayerVersionPermissionCommandInput extends AddLayerVersionPermissionRequest {}
+/**
+ * The output of {@link AddLayerVersionPermissionCommand}.
+ */
 export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionPermissionResponse, __MetadataBearer {}
 
 /**

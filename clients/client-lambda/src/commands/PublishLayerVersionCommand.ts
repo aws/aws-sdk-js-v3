@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PublishLayerVersionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PublishLayerVersionCommand}.
+ */
 export interface PublishLayerVersionCommandInput extends PublishLayerVersionRequest {}
+/**
+ * The output of {@link PublishLayerVersionCommand}.
+ */
 export interface PublishLayerVersionCommandOutput extends PublishLayerVersionResponse, __MetadataBearer {}
 
 /**

@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link RevokeEndpointAccessCommand}.
+ */
 export interface RevokeEndpointAccessCommandInput extends RevokeEndpointAccessMessage {}
+/**
+ * The output of {@link RevokeEndpointAccessCommand}.
+ */
 export interface RevokeEndpointAccessCommandOutput extends EndpointAuthorization, __MetadataBearer {}
 
 /**

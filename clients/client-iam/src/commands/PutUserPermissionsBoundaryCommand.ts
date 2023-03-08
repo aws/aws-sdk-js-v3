@@ -23,7 +23,13 @@ import {
   serializeAws_queryPutUserPermissionsBoundaryCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PutUserPermissionsBoundaryCommand}.
+ */
 export interface PutUserPermissionsBoundaryCommandInput extends PutUserPermissionsBoundaryRequest {}
+/**
+ * The output of {@link PutUserPermissionsBoundaryCommand}.
+ */
 export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**

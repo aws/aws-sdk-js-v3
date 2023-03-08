@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RunPipelineActivityCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RunPipelineActivityCommand}.
+ */
 export interface RunPipelineActivityCommandInput extends RunPipelineActivityRequest {}
+/**
+ * The output of {@link RunPipelineActivityCommand}.
+ */
 export interface RunPipelineActivityCommandOutput extends RunPipelineActivityResponse, __MetadataBearer {}
 
 /**

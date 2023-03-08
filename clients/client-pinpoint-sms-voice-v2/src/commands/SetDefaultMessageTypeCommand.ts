@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0SetDefaultMessageTypeCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link SetDefaultMessageTypeCommand}.
+ */
 export interface SetDefaultMessageTypeCommandInput extends SetDefaultMessageTypeRequest {}
+/**
+ * The output of {@link SetDefaultMessageTypeCommand}.
+ */
 export interface SetDefaultMessageTypeCommandOutput extends SetDefaultMessageTypeResult, __MetadataBearer {}
 
 /**

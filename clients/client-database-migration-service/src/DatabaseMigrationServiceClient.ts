@@ -55,6 +55,10 @@ import {
   ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand";
 import {
+  BatchStartRecommendationsCommandInput,
+  BatchStartRecommendationsCommandOutput,
+} from "./commands/BatchStartRecommendationsCommand";
+import {
   CancelReplicationTaskAssessmentRunCommandInput,
   CancelReplicationTaskAssessmentRunCommandOutput,
 } from "./commands/CancelReplicationTaskAssessmentRunCommand";
@@ -173,6 +177,14 @@ import {
   DescribePendingMaintenanceActionsCommandOutput,
 } from "./commands/DescribePendingMaintenanceActionsCommand";
 import {
+  DescribeRecommendationLimitationsCommandInput,
+  DescribeRecommendationLimitationsCommandOutput,
+} from "./commands/DescribeRecommendationLimitationsCommand";
+import {
+  DescribeRecommendationsCommandInput,
+  DescribeRecommendationsCommandOutput,
+} from "./commands/DescribeRecommendationsCommand";
+import {
   DescribeRefreshSchemasStatusCommandInput,
   DescribeRefreshSchemasStatusCommandOutput,
 } from "./commands/DescribeRefreshSchemasStatusCommand";
@@ -250,6 +262,10 @@ import {
   RunFleetAdvisorLsaAnalysisCommandOutput,
 } from "./commands/RunFleetAdvisorLsaAnalysisCommand";
 import {
+  StartRecommendationsCommandInput,
+  StartRecommendationsCommandOutput,
+} from "./commands/StartRecommendationsCommand";
+import {
   StartReplicationTaskAssessmentCommandInput,
   StartReplicationTaskAssessmentCommandOutput,
 } from "./commands/StartReplicationTaskAssessmentCommand";
@@ -281,6 +297,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 export type ServiceInputTypes =
   | AddTagsToResourceCommandInput
   | ApplyPendingMaintenanceActionCommandInput
+  | BatchStartRecommendationsCommandInput
   | CancelReplicationTaskAssessmentRunCommandInput
   | CreateEndpointCommandInput
   | CreateEventSubscriptionCommandInput
@@ -315,6 +332,8 @@ export type ServiceInputTypes =
   | DescribeFleetAdvisorSchemasCommandInput
   | DescribeOrderableReplicationInstancesCommandInput
   | DescribePendingMaintenanceActionsCommandInput
+  | DescribeRecommendationLimitationsCommandInput
+  | DescribeRecommendationsCommandInput
   | DescribeRefreshSchemasStatusCommandInput
   | DescribeReplicationInstanceTaskLogsCommandInput
   | DescribeReplicationInstancesCommandInput
@@ -338,6 +357,7 @@ export type ServiceInputTypes =
   | ReloadTablesCommandInput
   | RemoveTagsFromResourceCommandInput
   | RunFleetAdvisorLsaAnalysisCommandInput
+  | StartRecommendationsCommandInput
   | StartReplicationTaskAssessmentCommandInput
   | StartReplicationTaskAssessmentRunCommandInput
   | StartReplicationTaskCommandInput
@@ -348,6 +368,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AddTagsToResourceCommandOutput
   | ApplyPendingMaintenanceActionCommandOutput
+  | BatchStartRecommendationsCommandOutput
   | CancelReplicationTaskAssessmentRunCommandOutput
   | CreateEndpointCommandOutput
   | CreateEventSubscriptionCommandOutput
@@ -382,6 +403,8 @@ export type ServiceOutputTypes =
   | DescribeFleetAdvisorSchemasCommandOutput
   | DescribeOrderableReplicationInstancesCommandOutput
   | DescribePendingMaintenanceActionsCommandOutput
+  | DescribeRecommendationLimitationsCommandOutput
+  | DescribeRecommendationsCommandOutput
   | DescribeRefreshSchemasStatusCommandOutput
   | DescribeReplicationInstanceTaskLogsCommandOutput
   | DescribeReplicationInstancesCommandOutput
@@ -405,6 +428,7 @@ export type ServiceOutputTypes =
   | ReloadTablesCommandOutput
   | RemoveTagsFromResourceCommandOutput
   | RunFleetAdvisorLsaAnalysisCommandOutput
+  | StartRecommendationsCommandOutput
   | StartReplicationTaskAssessmentCommandOutput
   | StartReplicationTaskAssessmentRunCommandOutput
   | StartReplicationTaskCommandOutput

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * The input for {@link ListNamespacesCommand}.
+ */
 export interface ListNamespacesCommandInput extends ListNamespacesRequest {}
+/**
+ * The output of {@link ListNamespacesCommand}.
+ */
 export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __MetadataBearer {}
 
 /**

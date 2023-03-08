@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateScheduledAuditCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateScheduledAuditCommand}.
+ */
 export interface UpdateScheduledAuditCommandInput extends UpdateScheduledAuditRequest {}
+/**
+ * The output of {@link UpdateScheduledAuditCommand}.
+ */
 export interface UpdateScheduledAuditCommandOutput extends UpdateScheduledAuditResponse, __MetadataBearer {}
 
 /**

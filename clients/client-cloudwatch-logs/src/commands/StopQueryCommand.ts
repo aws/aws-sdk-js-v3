@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1StopQueryCommand, serializeAws_json1_1StopQueryCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link StopQueryCommand}.
+ */
 export interface StopQueryCommandInput extends StopQueryRequest {}
+/**
+ * The output of {@link StopQueryCommand}.
+ */
 export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBearer {}
 
 /**

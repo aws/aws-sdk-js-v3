@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1ListLogPatternSetsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListLogPatternSetsCommand}.
+ */
 export interface ListLogPatternSetsCommandInput extends ListLogPatternSetsRequest {}
+/**
+ * The output of {@link ListLogPatternSetsCommand}.
+ */
 export interface ListLogPatternSetsCommandOutput extends ListLogPatternSetsResponse, __MetadataBearer {}
 
 /**

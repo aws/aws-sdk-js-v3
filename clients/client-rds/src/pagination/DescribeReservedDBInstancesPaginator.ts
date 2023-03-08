@@ -6,7 +6,6 @@ import {
   DescribeReservedDBInstancesCommandInput,
   DescribeReservedDBInstancesCommandOutput,
 } from "../commands/DescribeReservedDBInstancesCommand";
-import { RDS } from "../RDS";
 import { RDSClient } from "../RDSClient";
 import { RDSPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeReservedDBInstancesCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: RDS,
-  input: DescribeReservedDBInstancesCommandInput,
-  ...args: any
-): Promise<DescribeReservedDBInstancesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeReservedDBInstances(input, ...args);
-};
 export async function* paginateDescribeReservedDBInstances(
   config: RDSPaginationConfiguration,
   input: DescribeReservedDBInstancesCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeReservedDBInstances(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof RDS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RDSClient) {
+    if (config.client instanceof RDSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RDS | RDSClient");

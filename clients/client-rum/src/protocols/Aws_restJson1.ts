@@ -1717,6 +1717,7 @@ const serializeAws_restJson1MetricDefinitionRequest = (
     }),
     ...(input.EventPattern != null && { EventPattern: input.EventPattern }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.Namespace != null && { Namespace: input.Namespace }),
     ...(input.UnitLabel != null && { UnitLabel: input.UnitLabel }),
     ...(input.ValueKey != null && { ValueKey: input.ValueKey }),
   };
@@ -1994,6 +1995,7 @@ const deserializeAws_restJson1MetricDefinition = (output: any, context: __SerdeC
     EventPattern: __expectString(output.EventPattern),
     MetricDefinitionId: __expectString(output.MetricDefinitionId),
     Name: __expectString(output.Name),
+    Namespace: __expectString(output.Namespace),
     UnitLabel: __expectString(output.UnitLabel),
     ValueKey: __expectString(output.ValueKey),
   } as any;
@@ -2022,6 +2024,7 @@ const deserializeAws_restJson1MetricDefinitionRequest = (
         : undefined,
     EventPattern: __expectString(output.EventPattern),
     Name: __expectString(output.Name),
+    Namespace: __expectString(output.Namespace),
     UnitLabel: __expectString(output.UnitLabel),
     ValueKey: __expectString(output.ValueKey),
   } as any;

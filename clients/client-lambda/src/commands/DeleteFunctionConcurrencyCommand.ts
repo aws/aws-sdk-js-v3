@@ -23,7 +23,13 @@ import {
   serializeAws_restJson1DeleteFunctionConcurrencyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteFunctionConcurrencyCommand}.
+ */
 export interface DeleteFunctionConcurrencyCommandInput extends DeleteFunctionConcurrencyRequest {}
+/**
+ * The output of {@link DeleteFunctionConcurrencyCommand}.
+ */
 export interface DeleteFunctionConcurrencyCommandOutput extends __MetadataBearer {}
 
 /**

@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { Billingconductor } from "../Billingconductor";
 import { BillingconductorClient } from "../BillingconductorClient";
 import {
   ListCustomLineItemsCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCustomLineItemsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Billingconductor,
-  input: ListCustomLineItemsCommandInput,
-  ...args: any
-): Promise<ListCustomLineItemsCommandOutput> => {
-  // @ts-ignore
-  return await client.listCustomLineItems(input, ...args);
-};
 export async function* paginateListCustomLineItems(
   config: BillingconductorPaginationConfiguration,
   input: ListCustomLineItemsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListCustomLineItems(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Billingconductor) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof BillingconductorClient) {
+    if (config.client instanceof BillingconductorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Billingconductor | BillingconductorClient");

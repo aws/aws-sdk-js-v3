@@ -410,6 +410,9 @@ export class GuardDuty extends GuardDutyClient {
    *       GuardDuty service. To start using GuardDuty, you must create a detector in each Region where
    *       you enable the service. You can have only one detector per account per Region. All data
    *       sources are enabled in a new detector by default.</p>
+   *          <p>There might be regional differences because some data sources might not be
+   *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    */
   public createDetector(
     args: CreateDetectorCommandInput,
@@ -506,11 +509,8 @@ export class GuardDuty extends GuardDutyClient {
    *       action will enable GuardDuty in the added member accounts, with the exception of the
    *       organization delegated administrator account, which must enable GuardDuty prior to being added as a
    *       member.</p>
-   *          <p>If you are adding accounts by invitation use this action after GuardDuty has been enabled
-   *       in potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">
-   *                <code>Invite
-   *         Members</code>
-   *             </a>.</p>
+   *          <p>If you are adding accounts by invitation, use this action after GuardDuty has bee enabled in
+   *     potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>.</p>
    */
   public createMembers(
     args: CreateMembersCommandInput,
@@ -575,8 +575,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Generates example findings of types specified by the list of finding types. If 'NULL' is
-   *       specified for <code>findingTypes</code>, the API generates example findings of all supported
+   * <p>Generates sample findings of types specified by the list of finding types. If 'NULL' is
+   *       specified for <code>findingTypes</code>, the API generates sample findings of all supported
    *       finding types.</p>
    */
   public createSampleFindings(
@@ -896,6 +896,9 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * <p>Returns a list of malware scans. Each member account can view the malware scans for their
    *       own accounts. An administrator can view the malware scans for all the member accounts.</p>
+   *          <p>There might be regional differences because some data sources might not be
+   *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    */
   public describeMalwareScans(
     args: DescribeMalwareScansCommandInput,
@@ -929,6 +932,9 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * <p>Returns information about the account selected as the delegated administrator for
    *       GuardDuty.</p>
+   *          <p>There might be regional differences because some data sources might not be
+   *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    */
   public describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,
@@ -1191,6 +1197,9 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Retrieves an Amazon GuardDuty detector specified by the detectorId.</p>
+   *          <p>There might be regional differences because some data sources might not be
+   *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    */
   public getDetector(args: GetDetectorCommandInput, options?: __HttpHandlerOptions): Promise<GetDetectorCommandOutput>;
   public getDetector(args: GetDetectorCommandInput, cb: (err: any, data?: GetDetectorCommandOutput) => void): void;
@@ -1360,6 +1369,9 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Returns the details of the malware scan settings.</p>
+   *          <p>There might be regional differences because some data sources might not be
+   *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    */
   public getMalwareScanSettings(
     args: GetMalwareScanSettingsCommandInput,
@@ -1427,6 +1439,9 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Describes which data sources are enabled for the member account's detector.</p>
+   *          <p>There might be regional differences because some data sources might not be
+   *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    */
   public getMemberDetectors(
     args: GetMemberDetectorsCommandInput,
@@ -2084,6 +2099,9 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Updates the Amazon GuardDuty detector specified by the detectorId.</p>
+   *          <p>There might be regional differences because some data sources might not be
+   *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    */
   public updateDetector(
     args: UpdateDetectorCommandInput,
@@ -2203,6 +2221,9 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Updates the malware scan settings.</p>
+   *          <p>There might be regional differences because some data sources might not be
+   *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    */
   public updateMalwareScanSettings(
     args: UpdateMalwareScanSettingsCommandInput,
@@ -2235,6 +2256,9 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Contains information on member accounts to be updated.</p>
+   *          <p>There might be regional differences because some data sources might not be
+   *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    */
   public updateMemberDetectors(
     args: UpdateMemberDetectorsCommandInput,
@@ -2267,6 +2291,9 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Updates the delegated administrator account with the values provided.</p>
+   *          <p>There might be regional differences because some data sources might not be
+   *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    */
   public updateOrganizationConfiguration(
     args: UpdateOrganizationConfigurationCommandInput,

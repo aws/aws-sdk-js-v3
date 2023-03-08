@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DescribeKinesisStreamingDestinationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeKinesisStreamingDestinationCommand}.
+ */
 export interface DescribeKinesisStreamingDestinationCommandInput extends DescribeKinesisStreamingDestinationInput {}
+/**
+ * The output of {@link DescribeKinesisStreamingDestinationCommand}.
+ */
 export interface DescribeKinesisStreamingDestinationCommandOutput
   extends DescribeKinesisStreamingDestinationOutput,
     __MetadataBearer {}

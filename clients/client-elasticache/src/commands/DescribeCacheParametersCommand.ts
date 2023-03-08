@@ -25,7 +25,13 @@ import {
   serializeAws_queryDescribeCacheParametersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DescribeCacheParametersCommand}.
+ */
 export interface DescribeCacheParametersCommandInput extends DescribeCacheParametersMessage {}
+/**
+ * The output of {@link DescribeCacheParametersCommand}.
+ */
 export interface DescribeCacheParametersCommandOutput extends CacheParameterGroupDetails, __MetadataBearer {}
 
 /**

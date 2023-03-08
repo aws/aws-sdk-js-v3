@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetMigrationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetMigrationsCommand}.
+ */
 export interface GetMigrationsCommandInput extends GetMigrationsRequest {}
+/**
+ * The output of {@link GetMigrationsCommand}.
+ */
 export interface GetMigrationsCommandOutput extends GetMigrationsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2DeleteLocalGatewayRouteCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DeleteLocalGatewayRouteCommand}.
+ */
 export interface DeleteLocalGatewayRouteCommandInput extends DeleteLocalGatewayRouteRequest {}
+/**
+ * The output of {@link DeleteLocalGatewayRouteCommand}.
+ */
 export interface DeleteLocalGatewayRouteCommandOutput extends DeleteLocalGatewayRouteResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * The input for {@link GetTemplateSyncConfigCommand}.
+ */
 export interface GetTemplateSyncConfigCommandInput extends GetTemplateSyncConfigInput {}
+/**
+ * The output of {@link GetTemplateSyncConfigCommand}.
+ */
 export interface GetTemplateSyncConfigCommandOutput extends GetTemplateSyncConfigOutput, __MetadataBearer {}
 
 /**

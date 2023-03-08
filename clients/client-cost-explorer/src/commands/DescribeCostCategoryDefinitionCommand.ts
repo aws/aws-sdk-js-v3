@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeCostCategoryDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeCostCategoryDefinitionCommand}.
+ */
 export interface DescribeCostCategoryDefinitionCommandInput extends DescribeCostCategoryDefinitionRequest {}
+/**
+ * The output of {@link DescribeCostCategoryDefinitionCommand}.
+ */
 export interface DescribeCostCategoryDefinitionCommandOutput
   extends DescribeCostCategoryDefinitionResponse,
     __MetadataBearer {}

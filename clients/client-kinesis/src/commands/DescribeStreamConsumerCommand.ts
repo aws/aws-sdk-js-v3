@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeStreamConsumerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeStreamConsumerCommand}.
+ */
 export interface DescribeStreamConsumerCommandInput extends DescribeStreamConsumerInput {}
+/**
+ * The output of {@link DescribeStreamConsumerCommand}.
+ */
 export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsumerOutput, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link ImportHostKeyCommand}.
+ */
 export interface ImportHostKeyCommandInput extends ImportHostKeyRequest {}
+/**
+ * The output of {@link ImportHostKeyCommand}.
+ */
 export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __MetadataBearer {}
 
 /**

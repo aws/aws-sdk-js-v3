@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteProfilingGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteProfilingGroupCommand}.
+ */
 export interface DeleteProfilingGroupCommandInput extends DeleteProfilingGroupRequest {}
+/**
+ * The output of {@link DeleteProfilingGroupCommand}.
+ */
 export interface DeleteProfilingGroupCommandOutput extends DeleteProfilingGroupResponse, __MetadataBearer {}
 
 /**

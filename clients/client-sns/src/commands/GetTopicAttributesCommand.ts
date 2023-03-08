@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * The input for {@link GetTopicAttributesCommand}.
+ */
 export interface GetTopicAttributesCommandInput extends GetTopicAttributesInput {}
+/**
+ * The output of {@link GetTopicAttributesCommand}.
+ */
 export interface GetTopicAttributesCommandOutput extends GetTopicAttributesResponse, __MetadataBearer {}
 
 /**

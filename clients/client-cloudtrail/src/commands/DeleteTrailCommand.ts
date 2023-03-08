@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteTrailCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteTrailCommand}.
+ */
 export interface DeleteTrailCommandInput extends DeleteTrailRequest {}
+/**
+ * The output of {@link DeleteTrailCommand}.
+ */
 export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __MetadataBearer {}
 
 /**

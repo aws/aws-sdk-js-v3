@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListGitHubAccountTokenNamesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListGitHubAccountTokenNamesCommand}.
+ */
 export interface ListGitHubAccountTokenNamesCommandInput extends ListGitHubAccountTokenNamesInput {}
+/**
+ * The output of {@link ListGitHubAccountTokenNamesCommand}.
+ */
 export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAccountTokenNamesOutput, __MetadataBearer {}
 
 /**

@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteLoginProfileCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteLoginProfileCommand}.
+ */
 export interface DeleteLoginProfileCommandInput extends DeleteLoginProfileRequest {}
+/**
+ * The output of {@link DeleteLoginProfileCommand}.
+ */
 export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**

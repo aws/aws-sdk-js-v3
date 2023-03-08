@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListResourceTagsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListResourceTagsCommand}.
+ */
 export interface ListResourceTagsCommandInput extends ListResourceTagsRequest {}
+/**
+ * The output of {@link ListResourceTagsCommand}.
+ */
 export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse, __MetadataBearer {}
 
 /**
@@ -36,7 +42,6 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  *         keys</a>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListResourceTags</a> (key policy)</p>
  *          <p>

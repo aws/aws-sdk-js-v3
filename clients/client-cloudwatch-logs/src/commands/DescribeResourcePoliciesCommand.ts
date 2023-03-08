@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeResourcePoliciesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeResourcePoliciesCommand}.
+ */
 export interface DescribeResourcePoliciesCommandInput extends DescribeResourcePoliciesRequest {}
+/**
+ * The output of {@link DescribeResourcePoliciesCommand}.
+ */
 export interface DescribeResourcePoliciesCommandOutput extends DescribeResourcePoliciesResponse, __MetadataBearer {}
 
 /**

@@ -22,7 +22,13 @@ import {
 } from "../models/models_4";
 import { deserializeAws_ec2DescribeVolumesCommand, serializeAws_ec2DescribeVolumesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeVolumesCommand}.
+ */
 export interface DescribeVolumesCommandInput extends DescribeVolumesRequest {}
+/**
+ * The output of {@link DescribeVolumesCommand}.
+ */
 export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __MetadataBearer {}
 
 /**

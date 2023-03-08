@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RestoreBackupCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RestoreBackupCommand}.
+ */
 export interface RestoreBackupCommandInput extends RestoreBackupRequest {}
+/**
+ * The output of {@link RestoreBackupCommand}.
+ */
 export interface RestoreBackupCommandOutput extends RestoreBackupResponse, __MetadataBearer {}
 
 /**

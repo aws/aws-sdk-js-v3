@@ -25,7 +25,13 @@ import {
   serializeAws_queryCreateReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateReplicationGroupCommand}.
+ */
 export interface CreateReplicationGroupCommandInput extends CreateReplicationGroupMessage {}
+/**
+ * The output of {@link CreateReplicationGroupCommand}.
+ */
 export interface CreateReplicationGroupCommandOutput extends CreateReplicationGroupResult, __MetadataBearer {}
 
 /**

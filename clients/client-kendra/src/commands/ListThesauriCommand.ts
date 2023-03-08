@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListThesauriCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListThesauriCommand}.
+ */
 export interface ListThesauriCommandInput extends ListThesauriRequest {}
+/**
+ * The output of {@link ListThesauriCommand}.
+ */
 export interface ListThesauriCommandOutput extends ListThesauriResponse, __MetadataBearer {}
 
 /**

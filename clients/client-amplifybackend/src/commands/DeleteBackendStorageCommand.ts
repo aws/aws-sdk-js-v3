@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteBackendStorageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteBackendStorageCommand}.
+ */
 export interface DeleteBackendStorageCommandInput extends DeleteBackendStorageRequest {}
+/**
+ * The output of {@link DeleteBackendStorageCommand}.
+ */
 export interface DeleteBackendStorageCommandOutput extends DeleteBackendStorageResponse, __MetadataBearer {}
 
 /**

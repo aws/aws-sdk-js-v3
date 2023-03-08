@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListAggregatedUtterancesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListAggregatedUtterancesCommand}.
+ */
 export interface ListAggregatedUtterancesCommandInput extends ListAggregatedUtterancesRequest {}
+/**
+ * The output of {@link ListAggregatedUtterancesCommand}.
+ */
 export interface ListAggregatedUtterancesCommandOutput extends ListAggregatedUtterancesResponse, __MetadataBearer {}
 
 /**

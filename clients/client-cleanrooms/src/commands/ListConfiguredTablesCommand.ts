@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListConfiguredTablesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListConfiguredTablesCommand}.
+ */
 export interface ListConfiguredTablesCommandInput extends ListConfiguredTablesInput {}
+/**
+ * The output of {@link ListConfiguredTablesCommand}.
+ */
 export interface ListConfiguredTablesCommandOutput extends ListConfiguredTablesOutput, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0GetSecurityConfigCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetSecurityConfigCommand}.
+ */
 export interface GetSecurityConfigCommandInput extends GetSecurityConfigRequest {}
+/**
+ * The output of {@link GetSecurityConfigCommand}.
+ */
 export interface GetSecurityConfigCommandOutput extends GetSecurityConfigResponse, __MetadataBearer {}
 
 /**

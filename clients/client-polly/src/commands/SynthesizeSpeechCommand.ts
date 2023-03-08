@@ -28,7 +28,13 @@ import {
   serializeAws_restJson1SynthesizeSpeechCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SynthesizeSpeechCommand}.
+ */
 export interface SynthesizeSpeechCommandInput extends SynthesizeSpeechInput {}
+/**
+ * The output of {@link SynthesizeSpeechCommand}.
+ */
 export interface SynthesizeSpeechCommandOutput
   extends __WithSdkStreamMixin<SynthesizeSpeechOutput, "AudioStream">,
     __MetadataBearer {}

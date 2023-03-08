@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link GetFaceDetectionCommand}.
+ */
 export interface GetFaceDetectionCommandInput extends GetFaceDetectionRequest {}
+/**
+ * The output of {@link GetFaceDetectionCommand}.
+ */
 export interface GetFaceDetectionCommandOutput extends GetFaceDetectionResponse, __MetadataBearer {}
 
 /**

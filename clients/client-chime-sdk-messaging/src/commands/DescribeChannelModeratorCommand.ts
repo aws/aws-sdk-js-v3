@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DescribeChannelModeratorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DescribeChannelModeratorCommand}.
+ */
 export interface DescribeChannelModeratorCommandInput extends DescribeChannelModeratorRequest {}
+/**
+ * The output of {@link DescribeChannelModeratorCommand}.
+ */
 export interface DescribeChannelModeratorCommandOutput extends DescribeChannelModeratorResponse, __MetadataBearer {}
 
 /**

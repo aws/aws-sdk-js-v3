@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CloudFormation } from "../CloudFormation";
 import { CloudFormationClient } from "../CloudFormationClient";
 import {
   ListStackSetsCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListStackSetsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CloudFormation,
-  input: ListStackSetsCommandInput,
-  ...args: any
-): Promise<ListStackSetsCommandOutput> => {
-  // @ts-ignore
-  return await client.listStackSets(input, ...args);
-};
 export async function* paginateListStackSets(
   config: CloudFormationPaginationConfiguration,
   input: ListStackSetsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListStackSets(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CloudFormation) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudFormationClient) {
+    if (config.client instanceof CloudFormationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateQualificationWithWorkerCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateQualificationWithWorkerCommand}.
+ */
 export interface AssociateQualificationWithWorkerCommandInput extends AssociateQualificationWithWorkerRequest {}
+/**
+ * The output of {@link AssociateQualificationWithWorkerCommand}.
+ */
 export interface AssociateQualificationWithWorkerCommandOutput
   extends AssociateQualificationWithWorkerResponse,
     __MetadataBearer {}

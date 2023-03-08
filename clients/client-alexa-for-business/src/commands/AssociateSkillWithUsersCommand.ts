@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1AssociateSkillWithUsersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AssociateSkillWithUsersCommand}.
+ */
 export interface AssociateSkillWithUsersCommandInput extends AssociateSkillWithUsersRequest {}
+/**
+ * The output of {@link AssociateSkillWithUsersCommand}.
+ */
 export interface AssociateSkillWithUsersCommandOutput extends AssociateSkillWithUsersResponse, __MetadataBearer {}
 
 /**

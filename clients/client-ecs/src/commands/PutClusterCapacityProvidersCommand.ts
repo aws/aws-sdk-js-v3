@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutClusterCapacityProvidersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutClusterCapacityProvidersCommand}.
+ */
 export interface PutClusterCapacityProvidersCommandInput extends PutClusterCapacityProvidersRequest {}
+/**
+ * The output of {@link PutClusterCapacityProvidersCommand}.
+ */
 export interface PutClusterCapacityProvidersCommandOutput
   extends PutClusterCapacityProvidersResponse,
     __MetadataBearer {}

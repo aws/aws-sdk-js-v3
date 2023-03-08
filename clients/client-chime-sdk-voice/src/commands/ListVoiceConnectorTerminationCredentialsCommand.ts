@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1ListVoiceConnectorTerminationCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListVoiceConnectorTerminationCredentialsCommand}.
+ */
 export interface ListVoiceConnectorTerminationCredentialsCommandInput
   extends ListVoiceConnectorTerminationCredentialsRequest {}
+/**
+ * The output of {@link ListVoiceConnectorTerminationCredentialsCommand}.
+ */
 export interface ListVoiceConnectorTerminationCredentialsCommandOutput
   extends ListVoiceConnectorTerminationCredentialsResponse,
     __MetadataBearer {}

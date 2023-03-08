@@ -17,7 +17,13 @@ import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { TagMFADeviceRequest, TagMFADeviceRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryTagMFADeviceCommand, serializeAws_queryTagMFADeviceCommand } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link TagMFADeviceCommand}.
+ */
 export interface TagMFADeviceCommandInput extends TagMFADeviceRequest {}
+/**
+ * The output of {@link TagMFADeviceCommand}.
+ */
 export interface TagMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1RenewOfferingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RenewOfferingCommand}.
+ */
 export interface RenewOfferingCommandInput extends RenewOfferingRequest {}
+/**
+ * The output of {@link RenewOfferingCommand}.
+ */
 export interface RenewOfferingCommandOutput extends RenewOfferingResult, __MetadataBearer {}
 
 /**

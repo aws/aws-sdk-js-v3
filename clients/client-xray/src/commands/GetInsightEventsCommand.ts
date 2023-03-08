@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * The input for {@link GetInsightEventsCommand}.
+ */
 export interface GetInsightEventsCommandInput extends GetInsightEventsRequest {}
+/**
+ * The output of {@link GetInsightEventsCommand}.
+ */
 export interface GetInsightEventsCommandOutput extends GetInsightEventsResult, __MetadataBearer {}
 
 /**

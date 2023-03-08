@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * The input for {@link StopExecutionCommand}.
+ */
 export interface StopExecutionCommandInput extends StopExecutionInput {}
+/**
+ * The output of {@link StopExecutionCommand}.
+ */
 export interface StopExecutionCommandOutput extends StopExecutionOutput, __MetadataBearer {}
 
 /**

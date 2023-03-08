@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteWirelessGatewayTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteWirelessGatewayTaskCommand}.
+ */
 export interface DeleteWirelessGatewayTaskCommandInput extends DeleteWirelessGatewayTaskRequest {}
+/**
+ * The output of {@link DeleteWirelessGatewayTaskCommand}.
+ */
 export interface DeleteWirelessGatewayTaskCommandOutput extends DeleteWirelessGatewayTaskResponse, __MetadataBearer {}
 
 /**

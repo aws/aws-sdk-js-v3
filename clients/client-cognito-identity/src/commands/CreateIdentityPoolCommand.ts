@@ -26,7 +26,13 @@ import {
   serializeAws_json1_1CreateIdentityPoolCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CreateIdentityPoolCommand}.
+ */
 export interface CreateIdentityPoolCommandInput extends CreateIdentityPoolInput {}
+/**
+ * The output of {@link CreateIdentityPoolCommand}.
+ */
 export interface CreateIdentityPoolCommandOutput extends IdentityPool, __MetadataBearer {}
 
 /**

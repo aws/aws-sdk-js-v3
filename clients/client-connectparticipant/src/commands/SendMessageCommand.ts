@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1SendMessageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link SendMessageCommand}.
+ */
 export interface SendMessageCommandInput extends SendMessageRequest {}
+/**
+ * The output of {@link SendMessageCommand}.
+ */
 export interface SendMessageCommandOutput extends SendMessageResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link DeleteStreamProcessorCommand}.
+ */
 export interface DeleteStreamProcessorCommandInput extends DeleteStreamProcessorRequest {}
+/**
+ * The output of {@link DeleteStreamProcessorCommand}.
+ */
 export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcessorResponse, __MetadataBearer {}
 
 /**

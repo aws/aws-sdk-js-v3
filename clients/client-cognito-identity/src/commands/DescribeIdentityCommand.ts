@@ -26,7 +26,13 @@ import {
   serializeAws_json1_1DescribeIdentityCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeIdentityCommand}.
+ */
 export interface DescribeIdentityCommandInput extends DescribeIdentityInput {}
+/**
+ * The output of {@link DescribeIdentityCommand}.
+ */
 export interface DescribeIdentityCommandOutput extends IdentityDescription, __MetadataBearer {}
 
 /**

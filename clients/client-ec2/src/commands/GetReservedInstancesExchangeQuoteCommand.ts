@@ -25,7 +25,13 @@ import {
   serializeAws_ec2GetReservedInstancesExchangeQuoteCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link GetReservedInstancesExchangeQuoteCommand}.
+ */
 export interface GetReservedInstancesExchangeQuoteCommandInput extends GetReservedInstancesExchangeQuoteRequest {}
+/**
+ * The output of {@link GetReservedInstancesExchangeQuoteCommand}.
+ */
 export interface GetReservedInstancesExchangeQuoteCommandOutput
   extends GetReservedInstancesExchangeQuoteResult,
     __MetadataBearer {}

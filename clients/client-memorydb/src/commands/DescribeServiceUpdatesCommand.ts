@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeServiceUpdatesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeServiceUpdatesCommand}.
+ */
 export interface DescribeServiceUpdatesCommandInput extends DescribeServiceUpdatesRequest {}
+/**
+ * The output of {@link DescribeServiceUpdatesCommand}.
+ */
 export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpdatesResponse, __MetadataBearer {}
 
 /**

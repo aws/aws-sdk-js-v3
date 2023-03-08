@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1MergePullRequestByFastForwardCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link MergePullRequestByFastForwardCommand}.
+ */
 export interface MergePullRequestByFastForwardCommandInput extends MergePullRequestByFastForwardInput {}
+/**
+ * The output of {@link MergePullRequestByFastForwardCommand}.
+ */
 export interface MergePullRequestByFastForwardCommandOutput
   extends MergePullRequestByFastForwardOutput,
     __MetadataBearer {}

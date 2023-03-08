@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1UpdateComponentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateComponentCommand}.
+ */
 export interface UpdateComponentCommandInput extends UpdateComponentRequest {}
+/**
+ * The output of {@link UpdateComponentCommand}.
+ */
 export interface UpdateComponentCommandOutput extends UpdateComponentResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1BatchPutMessageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link BatchPutMessageCommand}.
+ */
 export interface BatchPutMessageCommandInput extends BatchPutMessageRequest {}
+/**
+ * The output of {@link BatchPutMessageCommand}.
+ */
 export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteDataIntegrationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteDataIntegrationCommand}.
+ */
 export interface DeleteDataIntegrationCommandInput extends DeleteDataIntegrationRequest {}
+/**
+ * The output of {@link DeleteDataIntegrationCommand}.
+ */
 export interface DeleteDataIntegrationCommandOutput extends DeleteDataIntegrationResponse, __MetadataBearer {}
 
 /**

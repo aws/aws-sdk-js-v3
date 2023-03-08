@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateAccountSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateAccountSettingsCommand}.
+ */
 export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettingsRequest {}
+/**
+ * The output of {@link UpdateAccountSettingsCommand}.
+ */
 export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsResponse, __MetadataBearer {}
 
 /**

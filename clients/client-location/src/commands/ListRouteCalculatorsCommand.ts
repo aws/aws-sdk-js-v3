@@ -25,11 +25,17 @@ import {
   serializeAws_restJson1ListRouteCalculatorsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListRouteCalculatorsCommand}.
+ */
 export interface ListRouteCalculatorsCommandInput extends ListRouteCalculatorsRequest {}
+/**
+ * The output of {@link ListRouteCalculatorsCommand}.
+ */
 export interface ListRouteCalculatorsCommandOutput extends ListRouteCalculatorsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists route calculator resources in your AWS account.</p>
+ * <p>Lists route calculator resources in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

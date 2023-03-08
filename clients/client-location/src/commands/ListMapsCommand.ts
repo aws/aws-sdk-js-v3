@@ -25,11 +25,17 @@ import {
   serializeAws_restJson1ListMapsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListMapsCommand}.
+ */
 export interface ListMapsCommandInput extends ListMapsRequest {}
+/**
+ * The output of {@link ListMapsCommand}.
+ */
 export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists map resources in your AWS account.</p>
+ * <p>Lists map resources in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

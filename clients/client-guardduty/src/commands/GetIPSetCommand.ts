@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetIPSetCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetIPSetCommand}.
+ */
 export interface GetIPSetCommandInput extends GetIPSetRequest {}
+/**
+ * The output of {@link GetIPSetCommand}.
+ */
 export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBearer {}
 
 /**

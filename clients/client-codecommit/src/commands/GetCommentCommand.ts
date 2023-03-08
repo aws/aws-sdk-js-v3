@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCommentCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCommentCommand}.
+ */
 export interface GetCommentCommandInput extends GetCommentInput {}
+/**
+ * The output of {@link GetCommentCommand}.
+ */
 export interface GetCommentCommandOutput extends GetCommentOutput, __MetadataBearer {}
 
 /**

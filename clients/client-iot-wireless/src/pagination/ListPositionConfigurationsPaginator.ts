@@ -6,7 +6,6 @@ import {
   ListPositionConfigurationsCommandInput,
   ListPositionConfigurationsCommandOutput,
 } from "../commands/ListPositionConfigurationsCommand";
-import { IoTWireless } from "../IoTWireless";
 import { IoTWirelessClient } from "../IoTWirelessClient";
 import { IoTWirelessPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPositionConfigurationsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: IoTWireless,
-  input: ListPositionConfigurationsCommandInput,
-  ...args: any
-): Promise<ListPositionConfigurationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPositionConfigurations(input, ...args);
-};
 export async function* paginateListPositionConfigurations(
   config: IoTWirelessPaginationConfiguration,
   input: ListPositionConfigurationsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListPositionConfigurations(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof IoTWireless) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTWirelessClient) {
+    if (config.client instanceof IoTWirelessClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTWireless | IoTWirelessClient");

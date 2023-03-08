@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateThesaurusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateThesaurusCommand}.
+ */
 export interface UpdateThesaurusCommandInput extends UpdateThesaurusRequest {}
+/**
+ * The output of {@link UpdateThesaurusCommand}.
+ */
 export interface UpdateThesaurusCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,14 +25,20 @@ import {
   serializeAws_json1_1UpdateOrganizationalUnitCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateOrganizationalUnitCommand}.
+ */
 export interface UpdateOrganizationalUnitCommandInput extends UpdateOrganizationalUnitRequest {}
+/**
+ * The output of {@link UpdateOrganizationalUnitCommand}.
+ */
 export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
  * <p>Renames the specified organizational unit (OU). The ID and ARN don't change. The child
  *             OUs and accounts remain in place, and any attached policies of the OU remain
  *             attached.</p>
- *         <p>This operation can be called only from the organization's management account.</p>
+ *          <p>This operation can be called only from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

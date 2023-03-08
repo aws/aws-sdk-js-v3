@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * The input for {@link ModifyDBSnapshotCommand}.
+ */
 export interface ModifyDBSnapshotCommandInput extends ModifyDBSnapshotMessage {}
+/**
+ * The output of {@link ModifyDBSnapshotCommand}.
+ */
 export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, __MetadataBearer {}
 
 /**

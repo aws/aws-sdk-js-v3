@@ -29,7 +29,13 @@ import {
   serializeAws_json1_1DeleteReportDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteReportDefinitionCommand}.
+ */
 export interface DeleteReportDefinitionCommandInput extends DeleteReportDefinitionRequest {}
+/**
+ * The output of {@link DeleteReportDefinitionCommand}.
+ */
 export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinitionResponse, __MetadataBearer {}
 
 /**

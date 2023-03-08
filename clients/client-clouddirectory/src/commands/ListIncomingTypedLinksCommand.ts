@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListIncomingTypedLinksCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListIncomingTypedLinksCommand}.
+ */
 export interface ListIncomingTypedLinksCommandInput extends ListIncomingTypedLinksRequest {}
+/**
+ * The output of {@link ListIncomingTypedLinksCommand}.
+ */
 export interface ListIncomingTypedLinksCommandOutput extends ListIncomingTypedLinksResponse, __MetadataBearer {}
 
 /**

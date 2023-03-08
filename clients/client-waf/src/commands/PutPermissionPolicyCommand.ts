@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * The input for {@link PutPermissionPolicyCommand}.
+ */
 export interface PutPermissionPolicyCommandInput extends PutPermissionPolicyRequest {}
+/**
+ * The output of {@link PutPermissionPolicyCommand}.
+ */
 export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyResponse, __MetadataBearer {}
 
 /**

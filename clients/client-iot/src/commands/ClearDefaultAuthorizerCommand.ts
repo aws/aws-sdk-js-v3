@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ClearDefaultAuthorizerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ClearDefaultAuthorizerCommand}.
+ */
 export interface ClearDefaultAuthorizerCommandInput extends ClearDefaultAuthorizerRequest {}
+/**
+ * The output of {@link ClearDefaultAuthorizerCommand}.
+ */
 export interface ClearDefaultAuthorizerCommandOutput extends ClearDefaultAuthorizerResponse, __MetadataBearer {}
 
 /**

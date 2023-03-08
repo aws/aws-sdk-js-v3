@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0DescribeVpcIngressConnectionCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link DescribeVpcIngressConnectionCommand}.
+ */
 export interface DescribeVpcIngressConnectionCommandInput extends DescribeVpcIngressConnectionRequest {}
+/**
+ * The output of {@link DescribeVpcIngressConnectionCommand}.
+ */
 export interface DescribeVpcIngressConnectionCommandOutput
   extends DescribeVpcIngressConnectionResponse,
     __MetadataBearer {}

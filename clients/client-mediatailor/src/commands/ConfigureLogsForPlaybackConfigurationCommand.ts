@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ConfigureLogsForPlaybackConfigurationCommand}.
+ */
 export interface ConfigureLogsForPlaybackConfigurationCommandInput
   extends ConfigureLogsForPlaybackConfigurationRequest {}
+/**
+ * The output of {@link ConfigureLogsForPlaybackConfigurationCommand}.
+ */
 export interface ConfigureLogsForPlaybackConfigurationCommandOutput
   extends ConfigureLogsForPlaybackConfigurationResponse,
     __MetadataBearer {}

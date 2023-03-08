@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CloudWatch } from "../CloudWatch";
 import { CloudWatchClient } from "../CloudWatchClient";
 import {
   DescribeAlarmHistoryCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeAlarmHistoryCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CloudWatch,
-  input: DescribeAlarmHistoryCommandInput,
-  ...args: any
-): Promise<DescribeAlarmHistoryCommandOutput> => {
-  // @ts-ignore
-  return await client.describeAlarmHistory(input, ...args);
-};
 export async function* paginateDescribeAlarmHistory(
   config: CloudWatchPaginationConfiguration,
   input: DescribeAlarmHistoryCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateDescribeAlarmHistory(
   while (hasNext) {
     input.NextToken = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof CloudWatch) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudWatchClient) {
+    if (config.client instanceof CloudWatchClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudWatch | CloudWatchClient");

@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteDomainNameCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteDomainNameCommand}.
+ */
 export interface DeleteDomainNameCommandInput extends DeleteDomainNameRequest {}
+/**
+ * The output of {@link DeleteDomainNameCommand}.
+ */
 export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
 
 /**

@@ -17,20 +17,34 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
+import {
+  CreateBatchLoadTaskCommandInput,
+  CreateBatchLoadTaskCommandOutput,
+} from "../commands/CreateBatchLoadTaskCommand";
 import { CreateDatabaseCommandInput, CreateDatabaseCommandOutput } from "../commands/CreateDatabaseCommand";
 import { CreateTableCommandInput, CreateTableCommandOutput } from "../commands/CreateTableCommand";
 import { DeleteDatabaseCommandInput, DeleteDatabaseCommandOutput } from "../commands/DeleteDatabaseCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "../commands/DeleteTableCommand";
+import {
+  DescribeBatchLoadTaskCommandInput,
+  DescribeBatchLoadTaskCommandOutput,
+} from "../commands/DescribeBatchLoadTaskCommand";
 import { DescribeDatabaseCommandInput, DescribeDatabaseCommandOutput } from "../commands/DescribeDatabaseCommand";
 import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "../commands/DescribeEndpointsCommand";
 import { DescribeTableCommandInput, DescribeTableCommandOutput } from "../commands/DescribeTableCommand";
+import { ListBatchLoadTasksCommandInput, ListBatchLoadTasksCommandOutput } from "../commands/ListBatchLoadTasksCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "../commands/ListDatabasesCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ResumeBatchLoadTaskCommandInput,
+  ResumeBatchLoadTaskCommandOutput,
+} from "../commands/ResumeBatchLoadTaskCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput } from "../commands/UpdateDatabaseCommand";
@@ -39,14 +53,27 @@ import { WriteRecordsCommandInput, WriteRecordsCommandOutput } from "../commands
 import {
   _Record,
   AccessDeniedException,
+  BatchLoadProgressReport,
+  BatchLoadTask,
+  BatchLoadTaskDescription,
   ConflictException,
+  CreateBatchLoadTaskRequest,
+  CreateBatchLoadTaskResponse,
   CreateDatabaseRequest,
   CreateDatabaseResponse,
   CreateTableRequest,
   CreateTableResponse,
+  CsvConfiguration,
   Database,
+  DataModel,
+  DataModelConfiguration,
+  DataModelS3Configuration,
+  DataSourceConfiguration,
+  DataSourceS3Configuration,
   DeleteDatabaseRequest,
   DeleteTableRequest,
+  DescribeBatchLoadTaskRequest,
+  DescribeBatchLoadTaskResponse,
   DescribeDatabaseRequest,
   DescribeDatabaseResponse,
   DescribeEndpointsRequest,
@@ -54,9 +81,12 @@ import {
   DescribeTableRequest,
   DescribeTableResponse,
   Dimension,
+  DimensionMapping,
   Endpoint,
   InternalServerException,
   InvalidEndpointException,
+  ListBatchLoadTasksRequest,
+  ListBatchLoadTasksResponse,
   ListDatabasesRequest,
   ListDatabasesResponse,
   ListTablesRequest,
@@ -66,10 +96,17 @@ import {
   MagneticStoreRejectedDataLocation,
   MagneticStoreWriteProperties,
   MeasureValue,
+  MixedMeasureMapping,
+  MultiMeasureAttributeMapping,
+  MultiMeasureMappings,
   RecordsIngested,
   RejectedRecord,
   RejectedRecordsException,
+  ReportConfiguration,
+  ReportS3Configuration,
   ResourceNotFoundException,
+  ResumeBatchLoadTaskRequest,
+  ResumeBatchLoadTaskResponse,
   RetentionProperties,
   S3Configuration,
   ServiceQuotaExceededException,
@@ -89,6 +126,19 @@ import {
   WriteRecordsResponse,
 } from "../models/models_0";
 import { TimestreamWriteServiceException as __BaseException } from "../models/TimestreamWriteServiceException";
+
+export const serializeAws_json1_0CreateBatchLoadTaskCommand = async (
+  input: CreateBatchLoadTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "Timestream_20181101.CreateBatchLoadTask",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0CreateBatchLoadTaskRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_json1_0CreateDatabaseCommand = async (
   input: CreateDatabaseCommandInput,
@@ -142,6 +192,19 @@ export const serializeAws_json1_0DeleteTableCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0DescribeBatchLoadTaskCommand = async (
+  input: DescribeBatchLoadTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "Timestream_20181101.DescribeBatchLoadTask",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DescribeBatchLoadTaskRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0DescribeDatabaseCommand = async (
   input: DescribeDatabaseCommandInput,
   context: __SerdeContext
@@ -181,6 +244,19 @@ export const serializeAws_json1_0DescribeTableCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0ListBatchLoadTasksCommand = async (
+  input: ListBatchLoadTasksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "Timestream_20181101.ListBatchLoadTasks",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListBatchLoadTasksRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0ListDatabasesCommand = async (
   input: ListDatabasesCommandInput,
   context: __SerdeContext
@@ -217,6 +293,19 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ResumeBatchLoadTaskCommand = async (
+  input: ResumeBatchLoadTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "Timestream_20181101.ResumeBatchLoadTask",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ResumeBatchLoadTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -283,6 +372,68 @@ export const serializeAws_json1_0WriteRecordsCommand = async (
   let body: any;
   body = JSON.stringify(serializeAws_json1_0WriteRecordsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_json1_0CreateBatchLoadTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBatchLoadTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0CreateBatchLoadTaskCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0CreateBatchLoadTaskResponse(data, context);
+  const response: CreateBatchLoadTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0CreateBatchLoadTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBatchLoadTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.timestreamwrite#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.timestreamwrite#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.timestreamwrite#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidEndpointException":
+    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.timestreamwrite#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.timestreamwrite#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.timestreamwrite#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_json1_0CreateDatabaseCommand = async (
@@ -512,6 +663,59 @@ const deserializeAws_json1_0DeleteTableCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0DescribeBatchLoadTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBatchLoadTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DescribeBatchLoadTaskCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DescribeBatchLoadTaskResponse(data, context);
+  const response: DescribeBatchLoadTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DescribeBatchLoadTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBatchLoadTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.timestreamwrite#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.timestreamwrite#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidEndpointException":
+    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.timestreamwrite#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_0DescribeDatabaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -671,6 +875,59 @@ const deserializeAws_json1_0DescribeTableCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0ListBatchLoadTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBatchLoadTasksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListBatchLoadTasksCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListBatchLoadTasksResponse(data, context);
+  const response: ListBatchLoadTasksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListBatchLoadTasksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBatchLoadTasksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.timestreamwrite#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.timestreamwrite#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidEndpointException":
+    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.timestreamwrite#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.timestreamwrite#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_0ListDatabasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -807,6 +1064,62 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidEndpointException":
+    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.timestreamwrite#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.timestreamwrite#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0ResumeBatchLoadTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeBatchLoadTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ResumeBatchLoadTaskCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ResumeBatchLoadTaskResponse(data, context);
+  const response: ResumeBatchLoadTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ResumeBatchLoadTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeBatchLoadTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.timestreamwrite#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.timestreamwrite#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.timestreamwrite#InvalidEndpointException":
       throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
@@ -1227,6 +1540,27 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const serializeAws_json1_0CreateBatchLoadTaskRequest = (
+  input: CreateBatchLoadTaskRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.DataModelConfiguration != null && {
+      DataModelConfiguration: serializeAws_json1_0DataModelConfiguration(input.DataModelConfiguration, context),
+    }),
+    ...(input.DataSourceConfiguration != null && {
+      DataSourceConfiguration: serializeAws_json1_0DataSourceConfiguration(input.DataSourceConfiguration, context),
+    }),
+    ...(input.RecordVersion != null && { RecordVersion: input.RecordVersion }),
+    ...(input.ReportConfiguration != null && {
+      ReportConfiguration: serializeAws_json1_0ReportConfiguration(input.ReportConfiguration, context),
+    }),
+    ...(input.TargetDatabaseName != null && { TargetDatabaseName: input.TargetDatabaseName }),
+    ...(input.TargetTableName != null && { TargetTableName: input.TargetTableName }),
+  };
+};
+
 const serializeAws_json1_0CreateDatabaseRequest = (input: CreateDatabaseRequest, context: __SerdeContext): any => {
   return {
     ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
@@ -1252,6 +1586,77 @@ const serializeAws_json1_0CreateTableRequest = (input: CreateTableRequest, conte
   };
 };
 
+const serializeAws_json1_0CsvConfiguration = (input: CsvConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.ColumnSeparator != null && { ColumnSeparator: input.ColumnSeparator }),
+    ...(input.EscapeChar != null && { EscapeChar: input.EscapeChar }),
+    ...(input.NullValue != null && { NullValue: input.NullValue }),
+    ...(input.QuoteChar != null && { QuoteChar: input.QuoteChar }),
+    ...(input.TrimWhiteSpace != null && { TrimWhiteSpace: input.TrimWhiteSpace }),
+  };
+};
+
+const serializeAws_json1_0DataModel = (input: DataModel, context: __SerdeContext): any => {
+  return {
+    ...(input.DimensionMappings != null && {
+      DimensionMappings: serializeAws_json1_0DimensionMappings(input.DimensionMappings, context),
+    }),
+    ...(input.MeasureNameColumn != null && { MeasureNameColumn: input.MeasureNameColumn }),
+    ...(input.MixedMeasureMappings != null && {
+      MixedMeasureMappings: serializeAws_json1_0MixedMeasureMappingList(input.MixedMeasureMappings, context),
+    }),
+    ...(input.MultiMeasureMappings != null && {
+      MultiMeasureMappings: serializeAws_json1_0MultiMeasureMappings(input.MultiMeasureMappings, context),
+    }),
+    ...(input.TimeColumn != null && { TimeColumn: input.TimeColumn }),
+    ...(input.TimeUnit != null && { TimeUnit: input.TimeUnit }),
+  };
+};
+
+const serializeAws_json1_0DataModelConfiguration = (input: DataModelConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.DataModel != null && { DataModel: serializeAws_json1_0DataModel(input.DataModel, context) }),
+    ...(input.DataModelS3Configuration != null && {
+      DataModelS3Configuration: serializeAws_json1_0DataModelS3Configuration(input.DataModelS3Configuration, context),
+    }),
+  };
+};
+
+const serializeAws_json1_0DataModelS3Configuration = (
+  input: DataModelS3Configuration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BucketName != null && { BucketName: input.BucketName }),
+    ...(input.ObjectKey != null && { ObjectKey: input.ObjectKey }),
+  };
+};
+
+const serializeAws_json1_0DataSourceConfiguration = (input: DataSourceConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.CsvConfiguration != null && {
+      CsvConfiguration: serializeAws_json1_0CsvConfiguration(input.CsvConfiguration, context),
+    }),
+    ...(input.DataFormat != null && { DataFormat: input.DataFormat }),
+    ...(input.DataSourceS3Configuration != null && {
+      DataSourceS3Configuration: serializeAws_json1_0DataSourceS3Configuration(
+        input.DataSourceS3Configuration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_json1_0DataSourceS3Configuration = (
+  input: DataSourceS3Configuration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BucketName != null && { BucketName: input.BucketName }),
+    ...(input.ObjectKeyPrefix != null && { ObjectKeyPrefix: input.ObjectKeyPrefix }),
+  };
+};
+
 const serializeAws_json1_0DeleteDatabaseRequest = (input: DeleteDatabaseRequest, context: __SerdeContext): any => {
   return {
     ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
@@ -1262,6 +1667,15 @@ const serializeAws_json1_0DeleteTableRequest = (input: DeleteTableRequest, conte
   return {
     ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
     ...(input.TableName != null && { TableName: input.TableName }),
+  };
+};
+
+const serializeAws_json1_0DescribeBatchLoadTaskRequest = (
+  input: DescribeBatchLoadTaskRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TaskId != null && { TaskId: input.TaskId }),
   };
 };
 
@@ -1293,12 +1707,38 @@ const serializeAws_json1_0Dimension = (input: Dimension, context: __SerdeContext
   };
 };
 
+const serializeAws_json1_0DimensionMapping = (input: DimensionMapping, context: __SerdeContext): any => {
+  return {
+    ...(input.DestinationColumn != null && { DestinationColumn: input.DestinationColumn }),
+    ...(input.SourceColumn != null && { SourceColumn: input.SourceColumn }),
+  };
+};
+
+const serializeAws_json1_0DimensionMappings = (input: DimensionMapping[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_0DimensionMapping(entry, context);
+    });
+};
+
 const serializeAws_json1_0Dimensions = (input: Dimension[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_json1_0Dimension(entry, context);
     });
+};
+
+const serializeAws_json1_0ListBatchLoadTasksRequest = (
+  input: ListBatchLoadTasksRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.TaskStatus != null && { TaskStatus: input.TaskStatus }),
+  };
 };
 
 const serializeAws_json1_0ListDatabasesRequest = (input: ListDatabasesRequest, context: __SerdeContext): any => {
@@ -1367,6 +1807,65 @@ const serializeAws_json1_0MeasureValues = (input: MeasureValue[], context: __Ser
     });
 };
 
+const serializeAws_json1_0MixedMeasureMapping = (input: MixedMeasureMapping, context: __SerdeContext): any => {
+  return {
+    ...(input.MeasureName != null && { MeasureName: input.MeasureName }),
+    ...(input.MeasureValueType != null && { MeasureValueType: input.MeasureValueType }),
+    ...(input.MultiMeasureAttributeMappings != null && {
+      MultiMeasureAttributeMappings: serializeAws_json1_0MultiMeasureAttributeMappingList(
+        input.MultiMeasureAttributeMappings,
+        context
+      ),
+    }),
+    ...(input.SourceColumn != null && { SourceColumn: input.SourceColumn }),
+    ...(input.TargetMeasureName != null && { TargetMeasureName: input.TargetMeasureName }),
+  };
+};
+
+const serializeAws_json1_0MixedMeasureMappingList = (input: MixedMeasureMapping[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_0MixedMeasureMapping(entry, context);
+    });
+};
+
+const serializeAws_json1_0MultiMeasureAttributeMapping = (
+  input: MultiMeasureAttributeMapping,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MeasureValueType != null && { MeasureValueType: input.MeasureValueType }),
+    ...(input.SourceColumn != null && { SourceColumn: input.SourceColumn }),
+    ...(input.TargetMultiMeasureAttributeName != null && {
+      TargetMultiMeasureAttributeName: input.TargetMultiMeasureAttributeName,
+    }),
+  };
+};
+
+const serializeAws_json1_0MultiMeasureAttributeMappingList = (
+  input: MultiMeasureAttributeMapping[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_0MultiMeasureAttributeMapping(entry, context);
+    });
+};
+
+const serializeAws_json1_0MultiMeasureMappings = (input: MultiMeasureMappings, context: __SerdeContext): any => {
+  return {
+    ...(input.MultiMeasureAttributeMappings != null && {
+      MultiMeasureAttributeMappings: serializeAws_json1_0MultiMeasureAttributeMappingList(
+        input.MultiMeasureAttributeMappings,
+        context
+      ),
+    }),
+    ...(input.TargetMultiMeasureName != null && { TargetMultiMeasureName: input.TargetMultiMeasureName }),
+  };
+};
+
 const serializeAws_json1_0_Record = (input: _Record, context: __SerdeContext): any => {
   return {
     ...(input.Dimensions != null && { Dimensions: serializeAws_json1_0Dimensions(input.Dimensions, context) }),
@@ -1388,6 +1887,32 @@ const serializeAws_json1_0Records = (input: _Record[], context: __SerdeContext):
     .map((entry) => {
       return serializeAws_json1_0_Record(entry, context);
     });
+};
+
+const serializeAws_json1_0ReportConfiguration = (input: ReportConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.ReportS3Configuration != null && {
+      ReportS3Configuration: serializeAws_json1_0ReportS3Configuration(input.ReportS3Configuration, context),
+    }),
+  };
+};
+
+const serializeAws_json1_0ReportS3Configuration = (input: ReportS3Configuration, context: __SerdeContext): any => {
+  return {
+    ...(input.BucketName != null && { BucketName: input.BucketName }),
+    ...(input.EncryptionOption != null && { EncryptionOption: input.EncryptionOption }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.ObjectKeyPrefix != null && { ObjectKeyPrefix: input.ObjectKeyPrefix }),
+  };
+};
+
+const serializeAws_json1_0ResumeBatchLoadTaskRequest = (
+  input: ResumeBatchLoadTaskRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TaskId != null && { TaskId: input.TaskId }),
+  };
 };
 
 const serializeAws_json1_0RetentionProperties = (input: RetentionProperties, context: __SerdeContext): any => {
@@ -1487,9 +2012,107 @@ const deserializeAws_json1_0AccessDeniedException = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_0BatchLoadProgressReport = (
+  output: any,
+  context: __SerdeContext
+): BatchLoadProgressReport => {
+  return {
+    BytesMetered: __expectLong(output.BytesMetered),
+    FileFailures: __expectLong(output.FileFailures),
+    ParseFailures: __expectLong(output.ParseFailures),
+    RecordIngestionFailures: __expectLong(output.RecordIngestionFailures),
+    RecordsIngested: __expectLong(output.RecordsIngested),
+    RecordsProcessed: __expectLong(output.RecordsProcessed),
+  } as any;
+};
+
+const deserializeAws_json1_0BatchLoadTask = (output: any, context: __SerdeContext): BatchLoadTask => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DatabaseName: __expectString(output.DatabaseName),
+    LastUpdatedTime:
+      output.LastUpdatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
+        : undefined,
+    ResumableUntil:
+      output.ResumableUntil != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ResumableUntil)))
+        : undefined,
+    TableName: __expectString(output.TableName),
+    TaskId: __expectString(output.TaskId),
+    TaskStatus: __expectString(output.TaskStatus),
+  } as any;
+};
+
+const deserializeAws_json1_0BatchLoadTaskDescription = (
+  output: any,
+  context: __SerdeContext
+): BatchLoadTaskDescription => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DataModelConfiguration:
+      output.DataModelConfiguration != null
+        ? deserializeAws_json1_0DataModelConfiguration(output.DataModelConfiguration, context)
+        : undefined,
+    DataSourceConfiguration:
+      output.DataSourceConfiguration != null
+        ? deserializeAws_json1_0DataSourceConfiguration(output.DataSourceConfiguration, context)
+        : undefined,
+    ErrorMessage: __expectString(output.ErrorMessage),
+    LastUpdatedTime:
+      output.LastUpdatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
+        : undefined,
+    ProgressReport:
+      output.ProgressReport != null
+        ? deserializeAws_json1_0BatchLoadProgressReport(output.ProgressReport, context)
+        : undefined,
+    RecordVersion: __expectLong(output.RecordVersion),
+    ReportConfiguration:
+      output.ReportConfiguration != null
+        ? deserializeAws_json1_0ReportConfiguration(output.ReportConfiguration, context)
+        : undefined,
+    ResumableUntil:
+      output.ResumableUntil != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ResumableUntil)))
+        : undefined,
+    TargetDatabaseName: __expectString(output.TargetDatabaseName),
+    TargetTableName: __expectString(output.TargetTableName),
+    TaskId: __expectString(output.TaskId),
+    TaskStatus: __expectString(output.TaskStatus),
+  } as any;
+};
+
+const deserializeAws_json1_0BatchLoadTaskList = (output: any, context: __SerdeContext): BatchLoadTask[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0BatchLoadTask(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_0CreateBatchLoadTaskResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateBatchLoadTaskResponse => {
+  return {
+    TaskId: __expectString(output.TaskId),
   } as any;
 };
 
@@ -1502,6 +2125,16 @@ const deserializeAws_json1_0CreateDatabaseResponse = (output: any, context: __Se
 const deserializeAws_json1_0CreateTableResponse = (output: any, context: __SerdeContext): CreateTableResponse => {
   return {
     Table: output.Table != null ? deserializeAws_json1_0Table(output.Table, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0CsvConfiguration = (output: any, context: __SerdeContext): CsvConfiguration => {
+  return {
+    ColumnSeparator: __expectString(output.ColumnSeparator),
+    EscapeChar: __expectString(output.EscapeChar),
+    NullValue: __expectString(output.NullValue),
+    QuoteChar: __expectString(output.QuoteChar),
+    TrimWhiteSpace: __expectBoolean(output.TrimWhiteSpace),
   } as any;
 };
 
@@ -1534,6 +2167,85 @@ const deserializeAws_json1_0DatabaseList = (output: any, context: __SerdeContext
   return retVal;
 };
 
+const deserializeAws_json1_0DataModel = (output: any, context: __SerdeContext): DataModel => {
+  return {
+    DimensionMappings:
+      output.DimensionMappings != null
+        ? deserializeAws_json1_0DimensionMappings(output.DimensionMappings, context)
+        : undefined,
+    MeasureNameColumn: __expectString(output.MeasureNameColumn),
+    MixedMeasureMappings:
+      output.MixedMeasureMappings != null
+        ? deserializeAws_json1_0MixedMeasureMappingList(output.MixedMeasureMappings, context)
+        : undefined,
+    MultiMeasureMappings:
+      output.MultiMeasureMappings != null
+        ? deserializeAws_json1_0MultiMeasureMappings(output.MultiMeasureMappings, context)
+        : undefined,
+    TimeColumn: __expectString(output.TimeColumn),
+    TimeUnit: __expectString(output.TimeUnit),
+  } as any;
+};
+
+const deserializeAws_json1_0DataModelConfiguration = (output: any, context: __SerdeContext): DataModelConfiguration => {
+  return {
+    DataModel: output.DataModel != null ? deserializeAws_json1_0DataModel(output.DataModel, context) : undefined,
+    DataModelS3Configuration:
+      output.DataModelS3Configuration != null
+        ? deserializeAws_json1_0DataModelS3Configuration(output.DataModelS3Configuration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0DataModelS3Configuration = (
+  output: any,
+  context: __SerdeContext
+): DataModelS3Configuration => {
+  return {
+    BucketName: __expectString(output.BucketName),
+    ObjectKey: __expectString(output.ObjectKey),
+  } as any;
+};
+
+const deserializeAws_json1_0DataSourceConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DataSourceConfiguration => {
+  return {
+    CsvConfiguration:
+      output.CsvConfiguration != null
+        ? deserializeAws_json1_0CsvConfiguration(output.CsvConfiguration, context)
+        : undefined,
+    DataFormat: __expectString(output.DataFormat),
+    DataSourceS3Configuration:
+      output.DataSourceS3Configuration != null
+        ? deserializeAws_json1_0DataSourceS3Configuration(output.DataSourceS3Configuration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0DataSourceS3Configuration = (
+  output: any,
+  context: __SerdeContext
+): DataSourceS3Configuration => {
+  return {
+    BucketName: __expectString(output.BucketName),
+    ObjectKeyPrefix: __expectString(output.ObjectKeyPrefix),
+  } as any;
+};
+
+const deserializeAws_json1_0DescribeBatchLoadTaskResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeBatchLoadTaskResponse => {
+  return {
+    BatchLoadTaskDescription:
+      output.BatchLoadTaskDescription != null
+        ? deserializeAws_json1_0BatchLoadTaskDescription(output.BatchLoadTaskDescription, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0DescribeDatabaseResponse = (
   output: any,
   context: __SerdeContext
@@ -1556,6 +2268,25 @@ const deserializeAws_json1_0DescribeTableResponse = (output: any, context: __Ser
   return {
     Table: output.Table != null ? deserializeAws_json1_0Table(output.Table, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_0DimensionMapping = (output: any, context: __SerdeContext): DimensionMapping => {
+  return {
+    DestinationColumn: __expectString(output.DestinationColumn),
+    SourceColumn: __expectString(output.SourceColumn),
+  } as any;
+};
+
+const deserializeAws_json1_0DimensionMappings = (output: any, context: __SerdeContext): DimensionMapping[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0DimensionMapping(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_0Endpoint = (output: any, context: __SerdeContext): Endpoint => {
@@ -1592,6 +2323,19 @@ const deserializeAws_json1_0InvalidEndpointException = (
 ): InvalidEndpointException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_0ListBatchLoadTasksResponse = (
+  output: any,
+  context: __SerdeContext
+): ListBatchLoadTasksResponse => {
+  return {
+    BatchLoadTasks:
+      output.BatchLoadTasks != null
+        ? deserializeAws_json1_0BatchLoadTaskList(output.BatchLoadTasks, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -1643,6 +2387,67 @@ const deserializeAws_json1_0MagneticStoreWriteProperties = (
   } as any;
 };
 
+const deserializeAws_json1_0MixedMeasureMapping = (output: any, context: __SerdeContext): MixedMeasureMapping => {
+  return {
+    MeasureName: __expectString(output.MeasureName),
+    MeasureValueType: __expectString(output.MeasureValueType),
+    MultiMeasureAttributeMappings:
+      output.MultiMeasureAttributeMappings != null
+        ? deserializeAws_json1_0MultiMeasureAttributeMappingList(output.MultiMeasureAttributeMappings, context)
+        : undefined,
+    SourceColumn: __expectString(output.SourceColumn),
+    TargetMeasureName: __expectString(output.TargetMeasureName),
+  } as any;
+};
+
+const deserializeAws_json1_0MixedMeasureMappingList = (output: any, context: __SerdeContext): MixedMeasureMapping[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0MixedMeasureMapping(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0MultiMeasureAttributeMapping = (
+  output: any,
+  context: __SerdeContext
+): MultiMeasureAttributeMapping => {
+  return {
+    MeasureValueType: __expectString(output.MeasureValueType),
+    SourceColumn: __expectString(output.SourceColumn),
+    TargetMultiMeasureAttributeName: __expectString(output.TargetMultiMeasureAttributeName),
+  } as any;
+};
+
+const deserializeAws_json1_0MultiMeasureAttributeMappingList = (
+  output: any,
+  context: __SerdeContext
+): MultiMeasureAttributeMapping[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0MultiMeasureAttributeMapping(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0MultiMeasureMappings = (output: any, context: __SerdeContext): MultiMeasureMappings => {
+  return {
+    MultiMeasureAttributeMappings:
+      output.MultiMeasureAttributeMappings != null
+        ? deserializeAws_json1_0MultiMeasureAttributeMappingList(output.MultiMeasureAttributeMappings, context)
+        : undefined,
+    TargetMultiMeasureName: __expectString(output.TargetMultiMeasureName),
+  } as any;
+};
+
 const deserializeAws_json1_0RecordsIngested = (output: any, context: __SerdeContext): RecordsIngested => {
   return {
     MagneticStore: __expectInt32(output.MagneticStore),
@@ -1684,6 +2489,24 @@ const deserializeAws_json1_0RejectedRecordsException = (
   } as any;
 };
 
+const deserializeAws_json1_0ReportConfiguration = (output: any, context: __SerdeContext): ReportConfiguration => {
+  return {
+    ReportS3Configuration:
+      output.ReportS3Configuration != null
+        ? deserializeAws_json1_0ReportS3Configuration(output.ReportS3Configuration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ReportS3Configuration = (output: any, context: __SerdeContext): ReportS3Configuration => {
+  return {
+    BucketName: __expectString(output.BucketName),
+    EncryptionOption: __expectString(output.EncryptionOption),
+    KmsKeyId: __expectString(output.KmsKeyId),
+    ObjectKeyPrefix: __expectString(output.ObjectKeyPrefix),
+  } as any;
+};
+
 const deserializeAws_json1_0ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
@@ -1691,6 +2514,13 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   return {
     Message: __expectString(output.Message),
   } as any;
+};
+
+const deserializeAws_json1_0ResumeBatchLoadTaskResponse = (
+  output: any,
+  context: __SerdeContext
+): ResumeBatchLoadTaskResponse => {
+  return {} as any;
 };
 
 const deserializeAws_json1_0RetentionProperties = (output: any, context: __SerdeContext): RetentionProperties => {

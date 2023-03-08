@@ -20,7 +20,13 @@ import {
   serializeAws_restXmlDeleteDistributionCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * The input for {@link DeleteDistributionCommand}.
+ */
 export interface DeleteDistributionCommandInput extends DeleteDistributionRequest {}
+/**
+ * The output of {@link DeleteDistributionCommand}.
+ */
 export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
 
 /**

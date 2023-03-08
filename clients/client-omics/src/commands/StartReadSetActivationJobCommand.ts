@@ -25,11 +25,18 @@ import {
   serializeAws_restJson1StartReadSetActivationJobCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartReadSetActivationJobCommand}.
+ */
 export interface StartReadSetActivationJobCommandInput extends StartReadSetActivationJobRequest {}
+/**
+ * The output of {@link StartReadSetActivationJobCommand}.
+ */
 export interface StartReadSetActivationJobCommandOutput extends StartReadSetActivationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a read set activation job.</p>
+ * <p>Activates an archived read set. To reduce storage charges, Amazon Omics archives unused read
+ *        sets after 30 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

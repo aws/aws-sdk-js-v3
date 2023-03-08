@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1DeleteFleetMetricCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteFleetMetricCommand}.
+ */
 export interface DeleteFleetMetricCommandInput extends DeleteFleetMetricRequest {}
+/**
+ * The output of {@link DeleteFleetMetricCommand}.
+ */
 export interface DeleteFleetMetricCommandOutput extends __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListCoreDefinitionVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListCoreDefinitionVersionsCommand}.
+ */
 export interface ListCoreDefinitionVersionsCommandInput extends ListCoreDefinitionVersionsRequest {}
+/**
+ * The output of {@link ListCoreDefinitionVersionsCommand}.
+ */
 export interface ListCoreDefinitionVersionsCommandOutput extends ListCoreDefinitionVersionsResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_queryCreateListenerCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link CreateListenerCommand}.
+ */
 export interface CreateListenerCommandInput extends CreateListenerInput {}
+/**
+ * The output of {@link CreateListenerCommand}.
+ */
 export interface CreateListenerCommandOutput extends CreateListenerOutput, __MetadataBearer {}
 
 /**

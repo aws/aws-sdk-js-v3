@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1AdminConfirmSignUpCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link AdminConfirmSignUpCommand}.
+ */
 export interface AdminConfirmSignUpCommandInput extends AdminConfirmSignUpRequest {}
+/**
+ * The output of {@link AdminConfirmSignUpCommand}.
+ */
 export interface AdminConfirmSignUpCommandOutput extends AdminConfirmSignUpResponse, __MetadataBearer {}
 
 /**

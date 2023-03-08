@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartServiceSoftwareUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartServiceSoftwareUpdateCommand}.
+ */
 export interface StartServiceSoftwareUpdateCommandInput extends StartServiceSoftwareUpdateRequest {}
+/**
+ * The output of {@link StartServiceSoftwareUpdateCommand}.
+ */
 export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSoftwareUpdateResponse, __MetadataBearer {}
 
 /**

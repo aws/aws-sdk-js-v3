@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1PutAlternateContactCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutAlternateContactCommand}.
+ */
 export interface PutAlternateContactCommandInput extends PutAlternateContactRequest {}
+/**
+ * The output of {@link PutAlternateContactCommand}.
+ */
 export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
 
 /**

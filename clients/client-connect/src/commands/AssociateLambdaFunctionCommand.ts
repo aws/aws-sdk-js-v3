@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1AssociateLambdaFunctionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link AssociateLambdaFunctionCommand}.
+ */
 export interface AssociateLambdaFunctionCommandInput extends AssociateLambdaFunctionRequest {}
+/**
+ * The output of {@link AssociateLambdaFunctionCommand}.
+ */
 export interface AssociateLambdaFunctionCommandOutput extends __MetadataBearer {}
 
 /**

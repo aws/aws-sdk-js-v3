@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListPredictorBacktestExportJobsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListPredictorBacktestExportJobsCommand}.
+ */
 export interface ListPredictorBacktestExportJobsCommandInput extends ListPredictorBacktestExportJobsRequest {}
+/**
+ * The output of {@link ListPredictorBacktestExportJobsCommand}.
+ */
 export interface ListPredictorBacktestExportJobsCommandOutput
   extends ListPredictorBacktestExportJobsResponse,
     __MetadataBearer {}

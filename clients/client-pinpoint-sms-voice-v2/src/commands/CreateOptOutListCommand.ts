@@ -29,7 +29,13 @@ import {
   serializeAws_json1_0CreateOptOutListCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateOptOutListCommand}.
+ */
 export interface CreateOptOutListCommandInput extends CreateOptOutListRequest {}
+/**
+ * The output of {@link CreateOptOutListCommand}.
+ */
 export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, __MetadataBearer {}
 
 /**

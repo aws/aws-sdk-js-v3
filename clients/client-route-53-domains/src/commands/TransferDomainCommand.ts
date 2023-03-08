@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * The input for {@link TransferDomainCommand}.
+ */
 export interface TransferDomainCommandInput extends TransferDomainRequest {}
+/**
+ * The output of {@link TransferDomainCommand}.
+ */
 export interface TransferDomainCommandOutput extends TransferDomainResponse, __MetadataBearer {}
 
 /**

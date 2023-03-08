@@ -21,7 +21,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link GetInventoryCommand}.
+ */
 export interface GetInventoryCommandInput extends GetInventoryRequest {}
+/**
+ * The output of {@link GetInventoryCommand}.
+ */
 export interface GetInventoryCommandOutput extends GetInventoryResult, __MetadataBearer {}
 
 /**

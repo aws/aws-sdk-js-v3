@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetStreamingImageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetStreamingImageCommand}.
+ */
 export interface GetStreamingImageCommandInput extends GetStreamingImageRequest {}
+/**
+ * The output of {@link GetStreamingImageCommand}.
+ */
 export interface GetStreamingImageCommandOutput extends GetStreamingImageResponse, __MetadataBearer {}
 
 /**

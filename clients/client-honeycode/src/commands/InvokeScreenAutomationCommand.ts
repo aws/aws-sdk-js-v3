@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1InvokeScreenAutomationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link InvokeScreenAutomationCommand}.
+ */
 export interface InvokeScreenAutomationCommandInput extends InvokeScreenAutomationRequest {}
+/**
+ * The output of {@link InvokeScreenAutomationCommand}.
+ */
 export interface InvokeScreenAutomationCommandOutput extends InvokeScreenAutomationResult, __MetadataBearer {}
 
 /**

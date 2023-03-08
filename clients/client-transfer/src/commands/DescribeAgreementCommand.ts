@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * The input for {@link DescribeAgreementCommand}.
+ */
 export interface DescribeAgreementCommandInput extends DescribeAgreementRequest {}
+/**
+ * The output of {@link DescribeAgreementCommand}.
+ */
 export interface DescribeAgreementCommandOutput extends DescribeAgreementResponse, __MetadataBearer {}
 
 /**

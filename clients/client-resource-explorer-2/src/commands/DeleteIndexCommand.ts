@@ -29,7 +29,13 @@ import {
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * The input for {@link DeleteIndexCommand}.
+ */
 export interface DeleteIndexCommandInput extends DeleteIndexInput {}
+/**
+ * The output of {@link DeleteIndexCommand}.
+ */
 export interface DeleteIndexCommandOutput extends DeleteIndexOutput, __MetadataBearer {}
 
 /**

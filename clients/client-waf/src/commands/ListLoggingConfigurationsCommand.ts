@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * The input for {@link ListLoggingConfigurationsCommand}.
+ */
 export interface ListLoggingConfigurationsCommandInput extends ListLoggingConfigurationsRequest {}
+/**
+ * The output of {@link ListLoggingConfigurationsCommand}.
+ */
 export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfigurationsResponse, __MetadataBearer {}
 
 /**

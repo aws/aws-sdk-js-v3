@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteRolePolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteRolePolicyCommand}.
+ */
 export interface DeleteRolePolicyCommandInput extends DeleteRolePolicyRequest {}
+/**
+ * The output of {@link DeleteRolePolicyCommand}.
+ */
 export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**

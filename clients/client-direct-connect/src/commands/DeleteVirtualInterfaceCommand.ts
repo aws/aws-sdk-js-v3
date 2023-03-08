@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteVirtualInterfaceCommand}.
+ */
 export interface DeleteVirtualInterfaceCommandInput extends DeleteVirtualInterfaceRequest {}
+/**
+ * The output of {@link DeleteVirtualInterfaceCommand}.
+ */
 export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterfaceResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ReleaseFileSystemNfsV3LocksCommand}.
+ */
 export interface ReleaseFileSystemNfsV3LocksCommandInput extends ReleaseFileSystemNfsV3LocksRequest {}
+/**
+ * The output of {@link ReleaseFileSystemNfsV3LocksCommand}.
+ */
 export interface ReleaseFileSystemNfsV3LocksCommandOutput
   extends ReleaseFileSystemNfsV3LocksResponse,
     __MetadataBearer {}

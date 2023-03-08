@@ -25,7 +25,13 @@ import {
   serializeAws_queryPutScalingPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link PutScalingPolicyCommand}.
+ */
 export interface PutScalingPolicyCommandInput extends PutScalingPolicyType {}
+/**
+ * The output of {@link PutScalingPolicyCommand}.
+ */
 export interface PutScalingPolicyCommandOutput extends PolicyARNType, __MetadataBearer {}
 
 /**

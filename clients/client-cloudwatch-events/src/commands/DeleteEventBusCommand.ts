@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1DeleteEventBusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteEventBusCommand}.
+ */
 export interface DeleteEventBusCommandInput extends DeleteEventBusRequest {}
+/**
+ * The output of {@link DeleteEventBusCommand}.
+ */
 export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
 
 /**

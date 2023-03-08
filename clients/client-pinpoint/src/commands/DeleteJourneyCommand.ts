@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteJourneyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteJourneyCommand}.
+ */
 export interface DeleteJourneyCommandInput extends DeleteJourneyRequest {}
+/**
+ * The output of {@link DeleteJourneyCommand}.
+ */
 export interface DeleteJourneyCommandOutput extends DeleteJourneyResponse, __MetadataBearer {}
 
 /**

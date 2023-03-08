@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link UpdateAssociationCommand}.
+ */
 export interface UpdateAssociationCommandInput extends UpdateAssociationRequest {}
+/**
+ * The output of {@link UpdateAssociationCommand}.
+ */
 export interface UpdateAssociationCommandOutput extends UpdateAssociationResult, __MetadataBearer {}
 
 /**
@@ -37,12 +43,12 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationResult,
  *    includes the <code>Name</code> parameter. Before calling this API action, we recommend that you
  *    call the <a>DescribeAssociation</a> API operation and make a note of all optional
  *    parameters required for your <code>UpdateAssociation</code> call.</p>
- *          <p>In order to call this API operation, your Identity and Access Management (IAM) user
- *    account, group, or role must be configured with permission to call the <a>DescribeAssociation</a> API operation. If you don't have permission to call
- *     <code>DescribeAssociation</code>, then you receive the following error: <code>An error occurred
- *     (AccessDeniedException) when calling the UpdateAssociation operation: User: <user_arn>
- *     isn't authorized to perform: ssm:DescribeAssociation on resource:
- *    <resource_arn></code>
+ *          <p>In order to call this API operation, a user, group, or role must be granted permission to
+ *    call the <a>DescribeAssociation</a> API operation. If you don't have permission to
+ *    call <code>DescribeAssociation</code>, then you receive the following error: <code>An error
+ *     occurred (AccessDeniedException) when calling the UpdateAssociation operation: User:
+ *     <user_arn> isn't authorized to perform: ssm:DescribeAssociation on resource:
+ *     <resource_arn></code>
  *          </p>
  *          <important>
  *             <p>When you update an association, the association immediately runs against the specified

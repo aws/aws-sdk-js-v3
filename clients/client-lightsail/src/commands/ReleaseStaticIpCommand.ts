@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ReleaseStaticIpCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ReleaseStaticIpCommand}.
+ */
 export interface ReleaseStaticIpCommandInput extends ReleaseStaticIpRequest {}
+/**
+ * The output of {@link ReleaseStaticIpCommand}.
+ */
 export interface ReleaseStaticIpCommandOutput extends ReleaseStaticIpResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * The input for {@link CheckCapacityCommand}.
+ */
 export interface CheckCapacityCommandInput extends CheckCapacityRequest {}
+/**
+ * The output of {@link CheckCapacityCommand}.
+ */
 export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __MetadataBearer {}
 
 /**

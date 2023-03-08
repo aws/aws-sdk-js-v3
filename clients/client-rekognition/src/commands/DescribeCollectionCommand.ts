@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * The input for {@link DescribeCollectionCommand}.
+ */
 export interface DescribeCollectionCommandInput extends DescribeCollectionRequest {}
+/**
+ * The output of {@link DescribeCollectionCommand}.
+ */
 export interface DescribeCollectionCommandOutput extends DescribeCollectionResponse, __MetadataBearer {}
 
 /**

@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CloudTrail } from "../CloudTrail";
 import { CloudTrailClient } from "../CloudTrailClient";
 import {
   LookupEventsCommand,
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new LookupEventsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: CloudTrail,
-  input: LookupEventsCommandInput,
-  ...args: any
-): Promise<LookupEventsCommandOutput> => {
-  // @ts-ignore
-  return await client.lookupEvents(input, ...args);
-};
 export async function* paginateLookupEvents(
   config: CloudTrailPaginationConfiguration,
   input: LookupEventsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateLookupEvents(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CloudTrail) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudTrailClient) {
+    if (config.client instanceof CloudTrailClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudTrail | CloudTrailClient");

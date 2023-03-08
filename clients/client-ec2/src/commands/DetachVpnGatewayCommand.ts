@@ -20,7 +20,13 @@ import {
   serializeAws_ec2DetachVpnGatewayCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DetachVpnGatewayCommand}.
+ */
 export interface DetachVpnGatewayCommandInput extends DetachVpnGatewayRequest {}
+/**
+ * The output of {@link DetachVpnGatewayCommand}.
+ */
 export interface DetachVpnGatewayCommandOutput extends __MetadataBearer {}
 
 /**

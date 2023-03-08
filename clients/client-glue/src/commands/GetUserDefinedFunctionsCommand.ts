@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetUserDefinedFunctionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetUserDefinedFunctionsCommand}.
+ */
 export interface GetUserDefinedFunctionsCommandInput extends GetUserDefinedFunctionsRequest {}
+/**
+ * The output of {@link GetUserDefinedFunctionsCommand}.
+ */
 export interface GetUserDefinedFunctionsCommandOutput extends GetUserDefinedFunctionsResponse, __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1GetLatestAssessmentIdCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetLatestAssessmentIdCommand}.
+ */
 export interface GetLatestAssessmentIdCommandInput extends GetLatestAssessmentIdRequest {}
+/**
+ * The output of {@link GetLatestAssessmentIdCommand}.
+ */
 export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentIdResponse, __MetadataBearer {}
 
 /**

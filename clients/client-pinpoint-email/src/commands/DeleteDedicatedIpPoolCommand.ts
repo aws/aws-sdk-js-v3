@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteDedicatedIpPoolCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteDedicatedIpPoolCommand}.
+ */
 export interface DeleteDedicatedIpPoolCommandInput extends DeleteDedicatedIpPoolRequest {}
+/**
+ * The output of {@link DeleteDedicatedIpPoolCommand}.
+ */
 export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoolResponse, __MetadataBearer {}
 
 /**

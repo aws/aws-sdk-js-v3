@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListReviewPolicyResultsForHITCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListReviewPolicyResultsForHITCommand}.
+ */
 export interface ListReviewPolicyResultsForHITCommandInput extends ListReviewPolicyResultsForHITRequest {}
+/**
+ * The output of {@link ListReviewPolicyResultsForHITCommand}.
+ */
 export interface ListReviewPolicyResultsForHITCommandOutput
   extends ListReviewPolicyResultsForHITResponse,
     __MetadataBearer {}

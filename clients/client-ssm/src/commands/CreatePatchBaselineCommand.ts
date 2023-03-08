@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link CreatePatchBaselineCommand}.
+ */
 export interface CreatePatchBaselineCommandInput extends CreatePatchBaselineRequest {}
+/**
+ * The output of {@link CreatePatchBaselineCommand}.
+ */
 export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineResult, __MetadataBearer {}
 
 /**

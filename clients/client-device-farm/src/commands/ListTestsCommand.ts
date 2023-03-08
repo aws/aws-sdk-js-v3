@@ -22,7 +22,13 @@ import {
 } from "../models/models_0";
 import { deserializeAws_json1_1ListTestsCommand, serializeAws_json1_1ListTestsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListTestsCommand}.
+ */
 export interface ListTestsCommandInput extends ListTestsRequest {}
+/**
+ * The output of {@link ListTestsCommand}.
+ */
 export interface ListTestsCommandOutput extends ListTestsResult, __MetadataBearer {}
 
 /**

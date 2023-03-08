@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeConfigRuleEvaluationStatusCommand}.
+ */
 export interface DescribeConfigRuleEvaluationStatusCommandInput extends DescribeConfigRuleEvaluationStatusRequest {}
+/**
+ * The output of {@link DescribeConfigRuleEvaluationStatusCommand}.
+ */
 export interface DescribeConfigRuleEvaluationStatusCommandOutput
   extends DescribeConfigRuleEvaluationStatusResponse,
     __MetadataBearer {}

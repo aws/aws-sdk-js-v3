@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * The input for {@link PutIdentityPolicyCommand}.
+ */
 export interface PutIdentityPolicyCommandInput extends PutIdentityPolicyRequest {}
+/**
+ * The output of {@link PutIdentityPolicyCommand}.
+ */
 export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyResponse, __MetadataBearer {}
 
 /**

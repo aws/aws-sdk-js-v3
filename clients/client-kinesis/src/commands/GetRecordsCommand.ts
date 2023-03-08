@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetRecordsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetRecordsCommand}.
+ */
 export interface GetRecordsCommandInput extends GetRecordsInput {}
+/**
+ * The output of {@link GetRecordsCommand}.
+ */
 export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBearer {}
 
 /**

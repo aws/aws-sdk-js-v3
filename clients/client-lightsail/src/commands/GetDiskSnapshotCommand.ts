@@ -19,13 +19,19 @@ import {
   GetDiskSnapshotRequestFilterSensitiveLog,
   GetDiskSnapshotResult,
   GetDiskSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetDiskSnapshotCommand,
   serializeAws_json1_1GetDiskSnapshotCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetDiskSnapshotCommand}.
+ */
 export interface GetDiskSnapshotCommandInput extends GetDiskSnapshotRequest {}
+/**
+ * The output of {@link GetDiskSnapshotCommand}.
+ */
 export interface GetDiskSnapshotCommandOutput extends GetDiskSnapshotResult, __MetadataBearer {}
 
 /**

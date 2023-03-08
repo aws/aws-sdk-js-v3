@@ -25,21 +25,27 @@ import {
   serializeAws_json1_1PutAccountSettingCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutAccountSettingCommand}.
+ */
 export interface PutAccountSettingCommandInput extends PutAccountSettingRequest {}
+/**
+ * The output of {@link PutAccountSettingCommand}.
+ */
 export interface PutAccountSettingCommandOutput extends PutAccountSettingResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies an account setting. Account settings are set on a per-Region basis.</p>
  *          <p>If you change the account setting for the root user, the default settings for all of
- * 			the IAM users and roles that no individual account setting was specified are reset for.
+ * 			the users and roles that no individual account setting was specified are reset for.
  * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html">Account
  * 				Settings</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>When <code>serviceLongArnFormat</code>, <code>taskLongArnFormat</code>, or
  * 				<code>containerInstanceLongArnFormat</code> are specified, the Amazon Resource Name
- * 			(ARN) and resource ID format of the resource type for a specified IAM user, IAM role, or
+ * 			(ARN) and resource ID format of the resource type for a specified user, role, or
  * 			the root user for an account is affected. The opt-in and opt-out account setting must be
  * 			set for each Amazon ECS resource separately. The ARN and resource ID format of a resource
- * 			is defined by the opt-in status of the IAM user or role that created the resource. You
+ * 			is defined by the opt-in status of the user or role that created the resource. You
  * 			must turn on this setting to use Amazon ECS features such as resource tagging.</p>
  *          <p>When <code>awsvpcTrunking</code> is specified, the elastic network interface (ENI)
  * 			limit for any new container instances that support the feature is changed. If

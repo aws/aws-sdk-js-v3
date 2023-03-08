@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * The input for {@link DeleteDocumentCommand}.
+ */
 export interface DeleteDocumentCommandInput extends DeleteDocumentRequest {}
+/**
+ * The output of {@link DeleteDocumentCommand}.
+ */
 export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __MetadataBearer {}
 
 /**

@@ -24,7 +24,13 @@ import {
   serializeAws_restJson1PostToConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PostToConnectionCommand}.
+ */
 export interface PostToConnectionCommandInput extends PostToConnectionRequest {}
+/**
+ * The output of {@link PostToConnectionCommand}.
+ */
 export interface PostToConnectionCommandOutput extends __MetadataBearer {}
 
 /**

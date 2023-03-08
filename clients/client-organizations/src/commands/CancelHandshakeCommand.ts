@@ -25,15 +25,21 @@ import {
   serializeAws_json1_1CancelHandshakeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link CancelHandshakeCommand}.
+ */
 export interface CancelHandshakeCommandInput extends CancelHandshakeRequest {}
+/**
+ * The output of {@link CancelHandshakeCommand}.
+ */
 export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a handshake. Canceling a handshake sets the handshake state to
  *                 <code>CANCELED</code>.</p>
- *         <p>This operation can be called only from the account that originated the handshake. The recipient of the handshake can't cancel it, but can use <a>DeclineHandshake</a> instead. After a handshake is canceled, the recipient
+ *          <p>This operation can be called only from the account that originated the handshake. The recipient of the handshake can't cancel it, but can use <a>DeclineHandshake</a> instead. After a handshake is canceled, the recipient
  *             can no longer respond to that handshake.</p>
- *         <p>After you cancel a handshake, it continues to appear in the results of relevant APIs
+ *          <p>After you cancel a handshake, it continues to appear in the results of relevant APIs
  *             for only 30 days. After that, it's deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteGroupPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteGroupPolicyCommand}.
+ */
 export interface DeleteGroupPolicyCommandInput extends DeleteGroupPolicyRequest {}
+/**
+ * The output of {@link DeleteGroupPolicyCommand}.
+ */
 export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**

@@ -29,7 +29,13 @@ import {
   serializeAws_restJson1DeletePlacementCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeletePlacementCommand}.
+ */
 export interface DeletePlacementCommandInput extends DeletePlacementRequest {}
+/**
+ * The output of {@link DeletePlacementCommand}.
+ */
 export interface DeletePlacementCommandOutput extends DeletePlacementResponse, __MetadataBearer {}
 
 /**

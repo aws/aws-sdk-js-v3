@@ -17,7 +17,13 @@ import { CreateTagsMessage, CreateTagsMessageFilterSensitiveLog } from "../model
 import { deserializeAws_queryCreateTagsCommand, serializeAws_queryCreateTagsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link CreateTagsCommand}.
+ */
 export interface CreateTagsCommandInput extends CreateTagsMessage {}
+/**
+ * The output of {@link CreateTagsCommand}.
+ */
 export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**

@@ -29,8 +29,14 @@ import {
   serializeAws_json1_1DescribeApplicableIndividualAssessmentsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeApplicableIndividualAssessmentsCommand}.
+ */
 export interface DescribeApplicableIndividualAssessmentsCommandInput
   extends DescribeApplicableIndividualAssessmentsMessage {}
+/**
+ * The output of {@link DescribeApplicableIndividualAssessmentsCommand}.
+ */
 export interface DescribeApplicableIndividualAssessmentsCommandOutput
   extends DescribeApplicableIndividualAssessmentsResponse,
     __MetadataBearer {}

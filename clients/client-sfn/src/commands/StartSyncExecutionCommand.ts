@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * The input for {@link StartSyncExecutionCommand}.
+ */
 export interface StartSyncExecutionCommandInput extends StartSyncExecutionInput {}
+/**
+ * The output of {@link StartSyncExecutionCommand}.
+ */
 export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutput, __MetadataBearer {}
 
 /**

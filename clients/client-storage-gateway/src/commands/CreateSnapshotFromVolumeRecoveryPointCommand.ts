@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * The input for {@link CreateSnapshotFromVolumeRecoveryPointCommand}.
+ */
 export interface CreateSnapshotFromVolumeRecoveryPointCommandInput extends CreateSnapshotFromVolumeRecoveryPointInput {}
+/**
+ * The output of {@link CreateSnapshotFromVolumeRecoveryPointCommand}.
+ */
 export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
   extends CreateSnapshotFromVolumeRecoveryPointOutput,
     __MetadataBearer {}

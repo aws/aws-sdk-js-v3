@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1StartPipeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link StartPipeCommand}.
+ */
 export interface StartPipeCommandInput extends StartPipeRequest {}
+/**
+ * The output of {@link StartPipeCommand}.
+ */
 export interface StartPipeCommandOutput extends StartPipeResponse, __MetadataBearer {}
 
 /**

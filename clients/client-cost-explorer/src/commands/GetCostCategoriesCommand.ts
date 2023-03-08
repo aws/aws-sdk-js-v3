@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCostCategoriesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCostCategoriesCommand}.
+ */
 export interface GetCostCategoriesCommandInput extends GetCostCategoriesRequest {}
+/**
+ * The output of {@link GetCostCategoriesCommand}.
+ */
 export interface GetCostCategoriesCommandOutput extends GetCostCategoriesResponse, __MetadataBearer {}
 
 /**

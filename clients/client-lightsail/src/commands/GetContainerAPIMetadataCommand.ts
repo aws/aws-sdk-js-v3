@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetContainerAPIMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetContainerAPIMetadataCommand}.
+ */
 export interface GetContainerAPIMetadataCommandInput extends GetContainerAPIMetadataRequest {}
+/**
+ * The output of {@link GetContainerAPIMetadataCommand}.
+ */
 export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMetadataResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetInterpolatedAssetPropertyValuesCommand}.
+ */
 export interface GetInterpolatedAssetPropertyValuesCommandInput extends GetInterpolatedAssetPropertyValuesRequest {}
+/**
+ * The output of {@link GetInterpolatedAssetPropertyValuesCommand}.
+ */
 export interface GetInterpolatedAssetPropertyValuesCommandOutput
   extends GetInterpolatedAssetPropertyValuesResponse,
     __MetadataBearer {}

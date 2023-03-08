@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link DeleteEndpointConfigCommand}.
+ */
 export interface DeleteEndpointConfigCommandInput extends DeleteEndpointConfigInput {}
+/**
+ * The output of {@link DeleteEndpointConfigCommand}.
+ */
 export interface DeleteEndpointConfigCommandOutput extends __MetadataBearer {}
 
 /**

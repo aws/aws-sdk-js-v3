@@ -25,8 +25,14 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
+/**
+ * The input for {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommand}.
+ */
 export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput
   extends DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {}
+/**
+ * The output of {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommand}.
+ */
 export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput
   extends DetachCustomerManagedPolicyReferenceFromPermissionSetResponse,
     __MetadataBearer {}

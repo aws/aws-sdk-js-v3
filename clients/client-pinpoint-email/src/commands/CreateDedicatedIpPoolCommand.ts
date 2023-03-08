@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateDedicatedIpPoolCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateDedicatedIpPoolCommand}.
+ */
 export interface CreateDedicatedIpPoolCommandInput extends CreateDedicatedIpPoolRequest {}
+/**
+ * The output of {@link CreateDedicatedIpPoolCommand}.
+ */
 export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoolResponse, __MetadataBearer {}
 
 /**

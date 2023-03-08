@@ -22,7 +22,13 @@ import {
 } from "../models/models_6";
 import { deserializeAws_ec2ModifyIpamScopeCommand, serializeAws_ec2ModifyIpamScopeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyIpamScopeCommand}.
+ */
 export interface ModifyIpamScopeCommandInput extends ModifyIpamScopeRequest {}
+/**
+ * The output of {@link ModifyIpamScopeCommand}.
+ */
 export interface ModifyIpamScopeCommandOutput extends ModifyIpamScopeResult, __MetadataBearer {}
 
 /**

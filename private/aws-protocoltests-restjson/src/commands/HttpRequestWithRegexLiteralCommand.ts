@@ -22,7 +22,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * The input for {@link HttpRequestWithRegexLiteralCommand}.
+ */
 export interface HttpRequestWithRegexLiteralCommandInput extends HttpRequestWithRegexLiteralInput {}
+/**
+ * The output of {@link HttpRequestWithRegexLiteralCommand}.
+ */
 export interface HttpRequestWithRegexLiteralCommandOutput extends __MetadataBearer {}
 
 export class HttpRequestWithRegexLiteralCommand extends $Command<

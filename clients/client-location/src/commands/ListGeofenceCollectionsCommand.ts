@@ -25,11 +25,17 @@ import {
   serializeAws_restJson1ListGeofenceCollectionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListGeofenceCollectionsCommand}.
+ */
 export interface ListGeofenceCollectionsCommandInput extends ListGeofenceCollectionsRequest {}
+/**
+ * The output of {@link ListGeofenceCollectionsCommand}.
+ */
 export interface ListGeofenceCollectionsCommandOutput extends ListGeofenceCollectionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists geofence collections in your AWS account.</p>
+ * <p>Lists geofence collections in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

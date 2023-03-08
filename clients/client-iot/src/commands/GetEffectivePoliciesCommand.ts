@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetEffectivePoliciesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetEffectivePoliciesCommand}.
+ */
 export interface GetEffectivePoliciesCommandInput extends GetEffectivePoliciesRequest {}
+/**
+ * The output of {@link GetEffectivePoliciesCommand}.
+ */
 export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesResponse, __MetadataBearer {}
 
 /**

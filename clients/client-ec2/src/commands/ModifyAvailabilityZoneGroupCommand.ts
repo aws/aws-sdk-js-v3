@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyAvailabilityZoneGroupCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyAvailabilityZoneGroupCommand}.
+ */
 export interface ModifyAvailabilityZoneGroupCommandInput extends ModifyAvailabilityZoneGroupRequest {}
+/**
+ * The output of {@link ModifyAvailabilityZoneGroupCommand}.
+ */
 export interface ModifyAvailabilityZoneGroupCommandOutput extends ModifyAvailabilityZoneGroupResult, __MetadataBearer {}
 
 /**

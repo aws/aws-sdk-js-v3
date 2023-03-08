@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetPackageVersionHistoryCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPackageVersionHistoryCommand}.
+ */
 export interface GetPackageVersionHistoryCommandInput extends GetPackageVersionHistoryRequest {}
+/**
+ * The output of {@link GetPackageVersionHistoryCommand}.
+ */
 export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersionHistoryResponse, __MetadataBearer {}
 
 /**

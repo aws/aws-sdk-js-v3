@@ -158,7 +158,7 @@ export interface AcceptInboundConnectionResponse {
 }
 
 /**
- * <p>An error occured because the client wanted to access an unsupported operation.</p>
+ * <p>An error occured because the client wanted to access a not supported operation.</p>
  */
 export class DisabledOperationException extends __BaseException {
   readonly name: "DisabledOperationException" = "DisabledOperationException";
@@ -196,7 +196,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ * <p>An exception for accessing or deleting a resource that does not exist..</p>
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -284,6 +284,27 @@ export interface AccessPoliciesStatus {
    * <p>The status of the access policy for the domain.</p>
    */
   Status: OptionStatus | undefined;
+}
+
+export enum ActionSeverity {
+  HIGH = "HIGH",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+}
+
+export enum ActionStatus {
+  COMPLETED = "COMPLETED",
+  ELIGIBLE = "ELIGIBLE",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  NOT_ELIGIBLE = "NOT_ELIGIBLE",
+  PENDING_UPDATE = "PENDING_UPDATE",
+}
+
+export enum ActionType {
+  JVM_HEAP_SIZE_TUNING = "JVM_HEAP_SIZE_TUNING",
+  JVM_YOUNG_GEN_TUNING = "JVM_YOUNG_GEN_TUNING",
+  SERVICE_SOFTWARE_UPDATE = "SERVICE_SOFTWARE_UPDATE",
 }
 
 /**
@@ -388,7 +409,7 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * <p>An exception for missing or invalid input fields.</p>
+ * <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -751,7 +772,7 @@ export interface AssociatePackageResponse {
 }
 
 /**
- * <p>An error occurred because the client attempts to remove a resource that's currently in use.</p>
+ * <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -917,7 +938,12 @@ export interface Duration {
 }
 
 /**
- * <p>The Auto-Tune maintenance schedule.
+ * <note>
+ *             <p>This object is deprecated. Use the domain's <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html">off-peak window</a> to
+ *     schedule Auto-Tune optimizations. For migration instructions, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html#off-peak-migrate">Migrating from Auto-Tune
+ *      maintenance windows</a>.</p>
+ *          </note>
+ *          <p>The Auto-Tune maintenance schedule.
  *    For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for Amazon OpenSearch
  *     Service</a>.</p>
  */
@@ -942,7 +968,8 @@ export interface AutoTuneMaintenanceSchedule {
 
 /**
  * <p>Options for configuring Auto-Tune. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for Amazon OpenSearch
- *     Service</a>.</p>
+ *     Service</a>
+ *          </p>
  */
 export interface AutoTuneOptionsInput {
   /**
@@ -951,13 +978,14 @@ export interface AutoTuneOptionsInput {
   DesiredState?: AutoTuneDesiredState | string;
 
   /**
-   * <p>A list of maintenance schedules during which Auto-Tune can deploy changes. Maintenance
-   *    schedules are overwrite, not append. If your request includes no schedules, the request deletes
-   *    all existing schedules. To preserve existing schedules, make a call to
-   *     <code>DescribeDomainConfig</code> first and use the <code>MaintenanceSchedules</code> portion of
-   *    the response as the basis for this section.</p>
+   * <p>A list of maintenance schedules during which Auto-Tune can deploy changes. Maintenance windows are deprecated and have been replaced with <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html">off-peak windows</a>.</p>
    */
   MaintenanceSchedules?: AutoTuneMaintenanceSchedule[];
+
+  /**
+   * <p>Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.</p>
+   */
+  UseOffPeakWindow?: boolean;
 }
 
 /**
@@ -1328,6 +1356,59 @@ export interface NodeToNodeEncryptionOptions {
 }
 
 /**
+ * <p>The desired start time for an <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_OffPeakWindow.html">off-peak maintenance
+ *     window</a>.</p>
+ */
+export interface WindowStartTime {
+  /**
+   * <p>The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time. For example, <code>17</code> refers to
+   *    5:00 P.M. UTC.</p>
+   */
+  Hours: number | undefined;
+
+  /**
+   * <p>The start minute of the window, in UTC.</p>
+   */
+  Minutes: number | undefined;
+}
+
+/**
+ * <p>A custom 10-hour, low-traffic window during which OpenSearch Service can perform mandatory
+ *    configuration changes on the domain. These actions can include scheduled service software updates
+ *    and blue/green Auto-Tune enhancements. OpenSearch Service will schedule these
+ *    actions during the window that you specify.</p>
+ *          <p>If you don't specify a window start time, it defaults to 10:00 P.M. local time.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html">Defining off-peak maintenance
+ *     windows for Amazon OpenSearch Service</a>.</p>
+ */
+export interface OffPeakWindow {
+  /**
+   * <p>A custom start time for the off-peak window, in Coordinated Universal Time (UTC). The window
+   *    length will always be 10 hours, so you can't specify an end time. For example, if you specify
+   *    11:00 P.M. UTC as a start time, the end time will automatically be set to 9:00 A.M.</p>
+   */
+  WindowStartTime?: WindowStartTime;
+}
+
+/**
+ * <p>Options for a domain's <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_OffPeakWindow.html">off-peak window</a>,
+ *    during which OpenSearch Service can perform mandatory configuration changes on the domain.</p>
+ */
+export interface OffPeakWindowOptions {
+  /**
+   * <p>Whether to enable an off-peak window.</p>
+   *          <p>This option is only available when modifying a domain created prior to February 13, 2023, not when creating a new domain.
+   *    All domains created after this date have the off-peak window enabled by default. You can't disable the off-peak window after it's enabled for a domain.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>Off-peak window settings for the domain.</p>
+   */
+  OffPeakWindow?: OffPeakWindow;
+}
+
+/**
  * <p>The time, in UTC format, when OpenSearch Service takes a daily automated snapshot of the
  *    specified domain. Default is <code>0</code> hours.</p>
  */
@@ -1337,6 +1418,16 @@ export interface SnapshotOptions {
    *    specified domain. Default is <code>0</code> hours.</p>
    */
   AutomatedSnapshotStartHour?: number;
+}
+
+/**
+ * <p>Options for configuring service software updates for a domain.</p>
+ */
+export interface SoftwareUpdateOptions {
+  /**
+   * <p>Whether automatic service software updates are enabled for the domain.</p>
+   */
+  AutoSoftwareUpdateEnabled?: boolean;
 }
 
 /**
@@ -1482,6 +1573,19 @@ export interface CreateDomainRequest {
    * <p>Options for Auto-Tune.</p>
    */
   AutoTuneOptions?: AutoTuneOptionsInput;
+
+  /**
+   * <p>Specifies a daily 10-hour time block during which OpenSearch Service can perform
+   *    configuration changes on the domain, including service software updates and Auto-Tune
+   *    enhancements that require a blue/green deployment. If no options are specified, the default start
+   *    time of 10:00 P.M. local time (for the Region that the domain is created in) is used.</p>
+   */
+  OffPeakWindowOptions?: OffPeakWindowOptions;
+
+  /**
+   * <p>Software update options for the domain.</p>
+   */
+  SoftwareUpdateOptions?: SoftwareUpdateOptions;
 }
 
 export enum AutoTuneState {
@@ -1509,6 +1613,12 @@ export interface AutoTuneOptionsOutput {
    * <p>Any errors that occurred while enabling or disabling Auto-Tune.</p>
    */
   ErrorMessage?: string;
+
+  /**
+   * <p>Whether the domain's off-peak window will be used to deploy Auto-Tune changes rather
+   *    than a maintenance schedule.</p>
+   */
+  UseOffPeakWindow?: boolean;
 }
 
 /**
@@ -1697,6 +1807,17 @@ export interface DomainStatus {
    * <p>Information about a configuration change happening on the domain.</p>
    */
   ChangeProgressDetails?: ChangeProgressDetails;
+
+  /**
+   * <p>Options that specify a custom 10-hour window during which OpenSearch Service can perform
+   *    configuration changes on the domain.</p>
+   */
+  OffPeakWindowOptions?: OffPeakWindowOptions;
+
+  /**
+   * <p>Service software update options for the domain.</p>
+   */
+  SoftwareUpdateOptions?: SoftwareUpdateOptions;
 }
 
 /**
@@ -2510,9 +2631,17 @@ export interface AutoTuneOptions {
   RollbackOnDisable?: RollbackOnDisable | string;
 
   /**
-   * <p>A list of maintenance schedules during which Auto-Tune can deploy changes.</p>
+   * <p>DEPRECATED. Use <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html">off-peak window</a>
+   *    instead.</p>
+   *          <p>A list of maintenance schedules during which Auto-Tune can deploy changes.</p>
    */
   MaintenanceSchedules?: AutoTuneMaintenanceSchedule[];
+
+  /**
+   * <p>Whether to use the domain's <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_OffPeakWindow.html">off-peak window</a> to
+   *    deploy configuration changes on the domain rather than a maintenance schedule.</p>
+   */
+  UseOffPeakWindow?: boolean;
 }
 
 /**
@@ -2688,6 +2817,22 @@ export interface NodeToNodeEncryptionOptionsStatus {
 }
 
 /**
+ * <p>The status of <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_OffPeakWindow.html">off-peak window</a>
+ *    options for a domain.</p>
+ */
+export interface OffPeakWindowOptionsStatus {
+  /**
+   * <p>The domain's off-peak window configuration.</p>
+   */
+  Options?: OffPeakWindowOptions;
+
+  /**
+   * <p>The current status of off-peak window options.</p>
+   */
+  Status?: OptionStatus;
+}
+
+/**
  * <p>Container for information about a daily automated snapshot for an OpenSearch Service
  *    domain.</p>
  */
@@ -2701,6 +2846,21 @@ export interface SnapshotOptionsStatus {
    * <p>The status of a daily automated snapshot.</p>
    */
   Status: OptionStatus | undefined;
+}
+
+/**
+ * <p>The status of the service software options for a domain.</p>
+ */
+export interface SoftwareUpdateOptionsStatus {
+  /**
+   * <p>The service software update options for a domain.</p>
+   */
+  Options?: SoftwareUpdateOptions;
+
+  /**
+   * <p>The status of service software update options, including creation date and last updated date.</p>
+   */
+  Status?: OptionStatus;
 }
 
 /**
@@ -2733,7 +2893,7 @@ export interface DomainConfig {
   ClusterConfig?: ClusterConfigStatus;
 
   /**
-   * <p>Container for EBS options configured for an OpenSearch Service domain.</p>
+   * <p>Container for EBS options configured for the domain.</p>
    */
   EBSOptions?: EBSOptionsStatus;
 
@@ -2799,6 +2959,16 @@ export interface DomainConfig {
    * <p>Container for information about the progress of an existing configuration change.</p>
    */
   ChangeProgressDetails?: ChangeProgressDetails;
+
+  /**
+   * <p>Container for off-peak window options for the domain.</p>
+   */
+  OffPeakWindowOptions?: OffPeakWindowOptionsStatus;
+
+  /**
+   * <p>Software update options for the domain.</p>
+   */
+  SoftwareUpdateOptions?: SoftwareUpdateOptionsStatus;
 }
 
 /**
@@ -4069,6 +4239,98 @@ export interface ListPackagesForDomainResponse {
   NextToken?: string;
 }
 
+export interface ListScheduledActionsRequest {
+  /**
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use
+   *    <code>nextToken</code> to get the next page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If your initial <code>ListScheduledActions</code> operation returns a <code>nextToken</code>, you
+   *    can include the returned <code>nextToken</code> in subsequent <code>ListScheduledActions</code>
+   *    operations, which returns results in the next page.</p>
+   */
+  NextToken?: string;
+}
+
+export enum ScheduledBy {
+  CUSTOMER = "CUSTOMER",
+  SYSTEM = "SYSTEM",
+}
+
+/**
+ * <p>Information about a scheduled configuration change for an OpenSearch Service domain. This
+ *    actions can be a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
+ *     update</a> or a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
+ *     Auto-Tune enhancement</a>.</p>
+ */
+export interface ScheduledAction {
+  /**
+   * <p>The unique identifier of the scheduled action.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The type of action that will be taken on the domain.</p>
+   */
+  Type: ActionType | string | undefined;
+
+  /**
+   * <p>The severity of the action.</p>
+   */
+  Severity: ActionSeverity | string | undefined;
+
+  /**
+   * <p>The time when the change is scheduled to happen.</p>
+   */
+  ScheduledTime: number | undefined;
+
+  /**
+   * <p>A description of the action to be taken.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Whether the action was scheduled manually (<code>CUSTOMER</code>, or by OpenSearch Service automatically (<code>SYSTEM</code>).</p>
+   */
+  ScheduledBy?: ScheduledBy | string;
+
+  /**
+   * <p>The current status of the scheduled action.</p>
+   */
+  Status?: ActionStatus | string;
+
+  /**
+   * <p>Whether the action is required or optional.</p>
+   */
+  Mandatory?: boolean;
+
+  /**
+   * <p>Whether or not the scheduled action is cancellable.</p>
+   */
+  Cancellable?: boolean;
+}
+
+export interface ListScheduledActionsResponse {
+  /**
+   * <p>A list of actions that are scheduled for the domain.</p>
+   */
+  ScheduledActions?: ScheduledAction[];
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
+   *    <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *    returned token to retrieve the next page.</p>
+   */
+  NextToken?: string;
+}
+
 /**
  * <p>Container for the parameters to the <code>ListTags</code> operation.</p>
  */
@@ -4292,6 +4554,12 @@ export interface RevokeVpcEndpointAccessRequest {
 
 export interface RevokeVpcEndpointAccessResponse {}
 
+export enum ScheduleAt {
+  NOW = "NOW",
+  OFF_PEAK_WINDOW = "OFF_PEAK_WINDOW",
+  TIMESTAMP = "TIMESTAMP",
+}
+
 /**
  * <p>Container for the request parameters to the <code>StartServiceSoftwareUpdate</code>
  *    operation.</p>
@@ -4301,6 +4569,37 @@ export interface StartServiceSoftwareUpdateRequest {
    * <p>The name of the domain that you want to update to the latest service software.</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>When to start the service software update.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NOW</code> - Immediately schedules the update to happen in the current hour if
+   *      there's capacity available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TIMESTAMP</code> - Lets you specify a custom date and time to apply the update. If
+   *      you specify this value, you must also provide a value for <code>DesiredStartTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OFF_PEAK_WINDOW</code> - Marks the update to be picked up during an upcoming
+   *      off-peak window. There's no guarantee that the update will happen during the next immediate
+   *      window. Depending on capacity, it might happen in subsequent days.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>NOW</code> if you don't specify a value for <code>DesiredStartTime</code>,
+   *    and <code>TIMESTAMP</code> if you do.</p>
+   */
+  ScheduleAt?: ScheduleAt | string;
+
+  /**
+   * <p>The Epoch timestamp when you want the service software update to start. You only need to
+   *    specify this parameter if you set <code>ScheduleAt</code> to <code>TIMESTAMP</code>.</p>
+   */
+  DesiredStartTime?: number;
 }
 
 /**
@@ -4400,7 +4699,7 @@ export interface UpdateDomainConfigRequest {
   AccessPolicies?: string;
 
   /**
-   * <p>Options to publish OpenSearch lots to Amazon CloudWatch Logs.</p>
+   * <p>Options to publish OpenSearch logs to Amazon CloudWatch Logs.</p>
    */
   LogPublishingOptions?: Record<string, LogPublishingOption>;
 
@@ -4416,7 +4715,7 @@ export interface UpdateDomainConfigRequest {
   DomainEndpointOptions?: DomainEndpointOptions;
 
   /**
-   * <p>Node-To-Node Encryption options for the domain.</p>
+   * <p>Node-to-node encryption options for the domain.</p>
    */
   NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
 
@@ -4453,6 +4752,16 @@ export interface UpdateDomainConfigRequest {
    *          </ul>
    */
   DryRunMode?: DryRunMode | string;
+
+  /**
+   * <p>Off-peak window options for the domain.</p>
+   */
+  OffPeakWindowOptions?: OffPeakWindowOptions;
+
+  /**
+   * <p>Service software update options for the domain.</p>
+   */
+  SoftwareUpdateOptions?: SoftwareUpdateOptions;
 }
 
 /**
@@ -4510,6 +4819,85 @@ export interface UpdatePackageResponse {
    * <p>Information about a package.</p>
    */
   PackageDetails?: PackageDetails;
+}
+
+/**
+ * <p>An exception for attempting to schedule a domain action during an unavailable time slot.</p>
+ */
+export class SlotNotAvailableException extends __BaseException {
+  readonly name: "SlotNotAvailableException" = "SlotNotAvailableException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Alternate time slots during which OpenSearch Service has available capacity to schedule a domain action.</p>
+   */
+  SlotSuggestions?: number[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SlotNotAvailableException, __BaseException>) {
+    super({
+      name: "SlotNotAvailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SlotNotAvailableException.prototype);
+    this.SlotSuggestions = opts.SlotSuggestions;
+  }
+}
+
+export interface UpdateScheduledActionRequest {
+  /**
+   * <p>The name of the domain to reschedule an action for.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the action to reschedule. To retrieve this ID, send a <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html">ListScheduledActions</a> request.</p>
+   */
+  ActionID: string | undefined;
+
+  /**
+   * <p>The type of action to reschedule. Can be one of <code>SERVICE_SOFTWARE_UPDATE</code>,
+   *    <code>JVM_HEAP_SIZE_TUNING</code>, or <code>JVM_YOUNG_GEN_TUNING</code>. To retrieve this value, send a <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html">ListScheduledActions</a> request.</p>
+   */
+  ActionType: ActionType | string | undefined;
+
+  /**
+   * <p>When to schedule the action.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NOW</code> - Immediately schedules the update to happen in the current hour if
+   *      there's capacity available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TIMESTAMP</code> - Lets you specify a custom date and time to apply the update. If
+   *      you specify this value, you must also provide a value for <code>DesiredStartTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OFF_PEAK_WINDOW</code> - Marks the action to be picked up during an upcoming
+   *      off-peak window. There's no guarantee that the change will be implemented during the next
+   *      immediate window. Depending on capacity, it might happen in subsequent days.</p>
+   *             </li>
+   *          </ul>
+   */
+  ScheduleAt: ScheduleAt | string | undefined;
+
+  /**
+   * <p>The time to implement the change, in Coordinated Universal Time (UTC). Only specify this
+   *    parameter if you set <code>ScheduleAt</code> to <code>TIMESTAMP</code>.</p>
+   */
+  DesiredStartTime?: number;
+}
+
+export interface UpdateScheduledActionResponse {
+  /**
+   * <p>Information about the rescheduled action.</p>
+   */
+  ScheduledAction?: ScheduledAction;
 }
 
 export interface UpdateVpcEndpointRequest {
@@ -4893,7 +5281,35 @@ export const NodeToNodeEncryptionOptionsFilterSensitiveLog = (obj: NodeToNodeEnc
 /**
  * @internal
  */
+export const WindowStartTimeFilterSensitiveLog = (obj: WindowStartTime): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OffPeakWindowFilterSensitiveLog = (obj: OffPeakWindow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OffPeakWindowOptionsFilterSensitiveLog = (obj: OffPeakWindowOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const SnapshotOptionsFilterSensitiveLog = (obj: SnapshotOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SoftwareUpdateOptionsFilterSensitiveLog = (obj: SoftwareUpdateOptions): any => ({
   ...obj,
 });
 
@@ -5278,7 +5694,21 @@ export const NodeToNodeEncryptionOptionsStatusFilterSensitiveLog = (obj: NodeToN
 /**
  * @internal
  */
+export const OffPeakWindowOptionsStatusFilterSensitiveLog = (obj: OffPeakWindowOptionsStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const SnapshotOptionsStatusFilterSensitiveLog = (obj: SnapshotOptionsStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SoftwareUpdateOptionsStatusFilterSensitiveLog = (obj: SoftwareUpdateOptionsStatus): any => ({
   ...obj,
 });
 
@@ -5704,6 +6134,27 @@ export const ListPackagesForDomainResponseFilterSensitiveLog = (obj: ListPackage
 /**
  * @internal
  */
+export const ListScheduledActionsRequestFilterSensitiveLog = (obj: ListScheduledActionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledActionFilterSensitiveLog = (obj: ScheduledAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListScheduledActionsResponseFilterSensitiveLog = (obj: ListScheduledActionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
   ...obj,
 });
@@ -5866,6 +6317,20 @@ export const UpdatePackageRequestFilterSensitiveLog = (obj: UpdatePackageRequest
  * @internal
  */
 export const UpdatePackageResponseFilterSensitiveLog = (obj: UpdatePackageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateScheduledActionRequestFilterSensitiveLog = (obj: UpdateScheduledActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateScheduledActionResponseFilterSensitiveLog = (obj: UpdateScheduledActionResponse): any => ({
   ...obj,
 });
 

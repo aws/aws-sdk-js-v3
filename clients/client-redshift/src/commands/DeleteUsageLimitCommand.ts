@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * The input for {@link DeleteUsageLimitCommand}.
+ */
 export interface DeleteUsageLimitCommandInput extends DeleteUsageLimitMessage {}
+/**
+ * The output of {@link DeleteUsageLimitCommand}.
+ */
 export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * The input for {@link PutBucketAnalyticsConfigurationCommand}.
+ */
 export interface PutBucketAnalyticsConfigurationCommandInput extends PutBucketAnalyticsConfigurationRequest {}
+/**
+ * The output of {@link PutBucketAnalyticsConfigurationCommand}.
+ */
 export interface PutBucketAnalyticsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

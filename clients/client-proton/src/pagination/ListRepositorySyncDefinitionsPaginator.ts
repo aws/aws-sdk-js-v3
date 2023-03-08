@@ -6,7 +6,6 @@ import {
   ListRepositorySyncDefinitionsCommandInput,
   ListRepositorySyncDefinitionsCommandOutput,
 } from "../commands/ListRepositorySyncDefinitionsCommand";
-import { Proton } from "../Proton";
 import { ProtonClient } from "../ProtonClient";
 import { ProtonPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRepositorySyncDefinitionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Proton,
-  input: ListRepositorySyncDefinitionsCommandInput,
-  ...args: any
-): Promise<ListRepositorySyncDefinitionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listRepositorySyncDefinitions(input, ...args);
-};
 export async function* paginateListRepositorySyncDefinitions(
   config: ProtonPaginationConfiguration,
   input: ListRepositorySyncDefinitionsCommandInput,
@@ -43,9 +31,7 @@ export async function* paginateListRepositorySyncDefinitions(
   let page: ListRepositorySyncDefinitionsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof Proton) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ProtonClient) {
+    if (config.client instanceof ProtonClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Proton | ProtonClient");

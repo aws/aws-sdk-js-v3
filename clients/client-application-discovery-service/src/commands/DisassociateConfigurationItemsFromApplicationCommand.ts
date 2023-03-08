@@ -29,8 +29,14 @@ import {
   serializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateConfigurationItemsFromApplicationCommand}.
+ */
 export interface DisassociateConfigurationItemsFromApplicationCommandInput
   extends DisassociateConfigurationItemsFromApplicationRequest {}
+/**
+ * The output of {@link DisassociateConfigurationItemsFromApplicationCommand}.
+ */
 export interface DisassociateConfigurationItemsFromApplicationCommandOutput
   extends DisassociateConfigurationItemsFromApplicationResponse,
     __MetadataBearer {}

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListVirtualGatewaysCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListVirtualGatewaysCommand}.
+ */
 export interface ListVirtualGatewaysCommandInput extends ListVirtualGatewaysInput {}
+/**
+ * The output of {@link ListVirtualGatewaysCommand}.
+ */
 export interface ListVirtualGatewaysCommandOutput extends ListVirtualGatewaysOutput, __MetadataBearer {}
 
 /**

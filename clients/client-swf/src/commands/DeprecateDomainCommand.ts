@@ -20,7 +20,13 @@ import {
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * The input for {@link DeprecateDomainCommand}.
+ */
 export interface DeprecateDomainCommandInput extends DeprecateDomainInput {}
+/**
+ * The output of {@link DeprecateDomainCommand}.
+ */
 export interface DeprecateDomainCommandOutput extends __MetadataBearer {}
 
 /**

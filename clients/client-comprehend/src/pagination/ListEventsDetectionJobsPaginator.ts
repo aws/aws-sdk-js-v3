@@ -6,7 +6,6 @@ import {
   ListEventsDetectionJobsCommandInput,
   ListEventsDetectionJobsCommandOutput,
 } from "../commands/ListEventsDetectionJobsCommand";
-import { Comprehend } from "../Comprehend";
 import { ComprehendClient } from "../ComprehendClient";
 import { ComprehendPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEventsDetectionJobsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Comprehend,
-  input: ListEventsDetectionJobsCommandInput,
-  ...args: any
-): Promise<ListEventsDetectionJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listEventsDetectionJobs(input, ...args);
-};
 export async function* paginateListEventsDetectionJobs(
   config: ComprehendPaginationConfiguration,
   input: ListEventsDetectionJobsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListEventsDetectionJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Comprehend) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ComprehendClient) {
+    if (config.client instanceof ComprehendClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Comprehend | ComprehendClient");

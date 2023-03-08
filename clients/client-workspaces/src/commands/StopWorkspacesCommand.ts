@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link StopWorkspacesCommand}.
+ */
 export interface StopWorkspacesCommandInput extends StopWorkspacesRequest {}
+/**
+ * The output of {@link StopWorkspacesCommand}.
+ */
 export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __MetadataBearer {}
 
 /**

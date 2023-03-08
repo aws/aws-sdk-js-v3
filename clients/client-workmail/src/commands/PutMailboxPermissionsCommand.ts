@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link PutMailboxPermissionsCommand}.
+ */
 export interface PutMailboxPermissionsCommandInput extends PutMailboxPermissionsRequest {}
+/**
+ * The output of {@link PutMailboxPermissionsCommand}.
+ */
 export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermissionsResponse, __MetadataBearer {}
 
 /**

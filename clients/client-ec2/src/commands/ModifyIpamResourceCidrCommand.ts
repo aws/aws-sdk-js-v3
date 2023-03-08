@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyIpamResourceCidrCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyIpamResourceCidrCommand}.
+ */
 export interface ModifyIpamResourceCidrCommandInput extends ModifyIpamResourceCidrRequest {}
+/**
+ * The output of {@link ModifyIpamResourceCidrCommand}.
+ */
 export interface ModifyIpamResourceCidrCommandOutput extends ModifyIpamResourceCidrResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * The input for {@link UpdateDashboardCommand}.
+ */
 export interface UpdateDashboardCommandInput extends UpdateDashboardRequest {}
+/**
+ * The output of {@link UpdateDashboardCommand}.
+ */
 export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, __MetadataBearer {}
 
 /**

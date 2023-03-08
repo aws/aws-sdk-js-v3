@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DisassociateSkillFromUsersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DisassociateSkillFromUsersCommand}.
+ */
 export interface DisassociateSkillFromUsersCommandInput extends DisassociateSkillFromUsersRequest {}
+/**
+ * The output of {@link DisassociateSkillFromUsersCommand}.
+ */
 export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSkillFromUsersResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListDeploymentsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListDeploymentsCommand}.
+ */
 export interface ListDeploymentsCommandInput extends ListDeploymentsRequest {}
+/**
+ * The output of {@link ListDeploymentsCommand}.
+ */
 export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBearer {}
 
 /**

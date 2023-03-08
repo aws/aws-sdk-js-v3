@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0GetEnrollmentStatusCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link GetEnrollmentStatusCommand}.
+ */
 export interface GetEnrollmentStatusCommandInput extends GetEnrollmentStatusRequest {}
+/**
+ * The output of {@link GetEnrollmentStatusCommand}.
+ */
 export interface GetEnrollmentStatusCommandOutput extends GetEnrollmentStatusResponse, __MetadataBearer {}
 
 /**

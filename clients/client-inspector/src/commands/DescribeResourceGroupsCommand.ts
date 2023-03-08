@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeResourceGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeResourceGroupsCommand}.
+ */
 export interface DescribeResourceGroupsCommandInput extends DescribeResourceGroupsRequest {}
+/**
+ * The output of {@link DescribeResourceGroupsCommand}.
+ */
 export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGroupsResponse, __MetadataBearer {}
 
 /**

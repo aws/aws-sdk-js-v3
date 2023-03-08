@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1ListWorkGroupsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link ListWorkGroupsCommand}.
+ */
 export interface ListWorkGroupsCommandInput extends ListWorkGroupsInput {}
+/**
+ * The output of {@link ListWorkGroupsCommand}.
+ */
 export interface ListWorkGroupsCommandOutput extends ListWorkGroupsOutput, __MetadataBearer {}
 
 /**

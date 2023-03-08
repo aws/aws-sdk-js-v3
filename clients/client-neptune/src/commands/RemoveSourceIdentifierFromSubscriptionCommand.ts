@@ -25,8 +25,14 @@ import {
   serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RemoveSourceIdentifierFromSubscriptionCommand}.
+ */
 export interface RemoveSourceIdentifierFromSubscriptionCommandInput
   extends RemoveSourceIdentifierFromSubscriptionMessage {}
+/**
+ * The output of {@link RemoveSourceIdentifierFromSubscriptionCommand}.
+ */
 export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
   extends RemoveSourceIdentifierFromSubscriptionResult,
     __MetadataBearer {}

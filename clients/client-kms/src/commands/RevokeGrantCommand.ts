@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1RevokeGrantCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link RevokeGrantCommand}.
+ */
 export interface RevokeGrantCommandInput extends RevokeGrantRequest {}
+/**
+ * The output of {@link RevokeGrantCommand}.
+ */
 export interface RevokeGrantCommandOutput extends __MetadataBearer {}
 
 /**

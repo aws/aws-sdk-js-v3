@@ -6,7 +6,6 @@ import {
   ListClosedWorkflowExecutionsCommandInput,
   ListClosedWorkflowExecutionsCommandOutput,
 } from "../commands/ListClosedWorkflowExecutionsCommand";
-import { SWF } from "../SWF";
 import { SWFClient } from "../SWFClient";
 import { SWFPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListClosedWorkflowExecutionsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: SWF,
-  input: ListClosedWorkflowExecutionsCommandInput,
-  ...args: any
-): Promise<ListClosedWorkflowExecutionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listClosedWorkflowExecutions(input, ...args);
-};
 export async function* paginateListClosedWorkflowExecutions(
   config: SWFPaginationConfiguration,
   input: ListClosedWorkflowExecutionsCommandInput,
@@ -44,9 +32,7 @@ export async function* paginateListClosedWorkflowExecutions(
   while (hasNext) {
     input.nextPageToken = token;
     input["maximumPageSize"] = config.pageSize;
-    if (config.client instanceof SWF) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SWFClient) {
+    if (config.client instanceof SWFClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SWF | SWFClient");

@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * The input for {@link CreateWebACLCommand}.
+ */
 export interface CreateWebACLCommandInput extends CreateWebACLRequest {}
+/**
+ * The output of {@link CreateWebACLCommand}.
+ */
 export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __MetadataBearer {}
 
 /**

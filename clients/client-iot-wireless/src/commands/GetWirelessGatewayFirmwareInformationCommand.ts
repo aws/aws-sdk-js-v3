@@ -25,8 +25,14 @@ import {
   serializeAws_restJson1GetWirelessGatewayFirmwareInformationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetWirelessGatewayFirmwareInformationCommand}.
+ */
 export interface GetWirelessGatewayFirmwareInformationCommandInput
   extends GetWirelessGatewayFirmwareInformationRequest {}
+/**
+ * The output of {@link GetWirelessGatewayFirmwareInformationCommand}.
+ */
 export interface GetWirelessGatewayFirmwareInformationCommandOutput
   extends GetWirelessGatewayFirmwareInformationResponse,
     __MetadataBearer {}

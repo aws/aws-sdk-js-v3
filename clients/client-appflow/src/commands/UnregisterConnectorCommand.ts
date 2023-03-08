@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UnregisterConnectorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UnregisterConnectorCommand}.
+ */
 export interface UnregisterConnectorCommandInput extends UnregisterConnectorRequest {}
+/**
+ * The output of {@link UnregisterConnectorCommand}.
+ */
 export interface UnregisterConnectorCommandOutput extends UnregisterConnectorResponse, __MetadataBearer {}
 
 /**

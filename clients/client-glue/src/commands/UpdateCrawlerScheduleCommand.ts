@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateCrawlerScheduleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateCrawlerScheduleCommand}.
+ */
 export interface UpdateCrawlerScheduleCommandInput extends UpdateCrawlerScheduleRequest {}
+/**
+ * The output of {@link UpdateCrawlerScheduleCommand}.
+ */
 export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerScheduleResponse, __MetadataBearer {}
 
 /**

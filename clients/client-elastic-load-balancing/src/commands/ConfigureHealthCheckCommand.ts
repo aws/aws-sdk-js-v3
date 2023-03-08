@@ -29,7 +29,13 @@ import {
   serializeAws_queryConfigureHealthCheckCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ConfigureHealthCheckCommand}.
+ */
 export interface ConfigureHealthCheckCommandInput extends ConfigureHealthCheckInput {}
+/**
+ * The output of {@link ConfigureHealthCheckCommand}.
+ */
 export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckOutput, __MetadataBearer {}
 
 /**

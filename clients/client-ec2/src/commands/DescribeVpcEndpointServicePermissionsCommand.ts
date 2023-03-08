@@ -25,8 +25,14 @@ import {
   serializeAws_ec2DescribeVpcEndpointServicePermissionsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link DescribeVpcEndpointServicePermissionsCommand}.
+ */
 export interface DescribeVpcEndpointServicePermissionsCommandInput
   extends DescribeVpcEndpointServicePermissionsRequest {}
+/**
+ * The output of {@link DescribeVpcEndpointServicePermissionsCommand}.
+ */
 export interface DescribeVpcEndpointServicePermissionsCommandOutput
   extends DescribeVpcEndpointServicePermissionsResult,
     __MetadataBearer {}

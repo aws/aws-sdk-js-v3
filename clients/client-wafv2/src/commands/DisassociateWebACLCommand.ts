@@ -25,12 +25,18 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * The input for {@link DisassociateWebACLCommand}.
+ */
 export interface DisassociateWebACLCommandInput extends DisassociateWebACLRequest {}
+/**
+ * The output of {@link DisassociateWebACLCommand}.
+ */
 export interface DisassociateWebACLCommandOutput extends DisassociateWebACLResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified regional application resource from any existing web ACL
- *          association. A resource can have at most one web ACL association. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, or an Amazon Cognito user pool.  </p>
+ *          association. A resource can have at most one web ACL association. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
  *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To
  *          disassociate a web ACL, provide an empty web ACL ID in the CloudFront call
  *             <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>

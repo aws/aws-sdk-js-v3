@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1CreateUsagePlanCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link CreateUsagePlanCommand}.
+ */
 export interface CreateUsagePlanCommandInput extends CreateUsagePlanRequest {}
+/**
+ * The output of {@link CreateUsagePlanCommand}.
+ */
 export interface CreateUsagePlanCommandOutput extends UsagePlan, __MetadataBearer {}
 
 /**

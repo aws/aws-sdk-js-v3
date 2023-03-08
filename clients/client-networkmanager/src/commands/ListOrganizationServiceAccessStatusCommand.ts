@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListOrganizationServiceAccessStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListOrganizationServiceAccessStatusCommand}.
+ */
 export interface ListOrganizationServiceAccessStatusCommandInput extends ListOrganizationServiceAccessStatusRequest {}
+/**
+ * The output of {@link ListOrganizationServiceAccessStatusCommand}.
+ */
 export interface ListOrganizationServiceAccessStatusCommandOutput
   extends ListOrganizationServiceAccessStatusResponse,
     __MetadataBearer {}

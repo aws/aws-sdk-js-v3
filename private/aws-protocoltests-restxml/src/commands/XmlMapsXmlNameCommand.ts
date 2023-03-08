@@ -19,7 +19,13 @@ import {
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link XmlMapsXmlNameCommand}.
+ */
 export interface XmlMapsXmlNameCommandInput extends XmlMapsXmlNameInputOutput {}
+/**
+ * The output of {@link XmlMapsXmlNameCommand}.
+ */
 export interface XmlMapsXmlNameCommandOutput extends XmlMapsXmlNameInputOutput, __MetadataBearer {}
 
 export class XmlMapsXmlNameCommand extends $Command<

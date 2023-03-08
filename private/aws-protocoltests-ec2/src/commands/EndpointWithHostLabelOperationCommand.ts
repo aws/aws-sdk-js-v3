@@ -19,7 +19,13 @@ import {
   serializeAws_ec2EndpointWithHostLabelOperationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link EndpointWithHostLabelOperationCommand}.
+ */
 export interface EndpointWithHostLabelOperationCommandInput extends HostLabelInput {}
+/**
+ * The output of {@link EndpointWithHostLabelOperationCommand}.
+ */
 export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataBearer {}
 
 export class EndpointWithHostLabelOperationCommand extends $Command<

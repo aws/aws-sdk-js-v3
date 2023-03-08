@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0CreateLabelGroupCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link CreateLabelGroupCommand}.
+ */
 export interface CreateLabelGroupCommandInput extends CreateLabelGroupRequest {}
+/**
+ * The output of {@link CreateLabelGroupCommand}.
+ */
 export interface CreateLabelGroupCommandOutput extends CreateLabelGroupResponse, __MetadataBearer {}
 
 /**

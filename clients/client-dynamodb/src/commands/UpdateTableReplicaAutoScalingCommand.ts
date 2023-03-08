@@ -25,17 +25,24 @@ import {
   serializeAws_json1_0UpdateTableReplicaAutoScalingCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link UpdateTableReplicaAutoScalingCommand}.
+ */
 export interface UpdateTableReplicaAutoScalingCommandInput extends UpdateTableReplicaAutoScalingInput {}
+/**
+ * The output of {@link UpdateTableReplicaAutoScalingCommand}.
+ */
 export interface UpdateTableReplicaAutoScalingCommandOutput
   extends UpdateTableReplicaAutoScalingOutput,
     __MetadataBearer {}
 
 /**
  * <p>Updates auto scaling settings on your global tables at once.</p>
- *         <note>
- *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
- *                     2019.11.21</a> of global tables.</p>
- *         </note>
+ *          <important>
+ *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
+ *                 of global tables.
+ *             </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

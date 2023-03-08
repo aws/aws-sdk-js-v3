@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateStorageVirtualMachineCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateStorageVirtualMachineCommand}.
+ */
 export interface UpdateStorageVirtualMachineCommandInput extends UpdateStorageVirtualMachineRequest {}
+/**
+ * The output of {@link UpdateStorageVirtualMachineCommand}.
+ */
 export interface UpdateStorageVirtualMachineCommandOutput
   extends UpdateStorageVirtualMachineResponse,
     __MetadataBearer {}

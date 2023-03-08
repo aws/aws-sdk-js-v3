@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * The input for {@link ListDataQualityJobDefinitionsCommand}.
+ */
 export interface ListDataQualityJobDefinitionsCommandInput extends ListDataQualityJobDefinitionsRequest {}
+/**
+ * The output of {@link ListDataQualityJobDefinitionsCommand}.
+ */
 export interface ListDataQualityJobDefinitionsCommandOutput
   extends ListDataQualityJobDefinitionsResponse,
     __MetadataBearer {}

@@ -16,7 +16,13 @@ import { XmlEnumsInputOutput, XmlEnumsInputOutputFilterSensitiveLog } from "../m
 import { deserializeAws_restXmlXmlEnumsCommand, serializeAws_restXmlXmlEnumsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * The input for {@link XmlEnumsCommand}.
+ */
 export interface XmlEnumsCommandInput extends XmlEnumsInputOutput {}
+/**
+ * The output of {@link XmlEnumsCommand}.
+ */
 export interface XmlEnumsCommandOutput extends XmlEnumsInputOutput, __MetadataBearer {}
 
 /**

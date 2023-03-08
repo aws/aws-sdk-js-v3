@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1RedactConversationMessageCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link RedactConversationMessageCommand}.
+ */
 export interface RedactConversationMessageCommandInput extends RedactConversationMessageRequest {}
+/**
+ * The output of {@link RedactConversationMessageCommand}.
+ */
 export interface RedactConversationMessageCommandOutput extends RedactConversationMessageResponse, __MetadataBearer {}
 
 /**

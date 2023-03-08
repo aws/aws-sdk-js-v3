@@ -23,7 +23,13 @@ import {
   serializeAws_queryRemoveRoleFromInstanceProfileCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link RemoveRoleFromInstanceProfileCommand}.
+ */
 export interface RemoveRoleFromInstanceProfileCommandInput extends RemoveRoleFromInstanceProfileRequest {}
+/**
+ * The output of {@link RemoveRoleFromInstanceProfileCommand}.
+ */
 export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**

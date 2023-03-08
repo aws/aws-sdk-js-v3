@@ -20,7 +20,13 @@ import {
   serializeAws_queryDeleteLaunchConfigurationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DeleteLaunchConfigurationCommand}.
+ */
 export interface DeleteLaunchConfigurationCommandInput extends LaunchConfigurationNameType {}
+/**
+ * The output of {@link DeleteLaunchConfigurationCommand}.
+ */
 export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer {}
 
 /**

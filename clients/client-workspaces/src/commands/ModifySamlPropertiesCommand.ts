@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * The input for {@link ModifySamlPropertiesCommand}.
+ */
 export interface ModifySamlPropertiesCommandInput extends ModifySamlPropertiesRequest {}
+/**
+ * The output of {@link ModifySamlPropertiesCommand}.
+ */
 export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1ListRepositoriesInDomainCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link ListRepositoriesInDomainCommand}.
+ */
 export interface ListRepositoriesInDomainCommandInput extends ListRepositoriesInDomainRequest {}
+/**
+ * The output of {@link ListRepositoriesInDomainCommand}.
+ */
 export interface ListRepositoriesInDomainCommandOutput extends ListRepositoriesInDomainResult, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetOfferingStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetOfferingStatusCommand}.
+ */
 export interface GetOfferingStatusCommandInput extends GetOfferingStatusRequest {}
+/**
+ * The output of {@link GetOfferingStatusCommand}.
+ */
 export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult, __MetadataBearer {}
 
 /**

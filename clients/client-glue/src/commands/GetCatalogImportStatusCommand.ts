@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetCatalogImportStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetCatalogImportStatusCommand}.
+ */
 export interface GetCatalogImportStatusCommandInput extends GetCatalogImportStatusRequest {}
+/**
+ * The output of {@link GetCatalogImportStatusCommand}.
+ */
 export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportStatusResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetVoiceConnectorCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetVoiceConnectorCommand}.
+ */
 export interface GetVoiceConnectorCommandInput extends GetVoiceConnectorRequest {}
+/**
+ * The output of {@link GetVoiceConnectorCommand}.
+ */
 export interface GetVoiceConnectorCommandOutput extends GetVoiceConnectorResponse, __MetadataBearer {}
 
 export class GetVoiceConnectorCommand extends $Command<

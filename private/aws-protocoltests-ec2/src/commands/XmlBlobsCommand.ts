@@ -16,7 +16,13 @@ import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import { XmlBlobsOutput, XmlBlobsOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_ec2XmlBlobsCommand, serializeAws_ec2XmlBlobsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link XmlBlobsCommand}.
+ */
 export interface XmlBlobsCommandInput {}
+/**
+ * The output of {@link XmlBlobsCommand}.
+ */
 export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer {}
 
 /**

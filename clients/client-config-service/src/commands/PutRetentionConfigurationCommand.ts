@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1PutRetentionConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link PutRetentionConfigurationCommand}.
+ */
 export interface PutRetentionConfigurationCommandInput extends PutRetentionConfigurationRequest {}
+/**
+ * The output of {@link PutRetentionConfigurationCommand}.
+ */
 export interface PutRetentionConfigurationCommandOutput extends PutRetentionConfigurationResponse, __MetadataBearer {}
 
 /**

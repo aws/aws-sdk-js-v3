@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1GetContainerImagesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link GetContainerImagesCommand}.
+ */
 export interface GetContainerImagesCommandInput extends GetContainerImagesRequest {}
+/**
+ * The output of {@link GetContainerImagesCommand}.
+ */
 export interface GetContainerImagesCommandOutput extends GetContainerImagesResult, __MetadataBearer {}
 
 /**

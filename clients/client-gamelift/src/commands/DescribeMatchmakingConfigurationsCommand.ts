@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeMatchmakingConfigurationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeMatchmakingConfigurationsCommand}.
+ */
 export interface DescribeMatchmakingConfigurationsCommandInput extends DescribeMatchmakingConfigurationsInput {}
+/**
+ * The output of {@link DescribeMatchmakingConfigurationsCommand}.
+ */
 export interface DescribeMatchmakingConfigurationsCommandOutput
   extends DescribeMatchmakingConfigurationsOutput,
     __MetadataBearer {}

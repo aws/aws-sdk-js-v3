@@ -25,7 +25,13 @@ import {
   serializeAws_json1_0ListDecoderManifestSignalsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ListDecoderManifestSignalsCommand}.
+ */
 export interface ListDecoderManifestSignalsCommandInput extends ListDecoderManifestSignalsRequest {}
+/**
+ * The output of {@link ListDecoderManifestSignalsCommand}.
+ */
 export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderManifestSignalsResponse, __MetadataBearer {}
 
 /**

@@ -25,7 +25,13 @@ import {
   serializeAws_ec2ModifyManagedPrefixListCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * The input for {@link ModifyManagedPrefixListCommand}.
+ */
 export interface ModifyManagedPrefixListCommandInput extends ModifyManagedPrefixListRequest {}
+/**
+ * The output of {@link ModifyManagedPrefixListCommand}.
+ */
 export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefixListResult, __MetadataBearer {}
 
 /**

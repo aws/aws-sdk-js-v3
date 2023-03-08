@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1UpdateExpirationForHITCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateExpirationForHITCommand}.
+ */
 export interface UpdateExpirationForHITCommandInput extends UpdateExpirationForHITRequest {}
+/**
+ * The output of {@link UpdateExpirationForHITCommand}.
+ */
 export interface UpdateExpirationForHITCommandOutput extends UpdateExpirationForHITResponse, __MetadataBearer {}
 
 /**

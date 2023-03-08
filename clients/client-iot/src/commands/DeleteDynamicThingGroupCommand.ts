@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteDynamicThingGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteDynamicThingGroupCommand}.
+ */
 export interface DeleteDynamicThingGroupCommandInput extends DeleteDynamicThingGroupRequest {}
+/**
+ * The output of {@link DeleteDynamicThingGroupCommand}.
+ */
 export interface DeleteDynamicThingGroupCommandOutput extends DeleteDynamicThingGroupResponse, __MetadataBearer {}
 
 /**

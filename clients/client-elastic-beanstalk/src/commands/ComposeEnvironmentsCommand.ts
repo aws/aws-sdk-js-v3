@@ -25,7 +25,13 @@ import {
   serializeAws_queryComposeEnvironmentsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ComposeEnvironmentsCommand}.
+ */
 export interface ComposeEnvironmentsCommandInput extends ComposeEnvironmentsMessage {}
+/**
+ * The output of {@link ComposeEnvironmentsCommand}.
+ */
 export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescriptionsMessage, __MetadataBearer {}
 
 /**

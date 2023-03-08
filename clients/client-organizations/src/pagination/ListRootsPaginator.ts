@@ -2,7 +2,6 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListRootsCommand, ListRootsCommandInput, ListRootsCommandOutput } from "../commands/ListRootsCommand";
-import { Organizations } from "../Organizations";
 import { OrganizationsClient } from "../OrganizationsClient";
 import { OrganizationsPaginationConfiguration } from "./Interfaces";
 
@@ -17,17 +16,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRootsCommand(input), ...args);
 };
-/**
- * @private
- */
-const makePagedRequest = async (
-  client: Organizations,
-  input: ListRootsCommandInput,
-  ...args: any
-): Promise<ListRootsCommandOutput> => {
-  // @ts-ignore
-  return await client.listRoots(input, ...args);
-};
 export async function* paginateListRoots(
   config: OrganizationsPaginationConfiguration,
   input: ListRootsCommandInput,
@@ -40,9 +28,7 @@ export async function* paginateListRoots(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Organizations) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OrganizationsClient) {
+    if (config.client instanceof OrganizationsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Organizations | OrganizationsClient");

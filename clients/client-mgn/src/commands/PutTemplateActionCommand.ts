@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1PutTemplateActionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link PutTemplateActionCommand}.
+ */
 export interface PutTemplateActionCommandInput extends PutTemplateActionRequest {}
+/**
+ * The output of {@link PutTemplateActionCommand}.
+ */
 export interface PutTemplateActionCommandOutput extends TemplateActionDocument, __MetadataBearer {}
 
 /**

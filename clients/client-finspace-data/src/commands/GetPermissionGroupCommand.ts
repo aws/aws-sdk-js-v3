@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1GetPermissionGroupCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link GetPermissionGroupCommand}.
+ */
 export interface GetPermissionGroupCommandInput extends GetPermissionGroupRequest {}
+/**
+ * The output of {@link GetPermissionGroupCommand}.
+ */
 export interface GetPermissionGroupCommandOutput extends GetPermissionGroupResponse, __MetadataBearer {}
 
 /**

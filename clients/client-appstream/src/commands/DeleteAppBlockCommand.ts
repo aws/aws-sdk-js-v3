@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeleteAppBlockCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeleteAppBlockCommand}.
+ */
 export interface DeleteAppBlockCommandInput extends DeleteAppBlockRequest {}
+/**
+ * The output of {@link DeleteAppBlockCommand}.
+ */
 export interface DeleteAppBlockCommandOutput extends DeleteAppBlockResult, __MetadataBearer {}
 
 /**

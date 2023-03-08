@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1DeleteVirtualNodeCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link DeleteVirtualNodeCommand}.
+ */
 export interface DeleteVirtualNodeCommandInput extends DeleteVirtualNodeInput {}
+/**
+ * The output of {@link DeleteVirtualNodeCommand}.
+ */
 export interface DeleteVirtualNodeCommandOutput extends DeleteVirtualNodeOutput, __MetadataBearer {}
 
 /**

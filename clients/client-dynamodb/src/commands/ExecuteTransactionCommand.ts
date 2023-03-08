@@ -25,18 +25,24 @@ import {
   serializeAws_json1_0ExecuteTransactionCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * The input for {@link ExecuteTransactionCommand}.
+ */
 export interface ExecuteTransactionCommandInput extends ExecuteTransactionInput {}
+/**
+ * The output of {@link ExecuteTransactionCommand}.
+ */
 export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutput, __MetadataBearer {}
 
 /**
  * <p>This operation allows you to perform transactional reads or writes on data stored in
  *             DynamoDB, using PartiQL.</p>
- *         <note>
+ *          <note>
  *             <p>The entire transaction must consist of either read statements or write statements,
  *                 you cannot mix both in one transaction. The EXISTS function is an exception and can
  *                 be used to check the condition of specific attributes of the item in a similar
  *                 manner to <code>ConditionCheck</code> in the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html#transaction-apis-txwriteitems">TransactWriteItems</a> API.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

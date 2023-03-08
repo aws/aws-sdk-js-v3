@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * The input for {@link DescribeMailboxExportJobCommand}.
+ */
 export interface DescribeMailboxExportJobCommandInput extends DescribeMailboxExportJobRequest {}
+/**
+ * The output of {@link DescribeMailboxExportJobCommand}.
+ */
 export interface DescribeMailboxExportJobCommandOutput extends DescribeMailboxExportJobResponse, __MetadataBearer {}
 
 /**

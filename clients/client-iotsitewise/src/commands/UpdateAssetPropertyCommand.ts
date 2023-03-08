@@ -20,7 +20,13 @@ import {
   serializeAws_restJson1UpdateAssetPropertyCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateAssetPropertyCommand}.
+ */
 export interface UpdateAssetPropertyCommandInput extends UpdateAssetPropertyRequest {}
+/**
+ * The output of {@link UpdateAssetPropertyCommand}.
+ */
 export interface UpdateAssetPropertyCommandOutput extends __MetadataBearer {}
 
 /**

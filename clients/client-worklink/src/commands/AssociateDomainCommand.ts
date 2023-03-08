@@ -25,7 +25,13 @@ import {
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * The input for {@link AssociateDomainCommand}.
+ */
 export interface AssociateDomainCommandInput extends AssociateDomainRequest {}
+/**
+ * The output of {@link AssociateDomainCommand}.
+ */
 export interface AssociateDomainCommandOutput extends AssociateDomainResponse, __MetadataBearer {}
 
 /**

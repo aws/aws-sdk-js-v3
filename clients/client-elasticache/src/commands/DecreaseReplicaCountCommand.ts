@@ -25,7 +25,13 @@ import {
   serializeAws_queryDecreaseReplicaCountCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link DecreaseReplicaCountCommand}.
+ */
 export interface DecreaseReplicaCountCommandInput extends DecreaseReplicaCountMessage {}
+/**
+ * The output of {@link DecreaseReplicaCountCommand}.
+ */
 export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountResult, __MetadataBearer {}
 
 /**

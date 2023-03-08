@@ -20,7 +20,13 @@ import {
   serializeAws_json1_1UpdateVolumeCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateVolumeCommand}.
+ */
 export interface UpdateVolumeCommandInput extends UpdateVolumeRequest {}
+/**
+ * The output of {@link UpdateVolumeCommand}.
+ */
 export interface UpdateVolumeCommandOutput extends __MetadataBearer {}
 
 /**

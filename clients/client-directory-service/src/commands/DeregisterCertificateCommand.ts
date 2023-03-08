@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DeregisterCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DeregisterCertificateCommand}.
+ */
 export interface DeregisterCertificateCommandInput extends DeregisterCertificateRequest {}
+/**
+ * The output of {@link DeregisterCertificateCommand}.
+ */
 export interface DeregisterCertificateCommandOutput extends DeregisterCertificateResult, __MetadataBearer {}
 
 /**

@@ -23,7 +23,13 @@ import {
   serializeAws_queryUpdateAccountPasswordPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link UpdateAccountPasswordPolicyCommand}.
+ */
 export interface UpdateAccountPasswordPolicyCommandInput extends UpdateAccountPasswordPolicyRequest {}
+/**
+ * The output of {@link UpdateAccountPasswordPolicyCommand}.
+ */
 export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBearer {}
 
 /**

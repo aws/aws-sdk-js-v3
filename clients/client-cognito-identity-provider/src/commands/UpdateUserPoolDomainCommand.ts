@@ -30,7 +30,13 @@ import {
   serializeAws_json1_1UpdateUserPoolDomainCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link UpdateUserPoolDomainCommand}.
+ */
 export interface UpdateUserPoolDomainCommandInput extends UpdateUserPoolDomainRequest {}
+/**
+ * The output of {@link UpdateUserPoolDomainCommand}.
+ */
 export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainResponse, __MetadataBearer {}
 
 /**

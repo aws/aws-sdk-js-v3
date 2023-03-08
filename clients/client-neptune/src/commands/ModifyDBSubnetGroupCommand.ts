@@ -25,7 +25,13 @@ import {
   serializeAws_queryModifyDBSubnetGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * The input for {@link ModifyDBSubnetGroupCommand}.
+ */
 export interface ModifyDBSubnetGroupCommandInput extends ModifyDBSubnetGroupMessage {}
+/**
+ * The output of {@link ModifyDBSubnetGroupCommand}.
+ */
 export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupResult, __MetadataBearer {}
 
 /**

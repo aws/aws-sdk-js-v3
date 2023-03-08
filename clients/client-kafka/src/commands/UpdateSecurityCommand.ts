@@ -25,7 +25,13 @@ import {
   serializeAws_restJson1UpdateSecurityCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * The input for {@link UpdateSecurityCommand}.
+ */
 export interface UpdateSecurityCommandInput extends UpdateSecurityRequest {}
+/**
+ * The output of {@link UpdateSecurityCommand}.
+ */
 export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __MetadataBearer {}
 
 /**

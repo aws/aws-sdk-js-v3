@@ -25,7 +25,13 @@ import {
   serializeAws_json1_1DescribeConfigurationRecorderStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * The input for {@link DescribeConfigurationRecorderStatusCommand}.
+ */
 export interface DescribeConfigurationRecorderStatusCommandInput extends DescribeConfigurationRecorderStatusRequest {}
+/**
+ * The output of {@link DescribeConfigurationRecorderStatusCommand}.
+ */
 export interface DescribeConfigurationRecorderStatusCommandOutput
   extends DescribeConfigurationRecorderStatusResponse,
     __MetadataBearer {}
