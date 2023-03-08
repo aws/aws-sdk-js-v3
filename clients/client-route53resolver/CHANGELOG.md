@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.287.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.286.0...v3.287.0) (2023-03-08)
+
+
+### Bug Fixes
+
+* **clients:** remove aggregated client from paginators ([#4496](https://github.com/aws/aws-sdk-js-v3/issues/4496)) ([aea457a](https://github.com/aws/aws-sdk-js-v3/commit/aea457ab5d4e72939f2f608140d82b60526eb716))
+
+
+### Features
+
+* **client-route53resolver:** Add dual-stack and IPv6 support for Route 53 Resolver Endpoint,Add IPv6 target IP in Route 53 Resolver Forwarding Rule ([ab22b63](https://github.com/aws/aws-sdk-js-v3/commit/ab22b6321f67844761992b20b312893f1b4fcfa2))
+
+
+
+
+
 # [3.282.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.281.0...v3.282.0) (2023-03-01)
 
 **Note:** Version bump only for package @aws-sdk/client-route53resolver

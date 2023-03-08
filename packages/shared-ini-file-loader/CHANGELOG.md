@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.287.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.286.0...v3.287.0) (2023-03-08)
+
+
+### Features
+
+* **shared-ini-file-loader:** enable uncached credential loading ([#4253](https://github.com/aws/aws-sdk-js-v3/issues/4253)) ([89dc903](https://github.com/aws/aws-sdk-js-v3/commit/89dc903e852bb93e4b5cc18589201ea1961250d3))
+
+
+
+
+
 # [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
 
 **Note:** Version bump only for package @aws-sdk/shared-ini-file-loader
