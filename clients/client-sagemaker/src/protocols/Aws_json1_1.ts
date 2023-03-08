@@ -925,6 +925,7 @@ import {
   GitConfig,
   HyperParameterSpecification,
   HyperParameterTuningJobObjective,
+  IamIdentity,
   ImageConfig,
   InferenceSpecification,
   InputConfig,
@@ -960,7 +961,6 @@ import {
   OutputDataConfig,
   OutputParameter,
   ParameterRange,
-  ProductionVariant,
   ProductionVariantCoreDumpConfig,
   ProductionVariantInstanceType,
   ProductionVariantServerlessConfig,
@@ -1140,7 +1140,6 @@ import {
   DeleteUserProfileRequest,
   DeleteWorkforceRequest,
   DeleteWorkforceResponse,
-  DeleteWorkteamRequest,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1232,6 +1231,7 @@ import {
   ProcessingS3Input,
   ProcessingS3Output,
   ProcessingStoppingCondition,
+  ProductionVariant,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   ProvisioningParameter,
@@ -1270,6 +1270,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteWorkteamRequest,
   DeleteWorkteamResponse,
   DeployedImage,
   DeploymentStageStatusSummary,
@@ -1471,7 +1472,6 @@ import {
   ListActionsResponse,
   ListAlgorithmsInput,
   ListAlgorithmsOutput,
-  ListAliasesRequest,
   MetricData,
   ModelArtifacts,
   ModelCardExportArtifacts,
@@ -1513,6 +1513,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListAliasesRequest,
   ListAliasesResponse,
   ListAppImageConfigsRequest,
   ListAppImageConfigsResponse,
@@ -1763,7 +1764,6 @@ import {
   UpdateContextResponse,
   UpdateDeviceFleetRequest,
   UpdateDevicesRequest,
-  UpdateDomainRequest,
   UserProfileDetails,
   Vertex,
 } from "../models/models_3";
@@ -1771,6 +1771,7 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  UpdateDomainRequest,
   UpdateDomainResponse,
   UpdateEndpointInput,
   UpdateEndpointOutput,
@@ -32482,6 +32483,14 @@ const deserializeAws_json1_1HyperParameterTuningResourceConfig = (
   } as any;
 };
 
+const deserializeAws_json1_1IamIdentity = (output: any, context: __SerdeContext): IamIdentity => {
+  return {
+    Arn: __expectString(output.Arn),
+    PrincipalId: __expectString(output.PrincipalId),
+    SourceIdentity: __expectString(output.SourceIdentity),
+  } as any;
+};
+
 const deserializeAws_json1_1Image = (output: any, context: __SerdeContext): Image => {
   return {
     CreationTime:
@@ -38842,6 +38851,8 @@ const deserializeAws_json1_1USD = (output: any, context: __SerdeContext): USD =>
 const deserializeAws_json1_1UserContext = (output: any, context: __SerdeContext): UserContext => {
   return {
     DomainId: __expectString(output.DomainId),
+    IamIdentity:
+      output.IamIdentity != null ? deserializeAws_json1_1IamIdentity(output.IamIdentity, context) : undefined,
     UserProfileArn: __expectString(output.UserProfileArn),
     UserProfileName: __expectString(output.UserProfileName),
   } as any;

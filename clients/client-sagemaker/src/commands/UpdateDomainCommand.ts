@@ -13,8 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateDomainRequest, UpdateDomainRequestFilterSensitiveLog } from "../models/models_3";
-import { UpdateDomainResponse, UpdateDomainResponseFilterSensitiveLog } from "../models/models_4";
+import {
+  UpdateDomainRequest,
+  UpdateDomainRequestFilterSensitiveLog,
+  UpdateDomainResponse,
+  UpdateDomainResponseFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateDomainCommand,
   serializeAws_json1_1UpdateDomainCommand,

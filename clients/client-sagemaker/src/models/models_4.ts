@@ -3,7 +3,9 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
   AdditionalInferenceSpecificationDefinition,
+  AppSecurityGroupManagement,
   BooleanOperator,
+  DefaultSpaceSettings,
   DeploymentConfig,
   ModelApprovalStatus,
   Tag,
@@ -41,8 +43,47 @@ import {
   VendorGuidance,
   WorkforceVpcConfigRequest,
 } from "./models_1";
-import { DesiredWeightAndCapacity, FeatureParameter, Filter, ResourceType, Workforce, Workteam } from "./models_2";
+import {
+  DesiredWeightAndCapacity,
+  DomainSettingsForUpdate,
+  FeatureParameter,
+  Filter,
+  ResourceType,
+  Workforce,
+  Workteam,
+} from "./models_2";
 import { NestedFilters, ProfilerConfigForUpdate, ResourceConfigForUpdate, SearchSortOrder } from "./models_3";
+
+export interface UpdateDomainRequest {
+  /**
+   * <p>The ID of the domain to be updated.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>A collection of settings.</p>
+   */
+  DefaultUserSettings?: UserSettings;
+
+  /**
+   * <p>A collection of <code>DomainSettings</code> configuration values to update.</p>
+   */
+  DomainSettingsForUpdate?: DomainSettingsForUpdate;
+
+  /**
+   * <p>The default settings used to create a space within the Domain.</p>
+   */
+  DefaultSpaceSettings?: DefaultSpaceSettings;
+
+  /**
+   * <p>The entity that creates and manages the required security groups for inter-app
+   *             communication in <code>VPCOnly</code> mode. Required when
+   *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
+   *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
+   *             provided.</p>
+   */
+  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
+}
 
 export interface UpdateDomainResponse {
   /**
@@ -1210,6 +1251,13 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const UpdateDomainRequestFilterSensitiveLog = (obj: UpdateDomainRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

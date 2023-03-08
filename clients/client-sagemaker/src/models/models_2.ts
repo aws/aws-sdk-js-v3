@@ -73,7 +73,6 @@ import {
   OutputDataConfig,
   OutputParameter,
   ProblemType,
-  ProductionVariant,
   ProductionVariantAcceleratorType,
   ProductionVariantInstanceType,
   ProductionVariantServerlessConfig,
@@ -154,6 +153,7 @@ import {
   ProcessingResources,
   ProcessingStoppingCondition,
   Processor,
+  ProductionVariant,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   RecommendationJobInputConfig,
@@ -176,6 +176,13 @@ import {
   TrialComponentStatus,
   VendorGuidance,
 } from "./models_1";
+
+export interface DeleteWorkteamRequest {
+  /**
+   * <p>The name of the work team to delete.</p>
+   */
+  WorkteamName: string | undefined;
+}
 
 export interface DeleteWorkteamResponse {
   /**
@@ -9653,33 +9660,12 @@ export interface ListAlgorithmsOutput {
   NextToken?: string;
 }
 
-export interface ListAliasesRequest {
-  /**
-   * <p>The name of the image.</p>
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The alias of the image version.</p>
-   */
-  Alias?: string;
-
-  /**
-   * <p>The version of the image. If image version is not specified, the aliases of all versions of the image are listed.</p>
-   */
-  Version?: number;
-
-  /**
-   * <p>The maximum number of aliases to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous call to <code>ListAliases</code> didn't return the full set of
-   *          aliases, the call returns a token for retrieving the next set of aliases.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DeleteWorkteamRequestFilterSensitiveLog = (obj: DeleteWorkteamRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11424,12 +11410,5 @@ export const ListAlgorithmsInputFilterSensitiveLog = (obj: ListAlgorithmsInput):
  * @internal
  */
 export const ListAlgorithmsOutputFilterSensitiveLog = (obj: ListAlgorithmsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAliasesRequestFilterSensitiveLog = (obj: ListAliasesRequest): any => ({
   ...obj,
 });
