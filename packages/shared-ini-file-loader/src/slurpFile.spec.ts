@@ -90,4 +90,32 @@ describe("slurpFile", () => {
       done();
     });
   });
+
+  it("makes multiple readFile calls when called with ignoreCache option", (done) => {
+    jest.isolateModules(async () => {
+      const { slurpFile } = require("./slurpFile");
+
+      const mockPath1 = "/mock/path/1";
+      const mockPathContent1 = getMockFileContents(mockPath1);
+
+      expect(promises.readFile).not.toHaveBeenCalled();
+      const fileContentArr = await Promise.all([
+        slurpFile(mockPath1, { ignoreCache: true }),
+        slurpFile(mockPath1, { ignoreCache: true }),
+      ]);
+      expect(fileContentArr).toStrictEqual([mockPathContent1, mockPathContent1]);
+
+      // There are two readFile calls as slurpFile is called in parallel with the same filepath.
+      expect(promises.readFile).toHaveBeenCalledTimes(2);
+      expect(promises.readFile).toHaveBeenNthCalledWith(1, mockPath1, UTF8);
+      expect(promises.readFile).toHaveBeenNthCalledWith(2, mockPath1, UTF8);
+
+      const fileContent1 = await slurpFile(mockPath1);
+      expect(fileContent1).toStrictEqual(mockPathContent1);
+
+      // There is no readFile call since slurpFile is now called without refresh.
+      expect(promises.readFile).toHaveBeenCalledTimes(2);
+      done();
+    });
+  });
 });
