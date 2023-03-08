@@ -36,10 +36,10 @@ export interface DisassociateResolverRuleCommandOutput extends DisassociateResol
 
 /**
  * <p>Removes the association between a specified Resolver rule and a specified VPC.</p>
- * 		       <important>
- * 			         <p>If you disassociate a Resolver rule from a VPC, Resolver stops forwarding DNS queries for the
+ *          <important>
+ *             <p>If you disassociate a Resolver rule from a VPC, Resolver stops forwarding DNS queries for the
  * 				domain name that you specified in the Resolver rule. </p>
- * 		       </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

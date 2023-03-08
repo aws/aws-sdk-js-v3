@@ -35,7 +35,8 @@ export interface UpdateResolverEndpointCommandInput extends UpdateResolverEndpoi
 export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the name of an inbound or an outbound Resolver endpoint.  </p>
+ * <p>Updates the name, or enpoint type for an inbound or an outbound Resolver endpoint.
+ * 			You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be updated to other type. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -40,7 +40,7 @@ export interface DisassociateResolverEndpointIpAddressCommandOutput
 /**
  * <p>Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address,
  * 			submit one <code>DisassociateResolverEndpointIpAddress</code> request for each IP address.</p>
- * 		       <p>To add an IP address to an endpoint, see
+ *          <p>To add an IP address to an endpoint, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverEndpointIpAddress.html">AssociateResolverEndpointIpAddress</a>.
  * 		</p>
  * @example
