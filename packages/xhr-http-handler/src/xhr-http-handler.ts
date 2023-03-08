@@ -1,6 +1,6 @@
-import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { HttpHandler, HttpResponse } from "@aws-sdk/protocol-http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
-import { HttpHandlerOptions, Provider } from "@aws-sdk/types";
+import { HttpHandlerOptions, HttpRequest, Provider } from "@aws-sdk/types";
 import { EventEmitter } from "events";
 
 import { requestTimeout } from "./request-timeout";

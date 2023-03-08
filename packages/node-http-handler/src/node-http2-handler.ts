@@ -1,6 +1,6 @@
-import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { HttpHandler, HttpResponse } from "@aws-sdk/protocol-http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
-import { HttpHandlerOptions, Provider } from "@aws-sdk/types";
+import { HttpHandlerOptions, HttpRequest, Provider } from "@aws-sdk/types";
 import { ClientHttp2Session, connect, constants } from "http2";
 
 import { getTransformedHeaders } from "./get-transformed-headers";
