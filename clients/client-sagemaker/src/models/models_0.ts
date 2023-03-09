@@ -754,7 +754,8 @@ export interface AlgorithmSpecification {
   ContainerArguments?: string[];
 
   /**
-   * <p>The configuration to use an image from a private Docker registry for a training job.</p>
+   * <p>The configuration to use an image from a private Docker registry for a training
+   *             job.</p>
    */
   TrainingImageConfig?: TrainingImageConfig;
 }
@@ -5179,11 +5180,14 @@ export interface BatchTransformInput {
 }
 
 /**
- * <p>A structure that keeps track of which training jobs launched by your hyperparameter tuning job are not improving model performance as evaluated against an objective function.</p>
+ * <p>A structure that keeps track of which training jobs launched by your hyperparameter
+ *             tuning job are not improving model performance as evaluated against an objective
+ *             function.</p>
  */
 export interface BestObjectiveNotImproving {
   /**
-   * <p>The number of training jobs that have failed to improve model performance by 1% or greater over prior training jobs as evaluated against an objective function.</p>
+   * <p>The number of training jobs that have failed to improve model performance by 1% or
+   *             greater over prior training jobs as evaluated against an objective function.</p>
    */
   MaxNumberOfTrainingJobsNotImproving?: number;
 }
@@ -6416,9 +6420,8 @@ export interface ContainerDefinition {
    *          </note>
    *          <p>If you provide a value for this parameter, SageMaker uses Amazon Web Services Security Token
    *             Service to download model artifacts from the S3 path you provide. Amazon Web Services STS
-   *             is activated in your Amazon Web Services account by default. If you previously deactivated
-   *                 Amazon Web Services STS for a region, you need to reactivate Amazon Web Services STS
-   *             for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+   *             is activated in your Amazon Web Services account by default. If you previously
+   *             deactivated Amazon Web Services STS for a region, you need to reactivate Amazon Web Services STS for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
    *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
    *                     <i>Amazon Web Services Identity and Access Management User
    *                 Guide</i>.</p>
@@ -6593,7 +6596,9 @@ export interface ContinuousParameterRangeSpecification {
 }
 
 /**
- * <p>A flag to indicating that automatic model tuning (AMT) has detected model convergence, defined as a lack of significant improvement (1% or less) against an objective metric.</p>
+ * <p>A flag to indicating that automatic model tuning (AMT) has detected model convergence,
+ *             defined as a lack of significant improvement (1% or less) against an objective
+ *             metric.</p>
  */
 export interface ConvergenceDetected {
   /**

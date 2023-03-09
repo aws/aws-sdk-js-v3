@@ -2672,25 +2672,22 @@ export interface DescribeHyperParameterTuningJobRequest {
 }
 
 /**
- * <p>Shows the final value for the
- *             objective
- *             metric for a training job that was launched by a hyperparameter
- *             tuning job. You define the objective metric in the
+ * <p>Shows the latest objective metric emitted by a training job that was launched by a
+ *             hyperparameter tuning job. You define the objective metric in the
  *                 <code>HyperParameterTuningJobObjective</code> parameter of <a>HyperParameterTuningJobConfig</a>.</p>
  */
 export interface FinalHyperParameterTuningJobObjectiveMetric {
   /**
-   * <p>Whether to
-   *             minimize
-   *             or maximize the objective metric. Valid values are Minimize and
-   *             Maximize.</p>
+   * <p>Select if you want to minimize or maximize the objective metric during hyperparameter
+   *             tuning. </p>
    */
   Type?: HyperParameterTuningJobObjectiveType | string;
 
   /**
-   * <p>The name of the
-   *             objective
-   *             metric.</p>
+   * <p>The name of the objective metric. For SageMaker built-in algorithms, metrics are defined
+   *             per algorithm. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost-tuning.html">metrics for XGBoost</a> as an
+   *             example. You can also use a custom algorithm for training and define your own metrics.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html">Define metrics and environment variables</a>.</p>
    */
   MetricName: string | undefined;
 
@@ -2897,16 +2894,20 @@ export interface TrainingJobStatusCounters {
 }
 
 /**
- * <p>A structure that contains runtime information about both current and completed hyperparameter tuning jobs.</p>
+ * <p>A structure that contains runtime information about both current and completed
+ *             hyperparameter tuning jobs.</p>
  */
 export interface HyperParameterTuningJobCompletionDetails {
   /**
-   * <p>The number of training jobs launched by a tuning job that are not improving (1% or less) as measured by model performance evaluated against an objective function.</p>
+   * <p>The number of training jobs launched by a tuning job that are not improving (1% or
+   *             less) as measured by model performance evaluated against an objective function.</p>
    */
   NumberOfTrainingJobsObjectiveNotImproving?: number;
 
   /**
-   * <p>The time in timestamp format that AMT detected model convergence, as defined by a lack of significant improvement over time based on criteria developed over a wide range of diverse benchmarking tests.</p>
+   * <p>The time in timestamp format that AMT detected model convergence, as defined by a lack
+   *             of significant improvement over time based on criteria developed over a wide range of
+   *             diverse benchmarking tests.</p>
    */
   ConvergenceDetectedTime?: Date;
 }
@@ -3003,7 +3004,10 @@ export interface DescribeHyperParameterTuningJobResponse {
   FailureReason?: string;
 
   /**
-   * <p>Tuning job completion information returned as the response from a hyperparameter tuning job. This information tells if your tuning job has or has not converged. It also includes the number of training jobs that have not improved model performance as evaluated against the objective function.</p>
+   * <p>Tuning job completion information returned as the response from a hyperparameter
+   *             tuning job. This information tells if your tuning job has or has not converged. It also
+   *             includes the number of training jobs that have not improved model performance as
+   *             evaluated against the objective function.</p>
    */
   TuningJobCompletionDetails?: HyperParameterTuningJobCompletionDetails;
 

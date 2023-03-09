@@ -70,9 +70,13 @@ import {
 } from "./models_0";
 
 /**
- * <p>Identifies a model that you want to host and the resources chosen to deploy for
+ * <p>
+ *             Identifies a model that you want to host and the resources chosen to deploy for
  *             hosting it. If you are deploying multiple models, tell SageMaker how to distribute traffic
- *             among the models by specifying variant weights. </p>
+ *             among the models by specifying variant weights. For more information on production
+ *             variants, check <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html">
+ *             Production variants</a>.
+ *         </p>
  */
 export interface ProductionVariant {
   /**
@@ -108,8 +112,8 @@ export interface ProductionVariant {
   /**
    * <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI
    *             instances provide on-demand GPU computing for inference. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
-   *                 Inference in Amazon SageMaker</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
+   *             Inference in Amazon SageMaker</a>.</p>
    */
   AcceleratorType?: ProductionVariantAcceleratorType | string;
 
@@ -143,6 +147,17 @@ export interface ProductionVariant {
    *             SageMaker Hosting. For more information about health check, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests">How Your Container Should Respond to Health Check (Ping) Requests</a>.</p>
    */
   ContainerStartupHealthCheckTimeoutInSeconds?: number;
+
+  /**
+   * <p>
+   *             You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM)
+   *             access for a production variant behind an endpoint. By default, SSM access is disabled
+   *             for all production variants behind an endpoints. You can turn on or turn off SSM access
+   *             for a production variant behind an existing endpoint by creating a new endpoint
+   *             configuration and calling <code>UpdateEndpoint</code>.
+   *         </p>
+   */
+  EnableSSMAccess?: boolean;
 }
 
 export interface CreateEndpointConfigInput {
@@ -333,7 +348,7 @@ export interface S3StorageConfig {
   S3Uri: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Key Management Service (KMS) key ID of the key used to encrypt any objects
+   * <p>The Amazon Web Services Key Management Service (KMS) key ARN of the key used to encrypt any objects
    *          written into the <code>OfflineStore</code> S3 location.</p>
    *          <p>The IAM <code>roleARN</code> that is passed as a parameter to
    *             <code>CreateFeatureGroup</code> must have below permissions to the
@@ -396,7 +411,7 @@ export interface OfflineStoreConfig {
  */
 export interface OnlineStoreSecurityConfig {
   /**
-   * <p>The ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker Feature Store uses
+   * <p>The Amazon Web Services Key Management Service (KMS) key ARN that SageMaker Feature Store uses
    *          to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.</p>
    *          <p>The caller (either IAM user or IAM role) of <code>CreateFeatureGroup</code> must have
    *          below permissions to the <code>OnlineStore</code>
@@ -1715,12 +1730,15 @@ export interface TuningJobCompletionCriteria {
   TargetObjectiveMetricValue?: number;
 
   /**
-   * <p>A flag to stop your hyperparameter tuning job if model performance fails to improve as evaluated against an objective function.</p>
+   * <p>A flag to stop your hyperparameter tuning job if model performance fails to improve as
+   *             evaluated against an objective function.</p>
    */
   BestObjectiveNotImproving?: BestObjectiveNotImproving;
 
   /**
-   * <p>A flag to top your hyperparameter tuning job if automatic model tuning (AMT) has detected that your model has converged as evaluated against your objective function.</p>
+   * <p>A flag to top your hyperparameter tuning job if automatic model tuning (AMT) has
+   *             detected that your model has converged as evaluated against your objective
+   *             function.</p>
    */
   ConvergenceDetected?: ConvergenceDetected;
 }
@@ -2164,7 +2182,7 @@ export interface HyperParameterTrainingJobDefinition {
 
   /**
    * <p>An environment variable that you can pass into the SageMaker <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> API. You can use an existing <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html#sagemaker-CreateTrainingJob-request-Environment">environment variable from the training container</a> or use your own. See
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html">Define metrics
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html">Define metrics
    *                 and variables</a> for more information.</p>
    *          <note>
    *             <p>The maximum number of items specified for <code>Map Entries</code> refers to the

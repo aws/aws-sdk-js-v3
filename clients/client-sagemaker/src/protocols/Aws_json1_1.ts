@@ -24250,6 +24250,7 @@ const serializeAws_json1_1ProductionVariant = (input: ProductionVariant, context
     ...(input.CoreDumpConfig != null && {
       CoreDumpConfig: serializeAws_json1_1ProductionVariantCoreDumpConfig(input.CoreDumpConfig, context),
     }),
+    ...(input.EnableSSMAccess != null && { EnableSSMAccess: input.EnableSSMAccess }),
     ...(input.InitialInstanceCount != null && { InitialInstanceCount: input.InitialInstanceCount }),
     ...(input.InitialVariantWeight != null && { InitialVariantWeight: __serializeFloat(input.InitialVariantWeight) }),
     ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
@@ -36523,6 +36524,7 @@ const deserializeAws_json1_1ProductionVariant = (output: any, context: __SerdeCo
       output.CoreDumpConfig != null
         ? deserializeAws_json1_1ProductionVariantCoreDumpConfig(output.CoreDumpConfig, context)
         : undefined,
+    EnableSSMAccess: __expectBoolean(output.EnableSSMAccess),
     InitialInstanceCount: __expectInt32(output.InitialInstanceCount),
     InitialVariantWeight: __limitedParseFloat32(output.InitialVariantWeight),
     InstanceType: __expectString(output.InstanceType),
