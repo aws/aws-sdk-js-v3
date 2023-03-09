@@ -1,6 +1,8 @@
 import { SourceData } from "./crypto";
 
 /**
+ * @public
+ *
  * An object that provides a checksum of data provided in chunks to `update`.
  * The checksum may be performed incrementally as chunks are received or all
  * at once when the checksum is finalized, depending on the underlying
@@ -57,6 +59,8 @@ export interface Checksum {
 }
 
 /**
+ * @public
+ *
  * A constructor for a Checksum that may be used to calculate an HMAC. Implementing
  * classes should not directly hold the provided key in memory beyond the
  * lexical scope of the constructor.

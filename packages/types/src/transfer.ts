@@ -1,5 +1,11 @@
+/**
+ * @public
+ */
 export type RequestHandlerOutput<ResponseType> = { response: ResponseType };
 
+/**
+ * @public
+ */
 export interface RequestHandler<RequestType, ResponseType, HandlerOptions = {}> {
   /**
    * metadata contains information of a handler. For example
@@ -11,6 +17,9 @@ export interface RequestHandler<RequestType, ResponseType, HandlerOptions = {}> 
   handle: (request: RequestType, handlerOptions?: HandlerOptions) => Promise<RequestHandlerOutput<ResponseType>>;
 }
 
+/**
+ * @public
+ */
 export interface RequestHandlerMetadata {
   // This infers request handler's protocol
   // valid values are stated: https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids

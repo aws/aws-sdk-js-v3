@@ -1,5 +1,8 @@
 import { Identity, IdentityProvider } from "./Identity";
 
+/**
+ * @public
+ */
 export interface AwsCredentialIdentity extends Identity {
   /**
    * AWS access key ID
@@ -18,4 +21,7 @@ export interface AwsCredentialIdentity extends Identity {
   readonly sessionToken?: string;
 }
 
+/**
+ * @public
+ */
 export type AwsCredentialIdentityProvider = IdentityProvider<AwsCredentialIdentity>;

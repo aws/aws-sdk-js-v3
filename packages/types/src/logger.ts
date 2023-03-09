@@ -1,4 +1,6 @@
 /**
+ * @public
+ *
  * A list of logger's log level. These levels are sorted in
  * order of increasing severity. Each log level includes itself and all
  * the levels behind itself.
@@ -9,6 +11,8 @@
 export type LogLevel = "all" | "trace" | "debug" | "log" | "info" | "warn" | "error" | "off";
 
 /**
+ * @public
+ *
  * An object consumed by Logger constructor to initiate a logger object.
  */
 export interface LoggerOptions {
@@ -17,6 +21,8 @@ export interface LoggerOptions {
 }
 
 /**
+ * @public
+ *
  * Represents a logger object that is available in HandlerExecutionContext
  * throughout the middleware stack.
  */

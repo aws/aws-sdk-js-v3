@@ -1,5 +1,8 @@
 import { AuthScheme } from "./auth";
 
+/**
+ * @public
+ */
 export interface EndpointPartition {
   name: string;
   dnsSuffix: string;
@@ -8,6 +11,9 @@ export interface EndpointPartition {
   supportsDualStack: boolean;
 }
 
+/**
+ * @public
+ */
 export interface EndpointARN {
   partition: string;
   service: string;
@@ -16,11 +22,17 @@ export interface EndpointARN {
   resourceId: Array<string>;
 }
 
+/**
+ * @public
+ */
 export enum EndpointURLScheme {
   HTTP = "http",
   HTTPS = "https",
 }
 
+/**
+ * @public
+ */
 export interface EndpointURL {
   /**
    * The URL scheme such as http or https.
@@ -50,12 +62,18 @@ export interface EndpointURL {
   isIp: boolean;
 }
 
+/**
+ * @public
+ */
 export type EndpointObjectProperty =
   | string
   | boolean
   | { [key: string]: EndpointObjectProperty }
   | EndpointObjectProperty[];
 
+/**
+ * @public
+ */
 export interface EndpointV2 {
   url: URL;
   properties?: {
@@ -64,4 +82,7 @@ export interface EndpointV2 {
   headers?: Record<string, string[]>;
 }
 
+/**
+ * @public
+ */
 export type EndpointParameters = { [name: string]: undefined | string | boolean };

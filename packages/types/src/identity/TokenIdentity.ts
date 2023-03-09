@@ -1,5 +1,8 @@
 import { Identity, IdentityProvider } from "./Identity";
 
+/**
+ * @public
+ */
 export interface TokenIdentity extends Identity {
   /**
    * The literal token string
@@ -7,4 +10,7 @@ export interface TokenIdentity extends Identity {
   readonly token: string;
 }
 
+/**
+ * @public
+ */
 export type TokenIdentityProvider = IdentityProvider<TokenIdentity>;

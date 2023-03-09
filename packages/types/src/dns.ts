@@ -1,4 +1,6 @@
 /**
+ * @public
+ *
  * DNS record types
  */
 export enum HostAddressType {
@@ -12,6 +14,9 @@ export enum HostAddressType {
   A = "A",
 }
 
+/**
+ * @public
+ */
 export interface HostAddress {
   /**
    * The {@link HostAddressType} of the host address.
@@ -32,6 +37,9 @@ export interface HostAddress {
   service?: string;
 }
 
+/**
+ * @public
+ */
 export interface HostResolverArguments {
   /**
    * The host name to resolve.
@@ -44,6 +52,8 @@ export interface HostResolverArguments {
 }
 
 /**
+ * @public
+ *
  * Host Resolver interface for DNS queries
  */
 export interface HostResolver {

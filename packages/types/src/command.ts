@@ -1,6 +1,9 @@
 import { Handler, MiddlewareStack } from "./middleware";
 import { MetadataBearer } from "./response";
 
+/**
+ * @public
+ */
 export interface Command<
   ClientInput extends object,
   InputType extends ClientInput,

@@ -2,6 +2,8 @@ import { HttpResponse } from "./http";
 import { MetadataBearer } from "./response";
 
 /**
+ * @public
+ *
  * A document type represents an untyped JSON-like value.
  *
  * Not all protocols support document types, and the serialization format of a
@@ -12,6 +14,8 @@ import { MetadataBearer } from "./response";
 export type DocumentType = null | boolean | number | string | DocumentType[] | { [prop: string]: DocumentType };
 
 /**
+ * @public
+ *
  * A structure shape with the error trait.
  * https://smithy.io/2.0/spec/behavior-traits.html#smithy-api-retryable-trait
  */
@@ -23,6 +27,8 @@ export interface RetryableTrait {
 }
 
 /**
+ * @public
+ *
  * Type that is implemented by all Smithy shapes marked with the
  * error trait.
  * @deprecated
@@ -55,6 +61,8 @@ export interface SmithyException {
 }
 
 /**
+ * @public
+ *
  * @deprecated
  * @see https://aws.amazon.com/blogs/developer/service-error-handling-modular-aws-sdk-js/
  *
