@@ -855,7 +855,6 @@ import {
   GroupMember,
   GutterStyle,
   IAMPolicyAssignment,
-  IdentityTypeNotSupportedException,
   Ingestion,
   InputColumn,
   IntegerParameter,
@@ -885,7 +884,9 @@ import {
   QuickSightUserNotFoundException,
   RdsParameters,
   RedshiftParameters,
+  RegisteredUserConsoleFeatureConfigurations,
   RegisteredUserDashboardEmbeddingConfiguration,
+  RegisteredUserDashboardFeatureConfigurations,
   RegisteredUserDashboardVisualEmbeddingConfiguration,
   RegisteredUserEmbeddingExperienceConfiguration,
   RegisteredUserQSearchBarEmbeddingConfiguration,
@@ -909,6 +910,7 @@ import {
   SparkParameters,
   SqlServerParameters,
   SslProperties,
+  StatePersistenceConfigurations,
   StringParameter,
   TagColumnOperation,
   Template,
@@ -943,6 +945,7 @@ import {
 import {
   GroupSearchFilter,
   IAMPolicyAssignmentSummary,
+  IdentityTypeNotSupportedException,
   InvalidRequestException,
   TemplateSummary,
   TemplateVersionSummary,
@@ -20015,6 +20018,9 @@ const serializeAws_restJson1PivotTableFieldWells = (input: PivotTableFieldWells,
 const serializeAws_restJson1PivotTableOptions = (input: PivotTableOptions, context: __SerdeContext): any => {
   return {
     ...(input.CellStyle != null && { CellStyle: serializeAws_restJson1TableCellStyle(input.CellStyle, context) }),
+    ...(input.CollapsedRowDimensionsVisibility != null && {
+      CollapsedRowDimensionsVisibility: input.CollapsedRowDimensionsVisibility,
+    }),
     ...(input.ColumnHeaderStyle != null && {
       ColumnHeaderStyle: serializeAws_restJson1TableCellStyle(input.ColumnHeaderStyle, context),
     }),
@@ -20477,12 +20483,40 @@ const serializeAws_restJson1ReferenceLineValueLabelConfiguration = (
   };
 };
 
+const serializeAws_restJson1RegisteredUserConsoleFeatureConfigurations = (
+  input: RegisteredUserConsoleFeatureConfigurations,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.StatePersistence != null && {
+      StatePersistence: serializeAws_restJson1StatePersistenceConfigurations(input.StatePersistence, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1RegisteredUserDashboardEmbeddingConfiguration = (
   input: RegisteredUserDashboardEmbeddingConfiguration,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.FeatureConfigurations != null && {
+      FeatureConfigurations: serializeAws_restJson1RegisteredUserDashboardFeatureConfigurations(
+        input.FeatureConfigurations,
+        context
+      ),
+    }),
     ...(input.InitialDashboardId != null && { InitialDashboardId: input.InitialDashboardId }),
+  };
+};
+
+const serializeAws_restJson1RegisteredUserDashboardFeatureConfigurations = (
+  input: RegisteredUserDashboardFeatureConfigurations,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.StatePersistence != null && {
+      StatePersistence: serializeAws_restJson1StatePersistenceConfigurations(input.StatePersistence, context),
+    }),
   };
 };
 
@@ -20537,6 +20571,12 @@ const serializeAws_restJson1RegisteredUserQuickSightConsoleEmbeddingConfiguratio
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.FeatureConfigurations != null && {
+      FeatureConfigurations: serializeAws_restJson1RegisteredUserConsoleFeatureConfigurations(
+        input.FeatureConfigurations,
+        context
+      ),
+    }),
     ...(input.InitialPath != null && { InitialPath: input.InitialPath }),
   };
 };
@@ -21336,6 +21376,15 @@ const serializeAws_restJson1SqlServerParameters = (input: SqlServerParameters, c
 const serializeAws_restJson1SslProperties = (input: SslProperties, context: __SerdeContext): any => {
   return {
     ...(input.DisableSsl != null && { DisableSsl: input.DisableSsl }),
+  };
+};
+
+const serializeAws_restJson1StatePersistenceConfigurations = (
+  input: StatePersistenceConfigurations,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
   };
 };
 
@@ -29363,6 +29412,7 @@ const deserializeAws_restJson1PivotTableFieldWells = (output: any, context: __Se
 const deserializeAws_restJson1PivotTableOptions = (output: any, context: __SerdeContext): PivotTableOptions => {
   return {
     CellStyle: output.CellStyle != null ? deserializeAws_restJson1TableCellStyle(output.CellStyle, context) : undefined,
+    CollapsedRowDimensionsVisibility: __expectString(output.CollapsedRowDimensionsVisibility),
     ColumnHeaderStyle:
       output.ColumnHeaderStyle != null
         ? deserializeAws_restJson1TableCellStyle(output.ColumnHeaderStyle, context)

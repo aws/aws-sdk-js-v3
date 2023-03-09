@@ -13,8 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSessionEmbedUrlRequest, GetSessionEmbedUrlRequestFilterSensitiveLog } from "../models/models_2";
-import { GetSessionEmbedUrlResponse, GetSessionEmbedUrlResponseFilterSensitiveLog } from "../models/models_3";
+import {
+  GetSessionEmbedUrlRequest,
+  GetSessionEmbedUrlRequestFilterSensitiveLog,
+  GetSessionEmbedUrlResponse,
+  GetSessionEmbedUrlResponseFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_restJson1GetSessionEmbedUrlCommand,
   serializeAws_restJson1GetSessionEmbedUrlCommand,

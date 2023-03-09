@@ -1749,7 +1749,7 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>Deletes the Amazon QuickSight user that is associated with the identity of the
-   * 			Identity and Access Management (IAM) user or role that's making the call. The IAM user
+   * 			IAM user or role that's making the call. The IAM user
    * 			isn't deleted as a result of this call. </p>
    */
   public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;

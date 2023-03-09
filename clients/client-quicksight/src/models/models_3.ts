@@ -63,6 +63,128 @@ import {
 } from "./models_2";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
 
+/**
+ * <p>Output returned from the <code>GetDashboardEmbedUrl</code> operation.</p>
+ */
+export interface GetDashboardEmbedUrlResponse {
+  /**
+   * <p>A single-use URL that you can put into your server-side webpage to embed your
+   * 			dashboard. This URL is valid for 5 minutes. The API operation provides the URL with an
+   * 			<code>auth_code</code> value that enables one (and only one) sign-on to a user session
+   * 			that is valid for 10 hours. </p>
+   */
+  EmbedUrl?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * <p>The identity type specified isn't supported. Supported identity types include
+ * 				<code>IAM</code> and <code>QUICKSIGHT</code>.</p>
+ */
+export class IdentityTypeNotSupportedException extends __BaseException {
+  readonly name: "IdentityTypeNotSupportedException" = "IdentityTypeNotSupportedException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdentityTypeNotSupportedException, __BaseException>) {
+    super({
+      name: "IdentityTypeNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdentityTypeNotSupportedException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+export interface GetSessionEmbedUrlRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account associated with your Amazon QuickSight subscription.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The URL you use to access the embedded session. The entry point URL is constrained to
+   *           the following paths:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>/start</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/start/analyses</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/start/dashboards</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/start/favorites</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/dashboards/<i>DashboardId</i>
+   *                   </code> - where <code>DashboardId</code> is the actual ID key from the Amazon QuickSight console URL of the dashboard</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/analyses/<i>AnalysisId</i>
+   *                   </code> - where <code>AnalysisId</code> is the actual ID key from the Amazon QuickSight console URL of the analysis</p>
+   *             </li>
+   *          </ul>
+   */
+  EntryPoint?: string;
+
+  /**
+   * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
+   */
+  SessionLifetimeInMinutes?: number;
+
+  /**
+   * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.
+   * 			You can use this for any type of Amazon QuickSight users in your account (readers, authors, or
+   * 			admins). They need to be authenticated as one of the following:</p>
+   *          <ol>
+   *             <li>
+   *                <p>Active Directory (AD) users or group members</p>
+   *             </li>
+   *             <li>
+   *                <p>Invited nonfederated users</p>
+   *             </li>
+   *             <li>
+   *                <p>IAM users and IAM role-based sessions authenticated
+   *                     through Federated Single Sign-On using SAML, OpenID Connect, or IAM
+   *                     federation</p>
+   *             </li>
+   *          </ol>
+   *          <p>Omit this parameter for users in the third group, IAM users and IAM role-based
+   *             sessions.</p>
+   */
+  UserArn?: string;
+}
+
 export interface GetSessionEmbedUrlResponse {
   /**
    * <p>A single-use URL that you can put into your server-side web page to embed your
@@ -1836,7 +1958,7 @@ export interface UpdateAccountSettingsRequest {
 
   /**
    * <p>The default namespace for this Amazon Web Services account. Currently, the default is
-   *                 <code>default</code>. Identity and Access Management (IAM) users that
+   *                 <code>default</code>. IAM users that
    *             register for the first time with Amazon QuickSight provide an email address that becomes
    *             associated with the default namespace.
    *         </p>
@@ -3221,6 +3343,21 @@ export interface UpdateUserResponse {
    */
   Status?: number;
 }
+
+/**
+ * @internal
+ */
+export const GetDashboardEmbedUrlResponseFilterSensitiveLog = (obj: GetDashboardEmbedUrlResponse): any => ({
+  ...obj,
+  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetSessionEmbedUrlRequestFilterSensitiveLog = (obj: GetSessionEmbedUrlRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

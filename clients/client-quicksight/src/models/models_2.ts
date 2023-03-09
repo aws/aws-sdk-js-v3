@@ -7301,8 +7301,7 @@ export interface User {
   IdentityType?: IdentityType | string;
 
   /**
-   * <p>The active status of user. When you create an Amazon QuickSight user that’s not an IAM
-   *             user or an Active Directory user, that user is inactive until they sign in and provide a
+   * <p>The active status of user. When you create an Amazon QuickSight user that's not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a
    *             password.</p>
    */
   Active?: boolean;
@@ -7655,6 +7654,26 @@ export class UnsupportedPricingPlanException extends __BaseException {
 }
 
 /**
+ * <p>The state perssitence configuration of an embedded dashboard.</p>
+ */
+export interface StatePersistenceConfigurations {
+  /**
+   * <p>Determines if a Amazon QuickSight dashboard's state persistence settings are turned on or off.</p>
+   */
+  Enabled: boolean | undefined;
+}
+
+/**
+ * <p>The feature configuration for an embedded dashboard.</p>
+ */
+export interface RegisteredUserDashboardFeatureConfigurations {
+  /**
+   * <p>The state persistence settings of an embedded dashboard.</p>
+   */
+  StatePersistence?: StatePersistenceConfigurations;
+}
+
+/**
  * <p>Information about the dashboard you want to embed.</p>
  */
 export interface RegisteredUserDashboardEmbeddingConfiguration {
@@ -7663,6 +7682,11 @@ export interface RegisteredUserDashboardEmbeddingConfiguration {
    *          <p>If the user does not have permission to view this dashboard, they see a permissions error message.</p>
    */
   InitialDashboardId: string | undefined;
+
+  /**
+   * <p>The feature configurations of an embbedded Amazon QuickSight dashboard.</p>
+   */
+  FeatureConfigurations?: RegisteredUserDashboardFeatureConfigurations;
 }
 
 /**
@@ -7689,6 +7713,16 @@ export interface RegisteredUserQSearchBarEmbeddingConfiguration {
    *       are allowed to select other topics from the available ones in the list.</p>
    */
   InitialTopicId?: string;
+}
+
+/**
+ * <p>The feature configurations of an embedded Amazon QuickSight console.</p>
+ */
+export interface RegisteredUserConsoleFeatureConfigurations {
+  /**
+   * <p>The state persistence configurations of an embedded Amazon QuickSight console.</p>
+   */
+  StatePersistence?: StatePersistenceConfigurations;
 }
 
 /**
@@ -7730,6 +7764,11 @@ export interface RegisteredUserQuickSightConsoleEmbeddingConfiguration {
    *          </ul>
    */
   InitialPath?: string;
+
+  /**
+   * <p>The embedding configuration of an embedded Amazon QuickSight console.</p>
+   */
+  FeatureConfigurations?: RegisteredUserConsoleFeatureConfigurations;
 }
 
 /**
@@ -7948,128 +7987,6 @@ export interface GetDashboardEmbedUrlRequest {
    * <p>A list of one or more dashboard IDs that you want anonymous users to have tempporary access to. Currently, the <code>IdentityType</code> parameter must be set to <code>ANONYMOUS</code> because other identity types authenticate as Amazon QuickSight or IAM users. For example, if you set "<code>--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>", the session can access all three dashboards.</p>
    */
   AdditionalDashboardIds?: string[];
-}
-
-/**
- * <p>Output returned from the <code>GetDashboardEmbedUrl</code> operation.</p>
- */
-export interface GetDashboardEmbedUrlResponse {
-  /**
-   * <p>A single-use URL that you can put into your server-side webpage to embed your
-   * 			dashboard. This URL is valid for 5 minutes. The API operation provides the URL with an
-   * 			<code>auth_code</code> value that enables one (and only one) sign-on to a user session
-   * 			that is valid for 10 hours. </p>
-   */
-  EmbedUrl?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * <p>The identity type specified isn't supported. Supported identity types include
- * 				<code>IAM</code> and <code>QUICKSIGHT</code>.</p>
- */
-export class IdentityTypeNotSupportedException extends __BaseException {
-  readonly name: "IdentityTypeNotSupportedException" = "IdentityTypeNotSupportedException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IdentityTypeNotSupportedException, __BaseException>) {
-    super({
-      name: "IdentityTypeNotSupportedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdentityTypeNotSupportedException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-export interface GetSessionEmbedUrlRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account associated with your Amazon QuickSight subscription.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The URL you use to access the embedded session. The entry point URL is constrained to
-   *           the following paths:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>/start</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/start/analyses</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/start/dashboards</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/start/favorites</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/dashboards/<i>DashboardId</i>
-   *                   </code> - where <code>DashboardId</code> is the actual ID key from the Amazon QuickSight console URL of the dashboard</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/analyses/<i>AnalysisId</i>
-   *                   </code> - where <code>AnalysisId</code> is the actual ID key from the Amazon QuickSight console URL of the analysis</p>
-   *             </li>
-   *          </ul>
-   */
-  EntryPoint?: string;
-
-  /**
-   * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
-   */
-  SessionLifetimeInMinutes?: number;
-
-  /**
-   * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.
-   * 			You can use this for any type of Amazon QuickSight users in your account (readers, authors, or
-   * 			admins). They need to be authenticated as one of the following:</p>
-   *          <ol>
-   *             <li>
-   *                <p>Active Directory (AD) users or group members</p>
-   *             </li>
-   *             <li>
-   *                <p>Invited nonfederated users</p>
-   *             </li>
-   *             <li>
-   *                <p>Identity and Access Management (IAM) users and IAM role-based sessions authenticated
-   *                     through Federated Single Sign-On using SAML, OpenID Connect, or IAM
-   *                     federation</p>
-   *             </li>
-   *          </ol>
-   *          <p>Omit this parameter for users in the third group, IAM users and IAM role-based
-   *             sessions.</p>
-   */
-  UserArn?: string;
 }
 
 /**
@@ -10013,6 +9930,22 @@ export const GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const StatePersistenceConfigurationsFilterSensitiveLog = (obj: StatePersistenceConfigurations): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisteredUserDashboardFeatureConfigurationsFilterSensitiveLog = (
+  obj: RegisteredUserDashboardFeatureConfigurations
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const RegisteredUserDashboardEmbeddingConfigurationFilterSensitiveLog = (
   obj: RegisteredUserDashboardEmbeddingConfiguration
 ): any => ({
@@ -10033,6 +9966,15 @@ export const RegisteredUserDashboardVisualEmbeddingConfigurationFilterSensitiveL
  */
 export const RegisteredUserQSearchBarEmbeddingConfigurationFilterSensitiveLog = (
   obj: RegisteredUserQSearchBarEmbeddingConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisteredUserConsoleFeatureConfigurationsFilterSensitiveLog = (
+  obj: RegisteredUserConsoleFeatureConfigurations
 ): any => ({
   ...obj,
 });
@@ -10078,20 +10020,5 @@ export const GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog = (
  * @internal
  */
 export const GetDashboardEmbedUrlRequestFilterSensitiveLog = (obj: GetDashboardEmbedUrlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDashboardEmbedUrlResponseFilterSensitiveLog = (obj: GetDashboardEmbedUrlResponse): any => ({
-  ...obj,
-  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetSessionEmbedUrlRequestFilterSensitiveLog = (obj: GetSessionEmbedUrlRequest): any => ({
   ...obj,
 });

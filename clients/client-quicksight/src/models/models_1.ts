@@ -3414,6 +3414,11 @@ export interface PivotTableOptions {
    * <p>The row alternate color options (widget status, row alternate colors).</p>
    */
   RowAlternateColorOptions?: RowAlternateColorOptions;
+
+  /**
+   * <p>The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is <code>HIDDEN</code>, all collapsed columns in a pivot table are automatically hidden. The default value is <code>VISIBLE</code>.</p>
+   */
+  CollapsedRowDimensionsVisibility?: Visibility | string;
 }
 
 export enum PivotTableSubtotalLevel {

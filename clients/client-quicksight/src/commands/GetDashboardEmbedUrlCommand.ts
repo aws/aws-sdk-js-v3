@@ -13,12 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDashboardEmbedUrlRequest,
-  GetDashboardEmbedUrlRequestFilterSensitiveLog,
-  GetDashboardEmbedUrlResponse,
-  GetDashboardEmbedUrlResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { GetDashboardEmbedUrlRequest, GetDashboardEmbedUrlRequestFilterSensitiveLog } from "../models/models_2";
+import { GetDashboardEmbedUrlResponse, GetDashboardEmbedUrlResponseFilterSensitiveLog } from "../models/models_3";
 import {
   deserializeAws_restJson1GetDashboardEmbedUrlCommand,
   serializeAws_restJson1GetDashboardEmbedUrlCommand,
