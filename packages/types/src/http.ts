@@ -1,5 +1,7 @@
 import { AbortSignal } from "./abort";
 /**
+ * @public
+ *
  * A collection of key/value pairs with case-insensitive keys.
  */
 export interface Headers extends Map<string, string> {
@@ -22,6 +24,8 @@ export interface Headers extends Map<string, string> {
 }
 
 /**
+ * @public
+ *
  * A mapping of header names to string values. Multiple values for the same
  * header should be represented as a single string with values separated by
  * `, `.
@@ -42,6 +46,8 @@ export interface Headers extends Map<string, string> {
 export type HeaderBag = Record<string, string>;
 
 /**
+ * @public
+ *
  * Represents an HTTP message with headers and an optional static or streaming
  * body. bode: ArrayBuffer | ArrayBufferView | string | Uint8Array | Readable | ReadableStream;
  */
@@ -51,6 +57,8 @@ export interface HttpMessage {
 }
 
 /**
+ * @public
+ *
  * A mapping of query parameter names to strings or arrays of strings, with the
  * second being used when a parameter contains a list of values. Value can be set
  * to null when query is not in key-value pairs shape
@@ -58,6 +66,8 @@ export interface HttpMessage {
 export type QueryParameterBag = Record<string, string | Array<string> | null>;
 
 /**
+ * @public
+ *
  * @deprecated use EndpointV2 from @aws-sdk/types.
  */
 export interface Endpoint {
@@ -69,6 +79,8 @@ export interface Endpoint {
 }
 
 /**
+ * @public
+ *
  * Interface an HTTP request class. Contains
  * addressing information in addition to standard message properties.
  */
@@ -77,6 +89,8 @@ export interface HttpRequest extends HttpMessage, Endpoint {
 }
 
 /**
+ * @public
+ *
  * Represents an HTTP message as received in reply to a request. Contains a
  * numeric status code in addition to standard message properties.
  */
@@ -85,6 +99,8 @@ export interface HttpResponse extends HttpMessage {
 }
 
 /**
+ * @public
+ *
  * Represents HTTP message whose body has been resolved to a string. This is
  * used in parsing http message.
  */
@@ -93,6 +109,8 @@ export interface ResolvedHttpResponse extends HttpResponse {
 }
 
 /**
+ * @public
+ *
  * Represents the options that may be passed to an Http Handler.
  */
 export interface HttpHandlerOptions {

@@ -3,6 +3,9 @@ import { EndpointV2 } from "./endpoint";
 import { Logger } from "./logger";
 import { UserAgent } from "./util";
 
+/**
+ * @public
+ */
 export interface InitializeHandlerArguments<Input extends object> {
   /**
    * User input to a command. Reflects the userland representation of the
@@ -11,10 +14,16 @@ export interface InitializeHandlerArguments<Input extends object> {
   input: Input;
 }
 
+/**
+ * @public
+ */
 export interface InitializeHandlerOutput<Output extends object> extends DeserializeHandlerOutput<Output> {
   output: Output;
 }
 
+/**
+ * @public
+ */
 export interface SerializeHandlerArguments<Input extends object> extends InitializeHandlerArguments<Input> {
   /**
    * The user input serialized as a request object. The request object is unknown,
@@ -27,12 +36,24 @@ export interface SerializeHandlerArguments<Input extends object> extends Initial
   request?: unknown;
 }
 
+/**
+ * @public
+ */
 export interface SerializeHandlerOutput<Output extends object> extends InitializeHandlerOutput<Output> {}
 
+/**
+ * @public
+ */
 export interface BuildHandlerArguments<Input extends object> extends FinalizeHandlerArguments<Input> {}
 
+/**
+ * @public
+ */
 export interface BuildHandlerOutput<Output extends object> extends InitializeHandlerOutput<Output> {}
 
+/**
+ * @public
+ */
 export interface FinalizeHandlerArguments<Input extends object> extends SerializeHandlerArguments<Input> {
   /**
    * The user input serialized as a request.
@@ -40,10 +61,19 @@ export interface FinalizeHandlerArguments<Input extends object> extends Serializ
   request: unknown;
 }
 
+/**
+ * @public
+ */
 export interface FinalizeHandlerOutput<Output extends object> extends InitializeHandlerOutput<Output> {}
 
+/**
+ * @public
+ */
 export interface DeserializeHandlerArguments<Input extends object> extends FinalizeHandlerArguments<Input> {}
 
+/**
+ * @public
+ */
 export interface DeserializeHandlerOutput<Output extends object> {
   /**
    * The raw response object from runtime is deserialized to structured output object.
@@ -57,6 +87,9 @@ export interface DeserializeHandlerOutput<Output extends object> {
   output?: Output;
 }
 
+/**
+ * @public
+ */
 export interface InitializeHandler<Input extends object, Output extends object> {
   /**
    * Asynchronously converts an input object into an output object.
@@ -67,8 +100,14 @@ export interface InitializeHandler<Input extends object, Output extends object> 
   (args: InitializeHandlerArguments<Input>): Promise<InitializeHandlerOutput<Output>>;
 }
 
+/**
+ * @public
+ */
 export type Handler<Input extends object, Output extends object> = InitializeHandler<Input, Output>;
 
+/**
+ * @public
+ */
 export interface SerializeHandler<Input extends object, Output extends object> {
   /**
    * Asynchronously converts an input object into an output object.
@@ -79,6 +118,9 @@ export interface SerializeHandler<Input extends object, Output extends object> {
   (args: SerializeHandlerArguments<Input>): Promise<SerializeHandlerOutput<Output>>;
 }
 
+/**
+ * @public
+ */
 export interface FinalizeHandler<Input extends object, Output extends object> {
   /**
    * Asynchronously converts an input object into an output object.
@@ -89,15 +131,23 @@ export interface FinalizeHandler<Input extends object, Output extends object> {
   (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>>;
 }
 
+/**
+ * @public
+ */
 export interface BuildHandler<Input extends object, Output extends object> {
   (args: BuildHandlerArguments<Input>): Promise<BuildHandlerOutput<Output>>;
 }
 
+/**
+ * @public
+ */
 export interface DeserializeHandler<Input extends object, Output extends object> {
   (args: DeserializeHandlerArguments<Input>): Promise<DeserializeHandlerOutput<Output>>;
 }
 
 /**
+ * @public
+ *
  * A factory function that creates functions implementing the {Handler}
  * interface.
  */
@@ -112,6 +162,8 @@ export interface InitializeMiddleware<Input extends object, Output extends objec
 }
 
 /**
+ * @public
+ *
  * A factory function that creates functions implementing the {BuildHandler}
  * interface.
  */
@@ -126,6 +178,8 @@ export interface SerializeMiddleware<Input extends object, Output extends object
 }
 
 /**
+ * @public
+ *
  * A factory function that creates functions implementing the {FinalizeHandler}
  * interface.
  */
@@ -139,14 +193,23 @@ export interface FinalizeRequestMiddleware<Input extends object, Output extends 
   (next: FinalizeHandler<Input, Output>, context: HandlerExecutionContext): FinalizeHandler<Input, Output>;
 }
 
+/**
+ * @public
+ */
 export interface BuildMiddleware<Input extends object, Output extends object> {
   (next: BuildHandler<Input, Output>, context: HandlerExecutionContext): BuildHandler<Input, Output>;
 }
 
+/**
+ * @public
+ */
 export interface DeserializeMiddleware<Input extends object, Output extends object> {
   (next: DeserializeHandler<Input, Output>, context: HandlerExecutionContext): DeserializeHandler<Input, Output>;
 }
 
+/**
+ * @public
+ */
 export type MiddlewareType<Input extends object, Output extends object> =
   | InitializeMiddleware<Input, Output>
   | SerializeMiddleware<Input, Output>
@@ -155,6 +218,8 @@ export type MiddlewareType<Input extends object, Output extends object> =
   | DeserializeMiddleware<Input, Output>;
 
 /**
+ * @public
+ *
  * A factory function that creates the terminal handler atop which a middleware
  * stack sits.
  */
@@ -162,10 +227,19 @@ export interface Terminalware {
   <Input extends object, Output extends object>(context: HandlerExecutionContext): DeserializeHandler<Input, Output>;
 }
 
+/**
+ * @public
+ */
 export type Step = "initialize" | "serialize" | "build" | "finalizeRequest" | "deserialize";
 
+/**
+ * @public
+ */
 export type Priority = "high" | "normal" | "low";
 
+/**
+ * @public
+ */
 export interface HandlerOptions {
   /**
    * Handlers are ordered using a "step" that describes the stage of command
@@ -216,6 +290,9 @@ export interface HandlerOptions {
    */
   override?: boolean;
 }
+/**
+ * @public
+ */
 export interface AbsoluteLocation {
   /**
    * By default middleware will be added to individual step in un-guaranteed order.
@@ -226,8 +303,14 @@ export interface AbsoluteLocation {
   priority?: Priority;
 }
 
+/**
+ * @public
+ */
 export type Relation = "before" | "after";
 
+/**
+ * @public
+ */
 export interface RelativeLocation {
   /**
    * Specify the relation to be before or after a know middleware.
@@ -240,29 +323,49 @@ export interface RelativeLocation {
   toMiddleware: string;
 }
 
+/**
+ * @public
+ */
 export type RelativeMiddlewareOptions = RelativeLocation & Omit<HandlerOptions, "step">;
 
+/**
+ * @public
+ */
 export interface InitializeHandlerOptions extends HandlerOptions {
   step?: "initialize";
 }
 
+/**
+ * @public
+ */
 export interface SerializeHandlerOptions extends HandlerOptions {
   step: "serialize";
 }
 
+/**
+ * @public
+ */
 export interface BuildHandlerOptions extends HandlerOptions {
   step: "build";
 }
 
+/**
+ * @public
+ */
 export interface FinalizeRequestHandlerOptions extends HandlerOptions {
   step: "finalizeRequest";
 }
 
+/**
+ * @public
+ */
 export interface DeserializeHandlerOptions extends HandlerOptions {
   step: "deserialize";
 }
 
 /**
+ * @public
+ *
  * A stack storing middleware. It can be resolved into a handler. It supports 2
  * approaches for adding middleware:
  * 1. Adding middleware to specific step with `add()`. The order of middleware
@@ -379,6 +482,8 @@ export interface MiddlewareStack<Input extends object, Output extends object> ex
 }
 
 /**
+ * @public
+ *
  * Data and helper objects that are not expected to change from one execution of
  * a composed handler to another.
  */
@@ -424,6 +529,9 @@ export interface HandlerExecutionContext {
   [key: string]: any;
 }
 
+/**
+ * @public
+ */
 export interface Pluggable<Input extends object, Output extends object> {
   /**
    * A function that mutate the passed in middleware stack. Functions implementing

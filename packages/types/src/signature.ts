@@ -1,11 +1,16 @@
 import { HttpRequest } from "./http";
 
 /**
+ * @public
+ *
  * A {Date} object, a unix (epoch) timestamp in seconds, or a string that can be
  * understood by the JavaScript {Date} constructor.
  */
 export type DateInput = number | string | Date;
 
+/**
+ * @public
+ */
 export interface SigningArguments {
   /**
    * The date and time to be used as signature metadata. This value should be
@@ -28,6 +33,9 @@ export interface SigningArguments {
   signingRegion?: string;
 }
 
+/**
+ * @public
+ */
 export interface RequestSigningArguments extends SigningArguments {
   /**
    * A set of strings whose members represents headers that cannot be signed.
@@ -47,6 +55,9 @@ export interface RequestSigningArguments extends SigningArguments {
   signableHeaders?: Set<string>;
 }
 
+/**
+ * @public
+ */
 export interface RequestPresigningArguments extends RequestSigningArguments {
   /**
    * The number of seconds before the presigned URL expires
@@ -65,10 +76,16 @@ export interface RequestPresigningArguments extends RequestSigningArguments {
   unhoistableHeaders?: Set<string>;
 }
 
+/**
+ * @public
+ */
 export interface EventSigningArguments extends SigningArguments {
   priorSignature: string;
 }
 
+/**
+ * @public
+ */
 export interface RequestPresigner {
   /**
    * Signs a request for future use.
@@ -83,6 +100,8 @@ export interface RequestPresigner {
 }
 
 /**
+ * @public
+ *
  * An object that signs request objects with AWS credentials using one of the
  * AWS authentication protocols.
  */
@@ -93,6 +112,9 @@ export interface RequestSigner {
   sign(requestToSign: HttpRequest, options?: RequestSigningArguments): Promise<HttpRequest>;
 }
 
+/**
+ * @public
+ */
 export interface StringSigner {
   /**
    * Sign the provided `stringToSign` for use outside of the context of
@@ -101,10 +123,16 @@ export interface StringSigner {
   sign(stringToSign: string, options?: SigningArguments): Promise<string>;
 }
 
+/**
+ * @public
+ */
 export interface FormattedEvent {
   headers: Uint8Array;
   payload: Uint8Array;
 }
+/**
+ * @public
+ */
 export interface EventSigner {
   /**
    * Sign the individual event of the event stream.

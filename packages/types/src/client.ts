@@ -3,6 +3,8 @@ import { MiddlewareStack } from "./middleware";
 import { MetadataBearer } from "./response";
 
 /**
+ * @public
+ *
  * function definition for different overrides of client's 'send' function.
  */
 interface InvokeFunction<InputTypes extends object, OutputTypes extends MetadataBearer, ResolvedClientConfiguration> {

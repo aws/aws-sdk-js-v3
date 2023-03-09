@@ -1,5 +1,8 @@
 import { Identity, IdentityProvider } from "./Identity";
 
+/**
+ * @public
+ */
 export interface LoginIdentity extends Identity {
   /**
    * Identity username
@@ -12,4 +15,7 @@ export interface LoginIdentity extends Identity {
   readonly password: string;
 }
 
+/**
+ * @public
+ */
 export type LoginIdentityProvider = IdentityProvider<LoginIdentity>;

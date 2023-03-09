@@ -1,3 +1,6 @@
+/**
+ * @public
+ */
 export type RetryErrorType =
   /**
    * This is a connection level error such as a socket timeout, socket connect
@@ -26,6 +29,9 @@ export type RetryErrorType =
    */
   | "CLIENT_ERROR";
 
+/**
+ * @public
+ */
 export interface RetryErrorInfo {
   errorType: RetryErrorType;
 
@@ -39,6 +45,9 @@ export interface RetryErrorInfo {
   retryAfterHint?: Date;
 }
 
+/**
+ * @public
+ */
 export interface RetryBackoffStrategy {
   /**
    * @returns the number of milliseconds to wait before retrying an action.
@@ -46,6 +55,9 @@ export interface RetryBackoffStrategy {
   computeNextBackoffDelay(retryAttempt: number): number;
 }
 
+/**
+ * @public
+ */
 export interface StandardRetryBackoffStrategy extends RetryBackoffStrategy {
   /**
    * Sets the delayBase used to compute backoff delays.
@@ -54,12 +66,18 @@ export interface StandardRetryBackoffStrategy extends RetryBackoffStrategy {
   setDelayBase(delayBase: number): void;
 }
 
+/**
+ * @public
+ */
 export interface RetryStrategyOptions {
   backoffStrategy: RetryBackoffStrategy;
 
   maxRetriesBase: number;
 }
 
+/**
+ * @public
+ */
 export interface RetryToken {
   /**
    * @returns the current count of retry.
@@ -72,6 +90,9 @@ export interface RetryToken {
   getRetryDelay(): number;
 }
 
+/**
+ * @public
+ */
 export interface StandardRetryToken extends RetryToken {
   /**
    * @returns wheather token has remaining tokens.
@@ -96,6 +117,9 @@ export interface StandardRetryToken extends RetryToken {
   releaseRetryTokens(amount?: number): void;
 }
 
+/**
+ * @public
+ */
 export interface RetryStrategyV2 {
   /**
    * Called before any retries (for the first call to the operation). It either
@@ -124,8 +148,14 @@ export interface RetryStrategyV2 {
   recordSuccess(token: RetryToken): void;
 }
 
+/**
+ * @public
+ */
 export type ExponentialBackoffJitterType = "DEFAULT" | "NONE" | "FULL" | "DECORRELATED";
 
+/**
+ * @public
+ */
 export interface ExponentialBackoffStrategyOptions {
   jitterType: ExponentialBackoffJitterType;
 

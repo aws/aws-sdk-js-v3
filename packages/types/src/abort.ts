@@ -1,8 +1,13 @@
+/**
+ * @public
+ */
 export interface AbortHandler {
   (this: AbortSignal, ev: any): any;
 }
 
 /**
+ * @public
+ *
  * Holders of an AbortSignal object may query if the associated operation has
  * been aborted and register an onabort handler.
  *
@@ -22,6 +27,8 @@ export interface AbortSignal {
 }
 
 /**
+ * @public
+ *
  * The AWS SDK uses a Controller/Signal model to allow for cooperative
  * cancellation of asynchronous operations. When initiating such an operation,
  * the caller can create an AbortController and then provide linked signal to
