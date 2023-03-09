@@ -464,13 +464,13 @@ export class NetworkManager extends NetworkManagerClient {
   /**
    * <p>Associates a customer gateway with a device and optionally, with a link. If you
    *             specify a link, it must be associated with the specified device. </p>
-   *         <p>You can only associate customer gateways that are connected to a VPN attachment on a
+   *          <p>You can only associate customer gateways that are connected to a VPN attachment on a
    *             transit gateway or core network registered in your global network. When you register a
    *             transit gateway or core network, customer gateways that are connected to the transit
    *             gateway are automatically included in the global network. To list customer gateways
    *             that are connected to a transit gateway, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html">DescribeVpnConnections</a> EC2 API and filter by
    *                 <code>transit-gateway-id</code>.</p>
-   *         <p>You cannot associate a customer gateway with more than one device and link. </p>
+   *          <p>You cannot associate a customer gateway with more than one device and link. </p>
    */
   public associateCustomerGateway(
     args: AssociateCustomerGatewayCommandInput,
@@ -536,9 +536,9 @@ export class NetworkManager extends NetworkManagerClient {
   /**
    * <p>Associates a transit gateway Connect peer with a device, and optionally, with a link. If you
    *             specify a link, it must be associated with the specified device. </p>
-   *         <p>You can only associate transit gateway Connect peers that have been created on a
+   *          <p>You can only associate transit gateway Connect peers that have been created on a
    *             transit gateway that's registered in your global network.</p>
-   *         <p>You cannot associate a transit gateway Connect peer with more than one device and link. </p>
+   *          <p>You cannot associate a transit gateway Connect peer with more than one device and link. </p>
    */
   public associateTransitGatewayConnectPeer(
     args: AssociateTransitGatewayConnectPeerCommandInput,
@@ -1866,7 +1866,7 @@ export class NetworkManager extends NetworkManagerClient {
 
   /**
    * <p>Gets information about one or more links in a specified global network.</p>
-   *         <p>If you specify the site ID, you cannot specify the type or provider in the same request. You can specify the type and provider in the same request.</p>
+   *          <p>If you specify the site ID, you cannot specify the type or provider in the same request. You can specify the type and provider in the same request.</p>
    */
   public getLinks(args: GetLinksCommandInput, options?: __HttpHandlerOptions): Promise<GetLinksCommandOutput>;
   public getLinks(args: GetLinksCommandInput, cb: (err: any, data?: GetLinksCommandOutput) => void): void;
@@ -2625,9 +2625,11 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   * <p>Registers a transit gateway in your global network. The transit gateway can be in any
-   *             Amazon Web Services Region, but it must be owned by the same Amazon Web Services account that owns
-   *             the global network. You cannot register a transit gateway in more than one global network.</p>
+   * <p>Registers a transit gateway in your global network. Not all Regions support transit
+   *             gateways for global networks. For a list of the supported Regions, see <a href="https://docs.aws.amazon.com/network-manager/latest/tgwnm/what-are-global-networks.html#nm-available-regions">Region Availability</a> in the <i>Amazon Web Services Transit Gateways for Global
+   *                 Networks User Guide</i>. The transit gateway can be in any of the supported
+   *             Amazon Web Services Regions, but it must be owned by the same Amazon Web Services account that owns the global
+   *             network. You cannot register a transit gateway in more than one global network.</p>
    */
   public registerTransitGateway(
     args: RegisterTransitGatewayCommandInput,

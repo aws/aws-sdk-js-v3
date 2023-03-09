@@ -27,13 +27,13 @@ export enum AttachmentType {
 export interface Tag {
   /**
    * <p>The tag key.</p>
-   *         <p>Constraints: Maximum length of 128 characters.</p>
+   *          <p>Constraints: Maximum length of 128 characters.</p>
    */
   Key?: string;
 
   /**
    * <p>The tag value.</p>
-   *         <p>Constraints: Maximum length of 256 characters.</p>
+   *          <p>Constraints: Maximum length of 256 characters.</p>
    */
   Value?: string;
 }
@@ -1510,7 +1510,7 @@ export interface CreateConnectionRequest {
 
   /**
    * <p>A description of the connection.</p>
-   *         <p>Length Constraints: Maximum length of 256 characters.</p>
+   *          <p>Length Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 
@@ -1638,7 +1638,7 @@ export interface CreateDeviceRequest {
 
   /**
    * <p>A description of the device.</p>
-   *         <p>Constraints: Maximum length of 256 characters.</p>
+   *          <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 
@@ -1649,19 +1649,19 @@ export interface CreateDeviceRequest {
 
   /**
    * <p>The vendor of the device.</p>
-   *         <p>Constraints: Maximum length of 128 characters.</p>
+   *          <p>Constraints: Maximum length of 128 characters.</p>
    */
   Vendor?: string;
 
   /**
    * <p>The model of the device.</p>
-   *         <p>Constraints: Maximum length of 128 characters.</p>
+   *          <p>Constraints: Maximum length of 128 characters.</p>
    */
   Model?: string;
 
   /**
    * <p>The serial number of the device.</p>
-   *         <p>Constraints: Maximum length of 128 characters.</p>
+   *          <p>Constraints: Maximum length of 128 characters.</p>
    */
   SerialNumber?: string;
 
@@ -1773,7 +1773,7 @@ export interface CreateDeviceResponse {
 export interface CreateGlobalNetworkRequest {
   /**
    * <p>A description of the global network.</p>
-   *         <p>Constraints: Maximum length of 256 characters.</p>
+   *          <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 
@@ -1840,13 +1840,13 @@ export interface CreateLinkRequest {
 
   /**
    * <p>A description of the link.</p>
-   *         <p>Constraints: Maximum length of 256 characters.</p>
+   *          <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 
   /**
    * <p>The type of the link.</p>
-   *         <p>Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^</p>
+   *          <p>Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^</p>
    */
   Type?: string;
 
@@ -1857,7 +1857,7 @@ export interface CreateLinkRequest {
 
   /**
    * <p>The provider of the link.</p>
-   *         <p>Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^</p>
+   *          <p>Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^</p>
    */
   Provider?: string;
 
@@ -1954,13 +1954,13 @@ export interface CreateSiteRequest {
 
   /**
    * <p>A description of your site.</p>
-   *         <p>Constraints: Maximum length of 256 characters.</p>
+   *          <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 
   /**
    * <p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>Address</code>: The physical address of the site.</p>
@@ -2238,7 +2238,7 @@ export interface TransitGatewayRouteTableAttachment {
   PeeringId?: string;
 
   /**
-   * <p>The ARN of the transit gateway attachment route table.</p>
+   * <p>The ARN of the transit gateway attachment route table. For example, <code>"TransitGatewayRouteTableArn": "arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table/tgw-rtb-9876543210123456"</code>.</p>
    */
   TransitGatewayRouteTableArn?: string;
 }
@@ -3061,77 +3061,75 @@ export interface GetNetworkResourceCountsRequest {
   /**
    * <p>The resource type.</p>
    *          <p>The following are the supported resource types for Direct Connect:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>dxcon</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>dx-gateway</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>dx-vif</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>The following are the supported resource types for Network Manager:</p>
-   *         <ul>
+   *          <p>The following are the supported resource types for Network Manager:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>connection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>device</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>link</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>site</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>The following are the supported resource types for Amazon VPC:</p>
-   *         <ul>
+   *          <p>The following are the supported resource types for Amazon VPC:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>customer-gateway</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway-attachment</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway-connect-peer</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway-route-table</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>vpn-connection</code>
    *                </p>
    *             </li>
@@ -3205,78 +3203,76 @@ export interface GetNetworkResourceRelationshipsRequest {
 
   /**
    * <p>The resource type.</p>
-   *         <p>The following are the supported resource types for Direct Connect:</p>
-   *         <ul>
+   *          <p>The following are the supported resource types for Direct Connect:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>dxcon</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>dx-gateway</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>dx-vif</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>The following are the supported resource types for Network Manager:</p>
-   *         <ul>
+   *          <p>The following are the supported resource types for Network Manager:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>connection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>device</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>link</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>site</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>The following are the supported resource types for Amazon VPC:</p>
-   *         <ul>
+   *          <p>The following are the supported resource types for Amazon VPC:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>customer-gateway</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway-attachment</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway-connect-peer</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway-route-table</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>vpn-connection</code>
    *                </p>
    *             </li>
@@ -3356,7 +3352,7 @@ export interface GetNetworkResourcesRequest {
   /**
    * <p>The resource type.</p>
    *          <p>The following are the supported resource types for Direct Connect:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>dxcon</code> - The definition model is
@@ -3373,9 +3369,8 @@ export interface GetNetworkResourcesRequest {
    *                     <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_VirtualInterface.html">VirtualInterface</a>.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following are the supported resource types for Network Manager:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>connection</code> - The definition model is
@@ -3397,9 +3392,8 @@ export interface GetNetworkResourcesRequest {
    *                     <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_Site.html">Site</a>.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following are the supported resource types for Amazon VPC:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>customer-gateway</code> - The definition model is
@@ -3477,77 +3471,75 @@ export interface NetworkResource {
   /**
    * <p>The resource type.</p>
    *          <p>The following are the supported resource types for Direct Connect:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>dxcon</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>dx-gateway</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>dx-vif</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>The following are the supported resource types for Network Manager:</p>
-   *         <ul>
+   *          <p>The following are the supported resource types for Network Manager:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>connection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>device</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>link</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>site</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>The following are the supported resource types for Amazon VPC:</p>
-   *         <ul>
+   *          <p>The following are the supported resource types for Amazon VPC:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>customer-gateway</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway-attachment</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway-connect-peer</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway-route-table</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>vpn-connection</code>
    *                </p>
    *             </li>
@@ -3800,78 +3792,76 @@ export interface GetNetworkTelemetryRequest {
 
   /**
    * <p>The resource type.</p>
-   *         <p>The following are the supported resource types for Direct Connect:</p>
-   *         <ul>
+   *          <p>The following are the supported resource types for Direct Connect:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>dxcon</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>dx-gateway</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>dx-vif</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>The following are the supported resource types for Network Manager:</p>
-   *         <ul>
+   *          <p>The following are the supported resource types for Network Manager:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>connection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>device</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>link</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>site</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>The following are the supported resource types for Amazon VPC:</p>
-   *         <ul>
+   *          <p>The following are the supported resource types for Amazon VPC:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>customer-gateway</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway-attachment</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway-connect-peer</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway-route-table</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>vpn-connection</code>
    *                </p>
    *             </li>
@@ -4034,7 +4024,7 @@ export interface RouteAnalysisCompletion {
 
   /**
    * <p>The reason code. Available only if a connection is not found.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND</code> - Found a black hole route with the destination CIDR block.</p>
@@ -4837,7 +4827,7 @@ export interface UpdateConnectionRequest {
 
   /**
    * <p>A description of the connection.</p>
-   *         <p>Length Constraints: Maximum length of 256 characters.</p>
+   *          <p>Length Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 }
@@ -4886,7 +4876,7 @@ export interface UpdateDeviceRequest {
 
   /**
    * <p>A description of the device.</p>
-   *         <p>Constraints: Maximum length of 256 characters.</p>
+   *          <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 
@@ -4897,19 +4887,19 @@ export interface UpdateDeviceRequest {
 
   /**
    * <p>The vendor of the device.</p>
-   *         <p>Constraints: Maximum length of 128 characters.</p>
+   *          <p>Constraints: Maximum length of 128 characters.</p>
    */
   Vendor?: string;
 
   /**
    * <p>The model of the device.</p>
-   *         <p>Constraints: Maximum length of 128 characters.</p>
+   *          <p>Constraints: Maximum length of 128 characters.</p>
    */
   Model?: string;
 
   /**
    * <p>The serial number of the device.</p>
-   *         <p>Constraints: Maximum length of 128 characters.</p>
+   *          <p>Constraints: Maximum length of 128 characters.</p>
    */
   SerialNumber?: string;
 
@@ -4939,7 +4929,7 @@ export interface UpdateGlobalNetworkRequest {
 
   /**
    * <p>A description of the global network.</p>
-   *         <p>Constraints: Maximum length of 256 characters.</p>
+   *          <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 }
@@ -4964,13 +4954,13 @@ export interface UpdateLinkRequest {
 
   /**
    * <p>A description of the link.</p>
-   *         <p>Constraints: Maximum length of 256 characters.</p>
+   *          <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 
   /**
    * <p>The type of the link.</p>
-   *         <p>Constraints: Maximum length of 128 characters.</p>
+   *          <p>Constraints: Maximum length of 128 characters.</p>
    */
   Type?: string;
 
@@ -4981,7 +4971,7 @@ export interface UpdateLinkRequest {
 
   /**
    * <p>The provider of the link.</p>
-   *         <p>Constraints: Maximum length of 128 characters.</p>
+   *          <p>Constraints: Maximum length of 128 characters.</p>
    */
   Provider?: string;
 }
@@ -5035,13 +5025,13 @@ export interface UpdateSiteRequest {
 
   /**
    * <p>A description of your site.</p>
-   *         <p>Constraints: Maximum length of 256 characters.</p>
+   *          <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 
   /**
    * <p>The site location:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>Address</code>: The physical address of the site.</p>

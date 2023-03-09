@@ -39,9 +39,9 @@ export interface AssociateTransitGatewayConnectPeerCommandOutput
 /**
  * <p>Associates a transit gateway Connect peer with a device, and optionally, with a link. If you
  *             specify a link, it must be associated with the specified device. </p>
- *         <p>You can only associate transit gateway Connect peers that have been created on a
+ *          <p>You can only associate transit gateway Connect peers that have been created on a
  *             transit gateway that's registered in your global network.</p>
- *         <p>You cannot associate a transit gateway Connect peer with more than one device and link. </p>
+ *          <p>You cannot associate a transit gateway Connect peer with more than one device and link. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
