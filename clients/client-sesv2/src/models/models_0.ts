@@ -27,24 +27,24 @@ export interface ReviewDetails {
   /**
    * <p>The status of the latest review of your account. The status can be one of the
    *             following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code> – We have received your appeal and are in the
    *                     process of reviewing it.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>GRANTED</code> – Your appeal has been reviewed and your production
    *                     access has been granted.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DENIED</code> – Your appeal has been reviewed and your production
    *                     access has been denied.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILED</code> – An internal error occurred and we didn't receive
    *                     your appeal. You can submit your appeal again.</p>
    *             </li>
@@ -65,14 +65,14 @@ export interface AccountDetails {
   /**
    * <p>The type of email your account is sending. The mail type can be one of the
    *             following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>MARKETING</code> – Most of your sending traffic is to keep your
    *                     customers informed of your latest offering.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TRANSACTIONAL</code> – Most of your sending traffic is to
    *                     communicate during a transaction with a customer.</p>
    *             </li>
@@ -207,63 +207,63 @@ export interface BatchGetMetricDataQuery {
 
   /**
    * <p>The queried metric. This can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SEND</code> – Emails sent eligible for tracking
    *                     in the VDM dashboard. This excludes emails sent to the mailbox simulator and emails
    *                     addressed to more than one recipient.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>COMPLAINT</code> – Complaints received for your
    *                     account. This excludes complaints from the mailbox simulator, those originating from
    *                     your account-level suppression list (if enabled), and those for emails addressed to more
    *                     than one recipient</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PERMANENT_BOUNCE</code> – Permanent bounces - i.e. feedback received for
    *                     emails sent to non-existent mailboxes. Excludes bounces from the mailbox simulator, those
    *                     originating from your account-level suppression list (if enabled), and those for emails
    *                     addressed to more than one recipient.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TRANSIENT_BOUNCE</code> – Transient bounces - i.e. feedback received for
    *                     delivery failures excluding issues with non-existent mailboxes. Excludes bounces from the
    *                     mailbox simulator, and those for emails addressed to more than one recipient.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>OPEN</code> – Unique open events for emails including open trackers.
    *                     Excludes opens for emails addressed to more than one recipient.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CLICK</code> – Unique click events for emails including wrapped links.
    *                     Excludes clicks for emails addressed to more than one recipient.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELIVERY</code> – Successful deliveries for email sending attempts.
    *                     Excludes deliveries to the mailbox simulator and for emails addressed to more
    *                     than one recipient.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELIVERY_OPEN</code> – Successful deliveries for email sending attempts.
    *                     Excludes deliveries to the mailbox simulator, for emails addressed to more than one recipient,
    *                     and emails without open trackers.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELIVERY_CLICK</code> – Successful deliveries for email sending attempts.
    *                     Excludes deliveries to the mailbox simulator, for emails addressed to more than one recipient,
    *                     and emails without click trackers.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELIVERY_COMPLAINT</code> – Successful deliveries for email sending attempts.
    *                     Excludes deliveries to the mailbox simulator, for emails addressed to more than one recipient,
    *                     and emails addressed to recipients hosted by ISPs with which Amazon SES does not have a
@@ -316,13 +316,13 @@ export interface MetricDataError {
 
   /**
    * <p>The query error code. Can be one of:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>INTERNAL_FAILURE</code> – Amazon SES has failed to process one of the queries.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACCESS_DENIED</code> – You have insufficient access to retrieve metrics
    *                     based on the given query.</p>
    *             </li>
@@ -533,14 +533,14 @@ export interface BulkEmailContent {
 
 /**
  * <p>An object that describes the recipients for an email.</p>
- *         <note>
+ *          <note>
  *             <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the
  *                     <i>local part</i> of a destination email address (the part of the
  *                 email address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII
  *                     characters</a>. If the <i>domain part</i> of an address (the
  *                 part after the @ sign) contains non-ASCII characters, they must be encoded using
  *                 Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>.</p>
- *         </note>
+ *          </note>
  */
 export interface Destination {
   /**
@@ -597,13 +597,13 @@ export interface MessageTag {
   /**
    * <p>The name of the message tag. The message tag name has to meet the following
    *             criteria:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
+   *                <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
    *                     underscores (_), or dashes (-).</p>
    *             </li>
    *             <li>
-   *                 <p>It can contain no more than 256 characters.</p>
+   *                <p>It can contain no more than 256 characters.</p>
    *             </li>
    *          </ul>
    */
@@ -612,13 +612,13 @@ export interface MessageTag {
   /**
    * <p>The value of the message tag. The message tag value has to meet the following
    *             criteria:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
+   *                <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
    *                     underscores (_), or dashes (-).</p>
    *             </li>
    *             <li>
-   *                 <p>It can contain no more than 256 characters.</p>
+   *                <p>It can contain no more than 256 characters.</p>
    *             </li>
    *          </ul>
    */
@@ -629,14 +629,14 @@ export interface BulkEmailEntry {
   /**
    * <p>Represents the destination of the message, consisting of To:, CC:, and BCC:
    *             fields.</p>
-   *         <note>
+   *          <note>
    *             <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the
    *                 local part of a destination email address (the part of the email address that
    *                 precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII
    *                     characters</a>. If the domain part of an address (the part after the @ sign)
    *                 contains non-ASCII characters, they must be encoded using Punycode, as described in
    *                     <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>.</p>
-   *         </note>
+   *          </note>
    */
   Destination: Destination | undefined;
 
@@ -680,62 +680,62 @@ export interface BulkEmailEntryResult {
   /**
    * <p>The status of a message sent using the <code>SendBulkTemplatedEmail</code>
    *             operation.</p>
-   *         <p>Possible values for this parameter include:</p>
-   *         <ul>
+   *          <p>Possible values for this parameter include:</p>
+   *          <ul>
    *             <li>
-   *                 <p>SUCCESS: Amazon SES accepted the message, and will attempt to deliver it to
+   *                <p>SUCCESS: Amazon SES accepted the message, and will attempt to deliver it to
    *                     the recipients.</p>
    *             </li>
    *             <li>
-   *                 <p>MESSAGE_REJECTED: The message was rejected because it contained a
+   *                <p>MESSAGE_REJECTED: The message was rejected because it contained a
    *                     virus.</p>
    *             </li>
    *             <li>
-   *                 <p>MAIL_FROM_DOMAIN_NOT_VERIFIED: The sender's email address or domain was not
+   *                <p>MAIL_FROM_DOMAIN_NOT_VERIFIED: The sender's email address or domain was not
    *                     verified.</p>
    *             </li>
    *             <li>
-   *                 <p>CONFIGURATION_SET_DOES_NOT_EXIST: The configuration set you specified does not
+   *                <p>CONFIGURATION_SET_DOES_NOT_EXIST: The configuration set you specified does not
    *                     exist.</p>
    *             </li>
    *             <li>
-   *                 <p>TEMPLATE_DOES_NOT_EXIST: The template you specified does not exist.</p>
+   *                <p>TEMPLATE_DOES_NOT_EXIST: The template you specified does not exist.</p>
    *             </li>
    *             <li>
-   *                 <p>ACCOUNT_SUSPENDED: Your account has been shut down because of issues related
+   *                <p>ACCOUNT_SUSPENDED: Your account has been shut down because of issues related
    *                     to your email sending practices.</p>
    *             </li>
    *             <li>
-   *                 <p>ACCOUNT_THROTTLED: The number of emails you can send has been reduced because
+   *                <p>ACCOUNT_THROTTLED: The number of emails you can send has been reduced because
    *                     your account has exceeded its allocated sending limit.</p>
    *             </li>
    *             <li>
-   *                 <p>ACCOUNT_DAILY_QUOTA_EXCEEDED: You have reached or exceeded the maximum number
+   *                <p>ACCOUNT_DAILY_QUOTA_EXCEEDED: You have reached or exceeded the maximum number
    *                     of emails you can send from your account in a 24-hour period.</p>
    *             </li>
    *             <li>
-   *                 <p>INVALID_SENDING_POOL_NAME: The configuration set you specified refers to an IP
+   *                <p>INVALID_SENDING_POOL_NAME: The configuration set you specified refers to an IP
    *                     pool that does not exist.</p>
    *             </li>
    *             <li>
-   *                 <p>ACCOUNT_SENDING_PAUSED: Email sending for the Amazon SES account was disabled
+   *                <p>ACCOUNT_SENDING_PAUSED: Email sending for the Amazon SES account was disabled
    *                     using the <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateAccountSendingEnabled.html">UpdateAccountSendingEnabled</a> operation.</p>
    *             </li>
    *             <li>
-   *                 <p>CONFIGURATION_SET_SENDING_PAUSED: Email sending for this configuration set was
+   *                <p>CONFIGURATION_SET_SENDING_PAUSED: Email sending for this configuration set was
    *                     disabled using the <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateConfigurationSetSendingEnabled.html">UpdateConfigurationSetSendingEnabled</a> operation.</p>
    *             </li>
    *             <li>
-   *                 <p>INVALID_PARAMETER_VALUE: One or more of the parameters you specified when
+   *                <p>INVALID_PARAMETER_VALUE: One or more of the parameters you specified when
    *                     calling this operation was invalid. See the error message for additional
    *                     information.</p>
    *             </li>
    *             <li>
-   *                 <p>TRANSIENT_FAILURE: Amazon SES was unable to process your request because of a
+   *                <p>TRANSIENT_FAILURE: Amazon SES was unable to process your request because of a
    *                     temporary issue.</p>
    *             </li>
    *             <li>
-   *                 <p>FAILED: Amazon SES was unable to process your request. See the error message
+   *                <p>FAILED: Amazon SES was unable to process your request. See the error message
    *                     for additional information.</p>
    *             </li>
    *          </ul>
@@ -769,13 +769,13 @@ export interface CloudWatchDimensionConfiguration {
   /**
    * <p>The name of an Amazon CloudWatch dimension associated with an email sending metric. The name has to
    *             meet the following criteria:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
+   *                <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
    *                     underscores (_), or dashes (-).</p>
    *             </li>
    *             <li>
-   *                 <p>It can contain no more than 256 characters.</p>
+   *                <p>It can contain no more than 256 characters.</p>
    *             </li>
    *          </ul>
    */
@@ -794,13 +794,13 @@ export interface CloudWatchDimensionConfiguration {
    * <p>The default value of the dimension that is published to Amazon CloudWatch if you don't provide the
    *             value of the dimension when you send an email. This value has to meet the following
    *             criteria:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Can only contain ASCII letters (a–z, A–Z), numbers (0–9),
+   *                <p>Can only contain ASCII letters (a–z, A–Z), numbers (0–9),
    *                     underscores (_), or dashes (-), at signs (@), and periods (.).</p>
    *             </li>
    *             <li>
-   *                 <p>It can contain no more than 256 characters.</p>
+   *                <p>It can contain no more than 256 characters.</p>
    *             </li>
    *          </ul>
    */
@@ -942,13 +942,13 @@ export interface ContactListDestination {
   /**
    * <p>>The type of action to perform on the addresses. The following are the
    *             possible values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>PUT: add the addresses to the contact list. If the record already exists, it
+   *                <p>PUT: add the addresses to the contact list. If the record already exists, it
    *                     will override it with the new value.</p>
    *             </li>
    *             <li>
-   *                 <p>DELETE: remove the addresses from the contact list.</p>
+   *                <p>DELETE: remove the addresses from the contact list.</p>
    *             </li>
    *          </ul>
    */
@@ -1024,15 +1024,15 @@ export interface SuppressionOptions {
    * <p>A list that contains the reasons that email addresses are automatically added to the
    *             suppression list for your account. This list can contain any or all of the
    *             following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
    *                     list for your account when a message sent to that address results in a
    *                     complaint.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
    *                     list for your account when a message sent to that address results in a hard
    *                     bounce.</p>
@@ -1048,29 +1048,29 @@ export interface SuppressionOptions {
  *             a resource. Tags can help you categorize and manage resources in different ways, such as
  *             by purpose, owner, environment, or other criteria. A resource can have as many as 50
  *             tags.</p>
- *         <p>Each tag consists of a required <i>tag key</i> and an
+ *          <p>Each tag consists of a required <i>tag key</i> and an
  *                 associated <i>tag value</i>, both of which you define. A tag key is a
  *             general label that acts as a category for a more specific tag value. A tag value acts as
  *             a descriptor within a tag key. A tag key can contain as many as 128 characters. A tag
  *             value can contain as many as 256 characters. The characters can be Unicode letters,
  *             digits, white space, or one of the following symbols: _ . : / = + -. The following
  *             additional restrictions apply to tags:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Tag keys and values are case sensitive.</p>
+ *                <p>Tag keys and values are case sensitive.</p>
  *             </li>
  *             <li>
- *                 <p>For each associated resource, each tag key must be unique and it can have only
+ *                <p>For each associated resource, each tag key must be unique and it can have only
  *                     one value.</p>
  *             </li>
  *             <li>
- *                 <p>The <code>aws:</code> prefix is reserved for use by Amazon Web Services; you can’t use it in
+ *                <p>The <code>aws:</code> prefix is reserved for use by Amazon Web Services; you can’t use it in
  *                     any tag keys or values that you define. In addition, you can't edit or remove
  *                     tag keys or values that use this prefix. Tags that use this prefix don’t count
  *                     against the limit of 50 tags per resource.</p>
  *             </li>
  *             <li>
- *                 <p>You can associate tags with public or shared resources, but the tags are
+ *                <p>You can associate tags with public or shared resources, but the tags are
  *                     available only for your Amazon Web Services account, not any other accounts that share the
  *                     resource. In addition, the tags are available only for resources that are
  *                     located in the specified Amazon Web Services Region for your Amazon Web Services account.</p>
@@ -1098,7 +1098,7 @@ export interface Tag {
  *             Amazon SES API v2 to send an email, it contains an invisible image that's used to track when
  *             recipients open your email. If your email contains links, those links are changed
  *             slightly in order to track when recipients click them.</p>
- *         <p>These images and links include references to a domain operated by Amazon Web Services. You can
+ *          <p>These images and links include references to a domain operated by Amazon Web Services. You can
  *             optionally configure the Amazon SES to use a domain that you operate for these images and
  *             links.</p>
  */
@@ -1115,19 +1115,23 @@ export enum FeatureStatus {
 }
 
 /**
- * <p>An object containing additional settings for your VDM configuration as applicable to the Dashboard.</p>
+ * <p>An object containing additional settings for your VDM configuration as applicable to
+ *             the Dashboard.</p>
  */
 export interface DashboardOptions {
   /**
-   * <p>Specifies the status of your VDM engagement metrics collection. Can be one of the following:</p>
-   *         <ul>
+   * <p>Specifies the status of your VDM engagement metrics collection. Can be one of the
+   *             following:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                   <code>ENABLED</code> – Amazon SES enables engagement metrics for the configuration set.</p>
+   *                <p>
+   *                   <code>ENABLED</code> – Amazon SES enables engagement metrics for the
+   *                     configuration set.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <code>DISABLED</code> – Amazon SES disables engagement metrics for the configuration set.</p>
+   *                <p>
+   *                   <code>DISABLED</code> – Amazon SES disables engagement metrics for the
+   *                     configuration set.</p>
    *             </li>
    *          </ul>
    */
@@ -1135,19 +1139,23 @@ export interface DashboardOptions {
 }
 
 /**
- * <p>An object containing additional settings for your VDM configuration as applicable to the Guardian.</p>
+ * <p>An object containing additional settings for your VDM configuration as applicable to
+ *             the Guardian.</p>
  */
 export interface GuardianOptions {
   /**
-   * <p>Specifies the status of your VDM optimized shared delivery. Can be one of the following:</p>
-   *         <ul>
+   * <p>Specifies the status of your VDM optimized shared delivery. Can be one of the
+   *             following:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                   <code>ENABLED</code> – Amazon SES enables optimized shared delivery for the configuration set.</p>
+   *                <p>
+   *                   <code>ENABLED</code> – Amazon SES enables optimized shared delivery for the
+   *                     configuration set.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <code>DISABLED</code> – Amazon SES disables optimized shared delivery for the configuration set.</p>
+   *                <p>
+   *                   <code>DISABLED</code> – Amazon SES disables optimized shared delivery for the
+   *                     configuration set.</p>
    *             </li>
    *          </ul>
    */
@@ -1155,17 +1163,19 @@ export interface GuardianOptions {
 }
 
 /**
- * <p>An object that defines the VDM settings that apply to emails that you send
- *             using the configuration set.</p>
+ * <p>An object that defines the VDM settings that apply to emails that you send using the
+ *             configuration set.</p>
  */
 export interface VdmOptions {
   /**
-   * <p>Specifies additional settings for your VDM configuration as applicable to the Dashboard.</p>
+   * <p>Specifies additional settings for your VDM configuration as applicable to the
+   *             Dashboard.</p>
    */
   DashboardOptions?: DashboardOptions;
 
   /**
-   * <p>Specifies additional settings for your VDM configuration as applicable to the Guardian.</p>
+   * <p>Specifies additional settings for your VDM configuration as applicable to the
+   *             Guardian.</p>
    */
   GuardianOptions?: GuardianOptions;
 }
@@ -1217,7 +1227,8 @@ export interface CreateConfigurationSetRequest {
   SuppressionOptions?: SuppressionOptions;
 
   /**
-   * <p>An object that defines the VDM options for emails that you send using the configuration set.</p>
+   * <p>An object that defines the VDM options for emails that you send using the
+   *             configuration set.</p>
    */
   VdmOptions?: VdmOptions;
 }
@@ -1314,7 +1325,7 @@ export interface EventDestinationDefinition {
    * <p>If <code>true</code>, the event destination is enabled. When the event destination is
    *             enabled, the specified event types are sent to the destinations in this
    *                 <code>EventDestinationDefinition</code>.</p>
-   *         <p>If <code>false</code>, the event destination is disabled. When the event destination
+   *          <p>If <code>false</code>, the event destination is disabled. When the event destination
    *             is disabled, events aren't sent to the specified destinations.</p>
    */
   Enabled?: boolean;
@@ -1544,30 +1555,30 @@ export interface CreateDedicatedIpPoolResponse {}
 export interface RawMessage {
   /**
    * <p>The raw email message. The message has to meet the following criteria:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The message has to contain a header and a body, separated by one blank
+   *                <p>The message has to contain a header and a body, separated by one blank
    *                     line.</p>
    *             </li>
    *             <li>
-   *                 <p>All of the required header fields must be present in the message.</p>
+   *                <p>All of the required header fields must be present in the message.</p>
    *             </li>
    *             <li>
-   *                 <p>Each part of a multipart MIME message must be formatted properly.</p>
+   *                <p>Each part of a multipart MIME message must be formatted properly.</p>
    *             </li>
    *             <li>
-   *                 <p>Attachments must be in a file format that the Amazon SES supports.</p>
+   *                <p>Attachments must be in a file format that the Amazon SES supports.</p>
    *             </li>
    *             <li>
-   *                 <p>The entire message must be Base64 encoded.</p>
+   *                <p>The entire message must be Base64 encoded.</p>
    *             </li>
    *             <li>
-   *                 <p>If any of the MIME parts in your message contain content that is outside of
+   *                <p>If any of the MIME parts in your message contain content that is outside of
    *                     the 7-bit ASCII character range, you should encode that content to ensure that
    *                     recipients' email clients render the message properly.</p>
    *             </li>
    *             <li>
-   *                 <p>The length of any single line of text in the message can't exceed 1,000
+   *                <p>The length of any single line of text in the message can't exceed 1,000
    *                     characters. This restriction is defined in <a href="https://tools.ietf.org/html/rfc5321">RFC 5321</a>.</p>
    *             </li>
    *          </ul>
@@ -1609,32 +1620,32 @@ export interface EmailContent {
 
   /**
    * <p>The raw email message. The message has to meet the following criteria:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The message has to contain a header and a body, separated by one blank
+   *                <p>The message has to contain a header and a body, separated by one blank
    *                     line.</p>
    *             </li>
    *             <li>
-   *                 <p>All of the required header fields must be present in the message.</p>
+   *                <p>All of the required header fields must be present in the message.</p>
    *             </li>
    *             <li>
-   *                 <p>Each part of a multipart MIME message must be formatted properly.</p>
+   *                <p>Each part of a multipart MIME message must be formatted properly.</p>
    *             </li>
    *             <li>
-   *                 <p>If you include attachments, they must be in a file format that the Amazon SES API v2
+   *                <p>If you include attachments, they must be in a file format that the Amazon SES API v2
    *                     supports.
    *                     </p>
    *             </li>
    *             <li>
-   *                 <p>The entire message must be Base64 encoded.</p>
+   *                <p>The entire message must be Base64 encoded.</p>
    *             </li>
    *             <li>
-   *                 <p>If any of the MIME parts in your message contain content that is outside of
+   *                <p>If any of the MIME parts in your message contain content that is outside of
    *                     the 7-bit ASCII character range, you should encode that content to ensure that
    *                     recipients' email clients render the message properly.</p>
    *             </li>
    *             <li>
-   *                 <p>The length of any single line of text in the message can't exceed 1,000
+   *                <p>The length of any single line of text in the message can't exceed 1,000
    *                     characters. This restriction is defined in <a href="https://tools.ietf.org/html/rfc5321">RFC 5321</a>.</p>
    *             </li>
    *          </ul>
@@ -1778,7 +1789,7 @@ export interface DkimSigningAttributes {
 
   /**
    * <p>[Bring Your Own DKIM] A private key that's used to generate a DKIM signature.</p>
-   *         <p>The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using
+   *          <p>The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using
    *             base64 encoding.</p>
    */
   DomainSigningPrivateKey?: string;
@@ -1810,7 +1821,7 @@ export interface CreateEmailIdentityRequest {
    *             Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be
    *             used for <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
    *                 DKIM</a>.</p>
-   *         <p>You can only specify this object if the email identity is a domain, as opposed to an
+   *          <p>You can only specify this object if the email identity is a domain, as opposed to an
    *             address.</p>
    */
   DkimSigningAttributes?: DkimSigningAttributes;
@@ -1838,7 +1849,7 @@ export enum DkimStatus {
 /**
  * <p>An object that contains information about the DKIM authentication status for an email
  *             identity.</p>
- *         <p>Amazon SES determines the authentication status by searching for specific records in the
+ *          <p>Amazon SES determines the authentication status by searching for specific records in the
  *             DNS configuration for the domain. If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to set up DKIM
  *             authentication, Amazon SES tries to find three unique CNAME records in the DNS configuration
  *             for your domain. If you provided a public key to perform DKIM authentication, Amazon SES
@@ -1857,31 +1868,31 @@ export interface DkimAttributes {
   /**
    * <p>Describes whether or not Amazon SES has successfully located the DKIM records in the DNS
    *             records for the domain. The status can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code> – The verification process was initiated, but Amazon SES
    *                     hasn't yet detected the DKIM records in the DNS configuration for the
    *                     domain.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SUCCESS</code> – The verification process completed
    *                     successfully.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILED</code> – The verification process failed. This typically
    *                     occurs when Amazon SES fails to find the DKIM records in the DNS configuration of the
    *                     domain.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES
    *                     from determining the DKIM authentication status of the domain.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NOT_STARTED</code> – The DKIM verification process hasn't been
    *                     initiated for the domain.</p>
    *             </li>
@@ -1894,10 +1905,10 @@ export interface DkimAttributes {
    *             contains a set of unique strings that you use to create a set of CNAME records that you
    *             add to the DNS configuration for your domain. When Amazon SES detects these records in the
    *             DNS configuration for your domain, the DKIM authentication process is complete.</p>
-   *         <p>If you configured DKIM authentication for the domain by providing your own
+   *          <p>If you configured DKIM authentication for the domain by providing your own
    *             public-private key pair, then this object contains the selector for the public
    *             key.</p>
-   *         <p>Regardless of the DKIM authentication method you use, Amazon SES searches for the
+   *          <p>Regardless of the DKIM authentication method you use, Amazon SES searches for the
    *             appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
    */
   Tokens?: string[];
@@ -1905,14 +1916,14 @@ export interface DkimAttributes {
   /**
    * <p>A string that indicates how DKIM was configured for the identity. These are the
    *             possible values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>AWS_SES</code> – Indicates that DKIM was configured for the
    *                     identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>EXTERNAL</code> – Indicates that DKIM was configured for the
    *                     identity by using Bring Your Own DKIM (BYODKIM).</p>
    *             </li>
@@ -1945,7 +1956,7 @@ export enum IdentityType {
 /**
  * <p>If the email identity is a domain, this object contains information about the DKIM
  *             verification status for the domain.</p>
- *         <p>If the email identity is an email address, this object is empty. </p>
+ *          <p>If the email identity is an email address, this object is empty. </p>
  */
 export interface CreateEmailIdentityResponse {
   /**
@@ -1980,15 +1991,14 @@ export interface CreateEmailIdentityPolicyRequest {
 
   /**
    * <p>The name of the policy.</p>
-   *
-   *         <p>The policy name cannot exceed 64 characters and can only include alphanumeric
+   *          <p>The policy name cannot exceed 64 characters and can only include alphanumeric
    *             characters, dashes, and underscores.</p>
    */
   PolicyName: string | undefined;
 
   /**
    * <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p>
-   *         <p>For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer
+   *          <p>For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer
    *                 Guide</a>.</p>
    */
   Policy: string | undefined;
@@ -2077,13 +2087,13 @@ export enum SuppressionListImportAction {
 export interface SuppressionListDestination {
   /**
    * <p>The type of action to perform on the address. The following are possible values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>PUT: add the addresses to the suppression list. If the record already exists,
+   *                <p>PUT: add the addresses to the suppression list. If the record already exists,
    *                     it will override it with the new value.</p>
    *             </li>
    *             <li>
-   *                 <p>DELETE: remove the addresses from the suppression list.</p>
+   *                <p>DELETE: remove the addresses from the suppression list.</p>
    *             </li>
    *          </ul>
    */
@@ -2258,13 +2268,13 @@ export interface DailyVolume {
 export interface DashboardAttributes {
   /**
    * <p>Specifies the status of your VDM engagement metrics collection. Can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ENABLED</code> – Amazon SES enables engagement metrics for your account.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DISABLED</code> – Amazon SES disables engagement metrics for your account.</p>
    *             </li>
    *          </ul>
@@ -2280,7 +2290,7 @@ export enum WarmupStatus {
 /**
  * <p>Contains information about a dedicated IP address that is associated with your Amazon SES
  *             account.</p>
- *         <p>To learn more about requesting dedicated IP addresses, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/dedicated-ip-case.html">Requesting and Relinquishing
+ *          <p>To learn more about requesting dedicated IP addresses, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/dedicated-ip-case.html">Requesting and Relinquishing
  *                 Dedicated IP Addresses</a> in the <i>Amazon SES Developer
  *             Guide</i>.</p>
  */
@@ -2293,14 +2303,14 @@ export interface DedicatedIp {
   /**
    * <p>The warm-up status of a dedicated IP address. The status can have one of the following
    *             values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>IN_PROGRESS</code> – The IP address isn't ready to use because the
    *                     dedicated IP warm-up process is ongoing.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DONE</code> – The dedicated IP warm-up process is complete, and
    *                     the IP address is ready to use.</p>
    *             </li>
@@ -2331,13 +2341,13 @@ export interface DedicatedIpPool {
 
   /**
    * <p>The type of the dedicated IP pool.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STANDARD</code> – A dedicated IP pool where the customer can control which IPs are part of the pool.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>MANAGED</code> – A dedicated IP pool where the reputation and number of IPs is automatically managed by Amazon SES.</p>
    *             </li>
    *          </ul>
@@ -2469,8 +2479,7 @@ export interface DeleteEmailIdentityPolicyRequest {
 
   /**
    * <p>The name of the policy.</p>
-   *
-   *         <p>The policy name cannot exceed 64 characters and can only include alphanumeric
+   *          <p>The policy name cannot exceed 64 characters and can only include alphanumeric
    *             characters, dashes, and underscores.</p>
    */
   PolicyName: string | undefined;
@@ -2727,13 +2736,80 @@ export interface EventDestination {
    * <p>If <code>true</code>, the event destination is enabled. When the event destination is
    *             enabled, the specified event types are sent to the destinations in this
    *                 <code>EventDestinationDefinition</code>.</p>
-   *         <p>If <code>false</code>, the event destination is disabled. When the event destination
+   *          <p>If <code>false</code>, the event destination is disabled. When the event destination
    *             is disabled, events aren't sent to the specified destinations.</p>
    */
   Enabled?: boolean;
 
   /**
    * <p>The types of events that Amazon SES sends to the specified event destinations.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SEND</code> - The send request was successful and SES will
+   *                     attempt to deliver the message to the recipient’s mail server. (If account-level
+   *                     or global suppression is being used, SES will still count it as a send,
+   *                     but delivery is suppressed.)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECT</code> - SES accepted the email, but determined that it
+   *                     contained a virus and didn’t attempt to deliver it to the recipient’s mail
+   *                     server.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BOUNCE</code> - (<i>Hard bounce</i>) The recipient's
+   *                     mail server permanently rejected the email. (<i>Soft bounces</i>
+   *                     are only included when SES fails to deliver the email after retrying for
+   *                     a period of time.)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLAINT</code> - The email was successfully delivered to the
+   *                     recipient’s mail server, but the recipient marked it as spam.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELIVERY</code> - SES successfully delivered the email to the
+   *                     recipient's mail server.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OPEN</code> - The recipient received the message and opened it in their
+   *                     email client.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CLICK</code> - The recipient clicked one or more links in the
+   *                     email.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RENDERING_FAILURE</code> - The email wasn't sent because of a
+   *                     template rendering issue. This event type can occur when template data is
+   *                     missing, or when there is a mismatch between template parameters and data. (This
+   *                     event type only occurs when you send email using the <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_SendTemplatedEmail.html">
+   *                      <code>SendTemplatedEmail</code>
+   *                   </a> or <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_SendBulkTemplatedEmail.html">
+   *                      <code>SendBulkTemplatedEmail</code>
+   *                   </a> API operations.) </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELIVERY_DELAY</code> - The email couldn't be delivered to the
+   *                     recipient’s mail server because a temporary issue occurred. Delivery delays can
+   *                     occur, for example, when the recipient's inbox is full, or when the
+   *                     receiving email server experiences a transient issue.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUBSCRIPTION</code> - The email was successfully delivered, but the
+   *                     recipient updated their subscription preferences by clicking on an
+   *                         <i>unsubscribe</i> link as part of your <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-email-subscription-management.html">subscription
+   *                         management</a>.</p>
+   *             </li>
+   *          </ul>
    */
   MatchingEventTypes: (EventType | string)[] | undefined;
 
@@ -2821,15 +2897,15 @@ export interface SuppressionAttributes {
    * <p>A list that contains the reasons that email addresses will be automatically added to
    *             the suppression list for your account. This list can contain any or all of the
    *             following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
    *                     list for your account when a message sent to that address results in a
    *                     complaint.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
    *                     list for your account when a message sent to that address results in a hard
    *                     bounce.</p>
@@ -2845,13 +2921,13 @@ export interface SuppressionAttributes {
 export interface GuardianAttributes {
   /**
    * <p>Specifies the status of your VDM optimized shared delivery. Can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ENABLED</code> – Amazon SES enables optimized shared delivery for your account.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DISABLED</code> – Amazon SES disables optimized shared delivery for your account.</p>
    *             </li>
    *          </ul>
@@ -2865,13 +2941,13 @@ export interface GuardianAttributes {
 export interface VdmAttributes {
   /**
    * <p>Specifies the status of your VDM configuration. Can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ENABLED</code> – Amazon SES enables VDM for your account.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DISABLED</code> – Amazon SES disables VDM for your account.</p>
    *             </li>
    *          </ul>
@@ -2903,20 +2979,20 @@ export interface GetAccountResponse {
   /**
    * <p>The reputation status of your Amazon SES account. The status can be one of the
    *             following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>HEALTHY</code> – There are no reputation-related issues that
    *                     currently impact your account.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PROBATION</code> – We've identified potential issues with your
    *                     Amazon SES account. We're placing your account under review while you work on
    *                     correcting these issues.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SHUTDOWN</code> – Your account's ability to send email is
    *                     currently paused because of an issue with the email sent from your account. When
    *                     you correct the issue, you can contact us and request that your account's
@@ -2929,12 +3005,12 @@ export interface GetAccountResponse {
   /**
    * <p>Indicates whether or not your account has production access in the current Amazon Web Services
    *             Region.</p>
-   *         <p>If the value is <code>false</code>, then your account is in the
+   *          <p>If the value is <code>false</code>, then your account is in the
    *                 <i>sandbox</i>. When your account is in the sandbox, you can only send
    *             email to verified identities. Additionally, the maximum number of emails you can send in
    *             a 24-hour period (your sending quota) is 200, and the maximum number of emails you can
    *             send per second (your maximum sending rate) is 1.</p>
-   *         <p>If the value is <code>true</code>, then your account has production access. When your
+   *          <p>If the value is <code>true</code>, then your account has production access. When your
    *             account has production access, you can send email to any address. The sending quota and
    *             maximum sending rate for your account vary based on your specific use case.</p>
    */
@@ -3049,7 +3125,8 @@ export interface GetConfigurationSetResponse {
   SuppressionOptions?: SuppressionOptions;
 
   /**
-   * <p>An object that contains information about the VDM preferences for your configuration set.</p>
+   * <p>An object that contains information about the VDM preferences for your configuration
+   *             set.</p>
    */
   VdmOptions?: VdmOptions;
 }
@@ -3306,8 +3383,7 @@ export interface GetDedicatedIpsResponse {
  * <p>Retrieve information about the status of the Deliverability dashboard for your Amazon Web Services account.
  *             When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and
  *             other metrics for your domains. You also gain the ability to perform predictive inbox placement tests.</p>
- *
- *         <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
+ *          <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
  *             to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
  *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
  */
@@ -3569,24 +3645,24 @@ export interface MailFromAttributes {
 
   /**
    * <p>The status of the MAIL FROM domain. This status can have the following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code> – Amazon SES hasn't started searching for the MX record
    *                     yet.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SUCCESS</code> – Amazon SES detected the required MX record for the
    *                     MAIL FROM domain.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILED</code> – Amazon SES can't find the required MX record, or the
    *                     record no longer exists.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TEMPORARY_FAILURE</code> – A temporary issue occurred, which
    *                     prevented Amazon SES from determining the status of the MAIL FROM domain.</p>
    *             </li>
@@ -3601,7 +3677,7 @@ export interface MailFromAttributes {
    *             to <code>REJECT_MESSAGE</code>, the Amazon SES API v2 returns a
    *                 <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the
    *             email.</p>
-   *         <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
+   *          <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
    *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
    *             states.</p>
    */
@@ -3628,10 +3704,10 @@ export interface GetEmailIdentityResponse {
 
   /**
    * <p>The feedback forwarding configuration for the identity.</p>
-   *         <p>If the value is <code>true</code>, you receive email notifications when bounce or
+   *          <p>If the value is <code>true</code>, you receive email notifications when bounce or
    *             complaint events occur. These notifications are sent to the address that you specified
    *             in the <code>Return-Path</code> header of the original email.</p>
-   *         <p>You're required to have a method of tracking bounces and complaints. If you haven't
+   *          <p>You're required to have a method of tracking bounces and complaints. If you haven't
    *             set up another mechanism for receiving bounce or complaint notifications (for example,
    *             by setting up an event destination), you receive an email notification when these events
    *             occur (even if this setting is disabled).</p>
@@ -3674,28 +3750,28 @@ export interface GetEmailIdentityResponse {
 
   /**
    * <p>The verification status of the identity. The status can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code> – The verification process was initiated, but Amazon SES
    *                     hasn't yet been able to verify the identity.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SUCCESS</code> – The verification process completed
    *                     successfully.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILED</code> – The verification process failed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES
    *                     from determining the verification status of the identity.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NOT_STARTED</code> – The verification process hasn't been
    *                     initiated for the identity.</p>
    *             </li>
@@ -3905,7 +3981,7 @@ export interface IdentityInfo {
 
   /**
    * <p>Indicates whether or not you can send email from the identity.</p>
-   *         <p>An <i>identity</i> is an email address or domain that you send email
+   *          <p>An <i>identity</i> is an email address or domain that you send email
    *             from. Before you can send email from an identity, you have to demostrate that you own
    *             the identity, and that you authorize Amazon SES to send email from that identity.</p>
    */
@@ -3913,28 +3989,28 @@ export interface IdentityInfo {
 
   /**
    * <p>The verification status of the identity. The status can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code> – The verification process was initiated, but Amazon SES
    *                     hasn't yet been able to verify the identity.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SUCCESS</code> – The verification process completed
    *                     successfully.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILED</code> – The verification process failed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES
    *                     from determining the verification status of the identity.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NOT_STARTED</code> – The verification process hasn't been
    *                     initiated for the identity.</p>
    *             </li>
@@ -4169,7 +4245,7 @@ export interface ListCustomVerificationEmailTemplatesRequest {
    *             larger than the number you specified in this parameter, then the response includes a
    *                 <code>NextToken</code> element, which you can use to obtain additional
    *             results.</p>
-   *         <p>The value you specify has to be at least 1, and can be no more than 50.</p>
+   *          <p>The value you specify has to be at least 1, and can be no more than 50.</p>
    */
   PageSize?: number;
 }
@@ -4245,7 +4321,7 @@ export interface ListDeliverabilityTestReportsRequest {
    *             the number you specified in this parameter, then the response includes a
    *                 <code>NextToken</code> element, which you can use to obtain additional
    *             results.</p>
-   *         <p>The value you specify has to be at least 0, and can be no more than 1000.</p>
+   *          <p>The value you specify has to be at least 0, and can be no more than 1000.</p>
    */
   PageSize?: number;
 }
@@ -4346,7 +4422,7 @@ export interface ListEmailIdentitiesRequest {
    *             the number of results is larger than the number you specified in this parameter, then
    *             the response includes a <code>NextToken</code> element, which you can use to obtain
    *             additional results.</p>
-   *         <p>The value you specify has to be at least 0, and can be no more than 1000.</p>
+   *          <p>The value you specify has to be at least 0, and can be no more than 1000.</p>
    */
   PageSize?: number;
 }
@@ -4387,7 +4463,7 @@ export interface ListEmailTemplatesRequest {
    * <p>The number of results to show in a single call to <code>ListEmailTemplates</code>. If the number of
    *             results is larger than the number you specified in this parameter, then the response
    *             includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
-   *         <p>The value you specify has to be at least 1, and can be no more than 10.</p>
+   *          <p>The value you specify has to be at least 1, and can be no more than 10.</p>
    */
   PageSize?: number;
 }
@@ -4503,7 +4579,7 @@ export interface ListRecommendationsRequest {
    *             the number you specified in this parameter, then the response includes a
    *             <code>NextToken</code> element, which you can use to obtain additional
    *             results.</p>
-   *         <p>The value you specify has to be at least 1, and can be no more than 100.</p>
+   *          <p>The value you specify has to be at least 1, and can be no more than 100.</p>
    */
   PageSize?: number;
 }
@@ -4519,6 +4595,7 @@ export enum RecommendationStatus {
 }
 
 export enum RecommendationType {
+  BIMI = "BIMI",
   DKIM = "DKIM",
   DMARC = "DMARC",
   SPF = "SPF",
@@ -4536,7 +4613,7 @@ export interface Recommendation {
 
   /**
    * <p>The recommendation type, with values like <code>DKIM</code>,
-   *             <code>SPF</code> or <code>DMARC</code>.</p>
+   *             <code>SPF</code>, <code>DMARC</code> or <code>BIMI</code>.</p>
    */
   Type?: RecommendationType | string;
 
@@ -4735,12 +4812,12 @@ export interface PutAccountDetailsRequest {
   /**
    * <p>Indicates whether or not your account should have production access in the current
    *             Amazon Web Services Region.</p>
-   *         <p>If the value is <code>false</code>, then your account is in the
+   *          <p>If the value is <code>false</code>, then your account is in the
    *                 <i>sandbox</i>. When your account is in the sandbox, you can only send
    *             email to verified identities. Additionally, the maximum number of emails you can send in
    *             a 24-hour period (your sending quota) is 200, and the maximum number of emails you can
    *             send per second (your maximum sending rate) is 1.</p>
-   *         <p>If the value is <code>true</code>, then your account has production access. When your
+   *          <p>If the value is <code>true</code>, then your account has production access. When your
    *             account has production access, you can send email to any address. The sending quota and
    *             maximum sending rate for your account vary based on your specific use case.</p>
    */
@@ -4760,10 +4837,10 @@ export interface PutAccountSendingAttributesRequest {
   /**
    * <p>Enables or disables your account's ability to send email. Set to <code>true</code> to
    *             enable email sending, or set to <code>false</code> to disable email sending.</p>
-   *         <note>
+   *          <note>
    *             <p>If Amazon Web Services paused your account's ability to send email, you can't use this operation
    *                 to resume your account's ability to send email.</p>
-   *         </note>
+   *          </note>
    */
   SendingEnabled?: boolean;
 }
@@ -4782,15 +4859,15 @@ export interface PutAccountSuppressionAttributesRequest {
    * <p>A list that contains the reasons that email addresses will be automatically added to
    *             the suppression list for your account. This list can contain any or all of the
    *             following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
    *                     list for your account when a message sent to that address results in a
    *                     complaint.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
    *                     list for your account when a message sent to that address results in a hard
    *                     bounce.</p>
@@ -4909,15 +4986,15 @@ export interface PutConfigurationSetSuppressionOptionsRequest {
    * <p>A list that contains the reasons that email addresses are automatically added to the
    *             suppression list for your account. This list can contain any or all of the
    *             following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
    *                     list for your account when a message sent to that address results in a
    *                     complaint.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
    *                     list for your account when a message sent to that address results in a hard
    *                     bounce.</p>
@@ -5026,7 +5103,7 @@ export interface PutDedicatedIpWarmupAttributesResponse {}
  * <p>Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain
  *             access to reputation, deliverability, and other metrics for the domains that you use to
  *             send email using Amazon SES API v2. You also gain the ability to perform predictive inbox placement tests.</p>
- *         <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
+ *          <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
  *             to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
  *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
  */
@@ -5082,7 +5159,7 @@ export interface PutEmailIdentityDkimAttributesRequest {
 
   /**
    * <p>Sets the DKIM signing configuration for the identity.</p>
-   *         <p>When you set this value <code>true</code>, then the messages that are sent from the
+   *          <p>When you set this value <code>true</code>, then the messages that are sent from the
    *             identity are signed using DKIM. If you set this value to <code>false</code>, your
    *             messages are sent without DKIM signing.</p>
    */
@@ -5107,14 +5184,14 @@ export interface PutEmailIdentityDkimSigningAttributesRequest {
   /**
    * <p>The method to use to configure DKIM for the identity. There are the following possible
    *             values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>AWS_SES</code> – Configure DKIM for the identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
    *                         DKIM</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>EXTERNAL</code> – Configure DKIM for the identity by using Bring
    *                     Your Own DKIM (BYODKIM).</p>
    *             </li>
@@ -5132,7 +5209,7 @@ export interface PutEmailIdentityDkimSigningAttributesRequest {
 
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
- *         <p>The following data is returned in JSON format by the service.</p>
+ *          <p>The following data is returned in JSON format by the service.</p>
  */
 export interface PutEmailIdentityDkimSigningAttributesResponse {
   /**
@@ -5141,36 +5218,36 @@ export interface PutEmailIdentityDkimSigningAttributesResponse {
    *             you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
    *                 DKIM</a> to set up DKIM authentication, Amazon SES tries to find three unique CNAME
    *             records in the DNS configuration for your domain.</p>
-   *         <p>If you provided a public key to perform DKIM authentication, Amazon SES tries to find a TXT
+   *          <p>If you provided a public key to perform DKIM authentication, Amazon SES tries to find a TXT
    *             record that uses the selector that you specified. The value of the TXT record must be a
    *             public key that's paired with the private key that you specified in the process of
    *             creating the identity.</p>
-   *         <p>The status can be one of the following:</p>
-   *         <ul>
+   *          <p>The status can be one of the following:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code> – The verification process was initiated, but Amazon SES
    *                     hasn't yet detected the DKIM records in the DNS configuration for the
    *                     domain.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SUCCESS</code> – The verification process completed
    *                     successfully.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILED</code> – The verification process failed. This typically
    *                     occurs when Amazon SES fails to find the DKIM records in the DNS configuration of the
    *                     domain.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES
    *                     from determining the DKIM authentication status of the domain.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NOT_STARTED</code> – The DKIM verification process hasn't been
    *                     initiated for the domain.</p>
    *             </li>
@@ -5183,10 +5260,10 @@ export interface PutEmailIdentityDkimSigningAttributesResponse {
    *             contains a set of unique strings that you use to create a set of CNAME records that you
    *             add to the DNS configuration for your domain. When Amazon SES detects these records in the
    *             DNS configuration for your domain, the DKIM authentication process is complete.</p>
-   *         <p>If you configured DKIM authentication for the domain by providing your own
+   *          <p>If you configured DKIM authentication for the domain by providing your own
    *             public-private key pair, then this object contains the selector that's associated with
    *             your public key.</p>
-   *         <p>Regardless of the DKIM authentication method you use, Amazon SES searches for the
+   *          <p>Regardless of the DKIM authentication method you use, Amazon SES searches for the
    *             appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
    */
   DkimTokens?: string[];
@@ -5204,10 +5281,10 @@ export interface PutEmailIdentityFeedbackAttributesRequest {
 
   /**
    * <p>Sets the feedback forwarding configuration for the identity.</p>
-   *         <p>If the value is <code>true</code>, you receive email notifications when bounce or
+   *          <p>If the value is <code>true</code>, you receive email notifications when bounce or
    *             complaint events occur. These notifications are sent to the address that you specified
    *             in the <code>Return-Path</code> header of the original email.</p>
-   *         <p>You're required to have a method of tracking bounces and complaints. If you haven't
+   *          <p>You're required to have a method of tracking bounces and complaints. If you haven't
    *             set up another mechanism for receiving bounce or complaint notifications (for example,
    *             by setting up an event destination), you receive an email notification when these events
    *             occur (even if this setting is disabled).</p>
@@ -5233,15 +5310,15 @@ export interface PutEmailIdentityMailFromAttributesRequest {
   /**
    * <p> The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM
    *             domain must meet the following criteria:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>It has to be a subdomain of the verified identity.</p>
+   *                <p>It has to be a subdomain of the verified identity.</p>
    *             </li>
    *             <li>
-   *                 <p>It can't be used to receive email.</p>
+   *                <p>It can't be used to receive email.</p>
    *             </li>
    *             <li>
-   *                 <p>It can't be used in a "From" address if the MAIL FROM domain is a destination
+   *                <p>It can't be used in a "From" address if the MAIL FROM domain is a destination
    *                     for feedback forwarding emails.</p>
    *             </li>
    *          </ul>
@@ -5255,7 +5332,7 @@ export interface PutEmailIdentityMailFromAttributesRequest {
    *             to <code>RejectMessage</code>, the Amazon SES API v2 returns a
    *                 <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the
    *             email.</p>
-   *         <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
+   *          <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
    *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
    *             states.</p>
    */
@@ -5307,13 +5384,13 @@ export interface SendBulkEmailRequest {
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to use the
    *             email address specified in the <code>FromEmailAddress</code> parameter.</p>
-   *         <p>For example, if the owner of example.com (which has ARN
+   *          <p>For example, if the owner of example.com (which has ARN
    *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
    *             authorizes you to use sender@example.com, then you would specify the
    *                 <code>FromEmailAddressIdentityArn</code> to be
    *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
    *                 <code>FromEmailAddress</code> to be sender@example.com.</p>
-   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *          <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
    *                 Guide</a>.</p>
    */
   FromEmailAddressIdentityArn?: string;
@@ -5334,13 +5411,13 @@ export interface SendBulkEmailRequest {
    *             that is associated with the sending authorization policy that permits you to use the
    *             email address specified in the <code>FeedbackForwardingEmailAddress</code>
    *             parameter.</p>
-   *         <p>For example, if the owner of example.com (which has ARN
+   *          <p>For example, if the owner of example.com (which has ARN
    *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
    *             authorizes you to use feedback@example.com, then you would specify the
    *                 <code>FeedbackForwardingEmailAddressIdentityArn</code> to be
    *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
    *                 <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
-   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *          <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
    *                 Guide</a>.</p>
    */
   FeedbackForwardingEmailAddressIdentityArn?: string;
@@ -5430,15 +5507,15 @@ export interface SendEmailRequest {
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to use the
    *             email address specified in the <code>FromEmailAddress</code> parameter.</p>
-   *         <p>For example, if the owner of example.com (which has ARN
+   *          <p>For example, if the owner of example.com (which has ARN
    *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
    *             authorizes you to use sender@example.com, then you would specify the
    *                 <code>FromEmailAddressIdentityArn</code> to be
    *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
    *                 <code>FromEmailAddress</code> to be sender@example.com.</p>
-   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *          <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
    *                 Guide</a>.</p>
-   *         <p>For Raw emails, the <code>FromEmailAddressIdentityArn</code> value overrides the
+   *          <p>For Raw emails, the <code>FromEmailAddressIdentityArn</code> value overrides the
    *             X-SES-SOURCE-ARN and X-SES-FROM-ARN headers specified in raw email message
    *             content.</p>
    */
@@ -5465,13 +5542,13 @@ export interface SendEmailRequest {
    *             that is associated with the sending authorization policy that permits you to use the
    *             email address specified in the <code>FeedbackForwardingEmailAddress</code>
    *             parameter.</p>
-   *         <p>For example, if the owner of example.com (which has ARN
+   *          <p>For example, if the owner of example.com (which has ARN
    *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
    *             authorizes you to use feedback@example.com, then you would specify the
    *                 <code>FeedbackForwardingEmailAddressIdentityArn</code> to be
    *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
    *                 <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
-   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *          <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
    *                 Guide</a>.</p>
    */
   FeedbackForwardingEmailAddressIdentityArn?: string;
@@ -5508,12 +5585,12 @@ export interface SendEmailResponse {
   /**
    * <p>A unique identifier for the message that is generated when the message is
    *             accepted.</p>
-   *         <note>
+   *          <note>
    *             <p>It's possible for Amazon SES to accept a message without sending it. This can happen
    *                 when the message that you're trying to send has an attachment contains a virus, or
    *                 when you send a templated email that contains invalid personalization content, for
    *                 example.</p>
-   *         </note>
+   *          </note>
    */
   MessageId?: string;
 }
@@ -5576,11 +5653,11 @@ export interface UntagResourceRequest {
   /**
    * <p>The tags (tag keys) that you want to remove from the resource. When you specify a tag
    *             key, the action removes both that key and its associated tag value.</p>
-   *         <p>To remove more than one tag from the resource, append the <code>TagKeys</code>
+   *          <p>To remove more than one tag from the resource, append the <code>TagKeys</code>
    *             parameter and argument for each additional tag to remove, separated by an ampersand. For
    *             example:
    *                 <code>/v2/email/tags?ResourceArn=ResourceArn&TagKeys=Key1&TagKeys=Key2</code>
-   *         </p>
+   *          </p>
    */
   TagKeys: string[] | undefined;
 }
@@ -5724,15 +5801,14 @@ export interface UpdateEmailIdentityPolicyRequest {
 
   /**
    * <p>The name of the policy.</p>
-   *
-   *         <p>The policy name cannot exceed 64 characters and can only include alphanumeric
+   *          <p>The policy name cannot exceed 64 characters and can only include alphanumeric
    *             characters, dashes, and underscores.</p>
    */
   PolicyName: string | undefined;
 
   /**
    * <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p>
-   *         <p> For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer
+   *          <p> For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer
    *                 Guide</a>.</p>
    */
   Policy: string | undefined;

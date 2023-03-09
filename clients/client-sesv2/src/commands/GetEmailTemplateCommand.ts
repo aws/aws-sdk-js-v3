@@ -37,8 +37,7 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
 /**
  * <p>Displays the template object (which includes the subject line, HTML part and text
  *             part) for the template you specify.</p>
- *
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

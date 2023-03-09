@@ -37,8 +37,7 @@ export interface ListEmailTemplatesCommandOutput extends ListEmailTemplatesRespo
 /**
  * <p>Lists the email templates present in your Amazon SES account in the current Amazon Web Services
  *             Region.</p>
- *
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

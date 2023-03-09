@@ -39,7 +39,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
 
 /**
  * <p>Update the configuration of an event destination for a configuration set.</p>
- *         <p>
+ *          <p>
  *             <i>Events</i> include message sends, deliveries, opens, clicks, bounces,
  *             and complaints. <i>Event destinations</i> are places that you can send
  *             information about these events to. For example, you can send event data to Amazon SNS to

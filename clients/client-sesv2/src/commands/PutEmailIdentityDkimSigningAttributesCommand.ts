@@ -40,25 +40,25 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
 /**
  * <p>Used to configure or change the DKIM authentication settings for an email domain
  *             identity. You can use this operation to do any of the following:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Update the signing attributes for an identity that uses Bring Your Own DKIM
+ *                <p>Update the signing attributes for an identity that uses Bring Your Own DKIM
  *                     (BYODKIM).</p>
  *             </li>
  *             <li>
- *                 <p>Update the key length that should be used for Easy DKIM.</p>
+ *                <p>Update the key length that should be used for Easy DKIM.</p>
  *             </li>
  *             <li>
- *                 <p>Change from using no DKIM authentication to using Easy DKIM.</p>
+ *                <p>Change from using no DKIM authentication to using Easy DKIM.</p>
  *             </li>
  *             <li>
- *                 <p>Change from using no DKIM authentication to using BYODKIM.</p>
+ *                <p>Change from using no DKIM authentication to using BYODKIM.</p>
  *             </li>
  *             <li>
- *                 <p>Change from using Easy DKIM to using BYODKIM.</p>
+ *                <p>Change from using Easy DKIM to using BYODKIM.</p>
  *             </li>
  *             <li>
- *                 <p>Change from using BYODKIM to using Easy DKIM.</p>
+ *                <p>Change from using BYODKIM to using Easy DKIM.</p>
  *             </li>
  *          </ul>
  * @example

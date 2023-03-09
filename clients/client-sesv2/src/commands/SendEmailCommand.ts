@@ -37,15 +37,15 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
 /**
  * <p>Sends an email message. You can use the Amazon SES API v2 to send the following types of
  *             messages:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Simple</b> – A standard email message. When
  *                     you create this type of message, you specify the sender, the recipient, and the
  *                     message body, and Amazon SES assembles the message for you.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Raw</b> – A raw, MIME-formatted email
  *                     message. When you send this type of email, you have to specify all of the
  *                     message headers, as well as the message body. You can use this message type to
@@ -53,7 +53,7 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *                     valid MIME message.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Templated</b> – A message that contains
  *                     personalization tags. When you send this type of email, Amazon SES API v2 automatically
  *                     replaces the tags with values that you specify.</p>

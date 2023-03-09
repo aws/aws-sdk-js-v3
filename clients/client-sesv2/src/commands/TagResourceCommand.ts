@@ -40,7 +40,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *             resource. Tags can help you categorize and manage resources in different ways, such as
  *             by purpose, owner, environment, or other criteria. A resource can have as many as 50
  *             tags.</p>
- *         <p>Each tag consists of a required <i>tag key</i> and an
+ *          <p>Each tag consists of a required <i>tag key</i> and an
  *                 associated <i>tag value</i>, both of which you define. A tag key is a
  *             general label that acts as a category for more specific tag values. A tag value acts as
  *             a descriptor within a tag key.</p>

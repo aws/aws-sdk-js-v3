@@ -39,7 +39,7 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
 /**
  * <p>Retrieve a list of event destinations that are associated with a configuration
  *             set.</p>
- *         <p>
+ *          <p>
  *             <i>Events</i> include message sends, deliveries, opens, clicks, bounces,
  *             and complaints. <i>Event destinations</i> are places that you can send
  *             information about these events to. For example, you can send event data to Amazon SNS to

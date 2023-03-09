@@ -40,12 +40,12 @@ export interface SendCustomVerificationEmailCommandOutput
  * <p>Adds an email address to the list of identities for your Amazon SES account in the current
  *                 Amazon Web Services Region and attempts to verify it. As a result of executing this
  *             operation, a customized verification email is sent to the specified address.</p>
- *         <p>To use this operation, you must first create a custom verification email template. For
+ *          <p>To use this operation, you must first create a custom verification email template. For
  *             more information about creating and using custom verification email templates, see
  *                 <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
  *                 custom verification email templates</a> in the <i>Amazon SES Developer
  *                 Guide</i>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

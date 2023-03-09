@@ -36,15 +36,14 @@ export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolR
 
 /**
  * <p>Move a dedicated IP address to an existing dedicated IP pool.</p>
- *         <note>
+ *          <note>
  *             <p>The dedicated IP address that you specify must already exist, and must be
  *                 associated with your Amazon Web Services account.
  *
  *             </p>
  *             <p>The dedicated IP pool you specify must already exist. You can create a new pool by
  *                 using the <code>CreateDedicatedIpPool</code> operation.</p>
- *
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

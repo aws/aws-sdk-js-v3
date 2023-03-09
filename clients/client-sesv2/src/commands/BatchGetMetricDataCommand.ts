@@ -36,7 +36,7 @@ export interface BatchGetMetricDataCommandOutput extends BatchGetMetricDataRespo
 
 /**
  * <p>Retrieves batches of metric data collected based on your sending activity.</p>
- *         <p>You can execute this operation no more than 16 times per second,
+ *          <p>You can execute this operation no more than 16 times per second,
  *             and with at most 160 queries from the batches per second (cumulative).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -36,7 +36,7 @@ export interface PutAccountVdmAttributesCommandOutput extends PutAccountVdmAttri
 
 /**
  * <p>Update your Amazon SES account VDM attributes.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

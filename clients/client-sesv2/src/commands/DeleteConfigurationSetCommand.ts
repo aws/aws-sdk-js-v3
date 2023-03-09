@@ -36,7 +36,7 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
 
 /**
  * <p>Delete an existing configuration set.</p>
- *         <p>
+ *          <p>
  *             <i>Configuration sets</i> are groups of rules that you can apply to the
  *             emails you send. You apply a configuration set to an email by including a reference to
  *             the configuration set in the headers of the email. When you apply a configuration set to

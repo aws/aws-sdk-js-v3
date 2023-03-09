@@ -38,7 +38,7 @@ export interface PutConfigurationSetVdmOptionsCommandOutput
 
 /**
  * <p>Specify VDM preferences for email that you send using the configuration set.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
