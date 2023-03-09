@@ -1,9 +1,11 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
-import { HttpHandlerOptions, Provider } from "@aws-sdk/types";
-import { ClientHttp2Session, connect, constants } from "http2";
+import { HttpHandlerOptions, Provider, RequestContext } from "@aws-sdk/types";
+import { ConnectConfiguration } from "@aws-sdk/types/dist-types/connection/config";
+import { ClientHttp2Session, constants } from "http2";
 
 import { getTransformedHeaders } from "./get-transformed-headers";
+import { NodeHttp2ConnectionManager } from "./node-http2-connection-manager";
 import { writeRequestBody } from "./write-request-body";
 
 /**
@@ -25,11 +27,19 @@ export interface NodeHttp2HandlerOptions {
 
   /**
    * Disables processing concurrent streams on a ClientHttp2Session instance. When set
-   * to true, the handler will create a new session instance for each request to a URL.
+   * to true, a new session instance is created for each request to a URL.
    * **Default:** false.
    * https://nodejs.org/api/http2.html#http2_class_clienthttp2session
    */
   disableConcurrentStreams?: boolean;
+
+  /**
+   * Maximum number of concurrent Http2Stream instances per ClientHttp2Session. Each session
+   * may have up to 2^31-1 Http2Stream instances over its lifetime.
+   * This value must be greater than or equal to 0.
+   * https://nodejs.org/api/http2.html#class-http2stream
+   */
+  maxConcurrentStreams?: number;
 }
 
 export class NodeHttp2Handler implements HttpHandler {
@@ -37,7 +47,8 @@ export class NodeHttp2Handler implements HttpHandler {
   private readonly configProvider: Promise<NodeHttp2HandlerOptions>;
 
   public readonly metadata = { handlerProtocol: "h2" };
-  private sessionCache: Map<string, ClientHttp2Session[]>;
+
+  private readonly connectionManager: NodeHttp2ConnectionManager = new NodeHttp2ConnectionManager({});
 
   constructor(options?: NodeHttp2HandlerOptions | Provider<NodeHttp2HandlerOptions | void>) {
     this.configProvider = new Promise((resolve, reject) => {
@@ -51,19 +62,19 @@ export class NodeHttp2Handler implements HttpHandler {
         resolve(options || {});
       }
     });
-    this.sessionCache = new Map<string, ClientHttp2Session[]>();
   }
 
   destroy(): void {
-    for (const sessions of this.sessionCache.values()) {
-      sessions.forEach((session) => this.destroySession(session));
-    }
-    this.sessionCache.clear();
+    this.connectionManager.destroy();
   }
 
   async handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
     if (!this.config) {
       this.config = await this.configProvider;
+      this.connectionManager.setDisableConcurrentStreams(this.config.disableConcurrentStreams || false);
+      if (this.config.maxConcurrentStreams) {
+        this.connectionManager.setMaxConcurrentStreams(this.config.maxConcurrentStreams);
+      }
     }
     const { requestTimeout, disableConcurrentStreams } = this.config;
     return new Promise((resolve, rejectOriginal) => {
@@ -82,7 +93,11 @@ export class NodeHttp2Handler implements HttpHandler {
 
       const { hostname, method, port, protocol, path, query } = request;
       const authority = `${protocol}//${hostname}${port ? `:${port}` : ""}`;
-      const session = this.getSession(authority, disableConcurrentStreams || false);
+      const requestContext = { destination: new URL(authority) } as RequestContext;
+      const session = this.connectionManager.lease(requestContext, {
+        requestTimeout: this.config?.sessionTimeout,
+        disableConcurrentStreams: disableConcurrentStreams || false,
+      } as ConnectConfiguration);
 
       const reject = (err: Error) => {
         if (disableConcurrentStreams) {
@@ -115,7 +130,7 @@ export class NodeHttp2Handler implements HttpHandler {
           // Gracefully closes the Http2Session, allowing any existing streams to complete
           // on their own and preventing new Http2Stream instances from being created.
           session.close();
-          this.deleteSessionFromCache(authority, session);
+          this.connectionManager.deleteSession(authority, session);
         }
       });
 
@@ -164,45 +179,6 @@ export class NodeHttp2Handler implements HttpHandler {
   }
 
   /**
-   * Returns a session for the given URL.
-   *
-   * @param authority The URL to create a session for.
-   * @param disableConcurrentStreams If true, a new session will be created for each request.
-   * @returns A session for the given URL.
-   */
-  private getSession(authority: string, disableConcurrentStreams: boolean): ClientHttp2Session {
-    const sessionCache = this.sessionCache;
-
-    const existingSessions = sessionCache.get(authority) || [];
-
-    // If concurrent streams are not disabled, we can use the existing session.
-    if (existingSessions.length > 0 && !disableConcurrentStreams) return existingSessions[0];
-
-    const newSession = connect(authority);
-    // AWS SDK does not expect server push streams, don't keep node alive without a request.
-    newSession.unref();
-
-    const destroySessionCb = () => {
-      this.destroySession(newSession);
-      this.deleteSessionFromCache(authority, newSession);
-    };
-    newSession.on("goaway", destroySessionCb);
-    newSession.on("error", destroySessionCb);
-    newSession.on("frameError", destroySessionCb);
-
-    newSession.on("close", () => this.deleteSessionFromCache(authority, newSession));
-
-    if (this.config?.sessionTimeout) {
-      newSession.setTimeout(this.config.sessionTimeout, destroySessionCb);
-    }
-
-    existingSessions.push(newSession);
-    sessionCache.set(authority, existingSessions);
-
-    return newSession;
-  }
-
-  /**
    * Destroys a session.
    * @param session The session to destroy.
    */
@@ -210,22 +186,5 @@ export class NodeHttp2Handler implements HttpHandler {
     if (!session.destroyed) {
       session.destroy();
     }
-  }
-
-  /**
-   * Delete a session from the connection pool.
-   * @param authority The authority of the session to delete.
-   * @param session The session to delete.
-   */
-  private deleteSessionFromCache(authority: string, session: ClientHttp2Session): void {
-    const existingSessions = this.sessionCache.get(authority) || [];
-    if (!existingSessions.includes(session)) {
-      // If the session is not in the cache, it has already been deleted.
-      return;
-    }
-    this.sessionCache.set(
-      authority,
-      existingSessions.filter((s) => s !== session)
-    );
   }
 }
