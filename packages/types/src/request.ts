@@ -1,5 +1,5 @@
 /**
- * @public
+ * @internal
  */
 export interface Request {
   destination: URL;

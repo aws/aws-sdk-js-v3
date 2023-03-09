@@ -1,5 +1,5 @@
 /**
- * @public
+ * @internal
  */
 export interface ResponseMetadata {
   /**
@@ -36,7 +36,7 @@ export interface ResponseMetadata {
 }
 
 /**
- * @public
+ * @internal
  */
 export interface MetadataBearer {
   /**
@@ -46,7 +46,7 @@ export interface MetadataBearer {
 }
 
 /**
- * @public
+ * @internal
  */
 export interface Response {
   body: any;

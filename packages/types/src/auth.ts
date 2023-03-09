@@ -1,5 +1,5 @@
 /**
- * @public
+ * @internal
  *
  * Authentication schemes represent a way that the service will authenticate the customer’s identity.
  */
@@ -31,7 +31,7 @@ export interface AuthScheme {
 // As described in the Smithy documentation:
 // https://github.com/awslabs/smithy/blob/main/smithy-model/src/main/resources/software/amazon/smithy/model/loader/prelude.smithy
 /**
- * @public
+ * @internal
  */
 export interface HttpAuthDefinition {
   /**
@@ -53,7 +53,7 @@ export interface HttpAuthDefinition {
 }
 
 /**
- * @public
+ * @internal
  */
 export enum HttpAuthLocation {
   HEADER = "header",
