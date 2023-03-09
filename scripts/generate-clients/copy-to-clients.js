@@ -47,7 +47,7 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
           concurrently: "7.0.0",
           "downlevel-dts": "0.10.1",
           rimraf: "3.0.2",
-          typedoc: "^0.23.23",
+          typedoc: "0.23.23",
           typescript: "~4.6.2",
         };
         fromContent[name] = Object.keys(fromContent[name])
