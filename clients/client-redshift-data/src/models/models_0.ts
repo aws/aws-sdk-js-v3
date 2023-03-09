@@ -91,7 +91,7 @@ export interface BatchExecuteStatementInput {
   StatementName?: string;
 
   /**
-   * <p>The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
    */
   WorkgroupName?: string;
 
@@ -134,7 +134,7 @@ export interface BatchExecuteStatementOutput {
   SecretArn?: string;
 
   /**
-   * <p>The serverless workgroup name. This element is not returned when connecting to a provisioned cluster.</p>
+   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This element is not returned when connecting to a provisioned cluster.</p>
    */
   WorkgroupName?: string;
 }
@@ -556,7 +556,7 @@ export interface DescribeStatementResponse {
   SubStatements?: SubStatementData[];
 
   /**
-   * <p>The serverless workgroup name.</p>
+   * <p>The serverless workgroup name or Amazon Resource Name (ARN).</p>
    */
   WorkgroupName?: string;
 }
@@ -611,7 +611,7 @@ export interface DescribeTableRequest {
   MaxResults?: number;
 
   /**
-   * <p>The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
    */
   WorkgroupName?: string;
 }
@@ -705,7 +705,7 @@ export interface ExecuteStatementInput {
   Parameters?: SqlParameter[];
 
   /**
-   * <p>The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
    */
   WorkgroupName?: string;
 
@@ -747,7 +747,7 @@ export interface ExecuteStatementOutput {
   SecretArn?: string;
 
   /**
-   * <p>The serverless workgroup name. This element is not returned when connecting to a provisioned cluster.</p>
+   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This element is not returned when connecting to a provisioned cluster.</p>
    */
   WorkgroupName?: string;
 }
@@ -945,7 +945,7 @@ export interface ListDatabasesRequest {
   MaxResults?: number;
 
   /**
-   * <p>The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
    */
   WorkgroupName?: string;
 }
@@ -1008,7 +1008,7 @@ export interface ListSchemasRequest {
   MaxResults?: number;
 
   /**
-   * <p>The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
    */
   WorkgroupName?: string;
 }
@@ -1206,7 +1206,7 @@ export interface ListTablesRequest {
   MaxResults?: number;
 
   /**
-   * <p>The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
+   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
    */
   WorkgroupName?: string;
 }
