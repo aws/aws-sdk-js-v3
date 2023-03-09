@@ -137,6 +137,7 @@ export interface AssociateExternalConnectionRequest {
 }
 
 export enum PackageFormat {
+  GENERIC = "generic",
   MAVEN = "maven",
   NPM = "npm",
   NUGET = "nuget",
@@ -538,6 +539,11 @@ export interface CopyPackageVersionsRequest {
    *                <p>
    *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of a generic package is it’s <code>namespace</code>.
    *         </p>
    *             </li>
    *          </ul>
@@ -1121,6 +1127,11 @@ export interface PackageSummary {
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of a generic package is it’s <code>namespace</code>.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
@@ -1197,6 +1208,11 @@ export interface DeletePackageVersionsRequest {
    *                <p>
    *             Python and NuGet package versions do not contain a corresponding component, package versions
    *             of those formats do not have a namespace.
+   *           </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *             The namespace of a generic package is it’s <code>namespace</code>.
    *           </p>
    *             </li>
    *          </ul>
@@ -1418,6 +1434,11 @@ export interface DescribePackageRequest {
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of a generic package is it’s <code>namespace</code>.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
@@ -1455,6 +1476,11 @@ export interface PackageDescription {
    *                <p>
    *           Python and NuGet packages do not contain a corresponding component, packages
    *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of a generic package is it’s <code>namespace</code>.
    *         </p>
    *             </li>
    *          </ul>
@@ -1526,6 +1552,11 @@ export interface DescribePackageVersionRequest {
    *                <p>
    *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of a generic package is it’s <code>namespace</code>.
    *         </p>
    *             </li>
    *          </ul>
@@ -1637,6 +1668,11 @@ export interface PackageVersionDescription {
    *                <p>
    *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of a generic package is it’s <code>namespace</code>.
    *         </p>
    *             </li>
    *          </ul>
@@ -1852,6 +1888,11 @@ export interface DisposePackageVersionsRequest {
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of a generic package is it’s <code>namespace</code>.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
@@ -2051,6 +2092,11 @@ export interface GetPackageVersionAssetRequest {
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of a generic package is it’s <code>namespace</code>.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
@@ -2139,10 +2185,6 @@ export interface GetPackageVersionReadmeRequest {
    * <p>
    *       A format that specifies the type of the package version with the requested readme file.
    *     </p>
-   *          <note>
-   *             <p>Although <code>maven</code> is
-   *       listed as a valid value, CodeArtifact does not support displaying readme files for Maven packages.</p>
-   *          </note>
    */
   format: PackageFormat | string | undefined;
 
@@ -2431,8 +2473,8 @@ export interface ListPackagesRequest {
   format?: PackageFormat | string;
 
   /**
-   * <p>The namespace used to filter requested packages. Only packages with the provided namespace will be returned.
-   *       The package component that specifies its namespace depends on its type. For example:</p>
+   * <p>The namespace prefix used to filter requested packages. Only packages with a namespace that starts with the provided string value are returned. Note that although this option is called <code>--namespace</code> and not <code>--namespace-prefix</code>, it has prefix-matching behavior.</p>
+   *          <p>Each package format uses namespace as follows:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2448,6 +2490,11 @@ export interface ListPackagesRequest {
    *                <p>
    *           Python and NuGet packages do not contain a corresponding component, packages
    *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of a generic package is it’s <code>namespace</code>.
    *         </p>
    *             </li>
    *          </ul>
@@ -2555,6 +2602,11 @@ export interface ListPackageVersionAssetsRequest {
    *                <p>
    *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of a generic package is it’s <code>namespace</code>.
    *         </p>
    *             </li>
    *          </ul>
@@ -2708,6 +2760,11 @@ export interface ListPackageVersionDependenciesRequest {
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of a generic package is it’s <code>namespace</code>.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
@@ -2772,9 +2829,26 @@ export interface PackageDependency {
   package?: string;
 
   /**
-   * <p> The type of a package dependency. The possible values depend on the package type.
-   *       Example types are <code>compile</code>, <code>runtime</code>, and <code>test</code> for Maven
-   *       packages, and <code>dev</code>, <code>prod</code>, and <code>optional</code> for npm packages. </p>
+   * <p> The type of a package dependency. The possible values depend on the package type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>npm: <code>regular</code>, <code>dev</code>, <code>peer</code>, <code>optional</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>maven: <code>optional</code>, <code>parent</code>, <code>compile</code>, <code>runtime</code>, <code>test</code>, <code>system</code>, <code>provided</code>.</p>
+   *                <note>
+   *                   <p>Note that <code>parent</code> is not a regular Maven dependency type; instead this is extracted from the <code><parent></code> element if one is defined in the package version's POM file.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>nuget: The <code>dependencyType</code> field is never set for NuGet packages.</p>
+   *             </li>
+   *             <li>
+   *                <p>pypi: <code>Requires-Dist</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   dependencyType?: string;
 
@@ -2885,7 +2959,7 @@ export interface ListPackageVersionsRequest {
 
   /**
    * <p>
-   *       The format of the returned package versions.
+   *       The format of the package versions you want to list.
    *     </p>
    */
   format: PackageFormat | string | undefined;
@@ -2908,6 +2982,11 @@ export interface ListPackageVersionsRequest {
    *                <p>
    *           Python and NuGet packages do not contain a corresponding component, packages
    *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of a generic package is it’s <code>namespace</code>.
    *         </p>
    *             </li>
    *          </ul>
@@ -3231,6 +3310,111 @@ export interface ListTagsForResourceResult {
   tags?: Tag[];
 }
 
+export interface PublishPackageVersionRequest {
+  /**
+   * <p>The name of the domain that contains the repository that contains the package version to publish.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The 12-digit account number of the AWS account that owns the domain. It does not include dashes or spaces.</p>
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>The name of the repository that the package version will be published to.</p>
+   */
+  repository: string | undefined;
+
+  /**
+   * <p>A format that specifies the type of the package version with the requested asset file.</p>
+   */
+  format: PackageFormat | string | undefined;
+
+  /**
+   * <p>The namespace of the package version to publish.</p>
+   */
+  namespace?: string;
+
+  /**
+   * <p>The name of the package version to publish.</p>
+   */
+  package: string | undefined;
+
+  /**
+   * <p>The package version to publish (for example, <code>3.5.2</code>).</p>
+   */
+  packageVersion: string | undefined;
+
+  /**
+   * <p>The content of the asset to publish.</p>
+   */
+  assetContent: Readable | ReadableStream | Blob | undefined;
+
+  /**
+   * <p>The name of the asset to publish. Asset names can include Unicode letters and numbers, and
+   *       the following special characters: <code>~ ! @ ^ & ( ) - ` _ + [ ] { } ; , .
+   *       `</code>
+   *          </p>
+   */
+  assetName: string | undefined;
+
+  /**
+   * <p>The SHA256 hash of the <code>assetContent</code> to publish. This value must be calculated
+   *       by the caller and provided with the
+   *       request.</p>
+   *          <p>This value is used as an integrity check to verify that the <code>assetContent</code> has
+   *       not changed after it was originally sent.</p>
+   */
+  assetSHA256: string | undefined;
+
+  /**
+   * <p>Specifies whether the package version should remain in the <code>unfinished</code>
+   *       state. If omitted, the package version status will be set to <code>Published</code> (see
+   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact User Guide</i>).</p>
+   *          <p>Valid values: <code>unfinished</code>
+   *          </p>
+   */
+  unfinished?: boolean;
+}
+
+export interface PublishPackageVersionResult {
+  /**
+   * <p>The format of the package version.</p>
+   */
+  format?: PackageFormat | string;
+
+  /**
+   * <p>The namespace of the package version.</p>
+   */
+  namespace?: string;
+
+  /**
+   * <p>The name of the package.</p>
+   */
+  package?: string;
+
+  /**
+   * <p>The version of the package.</p>
+   */
+  version?: string;
+
+  /**
+   * <p>The revision of the package version.</p>
+   */
+  versionRevision?: string;
+
+  /**
+   * <p>A string that contains the status of the package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact User Guide</i>.</p>
+   */
+  status?: PackageVersionStatus | string;
+
+  /**
+   * <p>An <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">AssetSummary</a> for the published asset.</p>
+   */
+  asset?: AssetSummary;
+}
+
 export interface PutDomainPermissionsPolicyRequest {
   /**
    * <p>
@@ -3311,6 +3495,11 @@ export interface PutPackageOriginConfigurationRequest {
    *                <p>
    *           Python and NuGet packages do not contain a corresponding component, packages
    *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of a generic package is it’s <code>namespace</code>.
    *         </p>
    *             </li>
    *          </ul>
@@ -3462,6 +3651,11 @@ export interface UpdatePackageVersionsStatusRequest {
    *                <p>
    *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of a generic package is it’s <code>namespace</code>.
    *         </p>
    *             </li>
    *          </ul>
@@ -4159,6 +4353,20 @@ export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForRes
  * @internal
  */
 export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishPackageVersionRequestFilterSensitiveLog = (obj: PublishPackageVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishPackageVersionResultFilterSensitiveLog = (obj: PublishPackageVersionResult): any => ({
   ...obj,
 });
 

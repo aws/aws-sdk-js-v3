@@ -149,6 +149,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  PublishPackageVersionCommand,
+  PublishPackageVersionCommandInput,
+  PublishPackageVersionCommandOutput,
+} from "./commands/PublishPackageVersionCommand";
+import {
   PutDomainPermissionsPolicyCommand,
   PutDomainPermissionsPolicyCommandInput,
   PutDomainPermissionsPolicyCommandOutput,
@@ -298,6 +303,10 @@ import {
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>DeletePackage</code>: Deletes a package and all associated package versions.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>DeletePackageVersions</code>: Deletes versions of a package. After a package has
  *           been deleted, it can be republished, but its assets and metadata cannot be restored
  *           because they have been permanently removed from storage.</p>
@@ -423,6 +432,10 @@ import {
  *             <li>
  *                <p>
  *                   <code>ListRepositoriesInDomain</code>: Returns a list of the repositories in a domain.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>PublishPackageVersion</code>: Creates a new package version containing one or more assets.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -700,7 +713,7 @@ export class Codeartifact extends CodeartifactClient {
    *       in your repository. If you want to remove a package version from your repository and be able
    *       to restore it later, set its status to <code>Archived</code>. Archived packages cannot be
    *       downloaded from a repository and don't show up with list package APIs (for example,
-   *           <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListackageVersions</a>), but you can restore them using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionsStatus</a>. </p>
+   *           <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a>), but you can restore them using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionsStatus</a>. </p>
    */
   public deletePackageVersions(
     args: DeletePackageVersionsCommandInput,
@@ -1548,6 +1561,42 @@ export class Codeartifact extends CodeartifactClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new package version containing one or more assets (or files).</p>
+   *          <p>The <code>unfinished</code> flag can be used to keep the package version in the <code>Unfinished</code> state until all of it’s assets have been uploaded (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact user guide</i>). To set the package version’s status to <code>Published</code>, omit the <code>unfinished</code> flag when uploading the final asset, or set the status using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionStatus</a>. Once a package version’s status is set to <code>Published</code>, it cannot change back to <code>Unfinished</code>.</p>
+   *          <note>
+   *             <p>Only generic packages can be published using this API.</p>
+   *          </note>
+   */
+  public publishPackageVersion(
+    args: PublishPackageVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PublishPackageVersionCommandOutput>;
+  public publishPackageVersion(
+    args: PublishPackageVersionCommandInput,
+    cb: (err: any, data?: PublishPackageVersionCommandOutput) => void
+  ): void;
+  public publishPackageVersion(
+    args: PublishPackageVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PublishPackageVersionCommandOutput) => void
+  ): void;
+  public publishPackageVersion(
+    args: PublishPackageVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PublishPackageVersionCommandOutput) => void),
+    cb?: (err: any, data?: PublishPackageVersionCommandOutput) => void
+  ): Promise<PublishPackageVersionCommandOutput> | void {
+    const command = new PublishPackageVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

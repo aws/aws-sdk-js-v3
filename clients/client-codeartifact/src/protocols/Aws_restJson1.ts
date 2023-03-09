@@ -109,6 +109,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
+  PublishPackageVersionCommandInput,
+  PublishPackageVersionCommandOutput,
+} from "../commands/PublishPackageVersionCommand";
+import {
   PutDomainPermissionsPolicyCommandInput,
   PutDomainPermissionsPolicyCommandOutput,
 } from "../commands/PutDomainPermissionsPolicyCommand";
@@ -1011,6 +1015,44 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PublishPackageVersionCommand = async (
+  input: PublishPackageVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/octet-stream",
+    "x-amz-content-sha256": input.assetSHA256!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version/publish";
+  const query: any = map({
+    domain: [, __expectNonNull(input.domain!, `domain`)],
+    "domain-owner": [, input.domainOwner!],
+    repository: [, __expectNonNull(input.repository!, `repository`)],
+    format: [, __expectNonNull(input.format!, `format`)],
+    namespace: [, input.namespace!],
+    package: [, __expectNonNull(input.package!, `package`)],
+    version: [, __expectNonNull(input.packageVersion!, `packageVersion`)],
+    asset: [, __expectNonNull(input.assetName!, `assetName`)],
+    unfinished: [() => input.unfinished !== void 0, () => input.unfinished!.toString()],
+  });
+  let body: any;
+  if (input.assetContent !== undefined) {
+    body = input.assetContent;
+  }
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2965,6 +3007,83 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.codeartifact#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.codeartifact#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.codeartifact#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1PublishPackageVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PublishPackageVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PublishPackageVersionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.asset != null) {
+    contents.asset = deserializeAws_restJson1AssetSummary(data.asset, context);
+  }
+  if (data.format != null) {
+    contents.format = __expectString(data.format);
+  }
+  if (data.namespace != null) {
+    contents.namespace = __expectString(data.namespace);
+  }
+  if (data.package != null) {
+    contents.package = __expectString(data.package);
+  }
+  if (data.status != null) {
+    contents.status = __expectString(data.status);
+  }
+  if (data.version != null) {
+    contents.version = __expectString(data.version);
+  }
+  if (data.versionRevision != null) {
+    contents.versionRevision = __expectString(data.versionRevision);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1PublishPackageVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PublishPackageVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.codeartifact#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.codeartifact#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.codeartifact#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codeartifact#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.codeartifact#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.codeartifact#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);

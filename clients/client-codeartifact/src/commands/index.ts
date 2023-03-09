@@ -29,6 +29,7 @@ export * from "./ListPackagesCommand";
 export * from "./ListRepositoriesCommand";
 export * from "./ListRepositoriesInDomainCommand";
 export * from "./ListTagsForResourceCommand";
+export * from "./PublishPackageVersionCommand";
 export * from "./PutDomainPermissionsPolicyCommand";
 export * from "./PutPackageOriginConfigurationCommand";
 export * from "./PutRepositoryPermissionsPolicyCommand";

@@ -138,6 +138,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  PublishPackageVersionCommandInput,
+  PublishPackageVersionCommandOutput,
+} from "./commands/PublishPackageVersionCommand";
+import {
   PutDomainPermissionsPolicyCommandInput,
   PutDomainPermissionsPolicyCommandOutput,
 } from "./commands/PutDomainPermissionsPolicyCommand";
@@ -195,6 +199,7 @@ export type ServiceInputTypes =
   | ListRepositoriesCommandInput
   | ListRepositoriesInDomainCommandInput
   | ListTagsForResourceCommandInput
+  | PublishPackageVersionCommandInput
   | PutDomainPermissionsPolicyCommandInput
   | PutPackageOriginConfigurationCommandInput
   | PutRepositoryPermissionsPolicyCommandInput
@@ -234,6 +239,7 @@ export type ServiceOutputTypes =
   | ListRepositoriesCommandOutput
   | ListRepositoriesInDomainCommandOutput
   | ListTagsForResourceCommandOutput
+  | PublishPackageVersionCommandOutput
   | PutDomainPermissionsPolicyCommandOutput
   | PutPackageOriginConfigurationCommandOutput
   | PutRepositoryPermissionsPolicyCommandOutput
@@ -515,6 +521,10 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>DeletePackage</code>: Deletes a package and all associated package versions.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>DeletePackageVersions</code>: Deletes versions of a package. After a package has
  *           been deleted, it can be republished, but its assets and metadata cannot be restored
  *           because they have been permanently removed from storage.</p>
@@ -640,6 +650,10 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *             <li>
  *                <p>
  *                   <code>ListRepositoriesInDomain</code>: Returns a list of the repositories in a domain.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>PublishPackageVersion</code>: Creates a new package version containing one or more assets.</p>
  *             </li>
  *             <li>
  *                <p>
