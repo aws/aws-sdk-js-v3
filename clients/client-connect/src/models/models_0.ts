@@ -5544,6 +5544,392 @@ export interface GetMetricDataResponse {
   MetricResults?: HistoricalMetricResult[];
 }
 
+/**
+ * <p>Contains the filter to apply when retrieving metrics with the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html">GetMetricDataV2</a> API.</p>
+ */
+export interface FilterV2 {
+  /**
+   * <p>The key to use for filtering data. For example, <code>QUEUE</code>, <code>ROUTING_PROFILE,
+   *     AGENT</code>, <code>CHANNEL</code>, <code>AGENT_HIERARCHY_LEVEL_ONE</code>,
+   *     <code>AGENT_HIERARCHY_LEVEL_TWO</code>, <code>AGENT_HIERARCHY_LEVEL_THREE</code>,
+   *     <code>AGENT_HIERARCHY_LEVEL_FOUR</code>, <code>AGENT_HIERARCHY_LEVEL_FIVE</code>. There must be
+   *    at least 1 key and a maximum 5 keys. </p>
+   */
+  FilterKey?: string;
+
+  /**
+   * <p>The identifiers to use for filtering data. For example, if you have a filter key of
+   *     <code>QUEUE</code>, you would add queue IDs or ARNs in <code>FilterValues</code>. </p>
+   */
+  FilterValues?: string[];
+}
+
+/**
+ * <p>Contains information about the filter used when retrieving metrics.
+ *     <code>MetricFiltersV2</code> can be used on the following metrics:
+ *     <code>AVG_AGENT_CONNECTING_TIME</code>, <code>CONTACTS_CREATED</code>,
+ *     <code>CONTACTS_HANDLED</code>, <code>SUM_CONTACTS_DISCONNECTED</code>.</p>
+ */
+export interface MetricFilterV2 {
+  /**
+   * <p>The key to use for filtering data. </p>
+   *          <p>Valid metric filter keys: <code>INITIATION_METHOD</code>,
+   *    <code>DISCONNECT_REASON</code>
+   *          </p>
+   */
+  MetricFilterKey?: string;
+
+  /**
+   * <p>The values to use for filtering data. </p>
+   *          <p>Valid metric filter values for <code>INITIATION_METHOD</code>: <code>INBOUND</code> |
+   *     <code>OUTBOUND</code> | <code>TRANSFER</code> | <code>QUEUE_TRANSFER</code> |
+   *     <code>CALLBACK</code> | <code>API</code>
+   *          </p>
+   *          <p>Valid metric filter values for <code>DISCONNECT_REASON</code>:
+   *     <code>CUSTOMER_DISCONNECT</code> | <code>AGENT_DISCONNECT</code> |
+   *     <code>THIRD_PARTY_DISCONNECT</code> | <code>TELECOM_PROBLEM</code> | <code>BARGED</code> |
+   *     <code>CONTACT_FLOW_DISCONNECT</code> | <code>OTHER</code> | <code>EXPIRED</code> |
+   *     <code>API</code>
+   *          </p>
+   */
+  MetricFilterValues?: string[];
+}
+
+/**
+ * <p>Contains information about the threshold for service level metrics.</p>
+ */
+export interface ThresholdV2 {
+  /**
+   * <p>The type of comparison. Only "less than" (LT) comparisons are supported.</p>
+   */
+  Comparison?: string;
+
+  /**
+   * <p>The threshold value to compare.</p>
+   */
+  ThresholdValue?: number;
+}
+
+/**
+ * <p>Contains information about the metric.</p>
+ */
+export interface MetricV2 {
+  /**
+   * <p>The name of the metric.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Contains information about the threshold for service level metrics.</p>
+   */
+  Threshold?: ThresholdV2[];
+
+  /**
+   * <p>Contains the filters to be used when returning data.</p>
+   */
+  MetricFilters?: MetricFilterV2[];
+}
+
+export interface GetMetricDataV2Request {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource. This includes the <code>instanceId</code> an Amazon Connect
+   *    instance.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The timestamp, in UNIX Epoch time format, at which to start the reporting interval for the
+   *    retrieval of historical metrics data. The time must be before the end time timestamp. The time
+   *    range between the start and end time must be less than 24 hours. The start time cannot be earlier
+   *    than 14 days before the time of the request. Historical metrics are available for 14 days.</p>
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The timestamp, in UNIX Epoch time format, at which to end the reporting interval for the
+   *    retrieval of historical metrics data. The time must be later than the start time
+   *    timestamp.</p>
+   *          <p>The time range between the start and end time must be less than 24 hours.</p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>The filters to apply to returned metrics. You can filter on the following resources:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Queues</p>
+   *             </li>
+   *             <li>
+   *                <p>Routing profiles</p>
+   *             </li>
+   *             <li>
+   *                <p>Agents</p>
+   *             </li>
+   *             <li>
+   *                <p>Channels</p>
+   *             </li>
+   *             <li>
+   *                <p>User hierarchy groups</p>
+   *             </li>
+   *          </ul>
+   *          <p>At least one filter must be passed from queues, routing profiles, agents, or user hierarchy
+   *    groups.</p>
+   *          <p>To filter by phone number, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-historical-metrics-report.html">Create a historical
+   *     metrics report</a> in the <i>Amazon Connect Administrator's
+   *    Guide</i>.</p>
+   *          <p>Note the following limits:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Filter keys</b>: A maximum of 5 filter keys are supported in
+   *      a single request. Valid filter keys: <code>QUEUE</code> | <code>ROUTING_PROFILE</code> |
+   *       <code>AGENT</code> | <code>CHANNEL</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> |
+   *       <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> |
+   *       <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Filter values</b>: A maximum of 100 filter values are
+   *      supported in a single request. For example, a <code>GetMetricDataV2</code> request can filter
+   *      by 50 queues, 35 agents, and 15 routing profiles for a total of 100 filter values.
+   *       <code>VOICE</code>, <code>CHAT</code>, and <code>TASK</code> are valid
+   *       <code>filterValue</code> for the <code>CHANNEL</code> filter key.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters: FilterV2[] | undefined;
+
+  /**
+   * <p>The grouping applied to the metrics that are returned. For example, when results are grouped
+   *    by queue, the metrics returned are grouped by queue. The values that are returned apply to the
+   *    metrics for each queue. They are not aggregated for all queues.</p>
+   *          <p>If no grouping is specified, a summary of all metrics is returned.</p>
+   *          <p>Valid grouping keys: <code>QUEUE</code> | <code>ROUTING_PROFILE</code> | <code>AGENT</code>
+   *    | <code>CHANNEL</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> |
+   *     <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> |
+   *     <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code>
+   *          </p>
+   */
+  Groupings?: string[];
+
+  /**
+   * <p>The metrics to retrieve. Specify the name, groupings, and filters for each metric. The
+   *    following historical metrics are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's
+   *     Guide</i>.</p>
+   *          <dl>
+   *             <dt>AGENT_ADHERENT_TIME</dt>
+   *             <dd>
+   *                <p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p>
+   *             </dd>
+   *             <dt>AGENT_NON_RESPONSE</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p>
+   *             </dd>
+   *             <dt>AGENT_OCCUPANCY</dt>
+   *             <dd>
+   *                <p>Unit: Percentage</p>
+   *                <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p>
+   *             </dd>
+   *             <dt>AGENT_SCHEDULE_ADHERENCE</dt>
+   *             <dd>
+   *                <p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p>
+   *                <p>Unit: Percent</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>AGENT_SCHEDULED_TIME</dt>
+   *             <dd>
+   *                <p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>AVG_ABANDON_TIME</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>AVG_AFTER_CONTACT_WORK_TIME</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>AVG_AGENT_CONNECTING_TIME</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only
+   *       supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> |
+   *        <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code>
+   *                </p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>AVG_HANDLE_TIME</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>AVG_HOLD_TIME</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>AVG_INTERACTION_AND_HOLD_TIME</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>AVG_INTERACTION_TIME</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile</p>
+   *             </dd>
+   *             <dt>AVG_QUEUE_ANSWER_TIME</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile</p>
+   *             </dd>
+   *             <dt>CONTACTS_ABANDONED</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>CONTACTS_CREATED</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid metric filter key: <code>INITIATION_METHOD</code>
+   *                </p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile</p>
+   *             </dd>
+   *             <dt>CONTACTS_HANDLED</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid metric filter key: <code>INITIATION_METHOD</code>,
+   *       <code>DISCONNECT_REASON</code>
+   *                </p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>CONTACTS_HOLD_ABANDONS</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>CONTACTS_QUEUED</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>CONTACTS_TRANSFERRED_OUT</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>MAX_QUEUED_TIME</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>SERVICE_LEVEL</dt>
+   *             <dd>
+   *                <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p>
+   *                <p>Unit: Percent</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile</p>
+   *                <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800
+   *       (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for
+   *       "Less than"). </p>
+   *             </dd>
+   *             <dt>SUM_CONTACTS_ANSWERED_IN_X</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile</p>
+   *             </dd>
+   *             <dt>SUM_CONTACTS_ABANDONED_IN_X</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile</p>
+   *             </dd>
+   *             <dt>SUM_CONTACTS_DISCONNECTED </dt>
+   *             <dd>
+   *                <p>Valid metric filter key: <code>DISCONNECT_REASON</code>
+   *                </p>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile</p>
+   *             </dd>
+   *             <dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile</p>
+   *             </dd>
+   *          </dl>
+   */
+  Metrics: MetricV2[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Contains the name, thresholds, and metric filters.</p>
+ */
+export interface MetricDataV2 {
+  /**
+   * <p>The metric name, thresholds, and metric filters of the returned metric.</p>
+   */
+  Metric?: MetricV2;
+
+  /**
+   * <p>The corresponding value of the metric returned in the response.</p>
+   */
+  Value?: number;
+}
+
+/**
+ * <p>Contains information about the metric results.</p>
+ */
+export interface MetricResultV2 {
+  /**
+   * <p>The dimension for the metrics.</p>
+   */
+  Dimensions?: Record<string, string>;
+
+  /**
+   * <p>The set of metrics.</p>
+   */
+  Collections?: MetricDataV2[];
+}
+
+export interface GetMetricDataV2Response {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the metrics requested in the API request If no grouping is specified, a
+   *    summary of metric data is returned. </p>
+   */
+  MetricResults?: MetricResultV2[];
+}
+
 export interface GetTaskTemplateRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -5801,165 +6187,6 @@ export interface ListBotsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export interface ListContactFlowModulesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The state of the flow module.</p>
-   */
-  ContactFlowModuleState?: ContactFlowModuleState | string;
-}
-
-/**
- * <p>Contains summary information about a flow.</p>
- */
-export interface ContactFlowModuleSummary {
-  /**
-   * <p>The identifier of the flow module.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow module.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the flow module.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The type of flow module.</p>
-   */
-  State?: ContactFlowModuleState | string;
-}
-
-export interface ListContactFlowModulesResponse {
-  /**
-   * <p>Information about the flow module.</p>
-   */
-  ContactFlowModulesSummaryList?: ContactFlowModuleSummary[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListContactFlowsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The type of flow.</p>
-   */
-  ContactFlowTypes?: (ContactFlowType | string)[];
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>Contains summary information about a flow.</p>
- *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
- *    Flow language</a>.</p>
- */
-export interface ContactFlowSummary {
-  /**
-   * <p>The identifier of the flow.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the flow.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The type of flow.</p>
-   */
-  ContactFlowType?: ContactFlowType | string;
-
-  /**
-   * <p>The type of flow.</p>
-   */
-  ContactFlowState?: ContactFlowState | string;
-}
-
-export interface ListContactFlowsResponse {
-  /**
-   * <p>Information about the flows.</p>
-   */
-  ContactFlowSummaryList?: ContactFlowSummary[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListContactReferencesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the initial contact.</p>
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The type of reference.</p>
-   */
-  ReferenceTypes: (ReferenceType | string)[] | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   *          <important>
-   *             <p>This is not expected to be set, because the value returned in the previous response is
-   *     always null.</p>
-   *          </important>
-   */
-  NextToken?: string;
-}
-
-export enum ReferenceStatus {
-  APPROVED = "APPROVED",
-  REJECTED = "REJECTED",
 }
 
 /**
@@ -7515,6 +7742,62 @@ export const GetMetricDataResponseFilterSensitiveLog = (obj: GetMetricDataRespon
 /**
  * @internal
  */
+export const FilterV2FilterSensitiveLog = (obj: FilterV2): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricFilterV2FilterSensitiveLog = (obj: MetricFilterV2): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThresholdV2FilterSensitiveLog = (obj: ThresholdV2): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricV2FilterSensitiveLog = (obj: MetricV2): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMetricDataV2RequestFilterSensitiveLog = (obj: GetMetricDataV2Request): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricDataV2FilterSensitiveLog = (obj: MetricDataV2): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricResultV2FilterSensitiveLog = (obj: MetricResultV2): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMetricDataV2ResponseFilterSensitiveLog = (obj: GetMetricDataV2Response): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetTaskTemplateRequestFilterSensitiveLog = (obj: GetTaskTemplateRequest): any => ({
   ...obj,
 });
@@ -7600,54 +7883,5 @@ export const LexBotConfigFilterSensitiveLog = (obj: LexBotConfig): any => ({
  * @internal
  */
 export const ListBotsResponseFilterSensitiveLog = (obj: ListBotsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContactFlowModulesRequestFilterSensitiveLog = (obj: ListContactFlowModulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContactFlowModuleSummaryFilterSensitiveLog = (obj: ContactFlowModuleSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContactFlowModulesResponseFilterSensitiveLog = (obj: ListContactFlowModulesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContactFlowsRequestFilterSensitiveLog = (obj: ListContactFlowsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContactFlowSummaryFilterSensitiveLog = (obj: ContactFlowSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContactFlowsResponseFilterSensitiveLog = (obj: ListContactFlowsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContactReferencesRequestFilterSensitiveLog = (obj: ListContactReferencesRequest): any => ({
   ...obj,
 });

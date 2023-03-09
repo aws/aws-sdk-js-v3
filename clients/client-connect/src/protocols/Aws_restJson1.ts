@@ -230,6 +230,7 @@ import {
 import { GetCurrentUserDataCommandInput, GetCurrentUserDataCommandOutput } from "../commands/GetCurrentUserDataCommand";
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "../commands/GetFederationTokenCommand";
 import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "../commands/GetMetricDataCommand";
+import { GetMetricDataV2CommandInput, GetMetricDataV2CommandOutput } from "../commands/GetMetricDataV2Command";
 import { GetTaskTemplateCommandInput, GetTaskTemplateCommandOutput } from "../commands/GetTaskTemplateCommand";
 import {
   GetTrafficDistributionCommandInput,
@@ -511,9 +512,7 @@ import {
   ContactFilter,
   ContactFlow,
   ContactFlowModule,
-  ContactFlowModuleSummary,
   ContactFlowNotPublishedException,
-  ContactFlowSummary,
   ContactState,
   Credentials,
   CurrentMetric,
@@ -526,6 +525,7 @@ import {
   EncryptionConfig,
   EventBridgeActionDefinition,
   Filters,
+  FilterV2,
   Grouping,
   HierarchyGroup,
   HierarchyGroupSummary,
@@ -558,6 +558,10 @@ import {
   LexV2Bot,
   LimitExceededException,
   MediaConcurrency,
+  MetricDataV2,
+  MetricFilterV2,
+  MetricResultV2,
+  MetricV2,
   MonitorCapability,
   NotificationRecipientType,
   OutboundCallerConfig,
@@ -600,6 +604,7 @@ import {
   TaskTemplateFieldIdentifier,
   TelephonyConfig,
   Threshold,
+  ThresholdV2,
   ThrottlingException,
   TrafficDistributionGroup,
   User,
@@ -620,6 +625,8 @@ import {
   ChatMessage,
   ChatParticipantRoleConfig,
   ChatStreamingConfiguration,
+  ContactFlowModuleSummary,
+  ContactFlowSummary,
   ContactNotFoundException,
   ControlPlaneTagFilter,
   DateReference,
@@ -2887,6 +2894,37 @@ export const serializeAws_restJson1GetMetricDataCommand = async (
     }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetMetricDataV2Command = async (
+  input: GetMetricDataV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metrics/data";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.Filters != null && { Filters: serializeAws_restJson1FiltersV2List(input.Filters, context) }),
+    ...(input.Groupings != null && { Groupings: serializeAws_restJson1GroupingsV2(input.Groupings, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.Metrics != null && { Metrics: serializeAws_restJson1MetricsV2(input.Metrics, context) }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
     ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   });
   return new __HttpRequest({
@@ -9921,6 +9959,62 @@ const deserializeAws_restJson1GetMetricDataCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetMetricDataV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMetricDataV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetMetricDataV2CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.MetricResults != null) {
+    contents.MetricResults = deserializeAws_restJson1MetricResultsV2(data.MetricResults, context);
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetMetricDataV2CommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMetricDataV2CommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1GetTaskTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -15589,7 +15683,40 @@ const serializeAws_restJson1Filters = (input: Filters, context: __SerdeContext):
   };
 };
 
+const serializeAws_restJson1FiltersV2List = (input: FilterV2[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1FilterV2(entry, context);
+    });
+};
+
+const serializeAws_restJson1FilterV2 = (input: FilterV2, context: __SerdeContext): any => {
+  return {
+    ...(input.FilterKey != null && { FilterKey: input.FilterKey }),
+    ...(input.FilterValues != null && {
+      FilterValues: serializeAws_restJson1FilterValueList(input.FilterValues, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FilterValueList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1Groupings = (input: (Grouping | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1GroupingsV2 = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -15760,6 +15887,49 @@ const serializeAws_restJson1MediaConcurrency = (input: MediaConcurrency, context
   return {
     ...(input.Channel != null && { Channel: input.Channel }),
     ...(input.Concurrency != null && { Concurrency: input.Concurrency }),
+  };
+};
+
+const serializeAws_restJson1MetricFiltersV2List = (input: MetricFilterV2[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MetricFilterV2(entry, context);
+    });
+};
+
+const serializeAws_restJson1MetricFilterV2 = (input: MetricFilterV2, context: __SerdeContext): any => {
+  return {
+    ...(input.MetricFilterKey != null && { MetricFilterKey: input.MetricFilterKey }),
+    ...(input.MetricFilterValues != null && {
+      MetricFilterValues: serializeAws_restJson1MetricFilterValueList(input.MetricFilterValues, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1MetricFilterValueList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1MetricsV2 = (input: MetricV2[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MetricV2(entry, context);
+    });
+};
+
+const serializeAws_restJson1MetricV2 = (input: MetricV2, context: __SerdeContext): any => {
+  return {
+    ...(input.MetricFilters != null && {
+      MetricFilters: serializeAws_restJson1MetricFiltersV2List(input.MetricFilters, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Threshold != null && { Threshold: serializeAws_restJson1ThresholdCollections(input.Threshold, context) }),
   };
 };
 
@@ -16335,6 +16505,21 @@ const serializeAws_restJson1Threshold = (input: Threshold, context: __SerdeConte
   };
 };
 
+const serializeAws_restJson1ThresholdCollections = (input: ThresholdV2[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ThresholdV2(entry, context);
+    });
+};
+
+const serializeAws_restJson1ThresholdV2 = (input: ThresholdV2, context: __SerdeContext): any => {
+  return {
+    ...(input.Comparison != null && { Comparison: input.Comparison }),
+    ...(input.ThresholdValue != null && { ThresholdValue: __serializeFloat(input.ThresholdValue) }),
+  };
+};
+
 const serializeAws_restJson1UpdateParticipantRoleConfigChannelInfo = (
   input: UpdateParticipantRoleConfigChannelInfo,
   context: __SerdeContext
@@ -16897,6 +17082,16 @@ const deserializeAws_restJson1Dimensions = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_restJson1DimensionsV2Map = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectString(value) as any;
+    return acc;
+  }, {});
+};
+
 const deserializeAws_restJson1Distribution = (output: any, context: __SerdeContext): Distribution => {
   return {
     Percentage: __expectInt32(output.Percentage),
@@ -17454,6 +17649,94 @@ const deserializeAws_restJson1MediaConcurrency = (output: any, context: __SerdeC
   return {
     Channel: __expectString(output.Channel),
     Concurrency: __expectInt32(output.Concurrency),
+  } as any;
+};
+
+const deserializeAws_restJson1MetricDataCollectionsV2 = (output: any, context: __SerdeContext): MetricDataV2[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MetricDataV2(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MetricDataV2 = (output: any, context: __SerdeContext): MetricDataV2 => {
+  return {
+    Metric: output.Metric != null ? deserializeAws_restJson1MetricV2(output.Metric, context) : undefined,
+    Value: __limitedParseDouble(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1MetricFiltersV2List = (output: any, context: __SerdeContext): MetricFilterV2[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MetricFilterV2(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MetricFilterV2 = (output: any, context: __SerdeContext): MetricFilterV2 => {
+  return {
+    MetricFilterKey: __expectString(output.MetricFilterKey),
+    MetricFilterValues:
+      output.MetricFilterValues != null
+        ? deserializeAws_restJson1MetricFilterValueList(output.MetricFilterValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MetricFilterValueList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MetricResultsV2 = (output: any, context: __SerdeContext): MetricResultV2[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MetricResultV2(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MetricResultV2 = (output: any, context: __SerdeContext): MetricResultV2 => {
+  return {
+    Collections:
+      output.Collections != null
+        ? deserializeAws_restJson1MetricDataCollectionsV2(output.Collections, context)
+        : undefined,
+    Dimensions:
+      output.Dimensions != null ? deserializeAws_restJson1DimensionsV2Map(output.Dimensions, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MetricV2 = (output: any, context: __SerdeContext): MetricV2 => {
+  return {
+    MetricFilters:
+      output.MetricFilters != null
+        ? deserializeAws_restJson1MetricFiltersV2List(output.MetricFilters, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    Threshold:
+      output.Threshold != null ? deserializeAws_restJson1ThresholdCollections(output.Threshold, context) : undefined,
   } as any;
 };
 
@@ -18343,6 +18626,25 @@ const deserializeAws_restJson1TelephonyConfig = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1Threshold = (output: any, context: __SerdeContext): Threshold => {
+  return {
+    Comparison: __expectString(output.Comparison),
+    ThresholdValue: __limitedParseDouble(output.ThresholdValue),
+  } as any;
+};
+
+const deserializeAws_restJson1ThresholdCollections = (output: any, context: __SerdeContext): ThresholdV2[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ThresholdV2(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ThresholdV2 = (output: any, context: __SerdeContext): ThresholdV2 => {
   return {
     Comparison: __expectString(output.Comparison),
     ThresholdValue: __limitedParseDouble(output.ThresholdValue),

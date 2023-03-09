@@ -19,7 +19,7 @@ import {
   ListContactFlowModulesRequestFilterSensitiveLog,
   ListContactFlowModulesResponse,
   ListContactFlowModulesResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListContactFlowModulesCommand,
   serializeAws_restJson1ListContactFlowModulesCommand,

@@ -254,6 +254,7 @@ import {
 import { GetCurrentUserDataCommandInput, GetCurrentUserDataCommandOutput } from "./commands/GetCurrentUserDataCommand";
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "./commands/GetFederationTokenCommand";
 import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand";
+import { GetMetricDataV2CommandInput, GetMetricDataV2CommandOutput } from "./commands/GetMetricDataV2Command";
 import { GetTaskTemplateCommandInput, GetTaskTemplateCommandOutput } from "./commands/GetTaskTemplateCommand";
 import {
   GetTrafficDistributionCommandInput,
@@ -603,6 +604,7 @@ export type ServiceInputTypes =
   | GetCurrentUserDataCommandInput
   | GetFederationTokenCommandInput
   | GetMetricDataCommandInput
+  | GetMetricDataV2CommandInput
   | GetTaskTemplateCommandInput
   | GetTrafficDistributionCommandInput
   | ListAgentStatusesCommandInput
@@ -774,6 +776,7 @@ export type ServiceOutputTypes =
   | GetCurrentUserDataCommandOutput
   | GetFederationTokenCommandOutput
   | GetMetricDataCommandOutput
+  | GetMetricDataV2CommandOutput
   | GetTaskTemplateCommandOutput
   | GetTrafficDistributionCommandOutput
   | ListAgentStatusesCommandOutput

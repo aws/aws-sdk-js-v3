@@ -826,6 +826,14 @@ GetMetricData
 </details>
 <details>
 <summary>
+GetMetricDataV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/getmetricdatav2command.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/getmetricdatav2commandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/getmetricdatav2commandoutput.html)
+
+</details>
+<details>
+<summary>
 GetTaskTemplate
 </summary>
 

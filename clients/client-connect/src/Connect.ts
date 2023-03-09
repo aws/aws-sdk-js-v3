@@ -362,6 +362,11 @@ import {
   GetMetricDataCommandOutput,
 } from "./commands/GetMetricDataCommand";
 import {
+  GetMetricDataV2Command,
+  GetMetricDataV2CommandInput,
+  GetMetricDataV2CommandOutput,
+} from "./commands/GetMetricDataV2Command";
+import {
   GetTaskTemplateCommand,
   GetTaskTemplateCommandInput,
   GetTaskTemplateCommandOutput,
@@ -2868,8 +2873,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex
-   *    or Amazon Lex V2 bot. </p>
+   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2
+   *    bot. </p>
    */
   public disassociateBot(
     args: DisassociateBotCommandInput,
@@ -3340,6 +3345,49 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: GetMetricDataCommandOutput) => void
   ): Promise<GetMetricDataCommandOutput> | void {
     const command = new GetMetricDataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets metric data from the specified Amazon Connect instance. </p>
+   *          <p>
+   *             <code>GetMetricDataV2</code> offers more features than <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html">GetMetricData</a>, the previous
+   *    version of this API. It has new metrics, offers filtering at a metric level, and offers the
+   *    ability to filter and group data by channels, queues, routing profiles, agents, and agent
+   *    hierarchy levels. It can retrieve historical data for last the 14 days, in 24-hour
+   *    intervals.</p>
+   *          <p>For a description of the historical metrics that are supported by
+   *     <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics
+   *     definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.
+   *   </p>
+   *          <p>This API is not available in the Amazon Web Services GovCloud (US) Regions.</p>
+   */
+  public getMetricDataV2(
+    args: GetMetricDataV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMetricDataV2CommandOutput>;
+  public getMetricDataV2(
+    args: GetMetricDataV2CommandInput,
+    cb: (err: any, data?: GetMetricDataV2CommandOutput) => void
+  ): void;
+  public getMetricDataV2(
+    args: GetMetricDataV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMetricDataV2CommandOutput) => void
+  ): void;
+  public getMetricDataV2(
+    args: GetMetricDataV2CommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMetricDataV2CommandOutput) => void),
+    cb?: (err: any, data?: GetMetricDataV2CommandOutput) => void
+  ): Promise<GetMetricDataV2CommandOutput> | void {
+    const command = new GetMetricDataV2Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

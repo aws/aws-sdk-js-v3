@@ -9,6 +9,7 @@ import {
   Channel,
   ContactFlowModuleState,
   ContactFlowState,
+  ContactFlowType,
   DirectoryType,
   EventSourceName,
   HierarchyGroupSummary,
@@ -29,7 +30,7 @@ import {
   QuickConnectConfig,
   QuickConnectType,
   Reference,
-  ReferenceStatus,
+  ReferenceType,
   RoutingProfile,
   RoutingProfileQueueConfig,
   RuleAction,
@@ -47,6 +48,165 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+export interface ListContactFlowModulesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The state of the flow module.</p>
+   */
+  ContactFlowModuleState?: ContactFlowModuleState | string;
+}
+
+/**
+ * <p>Contains summary information about a flow.</p>
+ */
+export interface ContactFlowModuleSummary {
+  /**
+   * <p>The identifier of the flow module.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow module.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the flow module.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of flow module.</p>
+   */
+  State?: ContactFlowModuleState | string;
+}
+
+export interface ListContactFlowModulesResponse {
+  /**
+   * <p>Information about the flow module.</p>
+   */
+  ContactFlowModulesSummaryList?: ContactFlowModuleSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListContactFlowsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The type of flow.</p>
+   */
+  ContactFlowTypes?: (ContactFlowType | string)[];
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Contains summary information about a flow.</p>
+ *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
+ *    Flow language</a>.</p>
+ */
+export interface ContactFlowSummary {
+  /**
+   * <p>The identifier of the flow.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the flow.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of flow.</p>
+   */
+  ContactFlowType?: ContactFlowType | string;
+
+  /**
+   * <p>The type of flow.</p>
+   */
+  ContactFlowState?: ContactFlowState | string;
+}
+
+export interface ListContactFlowsResponse {
+  /**
+   * <p>Information about the flows.</p>
+   */
+  ContactFlowSummaryList?: ContactFlowSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListContactReferencesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the initial contact.</p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The type of reference.</p>
+   */
+  ReferenceTypes: (ReferenceType | string)[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   *          <important>
+   *             <p>This is not expected to be set, because the value returned in the previous response is
+   *     always null.</p>
+   *          </important>
+   */
+  NextToken?: string;
+}
+
+export enum ReferenceStatus {
+  APPROVED = "APPROVED",
+  REJECTED = "REJECTED",
+}
 
 /**
  * <p>Information about a reference when the <code>referenceType</code> is
@@ -4350,6 +4510,55 @@ export interface SearchUsersRequest {
    */
   SearchCriteria?: UserSearchCriteria;
 }
+
+/**
+ * @internal
+ */
+export const ListContactFlowModulesRequestFilterSensitiveLog = (obj: ListContactFlowModulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactFlowModuleSummaryFilterSensitiveLog = (obj: ContactFlowModuleSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContactFlowModulesResponseFilterSensitiveLog = (obj: ListContactFlowModulesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContactFlowsRequestFilterSensitiveLog = (obj: ListContactFlowsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactFlowSummaryFilterSensitiveLog = (obj: ContactFlowSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContactFlowsResponseFilterSensitiveLog = (obj: ListContactFlowsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContactReferencesRequestFilterSensitiveLog = (obj: ListContactReferencesRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
