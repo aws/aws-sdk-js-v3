@@ -139,6 +139,11 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
         // no need for the default prepack script
         delete mergedManifest.scripts.prepack;
 
+        if (mergedManifest.private) {
+          // don't generate documentation for private packages
+          delete mergedManifest.scripts["build:docs"];
+        }
+
         const serviceName = clientName.replace("client-", "");
         const modelFile = join(__dirname, "..", "..", "codegen", "sdk-codegen", "aws-models", serviceName + ".json");
 
@@ -205,6 +210,10 @@ const copyServerTests = async (sourceDir, destinationDir) => {
         };
         if (!mergedManifest.scripts.test) {
           mergedManifest.scripts.test = "jest --coverage --passWithNoTests";
+        }
+        if (mergedManifest.private) {
+          // don't generate documentation for private packages
+          delete mergedManifest.scripts["build:docs"];
         }
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
