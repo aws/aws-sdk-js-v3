@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.287.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.286.0...v3.287.0) (2023-03-08)
+
+
+### Features
+
+* **middleware-logger:** log request errors ([#4252](https://github.com/aws/aws-sdk-js-v3/issues/4252)) ([8c667ff](https://github.com/aws/aws-sdk-js-v3/commit/8c667ff14c6985de3a441d0a059d81b8c609eb46))
+
+
+
+
+
 # [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
 
 **Note:** Version bump only for package @aws-sdk/middleware-logger

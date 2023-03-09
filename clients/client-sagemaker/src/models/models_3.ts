@@ -8,7 +8,6 @@ import {
   AppDetails,
   AppImageConfigDetails,
   AppImageConfigSortKey,
-  AppSecurityGroupManagement,
   AppSortKey,
   AppSpecification,
   ArtifactSummary,
@@ -36,7 +35,6 @@ import {
   ConditionStepMetadata,
   ContainerDefinition,
   ContextSummary,
-  DefaultSpaceSettings,
   EdgeOutputConfig,
   InferenceSpecification,
   KernelGatewayImageConfig,
@@ -52,7 +50,6 @@ import {
   TransformOutput,
   TransformResources,
   UserContext,
-  UserSettings,
   VpcConfig,
 } from "./models_0";
 import {
@@ -98,7 +95,6 @@ import {
   DeviceSummary,
   Direction,
   DomainDetails,
-  DomainSettingsForUpdate,
   Edge,
   EdgeDeploymentPlanSummary,
   EdgePackagingJobStatus,
@@ -183,6 +179,34 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListAliasesRequest {
+  /**
+   * <p>The name of the image.</p>
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The alias of the image version.</p>
+   */
+  Alias?: string;
+
+  /**
+   * <p>The version of the image. If image version is not specified, the aliases of all versions of the image are listed.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>The maximum number of aliases to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous call to <code>ListAliases</code> didn't return the full set of
+   *          aliases, the call returns a token for retrieving the next set of aliases.</p>
+   */
+  NextToken?: string;
+}
 
 export interface ListAliasesResponse {
   /**
@@ -8469,36 +8493,12 @@ export interface UpdateDevicesRequest {
   Devices: Device[] | undefined;
 }
 
-export interface UpdateDomainRequest {
-  /**
-   * <p>The ID of the domain to be updated.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>A collection of settings.</p>
-   */
-  DefaultUserSettings?: UserSettings;
-
-  /**
-   * <p>A collection of <code>DomainSettings</code> configuration values to update.</p>
-   */
-  DomainSettingsForUpdate?: DomainSettingsForUpdate;
-
-  /**
-   * <p>The default settings used to create a space within the Domain.</p>
-   */
-  DefaultSpaceSettings?: DefaultSpaceSettings;
-
-  /**
-   * <p>The entity that creates and manages the required security groups for inter-app
-   *             communication in <code>VPCOnly</code> mode. Required when
-   *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
-   *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
-   *             provided.</p>
-   */
-  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
-}
+/**
+ * @internal
+ */
+export const ListAliasesRequestFilterSensitiveLog = (obj: ListAliasesRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10318,12 +10318,5 @@ export const UpdateDeviceFleetRequestFilterSensitiveLog = (obj: UpdateDeviceFlee
  * @internal
  */
 export const UpdateDevicesRequestFilterSensitiveLog = (obj: UpdateDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDomainRequestFilterSensitiveLog = (obj: UpdateDomainRequest): any => ({
   ...obj,
 });

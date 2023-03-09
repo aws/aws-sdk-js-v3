@@ -267,7 +267,7 @@ export interface BatchGetQueryExecutionInput {
 export interface EngineVersion {
   /**
    * <p>The engine version requested by the user. Possible values are determined by the output
-   *             of <code>ListEngineVersions</code>, including Auto. The default is Auto.</p>
+   *             of <code>ListEngineVersions</code>, including AUTO. The default is AUTO.</p>
    */
   SelectedEngineVersion?: string;
 
@@ -637,6 +637,11 @@ export interface QueryExecution {
    *             the parameters in the query in the order in which the parameters occur.</p>
    */
   ExecutionParameters?: string[];
+
+  /**
+   * <p>The kind of query statement that was run.</p>
+   */
+  SubstatementType?: string;
 }
 
 /**
@@ -1470,6 +1475,9 @@ export interface GetDataCatalogInput {
 
 /**
  * <p>Contains information about a data catalog in an Amazon Web Services account.</p>
+ *          <note>
+ *             <p>In the Athena console, data catalogs are listed as "data sources" on the <b>Data sources</b> page under the <b>Data source name</b> column.</p>
+ *          </note>
  */
 export interface DataCatalog {
   /**

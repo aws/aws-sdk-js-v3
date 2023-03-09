@@ -383,6 +383,7 @@ import {
   UpdateFirewallRuleGroupAssociationResponse,
   UpdateFirewallRuleRequest,
   UpdateFirewallRuleResponse,
+  UpdateIpAddress,
   UpdateResolverConfigRequest,
   UpdateResolverConfigResponse,
   UpdateResolverDnssecConfigRequest,
@@ -2638,6 +2639,9 @@ const deserializeAws_json1_1GetResolverConfigCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
       throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.route53resolver#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3047,6 +3051,9 @@ const deserializeAws_json1_1GetResolverRulePolicyCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.route53resolver#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
       throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
@@ -3477,6 +3484,9 @@ const deserializeAws_json1_1ListResolverConfigsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
       throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.route53resolver#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4060,6 +4070,9 @@ const deserializeAws_json1_1PutResolverRulePolicyCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.route53resolver#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
       throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
@@ -4470,6 +4483,9 @@ const deserializeAws_json1_1UpdateResolverConfigCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
       throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.route53resolver#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4954,6 +4970,7 @@ const serializeAws_json1_1CreateResolverEndpointRequest = (
       IpAddresses: serializeAws_json1_1IpAddressesRequest(input.IpAddresses, context),
     }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.ResolverEndpointType != null && { ResolverEndpointType: input.ResolverEndpointType }),
     ...(input.SecurityGroupIds != null && {
       SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
     }),
@@ -5264,6 +5281,7 @@ const serializeAws_json1_1IpAddressesRequest = (input: IpAddressRequest[], conte
 const serializeAws_json1_1IpAddressRequest = (input: IpAddressRequest, context: __SerdeContext): any => {
   return {
     ...(input.Ip != null && { Ip: input.Ip }),
+    ...(input.Ipv6 != null && { Ipv6: input.Ipv6 }),
     ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
   };
 };
@@ -5272,6 +5290,7 @@ const serializeAws_json1_1IpAddressUpdate = (input: IpAddressUpdate, context: __
   return {
     ...(input.Ip != null && { Ip: input.Ip }),
     ...(input.IpId != null && { IpId: input.IpId }),
+    ...(input.Ipv6 != null && { Ipv6: input.Ipv6 }),
     ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
   };
 };
@@ -5527,6 +5546,7 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
 const serializeAws_json1_1TargetAddress = (input: TargetAddress, context: __SerdeContext): any => {
   return {
     ...(input.Ip != null && { Ip: input.Ip }),
+    ...(input.Ipv6 != null && { Ipv6: input.Ipv6 }),
     ...(input.Port != null && { Port: input.Port }),
   };
 };
@@ -5598,6 +5618,21 @@ const serializeAws_json1_1UpdateFirewallRuleRequest = (
   };
 };
 
+const serializeAws_json1_1UpdateIpAddress = (input: UpdateIpAddress, context: __SerdeContext): any => {
+  return {
+    ...(input.IpId != null && { IpId: input.IpId }),
+    ...(input.Ipv6 != null && { Ipv6: input.Ipv6 }),
+  };
+};
+
+const serializeAws_json1_1UpdateIpAddresses = (input: UpdateIpAddress[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1UpdateIpAddress(entry, context);
+    });
+};
+
 const serializeAws_json1_1UpdateResolverConfigRequest = (
   input: UpdateResolverConfigRequest,
   context: __SerdeContext
@@ -5625,6 +5660,10 @@ const serializeAws_json1_1UpdateResolverEndpointRequest = (
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.ResolverEndpointType != null && { ResolverEndpointType: input.ResolverEndpointType }),
+    ...(input.UpdateIpAddresses != null && {
+      UpdateIpAddresses: serializeAws_json1_1UpdateIpAddresses(input.UpdateIpAddresses, context),
+    }),
   };
 };
 
@@ -6299,6 +6338,7 @@ const deserializeAws_json1_1IpAddressResponse = (output: any, context: __SerdeCo
     CreationTime: __expectString(output.CreationTime),
     Ip: __expectString(output.Ip),
     IpId: __expectString(output.IpId),
+    Ipv6: __expectString(output.Ipv6),
     ModificationTime: __expectString(output.ModificationTime),
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
@@ -6590,6 +6630,7 @@ const deserializeAws_json1_1ResolverEndpoint = (output: any, context: __SerdeCon
     IpAddressCount: __expectInt32(output.IpAddressCount),
     ModificationTime: __expectString(output.ModificationTime),
     Name: __expectString(output.Name),
+    ResolverEndpointType: __expectString(output.ResolverEndpointType),
     SecurityGroupIds:
       output.SecurityGroupIds != null
         ? deserializeAws_json1_1SecurityGroupIds(output.SecurityGroupIds, context)
@@ -6806,6 +6847,7 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 const deserializeAws_json1_1TargetAddress = (output: any, context: __SerdeContext): TargetAddress => {
   return {
     Ip: __expectString(output.Ip),
+    Ipv6: __expectString(output.Ipv6),
     Port: __expectInt32(output.Port),
   } as any;
 };

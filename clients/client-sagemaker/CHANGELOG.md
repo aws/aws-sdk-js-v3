@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.287.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.286.0...v3.287.0) (2023-03-08)
+
+
+### Bug Fixes
+
+* **clients:** remove aggregated client from paginators ([#4496](https://github.com/aws/aws-sdk-js-v3/issues/4496)) ([aea457a](https://github.com/aws/aws-sdk-js-v3/commit/aea457ab5d4e72939f2f608140d82b60526eb716))
+
+
+### Features
+
+* **client-sagemaker:** There needs to be a user identity to specify the SageMaker user who perform each action regarding the entity. However, these is a not a unified concept of user identity across SageMaker service that could be used today. ([392879f](https://github.com/aws/aws-sdk-js-v3/commit/392879ffd1672f9eeedcba1f0af25c8b07f2e80b))
+
+
+
+
+
 # [3.283.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.282.0...v3.283.0) (2023-03-02)
 
 

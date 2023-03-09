@@ -45,7 +45,7 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  *             range of IP addresses, workers who attempt to access tasks using any IP address outside
  *             the specified range are denied and get a <code>Not Found</code> error message on
  *             the worker portal.</p>
- *          <p>To restrict access to all the workers in public internet, add the <code>SourceIpConfig</code> CIDR value as "0.0.0.0/0".</p>
+ *          <p>To restrict access to all the workers in public internet, add the <code>SourceIpConfig</code> CIDR value as "10.0.0.0/16".</p>
  *          <important>
  *             <p>Amazon SageMaker does not support Source Ip restriction for worker portals in VPC.</p>
  *          </important>

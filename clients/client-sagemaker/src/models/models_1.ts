@@ -52,8 +52,10 @@ import {
   ProcessingS3DataDistributionType,
   ProcessingS3InputMode,
   ProcessingS3UploadMode,
-  ProductionVariant,
+  ProductionVariantAcceleratorType,
+  ProductionVariantCoreDumpConfig,
   ProductionVariantInstanceType,
+  ProductionVariantServerlessConfig,
   ResourceConfig,
   StoppingCondition,
   Tag,
@@ -66,6 +68,82 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Identifies a model that you want to host and the resources chosen to deploy for
+ *             hosting it. If you are deploying multiple models, tell SageMaker how to distribute traffic
+ *             among the models by specifying variant weights. </p>
+ */
+export interface ProductionVariant {
+  /**
+   * <p>The name of the production variant.</p>
+   */
+  VariantName: string | undefined;
+
+  /**
+   * <p>The name of the model that you want to host. This is the name that you specified
+   *             when creating the model.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>Number of instances to launch initially.</p>
+   */
+  InitialInstanceCount?: number;
+
+  /**
+   * <p>The ML compute instance type.</p>
+   */
+  InstanceType?: ProductionVariantInstanceType | string;
+
+  /**
+   * <p>Determines initial traffic distribution among all of the models that you specify in
+   *             the endpoint configuration. The traffic to a production variant is determined by the
+   *             ratio of the <code>VariantWeight</code> to the sum of all <code>VariantWeight</code>
+   *             values across all ProductionVariants. If unspecified, it defaults to 1.0.
+   *             </p>
+   */
+  InitialVariantWeight?: number;
+
+  /**
+   * <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI
+   *             instances provide on-demand GPU computing for inference. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
+   *                 Inference in Amazon SageMaker</a>.</p>
+   */
+  AcceleratorType?: ProductionVariantAcceleratorType | string;
+
+  /**
+   * <p>Specifies configuration for a core dump from the model container when the process
+   *             crashes.</p>
+   */
+  CoreDumpConfig?: ProductionVariantCoreDumpConfig;
+
+  /**
+   * <p>The serverless configuration for an endpoint. Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.</p>
+   */
+  ServerlessConfig?: ProductionVariantServerlessConfig;
+
+  /**
+   * <p>The size, in GB, of the ML storage volume attached to individual inference instance
+   *             associated with the production variant. Currently only Amazon EBS gp2 storage volumes are
+   *             supported.</p>
+   */
+  VolumeSizeInGB?: number;
+
+  /**
+   * <p>The timeout value, in seconds, to download and extract the model that you want to host
+   *             from Amazon S3 to the individual inference instance associated with this production
+   *             variant.</p>
+   */
+  ModelDataDownloadTimeoutInSeconds?: number;
+
+  /**
+   * <p>The timeout value, in seconds, for your inference container to pass health check by
+   *             SageMaker Hosting. For more information about health check, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests">How Your Container Should Respond to Health Check (Ping) Requests</a>.</p>
+   */
+  ContainerStartupHealthCheckTimeoutInSeconds?: number;
+}
 
 export interface CreateEndpointConfigInput {
   /**
@@ -9272,12 +9350,12 @@ export interface DeleteWorkforceRequest {
 
 export interface DeleteWorkforceResponse {}
 
-export interface DeleteWorkteamRequest {
-  /**
-   * <p>The name of the work team to delete.</p>
-   */
-  WorkteamName: string | undefined;
-}
+/**
+ * @internal
+ */
+export const ProductionVariantFilterSensitiveLog = (obj: ProductionVariant): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11213,12 +11291,5 @@ export const DeleteWorkforceRequestFilterSensitiveLog = (obj: DeleteWorkforceReq
  * @internal
  */
 export const DeleteWorkforceResponseFilterSensitiveLog = (obj: DeleteWorkforceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkteamRequestFilterSensitiveLog = (obj: DeleteWorkteamRequest): any => ({
   ...obj,
 });

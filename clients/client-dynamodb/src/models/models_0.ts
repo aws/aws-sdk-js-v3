@@ -2201,6 +2201,11 @@ export interface CreateTableInput {
    *                 <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
    */
   TableClass?: TableClass | string;
+
+  /**
+   * <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.</p>
+   */
+  DeletionProtectionEnabled?: boolean;
 }
 
 export enum IndexStatus {
@@ -2855,6 +2860,11 @@ export interface TableDescription {
    * <p>Contains details of the table class.</p>
    */
   TableClassSummary?: TableClassSummary;
+
+  /**
+   * <p>Indicates whether deletion protection is enabled (true) or disabled (false) on the table.</p>
+   */
+  DeletionProtectionEnabled?: boolean;
 }
 
 /**
@@ -5482,6 +5492,11 @@ export interface UpdateTableInput {
    *                 <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
    */
   TableClass?: TableClass | string;
+
+  /**
+   * <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.</p>
+   */
+  DeletionProtectionEnabled?: boolean;
 }
 
 /**

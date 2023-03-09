@@ -62,6 +62,9 @@ You may customize how the files are loaded by providing an options hash to the
 - `configFilepath` - The path to the shared config file. If not specified, the
   provider will use the value in the `AWS_CONFIG_FILE` environment variable or a
   default of `~/.aws/config`.
+- `ignoreCache` - The provider will normally cache the contents of the files it
+  loads. This option will force the provider to reload the files from disk.
+  Defaults to `false`.
 
 ## Sample files
 

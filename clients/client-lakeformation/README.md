@@ -330,6 +330,14 @@ ExtendTransaction
 </details>
 <details>
 <summary>
+GetDataCellsFilter
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/getdatacellsfiltercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getdatacellsfiltercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getdatacellsfiltercommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetDataLakeSettings
 </summary>
 
@@ -534,6 +542,14 @@ StartTransaction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/starttransactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/starttransactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/starttransactioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateDataCellsFilter
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/updatedatacellsfiltercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/updatedatacellsfiltercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/updatedatacellsfiltercommandoutput.html)
 
 </details>
 <details>

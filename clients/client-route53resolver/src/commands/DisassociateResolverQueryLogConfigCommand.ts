@@ -38,13 +38,12 @@ export interface DisassociateResolverQueryLogConfigCommandOutput
 
 /**
  * <p>Disassociates a VPC from a query logging configuration.</p>
- *
- * 		       <note>
- * 			         <p>Before you can delete a query logging configuration, you must first disassociate all VPCs
+ *          <note>
+ *             <p>Before you can delete a query logging configuration, you must first disassociate all VPCs
  * 				from the configuration. If you used Resource Access Manager (RAM) to share a
  * 				query logging configuration with other accounts, VPCs can be disassociated from the
  * 				configuration in the following ways:</p>
- * 			         <ul>
+ *             <ul>
  *                <li>
  *                   <p>The accounts that you shared the configuration with can disassociate VPCs from the configuration.</p>
  *                </li>
@@ -52,7 +51,7 @@ export interface DisassociateResolverQueryLogConfigCommandOutput
  *                   <p>You can stop sharing the configuration.</p>
  *                </li>
  *             </ul>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

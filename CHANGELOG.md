@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.287.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.286.0...v3.287.0) (2023-03-08)
+
+
+### Bug Fixes
+
+* **client-support:** apply sparse string list for metadata ([#4500](https://github.com/aws/aws-sdk-js-v3/issues/4500)) ([22048eb](https://github.com/aws/aws-sdk-js-v3/commit/22048ebc90a180abb8c6a1c1ddec00ab99dbf08e))
+* **clients:** remove aggregated client from paginators ([#4496](https://github.com/aws/aws-sdk-js-v3/issues/4496)) ([aea457a](https://github.com/aws/aws-sdk-js-v3/commit/aea457ab5d4e72939f2f608140d82b60526eb716))
+
+
+### Features
+
+* **client-athena:** A new field SubstatementType is added to GetQueryExecution API, so customers have an error free way to detect the query type and interpret the result. ([12c6c35](https://github.com/aws/aws-sdk-js-v3/commit/12c6c35a2357e816ba9037df7071eee9e82963f4))
+* **client-dynamodb:** Adds deletion protection support to DynamoDB tables. Tables with deletion protection enabled cannot be deleted. Deletion protection is disabled by default, can be enabled via the CreateTable or UpdateTable APIs, and is visible in TableDescription. This setting is not replicated for Global Tables. ([af81575](https://github.com/aws/aws-sdk-js-v3/commit/af815752ded1a46afe471176a5de3c36c578a445))
+* **client-ec2:** Introducing Amazon EC2 C7g, M7g and R7g instances, powered by the latest generation AWS Graviton3 processors and deliver up to 25% better performance over Graviton2-based instances. ([8a6dcfa](https://github.com/aws/aws-sdk-js-v3/commit/8a6dcfa8eda7070a60be8b37dcc8a421a96559c2))
+* **client-lakeformation:** This release adds two new API support "GetDataCellsFiler" and "UpdateDataCellsFilter", and also updates the corresponding documentation. ([9a29cfb](https://github.com/aws/aws-sdk-js-v3/commit/9a29cfb8c07c21bb2a425a9057a38fa9154454c9))
+* **client-mediapackage-vod:** This release provides the date and time VOD resources were created. ([eb5cff6](https://github.com/aws/aws-sdk-js-v3/commit/eb5cff6754ad5acf08c9abdf3020258388369a1f))
+* **client-mediapackage:** This release provides the date and time live resources were created. ([e91ea70](https://github.com/aws/aws-sdk-js-v3/commit/e91ea70093a6e454beaaf7134449e8a2f10abb26))
+* **client-route53resolver:** Add dual-stack and IPv6 support for Route 53 Resolver Endpoint,Add IPv6 target IP in Route 53 Resolver Forwarding Rule ([ab22b63](https://github.com/aws/aws-sdk-js-v3/commit/ab22b6321f67844761992b20b312893f1b4fcfa2))
+* **client-sagemaker:** There needs to be a user identity to specify the SageMaker user who perform each action regarding the entity. However, these is a not a unified concept of user identity across SageMaker service that could be used today. ([392879f](https://github.com/aws/aws-sdk-js-v3/commit/392879ffd1672f9eeedcba1f0af25c8b07f2e80b))
+* **clients:** update client endpoints as of 2023-03-08 ([2fb9a44](https://github.com/aws/aws-sdk-js-v3/commit/2fb9a440e78e56cd8688c97f735b3c803524ed54))
+* **middleware-logger:** log request errors ([#4252](https://github.com/aws/aws-sdk-js-v3/issues/4252)) ([8c667ff](https://github.com/aws/aws-sdk-js-v3/commit/8c667ff14c6985de3a441d0a059d81b8c609eb46))
+* **shared-ini-file-loader:** enable uncached credential loading ([#4253](https://github.com/aws/aws-sdk-js-v3/issues/4253)) ([89dc903](https://github.com/aws/aws-sdk-js-v3/commit/89dc903e852bb93e4b5cc18589201ea1961250d3))
+
+
+
+
+
 # [3.286.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.285.0...v3.286.0) (2023-03-07)
 
 

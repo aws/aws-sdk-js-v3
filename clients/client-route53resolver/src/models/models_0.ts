@@ -77,7 +77,7 @@ export interface AssociateFirewallRuleGroupRequest {
    *          <p>You must specify a unique priority for each rule group that you associate with a single VPC.
    *            To make it easier to insert rule groups later, leave space between the numbers, for example, use 101, 200, and so on. You
    *    can change the priority setting for a rule group association after you create it.</p>
-   *    	     <p>The allowed values for <code>Priority</code> are between 100 and 9900.</p>
+   *          <p>The allowed values for <code>Priority</code> are between 100 and 9900.</p>
    */
   Priority: number | undefined;
 
@@ -188,7 +188,9 @@ export interface AssociateFirewallRuleGroupResponse {
 }
 
 /**
- * <p></p>
+ * <p>The requested state transition isn't valid. For example, you can't delete a firewall
+ * 			domain list if it is in the process of being deleted, or you can't import domains into a
+ * 			domain list that is in the process of being deleted.</p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -303,7 +305,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -344,9 +347,16 @@ export interface IpAddressUpdate {
   SubnetId?: string;
 
   /**
-   * <p>The new IP address.</p>
+   * <p>The new IPv4 address.</p>
    */
   Ip?: string;
+
+  /**
+   * <p>
+   * 			The new IPv6 address.
+   * 		</p>
+   */
+  Ipv6?: string;
 }
 
 export interface AssociateResolverEndpointIpAddressRequest {
@@ -367,6 +377,12 @@ export enum ResolverEndpointDirection {
   Outbound = "OUTBOUND",
 }
 
+export enum ResolverEndpointType {
+  DUALSTACK = "DUALSTACK",
+  IPV4 = "IPV4",
+  IPV6 = "IPV6",
+}
+
 export enum ResolverEndpointStatus {
   ActionNeeded = "ACTION_NEEDED",
   AutoRecovering = "AUTO_RECOVERING",
@@ -381,7 +397,7 @@ export enum ResolverEndpointStatus {
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html">CreateResolverEndpoint</a>,
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteResolverEndpoint.html">DeleteResolverEndpoint</a>,
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">GetResolverEndpoint</a>,
- * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html">ListResolverEndpoints</a>,
+ * 			Updates the name, or ResolverEndpointType for an endpoint,
  * 			or
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverEndpoint.html">UpdateResolverEndpoint</a>
  * 			request, a complex type that contains settings for an existing inbound or outbound Resolver endpoint.</p>
@@ -420,7 +436,7 @@ export interface ResolverEndpoint {
 
   /**
    * <p>Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>INBOUND</code>: allows DNS queries to your VPC from your network</p>
@@ -445,7 +461,7 @@ export interface ResolverEndpoint {
 
   /**
    * <p>A code that specifies the current status of the Resolver endpoint. Valid values include the following:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CREATING</code>: Resolver is creating and configuring one or more Amazon VPC network interfaces
@@ -474,7 +490,7 @@ export interface ResolverEndpoint {
    * 				To resolve the problem, we recommend that you check each IP address that you associated with the endpoint. For each IP address
    * 				that isn't available, add another IP address and then delete the IP address that isn't available. (An endpoint must always include
    * 				at least two IP addresses.) A status of <code>ACTION_NEEDED</code> can have a variety of causes. Here are two common causes:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>One or more of the network interfaces that are associated with the endpoint were deleted using Amazon VPC.</p>
    *                   </li>
@@ -482,7 +498,7 @@ export interface ResolverEndpoint {
    *                      <p>The network interface couldn't be created for some reason that's outside the control of Resolver.</p>
    *                   </li>
    *                </ul>
-   * 			         </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>DELETING</code>: Resolver is deleting this endpoint and the associated network interfaces.</p>
@@ -505,6 +521,13 @@ export interface ResolverEndpoint {
    * <p>The date and time that the endpoint was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
    */
   ModificationTime?: string;
+
+  /**
+   * <p>
+   * 			The Resolver endpoint IP address type.
+   * 		</p>
+   */
+  ResolverEndpointType?: ResolverEndpointType | string;
 }
 
 export interface AssociateResolverEndpointIpAddressResponse {
@@ -595,10 +618,9 @@ export interface AssociateResolverQueryLogConfigRequest {
 
   /**
    * <p>The ID of an Amazon VPC that you want this query logging configuration to log queries for.</p>
-   *
-   * 		       <note>
-   * 			         <p>The VPCs and the query logging configuration must be in the same Region.</p>
-   * 		       </note>
+   *          <note>
+   *             <p>The VPCs and the query logging configuration must be in the same Region.</p>
+   *          </note>
    */
   ResourceId: string | undefined;
 }
@@ -645,7 +667,7 @@ export interface ResolverQueryLogConfigAssociation {
 
   /**
    * <p>The status of the specified query logging association. Valid values include the following:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CREATING</code>: Resolver is creating an association between an Amazon VPC and a query logging configuration.</p>
@@ -669,7 +691,7 @@ export interface ResolverQueryLogConfigAssociation {
 
   /**
    * <p>If the value of <code>Status</code> is <code>FAILED</code>, the value of <code>Error</code> indicates the cause:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>DESTINATION_NOT_FOUND</code>: The specified destination (for example, an Amazon S3 bucket) was deleted.</p>
@@ -679,7 +701,7 @@ export interface ResolverQueryLogConfigAssociation {
    *                   <code>ACCESS_DENIED</code>: Permissions don't allow sending logs to the destination.</p>
    *             </li>
    *          </ul>
-   * 		       <p>If the value of <code>Status</code> is a value other than <code>FAILED</code>, <code>Error</code> is null. </p>
+   *          <p>If the value of <code>Status</code> is a value other than <code>FAILED</code>, <code>Error</code> is null. </p>
    */
   Error?: ResolverQueryLogConfigAssociationError | string;
 
@@ -806,6 +828,7 @@ export class ResourceUnavailableException extends __BaseException {
 export enum AutodefinedReverseFlag {
   DISABLE = "DISABLE",
   ENABLE = "ENABLE",
+  USE_LOCAL_RESOURCE_SETTING = "USE_LOCAL_RESOURCE_SETTING",
 }
 
 export enum BlockOverrideDnsType {
@@ -1219,9 +1242,16 @@ export interface IpAddressRequest {
   SubnetId: string | undefined;
 
   /**
-   * <p>The IP address that you want to use for DNS queries.</p>
+   * <p>The IPv4 address that you want to use for DNS queries.</p>
    */
   Ip?: string;
+
+  /**
+   * <p>
+   * 			The IPv6 address that you want to use for DNS queries.
+   * 		</p>
+   */
+  Ipv6?: string;
 }
 
 export interface CreateResolverEndpointRequest {
@@ -1247,7 +1277,7 @@ export interface CreateResolverEndpointRequest {
 
   /**
    * <p>Specify the applicable value:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>INBOUND</code>: Resolver forwards DNS queries to the DNS service for a VPC from your network</p>
@@ -1270,6 +1300,15 @@ export interface CreateResolverEndpointRequest {
    * <p>A list of the tag keys and values that you want to associate with the endpoint.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>
+   * 			For the endpoint type you can choose either IPv4, IPv6. or dual-stack.
+   * 			A dual-stack endpoint means that it will resolve via both IPv4 and IPv6. This
+   * 			endpoint type is applied to all IP addresses.
+   * 		</p>
+   */
+  ResolverEndpointType?: ResolverEndpointType | string;
 }
 
 export interface CreateResolverEndpointResponse {
@@ -1288,33 +1327,32 @@ export interface CreateResolverQueryLogConfigRequest {
   /**
    * <p>The ARN of the resource that you want Resolver to send query logs. You can send query logs to an S3 bucket, a CloudWatch Logs log group,
    * 			or a Kinesis Data Firehose delivery stream. Examples of valid values include the following:</p>
-   *
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <b>S3 bucket</b>: </p>
-   * 				           <p>
+   *                <p>
    *                   <code>arn:aws:s3:::examplebucket</code>
    *                </p>
-   * 				           <p>You can optionally append a file prefix to the end of the ARN.</p>
-   * 				           <p>
+   *                <p>You can optionally append a file prefix to the end of the ARN.</p>
+   *                <p>
    *                   <code>arn:aws:s3:::examplebucket/development/</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <b>CloudWatch Logs log group</b>: </p>
-   * 				           <p>
+   *                <p>
    *                   <code>arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <b>Kinesis Data Firehose delivery stream</b>:</p>
-   * 				           <p>
+   *                <p>
    *                   <code>arn:aws:kinesis:us-east-2:0123456789:stream/my_stream_name</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   DestinationArn: string | undefined;
@@ -1361,7 +1399,7 @@ export interface ResolverQueryLogConfig {
 
   /**
    * <p>The status of the specified query logging configuration. Valid values include the following:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CREATING</code>: Resolver is creating the query logging configuration.</p>
@@ -1379,7 +1417,7 @@ export interface ResolverQueryLogConfig {
    *                <p>
    *                   <code>FAILED</code>: Resolver can't deliver logs to the location that is specified in the query logging configuration.
    * 				Here are two common causes:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>The specified destination (for example, an Amazon S3 bucket) was deleted.</p>
    *                   </li>
@@ -1387,7 +1425,7 @@ export interface ResolverQueryLogConfig {
    *                      <p>Permissions don't allow sending logs to the destination.</p>
    *                   </li>
    *                </ul>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Status?: ResolverQueryLogConfigStatus | string;
@@ -1452,14 +1490,21 @@ export enum RuleTypeOption {
  */
 export interface TargetAddress {
   /**
-   * <p>One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.</p>
+   * <p>One IPv4 address that you want to forward DNS queries to.</p>
    */
-  Ip: string | undefined;
+  Ip?: string;
 
   /**
    * <p>The port at <code>Ip</code> that you want to forward DNS queries to.</p>
    */
   Port?: number;
+
+  /**
+   * <p>
+   * 			One IPv6 address that you want to forward DNS queries to.
+   * 		</p>
+   */
+  Ipv6?: string;
 }
 
 export interface CreateResolverRuleRequest {
@@ -1477,12 +1522,12 @@ export interface CreateResolverRuleRequest {
 
   /**
    * <p>When you want to forward DNS queries for specified domain name to resolvers on your network, specify <code>FORWARD</code>.</p>
-   * 		       <p>When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for
+   *          <p>When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for
    * 			a subdomain of that domain, specify <code>SYSTEM</code>.</p>
-   * 		       <p>For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify <code>FORWARD</code>
+   *          <p>For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify <code>FORWARD</code>
    * 			for <code>RuleType</code>. To then have Resolver process queries for apex.example.com, you create a rule and specify
    * 			<code>SYSTEM</code> for <code>RuleType</code>.</p>
-   * 		       <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
+   *          <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
    */
   RuleType: RuleTypeOption | string | undefined;
 
@@ -1495,7 +1540,7 @@ export interface CreateResolverRuleRequest {
 
   /**
    * <p>The IPs that you want Resolver to forward DNS queries to. You can specify only IPv4 addresses. Separate IP addresses with a space.</p>
-   * 		       <p>
+   *          <p>
    *             <code>TargetIps</code> is available only when the value of <code>Rule type</code> is <code>FORWARD</code>.</p>
    */
   TargetIps?: TargetAddress[];
@@ -1566,12 +1611,12 @@ export interface ResolverRule {
 
   /**
    * <p>When you want to forward DNS queries for specified domain name to resolvers on your network, specify <code>FORWARD</code>.</p>
-   * 		       <p>When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for
+   *          <p>When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for
    * 			a subdomain of that domain, specify <code>SYSTEM</code>.</p>
-   * 		       <p>For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify <code>FORWARD</code>
+   *          <p>For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify <code>FORWARD</code>
    * 			for <code>RuleType</code>. To then have Resolver process queries for apex.example.com, you create a rule and specify
    * 			<code>SYSTEM</code> for <code>RuleType</code>.</p>
-   * 		       <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
+   *          <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
    */
   RuleType?: RuleTypeOption | string;
 
@@ -1816,30 +1861,28 @@ export interface DisassociateResolverRuleResponse {
  * 			and
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverDnssecConfigs.html">ListResolverDnssecConfigs</a>),
  * 			an optional specification to return a subset of objects.</p>
- * 		       <p>To filter objects, such as Resolver endpoints or Resolver rules, you specify <code>Name</code> and <code>Values</code>. For example,
+ *          <p>To filter objects, such as Resolver endpoints or Resolver rules, you specify <code>Name</code> and <code>Values</code>. For example,
  * 			to list only inbound Resolver endpoints, specify <code>Direction</code> for <code>Name</code> and specify <code>INBOUND</code> for <code>Values</code>. </p>
  */
 export interface Filter {
   /**
    * <p>The name of the parameter that you want to use to filter objects.</p>
-   * 		       <p>The valid values for <code>Name</code> depend on the action that you're including the filter in,
+   *          <p>The valid values for <code>Name</code> depend on the action that you're including the filter in,
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html">ListResolverEndpoints</a>,
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html">ListResolverRules</a>,
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html">ListResolverRuleAssociations</a>,
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverQueryLogConfigs.html">ListResolverQueryLogConfigs</a>,
    * 			or
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverQueryLogConfigAssociations.html">ListResolverQueryLogConfigAssociations</a>.</p>
-   *
-   * 		       <note>
-   * 			         <p>In early versions of Resolver, values for <code>Name</code> were listed as uppercase, with underscore (_) delimiters. For example,
+   *          <note>
+   *             <p>In early versions of Resolver, values for <code>Name</code> were listed as uppercase, with underscore (_) delimiters. For example,
    * 				<code>CreatorRequestId</code> was originally listed as <code>CREATOR_REQUEST_ID</code>. Uppercase values for <code>Name</code> are still supported.</p>
-   * 		       </note>
-   *
-   * 		       <p>
+   *          </note>
+   *          <p>
    *             <b>ListResolverEndpoints</b>
    *          </p>
-   * 		       <p>Valid values for <code>Name</code> include the following:</p>
-   * 		       <ul>
+   *          <p>Valid values for <code>Name</code> include the following:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CreatorRequestId</code>: The value that you specified when you created the Resolver endpoint.</p>
@@ -1880,12 +1923,11 @@ export interface Filter {
    * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ResolverEndpoint.html">ResolverEndpoint</a>.</p>
    *             </li>
    *          </ul>
-   *
-   * 		       <p>
+   *          <p>
    *             <b>ListResolverRules</b>
    *          </p>
-   * 		       <p>Valid values for <code>Name</code> include the following:</p>
-   * 		       <ul>
+   *          <p>Valid values for <code>Name</code> include the following:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CreatorRequestId</code>: The value that you specified when you created the Resolver rule.</p>
@@ -1895,10 +1937,10 @@ export interface Filter {
    *                   <code>DomainName</code>: The domain name for which Resolver is forwarding DNS queries to your network. In the value that
    * 				you specify for <code>Values</code>, include a trailing dot (.) after the domain name. For example, if the domain name is example.com,
    * 				specify the following value. Note the "." after <code>com</code>:</p>
-   * 				           <p>
+   *                <p>
    *                   <code>example.com.</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>Name</code>: The name of the Resolver rule.</p>
@@ -1906,11 +1948,11 @@ export interface Filter {
    *             <li>
    *                <p>
    *                   <code>ResolverEndpointId</code>: The ID of the Resolver endpoint that the Resolver rule is associated with.</p>
-   * 				           <note>
+   *                <note>
    *                   <p>You can filter on the Resolver endpoint only for rules that have a value of <code>FORWARD</code> for
    * 					<code>RuleType</code>.</p>
    *                </note>
-   * 			         </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>Status</code>: The status of the Resolver rule. If you specify <code>Status</code> for <code>Name</code>,
@@ -1923,12 +1965,11 @@ export interface Filter {
    * 				for <code>Name</code>, specify <code>FORWARD</code> or <code>SYSTEM</code> for <code>Values</code>.</p>
    *             </li>
    *          </ul>
-   *
-   * 		       <p>
+   *          <p>
    *             <b>ListResolverRuleAssociations</b>
    *          </p>
-   * 		       <p>Valid values for <code>Name</code> include the following:</p>
-   * 		       <ul>
+   *          <p>Valid values for <code>Name</code> include the following:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>Name</code>: The name of the Resolver rule association.</p>
@@ -1942,18 +1983,17 @@ export interface Filter {
    *                   <code>Status</code>: The status of the Resolver rule association. If you specify <code>Status</code> for <code>Name</code>,
    * 				specify one of the following status codes for <code>Values</code>: <code>CREATING</code>, <code>COMPLETE</code>, <code>DELETING</code>, or
    * 				<code>FAILED</code>.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>VPCId</code>: The ID of the VPC that the Resolver rule is associated with.</p>
    *             </li>
    *          </ul>
-   *
-   * 		       <p>
+   *          <p>
    *             <b>ListResolverQueryLogConfigs</b>
    *          </p>
-   * 		       <p>Valid values for <code>Name</code> include the following:</p>
-   * 		       <ul>
+   *          <p>Valid values for <code>Name</code> include the following:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>Arn</code>: The ARN for the query logging configuration.</p>
@@ -1974,7 +2014,7 @@ export interface Filter {
    *             <li>
    *                <p>
    *                   <code>Destination</code>: The Amazon Web Services service that you want to forward query logs to. Valid values include the following:</p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>
    *                         <code>S3</code>
@@ -1991,7 +2031,7 @@ export interface Filter {
    *                      </p>
    *                   </li>
    *                </ul>
-   * 			         </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>DestinationArn</code>: The ARN of the location that Resolver is sending query logs to. This value can be the ARN for an
@@ -2022,14 +2062,13 @@ export interface Filter {
    * 				<code>DELETING</code>, or <code>FAILED</code>. For more information, see
    * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ResolverQueryLogConfig.html#Route53Resolver-Type-route53resolver_ResolverQueryLogConfig-Status">Status</a>.
    * 				</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
-   *
-   * 		       <p>
+   *          <p>
    *             <b>ListResolverQueryLogConfigAssociations</b>
    *          </p>
-   * 		       <p>Valid values for <code>Name</code> include the following:</p>
-   * 		       <ul>
+   *          <p>Valid values for <code>Name</code> include the following:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CreationTime</code>: The date and time that the VPC was associated with the query logging configuration, in Unix time format and
@@ -2059,7 +2098,7 @@ export interface Filter {
    * 				<code>DELETING</code>, or <code>FAILED</code>. For more information, see
    * 			    <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ResolverQueryLogConfigAssociation.html#Route53Resolver-Type-route53resolver_ResolverQueryLogConfigAssociation-Status">Status</a>.
    * 				</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Name?: string;
@@ -2075,6 +2114,7 @@ export interface Filter {
 export enum FirewallFailOpenStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
+  USE_LOCAL_RESOURCE_SETTING = "USE_LOCAL_RESOURCE_SETTING",
 }
 
 /**
@@ -2282,6 +2322,8 @@ export enum ResolverAutodefinedReverseStatus {
   Disabling = "DISABLING",
   Enabled = "ENABLED",
   Enabling = "ENABLING",
+  UpdatingToUseLocalResourceSetting = "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
+  UseLocalResourceSetting = "USE_LOCAL_RESOURCE_SETTING",
 }
 
 /**
@@ -2306,10 +2348,7 @@ export interface ResolverConfig {
   /**
    * <p> The status of whether or not the Resolver will create autodefined rules for reverse DNS
    * 			lookups. This is enabled by default. The status can be one of following:</p>
-   * 		       <p> Status of the rules generated by VPCs based on CIDR/Region for reverse DNS resolution. The
-   * 			status can be one of following:</p>
-   *
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <b>ENABLING:</b> Autodefined rules for reverse DNS lookups are being
@@ -2337,7 +2376,7 @@ export interface ResolverConfig {
 
 export interface GetResolverConfigResponse {
   /**
-   * <p>Information about the behavior configuration of Route 53 Resolver behavior for the VPC you
+   * <p>Information about the behavior configuration of Route 53 Resolver behavior for the VPC you
    * 			specified in the <code>GetResolverConfig</code> request.</p>
    */
   ResolverConfig?: ResolverConfig;
@@ -2355,6 +2394,8 @@ export enum ResolverDNSSECValidationStatus {
   Disabling = "DISABLING",
   Enabled = "ENABLED",
   Enabling = "ENABLING",
+  UpdateToUseLocalResourceSetting = "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
+  UseLocalResourceSetting = "USE_LOCAL_RESOURCE_SETTING",
 }
 
 /**
@@ -2378,7 +2419,7 @@ export interface ResolverDnssecConfig {
 
   /**
    * <p>The validation status for a DNSSEC configuration. The status can be one of the following:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <b>ENABLING:</b> DNSSEC validation is being enabled but is not complete.</p>
@@ -2559,7 +2600,7 @@ export interface ImportFirewallDomainsResponse {
   Name?: string;
 
   /**
-   * <p> </p>
+   * <p>Status of the import request.</p>
    */
   Status?: FirewallDomainListStatus | string;
 
@@ -2643,6 +2684,7 @@ export enum IpAddressStatus {
   FailedResourceGone = "FAILED_RESOURCE_GONE",
   RemapAttaching = "REMAP_ATTACHING",
   RemapDetaching = "REMAP_DETACHING",
+  Updating = "UPDATING",
 }
 
 /**
@@ -2662,9 +2704,16 @@ export interface IpAddressResponse {
   SubnetId?: string;
 
   /**
-   * <p>One IP address that the Resolver endpoint uses for DNS queries.</p>
+   * <p>One IPv4 address that the Resolver endpoint uses for DNS queries.</p>
    */
   Ip?: string;
+
+  /**
+   * <p>
+   * 			One IPv6 address that the Resolver endpoint uses for DNS queries.
+   * 		</p>
+   */
+  Ipv6?: string;
 
   /**
    * <p>A status code that gives the current status of the request.</p>
@@ -2960,8 +3009,8 @@ export interface ListResolverConfigsRequest {
   /**
    * <p>(Optional) If the current Amazon Web Services account has more than <code>MaxResults</code> Resolver configurations, use
    * 			<code>NextToken</code> to get the second and subsequent pages of results.</p>
-   * 		       <p>For the first <code>ListResolverConfigs</code> request, omit this value.</p>
-   * 		       <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and
+   *          <p>For the first <code>ListResolverConfigs</code> request, omit this value.</p>
+   *          <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and
    * 			specify that value for <code>NextToken</code> in the request.</p>
    */
   NextToken?: string;
@@ -2971,10 +3020,9 @@ export interface ListResolverConfigsResponse {
   /**
    * <p>If a response includes the last of the Resolver configurations that are associated with the current Amazon Web Services account,
    * 			<code>NextToken</code> doesn't appear in the response.</p>
-   * 		       <p>If a response doesn't include the last of the configurations, you can get more configurations by submitting another
+   *          <p>If a response doesn't include the last of the configurations, you can get more configurations by submitting another
    * 			<code>ListResolverConfigs</code> request.
-   * 			Get the value of <code>NextToken</code> that Amazon Route 53
-   *              returned in the previous response and include it in
+   * 			Get the value of <code>NextToken</code> that Amazon Route 53 returned in the previous response and include it in
    * 			<code>NextToken</code> in the next request.</p>
    */
   NextToken?: string;
@@ -2997,8 +3045,8 @@ export interface ListResolverDnssecConfigsRequest {
   /**
    * <p>(Optional) If the current Amazon Web Services account has more than <code>MaxResults</code> DNSSEC configurations, use <code>NextToken</code>
    * 			to get the second and subsequent pages of results.</p>
-   * 		       <p>For the first <code>ListResolverDnssecConfigs</code> request, omit this value.</p>
-   * 		       <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value
+   *          <p>For the first <code>ListResolverDnssecConfigs</code> request, omit this value.</p>
+   *          <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value
    * 			for <code>NextToken</code> in the request.</p>
    */
   NextToken?: string;
@@ -3013,7 +3061,7 @@ export interface ListResolverDnssecConfigsResponse {
   /**
    * <p>If a response includes the last of the DNSSEC configurations that are associated with the current Amazon Web Services account,
    * 			<code>NextToken</code> doesn't appear in the response.</p>
-   * 		       <p>If a response doesn't include the last of the configurations, you can get more configurations by submitting another
+   *          <p>If a response doesn't include the last of the configurations, you can get more configurations by submitting another
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResolverDnssecConfigs.html">ListResolverDnssecConfigs</a>
    * 			request. Get the value of <code>NextToken</code> that Amazon Route 53 returned in the previous response and include it in
    * 			<code>NextToken</code> in the next request.</p>
@@ -3042,7 +3090,7 @@ export interface ListResolverEndpointIpAddressesRequest {
 
   /**
    * <p>For the first <code>ListResolverEndpointIpAddresses</code> request, omit this value.</p>
-   * 		       <p>If the specified Resolver endpoint has more than <code>MaxResults</code> IP addresses, you can submit another
+   *          <p>If the specified Resolver endpoint has more than <code>MaxResults</code> IP addresses, you can submit another
    * 			<code>ListResolverEndpointIpAddresses</code> request to get the next group of IP addresses. In the next request, specify the value of
    * 			<code>NextToken</code> from the previous response. </p>
    */
@@ -3078,14 +3126,14 @@ export interface ListResolverEndpointsRequest {
 
   /**
    * <p>For the first <code>ListResolverEndpoints</code> request, omit this value.</p>
-   * 		       <p>If you have more than <code>MaxResults</code> Resolver endpoints, you can submit another <code>ListResolverEndpoints</code> request
+   *          <p>If you have more than <code>MaxResults</code> Resolver endpoints, you can submit another <code>ListResolverEndpoints</code> request
    * 			to get the next group of Resolver endpoints. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    */
   NextToken?: string;
 
   /**
    * <p>An optional specification to return a subset of Resolver endpoints, such as all inbound Resolver endpoints.</p>
-   * 		       <note>
+   *          <note>
    *             <p>If you submit a second or subsequent <code>ListResolverEndpoints</code> request and specify the <code>NextToken</code> parameter,
    * 			you must use the same values for <code>Filters</code>, if any, as in the previous request.</p>
    *          </note>
@@ -3125,7 +3173,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
 
   /**
    * <p>For the first <code>ListResolverQueryLogConfigAssociations</code> request, omit this value.</p>
-   * 		       <p>If there are more than <code>MaxResults</code> query logging associations that match the values that you specify for <code>Filters</code>,
+   *          <p>If there are more than <code>MaxResults</code> query logging associations that match the values that you specify for <code>Filters</code>,
    * 			you can submit another <code>ListResolverQueryLogConfigAssociations</code> request to get the next group of associations. In the next request, specify the value of
    * 			<code>NextToken</code> from the previous response. </p>
    */
@@ -3133,22 +3181,21 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
 
   /**
    * <p>An optional specification to return a subset of query logging associations.</p>
-   * 		       <note>
-   * 			         <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter,
+   *          <note>
+   *             <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter,
    * 				you must use the same values for <code>Filters</code>, if any, as in the previous request.</p>
-   * 		       </note>
+   *          </note>
    */
   Filters?: Filter[];
 
   /**
    * <p>The element that you want Resolver to sort query logging associations by. </p>
-   * 		       <note>
-   * 			         <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter,
+   *          <note>
+   *             <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter,
    * 				you must use the same value for <code>SortBy</code>, if any, as in the previous request.</p>
-   * 		       </note>
-   *
-   * 		       <p>Valid values include the following elements:</p>
-   * 		       <ul>
+   *          </note>
+   *          <p>Valid values include the following elements:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CreationTime</code>: The ID of the query logging association.</p>
@@ -3157,7 +3204,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    *                <p>
    *                   <code>Error</code>: If the value of <code>Status</code> is <code>FAILED</code>, the value of <code>Error</code>
    * 				indicates the cause: </p>
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>
    *                         <code>DESTINATION_NOT_FOUND</code>: The specified destination (for example, an Amazon S3 bucket) was deleted.</p>
@@ -3167,8 +3214,8 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    *                         <code>ACCESS_DENIED</code>: Permissions don't allow sending logs to the destination.</p>
    *                   </li>
    *                </ul>
-   * 				           <p>If <code>Status</code> is a value other than <code>FAILED</code>, <code>ERROR</code> is null.</p>
-   * 			         </li>
+   *                <p>If <code>Status</code> is a value other than <code>FAILED</code>, <code>ERROR</code> is null.</p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>Id</code>: The ID of the query logging association</p>
@@ -3184,8 +3231,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    *             <li>
    *                <p>
    *                   <code>Status</code>: The current status of the configuration. Valid values include the following:</p>
-   *
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>
    *                         <code>CREATING</code>: Resolver is creating an association between an Amazon VPC and a query logging configuration.</p>
@@ -3203,7 +3249,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    *                      <p>
    *                         <code>FAILED</code>: Resolver either couldn't create or couldn't delete the query logging association.
    * 						Here are two common causes:</p>
-   * 						               <ul>
+   *                      <ul>
    *                         <li>
    *                            <p>The specified destination (for example, an Amazon S3 bucket) was deleted.</p>
    *                         </li>
@@ -3211,9 +3257,9 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    *                            <p>Permissions don't allow sending logs to the destination.</p>
    *                         </li>
    *                      </ul>
-   * 					             </li>
+   *                   </li>
    *                </ul>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   SortBy?: string;
@@ -3221,10 +3267,10 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
   /**
    * <p>If you specified a value for <code>SortBy</code>, the order that you want query logging associations to be listed in,
    * 			<code>ASCENDING</code> or <code>DESCENDING</code>.</p>
-   * 		       <note>
-   * 			         <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter,
+   *          <note>
+   *             <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter,
    * 				you must use the same value for <code>SortOrder</code>, if any, as in the previous request.</p>
-   * 		       </note>
+   *          </note>
    */
   SortOrder?: SortOrder | string;
 }
@@ -3266,7 +3312,7 @@ export interface ListResolverQueryLogConfigsRequest {
 
   /**
    * <p>For the first <code>ListResolverQueryLogConfigs</code> request, omit this value.</p>
-   * 		       <p>If there are more than <code>MaxResults</code> query logging configurations that match the values that you specify for <code>Filters</code>,
+   *          <p>If there are more than <code>MaxResults</code> query logging configurations that match the values that you specify for <code>Filters</code>,
    * 			you can submit another <code>ListResolverQueryLogConfigs</code> request to get the next group of configurations. In the next request, specify the value of
    * 			<code>NextToken</code> from the previous response. </p>
    */
@@ -3274,22 +3320,21 @@ export interface ListResolverQueryLogConfigsRequest {
 
   /**
    * <p>An optional specification to return a subset of query logging configurations.</p>
-   * 		       <note>
-   * 			         <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter,
+   *          <note>
+   *             <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter,
    * 				you must use the same values for <code>Filters</code>, if any, as in the previous request.</p>
-   * 		       </note>
+   *          </note>
    */
   Filters?: Filter[];
 
   /**
    * <p>The element that you want Resolver to sort query logging configurations by. </p>
-   * 		       <note>
-   * 			         <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter,
+   *          <note>
+   *             <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter,
    * 				you must use the same value for <code>SortBy</code>, if any, as in the previous request.</p>
-   * 		       </note>
-   *
-   * 		       <p>Valid values include the following elements:</p>
-   * 		       <ul>
+   *          </note>
+   *          <p>Valid values include the following elements:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>Arn</code>: The ARN of the query logging configuration</p>
@@ -3330,8 +3375,7 @@ export interface ListResolverQueryLogConfigsRequest {
    *             <li>
    *                <p>
    *                   <code>Status</code>: The current status of the configuration. Valid values include the following:</p>
-   *
-   * 				           <ul>
+   *                <ul>
    *                   <li>
    *                      <p>
    *                         <code>CREATING</code>: Resolver is creating the query logging configuration.</p>
@@ -3349,7 +3393,7 @@ export interface ListResolverQueryLogConfigsRequest {
    *                      <p>
    *                         <code>FAILED</code>: Resolver either couldn't create or couldn't delete the query logging configuration.
    * 						Here are two common causes:</p>
-   * 						               <ul>
+   *                      <ul>
    *                         <li>
    *                            <p>The specified destination (for example, an Amazon S3 bucket) was deleted.</p>
    *                         </li>
@@ -3357,9 +3401,9 @@ export interface ListResolverQueryLogConfigsRequest {
    *                            <p>Permissions don't allow sending logs to the destination.</p>
    *                         </li>
    *                      </ul>
-   * 					             </li>
+   *                   </li>
    *                </ul>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   SortBy?: string;
@@ -3367,10 +3411,10 @@ export interface ListResolverQueryLogConfigsRequest {
   /**
    * <p>If you specified a value for <code>SortBy</code>, the order that you want query logging configurations to be listed in,
    * 			<code>ASCENDING</code> or <code>DESCENDING</code>.</p>
-   * 		       <note>
-   * 			         <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter,
+   *          <note>
+   *             <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter,
    * 				you must use the same value for <code>SortOrder</code>, if any, as in the previous request.</p>
-   * 		       </note>
+   *          </note>
    */
   SortOrder?: SortOrder | string;
 }
@@ -3412,14 +3456,14 @@ export interface ListResolverRuleAssociationsRequest {
 
   /**
    * <p>For the first <code>ListResolverRuleAssociation</code> request, omit this value.</p>
-   * 		       <p>If you have more than <code>MaxResults</code> rule associations, you can submit another <code>ListResolverRuleAssociation</code> request
+   *          <p>If you have more than <code>MaxResults</code> rule associations, you can submit another <code>ListResolverRuleAssociation</code> request
    * 			to get the next group of rule associations. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    */
   NextToken?: string;
 
   /**
    * <p>An optional specification to return a subset of Resolver rules, such as Resolver rules that are associated with the same VPC ID.</p>
-   * 		       <note>
+   *          <note>
    *             <p>If you submit a second or subsequent <code>ListResolverRuleAssociations</code> request and specify the <code>NextToken</code> parameter,
    * 			you must use the same values for <code>Filters</code>, if any, as in the previous request.</p>
    *          </note>
@@ -3456,14 +3500,14 @@ export interface ListResolverRulesRequest {
 
   /**
    * <p>For the first <code>ListResolverRules</code> request, omit this value.</p>
-   * 		       <p>If you have more than <code>MaxResults</code> Resolver rules, you can submit another <code>ListResolverRules</code> request
+   *          <p>If you have more than <code>MaxResults</code> Resolver rules, you can submit another <code>ListResolverRules</code> request
    * 			to get the next group of Resolver rules. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    */
   NextToken?: string;
 
   /**
    * <p>An optional specification to return a subset of Resolver rules, such as all Resolver rules that are associated with the same Resolver endpoint.</p>
-   * 		       <note>
+   *          <note>
    *             <p>If you submit a second or subsequent <code>ListResolverRules</code> request and specify the <code>NextToken</code> parameter,
    * 			you must use the same values for <code>Filters</code>, if any, as in the previous request.</p>
    *          </note>
@@ -3504,7 +3548,7 @@ export interface ListTagsForResourceRequest {
 
   /**
    * <p>For the first <code>ListTagsForResource</code> request, omit this value.</p>
-   * 		       <p>If you have more than <code>MaxResults</code> tags, you can submit another <code>ListTagsForResource</code> request
+   *          <p>If you have more than <code>MaxResults</code> tags, you can submit another <code>ListTagsForResource</code> request
    * 			to get the next group of tags for the resource. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
    */
   NextToken?: string;
@@ -3553,7 +3597,7 @@ export interface PutResolverQueryLogConfigPolicyRequest {
    * <p>An Identity and Access Management policy statement that lists the query logging configurations that you want to share with another Amazon Web Services account
    * 			and the operations that you want the account to be able to perform. You can specify the following operations in the <code>Actions</code> section
    * 			of the statement:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>route53resolver:AssociateResolverQueryLogConfig</code>
@@ -3575,8 +3619,7 @@ export interface PutResolverQueryLogConfigPolicyRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
-   * 		       <p>In the <code>Resource</code> section of the statement, you specify the ARNs for the query logging configurations that you want to share
+   *          <p>In the <code>Resource</code> section of the statement, you specify the ARNs for the query logging configurations that you want to share
    * 			with the account that you specified in <code>Arn</code>. </p>
    */
   ResolverQueryLogConfigPolicy: string | undefined;
@@ -3601,7 +3644,7 @@ export interface PutResolverRulePolicyRequest {
   /**
    * <p>An Identity and Access Management policy statement that lists the rules that you want to share with another Amazon Web Services account and the operations that you want the account
    * 			to be able to perform. You can specify the following operations in the <code>Action</code> section of the statement:</p>
-   * 			      <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>route53resolver:GetResolverRule</code>
@@ -3628,8 +3671,7 @@ export interface PutResolverRulePolicyRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
-   * 		       <p>In the <code>Resource</code> section of the statement, specify the ARN for the rule that you want to share with another account. Specify the same ARN
+   *          <p>In the <code>Resource</code> section of the statement, specify the ARN for the rule that you want to share with another account. Specify the same ARN
    * 			that you specified in <code>Arn</code>.</p>
    */
   ResolverRulePolicy: string | undefined;
@@ -3672,37 +3714,37 @@ export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the resource that you want to add tags to. To get the ARN for a resource, use the applicable
    * 			<code>Get</code> or <code>List</code> command: </p>
-   * 			      <ul>
+   *          <ul>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">GetResolverEndpoint</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRule.html">GetResolverRule</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRuleAssociation.html">GetResolverRuleAssociation</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html">ListResolverEndpoints</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html">ListResolverRuleAssociations</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html">ListResolverRules</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *          </ul>
    */
   ResourceArn: string | undefined;
@@ -3719,37 +3761,37 @@ export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the resource that you want to remove tags from. To get the ARN for a resource, use the applicable
    * 			<code>Get</code> or <code>List</code> command: </p>
-   * 			      <ul>
+   *          <ul>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">GetResolverEndpoint</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRule.html">GetResolverRule</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRuleAssociation.html">GetResolverRuleAssociation</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html">ListResolverEndpoints</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html">ListResolverRuleAssociations</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *             <li>
-   * 					          <p>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html">ListResolverRules</a>
    *                </p>
-   * 				        </li>
+   *             </li>
    *          </ul>
    */
   ResourceArn: string | undefined;
@@ -3819,20 +3861,23 @@ export interface UpdateFirewallDomainsRequest {
 
   /**
    * <p>A list of domains to use in the update operation.</p>
+   *          <important>
+   *             <p>There is a limit of 1000 domains per request.</p>
+   *          </important>
    *          <p>Each domain specification in your domain list must satisfy the following
    * 	requirements: </p>
    *          <ul>
    *             <li>
-   *       	        <p>It can optionally start with <code>*</code> (asterisk).</p>
-   *       	     </li>
+   *                <p>It can optionally start with <code>*</code> (asterisk).</p>
+   *             </li>
    *             <li>
-   *       	        <p>With the exception of the optional starting asterisk, it must only contain
+   *                <p>With the exception of the optional starting asterisk, it must only contain
    *       	   the following characters: <code>A-Z</code>, <code>a-z</code>,
    *       	   <code>0-9</code>, <code>-</code> (hyphen).</p>
-   *       	     </li>
+   *             </li>
    *             <li>
-   *       	        <p>It must be from 1-255 characters in length. </p>
-   *       	     </li>
+   *                <p>It must be from 1-255 characters in length. </p>
+   *             </li>
    *          </ul>
    */
   Domains: string[] | undefined;
@@ -3850,7 +3895,7 @@ export interface UpdateFirewallDomainsResponse {
   Name?: string;
 
   /**
-   * <p> </p>
+   * <p>Status of the <code>UpdateFirewallDomains</code> request.</p>
    */
   Status?: FirewallDomainListStatus | string;
 
@@ -3991,10 +4036,14 @@ export interface UpdateResolverConfigRequest {
    * 			lookups. This is enabled by default. Disabling this option will also affect EC2-Classic
    * 			instances using ClassicLink. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
    * 					<i>Amazon EC2 guide</i>.</p>
-   * 		       <note>
+   *          <important>
+   *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the
+   * 			<i>Amazon EC2 guide</i> and the blog <a href="http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/">EC2-Classic Networking is Retiring – Here’s How to Prepare</a>.</p>
+   *          </important>
+   *          <note>
    *             <p>It can take some time for the status change to be completed.</p>
    *          </note>
-   * 		       <p></p>
+   *          <p></p>
    */
   AutodefinedReverseFlag: AutodefinedReverseFlag | string | undefined;
 }
@@ -4009,6 +4058,7 @@ export interface UpdateResolverConfigResponse {
 export enum Validation {
   DISABLE = "DISABLE",
   ENABLE = "ENABLE",
+  USE_LOCAL_RESOURCE_SETTING = "USE_LOCAL_RESOURCE_SETTING",
 }
 
 export interface UpdateResolverDnssecConfigRequest {
@@ -4031,6 +4081,25 @@ export interface UpdateResolverDnssecConfigResponse {
   ResolverDNSSECConfig?: ResolverDnssecConfig;
 }
 
+/**
+ * <p>
+ * 			Provides information about the IP address type in response to <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverEndpoint.html">UpdateResolverEndpoint</a>.
+ * 		</p>
+ */
+export interface UpdateIpAddress {
+  /**
+   * <p> The ID of the IP address, specified by the <code>ResolverEndpointId</code>. </p>
+   */
+  IpId: string | undefined;
+
+  /**
+   * <p>
+   * 			The IPv6 address that you want to use for DNS queries.
+   * 		</p>
+   */
+  Ipv6: string | undefined;
+}
+
 export interface UpdateResolverEndpointRequest {
   /**
    * <p>The ID of the Resolver endpoint that you want to update.</p>
@@ -4041,6 +4110,20 @@ export interface UpdateResolverEndpointRequest {
    * <p>The name of the Resolver endpoint that you want to update.</p>
    */
   Name?: string;
+
+  /**
+   * <p>
+   * 			Specifies the endpoint type for what type of IP address the endpoint uses to forward DNS queries.
+   * 		</p>
+   */
+  ResolverEndpointType?: ResolverEndpointType | string;
+
+  /**
+   * <p>
+   * 			Updates the Resolver endpoint type to IpV4, Ipv6, or dual-stack.
+   * 		</p>
+   */
+  UpdateIpAddresses?: UpdateIpAddress[];
 }
 
 export interface UpdateResolverEndpointResponse {
@@ -5133,6 +5216,13 @@ export const UpdateResolverDnssecConfigRequestFilterSensitiveLog = (obj: UpdateR
  * @internal
  */
 export const UpdateResolverDnssecConfigResponseFilterSensitiveLog = (obj: UpdateResolverDnssecConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIpAddressFilterSensitiveLog = (obj: UpdateIpAddress): any => ({
   ...obj,
 });
 

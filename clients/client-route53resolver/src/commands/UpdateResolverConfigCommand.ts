@@ -35,7 +35,7 @@ export interface UpdateResolverConfigCommandInput extends UpdateResolverConfigRe
 export interface UpdateResolverConfigCommandOutput extends UpdateResolverConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the behavior configuration of Route 53 Resolver behavior for a single VPC from
+ * <p>Updates the behavior configuration of Route 53 Resolver behavior for a single VPC from
  * 				Amazon Virtual Private Cloud.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

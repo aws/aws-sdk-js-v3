@@ -5681,6 +5681,7 @@ const deserializeAws_json1_1QueryExecution = (output: any, context: __SerdeConte
         ? deserializeAws_json1_1QueryExecutionStatistics(output.Statistics, context)
         : undefined,
     Status: output.Status != null ? deserializeAws_json1_1QueryExecutionStatus(output.Status, context) : undefined,
+    SubstatementType: __expectString(output.SubstatementType),
     WorkGroup: __expectString(output.WorkGroup),
   } as any;
 };

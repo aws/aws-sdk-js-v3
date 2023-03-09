@@ -69,6 +69,11 @@ import {
   ExtendTransactionCommandOutput,
 } from "./commands/ExtendTransactionCommand";
 import {
+  GetDataCellsFilterCommand,
+  GetDataCellsFilterCommandInput,
+  GetDataCellsFilterCommandOutput,
+} from "./commands/GetDataCellsFilterCommand";
+import {
   GetDataLakeSettingsCommand,
   GetDataLakeSettingsCommandInput,
   GetDataLakeSettingsCommandOutput,
@@ -190,6 +195,11 @@ import {
   StartTransactionCommandInput,
   StartTransactionCommandOutput,
 } from "./commands/StartTransactionCommand";
+import {
+  UpdateDataCellsFilterCommand,
+  UpdateDataCellsFilterCommandInput,
+  UpdateDataCellsFilterCommandOutput,
+} from "./commands/UpdateDataCellsFilterCommand";
 import { UpdateLFTagCommand, UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "./commands/UpdateLFTagCommand";
 import {
   UpdateResourceCommand,
@@ -696,6 +706,38 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
+   * <p>Returns a data cells filter.</p>
+   */
+  public getDataCellsFilter(
+    args: GetDataCellsFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataCellsFilterCommandOutput>;
+  public getDataCellsFilter(
+    args: GetDataCellsFilterCommandInput,
+    cb: (err: any, data?: GetDataCellsFilterCommandOutput) => void
+  ): void;
+  public getDataCellsFilter(
+    args: GetDataCellsFilterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataCellsFilterCommandOutput) => void
+  ): void;
+  public getDataCellsFilter(
+    args: GetDataCellsFilterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataCellsFilterCommandOutput) => void),
+    cb?: (err: any, data?: GetDataCellsFilterCommandOutput) => void
+  ): Promise<GetDataCellsFilterCommandOutput> | void {
+    const command = new GetDataCellsFilterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the list of the data lake administrators of a Lake Formation-managed data lake. </p>
    */
   public getDataLakeSettings(
@@ -1041,7 +1083,7 @@ export class LakeFormation extends LakeFormationClient {
 
   /**
    * <p>Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>
-   *          <p>For information about permissions, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
+   *          <p>For information about permissions, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
    */
   public grantPermissions(
     args: GrantPermissionsCommandInput,
@@ -1519,6 +1561,38 @@ export class LakeFormation extends LakeFormationClient {
     cb?: (err: any, data?: StartTransactionCommandOutput) => void
   ): Promise<StartTransactionCommandOutput> | void {
     const command = new StartTransactionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a data cell filter.</p>
+   */
+  public updateDataCellsFilter(
+    args: UpdateDataCellsFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataCellsFilterCommandOutput>;
+  public updateDataCellsFilter(
+    args: UpdateDataCellsFilterCommandInput,
+    cb: (err: any, data?: UpdateDataCellsFilterCommandOutput) => void
+  ): void;
+  public updateDataCellsFilter(
+    args: UpdateDataCellsFilterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataCellsFilterCommandOutput) => void
+  ): void;
+  public updateDataCellsFilter(
+    args: UpdateDataCellsFilterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataCellsFilterCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDataCellsFilterCommandOutput) => void
+  ): Promise<UpdateDataCellsFilterCommandOutput> | void {
+    const command = new UpdateDataCellsFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -3690,6 +3690,27 @@ export interface AssociateTrialComponentResponse {
 }
 
 /**
+ * <p>The IAM Identity details associated with the user. These details are
+ *       associated with model package groups, model packages and project entities only.</p>
+ */
+export interface IamIdentity {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM identity.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the principal that assumes the IAM identity.</p>
+   */
+  PrincipalId?: string;
+
+  /**
+   * <p>The person or application which assumes the IAM identity.</p>
+   */
+  SourceIdentity?: string;
+}
+
+/**
  * <p>Information about the user who created or modified an experiment, trial, trial
  *       component, lineage group, project, or model card.</p>
  */
@@ -3708,6 +3729,12 @@ export interface UserContext {
    * <p>The domain associated with the user.</p>
    */
   DomainId?: string;
+
+  /**
+   * <p>The IAM Identity details associated with the user. These details are
+   *       associated with model package groups, model packages, and project entities only.</p>
+   */
+  IamIdentity?: IamIdentity;
 }
 
 /**
@@ -9382,82 +9409,6 @@ export interface ProductionVariantServerlessConfig {
 }
 
 /**
- * <p>Identifies a model that you want to host and the resources chosen to deploy for
- *             hosting it. If you are deploying multiple models, tell SageMaker how to distribute traffic
- *             among the models by specifying variant weights. </p>
- */
-export interface ProductionVariant {
-  /**
-   * <p>The name of the production variant.</p>
-   */
-  VariantName: string | undefined;
-
-  /**
-   * <p>The name of the model that you want to host. This is the name that you specified
-   *             when creating the model.</p>
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>Number of instances to launch initially.</p>
-   */
-  InitialInstanceCount?: number;
-
-  /**
-   * <p>The ML compute instance type.</p>
-   */
-  InstanceType?: ProductionVariantInstanceType | string;
-
-  /**
-   * <p>Determines initial traffic distribution among all of the models that you specify in
-   *             the endpoint configuration. The traffic to a production variant is determined by the
-   *             ratio of the <code>VariantWeight</code> to the sum of all <code>VariantWeight</code>
-   *             values across all ProductionVariants. If unspecified, it defaults to 1.0.
-   *             </p>
-   */
-  InitialVariantWeight?: number;
-
-  /**
-   * <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI
-   *             instances provide on-demand GPU computing for inference. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
-   *                 Inference in Amazon SageMaker</a>.</p>
-   */
-  AcceleratorType?: ProductionVariantAcceleratorType | string;
-
-  /**
-   * <p>Specifies configuration for a core dump from the model container when the process
-   *             crashes.</p>
-   */
-  CoreDumpConfig?: ProductionVariantCoreDumpConfig;
-
-  /**
-   * <p>The serverless configuration for an endpoint. Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.</p>
-   */
-  ServerlessConfig?: ProductionVariantServerlessConfig;
-
-  /**
-   * <p>The size, in GB, of the ML storage volume attached to individual inference instance
-   *             associated with the production variant. Currently only Amazon EBS gp2 storage volumes are
-   *             supported.</p>
-   */
-  VolumeSizeInGB?: number;
-
-  /**
-   * <p>The timeout value, in seconds, to download and extract the model that you want to host
-   *             from Amazon S3 to the individual inference instance associated with this production
-   *             variant.</p>
-   */
-  ModelDataDownloadTimeoutInSeconds?: number;
-
-  /**
-   * <p>The timeout value, in seconds, for your inference container to pass health check by
-   *             SageMaker Hosting. For more information about health check, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests">How Your Container Should Respond to Health Check (Ping) Requests</a>.</p>
-   */
-  ContainerStartupHealthCheckTimeoutInSeconds?: number;
-}
-
-/**
  * @internal
  */
 export const ActionSourceFilterSensitiveLog = (obj: ActionSource): any => ({
@@ -9799,6 +9750,13 @@ export const AssociateTrialComponentRequestFilterSensitiveLog = (obj: AssociateT
  * @internal
  */
 export const AssociateTrialComponentResponseFilterSensitiveLog = (obj: AssociateTrialComponentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IamIdentityFilterSensitiveLog = (obj: IamIdentity): any => ({
   ...obj,
 });
 
@@ -10913,12 +10871,5 @@ export const ProductionVariantCoreDumpConfigFilterSensitiveLog = (obj: Productio
  * @internal
  */
 export const ProductionVariantServerlessConfigFilterSensitiveLog = (obj: ProductionVariantServerlessConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProductionVariantFilterSensitiveLog = (obj: ProductionVariant): any => ({
   ...obj,
 });

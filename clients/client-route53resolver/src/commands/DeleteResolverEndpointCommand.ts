@@ -37,7 +37,7 @@ export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpo
 /**
  * <p>Deletes a Resolver endpoint. The effect of deleting a Resolver endpoint depends on whether it's an inbound or an outbound
  * 			Resolver endpoint:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <b>Inbound</b>: DNS queries from your network are no longer routed

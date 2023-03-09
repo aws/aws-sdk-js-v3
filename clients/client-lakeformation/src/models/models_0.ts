@@ -834,6 +834,8 @@ export interface DataCellsFilter {
    *       <code>ColumnWildCard</code>. </p>
    */
   ColumnWildcard?: ColumnWildcard;
+
+  VersionId?: string;
 }
 
 export interface CreateDataCellsFilterRequest {
@@ -1085,6 +1087,35 @@ export interface ExtendTransactionRequest {
 }
 
 export interface ExtendTransactionResponse {}
+
+export interface GetDataCellsFilterRequest {
+  /**
+   * <p>The ID of the catalog to which the table belongs.</p>
+   */
+  TableCatalogId: string | undefined;
+
+  /**
+   * <p>A database in the Glue Data Catalog.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>A table in the database.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The name given by the user to the data filter cell.</p>
+   */
+  Name: string | undefined;
+}
+
+export interface GetDataCellsFilterResponse {
+  /**
+   * <p>A structure that describes certain columns on certain rows.</p>
+   */
+  DataCellsFilter?: DataCellsFilter;
+}
 
 export interface GetDataLakeSettingsRequest {
   /**
@@ -2504,6 +2535,15 @@ export interface StartTransactionResponse {
   TransactionId?: string;
 }
 
+export interface UpdateDataCellsFilterRequest {
+  /**
+   * <p>A <code>DataCellsFilter</code> structure containing information about the data cells filter.</p>
+   */
+  TableData: DataCellsFilter | undefined;
+}
+
+export interface UpdateDataCellsFilterResponse {}
+
 export interface UpdateLFTagRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -3032,6 +3072,20 @@ export const ExtendTransactionResponseFilterSensitiveLog = (obj: ExtendTransacti
 /**
  * @internal
  */
+export const GetDataCellsFilterRequestFilterSensitiveLog = (obj: GetDataCellsFilterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataCellsFilterResponseFilterSensitiveLog = (obj: GetDataCellsFilterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetDataLakeSettingsRequestFilterSensitiveLog = (obj: GetDataLakeSettingsRequest): any => ({
   ...obj,
 });
@@ -3516,6 +3570,20 @@ export const StartTransactionRequestFilterSensitiveLog = (obj: StartTransactionR
  * @internal
  */
 export const StartTransactionResponseFilterSensitiveLog = (obj: StartTransactionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataCellsFilterRequestFilterSensitiveLog = (obj: UpdateDataCellsFilterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataCellsFilterResponseFilterSensitiveLog = (obj: UpdateDataCellsFilterResponse): any => ({
   ...obj,
 });
 

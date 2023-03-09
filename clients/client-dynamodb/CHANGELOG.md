@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.287.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.286.0...v3.287.0) (2023-03-08)
+
+
+### Bug Fixes
+
+* **clients:** remove aggregated client from paginators ([#4496](https://github.com/aws/aws-sdk-js-v3/issues/4496)) ([aea457a](https://github.com/aws/aws-sdk-js-v3/commit/aea457ab5d4e72939f2f608140d82b60526eb716))
+
+
+### Features
+
+* **client-dynamodb:** Adds deletion protection support to DynamoDB tables. Tables with deletion protection enabled cannot be deleted. Deletion protection is disabled by default, can be enabled via the CreateTable or UpdateTable APIs, and is visible in TableDescription. This setting is not replicated for Global Tables. ([af81575](https://github.com/aws/aws-sdk-js-v3/commit/af815752ded1a46afe471176a5de3c36c578a445))
+
+
+
+
+
 # [3.284.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.283.0...v3.284.0) (2023-03-03)
 
 **Note:** Version bump only for package @aws-sdk/client-dynamodb

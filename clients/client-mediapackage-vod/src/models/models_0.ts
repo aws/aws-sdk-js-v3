@@ -118,7 +118,7 @@ export interface DashManifest {
   Profile?: Profile | string;
 
   /**
-   * The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content. The MANIFEST value is compatible with source HLS playlists using the SCTE-35 Enhanced syntax (#EXT-OATCLS-SCTE35 tags). SCTE-35 Elemental and SCTE-35 Daterange syntaxes are not supported with this option.
+   * The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
    */
   ScteMarkersSource?: ScteMarkersSource | string;
 
@@ -492,6 +492,11 @@ export interface PackagingConfiguration {
   CmafPackage?: CmafPackage;
 
   /**
+   * The time the PackagingConfiguration was created.
+   */
+  CreatedAt?: string;
+
+  /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
    */
   DashPackage?: DashPackage;
@@ -567,6 +572,11 @@ export interface PackagingGroup {
   Authorization?: Authorization;
 
   /**
+   * The time the PackagingGroup was created.
+   */
+  CreatedAt?: string;
+
+  /**
    * The fully qualified domain name for Assets in the PackagingGroup.
    */
   DomainName?: string;
@@ -612,6 +622,11 @@ export interface ConfigureLogsResponse {
    * CDN Authorization credentials
    */
   Authorization?: Authorization;
+
+  /**
+   * The time the PackagingGroup was created.
+   */
+  CreatedAt?: string;
 
   /**
    * The fully qualified domain name for Assets in the PackagingGroup.
@@ -894,6 +909,11 @@ export interface CreatePackagingConfigurationResponse {
   CmafPackage?: CmafPackage;
 
   /**
+   * The time the PackagingConfiguration was created.
+   */
+  CreatedAt?: string;
+
+  /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
    */
   DashPackage?: DashPackage;
@@ -959,6 +979,11 @@ export interface CreatePackagingGroupResponse {
    * CDN Authorization credentials
    */
   Authorization?: Authorization;
+
+  /**
+   * The time the PackagingGroup was created.
+   */
+  CreatedAt?: string;
 
   /**
    * The fully qualified domain name for Assets in the PackagingGroup.
@@ -1081,6 +1106,11 @@ export interface DescribePackagingConfigurationResponse {
   CmafPackage?: CmafPackage;
 
   /**
+   * The time the PackagingConfiguration was created.
+   */
+  CreatedAt?: string;
+
+  /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
    */
   DashPackage?: DashPackage;
@@ -1133,6 +1163,11 @@ export interface DescribePackagingGroupResponse {
    * CDN Authorization credentials
    */
   Authorization?: Authorization;
+
+  /**
+   * The time the PackagingGroup was created.
+   */
+  CreatedAt?: string;
 
   /**
    * The fully qualified domain name for Assets in the PackagingGroup.
@@ -1305,6 +1340,11 @@ export interface UpdatePackagingGroupResponse {
    * CDN Authorization credentials
    */
   Authorization?: Authorization;
+
+  /**
+   * The time the PackagingGroup was created.
+   */
+  CreatedAt?: string;
 
   /**
    * The fully qualified domain name for Assets in the PackagingGroup.

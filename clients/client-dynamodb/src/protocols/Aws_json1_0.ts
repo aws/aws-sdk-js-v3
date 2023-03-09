@@ -4438,6 +4438,7 @@ const serializeAws_json1_0CreateTableInput = (input: CreateTableInput, context: 
       AttributeDefinitions: serializeAws_json1_0AttributeDefinitions(input.AttributeDefinitions, context),
     }),
     ...(input.BillingMode != null && { BillingMode: input.BillingMode }),
+    ...(input.DeletionProtectionEnabled != null && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
     ...(input.GlobalSecondaryIndexes != null && {
       GlobalSecondaryIndexes: serializeAws_json1_0GlobalSecondaryIndexList(input.GlobalSecondaryIndexes, context),
     }),
@@ -5862,6 +5863,7 @@ const serializeAws_json1_0UpdateTableInput = (input: UpdateTableInput, context: 
       AttributeDefinitions: serializeAws_json1_0AttributeDefinitions(input.AttributeDefinitions, context),
     }),
     ...(input.BillingMode != null && { BillingMode: input.BillingMode }),
+    ...(input.DeletionProtectionEnabled != null && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
     ...(input.GlobalSecondaryIndexUpdates != null && {
       GlobalSecondaryIndexUpdates: serializeAws_json1_0GlobalSecondaryIndexUpdateList(
         input.GlobalSecondaryIndexUpdates,
@@ -8158,6 +8160,7 @@ const deserializeAws_json1_0TableDescription = (output: any, context: __SerdeCon
       output.CreationDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDateTime)))
         : undefined,
+    DeletionProtectionEnabled: __expectBoolean(output.DeletionProtectionEnabled),
     GlobalSecondaryIndexes:
       output.GlobalSecondaryIndexes != null
         ? deserializeAws_json1_0GlobalSecondaryIndexDescriptionList(output.GlobalSecondaryIndexes, context)

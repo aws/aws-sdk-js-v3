@@ -40,16 +40,16 @@ export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomain
  * 	requirements: </p>
  *          <ul>
  *             <li>
- *       	        <p>It can optionally start with <code>*</code> (asterisk).</p>
- *       	     </li>
+ *                <p>It can optionally start with <code>*</code> (asterisk).</p>
+ *             </li>
  *             <li>
- *       	        <p>With the exception of the optional starting asterisk, it must only contain
+ *                <p>With the exception of the optional starting asterisk, it must only contain
  *       	   the following characters: <code>A-Z</code>, <code>a-z</code>,
  *       	   <code>0-9</code>, <code>-</code> (hyphen).</p>
- *       	     </li>
+ *             </li>
  *             <li>
- *       	        <p>It must be from 1-255 characters in length. </p>
- *       	     </li>
+ *                <p>It must be from 1-255 characters in length. </p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

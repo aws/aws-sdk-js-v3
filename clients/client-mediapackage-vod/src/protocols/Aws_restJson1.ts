@@ -528,6 +528,9 @@ export const deserializeAws_restJson1ConfigureLogsCommand = async (
   if (data.authorization != null) {
     contents.Authorization = deserializeAws_restJson1Authorization(data.authorization, context);
   }
+  if (data.createdAt != null) {
+    contents.CreatedAt = __expectString(data.createdAt);
+  }
   if (data.domainName != null) {
     contents.DomainName = __expectString(data.domainName);
   }
@@ -679,6 +682,9 @@ export const deserializeAws_restJson1CreatePackagingConfigurationCommand = async
   if (data.cmafPackage != null) {
     contents.CmafPackage = deserializeAws_restJson1CmafPackage(data.cmafPackage, context);
   }
+  if (data.createdAt != null) {
+    contents.CreatedAt = __expectString(data.createdAt);
+  }
   if (data.dashPackage != null) {
     contents.DashPackage = deserializeAws_restJson1DashPackage(data.dashPackage, context);
   }
@@ -755,6 +761,9 @@ export const deserializeAws_restJson1CreatePackagingGroupCommand = async (
   }
   if (data.authorization != null) {
     contents.Authorization = deserializeAws_restJson1Authorization(data.authorization, context);
+  }
+  if (data.createdAt != null) {
+    contents.CreatedAt = __expectString(data.createdAt);
   }
   if (data.domainName != null) {
     contents.DomainName = __expectString(data.domainName);
@@ -1066,6 +1075,9 @@ export const deserializeAws_restJson1DescribePackagingConfigurationCommand = asy
   if (data.cmafPackage != null) {
     contents.CmafPackage = deserializeAws_restJson1CmafPackage(data.cmafPackage, context);
   }
+  if (data.createdAt != null) {
+    contents.CreatedAt = __expectString(data.createdAt);
+  }
   if (data.dashPackage != null) {
     contents.DashPackage = deserializeAws_restJson1DashPackage(data.dashPackage, context);
   }
@@ -1145,6 +1157,9 @@ export const deserializeAws_restJson1DescribePackagingGroupCommand = async (
   }
   if (data.authorization != null) {
     contents.Authorization = deserializeAws_restJson1Authorization(data.authorization, context);
+  }
+  if (data.createdAt != null) {
+    contents.CreatedAt = __expectString(data.createdAt);
   }
   if (data.domainName != null) {
     contents.DomainName = __expectString(data.domainName);
@@ -1498,6 +1513,9 @@ export const deserializeAws_restJson1UpdatePackagingGroupCommand = async (
   }
   if (data.authorization != null) {
     contents.Authorization = deserializeAws_restJson1Authorization(data.authorization, context);
+  }
+  if (data.createdAt != null) {
+    contents.CreatedAt = __expectString(data.createdAt);
   }
   if (data.domainName != null) {
     contents.DomainName = __expectString(data.domainName);
@@ -2198,6 +2216,7 @@ const deserializeAws_restJson1PackagingConfiguration = (
     Arn: __expectString(output.arn),
     CmafPackage:
       output.cmafPackage != null ? deserializeAws_restJson1CmafPackage(output.cmafPackage, context) : undefined,
+    CreatedAt: __expectString(output.createdAt),
     DashPackage:
       output.dashPackage != null ? deserializeAws_restJson1DashPackage(output.dashPackage, context) : undefined,
     HlsPackage: output.hlsPackage != null ? deserializeAws_restJson1HlsPackage(output.hlsPackage, context) : undefined,
@@ -2214,6 +2233,7 @@ const deserializeAws_restJson1PackagingGroup = (output: any, context: __SerdeCon
     Arn: __expectString(output.arn),
     Authorization:
       output.authorization != null ? deserializeAws_restJson1Authorization(output.authorization, context) : undefined,
+    CreatedAt: __expectString(output.createdAt),
     DomainName: __expectString(output.domainName),
     EgressAccessLogs:
       output.egressAccessLogs != null

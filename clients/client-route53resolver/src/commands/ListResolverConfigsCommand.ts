@@ -36,7 +36,7 @@ export interface ListResolverConfigsCommandOutput extends ListResolverConfigsRes
 
 /**
  * <p>Retrieves the Resolver configurations that you have defined.
- * 			Route 53 Resolver uses the configurations to manage DNS resolution behavior for your VPCs.</p>
+ * 			Route 53 Resolver uses the configurations to manage DNS resolution behavior for your VPCs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

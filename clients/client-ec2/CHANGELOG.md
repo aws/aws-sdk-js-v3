@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.287.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.286.0...v3.287.0) (2023-03-08)
+
+
+### Bug Fixes
+
+* **clients:** remove aggregated client from paginators ([#4496](https://github.com/aws/aws-sdk-js-v3/issues/4496)) ([aea457a](https://github.com/aws/aws-sdk-js-v3/commit/aea457ab5d4e72939f2f608140d82b60526eb716))
+
+
+### Features
+
+* **client-ec2:** Introducing Amazon EC2 C7g, M7g and R7g instances, powered by the latest generation AWS Graviton3 processors and deliver up to 25% better performance over Graviton2-based instances. ([8a6dcfa](https://github.com/aws/aws-sdk-js-v3/commit/8a6dcfa8eda7070a60be8b37dcc8a421a96559c2))
+
+
+
+
+
 # [3.284.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.283.0...v3.284.0) (2023-03-03)
 
 

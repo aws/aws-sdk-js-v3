@@ -36,7 +36,7 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
 
 /**
  * <p>Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>An <i>inbound Resolver endpoint</i> forwards DNS queries to the DNS service for a VPC
  * 				from your network.</p>
