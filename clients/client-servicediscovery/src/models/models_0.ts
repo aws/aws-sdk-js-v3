@@ -136,6 +136,29 @@ export class NamespaceAlreadyExists extends __BaseException {
 }
 
 /**
+ * <p>The operation can't be completed because you've reached the quota for the number of
+ *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
+ *     <i>Cloud Map Developer Guide</i>.</p>
+ */
+export class RequestLimitExceeded extends __BaseException {
+  readonly name: "RequestLimitExceeded" = "RequestLimitExceeded";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestLimitExceeded, __BaseException>) {
+    super({
+      name: "RequestLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestLimitExceeded.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The resource can't be created because you've reached the quota on the number of
  *    resources.</p>
  */
@@ -296,7 +319,6 @@ export interface PublicDnsNamespaceProperties {
 export interface CreatePublicDnsNamespaceRequest {
   /**
    * <p>The name that you want to assign to this namespace.</p>
-   *
    *          <note>
    *             <p>Do not include sensitive information in the name. The name is publicly available using DNS queries.</p>
    *          </note>
@@ -789,11 +811,9 @@ export enum ServiceTypeOption {
 export interface CreateServiceRequest {
   /**
    * <p>The name that you want to assign to the service.</p>
-   *
    *          <note>
    *             <p>Do not include sensitive information in the name if the namespace is discoverable by public DNS queries.</p>
    *          </note>
-   *
    *          <p>If you want Cloud Map to create an <code>SRV</code> record when you register an instance and you're using a
    *    system that requires a specific <code>SRV</code> format, such as <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:</p>
    *          <ul>
@@ -1311,29 +1331,6 @@ export interface DiscoverInstancesResponse {
 }
 
 /**
- * <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
- */
-export class RequestLimitExceeded extends __BaseException {
-  readonly name: "RequestLimitExceeded" = "RequestLimitExceeded";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestLimitExceeded, __BaseException>) {
-    super({
-      name: "RequestLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestLimitExceeded.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>A complex type that contains information about changes to the Route 53 DNS records that
  *    Cloud Map creates when you register an instance.</p>
  */
@@ -1435,12 +1432,10 @@ export interface Instance {
    *                <p>For each attribute, the applicable value.</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>Do not include sensitive information in the attributes if the namespace is discoverable by public DNS
    *     queries.</p>
    *          </note>
-   *
    *          <p>Supported attribute keys include the following:</p>
    *          <dl>
    *             <dt>AWS_ALIAS_DNS_NAME</dt>
@@ -2720,7 +2715,6 @@ export interface RegisterInstanceRequest {
    *                </note>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>Do not include sensitive information in <code>InstanceId</code> if the namespace is discoverable by public DNS
    *     queries and any <code>Type</code> member of <code>DnsRecord</code> for the service contains <code>SRV</code> because
@@ -2750,12 +2744,10 @@ export interface RegisterInstanceRequest {
    *                <p>For each attribute, the applicable value.</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>Do not include sensitive information in the attributes if the namespace is discoverable by public DNS
    *     queries.</p>
    *          </note>
-   *
    *          <p>Supported attribute keys include the following:</p>
    *          <dl>
    *             <dt>AWS_ALIAS_DNS_NAME</dt>

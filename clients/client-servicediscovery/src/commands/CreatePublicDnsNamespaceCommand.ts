@@ -42,7 +42,6 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  *    with a public DNS namespace by using either a <code>DiscoverInstances</code> request or using
  *    DNS. For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map quotas</a> in the
  *     <i>Cloud Map Developer Guide</i>.</p>
- *
  *          <important>
  *             <p>The <code>CreatePublicDnsNamespace</code> API operation is not supported in the Amazon Web Services GovCloud (US) Regions.</p>
  *          </important>
