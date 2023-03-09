@@ -62,11 +62,11 @@ class ResponseDeserializationTestHandler implements HttpHandler {
 
   handle(request: HttpRequest, options?: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.resolve({
-      response: {
+      response: new HttpResponse({
         statusCode: this.code,
         headers: this.headers,
         body: Readable.from([this.body]),
-      },
+      }),
     });
   }
 }
