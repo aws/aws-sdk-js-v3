@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.288.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.287.0...v3.288.0) (2023-03-09)
+
+
+### Features
+
+* **client-evidently:** Updated entity override documentation ([5df80f2](https://github.com/aws/aws-sdk-js-v3/commit/5df80f231dc88e150b8105af8ae46c7baa100fd9))
+
+
+
+
+
 # [3.287.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.286.0...v3.287.0) (2023-03-08)
 
 

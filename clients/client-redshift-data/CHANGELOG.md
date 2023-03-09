@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.288.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.287.0...v3.288.0) (2023-03-09)
+
+
+### Features
+
+* **client-redshift-data:** Added support for Redshift Serverless workgroup-arn wherever the WorkgroupName parameter is available. ([344d56c](https://github.com/aws/aws-sdk-js-v3/commit/344d56c8673a7739b50de27d85dd10f3d96b3857))
+
+
+
+
+
 # [3.287.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.286.0...v3.287.0) (2023-03-08)
 
 

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.288.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.287.0...v3.288.0) (2023-03-09)
+
+
+### Bug Fixes
+
+* **middleware-logger:** retrieve filter overrides after middleware returns ([#4502](https://github.com/aws/aws-sdk-js-v3/issues/4502)) ([6405a58](https://github.com/aws/aws-sdk-js-v3/commit/6405a58caccfbfad6ebbf4bd63a93e762e8aae34))
+
+
+### Features
+
+* **client-codeartifact:** This release introduces the generic package format, a mechanism for storing arbitrary binary assets. It also adds a new API, PublishPackageVersion, to allow for publishing generic packages. ([235876e](https://github.com/aws/aws-sdk-js-v3/commit/235876ea06a61ba06690400826788745f8456341))
+* **client-connect:** This release adds a new API, GetMetricDataV2, which returns metric data for Amazon Connect. ([acb5eef](https://github.com/aws/aws-sdk-js-v3/commit/acb5eef61feb702c637fff6e0d282aab9285598a))
+* **client-evidently:** Updated entity override documentation ([5df80f2](https://github.com/aws/aws-sdk-js-v3/commit/5df80f231dc88e150b8105af8ae46c7baa100fd9))
+* **client-quicksight:** This release has two changes: add state persistence feature for embedded dashboard and console in GenerateEmbedUrlForRegisteredUser API; add properties for hidden collapsed row dimensions in PivotTableOptions. ([6c3f7b1](https://github.com/aws/aws-sdk-js-v3/commit/6c3f7b107210f4888a588a446aa5aace0b12ad77))
+* **client-redshift-data:** Added support for Redshift Serverless workgroup-arn wherever the WorkgroupName parameter is available. ([344d56c](https://github.com/aws/aws-sdk-js-v3/commit/344d56c8673a7739b50de27d85dd10f3d96b3857))
+* **client-sagemaker:** Amazon SageMaker Inference now allows SSM access to customer's model container by setting the "EnableSSMAccess" parameter for a ProductionVariant in CreateEndpointConfig API. ([253ef07](https://github.com/aws/aws-sdk-js-v3/commit/253ef071b89b690fd6860c86662270405e482639))
+* **client-servicediscovery:** Updated all AWS Cloud Map APIs to provide consistent throttling exception (RequestLimitExceeded) ([cb39c4d](https://github.com/aws/aws-sdk-js-v3/commit/cb39c4dc0d2e769f619bed168331ae5543feb321))
+* **client-sesv2:** This release introduces a new recommendation in Virtual Deliverability Manager Advisor, which detects missing or misconfigured Brand Indicator for Message Identification (BIMI) DNS records for customer sending identities. ([d58f752](https://github.com/aws/aws-sdk-js-v3/commit/d58f7524f459abf4a506b653978486f72773ce8d))
+* **clients:** update client endpoints as of 2023-03-09 ([3b31ade](https://github.com/aws/aws-sdk-js-v3/commit/3b31ade0704f705755273a12d4c635ef0873c5a2))
+
+
+
+
+
 # [3.287.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.286.0...v3.287.0) (2023-03-08)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.288.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.287.0...v3.288.0) (2023-03-09)
+
+
+### Features
+
+* **client-servicediscovery:** Updated all AWS Cloud Map APIs to provide consistent throttling exception (RequestLimitExceeded) ([cb39c4d](https://github.com/aws/aws-sdk-js-v3/commit/cb39c4dc0d2e769f619bed168331ae5543feb321))
+
+
+
+
+
 # [3.287.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.286.0...v3.287.0) (2023-03-08)
 
 

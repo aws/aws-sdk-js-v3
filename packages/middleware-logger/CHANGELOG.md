@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.288.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.287.0...v3.288.0) (2023-03-09)
+
+
+### Bug Fixes
+
+* **middleware-logger:** retrieve filter overrides after middleware returns ([#4502](https://github.com/aws/aws-sdk-js-v3/issues/4502)) ([6405a58](https://github.com/aws/aws-sdk-js-v3/commit/6405a58caccfbfad6ebbf4bd63a93e762e8aae34))
+
+
+
+
+
 # [3.287.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.286.0...v3.287.0) (2023-03-08)
 
 

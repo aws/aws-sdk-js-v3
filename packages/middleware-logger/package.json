@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-logger",
-  "version": "3.287.0",
+  "version": "3.288.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
