@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.289.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.288.0...v3.289.0) (2023-03-10)
+
+
+### Features
+
+* **client-ivschat:** This release adds a new exception returned when calling AWS IVS chat UpdateLoggingConfiguration. Now UpdateLoggingConfiguration can return ConflictException when invalid updates are made in sequence to Logging Configurations. ([8b55eb1](https://github.com/aws/aws-sdk-js-v3/commit/8b55eb13d23bdc8dbf4cccc03768113aee845adc))
+
+
+
+
+
 # [3.288.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.287.0...v3.288.0) (2023-03-09)
 
 **Note:** Version bump only for package @aws-sdk/client-ivschat

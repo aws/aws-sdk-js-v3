@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.289.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.288.0...v3.289.0) (2023-03-10)
+
+
+### Features
+
+* **client-secrets-manager:** The type definitions of SecretString and SecretBinary now have a minimum length of 1 in the model to match the exception thrown when you pass in empty values. ([4382b4e](https://github.com/aws/aws-sdk-js-v3/commit/4382b4eb0cca9db5792ee39bb9eeef37ceb891f8))
+
+
+
+
+
 # [3.288.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.287.0...v3.288.0) (2023-03-09)
 
 **Note:** Version bump only for package @aws-sdk/client-secrets-manager
