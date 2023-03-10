@@ -1,4 +1,6 @@
 /**
+ * @internal
+ *
  * Give an input string, strictly parses a boolean value.
  *
  * @param value The boolean string to parse.
@@ -16,6 +18,8 @@ export const parseBoolean = (value: string): boolean => {
 };
 
 /**
+ * @internal
+ *
  * Asserts a value is a boolean and returns it.
  * Casts strings and numbers with a warning if there is evidence that they were
  * intended to be booleans.
@@ -58,6 +62,8 @@ export const expectBoolean = (value: any): boolean | undefined => {
 };
 
 /**
+ * @internal
+ *
  * Asserts a value is a number and returns it.
  * Casts strings with a warning if the string is a parseable number.
  * This is to unblock slight API definition/implementation inconsistencies.
@@ -88,6 +94,8 @@ export const expectNumber = (value: any): number | undefined => {
 const MAX_FLOAT = Math.ceil(2 ** 127 * (2 - 2 ** -23));
 
 /**
+ * @internal
+ *
  * Asserts a value is a 32-bit float and returns it.
  *
  * @param value A value that is expected to be a 32-bit float.
@@ -137,6 +145,8 @@ export const expectFloat32 = (value: any): number | undefined => {
 };
 
 /**
+ * @internal
+ *
  * Asserts a value is an integer and returns it.
  *
  * @param value A value that is expected to be an integer.
@@ -154,11 +164,15 @@ export const expectLong = (value: any): number | undefined => {
 };
 
 /**
+ * @internal
+ *
  * @deprecated Use expectLong
  */
 export const expectInt = expectLong;
 
 /**
+ * @internal
+ *
  * Asserts a value is a 32-bit integer and returns it.
  *
  * @param value A value that is expected to be an integer.
@@ -168,6 +182,8 @@ export const expectInt = expectLong;
 export const expectInt32 = (value: any): number | undefined => expectSizedInt(value, 32);
 
 /**
+ * @internal
+ *
  * Asserts a value is a 16-bit integer and returns it.
  *
  * @param value A value that is expected to be an integer.
@@ -177,6 +193,8 @@ export const expectInt32 = (value: any): number | undefined => expectSizedInt(va
 export const expectShort = (value: any): number | undefined => expectSizedInt(value, 16);
 
 /**
+ * @internal
+ *
  * Asserts a value is an 8-bit integer and returns it.
  *
  * @param value A value that is expected to be an integer.
@@ -207,6 +225,8 @@ const castInt = (value: number, size: IntSize) => {
 };
 
 /**
+ * @internal
+ *
  * Asserts a value is not null or undefined and returns it, or throws an error.
  *
  * @param value A value that is expected to be defined
@@ -224,6 +244,8 @@ export const expectNonNull = <T>(value: T | null | undefined, location?: string)
 };
 
 /**
+ * @internal
+ *
  * Asserts a value is an JSON-like object and returns it. This is expected to be used
  * with values parsed from JSON (arrays, objects, numbers, strings, booleans).
  *
@@ -243,6 +265,8 @@ export const expectObject = (value: any): Record<string, any> | undefined => {
 };
 
 /**
+ * @internal
+ *
  * Asserts a value is a string and returns it.
  * Numbers and boolean will be cast to strings with a warning.
  *
@@ -265,6 +289,8 @@ export const expectString = (value: any): string | undefined => {
 };
 
 /**
+ * @internal
+ *
  * Asserts a value is a JSON-like object with only one non-null/non-undefined key and
  * returns it.
  *
@@ -295,6 +321,8 @@ export const expectUnion = (value: unknown): Record<string, any> | undefined => 
 };
 
 /**
+ * @internal
+ *
  * Parses a value into a double. If the value is null or undefined, undefined
  * will be returned. If the value is a string, it will be parsed by the standard
  * parseFloat with one exception: NaN may only be explicitly set as the string
@@ -312,11 +340,15 @@ export const strictParseDouble = (value: string | number): number | undefined =>
 };
 
 /**
+ * @internal
+ *
  * @deprecated Use strictParseDouble
  */
 export const strictParseFloat = strictParseDouble;
 
 /**
+ * @internal
+ *
  * Parses a value into a float. If the value is null or undefined, undefined
  * will be returned. If the value is a string, it will be parsed by the standard
  * parseFloat with one exception: NaN may only be explicitly set as the string
@@ -350,6 +382,8 @@ const parseNumber = (value: string): number => {
 };
 
 /**
+ * @internal
+ *
  * Asserts a value is a number and returns it. If the value is a string
  * representation of a non-numeric number type (NaN, Infinity, -Infinity),
  * the value will be parsed. Any other string value will result in an exception
@@ -367,16 +401,22 @@ export const limitedParseDouble = (value: string | number): number | undefined =
 };
 
 /**
+ * @internal
+ *
  * @deprecated Use limitedParseDouble
  */
 export const handleFloat = limitedParseDouble;
 
 /**
+ * @internal
+ *
  * @deprecated Use limitedParseDouble
  */
 export const limitedParseFloat = limitedParseDouble;
 
 /**
+ * @internal
+ *
  * Asserts a value is a 32-bit float and returns it. If the value is a string
  * representation of a non-numeric number type (NaN, Infinity, -Infinity),
  * the value will be parsed. Any other string value will result in an exception
@@ -407,6 +447,8 @@ const parseFloatString = (value: string): number => {
 };
 
 /**
+ * @internal
+ *
  * Parses a value into an integer. If the value is null or undefined, undefined
  * will be returned. If the value is a string, it will be parsed by parseFloat
  * and the result will be asserted to be an integer. If the parsed value is not
@@ -426,11 +468,15 @@ export const strictParseLong = (value: string | number): number | undefined => {
 };
 
 /**
+ * @internal
+ *
  * @deprecated Use strictParseLong
  */
 export const strictParseInt = strictParseLong;
 
 /**
+ * @internal
+ *
  * Parses a value into a 32-bit integer. If the value is null or undefined, undefined
  * will be returned. If the value is a string, it will be parsed by parseFloat
  * and the result will be asserted to be an integer. If the parsed value is not
@@ -450,6 +496,8 @@ export const strictParseInt32 = (value: string | number): number | undefined => 
 };
 
 /**
+ * @internal
+ *
  * Parses a value into a 16-bit integer. If the value is null or undefined, undefined
  * will be returned. If the value is a string, it will be parsed by parseFloat
  * and the result will be asserted to be an integer. If the parsed value is not
@@ -469,6 +517,8 @@ export const strictParseShort = (value: string | number): number | undefined => 
 };
 
 /**
+ * @internal
+ *
  * Parses a value into an 8-bit integer. If the value is null or undefined, undefined
  * will be returned. If the value is a string, it will be parsed by parseFloat
  * and the result will be asserted to be an integer. If the parsed value is not
@@ -488,7 +538,7 @@ export const strictParseByte = (value: string | number): number | undefined => {
 };
 
 /**
- * @private
+ * @internal
  * @param message - error message.
  * @returns truncated stack trace omitting this function.
  */

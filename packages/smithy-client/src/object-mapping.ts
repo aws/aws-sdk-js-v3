@@ -1,4 +1,6 @@
 /**
+ * @internal
+ *
  * A set of instructions for multiple keys.
  * The aim is to provide a concise yet readable way to map and filter values
  * onto a target object.
@@ -45,6 +47,8 @@
 export type ObjectMappingInstructions = Record<string, ObjectMappingInstruction>;
 
 /**
+ * @internal
+ *
  * An instruction set for assigning a value to a target object.
  */
 export type ObjectMappingInstruction =
@@ -55,15 +59,31 @@ export type ObjectMappingInstruction =
   | UnfilteredValue;
 
 /**
+ * @internal
+ *
  * non-array
  */
 export type UnfilteredValue = any;
+/**
+ * @internal
+ */
 export type LazyValueInstruction = [FilterStatus, ValueSupplier];
+/**
+ * @internal
+ */
 export type ConditionalLazyValueInstruction = [FilterStatusSupplier, ValueSupplier];
+/**
+ * @internal
+ */
 export type SimpleValueInstruction = [FilterStatus, Value];
+/**
+ * @internal
+ */
 export type ConditionalValueInstruction = [ValueFilteringFunction, Value];
 
 /**
+ * @internal
+ *
  * Filter is considered passed if
  * 1. It is a boolean true.
  * 2. It is not undefined and is itself truthy.
@@ -72,26 +92,35 @@ export type ConditionalValueInstruction = [ValueFilteringFunction, Value];
 export type FilterStatus = boolean | unknown | void;
 
 /**
+ * @internal
+ *
  * Supplies the filter check but not against any value as input.
  */
 export type FilterStatusSupplier = () => boolean;
 
 /**
+ * @internal
+ *
  * Filter check with the given value.
  */
 export type ValueFilteringFunction = (value: any) => boolean;
 
 /**
+ * @internal
+ *
  * Supplies the value for lazy evaluation.
  */
 export type ValueSupplier = () => any;
 
 /**
+ * @internal
+ *
  * A non-function value.
  */
 export type Value = any;
 
 /**
+ * @internal
  * Internal/Private, for codegen use only.
  *
  * Transfer a set of keys from [instructions] to [target].
@@ -101,16 +130,23 @@ export type Value = any;
  * The target assigned value will be supplied by the instructions as an evaluable function or non-function value.
  *
  * @see ObjectMappingInstructions for an example.
- * @private
- * @internal
  */
 export function map(
   target: any,
   filter: (value: any) => boolean,
   instructions: Record<string, ValueSupplier | Value>
 ): typeof target;
+/**
+ * @internal
+ */
 export function map(instructions: Record<string, ObjectMappingInstruction>): any;
+/**
+ * @internal
+ */
 export function map(target: any, instructions: Record<string, ObjectMappingInstruction>): typeof target;
+/**
+ * @internal
+ */
 export function map(arg0: any, arg1?: any, arg2?: any): any {
   let target: any;
   let filter: (value?: any) => boolean;
@@ -167,7 +203,6 @@ export function map(arg0: any, arg1?: any, arg2?: any): any {
  * Convert a regular object { k: v } to { k: [, v] } mapping instruction set with default
  * filter.
  *
- * @private
  * @internal
  */
 export const convertMap = (target: any): Record<string, any> => {
@@ -185,7 +220,6 @@ export const convertMap = (target: any): Record<string, any> => {
  * @param filter - uniform filter function to apply to all values
  * @param instructions - map of keys and values/suppliers (will be evaluated)
  *
- * @private
  * @internal
  */
 const mapWithFilter = (

@@ -1,4 +1,6 @@
 /**
+ * @internal
+ *
  * Given an input string, splits based on the delimiter after a given
  * number of delimiters has been encountered.
  *
