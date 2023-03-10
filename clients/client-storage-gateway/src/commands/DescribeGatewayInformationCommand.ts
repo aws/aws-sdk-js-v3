@@ -52,6 +52,34 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  * @see {@link DescribeGatewayInformationCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To describe metadata about the gateway
+ * ```javascript
+ * // Returns metadata about a gateway such as its name, network interfaces, configured time zone, and the state (whether the gateway is running or not).
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * };
+ * const command = new DescribeGatewayInformationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   "GatewayId": "sgw-AABB1122",
+ *   "GatewayName": "My_Gateway",
+ *   "GatewayNetworkInterfaces": [
+ *     {
+ *       "Ipv4Address": "10.35.69.216"
+ *     }
+ *   ],
+ *   "GatewayState": "STATE_RUNNING",
+ *   "GatewayTimezone": "GMT-8:00",
+ *   "GatewayType": "STORED",
+ *   "LastSoftwareUpdate": "2016-01-02T16:00:00",
+ *   "NextUpdateAvailabilityDate": "2017-01-02T16:00:00"
+ * }
+ * *\/
+ * // example id: to-describe-metadata-about-the-gateway-1471467849079
+ * ```
+ *
  */
 export class DescribeGatewayInformationCommand extends $Command<
   DescribeGatewayInformationCommandInput,

@@ -86,6 +86,27 @@ export interface TagRoleCommandOutput extends __MetadataBearer {}
  * @see {@link TagRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To add a tag key and value to an IAM role
+ * ```javascript
+ * // The following example shows how to add tags to an existing role.
+ * const input = {
+ *   "RoleName": "taggedrole",
+ *   "Tags": [
+ *     {
+ *       "Key": "Dept",
+ *       "Value": "Accounting"
+ *     },
+ *     {
+ *       "Key": "CostCenter",
+ *       "Value": "12345"
+ *     }
+ *   ]
+ * };
+ * const command = new TagRoleCommand(input);
+ * await client.send(command);
+ * // example id: to-add-a-tag-key-and-value-to-an-iam-role-1506718791513
+ * ```
+ *
  */
 export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties

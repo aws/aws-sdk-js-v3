@@ -56,6 +56,34 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  * @see {@link GetRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To get information about an IAM role
+ * ```javascript
+ * // The following command gets information about the role named Test-Role.
+ * const input = {
+ *   "RoleName": "Test-Role"
+ * };
+ * const command = new GetRoleCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Role": {
+ *     "Arn": "arn:aws:iam::123456789012:role/Test-Role",
+ *     "AssumeRolePolicyDocument": "<URL-encoded-JSON>",
+ *     "CreateDate": "2013-04-18T05:01:58Z",
+ *     "MaxSessionDuration": 3600,
+ *     "Path": "/",
+ *     "RoleId": "AROADBQP57FF2AEXAMPLE",
+ *     "RoleLastUsed": {
+ *       "LastUsedDate": "2019-11-18T05:01:58Z",
+ *       "Region": "us-east-1"
+ *     },
+ *     "RoleName": "Test-Role"
+ *   }
+ * }
+ * *\/
+ * // example id: 5b7d03a6-340c-472d-aa77-56425950d8b0
+ * ```
+ *
  */
 export class GetRoleCommand extends $Command<GetRoleCommandInput, GetRoleCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties

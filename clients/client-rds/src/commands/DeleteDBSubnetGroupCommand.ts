@@ -48,6 +48,17 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To delete a DB subnet group.
+ * ```javascript
+ * // This example deletes the specified DB subnetgroup.
+ * const input = {
+ *   "DBSubnetGroupName": "mydbsubnetgroup"
+ * };
+ * const command = new DeleteDBSubnetGroupCommand(input);
+ * await client.send(command);
+ * // example id: delete-db-subnet-group-4ae00375-511e-443d-a01d-4b9f552244aa
+ * ```
+ *
  */
 export class DeleteDBSubnetGroupCommand extends $Command<
   DeleteDBSubnetGroupCommandInput,

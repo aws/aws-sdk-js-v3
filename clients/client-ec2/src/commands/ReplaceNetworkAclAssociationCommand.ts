@@ -56,6 +56,23 @@ export interface ReplaceNetworkAclAssociationCommandOutput
  * @see {@link ReplaceNetworkAclAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To replace the network ACL associated with a subnet
+ * ```javascript
+ * // This example associates the specified network ACL with the subnet for the specified network ACL association.
+ * const input = {
+ *   "AssociationId": "aclassoc-e5b95c8c",
+ *   "NetworkAclId": "acl-5fb85d36"
+ * };
+ * const command = new ReplaceNetworkAclAssociationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NewAssociationId": "aclassoc-3999875b"
+ * }
+ * *\/
+ * // example id: ec2-replace-network-acl-association-1
+ * ```
+ *
  */
 export class ReplaceNetworkAclAssociationCommand extends $Command<
   ReplaceNetworkAclAssociationCommandInput,

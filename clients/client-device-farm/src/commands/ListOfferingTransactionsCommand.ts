@@ -53,6 +53,99 @@ export interface ListOfferingTransactionsCommandOutput extends ListOfferingTrans
  * @see {@link ListOfferingTransactionsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ * @example To get information about device offering transactions
+ * ```javascript
+ * // The following example returns information about Device Farm offering transactions.
+ * const input = {
+ *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE="
+ * };
+ * const command = new ListOfferingTransactionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "offeringTransactions": [
+ *     {
+ *       "cost": {
+ *         "amount": 0,
+ *         "currencyCode": "USD"
+ *       },
+ *       "createdOn": "1470021420",
+ *       "offeringStatus": {
+ *         "type": "RENEW",
+ *         "effectiveOn": "1472688000",
+ *         "offering": {
+ *           "type": "RECURRING",
+ *           "description": "Android Remote Access Unmetered Device Slot",
+ *           "id": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
+ *           "platform": "ANDROID"
+ *         },
+ *         "quantity": 0
+ *       },
+ *       "transactionId": "03728003-d1ea-4851-abd6-12345EXAMPLE"
+ *     },
+ *     {
+ *       "cost": {
+ *         "amount": 250,
+ *         "currencyCode": "USD"
+ *       },
+ *       "createdOn": "1470021420",
+ *       "offeringStatus": {
+ *         "type": "PURCHASE",
+ *         "effectiveOn": "1470021420",
+ *         "offering": {
+ *           "type": "RECURRING",
+ *           "description": "Android Remote Access Unmetered Device Slot",
+ *           "id": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
+ *           "platform": "ANDROID"
+ *         },
+ *         "quantity": 1
+ *       },
+ *       "transactionId": "56820b6e-06bd-473a-8ff8-12345EXAMPLE"
+ *     },
+ *     {
+ *       "cost": {
+ *         "amount": 175,
+ *         "currencyCode": "USD"
+ *       },
+ *       "createdOn": "1465538520",
+ *       "offeringStatus": {
+ *         "type": "PURCHASE",
+ *         "effectiveOn": "1465538520",
+ *         "offering": {
+ *           "type": "RECURRING",
+ *           "description": "Android Unmetered Device Slot",
+ *           "id": "8980F81C-00D7-469D-8EC6-12345EXAMPLE",
+ *           "platform": "ANDROID"
+ *         },
+ *         "quantity": 1
+ *       },
+ *       "transactionId": "953ae2c6-d760-4a04-9597-12345EXAMPLE"
+ *     },
+ *     {
+ *       "cost": {
+ *         "amount": 8.07,
+ *         "currencyCode": "USD"
+ *       },
+ *       "createdOn": "1459344300",
+ *       "offeringStatus": {
+ *         "type": "PURCHASE",
+ *         "effectiveOn": "1459344300",
+ *         "offering": {
+ *           "type": "RECURRING",
+ *           "description": "iOS Unmetered Device Slot",
+ *           "id": "A53D4D73-A6F6-4B82-A0B0-12345EXAMPLE",
+ *           "platform": "IOS"
+ *         },
+ *         "quantity": 1
+ *       },
+ *       "transactionId": "2baf9021-ae3e-47f5-ab52-12345EXAMPLE"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-get-information-about-device-offering-transactions-1472561712315
+ * ```
+ *
  */
 export class ListOfferingTransactionsCommand extends $Command<
   ListOfferingTransactionsCommandInput,

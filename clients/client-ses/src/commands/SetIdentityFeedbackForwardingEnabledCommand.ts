@@ -62,6 +62,18 @@ export interface SetIdentityFeedbackForwardingEnabledCommandOutput
  * @see {@link SetIdentityFeedbackForwardingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @example SetIdentityFeedbackForwardingEnabled
+ * ```javascript
+ * // The following example configures Amazon SES to forward an identity's bounces and complaints via email:
+ * const input = {
+ *   "ForwardingEnabled": true,
+ *   "Identity": "user@example.com"
+ * };
+ * const command = new SetIdentityFeedbackForwardingEnabledCommand(input);
+ * await client.send(command);
+ * // example id: setidentityfeedbackforwardingenabled-1469056811329
+ * ```
+ *
  */
 export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
   SetIdentityFeedbackForwardingEnabledCommandInput,

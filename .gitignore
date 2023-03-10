@@ -33,6 +33,7 @@ dist
 
 codegen/**/build
 codegen/**/build-single
+codegen/sdk-codegen/aws-models-examples
 codegen/sdk-codegen/smithy-build.json
 codegen/sdk-codegen/smithy-build-*.json
 .gradle

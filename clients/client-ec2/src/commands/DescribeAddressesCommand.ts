@@ -55,6 +55,99 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * @see {@link DescribeAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To describe your Elastic IP addresses
+ * ```javascript
+ * // This example describes your Elastic IP addresses.
+ * const input = undefined;
+ * const command = new DescribeAddressesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Addresses": [
+ *     {
+ *       "Domain": "standard",
+ *       "InstanceId": "i-1234567890abcdef0",
+ *       "PublicIp": "198.51.100.0"
+ *     },
+ *     {
+ *       "AllocationId": "eipalloc-12345678",
+ *       "AssociationId": "eipassoc-12345678",
+ *       "Domain": "vpc",
+ *       "InstanceId": "i-1234567890abcdef0",
+ *       "NetworkInterfaceId": "eni-12345678",
+ *       "NetworkInterfaceOwnerId": "123456789012",
+ *       "PrivateIpAddress": "10.0.1.241",
+ *       "PublicIp": "203.0.113.0"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-describe-addresses-1
+ * ```
+ *
+ * @example To describe your Elastic IP addresses for EC2-VPC
+ * ```javascript
+ * // This example describes your Elastic IP addresses for use with instances in a VPC.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "domain",
+ *       "Values": [
+ *         "vpc"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeAddressesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Addresses": [
+ *     {
+ *       "AllocationId": "eipalloc-12345678",
+ *       "AssociationId": "eipassoc-12345678",
+ *       "Domain": "vpc",
+ *       "InstanceId": "i-1234567890abcdef0",
+ *       "NetworkInterfaceId": "eni-12345678",
+ *       "NetworkInterfaceOwnerId": "123456789012",
+ *       "PrivateIpAddress": "10.0.1.241",
+ *       "PublicIp": "203.0.113.0"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-describe-addresses-2
+ * ```
+ *
+ * @example To describe your Elastic IP addresses for EC2-Classic
+ * ```javascript
+ * // This example describes your Elastic IP addresses for use with instances in EC2-Classic.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "domain",
+ *       "Values": [
+ *         "standard"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeAddressesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Addresses": [
+ *     {
+ *       "Domain": "standard",
+ *       "InstanceId": "i-1234567890abcdef0",
+ *       "PublicIp": "198.51.100.0"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-describe-addresses-3
+ * ```
+ *
  */
 export class DescribeAddressesCommand extends $Command<
   DescribeAddressesCommandInput,

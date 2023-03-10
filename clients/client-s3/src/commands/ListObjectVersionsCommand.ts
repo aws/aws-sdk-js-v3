@@ -88,6 +88,50 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * @see {@link ListObjectVersionsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @example To list object versions
+ * ```javascript
+ * // The following example return versions of an object with specific key name prefix. The request limits the number of items returned to two. If there are are more than two object version, S3 returns NextToken in the response. You can specify this token value in your next request to fetch next set of object versions.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Prefix": "HappyFace.jpg"
+ * };
+ * const command = new ListObjectVersionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Versions": [
+ *     {
+ *       "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *       "IsLatest": true,
+ *       "Key": "HappyFace.jpg",
+ *       "LastModified": "2016-12-15T01:19:41.000Z",
+ *       "Owner": {
+ *         "DisplayName": "owner-display-name",
+ *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       },
+ *       "Size": 3191,
+ *       "StorageClass": "STANDARD",
+ *       "VersionId": "null"
+ *     },
+ *     {
+ *       "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *       "IsLatest": false,
+ *       "Key": "HappyFace.jpg",
+ *       "LastModified": "2016-12-13T00:58:26.000Z",
+ *       "Owner": {
+ *         "DisplayName": "owner-display-name",
+ *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       },
+ *       "Size": 3191,
+ *       "StorageClass": "STANDARD",
+ *       "VersionId": "PHtexPGjH2y.zBgT8LmB7wwLI2mpbz.k"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-object-versions-1481910996058
+ * ```
+ *
  */
 export class ListObjectVersionsCommand extends $Command<
   ListObjectVersionsCommandInput,

@@ -68,6 +68,17 @@ export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteBucketWebsiteCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @example To delete bucket website configuration
+ * ```javascript
+ * // The following example deletes bucket website configuration.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new DeleteBucketWebsiteCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-bucket-website-configuration-1483043937825
+ * ```
+ *
  */
 export class DeleteBucketWebsiteCommand extends $Command<
   DeleteBucketWebsiteCommandInput,

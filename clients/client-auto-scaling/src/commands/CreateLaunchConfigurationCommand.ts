@@ -57,6 +57,23 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  * @see {@link CreateLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To create a launch configuration
+ * ```javascript
+ * // This example creates a launch configuration.
+ * const input = {
+ *   "IamInstanceProfile": "my-iam-role",
+ *   "ImageId": "ami-12345678",
+ *   "InstanceType": "m3.medium",
+ *   "LaunchConfigurationName": "my-launch-config",
+ *   "SecurityGroups": [
+ *     "sg-eb2af88e"
+ *   ]
+ * };
+ * const command = new CreateLaunchConfigurationCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-create-launch-configuration-1
+ * ```
+ *
  */
 export class CreateLaunchConfigurationCommand extends $Command<
   CreateLaunchConfigurationCommandInput,

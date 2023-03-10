@@ -56,6 +56,23 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @see {@link CreateTagsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ * @example To create a new tag
+ * ```javascript
+ * // This operation creates a new tag for an EFS file system.
+ * const input = {
+ *   "FileSystemId": "fs-01234567",
+ *   "Tags": [
+ *     {
+ *       "Key": "Name",
+ *       "Value": "MyFileSystem"
+ *     }
+ *   ]
+ * };
+ * const command = new CreateTagsCommand(input);
+ * await client.send(command);
+ * // example id: to-create-a-new-tag-1481843409357
+ * ```
+ *
  */
 export class CreateTagsCommand extends $Command<
   CreateTagsCommandInput,

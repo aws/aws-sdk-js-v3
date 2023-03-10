@@ -64,6 +64,17 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteFileSystemCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ * @example To delete a file system
+ * ```javascript
+ * // This operation deletes an EFS file system.
+ * const input = {
+ *   "FileSystemId": "fs-01234567"
+ * };
+ * const command = new DeleteFileSystemCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-file-system-1481847318348
+ * ```
+ *
  */
 export class DeleteFileSystemCommand extends $Command<
   DeleteFileSystemCommandInput,

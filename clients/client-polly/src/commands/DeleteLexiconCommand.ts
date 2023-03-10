@@ -53,6 +53,17 @@ export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __Metad
  * @see {@link DeleteLexiconCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
+ * @example To delete a lexicon
+ * ```javascript
+ * // Deletes a specified pronunciation lexicon stored in an AWS Region.
+ * const input = {
+ *   "Name": "example"
+ * };
+ * const command = new DeleteLexiconCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-lexicon-1481922498332
+ * ```
+ *
  */
 export class DeleteLexiconCommand extends $Command<
   DeleteLexiconCommandInput,

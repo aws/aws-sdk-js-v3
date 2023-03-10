@@ -50,6 +50,50 @@ export interface DescribeApplicationsCommandOutput extends ApplicationDescriptio
  * @see {@link DescribeApplicationsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @example To view a list of applications
+ * ```javascript
+ * // The following operation retrieves information about applications in the current region:
+ * const input = {};
+ * const command = new DescribeApplicationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Applications": [
+ *     {
+ *       "ApplicationName": "ruby",
+ *       "ConfigurationTemplates": [],
+ *       "DateCreated": "2015-08-13T21:05:44.376Z",
+ *       "DateUpdated": "2015-08-13T21:05:44.376Z",
+ *       "Versions": [
+ *         "Sample Application"
+ *       ]
+ *     },
+ *     {
+ *       "ApplicationName": "pythonsample",
+ *       "ConfigurationTemplates": [],
+ *       "DateCreated": "2015-08-13T19:05:43.637Z",
+ *       "DateUpdated": "2015-08-13T19:05:43.637Z",
+ *       "Description": "Application created from the EB CLI using \"eb init\"",
+ *       "Versions": [
+ *         "Sample Application"
+ *       ]
+ *     },
+ *     {
+ *       "ApplicationName": "nodejs-example",
+ *       "ConfigurationTemplates": [],
+ *       "DateCreated": "2015-08-06T17:50:02.486Z",
+ *       "DateUpdated": "2015-08-06T17:50:02.486Z",
+ *       "Versions": [
+ *         "add elasticache",
+ *         "First Release"
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-view-a-list-of-applications-1456270027373
+ * ```
+ *
  */
 export class DescribeApplicationsCommand extends $Command<
   DescribeApplicationsCommandInput,

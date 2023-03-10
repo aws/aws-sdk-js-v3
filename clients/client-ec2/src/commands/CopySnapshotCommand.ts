@@ -67,6 +67,25 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To copy a snapshot
+ * ```javascript
+ * // This example copies a snapshot with the snapshot ID of ``snap-066877671789bd71b`` from the ``us-west-2`` region to the ``us-east-1`` region and adds a short description to identify the snapshot.
+ * const input = {
+ *   "Description": "This is my copied snapshot.",
+ *   "DestinationRegion": "us-east-1",
+ *   "SourceRegion": "us-west-2",
+ *   "SourceSnapshotId": "snap-066877671789bd71b"
+ * };
+ * const command = new CopySnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SnapshotId": "snap-066877671789bd71b"
+ * }
+ * *\/
+ * // example id: to-copy-a-snapshot-1472502259774
+ * ```
+ *
  */
 export class CopySnapshotCommand extends $Command<
   CopySnapshotCommandInput,

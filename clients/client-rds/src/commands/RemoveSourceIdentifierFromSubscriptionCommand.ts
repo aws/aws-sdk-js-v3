@@ -53,6 +53,23 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * @see {@link RemoveSourceIdentifierFromSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To remove a source identifier from a DB event subscription
+ * ```javascript
+ * // This example removes the specified source identifier from the specified DB event subscription.
+ * const input = {
+ *   "SourceIdentifier": "mymysqlinstance",
+ *   "SubscriptionName": "myeventsubscription"
+ * };
+ * const command = new RemoveSourceIdentifierFromSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EventSubscription": {}
+ * }
+ * *\/
+ * // example id: remove-source-identifier-from-subscription-30d25493-c19d-4cf7-b4e5-68371d0d8770
+ * ```
+ *
  */
 export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
   RemoveSourceIdentifierFromSubscriptionCommandInput,

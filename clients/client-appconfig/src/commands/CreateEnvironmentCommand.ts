@@ -57,6 +57,26 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ * @example To create an environment
+ * ```javascript
+ * // The following create-environment example creates an AWS AppConfig environment named Example-Environment using the application you created using create-application
+ * const input = {
+ *   "ApplicationId": "339ohji",
+ *   "Name": "Example-Environment"
+ * };
+ * const command = new CreateEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationId": "339ohji",
+ *   "Id": "54j1r29",
+ *   "Name": "Example-Environment",
+ *   "State": "READY_FOR_DEPLOYMENT"
+ * }
+ * *\/
+ * // example id: to-create-an-environment-1632265124975
+ * ```
+ *
  */
 export class CreateEnvironmentCommand extends $Command<
   CreateEnvironmentCommandInput,

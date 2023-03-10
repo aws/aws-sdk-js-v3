@@ -50,6 +50,31 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @see {@link DescribeClustersCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @example To describe a cluster
+ * ```javascript
+ * // This example provides a description of the specified cluster in your default region.
+ * const input = {
+ *   "clusters": [
+ *     "default"
+ *   ]
+ * };
+ * const command = new DescribeClustersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "clusters": [
+ *     {
+ *       "clusterArn": "arn:aws:ecs:us-east-1:aws_account_id:cluster/default",
+ *       "clusterName": "default",
+ *       "status": "ACTIVE"
+ *     }
+ *   ],
+ *   "failures": []
+ * }
+ * *\/
+ * // example id: ba88d100-9672-4231-80da-a4bd210bf728
+ * ```
+ *
  */
 export class DescribeClustersCommand extends $Command<
   DescribeClustersCommandInput,

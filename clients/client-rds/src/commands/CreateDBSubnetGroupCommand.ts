@@ -50,6 +50,27 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * @see {@link CreateDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To create a DB subnet group.
+ * ```javascript
+ * // This example creates a DB subnet group.
+ * const input = {
+ *   "DBSubnetGroupDescription": "My DB subnet group",
+ *   "DBSubnetGroupName": "mydbsubnetgroup",
+ *   "SubnetIds": [
+ *     "subnet-1fab8a69",
+ *     "subnet-d43a468c"
+ *   ]
+ * };
+ * const command = new CreateDBSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSubnetGroup": {}
+ * }
+ * *\/
+ * // example id: create-db-subnet-group-c3d162c2-0ec4-4955-ba89-18967615fdb8
+ * ```
+ *
  */
 export class CreateDBSubnetGroupCommand extends $Command<
   CreateDBSubnetGroupCommandInput,

@@ -52,6 +52,17 @@ export interface CancelClusterCommandOutput extends CancelClusterResult, __Metad
  * @see {@link CancelClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @example To cancel a cluster job
+ * ```javascript
+ * // This operation cancels a cluster job. You can only cancel a cluster job while it's in the AwaitingQuorum status.
+ * const input = {
+ *   "ClusterId": "CID123e4567-e89b-12d3-a456-426655440000"
+ * };
+ * const command = new CancelClusterCommand(input);
+ * await client.send(command);
+ * // example id: to-cancel-a-cluster-job-1482533760554
+ * ```
+ *
  */
 export class CancelClusterCommand extends $Command<
   CancelClusterCommandInput,

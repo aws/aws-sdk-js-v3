@@ -75,6 +75,17 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteMountTargetCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ * @example To delete a mount target
+ * ```javascript
+ * // This operation deletes a mount target.
+ * const input = {
+ *   "MountTargetId": "fsmt-12340abc"
+ * };
+ * const command = new DeleteMountTargetCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-mount-target-1481847635607
+ * ```
+ *
  */
 export class DeleteMountTargetCommand extends $Command<
   DeleteMountTargetCommandInput,

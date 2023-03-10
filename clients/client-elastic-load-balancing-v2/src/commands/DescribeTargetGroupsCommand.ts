@@ -57,6 +57,45 @@ export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsO
  * @see {@link DescribeTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @example To describe a target group
+ * ```javascript
+ * // This example describes the specified target group.
+ * const input = {
+ *   "TargetGroupArns": [
+ *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ *   ]
+ * };
+ * const command = new DescribeTargetGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TargetGroups": [
+ *     {
+ *       "HealthCheckIntervalSeconds": 30,
+ *       "HealthCheckPath": "/",
+ *       "HealthCheckPort": "traffic-port",
+ *       "HealthCheckProtocol": "HTTP",
+ *       "HealthCheckTimeoutSeconds": 5,
+ *       "HealthyThresholdCount": 5,
+ *       "LoadBalancerArns": [
+ *         "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+ *       ],
+ *       "Matcher": {
+ *         "HttpCode": "200"
+ *       },
+ *       "Port": 80,
+ *       "Protocol": "HTTP",
+ *       "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *       "TargetGroupName": "my-targets",
+ *       "UnhealthyThresholdCount": 2,
+ *       "VpcId": "vpc-3ac0fb5f"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elbv2-describe-target-groups-1
+ * ```
+ *
  */
 export class DescribeTargetGroupsCommand extends $Command<
   DescribeTargetGroupsCommandInput,

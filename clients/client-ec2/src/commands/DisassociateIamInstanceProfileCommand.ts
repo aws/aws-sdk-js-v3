@@ -54,6 +54,30 @@ export interface DisassociateIamInstanceProfileCommandOutput
  * @see {@link DisassociateIamInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To disassociate an IAM instance profile
+ * ```javascript
+ * // This example disassociates the specified IAM instance profile from an instance.
+ * const input = {
+ *   "AssociationId": "iip-assoc-05020b59952902f5f"
+ * };
+ * const command = new DisassociateIamInstanceProfileCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "IamInstanceProfileAssociation": {
+ *     "AssociationId": "iip-assoc-05020b59952902f5f",
+ *     "IamInstanceProfile": {
+ *       "Arn": "arn:aws:iam::123456789012:instance-profile/admin-role",
+ *       "Id": "AIPAI5IVIHMFFYY2DKV5Y"
+ *     },
+ *     "InstanceId": "i-123456789abcde123",
+ *     "State": "disassociating"
+ *   }
+ * }
+ * *\/
+ * // example id: to-disassociate-an-iam-instance-profile-1529355364478
+ * ```
+ *
  */
 export class DisassociateIamInstanceProfileCommand extends $Command<
   DisassociateIamInstanceProfileCommandInput,

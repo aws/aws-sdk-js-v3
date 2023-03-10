@@ -56,6 +56,29 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  * @see {@link ListVolumeRecoveryPointsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To list recovery points for a gateway
+ * ```javascript
+ * // Lists the recovery points for a specified gateway in which all data of the volume is consistent and can be used to create a snapshot.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * };
+ * const command = new ListVolumeRecoveryPointsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   "VolumeRecoveryPointInfos": [
+ *     {
+ *       "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
+ *       "VolumeRecoveryPointTime": "2012-09-04T21:08:44.627Z",
+ *       "VolumeSizeInBytes": 536870912000
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-recovery-points-for-a-gateway-1472143015088
+ * ```
+ *
  */
 export class ListVolumeRecoveryPointsCommand extends $Command<
   ListVolumeRecoveryPointsCommandInput,

@@ -61,6 +61,20 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
  * @see {@link AttachLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To attach a load balancer to an Auto Scaling group
+ * ```javascript
+ * // This example attaches the specified load balancer to the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "LoadBalancerNames": [
+ *     "my-load-balancer"
+ *   ]
+ * };
+ * const command = new AttachLoadBalancersCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-attach-load-balancers-1
+ * ```
+ *
  */
 export class AttachLoadBalancersCommand extends $Command<
   AttachLoadBalancersCommandInput,

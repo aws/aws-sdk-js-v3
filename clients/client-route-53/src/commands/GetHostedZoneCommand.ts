@@ -52,6 +52,38 @@ export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __Met
  * @see {@link GetHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @example To get information about a hosted zone
+ * ```javascript
+ * // The following example gets information about the Z3M3LMPEXAMPLE hosted zone.
+ * const input = {
+ *   "Id": "Z3M3LMPEXAMPLE"
+ * };
+ * const command = new GetHostedZoneCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DelegationSet": {
+ *     "NameServers": [
+ *       "ns-2048.awsdns-64.com",
+ *       "ns-2049.awsdns-65.net",
+ *       "ns-2050.awsdns-66.org",
+ *       "ns-2051.awsdns-67.co.uk"
+ *     ]
+ *   },
+ *   "HostedZone": {
+ *     "CallerReference": "C741617D-04E4-F8DE-B9D7-0D150FC61C2E",
+ *     "Config": {
+ *       "PrivateZone": false
+ *     },
+ *     "Id": "/hostedzone/Z3M3LMPEXAMPLE",
+ *     "Name": "myawsbucket.com.",
+ *     "ResourceRecordSetCount": 8
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-information-about-a-hosted-zone-1481752361124
+ * ```
+ *
  */
 export class GetHostedZoneCommand extends $Command<
   GetHostedZoneCommandInput,

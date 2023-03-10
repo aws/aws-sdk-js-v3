@@ -50,6 +50,33 @@ export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHo
  * @see {@link DescribeLifecycleHooksCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To describe your lifecycle hooks
+ * ```javascript
+ * // This example describes the lifecycle hooks for the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group"
+ * };
+ * const command = new DescribeLifecycleHooksCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LifecycleHooks": [
+ *     {
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "DefaultResult": "ABANDON",
+ *       "GlobalTimeout": 172800,
+ *       "HeartbeatTimeout": 3600,
+ *       "LifecycleHookName": "my-lifecycle-hook",
+ *       "LifecycleTransition": "autoscaling:EC2_INSTANCE_LAUNCHING",
+ *       "NotificationTargetARN": "arn:aws:sns:us-west-2:123456789012:my-sns-topic",
+ *       "RoleARN": "arn:aws:iam::123456789012:role/my-auto-scaling-role"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: autoscaling-describe-lifecycle-hooks-1
+ * ```
+ *
  */
 export class DescribeLifecycleHooksCommand extends $Command<
   DescribeLifecycleHooksCommandInput,

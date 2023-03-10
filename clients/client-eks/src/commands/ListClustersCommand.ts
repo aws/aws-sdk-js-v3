@@ -51,6 +51,23 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * @see {@link ListClustersCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
+ * @example To list your available clusters
+ * ```javascript
+ * // This example command lists all of your available clusters in your default region.
+ * const input = {};
+ * const command = new ListClustersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "clusters": [
+ *     "devel",
+ *     "prod"
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-your-available-clusters-1527868801040
+ * ```
+ *
  */
 export class ListClustersCommand extends $Command<
   ListClustersCommandInput,

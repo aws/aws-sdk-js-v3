@@ -143,6 +143,25 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * @see {@link GenerateDataKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @example To generate a data key
+ * ```javascript
+ * // The following example generates a 256-bit symmetric data encryption key (data key) in two formats. One is the unencrypted (plainext) data key, and the other is the data key encrypted with the specified KMS key.
+ * const input = {
+ *   "KeyId": "alias/ExampleAlias",
+ *   "KeySpec": "AES_256"
+ * };
+ * const command = new GenerateDataKeyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CiphertextBlob": "<binary data>",
+ *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "Plaintext": "<binary data>"
+ * }
+ * *\/
+ * // example id: to-generate-a-data-key-1478912956062
+ * ```
+ *
  */
 export class GenerateDataKeyCommand extends $Command<
   GenerateDataKeyCommandInput,

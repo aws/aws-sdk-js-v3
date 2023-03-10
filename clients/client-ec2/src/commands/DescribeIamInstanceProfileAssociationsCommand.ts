@@ -53,6 +53,34 @@ export interface DescribeIamInstanceProfileAssociationsCommandOutput
  * @see {@link DescribeIamInstanceProfileAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To describe an IAM instance profile association
+ * ```javascript
+ * // This example describes the specified IAM instance profile association.
+ * const input = {
+ *   "AssociationIds": [
+ *     "iip-assoc-0db249b1f25fa24b8"
+ *   ]
+ * };
+ * const command = new DescribeIamInstanceProfileAssociationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "IamInstanceProfileAssociations": [
+ *     {
+ *       "AssociationId": "iip-assoc-0db249b1f25fa24b8",
+ *       "IamInstanceProfile": {
+ *         "Arn": "arn:aws:iam::123456789012:instance-profile/admin-role",
+ *         "Id": "AIPAJVQN4F5WVLGCJDRGM"
+ *       },
+ *       "InstanceId": "i-09eb09efa73ec1dee",
+ *       "State": "associated"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-an-iam-instance-profile-association-1529025123918
+ * ```
+ *
  */
 export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
   DescribeIamInstanceProfileAssociationsCommandInput,

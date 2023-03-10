@@ -52,6 +52,32 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * @see {@link DescribeAddressesCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @example To describe all the addresses you've created for AWS Snowball
+ * ```javascript
+ * // This operation describes all the addresses that you've created for AWS Snowball. Calling this API in one of the US regions will return addresses from the list of all addresses associated with this account in all US regions.
+ * const input = {};
+ * const command = new DescribeAddressesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Addresses": [
+ *     {
+ *       "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
+ *       "City": "Seattle",
+ *       "Company": "My Company",
+ *       "Country": "US",
+ *       "Name": "My Name",
+ *       "PhoneNumber": "425-555-5555",
+ *       "PostalCode": "98101",
+ *       "StateOrProvince": "WA",
+ *       "Street1": "123 Main Street"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-all-the-addresses-youve-created-for-aws-snowball-1482538936603
+ * ```
+ *
  */
 export class DescribeAddressesCommand extends $Command<
   DescribeAddressesCommandInput,

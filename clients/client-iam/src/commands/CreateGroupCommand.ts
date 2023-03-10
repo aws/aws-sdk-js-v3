@@ -49,6 +49,28 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @see {@link CreateGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To create an IAM group
+ * ```javascript
+ * // The following command creates an IAM group named Admins.
+ * const input = {
+ *   "GroupName": "Admins"
+ * };
+ * const command = new CreateGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Group": {
+ *     "Arn": "arn:aws:iam::123456789012:group/Admins",
+ *     "CreateDate": "2015-03-09T20:30:24.940Z",
+ *     "GroupId": "AIDGPMS9RO4H3FEXAMPLE",
+ *     "GroupName": "Admins",
+ *     "Path": "/"
+ *   }
+ * }
+ * *\/
+ * // example id: d5da2a90-5e69-4ef7-8ae8-4c33dc21fd21
+ * ```
+ *
  */
 export class CreateGroupCommand extends $Command<
   CreateGroupCommandInput,

@@ -53,6 +53,17 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteDBSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To delete a DB security group
+ * ```javascript
+ * // The following example deletes a DB security group.
+ * const input = {
+ *   "DBSecurityGroupName": "mysecgroup"
+ * };
+ * const command = new DeleteDBSecurityGroupCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-db-security-group-1473960141889
+ * ```
+ *
  */
 export class DeleteDBSecurityGroupCommand extends $Command<
   DeleteDBSecurityGroupCommandInput,

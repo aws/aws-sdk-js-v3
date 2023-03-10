@@ -58,6 +58,27 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * @see {@link ModifyDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To change DB cluster settings
+ * ```javascript
+ * // This example changes the specified settings for the specified DB cluster.
+ * const input = {
+ *   "ApplyImmediately": true,
+ *   "DBClusterIdentifier": "mydbcluster",
+ *   "MasterUserPassword": "mynewpassword",
+ *   "NewDBClusterIdentifier": "mynewdbcluster",
+ *   "PreferredBackupWindow": "04:00-04:30",
+ *   "PreferredMaintenanceWindow": "Tue:05:00-Tue:05:30"
+ * };
+ * const command = new ModifyDBClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBCluster": {}
+ * }
+ * *\/
+ * // example id: modify-db-cluster-a370ee1b-768d-450a-853b-707cb1ab663d
+ * ```
+ *
  */
 export class ModifyDBClusterCommand extends $Command<
   ModifyDBClusterCommandInput,

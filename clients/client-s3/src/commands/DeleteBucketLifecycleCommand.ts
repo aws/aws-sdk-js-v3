@@ -68,6 +68,17 @@ export interface DeleteBucketLifecycleCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteBucketLifecycleCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @example To delete lifecycle configuration on a bucket.
+ * ```javascript
+ * // The following example deletes lifecycle configuration on a bucket.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new DeleteBucketLifecycleCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-lifecycle-configuration-on-a-bucket-1483043310583
+ * ```
+ *
  */
 export class DeleteBucketLifecycleCommand extends $Command<
   DeleteBucketLifecycleCommandInput,

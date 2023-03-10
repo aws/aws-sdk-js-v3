@@ -50,6 +50,22 @@ export interface PurchaseProvisionedCapacityCommandOutput extends PurchaseProvis
  * @see {@link PurchaseProvisionedCapacityCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ * @example To purchases a provisioned capacity unit for an AWS account
+ * ```javascript
+ * // The example purchases provisioned capacity unit for an AWS account.
+ * const input = {
+ *   "accountId": "-"
+ * };
+ * const command = new PurchaseProvisionedCapacityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "capacityId": "zSaq7NzHFQDANTfQkDen4V7z"
+ * }
+ * *\/
+ * // example id: to-purchases-a-provisioned-capacity-unit-for-an-aws-account-1481927446662
+ * ```
+ *
  */
 export class PurchaseProvisionedCapacityCommand extends $Command<
   PurchaseProvisionedCapacityCommandInput,

@@ -92,6 +92,17 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteAliasCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @example To delete an alias
+ * ```javascript
+ * // The following example deletes the specified alias.
+ * const input = {
+ *   "AliasName": "alias/ExampleAlias"
+ * };
+ * const command = new DeleteAliasCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-an-alias-1478285209338
+ * ```
+ *
  */
 export class DeleteAliasCommand extends $Command<
   DeleteAliasCommandInput,

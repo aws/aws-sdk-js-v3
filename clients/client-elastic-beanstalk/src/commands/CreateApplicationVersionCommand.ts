@@ -66,6 +66,40 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * @see {@link CreateApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @example To create a new application
+ * ```javascript
+ * // The following operation creates a new version (v1) of an application named my-app:
+ * const input = {
+ *   "ApplicationName": "my-app",
+ *   "AutoCreateApplication": true,
+ *   "Description": "my-app-v1",
+ *   "Process": true,
+ *   "SourceBundle": {
+ *     "S3Bucket": "my-bucket",
+ *     "S3Key": "sample.war"
+ *   },
+ *   "VersionLabel": "v1"
+ * };
+ * const command = new CreateApplicationVersionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationVersion": {
+ *     "ApplicationName": "my-app",
+ *     "DateCreated": "2015-02-03T23:01:25.412Z",
+ *     "DateUpdated": "2015-02-03T23:01:25.412Z",
+ *     "Description": "my-app-v1",
+ *     "SourceBundle": {
+ *       "S3Bucket": "my-bucket",
+ *       "S3Key": "sample.war"
+ *     },
+ *     "VersionLabel": "v1"
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-new-application-1456268895683
+ * ```
+ *
  */
 export class CreateApplicationVersionCommand extends $Command<
   CreateApplicationVersionCommandInput,

@@ -53,6 +53,26 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  * @see {@link DescribeSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To describe snapshot schedule for gateway volume
+ * ```javascript
+ * // Describes the snapshot schedule for the specified gateway volume including intervals at which snapshots are automatically initiated.
+ * const input = {
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * };
+ * const command = new DescribeSnapshotScheduleCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Description": "sgw-AABB1122:vol-AABB1122:Schedule",
+ *   "RecurrenceInHours": 24,
+ *   "StartAt": 6,
+ *   "Timezone": "GMT+7:00",
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * }
+ * *\/
+ * // example id: to-describe-snapshot-schedule-for-gateway-volume-1471471139538
+ * ```
+ *
  */
 export class DescribeSnapshotScheduleCommand extends $Command<
   DescribeSnapshotScheduleCommandInput,

@@ -55,6 +55,63 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * @see {@link CreateLoadBalancerPolicyCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @example To create a policy that enables Proxy Protocol on a load balancer
+ * ```javascript
+ * // This example creates a policy that enables Proxy Protocol on the specified load balancer.
+ * const input = {
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "PolicyAttributes": [
+ *     {
+ *       "AttributeName": "ProxyProtocol",
+ *       "AttributeValue": "true"
+ *     }
+ *   ],
+ *   "PolicyName": "my-ProxyProtocol-policy",
+ *   "PolicyTypeName": "ProxyProtocolPolicyType"
+ * };
+ * const command = new CreateLoadBalancerPolicyCommand(input);
+ * await client.send(command);
+ * // example id: elb-create-load-balancer-policy-1
+ * ```
+ *
+ * @example To create a public key policy
+ * ```javascript
+ * // This example creates a public key policy.
+ * const input = {
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "PolicyAttributes": [
+ *     {
+ *       "AttributeName": "PublicKey",
+ *       "AttributeValue": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwAYUjnfyEyXr1pxjhFWBpMlggUcqoi3kl+dS74kj//c6x7ROtusUaeQCTgIUkayttRDWchuqo1pHC1u+n5xxXnBBe2ejbb2WRsKIQ5rXEeixsjFpFsojpSQKkzhVGI6mJVZBJDVKSHmswnwLBdofLhzvllpovBPTHe+o4haAWvDBALJU0pkSI1FecPHcs2hwxf14zHoXy1e2k36A64nXW43wtfx5qcVSIxtCEOjnYRg7RPvybaGfQ+v6Iaxb/+7J5kEvZhTFQId+bSiJImF1FSUT1W1xwzBZPUbcUkkXDj45vC2s3Z8E+Lk7a3uZhvsQHLZnrfuWjBWGWvZ/MhZYgEXAMPLE"
+ *     }
+ *   ],
+ *   "PolicyName": "my-PublicKey-policy",
+ *   "PolicyTypeName": "PublicKeyPolicyType"
+ * };
+ * const command = new CreateLoadBalancerPolicyCommand(input);
+ * await client.send(command);
+ * // example id: elb-create-load-balancer-policy-2
+ * ```
+ *
+ * @example To create a backend server authentication policy
+ * ```javascript
+ * // This example creates a backend server authentication policy that enables authentication on your backend instance using a public key policy.
+ * const input = {
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "PolicyAttributes": [
+ *     {
+ *       "AttributeName": "PublicKeyPolicyName",
+ *       "AttributeValue": "my-PublicKey-policy"
+ *     }
+ *   ],
+ *   "PolicyName": "my-authentication-policy",
+ *   "PolicyTypeName": "BackendServerAuthenticationPolicyType"
+ * };
+ * const command = new CreateLoadBalancerPolicyCommand(input);
+ * await client.send(command);
+ * // example id: elb-create-load-balancer-policy-3
+ * ```
+ *
  */
 export class CreateLoadBalancerPolicyCommand extends $Command<
   CreateLoadBalancerPolicyCommandInput,

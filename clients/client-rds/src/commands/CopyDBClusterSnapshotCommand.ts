@@ -87,6 +87,23 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * @see {@link CopyDBClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To copy a DB cluster snapshot
+ * ```javascript
+ * // The following example copies an automated snapshot of a DB cluster to a new DB cluster snapshot.
+ * const input = {
+ *   "SourceDBClusterSnapshotIdentifier": "rds:sample-cluster-2016-09-14-10-38",
+ *   "TargetDBClusterSnapshotIdentifier": "cluster-snapshot-copy-1"
+ * };
+ * const command = new CopyDBClusterSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterSnapshot": {}
+ * }
+ * *\/
+ * // example id: to-copy-a-db-cluster-snapshot-1473879770564
+ * ```
+ *
  */
 export class CopyDBClusterSnapshotCommand extends $Command<
   CopyDBClusterSnapshotCommandInput,

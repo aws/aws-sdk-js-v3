@@ -50,6 +50,31 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  * @see {@link ModifyOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To modify an option group
+ * ```javascript
+ * // The following example adds an option to an option group.
+ * const input = {
+ *   "ApplyImmediately": true,
+ *   "OptionGroupName": "myawsuser-og02",
+ *   "OptionsToInclude": [
+ *     {
+ *       "DBSecurityGroupMemberships": [
+ *         "default"
+ *       ],
+ *       "OptionName": "MEMCACHED"
+ *     }
+ *   ]
+ * };
+ * const command = new ModifyOptionGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OptionGroup": {}
+ * }
+ * *\/
+ * // example id: to-modify-an-option-group-1473890247875
+ * ```
+ *
  */
 export class ModifyOptionGroupCommand extends $Command<
   ModifyOptionGroupCommandInput,

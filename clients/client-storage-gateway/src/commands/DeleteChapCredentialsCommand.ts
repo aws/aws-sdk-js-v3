@@ -52,6 +52,24 @@ export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredential
  * @see {@link DeleteChapCredentialsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To delete CHAP credentials
+ * ```javascript
+ * // Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target and initiator pair.
+ * const input = {
+ *   "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
+ *   "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+ * };
+ * const command = new DeleteChapCredentialsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
+ *   "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+ * }
+ * *\/
+ * // example id: to-delete-chap-credentials-1471375025612
+ * ```
+ *
  */
 export class DeleteChapCredentialsCommand extends $Command<
   DeleteChapCredentialsCommandInput,

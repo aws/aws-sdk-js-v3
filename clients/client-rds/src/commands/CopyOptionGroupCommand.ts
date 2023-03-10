@@ -50,6 +50,24 @@ export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __M
  * @see {@link CopyOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To copy an option group
+ * ```javascript
+ * // This example copies an option group.
+ * const input = {
+ *   "SourceOptionGroupIdentifier": "mymysqloptiongroup",
+ *   "TargetOptionGroupDescription": "My MySQL option group copy",
+ *   "TargetOptionGroupIdentifier": "mymysqloptiongroup-copy"
+ * };
+ * const command = new CopyOptionGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OptionGroup": {}
+ * }
+ * *\/
+ * // example id: copy-option-group-8d5c01c3-8846-4e9c-a4b0-1b7237f7d0ec
+ * ```
+ *
  */
 export class CopyOptionGroupCommand extends $Command<
   CopyOptionGroupCommandInput,

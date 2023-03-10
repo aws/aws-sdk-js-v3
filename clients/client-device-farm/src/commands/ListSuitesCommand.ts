@@ -50,6 +50,23 @@ export interface ListSuitesCommandOutput extends ListSuitesResult, __MetadataBea
  * @see {@link ListSuitesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ * @example To get information about suites
+ * ```javascript
+ * // The following example returns information about suites, given a specific Device Farm job.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:job:EXAMPLE-GUID-123-456",
+ *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE"
+ * };
+ * const command = new ListSuitesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "suites": []
+ * }
+ * *\/
+ * // example id: to-get-information-about-suites-1472583038218
+ * ```
+ *
  */
 export class ListSuitesCommand extends $Command<
   ListSuitesCommandInput,

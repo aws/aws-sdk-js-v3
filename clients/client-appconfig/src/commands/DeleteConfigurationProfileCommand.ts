@@ -49,6 +49,18 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  * @see {@link DeleteConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ * @example To delete a configuration profile
+ * ```javascript
+ * // The following delete-configuration-profile example deletes the specified configuration profile.
+ * const input = {
+ *   "ApplicationId": "339ohji",
+ *   "ConfigurationProfileId": "ur8hx2f"
+ * };
+ * const command = new DeleteConfigurationProfileCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-configuration-profile-1632265401308
+ * ```
+ *
  */
 export class DeleteConfigurationProfileCommand extends $Command<
   DeleteConfigurationProfileCommandInput,

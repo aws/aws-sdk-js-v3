@@ -50,6 +50,17 @@ export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefin
  * @see {@link DeregisterJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
+ * @example To deregister a job definition
+ * ```javascript
+ * // This example deregisters a job definition called sleep10.
+ * const input = {
+ *   "jobDefinition": "sleep10"
+ * };
+ * const command = new DeregisterJobDefinitionCommand(input);
+ * await client.send(command);
+ * // example id: to-deregister-a-job-definition-1481153579565
+ * ```
+ *
  */
 export class DeregisterJobDefinitionCommand extends $Command<
   DeregisterJobDefinitionCommandInput,

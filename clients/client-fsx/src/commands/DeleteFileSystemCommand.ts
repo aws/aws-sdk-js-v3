@@ -72,6 +72,23 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  * @see {@link DeleteFileSystemCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
+ * @example To delete a file system
+ * ```javascript
+ * // This operation deletes an Amazon FSx file system.
+ * const input = {
+ *   "FileSystemId": "fs-0498eed5fe91001ec"
+ * };
+ * const command = new DeleteFileSystemCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "FileSystemId": "fs-0498eed5fe91001ec",
+ *   "Lifecycle": "DELETING"
+ * }
+ * *\/
+ * // example id: to-delete-a-file-system-1481847318348
+ * ```
+ *
  */
 export class DeleteFileSystemCommand extends $Command<
   DeleteFileSystemCommandInput,

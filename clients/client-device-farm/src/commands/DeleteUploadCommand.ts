@@ -50,6 +50,17 @@ export interface DeleteUploadCommandOutput extends DeleteUploadResult, __Metadat
  * @see {@link DeleteUploadCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ * @example To delete a specific upload
+ * ```javascript
+ * // The following example deletes a specific upload.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:EXAMPLE-GUID-123-456"
+ * };
+ * const command = new DeleteUploadCommand(input);
+ * await client.send(command);
+ * // example id: deleteupload-example-1470868363942
+ * ```
+ *
  */
 export class DeleteUploadCommand extends $Command<
   DeleteUploadCommandInput,

@@ -105,6 +105,22 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  * @see {@link GenerateServiceLastAccessedDetailsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To generate a service last accessed data report for a policy
+ * ```javascript
+ * // The following operation generates a report for the policy: ExamplePolicy1
+ * const input = {
+ *   "Arn": "arn:aws:iam::123456789012:policy/ExamplePolicy1"
+ * };
+ * const command = new GenerateServiceLastAccessedDetailsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "JobId": "examplef-1305-c245-eba4-71fe298bcda7"
+ * }
+ * *\/
+ * // example id: generateaccessdata-policy-1541695178514
+ * ```
+ *
  */
 export class GenerateServiceLastAccessedDetailsCommand extends $Command<
   GenerateServiceLastAccessedDetailsCommandInput,

@@ -60,6 +60,19 @@ export interface SetIdentityNotificationTopicCommandOutput
  * @see {@link SetIdentityNotificationTopicCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @example SetIdentityNotificationTopic
+ * ```javascript
+ * // The following example sets the Amazon SNS topic to which Amazon SES will publish bounce, complaint, and/or delivery notifications for emails sent with the specified identity as the Source:
+ * const input = {
+ *   "Identity": "user@example.com",
+ *   "NotificationType": "Bounce",
+ *   "SnsTopic": "arn:aws:sns:us-west-2:111122223333:MyTopic"
+ * };
+ * const command = new SetIdentityNotificationTopicCommand(input);
+ * await client.send(command);
+ * // example id: setidentitynotificationtopic-1469057854966
+ * ```
+ *
  */
 export class SetIdentityNotificationTopicCommand extends $Command<
   SetIdentityNotificationTopicCommandInput,

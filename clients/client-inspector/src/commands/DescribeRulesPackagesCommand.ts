@@ -51,6 +51,33 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  * @see {@link DescribeRulesPackagesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ * @example Describe rules packages
+ * ```javascript
+ * // Describes the rules packages that are specified by the ARNs of the rules packages.
+ * const input = {
+ *   "rulesPackageArns": [
+ *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ"
+ *   ]
+ * };
+ * const command = new DescribeRulesPackagesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failedItems": {},
+ *   "rulesPackages": [
+ *     {
+ *       "version": "1.1",
+ *       "name": "Security Best Practices",
+ *       "arn": "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
+ *       "description": "The rules in this package help determine whether your systems are configured securely.",
+ *       "provider": "Amazon Web Services, Inc."
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: describe-rules-packages-1481069641979
+ * ```
+ *
  */
 export class DescribeRulesPackagesCommand extends $Command<
   DescribeRulesPackagesCommandInput,

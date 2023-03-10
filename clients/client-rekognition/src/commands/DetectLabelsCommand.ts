@@ -162,6 +162,38 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  * @see {@link DetectLabelsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
+ * @example To detect labels
+ * ```javascript
+ * // This operation detects labels in the supplied image
+ * const input = {
+ *   "Image": {
+ *     "S3Object": {
+ *       "Bucket": "mybucket",
+ *       "Name": "myphoto"
+ *     }
+ *   },
+ *   "MaxLabels": 123,
+ *   "MinConfidence": 70
+ * };
+ * const command = new DetectLabelsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Labels": [
+ *     {
+ *       "Confidence": 99.25072479248047,
+ *       "Name": "People"
+ *     },
+ *     {
+ *       "Confidence": 99.25074005126953,
+ *       "Name": "Person"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-detect-labels-1481834255770
+ * ```
+ *
  */
 export class DetectLabelsCommand extends $Command<
   DetectLabelsCommandInput,

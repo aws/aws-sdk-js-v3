@@ -53,6 +53,48 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @example RemoveTagsFromResource
+ * ```javascript
+ * // Removes tags identified by a list of tag keys from the list of tags on the specified resource.
+ * const input = {
+ *   "ResourceName": "arn:aws:elasticache:us-east-1:1234567890:cluster:my-mem-cluster",
+ *   "TagKeys": [
+ *     "A",
+ *     "C",
+ *     "E"
+ *   ]
+ * };
+ * const command = new RemoveTagsFromResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TagList": [
+ *     {
+ *       "Key": "B",
+ *       "Value": "Banana"
+ *     },
+ *     {
+ *       "Key": "D",
+ *       "Value": "Dog"
+ *     },
+ *     {
+ *       "Key": "F",
+ *       "Value": "Fox"
+ *     },
+ *     {
+ *       "Key": "I",
+ *       "Value": ""
+ *     },
+ *     {
+ *       "Key": "K",
+ *       "Value": "Kite"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: removetagsfromresource-1483037920947
+ * ```
+ *
  */
 export class RemoveTagsFromResourceCommand extends $Command<
   RemoveTagsFromResourceCommandInput,

@@ -50,6 +50,23 @@ export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironm
  * @see {@link DescribeEnvironmentStatusCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
+ * @example DescribeEnvironmentStatus
+ * ```javascript
+ * //
+ * const input = {
+ *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
+ * };
+ * const command = new DescribeEnvironmentStatusCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "message": "Environment is ready to use",
+ *   "status": "ready"
+ * }
+ * *\/
+ * // example id: describeenvironmentstatus-1516823462133
+ * ```
+ *
  */
 export class DescribeEnvironmentStatusCommand extends $Command<
   DescribeEnvironmentStatusCommandInput,

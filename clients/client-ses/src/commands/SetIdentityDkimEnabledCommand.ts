@@ -62,6 +62,18 @@ export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnab
  * @see {@link SetIdentityDkimEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @example SetIdentityDkimEnabled
+ * ```javascript
+ * // The following example configures Amazon SES to Easy DKIM-sign the email sent from an identity:
+ * const input = {
+ *   "DkimEnabled": true,
+ *   "Identity": "user@example.com"
+ * };
+ * const command = new SetIdentityDkimEnabledCommand(input);
+ * await client.send(command);
+ * // example id: setidentitydkimenabled-1469057485202
+ * ```
+ *
  */
 export class SetIdentityDkimEnabledCommand extends $Command<
   SetIdentityDkimEnabledCommandInput,

@@ -52,6 +52,17 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @example To delete a rule
+ * ```javascript
+ * // This example deletes the specified rule.
+ * const input = {
+ *   "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/1291d13826f405c3"
+ * };
+ * const command = new DeleteRuleCommand(input);
+ * await client.send(command);
+ * // example id: elbv2-delete-rule-1
+ * ```
+ *
  */
 export class DeleteRuleCommand extends $Command<
   DeleteRuleCommandInput,

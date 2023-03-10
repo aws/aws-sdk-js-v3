@@ -61,6 +61,33 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  * @see {@link ModifyEndpointCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @example Modify endpoint
+ * ```javascript
+ * // Modifies the specified endpoint.
+ * const input = {
+ *   "CertificateArn": "",
+ *   "DatabaseName": "",
+ *   "EndpointArn": "",
+ *   "EndpointIdentifier": "",
+ *   "EndpointType": "source",
+ *   "EngineName": "",
+ *   "ExtraConnectionAttributes": "",
+ *   "Password": "",
+ *   "Port": 123,
+ *   "ServerName": "",
+ *   "SslMode": "require",
+ *   "Username": ""
+ * };
+ * const command = new ModifyEndpointCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Endpoint": {}
+ * }
+ * *\/
+ * // example id: modify-endpoint-1481761649937
+ * ```
+ *
  */
 export class ModifyEndpointCommand extends $Command<
   ModifyEndpointCommandInput,

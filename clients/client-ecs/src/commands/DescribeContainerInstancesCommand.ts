@@ -51,6 +51,94 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
  * @see {@link DescribeContainerInstancesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @example To describe container instance
+ * ```javascript
+ * // This example provides a description of the specified container instance in your default region, using the container instance UUID as an identifier.
+ * const input = {
+ *   "cluster": "default",
+ *   "containerInstances": [
+ *     "f2756532-8f13-4d53-87c9-aed50dc94cd7"
+ *   ]
+ * };
+ * const command = new DescribeContainerInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "containerInstances": [
+ *     {
+ *       "agentConnected": true,
+ *       "containerInstanceArn": "arn:aws:ecs:us-east-1:012345678910:container-instance/f2756532-8f13-4d53-87c9-aed50dc94cd7",
+ *       "ec2InstanceId": "i-807f3249",
+ *       "pendingTasksCount": 0,
+ *       "registeredResources": [
+ *         {
+ *           "name": "CPU",
+ *           "type": "INTEGER",
+ *           "doubleValue": 0,
+ *           "integerValue": 2048,
+ *           "longValue": 0
+ *         },
+ *         {
+ *           "name": "MEMORY",
+ *           "type": "INTEGER",
+ *           "doubleValue": 0,
+ *           "integerValue": 3768,
+ *           "longValue": 0
+ *         },
+ *         {
+ *           "name": "PORTS",
+ *           "type": "STRINGSET",
+ *           "doubleValue": 0,
+ *           "integerValue": 0,
+ *           "longValue": 0,
+ *           "stringSetValue": [
+ *             "2376",
+ *             "22",
+ *             "51678",
+ *             "2375"
+ *           ]
+ *         }
+ *       ],
+ *       "remainingResources": [
+ *         {
+ *           "name": "CPU",
+ *           "type": "INTEGER",
+ *           "doubleValue": 0,
+ *           "integerValue": 1948,
+ *           "longValue": 0
+ *         },
+ *         {
+ *           "name": "MEMORY",
+ *           "type": "INTEGER",
+ *           "doubleValue": 0,
+ *           "integerValue": 3668,
+ *           "longValue": 0
+ *         },
+ *         {
+ *           "name": "PORTS",
+ *           "type": "STRINGSET",
+ *           "doubleValue": 0,
+ *           "integerValue": 0,
+ *           "longValue": 0,
+ *           "stringSetValue": [
+ *             "2376",
+ *             "22",
+ *             "80",
+ *             "51678",
+ *             "2375"
+ *           ]
+ *         }
+ *       ],
+ *       "runningTasksCount": 1,
+ *       "status": "ACTIVE"
+ *     }
+ *   ],
+ *   "failures": []
+ * }
+ * *\/
+ * // example id: c8f439de-eb27-4269-8ca7-2c0a7ba75ab0
+ * ```
+ *
  */
 export class DescribeContainerInstancesCommand extends $Command<
   DescribeContainerInstancesCommandInput,

@@ -50,6 +50,22 @@ export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
  * @see {@link StopRunCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ * @example To stop a test run
+ * ```javascript
+ * // The following example stops a specific test run.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:run:EXAMPLE-GUID-123-456"
+ * };
+ * const command = new StopRunCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "run": {}
+ * }
+ * *\/
+ * // example id: to-stop-a-test-run-1472653770340
+ * ```
+ *
  */
 export class StopRunCommand extends $Command<
   StopRunCommandInput,

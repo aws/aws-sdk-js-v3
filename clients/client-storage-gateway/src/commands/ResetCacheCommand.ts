@@ -62,6 +62,22 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  * @see {@link ResetCacheCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To reset cache disks in error status
+ * ```javascript
+ * // Resets all cache disks that have encountered a error and makes the disks available for reconfiguration as cache storage.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C"
+ * };
+ * const command = new ResetCacheCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C"
+ * }
+ * *\/
+ * // example id: to-reset-cache-disks-in-error-status-1472148909807
+ * ```
+ *
  */
 export class ResetCacheCommand extends $Command<
   ResetCacheCommandInput,

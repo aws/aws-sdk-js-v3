@@ -54,6 +54,29 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * @see {@link ModifyDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To change DB instance settings
+ * ```javascript
+ * // This example immediately changes the specified settings for the specified DB instance.
+ * const input = {
+ *   "AllocatedStorage": 10,
+ *   "ApplyImmediately": true,
+ *   "BackupRetentionPeriod": 1,
+ *   "DBInstanceClass": "db.t2.small",
+ *   "DBInstanceIdentifier": "mymysqlinstance",
+ *   "MasterUserPassword": "mynewpassword",
+ *   "PreferredBackupWindow": "04:00-04:30",
+ *   "PreferredMaintenanceWindow": "Tue:05:00-Tue:05:30"
+ * };
+ * const command = new ModifyDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstance": {}
+ * }
+ * *\/
+ * // example id: modify-db-instance-6979a368-6254-467b-8a8d-61103f4fcde9
+ * ```
+ *
  */
 export class ModifyDBInstanceCommand extends $Command<
   ModifyDBInstanceCommandInput,

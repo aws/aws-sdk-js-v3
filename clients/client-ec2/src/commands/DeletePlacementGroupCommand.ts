@@ -47,6 +47,18 @@ export interface DeletePlacementGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeletePlacementGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To delete a placement group
+ * ```javascript
+ * // This example deletes the specified placement group.
+ * //
+ * const input = {
+ *   "GroupName": "my-cluster"
+ * };
+ * const command = new DeletePlacementGroupCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-placement-group-1472712349959
+ * ```
+ *
  */
 export class DeletePlacementGroupCommand extends $Command<
   DeletePlacementGroupCommandInput,

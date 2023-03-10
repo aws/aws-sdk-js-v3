@@ -86,6 +86,52 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  * @see {@link SearchFacesByImageCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
+ * @example To search for faces matching a supplied image
+ * ```javascript
+ * // This operation searches for faces in a Rekognition collection that match the largest face in an S3 bucket stored image.
+ * const input = {
+ *   "CollectionId": "myphotos",
+ *   "FaceMatchThreshold": 95,
+ *   "Image": {
+ *     "S3Object": {
+ *       "Bucket": "mybucket",
+ *       "Name": "myphoto"
+ *     }
+ *   },
+ *   "MaxFaces": 5
+ * };
+ * const command = new SearchFacesByImageCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "FaceMatches": [
+ *     {
+ *       "Face": {
+ *         "BoundingBox": {
+ *           "Height": 0.3234420120716095,
+ *           "Left": 0.3233329951763153,
+ *           "Top": 0.5,
+ *           "Width": 0.24222199618816376
+ *         },
+ *         "Confidence": 99.99829864501953,
+ *         "FaceId": "38271d79-7bc2-5efb-b752-398a8d575b85",
+ *         "ImageId": "d5631190-d039-54e4-b267-abd22c8647c5"
+ *       },
+ *       "Similarity": 99.97036743164062
+ *     }
+ *   ],
+ *   "SearchedFaceBoundingBox": {
+ *     "Height": 0.33481481671333313,
+ *     "Left": 0.31888890266418457,
+ *     "Top": 0.4933333396911621,
+ *     "Width": 0.25
+ *   },
+ *   "SearchedFaceConfidence": 99.9991226196289
+ * }
+ * *\/
+ * // example id: to-search-for-faces-matching-a-supplied-image-1482175994491
+ * ```
+ *
  */
 export class SearchFacesByImageCommand extends $Command<
   SearchFacesByImageCommandInput,

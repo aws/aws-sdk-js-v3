@@ -46,6 +46,18 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ * @example To delete an application
+ * ```javascript
+ * // The following delete-application example deletes the specified application.
+ * //
+ * const input = {
+ *   "ApplicationId": "339ohji"
+ * };
+ * const command = new DeleteApplicationCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-an-application-1632265343951
+ * ```
+ *
  */
 export class DeleteApplicationCommand extends $Command<
   DeleteApplicationCommandInput,

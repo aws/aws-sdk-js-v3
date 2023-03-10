@@ -50,6 +50,19 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  * @see {@link SetDesiredCapacityCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To set the desired capacity for an Auto Scaling group
+ * ```javascript
+ * // This example sets the desired capacity for the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "DesiredCapacity": 2,
+ *   "HonorCooldown": true
+ * };
+ * const command = new SetDesiredCapacityCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-set-desired-capacity-1
+ * ```
+ *
  */
 export class SetDesiredCapacityCommand extends $Command<
   SetDesiredCapacityCommandInput,

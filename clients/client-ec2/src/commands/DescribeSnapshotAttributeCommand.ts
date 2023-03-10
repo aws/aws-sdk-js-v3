@@ -52,6 +52,24 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  * @see {@link DescribeSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To describe snapshot attributes
+ * ```javascript
+ * // This example describes the ``createVolumePermission`` attribute on a snapshot with the snapshot ID of ``snap-066877671789bd71b``.
+ * const input = {
+ *   "Attribute": "createVolumePermission",
+ *   "SnapshotId": "snap-066877671789bd71b"
+ * };
+ * const command = new DescribeSnapshotAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CreateVolumePermissions": [],
+ *   "SnapshotId": "snap-066877671789bd71b"
+ * }
+ * *\/
+ * // example id: to-describe-snapshot-attributes-1472503199736
+ * ```
+ *
  */
 export class DescribeSnapshotAttributeCommand extends $Command<
   DescribeSnapshotAttributeCommandInput,

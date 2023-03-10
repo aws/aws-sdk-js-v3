@@ -58,6 +58,27 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * @see {@link CreateDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To create a DB instance.
+ * ```javascript
+ * // This example creates a DB instance.
+ * const input = {
+ *   "AllocatedStorage": 5,
+ *   "DBInstanceClass": "db.t2.micro",
+ *   "DBInstanceIdentifier": "mymysqlinstance",
+ *   "Engine": "MySQL",
+ *   "MasterUserPassword": "MyPassword",
+ *   "MasterUsername": "MyUser"
+ * };
+ * const command = new CreateDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstance": {}
+ * }
+ * *\/
+ * // example id: create-db-instance-57eb5d16-8bf8-4c84-9709-1700322b37b9
+ * ```
+ *
  */
 export class CreateDBInstanceCommand extends $Command<
   CreateDBInstanceCommandInput,

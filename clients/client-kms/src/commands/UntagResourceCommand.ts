@@ -86,6 +86,21 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @example To remove tags from a KMS key
+ * ```javascript
+ * // The following example removes tags from a KMS key.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "TagKeys": [
+ *     "Purpose",
+ *     "CostCenter"
+ *   ]
+ * };
+ * const command = new UntagResourceCommand(input);
+ * await client.send(command);
+ * // example id: to-remove-tags-from-a-cmk-1483997590962
+ * ```
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

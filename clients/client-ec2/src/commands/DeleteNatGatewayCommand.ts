@@ -52,6 +52,22 @@ export interface DeleteNatGatewayCommandOutput extends DeleteNatGatewayResult, _
  * @see {@link DeleteNatGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To delete a NAT gateway
+ * ```javascript
+ * // This example deletes the specified NAT gateway.
+ * const input = {
+ *   "NatGatewayId": "nat-04ae55e711cec5680"
+ * };
+ * const command = new DeleteNatGatewayCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NatGatewayId": "nat-04ae55e711cec5680"
+ * }
+ * *\/
+ * // example id: ec2-delete-nat-gateway-1
+ * ```
+ *
  */
 export class DeleteNatGatewayCommand extends $Command<
   DeleteNatGatewayCommandInput,

@@ -57,6 +57,23 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * @see {@link CopyDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To copy a DB snapshot
+ * ```javascript
+ * // This example copies a DB snapshot.
+ * const input = {
+ *   "SourceDBSnapshotIdentifier": "mydbsnapshot",
+ *   "TargetDBSnapshotIdentifier": "mydbsnapshot-copy"
+ * };
+ * const command = new CopyDBSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSnapshot": {}
+ * }
+ * *\/
+ * // example id: copy-db-snapshot-1b2f0210-bc67-415d-9822-6eecf447dc86
+ * ```
+ *
  */
 export class CopyDBSnapshotCommand extends $Command<
   CopyDBSnapshotCommandInput,

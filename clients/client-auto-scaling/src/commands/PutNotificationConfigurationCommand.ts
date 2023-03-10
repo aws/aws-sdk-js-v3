@@ -56,6 +56,21 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  * @see {@link PutNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To add an Auto Scaling notification
+ * ```javascript
+ * // This example adds the specified notification to the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "NotificationTypes": [
+ *     "autoscaling:TEST_NOTIFICATION"
+ *   ],
+ *   "TopicARN": "arn:aws:sns:us-west-2:123456789012:my-sns-topic"
+ * };
+ * const command = new PutNotificationConfigurationCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-put-notification-configuration-1
+ * ```
+ *
  */
 export class PutNotificationConfigurationCommand extends $Command<
   PutNotificationConfigurationCommandInput,

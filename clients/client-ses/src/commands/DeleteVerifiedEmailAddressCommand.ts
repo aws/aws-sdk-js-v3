@@ -49,6 +49,17 @@ export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBeare
  * @see {@link DeleteVerifiedEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @example DeleteVerifiedEmailAddress
+ * ```javascript
+ * // The following example deletes an email address from the list of identities that have been submitted for verification with Amazon SES:
+ * const input = {
+ *   "EmailAddress": "user@example.com"
+ * };
+ * const command = new DeleteVerifiedEmailAddressCommand(input);
+ * await client.send(command);
+ * // example id: deleteverifiedemailaddress-1469051086444
+ * ```
+ *
  */
 export class DeleteVerifiedEmailAddressCommand extends $Command<
   DeleteVerifiedEmailAddressCommandInput,

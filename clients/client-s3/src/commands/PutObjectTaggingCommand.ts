@@ -142,6 +142,35 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  * @see {@link PutObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @example To add tags to an existing object
+ * ```javascript
+ * // The following example adds tags to an existing object.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg",
+ *   "Tagging": {
+ *     "TagSet": [
+ *       {
+ *         "Key": "Key3",
+ *         "Value": "Value3"
+ *       },
+ *       {
+ *         "Key": "Key4",
+ *         "Value": "Value4"
+ *       }
+ *     ]
+ *   }
+ * };
+ * const command = new PutObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VersionId": "null"
+ * }
+ * *\/
+ * // example id: to-add-tags-to-an-existing-object-1481764668793
+ * ```
+ *
  */
 export class PutObjectTaggingCommand extends $Command<
   PutObjectTaggingCommandInput,

@@ -60,6 +60,17 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  * @see {@link DescribeDBClusterParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To list DB cluster parameter group settings
+ * ```javascript
+ * // This example lists settings for the specified DB cluster parameter group.
+ * const input = {
+ *   "DBClusterParameterGroupName": "mydbclusterparametergroup"
+ * };
+ * const command = new DescribeDBClusterParameterGroupsCommand(input);
+ * await client.send(command);
+ * // example id: describe-db-cluster-parameter-groups-cf9c6e66-664e-4f57-8e29-a9080abfc013
+ * ```
+ *
  */
 export class DescribeDBClusterParameterGroupsCommand extends $Command<
   DescribeDBClusterParameterGroupsCommandInput,

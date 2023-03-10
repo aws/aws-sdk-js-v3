@@ -59,6 +59,37 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * @see {@link DescribeSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To describe a security group
+ * ```javascript
+ * // This example describes the specified security group.
+ * const input = {
+ *   "GroupIds": [
+ *     "sg-903004f8"
+ *   ]
+ * };
+ * const command = new DescribeSecurityGroupsCommand(input);
+ * await client.send(command);
+ * // example id: to-describe-a-security-group-1529354426314
+ * ```
+ *
+ * @example To describe a tagged security group
+ * ```javascript
+ * // This example describes the security groups that include the specified tag (Purpose=test).
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "tag:Purpose",
+ *       "Values": [
+ *         "test"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeSecurityGroupsCommand(input);
+ * await client.send(command);
+ * // example id: to-describe-a-tagged-security-group-1529354553880
+ * ```
+ *
  */
 export class DescribeSecurityGroupsCommand extends $Command<
   DescribeSecurityGroupsCommandInput,

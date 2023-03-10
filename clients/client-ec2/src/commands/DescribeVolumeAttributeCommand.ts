@@ -52,6 +52,26 @@ export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttr
  * @see {@link DescribeVolumeAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To describe a volume attribute
+ * ```javascript
+ * // This example describes the ``autoEnableIo`` attribute of the volume with the ID ``vol-049df61146c4d7901``.
+ * const input = {
+ *   "Attribute": "autoEnableIO",
+ *   "VolumeId": "vol-049df61146c4d7901"
+ * };
+ * const command = new DescribeVolumeAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AutoEnableIO": {
+ *     "Value": false
+ *   },
+ *   "VolumeId": "vol-049df61146c4d7901"
+ * }
+ * *\/
+ * // example id: to-describe-a-volume-attribute-1472505773492
+ * ```
+ *
  */
 export class DescribeVolumeAttributeCommand extends $Command<
   DescribeVolumeAttributeCommandInput,

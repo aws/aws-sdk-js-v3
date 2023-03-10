@@ -53,6 +53,38 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileRespo
  * @see {@link GetInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To get information about an instance profile
+ * ```javascript
+ * // The following command gets information about the instance profile named ExampleInstanceProfile.
+ * const input = {
+ *   "InstanceProfileName": "ExampleInstanceProfile"
+ * };
+ * const command = new GetInstanceProfileCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InstanceProfile": {
+ *     "Arn": "arn:aws:iam::336924118301:instance-profile/ExampleInstanceProfile",
+ *     "CreateDate": "2013-06-12T23:52:02Z",
+ *     "InstanceProfileId": "AID2MAB8DPLSRHEXAMPLE",
+ *     "InstanceProfileName": "ExampleInstanceProfile",
+ *     "Path": "/",
+ *     "Roles": [
+ *       {
+ *         "Arn": "arn:aws:iam::336924118301:role/Test-Role",
+ *         "AssumeRolePolicyDocument": "<URL-encoded-JSON>",
+ *         "CreateDate": "2013-01-09T06:33:26Z",
+ *         "Path": "/",
+ *         "RoleId": "AIDGPMS9RO4H3FEXAMPLE",
+ *         "RoleName": "Test-Role"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: 463b9ba5-18cc-4608-9ccb-5a7c6b6e5fe7
+ * ```
+ *
  */
 export class GetInstanceProfileCommand extends $Command<
   GetInstanceProfileCommandInput,

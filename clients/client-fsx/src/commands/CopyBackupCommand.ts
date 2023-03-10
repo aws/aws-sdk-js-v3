@@ -70,6 +70,50 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * @see {@link CopyBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
+ * @example To copy a backup
+ * ```javascript
+ * // This operation copies an Amazon FSx backup.
+ * const input = {
+ *   "SourceBackupId": "backup-03e3c82e0183b7b6b",
+ *   "SourceRegion": "us-east-2"
+ * };
+ * const command = new CopyBackupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Backup": {
+ *     "BackupId": "backup-0a3364eded1014b28",
+ *     "CreationTime": 1617954808.068,
+ *     "FileSystem": {
+ *       "FileSystemId": "fs-0498eed5fe91001ec",
+ *       "FileSystemType": "LUSTRE",
+ *       "LustreConfiguration": {
+ *         "AutomaticBackupRetentionDays": 0,
+ *         "DeploymentType": "PERSISTENT_1",
+ *         "PerUnitStorageThroughput": 50,
+ *         "WeeklyMaintenanceStartTime": "1:05:00"
+ *       },
+ *       "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0f5179e395f597e66",
+ *       "StorageCapacity": 2400,
+ *       "StorageType": "SSD"
+ *     },
+ *     "KmsKeyId": "arn:aws:fsx:us-east-1:012345678912:key/d1234e22-543a-12b7-a98f-e12c2b54001a",
+ *     "Lifecycle": "COPYING",
+ *     "OwnerId": "123456789012",
+ *     "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:backup/backup-0a3364eded1014b28",
+ *     "Tags": [
+ *       {
+ *         "Key": "Name",
+ *         "Value": "MyBackup"
+ *       }
+ *     ],
+ *     "Type": "USER_INITIATED"
+ *   }
+ * }
+ * *\/
+ * // example id: to-copy-a-backup-1481847318640
+ * ```
+ *
  */
 export class CopyBackupCommand extends $Command<
   CopyBackupCommandInput,

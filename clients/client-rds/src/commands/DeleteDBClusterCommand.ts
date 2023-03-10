@@ -58,6 +58,23 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * @see {@link DeleteDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To delete a DB cluster.
+ * ```javascript
+ * // This example deletes the specified DB cluster.
+ * const input = {
+ *   "DBClusterIdentifier": "mydbcluster",
+ *   "SkipFinalSnapshot": true
+ * };
+ * const command = new DeleteDBClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBCluster": {}
+ * }
+ * *\/
+ * // example id: delete-db-cluster-927fc2c8-6c67-4075-b1ba-75490be0f7d6
+ * ```
+ *
  */
 export class DeleteDBClusterCommand extends $Command<
   DeleteDBClusterCommandInput,

@@ -50,6 +50,29 @@ export interface UpdateConfigurationProfileCommandOutput extends ConfigurationPr
  * @see {@link UpdateConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ * @example To update a configuration profile
+ * ```javascript
+ * // The following update-configuration-profile example updates the description of the specified configuration profile.
+ * const input = {
+ *   "ApplicationId": "339ohji",
+ *   "ConfigurationProfileId": "ur8hx2f",
+ *   "Description": "Configuration profile used for examples."
+ * };
+ * const command = new UpdateConfigurationProfileCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationId": "339ohji",
+ *   "Description": "Configuration profile used for examples.",
+ *   "Id": "ur8hx2f",
+ *   "LocationUri": "ssm-parameter://Example-Parameter",
+ *   "Name": "Example-Configuration-Profile",
+ *   "RetrievalRoleArn": "arn:aws:iam::111122223333:role/Example-App-Config-Role"
+ * }
+ * *\/
+ * // example id: to-update-a-configuration-profile-1632330721974
+ * ```
+ *
  */
 export class UpdateConfigurationProfileCommand extends $Command<
   UpdateConfigurationProfileCommandInput,

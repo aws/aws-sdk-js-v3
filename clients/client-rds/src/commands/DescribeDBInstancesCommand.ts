@@ -53,6 +53,17 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * @see {@link DescribeDBInstancesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To list DB instance settings
+ * ```javascript
+ * // This example lists settings for the specified DB instance.
+ * const input = {
+ *   "DBInstanceIdentifier": "mymysqlinstance"
+ * };
+ * const command = new DescribeDBInstancesCommand(input);
+ * await client.send(command);
+ * // example id: describe-db-instances-0e11a8c5-4ec3-4463-8cbf-f7254d04c4fc
+ * ```
+ *
  */
 export class DescribeDBInstancesCommand extends $Command<
   DescribeDBInstancesCommandInput,

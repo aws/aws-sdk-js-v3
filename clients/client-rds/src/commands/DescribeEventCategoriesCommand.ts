@@ -56,6 +56,17 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To list event categories.
+ * ```javascript
+ * // This example lists all DB instance event categories.
+ * const input = {
+ *   "SourceType": "db-instance"
+ * };
+ * const command = new DescribeEventCategoriesCommand(input);
+ * await client.send(command);
+ * // example id: describe-event-categories-97bd4c77-12da-4be6-b42f-edf77771428b
+ * ```
+ *
  */
 export class DescribeEventCategoriesCommand extends $Command<
   DescribeEventCategoriesCommandInput,

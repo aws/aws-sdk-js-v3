@@ -51,6 +51,29 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @example To create a new application
+ * ```javascript
+ * // The following operation creates a new application named my-app:
+ * const input = {
+ *   "ApplicationName": "my-app",
+ *   "Description": "my application"
+ * };
+ * const command = new CreateApplicationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Application": {
+ *     "ApplicationName": "my-app",
+ *     "ConfigurationTemplates": [],
+ *     "DateCreated": "2015-02-12T18:32:21.181Z",
+ *     "DateUpdated": "2015-02-12T18:32:21.181Z",
+ *     "Description": "my application"
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-new-application-1456268895683
+ * ```
+ *
  */
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,

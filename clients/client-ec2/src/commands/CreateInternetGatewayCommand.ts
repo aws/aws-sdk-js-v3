@@ -52,6 +52,24 @@ export interface CreateInternetGatewayCommandOutput extends CreateInternetGatewa
  * @see {@link CreateInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To create an Internet gateway
+ * ```javascript
+ * // This example creates an Internet gateway.
+ * const input = undefined;
+ * const command = new CreateInternetGatewayCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InternetGateway": {
+ *     "Attachments": [],
+ *     "InternetGatewayId": "igw-c0a643a9",
+ *     "Tags": []
+ *   }
+ * }
+ * *\/
+ * // example id: ec2-create-internet-gateway-1
+ * ```
+ *
  */
 export class CreateInternetGatewayCommand extends $Command<
   CreateInternetGatewayCommandInput,

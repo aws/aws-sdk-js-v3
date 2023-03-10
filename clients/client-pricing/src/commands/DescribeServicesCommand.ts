@@ -56,6 +56,37 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @see {@link DescribeServicesCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
  *
+ * @example To retrieve a list of services and service codes
+ * ```javascript
+ * // Retrieves the service for the given Service Code.
+ * const input = {
+ *   "FormatVersion": "aws_v1",
+ *   "MaxResults": 1,
+ *   "ServiceCode": "AmazonEC2"
+ * };
+ * const command = new DescribeServicesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "FormatVersion": "aws_v1",
+ *   "NextToken": "abcdefg123",
+ *   "Services": [
+ *     {
+ *       "AttributeNames": [
+ *         "volumeType",
+ *         "maxIopsvolume",
+ *         "instanceCapacity10xlarge",
+ *         "locationType",
+ *         "operation"
+ *       ],
+ *       "ServiceCode": "AmazonEC2"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-retrieve-service-metadata
+ * ```
+ *
  */
 export class DescribeServicesCommand extends $Command<
   DescribeServicesCommandInput,

@@ -56,6 +56,17 @@ export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __Met
  * @see {@link DeleteListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @example To delete a listener
+ * ```javascript
+ * // This example deletes the specified listener.
+ * const input = {
+ *   "ListenerArn": "arn:aws:elasticloadbalancing:ua-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2"
+ * };
+ * const command = new DeleteListenerCommand(input);
+ * await client.send(command);
+ * // example id: elbv2-delete-listener-1
+ * ```
+ *
  */
 export class DeleteListenerCommand extends $Command<
   DeleteListenerCommandInput,

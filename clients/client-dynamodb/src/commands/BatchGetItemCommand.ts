@@ -96,6 +96,70 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  * @see {@link BatchGetItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ * @example To retrieve multiple items from a table
+ * ```javascript
+ * // This example reads multiple items from the Music table using a batch of three GetItem requests.  Only the AlbumTitle attribute is returned.
+ * const input = {
+ *   "RequestItems": {
+ *     "Music": {
+ *       "Keys": [
+ *         {
+ *           "Artist": {
+ *             "S": "No One You Know"
+ *           },
+ *           "SongTitle": {
+ *             "S": "Call Me Today"
+ *           }
+ *         },
+ *         {
+ *           "Artist": {
+ *             "S": "Acme Band"
+ *           },
+ *           "SongTitle": {
+ *             "S": "Happy Day"
+ *           }
+ *         },
+ *         {
+ *           "Artist": {
+ *             "S": "No One You Know"
+ *           },
+ *           "SongTitle": {
+ *             "S": "Scared of My Shadow"
+ *           }
+ *         }
+ *       ],
+ *       "ProjectionExpression": "AlbumTitle"
+ *     }
+ *   }
+ * };
+ * const command = new BatchGetItemCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Responses": {
+ *     "Music": [
+ *       {
+ *         "AlbumTitle": {
+ *           "S": "Somewhat Famous"
+ *         }
+ *       },
+ *       {
+ *         "AlbumTitle": {
+ *           "S": "Blue Sky Blues"
+ *         }
+ *       },
+ *       {
+ *         "AlbumTitle": {
+ *           "S": "Louder Than Ever"
+ *         }
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-retrieve-multiple-items-from-a-table-1476118438992
+ * ```
+ *
  */
 export class BatchGetItemCommand extends $Command<
   BatchGetItemCommandInput,

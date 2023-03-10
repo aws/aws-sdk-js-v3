@@ -64,6 +64,35 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  * @see {@link ListAccessKeysCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To list the access key IDs for an IAM user
+ * ```javascript
+ * // The following command lists the access keys IDs for the IAM user named Alice.
+ * const input = {
+ *   "UserName": "Alice"
+ * };
+ * const command = new ListAccessKeysCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AccessKeyMetadata": [
+ *     {
+ *       "AccessKeyId": "AKIA111111111EXAMPLE",
+ *       "CreateDate": "2016-12-01T22:19:58Z",
+ *       "Status": "Active",
+ *       "UserName": "Alice"
+ *     },
+ *     {
+ *       "AccessKeyId": "AKIA222222222EXAMPLE",
+ *       "CreateDate": "2016-12-01T22:20:01Z",
+ *       "Status": "Active",
+ *       "UserName": "Alice"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: 15571463-ebea-411a-a021-1c76bd2a3625
+ * ```
+ *
  */
 export class ListAccessKeysCommand extends $Command<
   ListAccessKeysCommandInput,

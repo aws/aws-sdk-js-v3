@@ -137,6 +137,74 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * @see {@link CreateCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @example To create an AWS CloudHSM key store
+ * ```javascript
+ * // This example creates a custom key store that is associated with an AWS CloudHSM cluster.
+ * const input = {
+ *   "CloudHsmClusterId": "cluster-1a23b4cdefg",
+ *   "CustomKeyStoreName": "ExampleKeyStore",
+ *   "KeyStorePassword": "kmsPswd",
+ *   "TrustAnchorCertificate": "<certificate-goes-here>"
+ * };
+ * const command = new CreateCustomKeyStoreCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CustomKeyStoreId": "cks-1234567890abcdef0"
+ * }
+ * *\/
+ * // example id: to-create-an-aws-cloudhsm-custom-key-store-1
+ * ```
+ *
+ * @example To create an external key store with VPC endpoint service connectivity
+ * ```javascript
+ * // This example creates an external key store that uses an Amazon VPC endpoint service to communicate with AWS KMS.
+ * const input = {
+ *   "CustomKeyStoreName": "ExampleVPCEndpointKeyStore",
+ *   "CustomKeyStoreType": "EXTERNAL_KEY_STORE",
+ *   "XksProxyAuthenticationCredential": {
+ *     "AccessKeyId": "ABCDE12345670EXAMPLE",
+ *     "RawSecretAccessKey": "DXjSUawnel2fr6SKC7G25CNxTyWKE5PF9XX6H/u9pSo="
+ *   },
+ *   "XksProxyConnectivity": "VPC_ENDPOINT_SERVICE",
+ *   "XksProxyUriEndpoint": "https://myproxy-private.xks.example.com",
+ *   "XksProxyUriPath": "/example-prefix/kms/xks/v1",
+ *   "XksProxyVpcEndpointServiceName": "com.amazonaws.vpce.us-east-1.vpce-svc-example1"
+ * };
+ * const command = new CreateCustomKeyStoreCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CustomKeyStoreId": "cks-1234567890abcdef0"
+ * }
+ * *\/
+ * // example id: to-create-an-external-custom-key-store-with-vpc-connectivity-2
+ * ```
+ *
+ * @example To create an external key store with public endpoint connectivity
+ * ```javascript
+ * // This example creates an external key store with public endpoint connectivity.
+ * const input = {
+ *   "CustomKeyStoreName": "ExamplePublicEndpointKeyStore",
+ *   "CustomKeyStoreType": "EXTERNAL_KEY_STORE",
+ *   "XksProxyAuthenticationCredential": {
+ *     "AccessKeyId": "ABCDE12345670EXAMPLE",
+ *     "RawSecretAccessKey": "DXjSUawnel2fr6SKC7G25CNxTyWKE5PF9XX6H/u9pSo="
+ *   },
+ *   "XksProxyConnectivity": "PUBLIC_ENDPOINT",
+ *   "XksProxyUriEndpoint": "https://myproxy.xks.example.com",
+ *   "XksProxyUriPath": "/kms/xks/v1"
+ * };
+ * const command = new CreateCustomKeyStoreCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CustomKeyStoreId": "cks-987654321abcdef0"
+ * }
+ * *\/
+ * // example id: to-create-an-external-custom-key-store-with-a-public-endpoint-3
+ * ```
+ *
  */
 export class CreateCustomKeyStoreCommand extends $Command<
   CreateCustomKeyStoreCommandInput,

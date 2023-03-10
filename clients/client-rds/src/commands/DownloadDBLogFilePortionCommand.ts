@@ -51,6 +51,18 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  * @see {@link DownloadDBLogFilePortionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To list information about DB log files
+ * ```javascript
+ * // This example lists information for the specified log file for the specified DB instance.
+ * const input = {
+ *   "DBInstanceIdentifier": "mymysqlinstance",
+ *   "LogFileName": "mysqlUpgrade"
+ * };
+ * const command = new DownloadDBLogFilePortionCommand(input);
+ * await client.send(command);
+ * // example id: download-db-log-file-portion-54a82731-a441-4fc7-a010-8eccae6fa202
+ * ```
+ *
  */
 export class DownloadDBLogFilePortionCommand extends $Command<
   DownloadDBLogFilePortionCommandInput,

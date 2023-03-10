@@ -84,6 +84,26 @@ export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput,
  * @see {@link InitiateVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ * @example To initiate the vault locking process
+ * ```javascript
+ * // The example initiates the vault locking process for the vault named my-vault.
+ * const input = {
+ *   "accountId": "-",
+ *   "policy": {
+ *     "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Define-vault-lock\",\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"arn:aws:iam::999999999999:root\"},\"Action\":\"glacier:DeleteArchive\",\"Resource\":\"arn:aws:glacier:us-west-2:999999999999:vaults/examplevault\",\"Condition\":{\"NumericLessThanEquals\":{\"glacier:ArchiveAgeinDays\":\"365\"}}}]}"
+ *   },
+ *   "vaultName": "my-vault"
+ * };
+ * const command = new InitiateVaultLockCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "lockId": "AE863rKkWZU53SLW5be4DUcW"
+ * }
+ * *\/
+ * // example id: to-initiate-the-vault-locking-process-1481919693394
+ * ```
+ *
  */
 export class InitiateVaultLockCommand extends $Command<
   InitiateVaultLockCommandInput,

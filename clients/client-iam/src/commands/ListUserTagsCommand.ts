@@ -48,6 +48,32 @@ export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __Metad
  * @see {@link ListUserTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To list the tags attached to an IAM user
+ * ```javascript
+ * // The following example shows how to list the tags attached to a user.
+ * const input = {
+ *   "UserName": "anika"
+ * };
+ * const command = new ListUserTagsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "IsTruncated": false,
+ *   "Tags": [
+ *     {
+ *       "Key": "Dept",
+ *       "Value": "12345"
+ *     },
+ *     {
+ *       "Key": "Team",
+ *       "Value": "Accounting"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-the-tags-attached-to-an-iam-user-1506719473186
+ * ```
+ *
  */
 export class ListUserTagsCommand extends $Command<
   ListUserTagsCommandInput,

@@ -49,6 +49,28 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @see {@link CreateUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To create an IAM user
+ * ```javascript
+ * // The following create-user command creates an IAM user named Bob in the current account.
+ * const input = {
+ *   "UserName": "Bob"
+ * };
+ * const command = new CreateUserCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "User": {
+ *     "Arn": "arn:aws:iam::123456789012:user/Bob",
+ *     "CreateDate": "2013-06-08T03:20:41.270Z",
+ *     "Path": "/",
+ *     "UserId": "AKIAIOSFODNN7EXAMPLE",
+ *     "UserName": "Bob"
+ *   }
+ * }
+ * *\/
+ * // example id: eb15f90b-e5f5-4af8-a594-e4e82b181a62
+ * ```
+ *
  */
 export class CreateUserCommand extends $Command<
   CreateUserCommandInput,

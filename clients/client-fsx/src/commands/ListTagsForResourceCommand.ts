@@ -73,6 +73,27 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
+ * @example To list tags for a resource
+ * ```javascript
+ * // This operation lists tags for an Amazon FSx resource.
+ * const input = {
+ *   "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0498eed5fe91001ec"
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Tags": [
+ *     {
+ *       "Key": "Name",
+ *       "Value": "MyFileSystem"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-tags-for-a-fsx-resource-1481847318372
+ * ```
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

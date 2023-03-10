@@ -52,6 +52,70 @@ export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesH
  * @see {@link DescribeInstancesHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @example To view environment health
+ * ```javascript
+ * // The following operation retrieves health information for instances in an environment named my-env:
+ * const input = {
+ *   "AttributeNames": [
+ *     "All"
+ *   ],
+ *   "EnvironmentName": "my-env"
+ * };
+ * const command = new DescribeInstancesHealthCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InstanceHealthList": [
+ *     {
+ *       "ApplicationMetrics": {
+ *         "Duration": 10,
+ *         "Latency": {
+ *           "P10": 0,
+ *           "P50": 0.001,
+ *           "P75": 0.002,
+ *           "P85": 0.003,
+ *           "P90": 0.004,
+ *           "P95": 0.005,
+ *           "P99": 0.006,
+ *           "P999": 0.006
+ *         },
+ *         "RequestCount": 48,
+ *         "StatusCodes": {
+ *           "Status2xx": 47,
+ *           "Status3xx": 0,
+ *           "Status4xx": 1,
+ *           "Status5xx": 0
+ *         }
+ *       },
+ *       "Causes": [],
+ *       "Color": "Green",
+ *       "HealthStatus": "Ok",
+ *       "InstanceId": "i-08691cc7",
+ *       "LaunchedAt": "2015-08-13T19:17:09Z",
+ *       "System": {
+ *         "CPUUtilization": {
+ *           "IOWait": 0.2,
+ *           "IRQ": 0,
+ *           "Idle": 97.8,
+ *           "Nice": 0.1,
+ *           "SoftIRQ": 0.1,
+ *           "System": 0.3,
+ *           "User": 1.5
+ *         },
+ *         "LoadAverage": [
+ *           0,
+ *           0.02,
+ *           0.05
+ *         ]
+ *       }
+ *     }
+ *   ],
+ *   "RefreshedAt": "2015-08-20T21:09:08Z"
+ * }
+ * *\/
+ * // example id: to-view-environment-health-1456277424757
+ * ```
+ *
  */
 export class DescribeInstancesHealthCommand extends $Command<
   DescribeInstancesHealthCommandInput,

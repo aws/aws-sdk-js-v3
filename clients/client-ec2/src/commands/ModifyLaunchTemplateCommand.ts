@@ -52,6 +52,30 @@ export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateR
  * @see {@link ModifyLaunchTemplateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To change the default version of a launch template
+ * ```javascript
+ * // This example specifies version 2 as the default version of the specified launch template.
+ * const input = {
+ *   "DefaultVersion": "2",
+ *   "LaunchTemplateId": "lt-0abcd290751193123"
+ * };
+ * const command = new ModifyLaunchTemplateCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LaunchTemplate": {
+ *     "CreateTime": "2017-12-01T13:35:46.000Z",
+ *     "CreatedBy": "arn:aws:iam::123456789012:root",
+ *     "DefaultVersionNumber": 2,
+ *     "LatestVersionNumber": 2,
+ *     "LaunchTemplateId": "lt-0abcd290751193123",
+ *     "LaunchTemplateName": "WebServers"
+ *   }
+ * }
+ * *\/
+ * // example id: to-change-the-default-version-of-a-launch-template-1529358440364
+ * ```
+ *
  */
 export class ModifyLaunchTemplateCommand extends $Command<
   ModifyLaunchTemplateCommandInput,

@@ -101,6 +101,36 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
+ * @example To create a rule
+ * ```javascript
+ * // The following example creates a rule named WAFByteHeaderRule.
+ * const input = {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "MetricName": "WAFByteHeaderRule",
+ *   "Name": "WAFByteHeaderRule"
+ * };
+ * const command = new CreateRuleCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "Rule": {
+ *     "MetricName": "WAFByteHeaderRule",
+ *     "Name": "WAFByteHeaderRule",
+ *     "Predicates": [
+ *       {
+ *         "DataId": "MyByteMatchSetID",
+ *         "Negated": false,
+ *         "Type": "ByteMatch"
+ *       }
+ *     ],
+ *     "RuleId": "WAFRule-1-Example"
+ *   }
+ * }
+ * *\/
+ * // example id: createrule-1474072675555
+ * ```
+ *
  */
 export class CreateRuleCommand extends $Command<
   CreateRuleCommandInput,

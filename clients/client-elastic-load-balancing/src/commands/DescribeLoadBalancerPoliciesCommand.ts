@@ -60,6 +60,36 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
  * @see {@link DescribeLoadBalancerPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @example To describe a policy associated with a load balancer
+ * ```javascript
+ * // This example describes the specified policy associated with the specified load balancer.
+ * const input = {
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "PolicyNames": [
+ *     "my-authentication-policy"
+ *   ]
+ * };
+ * const command = new DescribeLoadBalancerPoliciesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "PolicyDescriptions": [
+ *     {
+ *       "PolicyAttributeDescriptions": [
+ *         {
+ *           "AttributeName": "PublicKeyPolicyName",
+ *           "AttributeValue": "my-PublicKey-policy"
+ *         }
+ *       ],
+ *       "PolicyName": "my-authentication-policy",
+ *       "PolicyTypeName": "BackendServerAuthenticationPolicyType"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elb-describe-load-balancer-policies-1
+ * ```
+ *
  */
 export class DescribeLoadBalancerPoliciesCommand extends $Command<
   DescribeLoadBalancerPoliciesCommandInput,

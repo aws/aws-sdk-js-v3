@@ -99,6 +99,33 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * @see {@link UpdateRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
+ * @example To update a rule
+ * ```javascript
+ * // The following example deletes a Predicate object in a rule with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
+ * const input = {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "RuleId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *   "Updates": [
+ *     {
+ *       "Action": "DELETE",
+ *       "Predicate": {
+ *         "DataId": "MyByteMatchSetID",
+ *         "Negated": false,
+ *         "Type": "ByteMatch"
+ *       }
+ *     }
+ *   ]
+ * };
+ * const command = new UpdateRuleCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ * }
+ * *\/
+ * // example id: updaterule-1475260064720
+ * ```
+ *
  */
 export class UpdateRuleCommand extends $Command<
   UpdateRuleCommandInput,

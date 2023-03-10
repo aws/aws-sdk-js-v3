@@ -156,6 +156,24 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  * @see {@link EncryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @example To encrypt data
+ * ```javascript
+ * // The following example encrypts data with the specified KMS key.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "Plaintext": "<binary data>"
+ * };
+ * const command = new EncryptCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CiphertextBlob": "<binary data>",
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ * }
+ * *\/
+ * // example id: to-encrypt-data-1478906026012
+ * ```
+ *
  */
 export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

@@ -62,6 +62,91 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @see {@link CreateAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To create an Auto Scaling group
+ * ```javascript
+ * // This example creates an Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "LaunchTemplate": {
+ *     "LaunchTemplateName": "my-template-for-auto-scaling",
+ *     "Version": "$Latest"
+ *   },
+ *   "MaxInstanceLifetime": 2592000,
+ *   "MaxSize": 3,
+ *   "MinSize": 1,
+ *   "VPCZoneIdentifier": "subnet-057fa0918fEXAMPLE"
+ * };
+ * const command = new CreateAutoScalingGroupCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-create-auto-scaling-group-1
+ * ```
+ *
+ * @example To create an Auto Scaling group with an attached target group
+ * ```javascript
+ * // This example creates an Auto Scaling group and attaches the specified target group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "HealthCheckGracePeriod": 300,
+ *   "HealthCheckType": "ELB",
+ *   "LaunchTemplate": {
+ *     "LaunchTemplateName": "my-template-for-auto-scaling",
+ *     "Version": "$Latest"
+ *   },
+ *   "MaxSize": 3,
+ *   "MinSize": 1,
+ *   "TargetGroupARNs": [
+ *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ *   ],
+ *   "VPCZoneIdentifier": "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
+ * };
+ * const command = new CreateAutoScalingGroupCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-create-auto-scaling-group-2
+ * ```
+ *
+ * @example To create an Auto Scaling group with a mixed instances policy
+ * ```javascript
+ * // This example creates an Auto Scaling group with a mixed instances policy. It specifies the c5.large, c5a.large, and c6g.large instance types and defines a different launch template for the c6g.large instance type.
+ * const input = {
+ *   "AutoScalingGroupName": "my-asg",
+ *   "DesiredCapacity": 3,
+ *   "MaxSize": 5,
+ *   "MinSize": 1,
+ *   "MixedInstancesPolicy": {
+ *     "InstancesDistribution": {
+ *       "OnDemandBaseCapacity": 1,
+ *       "OnDemandPercentageAboveBaseCapacity": 50,
+ *       "SpotAllocationStrategy": "capacity-optimized"
+ *     },
+ *     "LaunchTemplate": {
+ *       "LaunchTemplateSpecification": {
+ *         "LaunchTemplateName": "my-launch-template-for-x86",
+ *         "Version": "$Latest"
+ *       },
+ *       "Overrides": [
+ *         {
+ *           "InstanceType": "c6g.large",
+ *           "LaunchTemplateSpecification": {
+ *             "LaunchTemplateName": "my-launch-template-for-arm",
+ *             "Version": "$Latest"
+ *           }
+ *         },
+ *         {
+ *           "InstanceType": "c5.large"
+ *         },
+ *         {
+ *           "InstanceType": "c5a.large"
+ *         }
+ *       ]
+ *     }
+ *   },
+ *   "VPCZoneIdentifier": "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
+ * };
+ * const command = new CreateAutoScalingGroupCommand(input);
+ * await client.send(command);
+ * // example id: to-create-an-auto-scaling-group-with-a-mixed-instances-policy-1617815269039
+ * ```
+ *
  */
 export class CreateAutoScalingGroupCommand extends $Command<
   CreateAutoScalingGroupCommandInput,

@@ -57,6 +57,80 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  * @see {@link ModifyReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @example Modify replication instance
+ * ```javascript
+ * // Modifies the replication instance to apply new settings. You can change one or more parameters by specifying these parameters and the new values in the request. Some settings are applied during the maintenance window.
+ * const input = {
+ *   "AllocatedStorage": 123,
+ *   "AllowMajorVersionUpgrade": true,
+ *   "ApplyImmediately": true,
+ *   "AutoMinorVersionUpgrade": true,
+ *   "EngineVersion": "1.5.0",
+ *   "MultiAZ": true,
+ *   "PreferredMaintenanceWindow": "sun:06:00-sun:14:00",
+ *   "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *   "ReplicationInstanceClass": "dms.t2.micro",
+ *   "ReplicationInstanceIdentifier": "test-rep-1",
+ *   "VpcSecurityGroupIds": []
+ * };
+ * const command = new ModifyReplicationInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReplicationInstance": {
+ *     "AllocatedStorage": 5,
+ *     "AutoMinorVersionUpgrade": true,
+ *     "EngineVersion": "1.5.0",
+ *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+ *     "PendingModifiedValues": {},
+ *     "PreferredMaintenanceWindow": "sun:06:00-sun:14:00",
+ *     "PubliclyAccessible": true,
+ *     "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *     "ReplicationInstanceClass": "dms.t2.micro",
+ *     "ReplicationInstanceIdentifier": "test-rep-1",
+ *     "ReplicationInstanceStatus": "available",
+ *     "ReplicationSubnetGroup": {
+ *       "ReplicationSubnetGroupDescription": "default",
+ *       "ReplicationSubnetGroupIdentifier": "default",
+ *       "SubnetGroupStatus": "Complete",
+ *       "Subnets": [
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1d"
+ *           },
+ *           "SubnetIdentifier": "subnet-f6dd91af",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1b"
+ *           },
+ *           "SubnetIdentifier": "subnet-3605751d",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1c"
+ *           },
+ *           "SubnetIdentifier": "subnet-c2daefb5",
+ *           "SubnetStatus": "Active"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1e"
+ *           },
+ *           "SubnetIdentifier": "subnet-85e90cb8",
+ *           "SubnetStatus": "Active"
+ *         }
+ *       ],
+ *       "VpcId": "vpc-6741a603"
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: modify-replication-instance-1481761784746
+ * ```
+ *
  */
 export class ModifyReplicationInstanceCommand extends $Command<
   ModifyReplicationInstanceCommandInput,

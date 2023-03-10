@@ -68,6 +68,23 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  * @see {@link CancelRotateSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
+ * @example To cancel scheduled rotation for a secret
+ * ```javascript
+ * // The following example shows how to cancel rotation for a secret. The operation sets the RotationEnabled field to false and cancels all scheduled rotations. To resume scheduled rotations, you must re-enable rotation by calling the rotate-secret operation.
+ * const input = {
+ *   "SecretId": "MyTestDatabaseSecret"
+ * };
+ * const command = new CancelRotateSecretCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   "Name": "Name"
+ * }
+ * *\/
+ * // example id: to-cancel-scheduled-rotation-for-a-secret-1523996016032
+ * ```
+ *
  */
 export class CancelRotateSecretCommand extends $Command<
   CancelRotateSecretCommandInput,

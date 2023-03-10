@@ -52,6 +52,17 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  * @see {@link DeleteIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @example DeleteIdentity
+ * ```javascript
+ * // The following example deletes an identity from the list of identities that have been submitted for verification with Amazon SES:
+ * const input = {
+ *   "Identity": "user@example.com"
+ * };
+ * const command = new DeleteIdentityCommand(input);
+ * await client.send(command);
+ * // example id: deleteidentity-1469047858906
+ * ```
+ *
  */
 export class DeleteIdentityCommand extends $Command<
   DeleteIdentityCommandInput,

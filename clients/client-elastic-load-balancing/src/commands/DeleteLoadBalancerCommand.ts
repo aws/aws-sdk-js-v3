@@ -57,6 +57,17 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteAccessPointOutput
  * @see {@link DeleteLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @example To delete a load balancer
+ * ```javascript
+ * // This example deletes the specified load balancer.
+ * const input = {
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new DeleteLoadBalancerCommand(input);
+ * await client.send(command);
+ * // example id: elb-delete-load-balancer-1
+ * ```
+ *
  */
 export class DeleteLoadBalancerCommand extends $Command<
   DeleteLoadBalancerCommandInput,

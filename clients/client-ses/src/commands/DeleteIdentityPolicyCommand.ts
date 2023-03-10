@@ -61,6 +61,18 @@ export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyR
  * @see {@link DeleteIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @example DeleteIdentityPolicy
+ * ```javascript
+ * // The following example deletes a sending authorization policy for an identity:
+ * const input = {
+ *   "Identity": "user@example.com",
+ *   "PolicyName": "MyPolicy"
+ * };
+ * const command = new DeleteIdentityPolicyCommand(input);
+ * await client.send(command);
+ * // example id: deleteidentitypolicy-1469055282499
+ * ```
+ *
  */
 export class DeleteIdentityPolicyCommand extends $Command<
   DeleteIdentityPolicyCommandInput,

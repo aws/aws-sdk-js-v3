@@ -51,6 +51,27 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ * @example To update a device pool
+ * ```javascript
+ * // The following example updates the specified project with a new name.
+ * const input = {
+ *   "name": "NewName",
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:8f75187d-101e-4625-accc-12345EXAMPLE"
+ * };
+ * const command = new UpdateProjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "project": {
+ *     "name": "NewName",
+ *     "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:8f75187d-101e-4625-accc-12345EXAMPLE",
+ *     "created": "1448400709.927"
+ *   }
+ * }
+ * *\/
+ * // example id: to-update-a-device-pool-1472653887677
+ * ```
+ *
  */
 export class UpdateProjectCommand extends $Command<
   UpdateProjectCommandInput,

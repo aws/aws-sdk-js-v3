@@ -55,6 +55,17 @@ export interface HeadBucketCommandOutput extends __MetadataBearer {}
  * @see {@link HeadBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @example To determine if bucket exists
+ * ```javascript
+ * // This operation checks to see if a bucket exists.
+ * const input = {
+ *   "Bucket": "acl1"
+ * };
+ * const command = new HeadBucketCommand(input);
+ * await client.send(command);
+ * // example id: to-determine-if-bucket-exists-1473110292262
+ * ```
+ *
  */
 export class HeadBucketCommand extends $Command<
   HeadBucketCommandInput,

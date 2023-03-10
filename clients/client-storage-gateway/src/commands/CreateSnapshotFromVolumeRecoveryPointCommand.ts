@@ -72,6 +72,25 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
  * @see {@link CreateSnapshotFromVolumeRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To create a snapshot of a gateway volume
+ * ```javascript
+ * // Initiates a snapshot of a gateway from a volume recovery point.
+ * const input = {
+ *   "SnapshotDescription": "My root volume snapshot as of 2017-06-30T10:10:10.000Z",
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * };
+ * const command = new CreateSnapshotFromVolumeRecoveryPointCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SnapshotId": "snap-78e22663",
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
+ *   "VolumeRecoveryPointTime": "2017-06-30T10:10:10.000Z"
+ * }
+ * *\/
+ * // example id: to-create-a-snapshot-of-a-gateway-volume-1471301469561
+ * ```
+ *
  */
 export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
   CreateSnapshotFromVolumeRecoveryPointCommandInput,

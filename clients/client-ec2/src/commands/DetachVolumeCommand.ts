@@ -53,6 +53,26 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * @see {@link DetachVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To detach a volume from an instance
+ * ```javascript
+ * // This example detaches the volume (``vol-049df61146c4d7901``) from the instance it is attached to.
+ * const input = {
+ *   "VolumeId": "vol-1234567890abcdef0"
+ * };
+ * const command = new DetachVolumeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AttachTime": "2014-02-27T19:23:06.000Z",
+ *   "Device": "/dev/sdb",
+ *   "InstanceId": "i-1234567890abcdef0",
+ *   "State": "detaching",
+ *   "VolumeId": "vol-049df61146c4d7901"
+ * }
+ * *\/
+ * // example id: to-detach-a-volume-from-an-instance-1472507977694
+ * ```
+ *
  */
 export class DetachVolumeCommand extends $Command<
   DetachVolumeCommandInput,

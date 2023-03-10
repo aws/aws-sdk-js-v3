@@ -77,6 +77,24 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * @see {@link ModifyDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To change DB cluster parameter group settings
+ * ```javascript
+ * // This example immediately changes the specified setting for the specified DB cluster parameter group.
+ * const input = {
+ *   "DBClusterParameterGroupName": "mydbclusterparametergroup",
+ *   "Parameters": [
+ *     {
+ *       "ApplyMethod": "immediate",
+ *       "ParameterName": "time_zone",
+ *       "ParameterValue": "America/Phoenix"
+ *     }
+ *   ]
+ * };
+ * const command = new ModifyDBClusterParameterGroupCommand(input);
+ * await client.send(command);
+ * // example id: modify-db-cluster-parameter-group-f9156bc9-082a-442e-8d12-239542c1a113
+ * ```
+ *
  */
 export class ModifyDBClusterParameterGroupCommand extends $Command<
   ModifyDBClusterParameterGroupCommandInput,

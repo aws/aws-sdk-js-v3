@@ -50,6 +50,30 @@ export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * @see {@link UpdateDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ * @example To update a deployment strategy
+ * ```javascript
+ * // The following update-deployment-strategy example updates final bake time to 20 minutes in the specified deployment strategy. ::
+ * //
+ * const input = {
+ *   "DeploymentStrategyId": "1225qzk",
+ *   "FinalBakeTimeInMinutes": 20
+ * };
+ * const command = new UpdateDeploymentStrategyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DeploymentDurationInMinutes": 15,
+ *   "FinalBakeTimeInMinutes": 20,
+ *   "GrowthFactor": 25,
+ *   "GrowthType": "LINEAR",
+ *   "Id": "1225qzk",
+ *   "Name": "Example-Deployment",
+ *   "ReplicateTo": "SSM_DOCUMENT"
+ * }
+ * *\/
+ * // example id: to-update-a-deployment-strategy-1632330896602
+ * ```
+ *
  */
 export class UpdateDeploymentStrategyCommand extends $Command<
   UpdateDeploymentStrategyCommandInput,

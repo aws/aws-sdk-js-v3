@@ -53,6 +53,32 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  * @see {@link CreateReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @example CreateReceiptRule
+ * ```javascript
+ * // The following example creates a new receipt rule:
+ * const input = {
+ *   "After": "",
+ *   "Rule": {
+ *     "Actions": [
+ *       {
+ *         "S3Action": {
+ *           "BucketName": "MyBucket",
+ *           "ObjectKeyPrefix": "email"
+ *         }
+ *       }
+ *     ],
+ *     "Enabled": true,
+ *     "Name": "MyRule",
+ *     "ScanEnabled": true,
+ *     "TlsPolicy": "Optional"
+ *   },
+ *   "RuleSetName": "MyRuleSet"
+ * };
+ * const command = new CreateReceiptRuleCommand(input);
+ * await client.send(command);
+ * // example id: createreceiptrule-1469122946515
+ * ```
+ *
  */
 export class CreateReceiptRuleCommand extends $Command<
   CreateReceiptRuleCommandInput,

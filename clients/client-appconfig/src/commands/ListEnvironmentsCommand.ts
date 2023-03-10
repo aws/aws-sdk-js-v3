@@ -50,6 +50,29 @@ export interface ListEnvironmentsCommandOutput extends Environments, __MetadataB
  * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ * @example To list the available environments
+ * ```javascript
+ * // The following list-environments example lists the available environments in your AWS account for the specified application.
+ * const input = {
+ *   "ApplicationId": "339ohji"
+ * };
+ * const command = new ListEnvironmentsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Items": [
+ *     {
+ *       "ApplicationId": "339ohji",
+ *       "Id": "54j1r29",
+ *       "Name": "Example-Environment",
+ *       "State": "READY_FOR_DEPLOYMENT"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-the-available-environments-1632267474389
+ * ```
+ *
  */
 export class ListEnvironmentsCommand extends $Command<
   ListEnvironmentsCommandInput,

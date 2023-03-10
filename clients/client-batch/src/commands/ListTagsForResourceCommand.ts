@@ -51,6 +51,26 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
+ * @example ListTagsForResource Example
+ * ```javascript
+ * // This demonstrates calling the ListTagsForResource action.
+ * const input = {
+ *   "resourceArn": "arn:aws:batch:us-east-1:123456789012:job-definition/sleep30:1"
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "tags": {
+ *     "Department": "Engineering",
+ *     "Stage": "Alpha",
+ *     "User": "JaneDoe"
+ *   }
+ * }
+ * *\/
+ * // example id: listtagsforresource-example-1591293003710
+ * ```
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

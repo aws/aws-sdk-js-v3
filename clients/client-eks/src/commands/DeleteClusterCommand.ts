@@ -57,6 +57,17 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
+ * @example To delete a cluster
+ * ```javascript
+ * // This example command deletes a cluster named `devel` in your default region.
+ * const input = {
+ *   "name": "devel"
+ * };
+ * const command = new DeleteClusterCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-cluster-1527868641252
+ * ```
+ *
  */
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,

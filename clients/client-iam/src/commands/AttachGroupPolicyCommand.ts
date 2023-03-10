@@ -52,6 +52,18 @@ export interface AttachGroupPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link AttachGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To attach a managed policy to an IAM group
+ * ```javascript
+ * // The following command attaches the AWS managed policy named ReadOnlyAccess to the IAM group named Finance.
+ * const input = {
+ *   "GroupName": "Finance",
+ *   "PolicyArn": "arn:aws:iam::aws:policy/ReadOnlyAccess"
+ * };
+ * const command = new AttachGroupPolicyCommand(input);
+ * await client.send(command);
+ * // example id: 87551489-86f0-45db-9889-759936778f2b
+ * ```
+ *
  */
 export class AttachGroupPolicyCommand extends $Command<
   AttachGroupPolicyCommandInput,

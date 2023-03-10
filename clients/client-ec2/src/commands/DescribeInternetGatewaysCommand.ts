@@ -50,6 +50,40 @@ export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetG
  * @see {@link DescribeInternetGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To describe the Internet gateway for a VPC
+ * ```javascript
+ * // This example describes the Internet gateway for the specified VPC.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "attachment.vpc-id",
+ *       "Values": [
+ *         "vpc-a01106c2"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeInternetGatewaysCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InternetGateways": [
+ *     {
+ *       "Attachments": [
+ *         {
+ *           "State": "available",
+ *           "VpcId": "vpc-a01106c2"
+ *         }
+ *       ],
+ *       "InternetGatewayId": "igw-c0a643a9",
+ *       "Tags": []
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-describe-internet-gateways-1
+ * ```
+ *
  */
 export class DescribeInternetGatewaysCommand extends $Command<
   DescribeInternetGatewaysCommandInput,

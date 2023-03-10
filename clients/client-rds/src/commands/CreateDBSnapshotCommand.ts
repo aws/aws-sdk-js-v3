@@ -51,6 +51,23 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  * @see {@link CreateDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To create a DB snapshot.
+ * ```javascript
+ * // This example creates a DB snapshot.
+ * const input = {
+ *   "DBInstanceIdentifier": "mymysqlinstance",
+ *   "DBSnapshotIdentifier": "mydbsnapshot"
+ * };
+ * const command = new CreateDBSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSnapshot": {}
+ * }
+ * *\/
+ * // example id: create-db-snapshot-e10e0e2c-9ac4-426d-9b17-6b6a3e382ce2
+ * ```
+ *
  */
 export class CreateDBSnapshotCommand extends $Command<
   CreateDBSnapshotCommandInput,

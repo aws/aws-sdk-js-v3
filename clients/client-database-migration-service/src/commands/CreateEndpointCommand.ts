@@ -61,6 +61,49 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * @see {@link CreateEndpointCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @example Create endpoint
+ * ```javascript
+ * // Creates an endpoint using the provided settings.
+ * const input = {
+ *   "CertificateArn": "",
+ *   "DatabaseName": "testdb",
+ *   "EndpointIdentifier": "test-endpoint-1",
+ *   "EndpointType": "source",
+ *   "EngineName": "mysql",
+ *   "ExtraConnectionAttributes": "",
+ *   "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+ *   "Password": "pasword",
+ *   "Port": 3306,
+ *   "ServerName": "mydb.cx1llnox7iyx.us-west-2.rds.amazonaws.com",
+ *   "SslMode": "require",
+ *   "Tags": [
+ *     {
+ *       "Key": "Acount",
+ *       "Value": "143327655"
+ *     }
+ *   ],
+ *   "Username": "username"
+ * };
+ * const command = new CreateEndpointCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Endpoint": {
+ *     "EndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM",
+ *     "EndpointIdentifier": "test-endpoint-1",
+ *     "EndpointType": "source",
+ *     "EngineName": "mysql",
+ *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+ *     "Port": 3306,
+ *     "ServerName": "mydb.cx1llnox7iyx.us-west-2.rds.amazonaws.com",
+ *     "Status": "active",
+ *     "Username": "username"
+ *   }
+ * }
+ * *\/
+ * // example id: create-endpoint-1481746254348
+ * ```
+ *
  */
 export class CreateEndpointCommand extends $Command<
   CreateEndpointCommandInput,

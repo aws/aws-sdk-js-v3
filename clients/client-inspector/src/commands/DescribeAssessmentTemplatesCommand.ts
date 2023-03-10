@@ -53,6 +53,38 @@ export interface DescribeAssessmentTemplatesCommandOutput
  * @see {@link DescribeAssessmentTemplatesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ * @example Describte assessment templates
+ * ```javascript
+ * // Describes the assessment templates that are specified by the ARNs of the assessment templates.
+ * const input = {
+ *   "assessmentTemplateArns": [
+ *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw"
+ *   ]
+ * };
+ * const command = new DescribeAssessmentTemplatesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "assessmentTemplates": [
+ *     {
+ *       "name": "ExampleAssessmentTemplate",
+ *       "arn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw",
+ *       "assessmentRunCount": 0,
+ *       "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq",
+ *       "createdAt": "1458074191.844",
+ *       "durationInSeconds": 3600,
+ *       "rulesPackageArns": [
+ *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-X1KXtawP"
+ *       ],
+ *       "userAttributesForFindings": []
+ *     }
+ *   ],
+ *   "failedItems": {}
+ * }
+ * *\/
+ * // example id: describte-assessment-templates-1481064606829
+ * ```
+ *
  */
 export class DescribeAssessmentTemplatesCommand extends $Command<
   DescribeAssessmentTemplatesCommandInput,

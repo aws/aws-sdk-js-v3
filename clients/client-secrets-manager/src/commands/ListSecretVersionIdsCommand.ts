@@ -60,6 +60,44 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  * @see {@link ListSecretVersionIdsCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
+ * @example To list all of the secret versions associated with a secret
+ * ```javascript
+ * // The following example shows how to retrieve a list of all of the versions of a secret, including those without any staging labels.
+ * const input = {
+ *   "IncludeDeprecated": true,
+ *   "SecretId": "MyTestDatabaseSecret"
+ * };
+ * const command = new ListSecretVersionIdsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   "Name": "MyTestDatabaseSecret",
+ *   "Versions": [
+ *     {
+ *       "CreatedDate": 1523477145.713,
+ *       "VersionId": "EXAMPLE1-90ab-cdef-fedc-ba987EXAMPLE",
+ *       "VersionStages": [
+ *         "AWSPREVIOUS"
+ *       ]
+ *     },
+ *     {
+ *       "CreatedDate": 1523486221.391,
+ *       "VersionId": "EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE",
+ *       "VersionStages": [
+ *         "AWSCURRENT"
+ *       ]
+ *     },
+ *     {
+ *       "CreatedDate": 1511974462.36,
+ *       "VersionId": "EXAMPLE3-90ab-cdef-fedc-ba987EXAMPLE;"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-all-of-the-secret-versions-associated-with-a-secret-1524000999164
+ * ```
+ *
  */
 export class ListSecretVersionIdsCommand extends $Command<
   ListSecretVersionIdsCommandInput,

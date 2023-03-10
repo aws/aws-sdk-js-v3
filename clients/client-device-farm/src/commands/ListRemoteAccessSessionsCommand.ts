@@ -50,6 +50,23 @@ export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessS
  * @see {@link ListRemoteAccessSessionsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ * @example To get information about a remote access session
+ * ```javascript
+ * // The following example returns information about a specific Device Farm remote access session.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:session:EXAMPLE-GUID-123-456",
+ *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE="
+ * };
+ * const command = new ListRemoteAccessSessionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "remoteAccessSessions": []
+ * }
+ * *\/
+ * // example id: to-get-information-about-a-remote-access-session-1472581144803
+ * ```
+ *
  */
 export class ListRemoteAccessSessionsCommand extends $Command<
   ListRemoteAccessSessionsCommandInput,

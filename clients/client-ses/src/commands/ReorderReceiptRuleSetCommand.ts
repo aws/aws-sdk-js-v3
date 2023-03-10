@@ -57,6 +57,21 @@ export interface ReorderReceiptRuleSetCommandOutput extends ReorderReceiptRuleSe
  * @see {@link ReorderReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @example ReorderReceiptRuleSet
+ * ```javascript
+ * // The following example reorders the receipt rules within a receipt rule set:
+ * const input = {
+ *   "RuleNames": [
+ *     "MyRule",
+ *     "MyOtherRule"
+ *   ],
+ *   "RuleSetName": "MyRuleSet"
+ * };
+ * const command = new ReorderReceiptRuleSetCommand(input);
+ * await client.send(command);
+ * // example id: reorderreceiptruleset-1469058156806
+ * ```
+ *
  */
 export class ReorderReceiptRuleSetCommand extends $Command<
   ReorderReceiptRuleSetCommandInput,

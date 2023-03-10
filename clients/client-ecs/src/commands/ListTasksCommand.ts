@@ -51,6 +51,44 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * @see {@link ListTasksCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @example To list the tasks in a cluster
+ * ```javascript
+ * // This example lists all of the tasks in a cluster.
+ * const input = {
+ *   "cluster": "default"
+ * };
+ * const command = new ListTasksCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "taskArns": [
+ *     "arn:aws:ecs:us-east-1:012345678910:task/0cc43cdb-3bee-4407-9c26-c0e6ea5bee84",
+ *     "arn:aws:ecs:us-east-1:012345678910:task/6b809ef6-c67e-4467-921f-ee261c15a0a1"
+ *   ]
+ * }
+ * *\/
+ * // example id: 9a6ec707-1a77-45d0-b2eb-516b5dd9e924
+ * ```
+ *
+ * @example To list the tasks on a particular container instance
+ * ```javascript
+ * // This example lists the tasks of a specified container instance. Specifying a ``containerInstance`` value limits  the  results  to  tasks  that belong to that container instance.
+ * const input = {
+ *   "cluster": "default",
+ *   "containerInstance": "f6bbb147-5370-4ace-8c73-c7181ded911f"
+ * };
+ * const command = new ListTasksCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "taskArns": [
+ *     "arn:aws:ecs:us-east-1:012345678910:task/0cc43cdb-3bee-4407-9c26-c0e6ea5bee84"
+ *   ]
+ * }
+ * *\/
+ * // example id: 024bf3b7-9cbb-44e3-848f-9d074e1fecce
+ * ```
+ *
  */
 export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksCommandOutput, ECSClientResolvedConfig> {
   // Start section: command_properties

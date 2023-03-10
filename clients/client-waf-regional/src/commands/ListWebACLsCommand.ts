@@ -58,6 +58,27 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  * @see {@link ListWebACLsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ * @example To list Web ACLs
+ * ```javascript
+ * // The following example returns an array of up to 100 web ACLs.
+ * const input = {
+ *   "Limit": 100
+ * };
+ * const command = new ListWebACLsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "WebACLs": [
+ *     {
+ *       "Name": "WebACLexample",
+ *       "WebACLId": "webacl-1472061481310"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: listwebacls-1475258732691
+ * ```
+ *
  */
 export class ListWebACLsCommand extends $Command<
   ListWebACLsCommandInput,

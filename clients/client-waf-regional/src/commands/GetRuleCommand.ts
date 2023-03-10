@@ -55,6 +55,33 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * @see {@link GetRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ * @example To get a rule
+ * ```javascript
+ * // The following example returns the details of a rule with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
+ * const input = {
+ *   "RuleId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ * };
+ * const command = new GetRuleCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Rule": {
+ *     "MetricName": "WAFByteHeaderRule",
+ *     "Name": "WAFByteHeaderRule",
+ *     "Predicates": [
+ *       {
+ *         "DataId": "MyByteMatchSetID",
+ *         "Negated": false,
+ *         "Type": "ByteMatch"
+ *       }
+ *     ],
+ *     "RuleId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *   }
+ * }
+ * *\/
+ * // example id: getrule-1474659238790
+ * ```
+ *
  */
 export class GetRuleCommand extends $Command<
   GetRuleCommandInput,

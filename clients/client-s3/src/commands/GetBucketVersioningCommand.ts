@@ -72,6 +72,23 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningOut
  * @see {@link GetBucketVersioningCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @example To get bucket versioning configuration
+ * ```javascript
+ * // The following example retrieves bucket versioning configuration.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new GetBucketVersioningCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "MFADelete": "Disabled",
+ *   "Status": "Enabled"
+ * }
+ * *\/
+ * // example id: to-get-bucket-versioning-configuration-1483037183929
+ * ```
+ *
  */
 export class GetBucketVersioningCommand extends $Command<
   GetBucketVersioningCommandInput,

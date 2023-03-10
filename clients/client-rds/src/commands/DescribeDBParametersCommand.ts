@@ -46,6 +46,19 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  * @see {@link DescribeDBParametersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To list information about DB parameters
+ * ```javascript
+ * // This example lists information for up to the first 20 system parameters for the specified DB parameter group.
+ * const input = {
+ *   "DBParameterGroupName": "mymysqlparametergroup",
+ *   "MaxRecords": 20,
+ *   "Source": "system"
+ * };
+ * const command = new DescribeDBParametersCommand(input);
+ * await client.send(command);
+ * // example id: describe-db-parameters-09db4201-ef4f-4d97-a4b5-d71c0715b901
+ * ```
+ *
  */
 export class DescribeDBParametersCommand extends $Command<
   DescribeDBParametersCommandInput,

@@ -53,6 +53,45 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  * @see {@link DescribeRouteTablesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To describe a route table
+ * ```javascript
+ * // This example describes the specified route table.
+ * const input = {
+ *   "RouteTableIds": [
+ *     "rtb-1f382e7d"
+ *   ]
+ * };
+ * const command = new DescribeRouteTablesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "RouteTables": [
+ *     {
+ *       "Associations": [
+ *         {
+ *           "Main": true,
+ *           "RouteTableAssociationId": "rtbassoc-d8ccddba",
+ *           "RouteTableId": "rtb-1f382e7d"
+ *         }
+ *       ],
+ *       "PropagatingVgws": [],
+ *       "RouteTableId": "rtb-1f382e7d",
+ *       "Routes": [
+ *         {
+ *           "DestinationCidrBlock": "10.0.0.0/16",
+ *           "GatewayId": "local",
+ *           "State": "active"
+ *         }
+ *       ],
+ *       "Tags": [],
+ *       "VpcId": "vpc-a01106c2"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-describe-route-tables-1
+ * ```
+ *
  */
 export class DescribeRouteTablesCommand extends $Command<
   DescribeRouteTablesCommandInput,

@@ -53,6 +53,23 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  * @see {@link GetSnowballUsageCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @example To see your Snowball service limit and the number of Snowballs you have in use
+ * ```javascript
+ * // Returns information about the Snowball service limit for your account, and also the number of Snowballs your account has in use.
+ * //
+ * // The default service limit for the number of Snowballs that you can have at one time is 1. If you want to increase your service limit, contact AWS Support.
+ * const input = {};
+ * const command = new GetSnowballUsageCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SnowballLimit": 1,
+ *   "SnowballsInUse": 0
+ * }
+ * *\/
+ * // example id: to-see-your-snowball-service-limit-and-the-number-of-snowballs-you-have-in-use-1482863394588
+ * ```
+ *
  */
 export class GetSnowballUsageCommand extends $Command<
   GetSnowballUsageCommandInput,

@@ -65,6 +65,28 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  * @see {@link CreateCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @example CreateCacheParameterGroup
+ * ```javascript
+ * // Creates the Amazon ElastiCache parameter group custom-redis2-8.
+ * const input = {
+ *   "CacheParameterGroupFamily": "redis2.8",
+ *   "CacheParameterGroupName": "custom-redis2-8",
+ *   "Description": "Custom Redis 2.8 parameter group."
+ * };
+ * const command = new CreateCacheParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CacheParameterGroup": {
+ *     "CacheParameterGroupFamily": "redis2.8",
+ *     "CacheParameterGroupName": "custom-redis2-8",
+ *     "Description": "Custom Redis 2.8 parameter group."
+ *   }
+ * }
+ * *\/
+ * // example id: createcacheparametergroup-1474997699362
+ * ```
+ *
  */
 export class CreateCacheParameterGroupCommand extends $Command<
   CreateCacheParameterGroupCommandInput,

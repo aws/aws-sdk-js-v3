@@ -54,6 +54,46 @@ export interface CreateReplicationTaskCommandOutput extends CreateReplicationTas
  * @see {@link CreateReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @example Create replication task
+ * ```javascript
+ * // Creates a replication task using the specified parameters.
+ * const input = {
+ *   "CdcStartTime": "2016-12-14T18:25:43Z",
+ *   "MigrationType": "full-load",
+ *   "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *   "ReplicationTaskIdentifier": "task1",
+ *   "ReplicationTaskSettings": "",
+ *   "SourceEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
+ *   "TableMappings": "file://mappingfile.json",
+ *   "Tags": [
+ *     {
+ *       "Key": "Acount",
+ *       "Value": "24352226"
+ *     }
+ *   ],
+ *   "TargetEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E"
+ * };
+ * const command = new CreateReplicationTaskCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReplicationTask": {
+ *     "MigrationType": "full-load",
+ *     "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *     "ReplicationTaskArn": "arn:aws:dms:us-east-1:123456789012:task:OEAMB3NXSTZ6LFYZFEPPBBXPYM",
+ *     "ReplicationTaskCreationDate": "2016-12-14T18:25:43Z",
+ *     "ReplicationTaskIdentifier": "task1",
+ *     "ReplicationTaskSettings": "{\"TargetMetadata\":{\"TargetSchema\":\"\",\"SupportLobs\":true,\"FullLobMode\":true,\"LobChunkSize\":64,\"LimitedSizeLobMode\":false,\"LobMaxSize\":0},\"FullLoadSettings\":{\"FullLoadEnabled\":true,\"ApplyChangesEnabled\":false,\"TargetTablePrepMode\":\"DROP_AND_CREATE\",\"CreatePkAfterFullLoad\":false,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"ResumeEnabled\":false,\"ResumeMinTableSize\":100000,\"ResumeOnlyClusteredPKTables\":true,\"MaxFullLoadSubTasks\":8,\"TransactionConsistencyTimeout\":600,\"CommitRate\":10000},\"Logging\":{\"EnableLogging\":false}}",
+ *     "SourceEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
+ *     "Status": "creating",
+ *     "TableMappings": "file://mappingfile.json",
+ *     "TargetEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E"
+ *   }
+ * }
+ * *\/
+ * // example id: create-replication-task-1481747646288
+ * ```
+ *
  */
 export class CreateReplicationTaskCommand extends $Command<
   CreateReplicationTaskCommandInput,

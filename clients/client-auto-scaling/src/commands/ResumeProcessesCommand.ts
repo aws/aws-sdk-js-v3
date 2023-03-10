@@ -48,6 +48,20 @@ export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
  * @see {@link ResumeProcessesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To resume Auto Scaling processes
+ * ```javascript
+ * // This example resumes the specified suspended scaling process for the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "ScalingProcesses": [
+ *     "AlarmNotification"
+ *   ]
+ * };
+ * const command = new ResumeProcessesCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-resume-processes-1
+ * ```
+ *
  */
 export class ResumeProcessesCommand extends $Command<
   ResumeProcessesCommandInput,

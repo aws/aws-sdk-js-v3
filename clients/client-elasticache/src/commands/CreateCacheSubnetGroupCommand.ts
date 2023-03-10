@@ -51,6 +51,52 @@ export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGr
  * @see {@link CreateCacheSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @example CreateCacheSubnet
+ * ```javascript
+ * // Creates a new cache subnet group.
+ * const input = {
+ *   "CacheSubnetGroupDescription": "Sample subnet group",
+ *   "CacheSubnetGroupName": "my-sn-grp2",
+ *   "SubnetIds": [
+ *     "subnet-6f28c982",
+ *     "subnet-bcd382f3",
+ *     "subnet-845b3e7c0"
+ *   ]
+ * };
+ * const command = new CreateCacheSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CacheSubnetGroup": {
+ *     "CacheSubnetGroupDescription": "My subnet group.",
+ *     "CacheSubnetGroupName": "my-sn-grp",
+ *     "Subnets": [
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-east-1a"
+ *         },
+ *         "SubnetIdentifier": "subnet-6f28c982"
+ *       },
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-east-1c"
+ *         },
+ *         "SubnetIdentifier": "subnet-bcd382f3"
+ *       },
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-east-1b"
+ *         },
+ *         "SubnetIdentifier": "subnet-845b3e7c0"
+ *       }
+ *     ],
+ *     "VpcId": "vpc-91280df6"
+ *   }
+ * }
+ * *\/
+ * // example id: createcachesubnet-1483042274558
+ * ```
+ *
  */
 export class CreateCacheSubnetGroupCommand extends $Command<
   CreateCacheSubnetGroupCommandInput,

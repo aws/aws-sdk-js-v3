@@ -56,6 +56,45 @@ export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBala
  * @see {@link CreateLoadBalancerListenersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @example To create an HTTP listener for a load balancer
+ * ```javascript
+ * // This example creates a listener for your load balancer at port 80 using the HTTP protocol.
+ * const input = {
+ *   "Listeners": [
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 80,
+ *       "Protocol": "HTTP"
+ *     }
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new CreateLoadBalancerListenersCommand(input);
+ * await client.send(command);
+ * // example id: elb-create-load-balancer-listeners-1
+ * ```
+ *
+ * @example To create an HTTPS listener for a load balancer
+ * ```javascript
+ * // This example creates a listener for your load balancer at port 443 using the HTTPS protocol.
+ * const input = {
+ *   "Listeners": [
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 443,
+ *       "Protocol": "HTTPS",
+ *       "SSLCertificateId": "arn:aws:iam::123456789012:server-certificate/my-server-cert"
+ *     }
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new CreateLoadBalancerListenersCommand(input);
+ * await client.send(command);
+ * // example id: elb-create-load-balancer-listeners-2
+ * ```
+ *
  */
 export class CreateLoadBalancerListenersCommand extends $Command<
   CreateLoadBalancerListenersCommandInput,

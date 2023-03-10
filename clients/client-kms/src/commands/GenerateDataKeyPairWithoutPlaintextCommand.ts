@@ -114,6 +114,26 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  * @see {@link GenerateDataKeyPairWithoutPlaintextCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @example To generate an asymmetric data key pair without a plaintext key
+ * ```javascript
+ * // This example returns an asymmetric elliptic curve (ECC) data key pair. The private key is encrypted under the symmetric encryption KMS key that you specify. This operation doesn't return a plaintext (unencrypted) private key.
+ * const input = {
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "KeyPairSpec": "ECC_NIST_P521"
+ * };
+ * const command = new GenerateDataKeyPairWithoutPlaintextCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "KeyPairSpec": "ECC_NIST_P521",
+ *   "PrivateKeyCiphertextBlob": "<binary data>",
+ *   "PublicKey": "<binary data>"
+ * }
+ * *\/
+ * // example id: to-generate-an-asymmetric-data-key-pair-without-a-plaintext-key-1628620971564
+ * ```
+ *
  */
 export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
   GenerateDataKeyPairWithoutPlaintextCommandInput,

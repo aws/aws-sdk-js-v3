@@ -55,6 +55,18 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * @see {@link PutLexiconCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
+ * @example To save a lexicon
+ * ```javascript
+ * // Stores a pronunciation lexicon in an AWS Region.
+ * const input = {
+ *   "Content": "file://example.pls",
+ *   "Name": "W3C"
+ * };
+ * const command = new PutLexiconCommand(input);
+ * await client.send(command);
+ * // example id: to-save-a-lexicon-1482272584088
+ * ```
+ *
  */
 export class PutLexiconCommand extends $Command<
   PutLexiconCommandInput,

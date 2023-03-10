@@ -70,6 +70,24 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * @see {@link RestoreDBClusterFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To restore an Amazon Aurora DB cluster from a DB cluster snapshot
+ * ```javascript
+ * // The following example restores an Amazon Aurora DB cluster from a DB cluster snapshot.
+ * const input = {
+ *   "DBClusterIdentifier": "restored-cluster1",
+ *   "Engine": "aurora",
+ *   "SnapshotIdentifier": "sample-cluster-snapshot1"
+ * };
+ * const command = new RestoreDBClusterFromSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBCluster": {}
+ * }
+ * *\/
+ * // example id: to-restore-an-amazon-aurora-db-cluster-from-a-db-cluster-snapshot-1473958144325
+ * ```
+ *
  */
 export class RestoreDBClusterFromSnapshotCommand extends $Command<
   RestoreDBClusterFromSnapshotCommandInput,

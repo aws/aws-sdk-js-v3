@@ -50,6 +50,21 @@ export interface SetVaultAccessPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link SetVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ * @example To set the access-policy on a vault
+ * ```javascript
+ * // The example configures an access policy for the vault named examplevault.
+ * const input = {
+ *   "accountId": "-",
+ *   "policy": {
+ *     "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Define-owner-access-rights\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::999999999999:root\"},\"Action\":\"glacier:DeleteArchive\",\"Resource\":\"arn:aws:glacier:us-west-2:999999999999:vaults/examplevault\"}]}"
+ *   },
+ *   "vaultName": "examplevault"
+ * };
+ * const command = new SetVaultAccessPolicyCommand(input);
+ * await client.send(command);
+ * // example id: to--set-the-access-policy-on-a-vault-1482185872517
+ * ```
+ *
  */
 export class SetVaultAccessPolicyCommand extends $Command<
   SetVaultAccessPolicyCommandInput,

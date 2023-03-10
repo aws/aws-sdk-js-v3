@@ -50,6 +50,22 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @see {@link DeleteEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To delete a DB event subscription.
+ * ```javascript
+ * // This example deletes the specified DB event subscription.
+ * const input = {
+ *   "SubscriptionName": "myeventsubscription"
+ * };
+ * const command = new DeleteEventSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EventSubscription": {}
+ * }
+ * *\/
+ * // example id: delete-db-event-subscription-d33567e3-1d5d-48ff-873f-0270453f4a75
+ * ```
+ *
  */
 export class DeleteEventSubscriptionCommand extends $Command<
   DeleteEventSubscriptionCommandInput,

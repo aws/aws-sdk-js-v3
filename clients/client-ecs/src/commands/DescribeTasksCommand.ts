@@ -51,6 +51,57 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * @see {@link DescribeTasksCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @example To describe a task
+ * ```javascript
+ * // This example provides a description of the specified task, using the task UUID as an identifier.
+ * const input = {
+ *   "tasks": [
+ *     "c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
+ *   ]
+ * };
+ * const command = new DescribeTasksCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failures": [],
+ *   "tasks": [
+ *     {
+ *       "clusterArn": "arn:aws:ecs:<region>:<aws_account_id>:cluster/default",
+ *       "containerInstanceArn": "arn:aws:ecs:<region>:<aws_account_id>:container-instance/18f9eda5-27d7-4c19-b133-45adc516e8fb",
+ *       "containers": [
+ *         {
+ *           "name": "ecs-demo",
+ *           "containerArn": "arn:aws:ecs:<region>:<aws_account_id>:container/7c01765b-c588-45b3-8290-4ba38bd6c5a6",
+ *           "lastStatus": "RUNNING",
+ *           "networkBindings": [
+ *             {
+ *               "bindIP": "0.0.0.0",
+ *               "containerPort": 80,
+ *               "hostPort": 80
+ *             }
+ *           ],
+ *           "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
+ *         }
+ *       ],
+ *       "desiredStatus": "RUNNING",
+ *       "lastStatus": "RUNNING",
+ *       "overrides": {
+ *         "containerOverrides": [
+ *           {
+ *             "name": "ecs-demo"
+ *           }
+ *         ]
+ *       },
+ *       "startedBy": "ecs-svc/9223370608528463088",
+ *       "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/c5cba4eb-5dad-405e-96db-71ef8eefe6a8",
+ *       "taskDefinitionArn": "arn:aws:ecs:<region>:<aws_account_id>:task-definition/amazon-ecs-sample:1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: a90b0cde-f965-4946-b55e-cfd8cc54e827
+ * ```
+ *
  */
 export class DescribeTasksCommand extends $Command<
   DescribeTasksCommandInput,

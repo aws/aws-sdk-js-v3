@@ -87,6 +87,20 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  * @see {@link CompleteLifecycleActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To complete the lifecycle action
+ * ```javascript
+ * // This example notifies Auto Scaling that the specified lifecycle action is complete so that it can finish launching or terminating the instance.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "LifecycleActionResult": "CONTINUE",
+ *   "LifecycleActionToken": "bcd2f1b8-9a78-44d3-8a7a-4dd07d7cf635",
+ *   "LifecycleHookName": "my-lifecycle-hook"
+ * };
+ * const command = new CompleteLifecycleActionCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-complete-lifecycle-action-1
+ * ```
+ *
  */
 export class CompleteLifecycleActionCommand extends $Command<
   CompleteLifecycleActionCommandInput,

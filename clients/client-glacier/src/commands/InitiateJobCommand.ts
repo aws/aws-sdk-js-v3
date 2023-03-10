@@ -54,6 +54,30 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * @see {@link InitiateJobCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ * @example To initiate an inventory-retrieval job
+ * ```javascript
+ * // The example initiates an inventory-retrieval job for the vault named examplevault.
+ * const input = {
+ *   "accountId": "-",
+ *   "jobParameters": {
+ *     "Description": "My inventory job",
+ *     "Format": "CSV",
+ *     "SNSTopic": "arn:aws:sns:us-west-2:111111111111:Glacier-InventoryRetrieval-topic-Example",
+ *     "Type": "inventory-retrieval"
+ *   },
+ *   "vaultName": "examplevault"
+ * };
+ * const command = new InitiateJobCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "jobId": " HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID",
+ *   "location": "/111122223333/vaults/examplevault/jobs/HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID"
+ * }
+ * *\/
+ * // example id: to-initiate-an-inventory-retrieval-job-1482186883826
+ * ```
+ *
  */
 export class InitiateJobCommand extends $Command<
   InitiateJobCommandInput,

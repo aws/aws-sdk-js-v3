@@ -45,6 +45,19 @@ export interface ValidateConfigurationCommandOutput extends __MetadataBearer {}
  * @see {@link ValidateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ * @example To validate a configuration
+ * ```javascript
+ * // The following validate-configuration example uses the validators in a configuration profile to validate a configuration.
+ * const input = {
+ *   "ApplicationId": "abc1234",
+ *   "ConfigurationProfileId": "ur8hx2f",
+ *   "ConfigurationVersion": "1"
+ * };
+ * const command = new ValidateConfigurationCommand(input);
+ * await client.send(command);
+ * // example id: to-validate-a-configuration-1632331491365
+ * ```
+ *
  */
 export class ValidateConfigurationCommand extends $Command<
   ValidateConfigurationCommandInput,

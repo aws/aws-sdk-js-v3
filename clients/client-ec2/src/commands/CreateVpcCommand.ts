@@ -57,6 +57,28 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  * @see {@link CreateVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To create a VPC
+ * ```javascript
+ * // This example creates a VPC with the specified CIDR block.
+ * const input = {
+ *   "CidrBlock": "10.0.0.0/16"
+ * };
+ * const command = new CreateVpcCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Vpc": {
+ *     "CidrBlock": "10.0.0.0/16",
+ *     "DhcpOptionsId": "dopt-7a8b9c2d",
+ *     "InstanceTenancy": "default",
+ *     "State": "pending",
+ *     "VpcId": "vpc-a01106c2"
+ *   }
+ * }
+ * *\/
+ * // example id: ec2-create-vpc-1
+ * ```
+ *
  */
 export class CreateVpcCommand extends $Command<CreateVpcCommandInput, CreateVpcCommandOutput, EC2ClientResolvedConfig> {
   // Start section: command_properties

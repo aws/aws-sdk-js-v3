@@ -57,6 +57,28 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  * @see {@link ActivateGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To activate the gateway
+ * ```javascript
+ * // Activates the gateway you previously deployed on your host.
+ * const input = {
+ *   "ActivationKey": "29AV1-3OFV9-VVIUB-NKT0I-LRO6V",
+ *   "GatewayName": "My_Gateway",
+ *   "GatewayRegion": "us-east-1",
+ *   "GatewayTimezone": "GMT-12:00",
+ *   "GatewayType": "STORED",
+ *   "MediumChangerType": "AWS-Gateway-VTL",
+ *   "TapeDriveType": "IBM-ULT3580-TD5"
+ * };
+ * const command = new ActivateGatewayCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
+ * }
+ * *\/
+ * // example id: to-activate-the-gateway-1471281611207
+ * ```
+ *
  */
 export class ActivateGatewayCommand extends $Command<
   ActivateGatewayCommandInput,

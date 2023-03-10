@@ -51,6 +51,35 @@ export interface ListEventSubscriptionsCommandOutput extends ListEventSubscripti
  * @see {@link ListEventSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ * @example List event subscriptions
+ * ```javascript
+ * // Lists all the event subscriptions for the assessment template that is specified by the ARN of the assessment template.
+ * const input = {
+ *   "maxResults": 123,
+ *   "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0"
+ * };
+ * const command = new ListEventSubscriptionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "nextToken": "1",
+ *   "subscriptions": [
+ *     {
+ *       "eventSubscriptions": [
+ *         {
+ *           "event": "ASSESSMENT_RUN_COMPLETED",
+ *           "subscribedAt": "1459455440.867"
+ *         }
+ *       ],
+ *       "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
+ *       "topicArn": "arn:aws:sns:us-west-2:123456789012:exampletopic"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: list-event-subscriptions-1481068376945
+ * ```
+ *
  */
 export class ListEventSubscriptionsCommand extends $Command<
   ListEventSubscriptionsCommandInput,

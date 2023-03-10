@@ -60,6 +60,18 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  * @see {@link RequestEnvironmentInfoCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @example To request tailed logs
+ * ```javascript
+ * // The following operation requests logs from an environment named my-env:
+ * const input = {
+ *   "EnvironmentName": "my-env",
+ *   "InfoType": "tail"
+ * };
+ * const command = new RequestEnvironmentInfoCommand(input);
+ * await client.send(command);
+ * // example id: to-request-tailed-logs-1456277657045
+ * ```
+ *
  */
 export class RequestEnvironmentInfoCommand extends $Command<
   RequestEnvironmentInfoCommandInput,

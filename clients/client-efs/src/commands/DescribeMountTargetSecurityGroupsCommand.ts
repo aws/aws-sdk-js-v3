@@ -67,6 +67,24 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  * @see {@link DescribeMountTargetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ * @example To describe the security groups for a mount target
+ * ```javascript
+ * // This operation describes all of the security groups for a file system's mount target.
+ * const input = {
+ *   "MountTargetId": "fsmt-12340abc"
+ * };
+ * const command = new DescribeMountTargetSecurityGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SecurityGroups": [
+ *     "sg-4567abcd"
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-the-security-groups-for-a-mount-target-1481849317823
+ * ```
+ *
  */
 export class DescribeMountTargetSecurityGroupsCommand extends $Command<
   DescribeMountTargetSecurityGroupsCommandInput,

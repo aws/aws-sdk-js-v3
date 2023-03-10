@@ -50,6 +50,17 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @example To cancel a job for a Snowball device
+ * ```javascript
+ * // This operation cancels a job. You can only cancel a job before its JobState value changes to PreparingAppliance.
+ * const input = {
+ *   "JobId": "JID123e4567-e89b-12d3-a456-426655440000"
+ * };
+ * const command = new CancelJobCommand(input);
+ * await client.send(command);
+ * // example id: to-cancel-a-job-for-a-snowball-device-1482534699477
+ * ```
+ *
  */
 export class CancelJobCommand extends $Command<
   CancelJobCommandInput,

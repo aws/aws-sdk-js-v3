@@ -50,6 +50,20 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * @see {@link DescribeDBSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To list DB snapshot attributes
+ * ```javascript
+ * // This example lists all manually-created, shared snapshots for the specified DB instance.
+ * const input = {
+ *   "DBInstanceIdentifier": "mymysqlinstance",
+ *   "IncludePublic": false,
+ *   "IncludeShared": true,
+ *   "SnapshotType": "manual"
+ * };
+ * const command = new DescribeDBSnapshotsCommand(input);
+ * await client.send(command);
+ * // example id: describe-db-snapshots-2c935989-a1ef-4c85-aea4-1d0f45f17f26
+ * ```
+ *
  */
 export class DescribeDBSnapshotsCommand extends $Command<
   DescribeDBSnapshotsCommandInput,

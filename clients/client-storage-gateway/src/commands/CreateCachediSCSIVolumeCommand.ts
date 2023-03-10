@@ -67,6 +67,28 @@ export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIV
  * @see {@link CreateCachediSCSIVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To create a cached iSCSI volume
+ * ```javascript
+ * // Creates a cached volume on a specified cached gateway.
+ * const input = {
+ *   "ClientToken": "cachedvol112233",
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   "NetworkInterfaceId": "10.1.1.1",
+ *   "SnapshotId": "snap-f47b7b94",
+ *   "TargetName": "my-volume",
+ *   "VolumeSizeInBytes": 536870912000
+ * };
+ * const command = new CreateCachediSCSIVolumeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume",
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * }
+ * *\/
+ * // example id: to-create-a-cached-iscsi-volume-1471296661787
+ * ```
+ *
  */
 export class CreateCachediSCSIVolumeCommand extends $Command<
   CreateCachediSCSIVolumeCommandInput,

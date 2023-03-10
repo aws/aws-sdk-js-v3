@@ -67,6 +67,24 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  * @see {@link PromoteReadReplicaCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To promote a read replica
+ * ```javascript
+ * // This example promotes the specified read replica and sets its backup retention period and preferred backup window.
+ * const input = {
+ *   "BackupRetentionPeriod": 1,
+ *   "DBInstanceIdentifier": "mydbreadreplica",
+ *   "PreferredBackupWindow": "03:30-04:00"
+ * };
+ * const command = new PromoteReadReplicaCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstance": {}
+ * }
+ * *\/
+ * // example id: promote-read-replica-cc580039-c55d-4035-838a-def4a1ae4181
+ * ```
+ *
  */
 export class PromoteReadReplicaCommand extends $Command<
   PromoteReadReplicaCommandInput,

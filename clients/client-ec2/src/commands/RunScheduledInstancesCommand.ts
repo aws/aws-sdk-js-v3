@@ -55,6 +55,76 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * @see {@link RunScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To launch a Scheduled Instance in a VPC
+ * ```javascript
+ * // This example launches the specified Scheduled Instance in a VPC.
+ * const input = {
+ *   "InstanceCount": 1,
+ *   "LaunchSpecification": {
+ *     "IamInstanceProfile": {
+ *       "Name": "my-iam-role"
+ *     },
+ *     "ImageId": "ami-12345678",
+ *     "InstanceType": "c4.large",
+ *     "KeyName": "my-key-pair",
+ *     "NetworkInterfaces": [
+ *       {
+ *         "AssociatePublicIpAddress": true,
+ *         "DeviceIndex": 0,
+ *         "Groups": [
+ *           "sg-12345678"
+ *         ],
+ *         "SubnetId": "subnet-12345678"
+ *       }
+ *     ]
+ *   },
+ *   "ScheduledInstanceId": "sci-1234-1234-1234-1234-123456789012"
+ * };
+ * const command = new RunScheduledInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InstanceIdSet": [
+ *     "i-1234567890abcdef0"
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-run-scheduled-instances-1
+ * ```
+ *
+ * @example To launch a Scheduled Instance in EC2-Classic
+ * ```javascript
+ * // This example launches the specified Scheduled Instance in EC2-Classic.
+ * const input = {
+ *   "InstanceCount": 1,
+ *   "LaunchSpecification": {
+ *     "IamInstanceProfile": {
+ *       "Name": "my-iam-role"
+ *     },
+ *     "ImageId": "ami-12345678",
+ *     "InstanceType": "c4.large",
+ *     "KeyName": "my-key-pair",
+ *     "Placement": {
+ *       "AvailabilityZone": "us-west-2b"
+ *     },
+ *     "SecurityGroupIds": [
+ *       "sg-12345678"
+ *     ]
+ *   },
+ *   "ScheduledInstanceId": "sci-1234-1234-1234-1234-123456789012"
+ * };
+ * const command = new RunScheduledInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InstanceIdSet": [
+ *     "i-1234567890abcdef0"
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-run-scheduled-instances-2
+ * ```
+ *
  */
 export class RunScheduledInstancesCommand extends $Command<
   RunScheduledInstancesCommandInput,

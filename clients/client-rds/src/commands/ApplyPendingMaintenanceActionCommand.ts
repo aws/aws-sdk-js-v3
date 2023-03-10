@@ -52,6 +52,24 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * @see {@link ApplyPendingMaintenanceActionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To apply a pending maintenance action
+ * ```javascript
+ * // This example immediately applies a pending system update to a DB instance.
+ * const input = {
+ *   "ApplyAction": "system-update",
+ *   "OptInType": "immediate",
+ *   "ResourceIdentifier": "arn:aws:rds:us-east-1:992648334831:db:mymysqlinstance"
+ * };
+ * const command = new ApplyPendingMaintenanceActionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ResourcePendingMaintenanceActions": {}
+ * }
+ * *\/
+ * // example id: apply-pending-maintenance-action-2a026047-8bbb-47fc-b695-abad9f308c24
+ * ```
+ *
  */
 export class ApplyPendingMaintenanceActionCommand extends $Command<
   ApplyPendingMaintenanceActionCommandInput,

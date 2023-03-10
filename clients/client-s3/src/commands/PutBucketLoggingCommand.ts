@@ -121,6 +121,32 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketLoggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @example Set logging configuration for a bucket
+ * ```javascript
+ * // The following example sets logging policy on a bucket. For the Log Delivery group to deliver logs to the destination bucket, it needs permission for the READ_ACP action which the policy grants.
+ * const input = {
+ *   "Bucket": "sourcebucket",
+ *   "BucketLoggingStatus": {
+ *     "LoggingEnabled": {
+ *       "TargetBucket": "targetbucket",
+ *       "TargetGrants": [
+ *         {
+ *           "Grantee": {
+ *             "Type": "Group",
+ *             "URI": "http://acs.amazonaws.com/groups/global/AllUsers"
+ *           },
+ *           "Permission": "READ"
+ *         }
+ *       ],
+ *       "TargetPrefix": "MyBucketLogs/"
+ *     }
+ *   }
+ * };
+ * const command = new PutBucketLoggingCommand(input);
+ * await client.send(command);
+ * // example id: set-logging-configuration-for-a-bucket-1482269119909
+ * ```
+ *
  */
 export class PutBucketLoggingCommand extends $Command<
   PutBucketLoggingCommandInput,

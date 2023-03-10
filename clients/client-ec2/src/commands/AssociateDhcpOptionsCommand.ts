@@ -48,6 +48,30 @@ export interface AssociateDhcpOptionsCommandOutput extends __MetadataBearer {}
  * @see {@link AssociateDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To associate a DHCP options set with a VPC
+ * ```javascript
+ * // This example associates the specified DHCP options set with the specified VPC.
+ * const input = {
+ *   "DhcpOptionsId": "dopt-d9070ebb",
+ *   "VpcId": "vpc-a01106c2"
+ * };
+ * const command = new AssociateDhcpOptionsCommand(input);
+ * await client.send(command);
+ * // example id: ec2-associate-dhcp-options-1
+ * ```
+ *
+ * @example To associate the default DHCP options set with a VPC
+ * ```javascript
+ * // This example associates the default DHCP options set with the specified VPC.
+ * const input = {
+ *   "DhcpOptionsId": "default",
+ *   "VpcId": "vpc-a01106c2"
+ * };
+ * const command = new AssociateDhcpOptionsCommand(input);
+ * await client.send(command);
+ * // example id: ec2-associate-dhcp-options-2
+ * ```
+ *
  */
 export class AssociateDhcpOptionsCommand extends $Command<
   AssociateDhcpOptionsCommandInput,

@@ -45,6 +45,18 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To delete a scheduled action from an Auto Scaling group
+ * ```javascript
+ * // This example deletes the specified scheduled action from the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "ScheduledActionName": "my-scheduled-action"
+ * };
+ * const command = new DeleteScheduledActionCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-delete-scheduled-action-1
+ * ```
+ *
  */
 export class DeleteScheduledActionCommand extends $Command<
   DeleteScheduledActionCommandInput,

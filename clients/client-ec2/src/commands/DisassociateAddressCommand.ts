@@ -52,6 +52,28 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  * @see {@link DisassociateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To disassociate an Elastic IP address in EC2-VPC
+ * ```javascript
+ * // This example disassociates an Elastic IP address from an instance in a VPC.
+ * const input = {
+ *   "AssociationId": "eipassoc-2bebb745"
+ * };
+ * const command = new DisassociateAddressCommand(input);
+ * await client.send(command);
+ * // example id: ec2-disassociate-address-1
+ * ```
+ *
+ * @example To disassociate an Elastic IP addresses in EC2-Classic
+ * ```javascript
+ * // This example disassociates an Elastic IP address from an instance in EC2-Classic.
+ * const input = {
+ *   "PublicIp": "198.51.100.0"
+ * };
+ * const command = new DisassociateAddressCommand(input);
+ * await client.send(command);
+ * // example id: ec2-disassociate-address-2
+ * ```
+ *
  */
 export class DisassociateAddressCommand extends $Command<
   DisassociateAddressCommandInput,

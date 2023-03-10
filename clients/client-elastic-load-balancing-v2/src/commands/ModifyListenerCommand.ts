@@ -61,6 +61,81 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  * @see {@link ModifyListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @example To change the default action for a listener
+ * ```javascript
+ * // This example changes the default action for the specified listener.
+ * const input = {
+ *   "DefaultActions": [
+ *     {
+ *       "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-targets/2453ed029918f21f",
+ *       "Type": "forward"
+ *     }
+ *   ],
+ *   "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2"
+ * };
+ * const command = new ModifyListenerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Listeners": [
+ *     {
+ *       "DefaultActions": [
+ *         {
+ *           "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-targets/2453ed029918f21f",
+ *           "Type": "forward"
+ *         }
+ *       ],
+ *       "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2",
+ *       "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+ *       "Port": 80,
+ *       "Protocol": "HTTP"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elbv2-modify-listener-1
+ * ```
+ *
+ * @example To change the server certificate
+ * ```javascript
+ * // This example changes the server certificate for the specified HTTPS listener.
+ * const input = {
+ *   "Certificates": [
+ *     {
+ *       "CertificateArn": "arn:aws:iam::123456789012:server-certificate/my-new-server-cert"
+ *     }
+ *   ],
+ *   "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/0467ef3c8400ae65"
+ * };
+ * const command = new ModifyListenerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Listeners": [
+ *     {
+ *       "Certificates": [
+ *         {
+ *           "CertificateArn": "arn:aws:iam::123456789012:server-certificate/my-new-server-cert"
+ *         }
+ *       ],
+ *       "DefaultActions": [
+ *         {
+ *           "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *           "Type": "forward"
+ *         }
+ *       ],
+ *       "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/0467ef3c8400ae65",
+ *       "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+ *       "Port": 443,
+ *       "Protocol": "HTTPS",
+ *       "SslPolicy": "ELBSecurityPolicy-2015-05"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elbv2-modify-listener-2
+ * ```
+ *
  */
 export class ModifyListenerCommand extends $Command<
   ModifyListenerCommandInput,

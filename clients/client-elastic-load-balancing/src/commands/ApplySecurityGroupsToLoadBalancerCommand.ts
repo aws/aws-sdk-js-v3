@@ -58,6 +58,27 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
  * @see {@link ApplySecurityGroupsToLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @example To associate a security group with a load balancer in a VPC
+ * ```javascript
+ * // This example associates a security group with the specified load balancer in a VPC.
+ * const input = {
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "SecurityGroups": [
+ *     "sg-fc448899"
+ *   ]
+ * };
+ * const command = new ApplySecurityGroupsToLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SecurityGroups": [
+ *     "sg-fc448899"
+ *   ]
+ * }
+ * *\/
+ * // example id: elb-apply-security-groups-to-load-balancer-1
+ * ```
+ *
  */
 export class ApplySecurityGroupsToLoadBalancerCommand extends $Command<
   ApplySecurityGroupsToLoadBalancerCommandInput,

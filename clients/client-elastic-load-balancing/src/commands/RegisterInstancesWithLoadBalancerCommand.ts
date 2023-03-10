@@ -72,6 +72,37 @@ export interface RegisterInstancesWithLoadBalancerCommandOutput extends Register
  * @see {@link RegisterInstancesWithLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @example To register instances with a load balancer
+ * ```javascript
+ * // This example registers the specified instance with the specified load balancer.
+ * const input = {
+ *   "Instances": [
+ *     {
+ *       "InstanceId": "i-d6f6fae3"
+ *     }
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new RegisterInstancesWithLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Instances": [
+ *     {
+ *       "InstanceId": "i-d6f6fae3"
+ *     },
+ *     {
+ *       "InstanceId": "i-207d9717"
+ *     },
+ *     {
+ *       "InstanceId": "i-afefb49b"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elb-register-instances-with-load-balancer-1
+ * ```
+ *
  */
 export class RegisterInstancesWithLoadBalancerCommand extends $Command<
   RegisterInstancesWithLoadBalancerCommandInput,

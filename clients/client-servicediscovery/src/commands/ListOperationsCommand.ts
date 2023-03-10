@@ -50,6 +50,44 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * @see {@link ListOperationsCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ * @example ListOperations Example
+ * ```javascript
+ * // This example gets the operations that have a STATUS of either PENDING or SUCCESS.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Condition": "IN",
+ *       "Name": "STATUS",
+ *       "Values": [
+ *         "PENDING",
+ *         "SUCCESS"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new ListOperationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Operations": [
+ *     {
+ *       "Id": "76yy8ovhpdz0plmjzbsnqgnrqvpv2qdt-kexample",
+ *       "Status": "SUCCESS"
+ *     },
+ *     {
+ *       "Id": "prysnyzpji3u2ciy45nke83x2zanl7yk-dexample",
+ *       "Status": "SUCCESS"
+ *     },
+ *     {
+ *       "Id": "ko4ekftir7kzlbechsh7xvcdgcpk66gh-7example",
+ *       "Status": "PENDING"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: listoperations-example-1590117354396
+ * ```
+ *
  */
 export class ListOperationsCommand extends $Command<
   ListOperationsCommandInput,

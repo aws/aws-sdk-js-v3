@@ -126,6 +126,123 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @example To create a new service
+ * ```javascript
+ * // This example creates a service in your default region called ``ecs-simple-service``. The service uses the ``hello_world`` task definition and it maintains 10 copies of that task.
+ * const input = {
+ *   "desiredCount": 10,
+ *   "serviceName": "ecs-simple-service",
+ *   "taskDefinition": "hello_world"
+ * };
+ * const command = new CreateServiceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "service": {
+ *     "clusterArn": "arn:aws:ecs:us-east-1:012345678910:cluster/default",
+ *     "createdAt": "2016-08-29T16:13:47.298Z",
+ *     "deploymentConfiguration": {
+ *       "maximumPercent": 200,
+ *       "minimumHealthyPercent": 100
+ *     },
+ *     "deployments": [
+ *       {
+ *         "createdAt": "2016-08-29T16:13:47.298Z",
+ *         "desiredCount": 10,
+ *         "id": "ecs-svc/9223370564342348388",
+ *         "pendingCount": 0,
+ *         "runningCount": 0,
+ *         "status": "PRIMARY",
+ *         "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/hello_world:6",
+ *         "updatedAt": "2016-08-29T16:13:47.298Z"
+ *       },
+ *       {
+ *         "createdAt": "2016-08-29T15:52:44.481Z",
+ *         "desiredCount": 0,
+ *         "id": "ecs-svc/9223370564343611322",
+ *         "pendingCount": 0,
+ *         "runningCount": 0,
+ *         "status": "ACTIVE",
+ *         "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/hello_world:6",
+ *         "updatedAt": "2016-08-29T16:11:38.941Z"
+ *       }
+ *     ],
+ *     "desiredCount": 10,
+ *     "events": [],
+ *     "loadBalancers": [],
+ *     "pendingCount": 0,
+ *     "runningCount": 0,
+ *     "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/ecs-simple-service",
+ *     "serviceName": "ecs-simple-service",
+ *     "status": "ACTIVE",
+ *     "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/hello_world:6"
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-new-service-1472512584282
+ * ```
+ *
+ * @example To create a new service behind a load balancer
+ * ```javascript
+ * // This example creates a service in your default region called ``ecs-simple-service-elb``. The service uses the ``ecs-demo`` task definition and it maintains 10 copies of that task. You must reference an existing load balancer in the same region by its name.
+ * const input = {
+ *   "desiredCount": 10,
+ *   "loadBalancers": [
+ *     {
+ *       "containerName": "simple-app",
+ *       "containerPort": 80,
+ *       "loadBalancerName": "EC2Contai-EcsElast-15DCDAURT3ZO2"
+ *     }
+ *   ],
+ *   "role": "ecsServiceRole",
+ *   "serviceName": "ecs-simple-service-elb",
+ *   "taskDefinition": "console-sample-app-static"
+ * };
+ * const command = new CreateServiceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "service": {
+ *     "clusterArn": "arn:aws:ecs:us-east-1:012345678910:cluster/default",
+ *     "createdAt": "2016-08-29T16:02:54.884Z",
+ *     "deploymentConfiguration": {
+ *       "maximumPercent": 200,
+ *       "minimumHealthyPercent": 100
+ *     },
+ *     "deployments": [
+ *       {
+ *         "createdAt": "2016-08-29T16:02:54.884Z",
+ *         "desiredCount": 10,
+ *         "id": "ecs-svc/9223370564343000923",
+ *         "pendingCount": 0,
+ *         "runningCount": 0,
+ *         "status": "PRIMARY",
+ *         "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/console-sample-app-static:6",
+ *         "updatedAt": "2016-08-29T16:02:54.884Z"
+ *       }
+ *     ],
+ *     "desiredCount": 10,
+ *     "events": [],
+ *     "loadBalancers": [
+ *       {
+ *         "containerName": "simple-app",
+ *         "containerPort": 80,
+ *         "loadBalancerName": "EC2Contai-EcsElast-15DCDAURT3ZO2"
+ *       }
+ *     ],
+ *     "pendingCount": 0,
+ *     "roleArn": "arn:aws:iam::012345678910:role/ecsServiceRole",
+ *     "runningCount": 0,
+ *     "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/ecs-simple-service-elb",
+ *     "serviceName": "ecs-simple-service-elb",
+ *     "status": "ACTIVE",
+ *     "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/console-sample-app-static:6"
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-new-service-behind-a-load-balancer-1472512484823
+ * ```
+ *
  */
 export class CreateServiceCommand extends $Command<
   CreateServiceCommandInput,

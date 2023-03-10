@@ -48,6 +48,17 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
  * @see {@link DeleteCacheSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @example DeleteCacheSecurityGroup
+ * ```javascript
+ * // Deletes a cache security group.
+ * const input = {
+ *   "CacheSecurityGroupName": "my-sec-group"
+ * };
+ * const command = new DeleteCacheSecurityGroupCommand(input);
+ * await client.send(command);
+ * // example id: deletecachesecuritygroup-1483046967507
+ * ```
+ *
  */
 export class DeleteCacheSecurityGroupCommand extends $Command<
   DeleteCacheSecurityGroupCommandInput,

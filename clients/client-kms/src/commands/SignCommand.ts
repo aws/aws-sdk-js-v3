@@ -98,6 +98,48 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  * @see {@link SignCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @example To digitally sign a message with an asymmetric KMS key.
+ * ```javascript
+ * // This operation uses the private key in an asymmetric elliptic curve (ECC) KMS key to generate a digital signature for a given message.
+ * const input = {
+ *   "KeyId": "alias/ECC_signing_key",
+ *   "Message": "<message to be signed>",
+ *   "MessageType": "RAW",
+ *   "SigningAlgorithm": "ECDSA_SHA_384"
+ * };
+ * const command = new SignCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "Signature": "<binary data>",
+ *   "SigningAlgorithm": "ECDSA_SHA_384"
+ * }
+ * *\/
+ * // example id: to-digitally-sign-a-message-with-an-asymmetric-kms-key-1
+ * ```
+ *
+ * @example To digitally sign a message digest with an asymmetric KMS key.
+ * ```javascript
+ * // This operation uses the private key in an asymmetric RSA signing KMS key to generate a digital signature for a message digest. In this example, a large message was hashed and the resulting digest is provided in the Message parameter. To tell KMS not to hash the message again, the MessageType field is set to DIGEST
+ * const input = {
+ *   "KeyId": "alias/RSA_signing_key",
+ *   "Message": "<message digest to be signed>",
+ *   "MessageType": "DIGEST",
+ *   "SigningAlgorithm": "RSASSA_PKCS1_V1_5_SHA_256"
+ * };
+ * const command = new SignCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   "Signature": "<binary data>",
+ *   "SigningAlgorithm": "RSASSA_PKCS1_V1_5_SHA_256"
+ * }
+ * *\/
+ * // example id: to-digitally-sign-a-message-digest-with-an-asymmetric-kms-key-2
+ * ```
+ *
  */
 export class SignCommand extends $Command<SignCommandInput, SignCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

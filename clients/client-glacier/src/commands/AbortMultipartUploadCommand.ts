@@ -62,6 +62,19 @@ export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
  * @see {@link AbortMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ * @example To abort a multipart upload identified by the upload ID
+ * ```javascript
+ * // The example deletes an in-progress multipart upload to a vault named my-vault:
+ * const input = {
+ *   "accountId": "-",
+ *   "uploadId": "19gaRezEXAMPLES6Ry5YYdqthHOC_kGRCT03L9yetr220UmPtBYKk-OssZtLqyFu7sY1_lR7vgFuJV6NtcV5zpsJ",
+ *   "vaultName": "my-vault"
+ * };
+ * const command = new AbortMultipartUploadCommand(input);
+ * await client.send(command);
+ * // example id: f3d907f6-e71c-420c-8f71-502346a2c48a
+ * ```
+ *
  */
 export class AbortMultipartUploadCommand extends $Command<
   AbortMultipartUploadCommandInput,

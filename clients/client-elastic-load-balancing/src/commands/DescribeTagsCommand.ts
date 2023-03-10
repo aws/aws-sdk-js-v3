@@ -51,6 +51,38 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @example To describe the tags for a load balancer
+ * ```javascript
+ * // This example describes the tags for the specified load balancer.
+ * const input = {
+ *   "LoadBalancerNames": [
+ *     "my-load-balancer"
+ *   ]
+ * };
+ * const command = new DescribeTagsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TagDescriptions": [
+ *     {
+ *       "LoadBalancerName": "my-load-balancer",
+ *       "Tags": [
+ *         {
+ *           "Key": "project",
+ *           "Value": "lima"
+ *         },
+ *         {
+ *           "Key": "department",
+ *           "Value": "digital-media"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elb-describe-tags-1
+ * ```
+ *
  */
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,

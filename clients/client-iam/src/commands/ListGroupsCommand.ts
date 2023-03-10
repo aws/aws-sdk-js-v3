@@ -49,6 +49,42 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @see {@link ListGroupsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To list the IAM groups for the current account
+ * ```javascript
+ * // The following command lists the IAM groups in the current account:
+ * const input = {};
+ * const command = new ListGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Groups": [
+ *     {
+ *       "Arn": "arn:aws:iam::123456789012:group/Admins",
+ *       "CreateDate": "2016-12-15T21:40:08.121Z",
+ *       "GroupId": "AGPA1111111111EXAMPLE",
+ *       "GroupName": "Admins",
+ *       "Path": "/division_abc/subdivision_xyz/"
+ *     },
+ *     {
+ *       "Arn": "arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/product_1234/engineering/Test",
+ *       "CreateDate": "2016-11-30T14:10:01.156Z",
+ *       "GroupId": "AGP22222222222EXAMPLE",
+ *       "GroupName": "Test",
+ *       "Path": "/division_abc/subdivision_xyz/product_1234/engineering/"
+ *     },
+ *     {
+ *       "Arn": "arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/product_1234/Managers",
+ *       "CreateDate": "2016-06-12T20:14:52.032Z",
+ *       "GroupId": "AGPI3333333333EXAMPLE",
+ *       "GroupName": "Managers",
+ *       "Path": "/division_abc/subdivision_xyz/product_1234/"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: b3ab1380-2a21-42fb-8e85-503f65512c66
+ * ```
+ *
  */
 export class ListGroupsCommand extends $Command<
   ListGroupsCommandInput,

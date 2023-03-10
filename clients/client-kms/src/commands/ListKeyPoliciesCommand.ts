@@ -71,6 +71,25 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  * @see {@link ListKeyPoliciesCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @example To list key policies for a KMS key
+ * ```javascript
+ * // The following example lists key policies for the specified KMS key.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new ListKeyPoliciesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "PolicyNames": [
+ *     "default"
+ *   ],
+ *   "Truncated": false
+ * }
+ * *\/
+ * // example id: to-list-key-policies-for-a-cmk-1481069780998
+ * ```
+ *
  */
 export class ListKeyPoliciesCommand extends $Command<
   ListKeyPoliciesCommandInput,

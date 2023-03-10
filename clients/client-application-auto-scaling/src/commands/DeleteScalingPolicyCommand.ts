@@ -59,6 +59,20 @@ export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyRes
  * @see {@link DeleteScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
+ * @example To delete a scaling policy
+ * ```javascript
+ * // This example deletes a scaling policy for the Amazon ECS service called web-app, which is running in the default cluster.
+ * const input = {
+ *   "PolicyName": "web-app-cpu-lt-25",
+ *   "ResourceId": "service/default/web-app",
+ *   "ScalableDimension": "ecs:service:DesiredCount",
+ *   "ServiceNamespace": "ecs"
+ * };
+ * const command = new DeleteScalingPolicyCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-scaling-policy-1470863892689
+ * ```
+ *
  */
 export class DeleteScalingPolicyCommand extends $Command<
   DeleteScalingPolicyCommandInput,

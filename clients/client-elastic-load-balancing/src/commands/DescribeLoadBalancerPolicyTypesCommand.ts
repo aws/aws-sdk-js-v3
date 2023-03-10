@@ -63,6 +63,36 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput
  * @see {@link DescribeLoadBalancerPolicyTypesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @example To describe a load balancer policy type defined by Elastic Load Balancing
+ * ```javascript
+ * // This example describes the specified load balancer policy type.
+ * const input = {
+ *   "PolicyTypeNames": [
+ *     "ProxyProtocolPolicyType"
+ *   ]
+ * };
+ * const command = new DescribeLoadBalancerPolicyTypesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "PolicyTypeDescriptions": [
+ *     {
+ *       "Description": "Policy that controls whether to include the IP address and port of the originating request for TCP messages. This policy operates on TCP listeners only.",
+ *       "PolicyAttributeTypeDescriptions": [
+ *         {
+ *           "AttributeName": "ProxyProtocol",
+ *           "AttributeType": "Boolean",
+ *           "Cardinality": "ONE"
+ *         }
+ *       ],
+ *       "PolicyTypeName": "ProxyProtocolPolicyType"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elb-describe-load-balancer-policy-types-1
+ * ```
+ *
  */
 export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
   DescribeLoadBalancerPolicyTypesCommandInput,

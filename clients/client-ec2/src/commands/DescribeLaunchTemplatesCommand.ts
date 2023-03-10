@@ -50,6 +50,33 @@ export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemp
  * @see {@link DescribeLaunchTemplatesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To describe a launch template
+ * ```javascript
+ * // This example describes the specified launch template.
+ * const input = {
+ *   "LaunchTemplateIds": [
+ *     "lt-01238c059e3466abc"
+ *   ]
+ * };
+ * const command = new DescribeLaunchTemplatesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LaunchTemplates": [
+ *     {
+ *       "CreateTime": "2018-01-16T04:32:57.000Z",
+ *       "CreatedBy": "arn:aws:iam::123456789012:root",
+ *       "DefaultVersionNumber": 1,
+ *       "LatestVersionNumber": 1,
+ *       "LaunchTemplateId": "lt-01238c059e3466abc",
+ *       "LaunchTemplateName": "my-template"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-a-launch-template-1529344182862
+ * ```
+ *
  */
 export class DescribeLaunchTemplatesCommand extends $Command<
   DescribeLaunchTemplatesCommandInput,

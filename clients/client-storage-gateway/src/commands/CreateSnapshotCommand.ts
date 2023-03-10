@@ -77,6 +77,24 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To create a snapshot of a gateway volume
+ * ```javascript
+ * // Initiates an ad-hoc snapshot of a gateway volume.
+ * const input = {
+ *   "SnapshotDescription": "My root volume snapshot as of 10/03/2017",
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * };
+ * const command = new CreateSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SnapshotId": "snap-78e22663",
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * }
+ * *\/
+ * // example id: to-create-a-snapshot-of-a-gateway-volume-1471301469561
+ * ```
+ *
  */
 export class CreateSnapshotCommand extends $Command<
   CreateSnapshotCommandInput,

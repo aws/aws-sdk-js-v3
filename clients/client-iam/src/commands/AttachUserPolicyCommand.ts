@@ -52,6 +52,18 @@ export interface AttachUserPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link AttachUserPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To attach a managed policy to an IAM user
+ * ```javascript
+ * // The following command attaches the AWS managed policy named AdministratorAccess to the IAM user named Alice.
+ * const input = {
+ *   "PolicyArn": "arn:aws:iam::aws:policy/AdministratorAccess",
+ *   "UserName": "Alice"
+ * };
+ * const command = new AttachUserPolicyCommand(input);
+ * await client.send(command);
+ * // example id: 1372ebd8-9475-4b1a-a479-23b6fd4b8b3e
+ * ```
+ *
  */
 export class AttachUserPolicyCommand extends $Command<
   AttachUserPolicyCommandInput,

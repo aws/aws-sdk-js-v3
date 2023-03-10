@@ -50,6 +50,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
+ * @example To untag a resource
+ * ```javascript
+ * // This operation untags an Amazon FSx resource.
+ * const input = {
+ *   "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0498eed5fe91001ec",
+ *   "TagKeys": [
+ *     "Name"
+ *   ]
+ * };
+ * const command = new UntagResourceCommand(input);
+ * await client.send(command);
+ * // example id: to-untag-a-fsx-resource-1481847318373
+ * ```
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

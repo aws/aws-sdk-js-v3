@@ -48,6 +48,17 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteCacheSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @example DeleteCacheSubnetGroup
+ * ```javascript
+ * // Deletes the Amazon ElastiCache subnet group my-subnet-group.
+ * const input = {
+ *   "CacheSubnetGroupName": "my-subnet-group"
+ * };
+ * const command = new DeleteCacheSubnetGroupCommand(input);
+ * await client.send(command);
+ * // example id: deletecachesubnetgroup-1475011431325
+ * ```
+ *
  */
 export class DeleteCacheSubnetGroupCommand extends $Command<
   DeleteCacheSubnetGroupCommandInput,

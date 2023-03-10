@@ -54,6 +54,17 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * @see {@link DeleteDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To delete a DB cluster parameter group.
+ * ```javascript
+ * // This example deletes the specified DB cluster parameter group.
+ * const input = {
+ *   "DBClusterParameterGroupName": "mydbclusterparametergroup"
+ * };
+ * const command = new DeleteDBClusterParameterGroupCommand(input);
+ * await client.send(command);
+ * // example id: delete-db-cluster-parameter-group-364f5555-ba0a-4cc8-979c-e769098924fc
+ * ```
+ *
  */
 export class DeleteDBClusterParameterGroupCommand extends $Command<
   DeleteDBClusterParameterGroupCommandInput,

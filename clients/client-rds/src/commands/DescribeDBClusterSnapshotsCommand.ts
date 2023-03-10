@@ -56,6 +56,18 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * @see {@link DescribeDBClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To list DB cluster snapshots
+ * ```javascript
+ * // This example lists settings for the specified, manually-created cluster snapshot.
+ * const input = {
+ *   "DBClusterSnapshotIdentifier": "mydbclustersnapshot",
+ *   "SnapshotType": "manual"
+ * };
+ * const command = new DescribeDBClusterSnapshotsCommand(input);
+ * await client.send(command);
+ * // example id: describe-db-cluster-snapshots-52f38af1-3431-4a51-9a6a-e6bb8c961b32
+ * ```
+ *
  */
 export class DescribeDBClusterSnapshotsCommand extends $Command<
   DescribeDBClusterSnapshotsCommandInput,

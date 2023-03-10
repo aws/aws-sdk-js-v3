@@ -64,6 +64,63 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  * @see {@link ListHandshakesForAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
+ * @example To retrieve a list of the handshakes sent to an account
+ * ```javascript
+ * // The following example shows you how to get a list of handshakes that are associated with the account of the credentials used to call the operation:
+ * const input = undefined;
+ * const command = new ListHandshakesForAccountCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Handshakes": [
+ *     {
+ *       "Action": "INVITE",
+ *       "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
+ *       "ExpirationTimestamp": "2017-01-28T14:35:23.3Z",
+ *       "Id": "h-examplehandshakeid111",
+ *       "Parties": [
+ *         {
+ *           "Id": "o-exampleorgid",
+ *           "Type": "ORGANIZATION"
+ *         },
+ *         {
+ *           "Id": "juan@example.com",
+ *           "Type": "EMAIL"
+ *         }
+ *       ],
+ *       "RequestedTimestamp": "2017-01-13T14:35:23.3Z",
+ *       "Resources": [
+ *         {
+ *           "Resources": [
+ *             {
+ *               "Type": "MASTER_EMAIL",
+ *               "Value": "bill@amazon.com"
+ *             },
+ *             {
+ *               "Type": "MASTER_NAME",
+ *               "Value": "Org Master Account"
+ *             },
+ *             {
+ *               "Type": "ORGANIZATION_FEATURE_SET",
+ *               "Value": "FULL"
+ *             }
+ *           ],
+ *           "Type": "ORGANIZATION",
+ *           "Value": "o-exampleorgid"
+ *         },
+ *         {
+ *           "Type": "EMAIL",
+ *           "Value": "juan@example.com"
+ *         }
+ *       ],
+ *       "State": "OPEN"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-retrieve-a-list-of-the-handshakes-sent-to-an-account-1472510214747
+ * ```
+ *
  */
 export class ListHandshakesForAccountCommand extends $Command<
   ListHandshakesForAccountCommandInput,

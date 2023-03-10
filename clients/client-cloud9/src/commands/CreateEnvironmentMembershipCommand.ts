@@ -50,6 +50,29 @@ export interface CreateEnvironmentMembershipCommandOutput extends CreateEnvironm
  * @see {@link CreateEnvironmentMembershipCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
+ * @example CreateEnvironmentMembership
+ * ```javascript
+ * //
+ * const input = {
+ *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
+ *   "permissions": "read-write",
+ *   "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser"
+ * };
+ * const command = new CreateEnvironmentMembershipCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "membership": {
+ *     "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
+ *     "permissions": "read-write",
+ *     "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser",
+ *     "userId": "AIDAJ3BA6O2FMJWCWXHEX"
+ *   }
+ * }
+ * *\/
+ * // example id: createenvironmentmembership-1516822583452
+ * ```
+ *
  */
 export class CreateEnvironmentMembershipCommand extends $Command<
   CreateEnvironmentMembershipCommandInput,

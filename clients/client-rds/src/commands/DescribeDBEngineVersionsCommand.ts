@@ -50,6 +50,21 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * @see {@link DescribeDBEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To list DB engine version settings
+ * ```javascript
+ * // This example lists settings for the specified DB engine version.
+ * const input = {
+ *   "DBParameterGroupFamily": "mysql5.6",
+ *   "DefaultOnly": true,
+ *   "Engine": "mysql",
+ *   "EngineVersion": "5.6",
+ *   "ListSupportedCharacterSets": true
+ * };
+ * const command = new DescribeDBEngineVersionsCommand(input);
+ * await client.send(command);
+ * // example id: describe-db-engine-versions-8e698cf2-2162-425a-a854-111cdaceb52b
+ * ```
+ *
  */
 export class DescribeDBEngineVersionsCommand extends $Command<
   DescribeDBEngineVersionsCommandInput,

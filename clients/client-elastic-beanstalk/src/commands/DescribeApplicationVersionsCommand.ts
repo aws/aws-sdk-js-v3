@@ -52,6 +52,48 @@ export interface DescribeApplicationVersionsCommandOutput
  * @see {@link DescribeApplicationVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @example To view information about an application version
+ * ```javascript
+ * // The following operation retrieves information about an application version labeled v2:
+ * const input = {
+ *   "ApplicationName": "my-app",
+ *   "VersionLabels": [
+ *     "v2"
+ *   ]
+ * };
+ * const command = new DescribeApplicationVersionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationVersions": [
+ *     {
+ *       "ApplicationName": "my-app",
+ *       "DateCreated": "2015-07-23T01:32:26.079Z",
+ *       "DateUpdated": "2015-07-23T01:32:26.079Z",
+ *       "Description": "update cover page",
+ *       "SourceBundle": {
+ *         "S3Bucket": "elasticbeanstalk-us-west-2-015321684451",
+ *         "S3Key": "my-app/5026-stage-150723_224258.war"
+ *       },
+ *       "VersionLabel": "v2"
+ *     },
+ *     {
+ *       "ApplicationName": "my-app",
+ *       "DateCreated": "2015-07-23T22:26:10.816Z",
+ *       "DateUpdated": "2015-07-23T22:26:10.816Z",
+ *       "Description": "initial version",
+ *       "SourceBundle": {
+ *         "S3Bucket": "elasticbeanstalk-us-west-2-015321684451",
+ *         "S3Key": "my-app/5026-stage-150723_222618.war"
+ *       },
+ *       "VersionLabel": "v1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-view-information-about-an-application-version-1456269947428
+ * ```
+ *
  */
 export class DescribeApplicationVersionsCommand extends $Command<
   DescribeApplicationVersionsCommandInput,

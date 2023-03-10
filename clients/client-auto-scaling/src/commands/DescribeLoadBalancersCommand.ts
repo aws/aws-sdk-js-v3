@@ -72,6 +72,27 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * @see {@link DescribeLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To describe the load balancers for an Auto Scaling group
+ * ```javascript
+ * // This example describes the load balancers attached to the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group"
+ * };
+ * const command = new DescribeLoadBalancersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LoadBalancers": [
+ *     {
+ *       "LoadBalancerName": "my-load-balancer",
+ *       "State": "Added"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: autoscaling-describe-load-balancers-1
+ * ```
+ *
  */
 export class DescribeLoadBalancersCommand extends $Command<
   DescribeLoadBalancersCommandInput,

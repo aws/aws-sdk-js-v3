@@ -67,6 +67,23 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
  * @see {@link AuthorizeDBSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To authorize DB security group integress
+ * ```javascript
+ * // This example authorizes access to the specified security group by the specified CIDR block.
+ * const input = {
+ *   "CIDRIP": "203.0.113.5/32",
+ *   "DBSecurityGroupName": "mydbsecuritygroup"
+ * };
+ * const command = new AuthorizeDBSecurityGroupIngressCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSecurityGroup": {}
+ * }
+ * *\/
+ * // example id: authorize-db-security-group-ingress-ebf9ab91-8912-4b07-a32e-ca150668164f
+ * ```
+ *
  */
 export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
   AuthorizeDBSecurityGroupIngressCommandInput,

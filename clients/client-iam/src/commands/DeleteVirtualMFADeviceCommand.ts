@@ -49,6 +49,17 @@ export interface DeleteVirtualMFADeviceCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteVirtualMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To remove a virtual MFA device
+ * ```javascript
+ * // The following delete-virtual-mfa-device command removes the specified MFA device from the current AWS account.
+ * const input = {
+ *   "SerialNumber": "arn:aws:iam::123456789012:mfa/ExampleName"
+ * };
+ * const command = new DeleteVirtualMFADeviceCommand(input);
+ * await client.send(command);
+ * // example id: 2933b08b-dbe7-4b89-b8c1-fdf75feea1ee
+ * ```
+ *
  */
 export class DeleteVirtualMFADeviceCommand extends $Command<
   DeleteVirtualMFADeviceCommandInput,

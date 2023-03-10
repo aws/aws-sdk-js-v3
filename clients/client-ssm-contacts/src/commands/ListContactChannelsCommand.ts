@@ -50,6 +50,33 @@ export interface ListContactChannelsCommandOutput extends ListContactChannelsRes
  * @see {@link ListContactChannelsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
+ * @example To list the contact channels of a contact
+ * ```javascript
+ * // The following list-contact-channels example lists the available contact channels of the specified contact.
+ * const input = {
+ *   "ContactId": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/akuam"
+ * };
+ * const command = new ListContactChannelsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ContactChannels": [
+ *     {
+ *       "ActivationStatus": "ACTIVATED",
+ *       "ContactArn": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/akuam",
+ *       "ContactChannelArn": "arn:aws:ssm-contacts:us-east-2:111122223333:contact-channel/akuam/fc7405c4-46b2-48b7-87b2-93e2f225b90d",
+ *       "DeliveryAddress": {
+ *         "SimpleAddress": "+15005550100"
+ *       },
+ *       "Name": "akuas sms",
+ *       "Type": "SMS"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-the-contact-channels-of-a-contact-1630366544252
+ * ```
+ *
  */
 export class ListContactChannelsCommand extends $Command<
   ListContactChannelsCommandInput,

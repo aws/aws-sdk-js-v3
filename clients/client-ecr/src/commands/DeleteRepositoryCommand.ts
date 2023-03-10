@@ -52,6 +52,27 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * @see {@link DeleteRepositoryCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ * @example To force delete a repository
+ * ```javascript
+ * // This example force deletes a repository named ubuntu in the default registry for an account. The force parameter is required if the repository contains images.
+ * const input = {
+ *   "force": true,
+ *   "repositoryName": "ubuntu"
+ * };
+ * const command = new DeleteRepositoryCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "repository": {
+ *     "registryId": "012345678901",
+ *     "repositoryArn": "arn:aws:ecr:us-west-2:012345678901:repository/ubuntu",
+ *     "repositoryName": "ubuntu"
+ *   }
+ * }
+ * *\/
+ * // example id: deleterepository-example-1470863805703
+ * ```
+ *
  */
 export class DeleteRepositoryCommand extends $Command<
   DeleteRepositoryCommandInput,

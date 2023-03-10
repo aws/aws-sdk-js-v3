@@ -45,6 +45,17 @@ export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To delete a network interface
+ * ```javascript
+ * // This example deletes the specified network interface.
+ * const input = {
+ *   "NetworkInterfaceId": "eni-e5aa89a3"
+ * };
+ * const command = new DeleteNetworkInterfaceCommand(input);
+ * await client.send(command);
+ * // example id: ec2-delete-network-interface-1
+ * ```
+ *
  */
 export class DeleteNetworkInterfaceCommand extends $Command<
   DeleteNetworkInterfaceCommandInput,

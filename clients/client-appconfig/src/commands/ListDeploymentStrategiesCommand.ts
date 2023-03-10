@@ -50,6 +50,30 @@ export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrateg
  * @see {@link ListDeploymentStrategiesCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ * @example To list the available deployment strategies
+ * ```javascript
+ * // The following list-deployment-strategies example lists the available deployment strategies in your AWS account.
+ * const input = {};
+ * const command = new ListDeploymentStrategiesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Items": [
+ *     {
+ *       "DeploymentDurationInMinutes": 15,
+ *       "FinalBakeTimeInMinutes": 0,
+ *       "GrowthFactor": 25,
+ *       "GrowthType": "LINEAR",
+ *       "Id": "1225qzk",
+ *       "Name": "Example-Deployment",
+ *       "ReplicateTo": "SSM_DOCUMENT"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-the-available-deployment-strategies-1632267364180
+ * ```
+ *
  */
 export class ListDeploymentStrategiesCommand extends $Command<
   ListDeploymentStrategiesCommandInput,

@@ -55,6 +55,26 @@ export interface GetEnvironmentCommandOutput extends Environment, __MetadataBear
  * @see {@link GetEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ * @example To retrieve environment details
+ * ```javascript
+ * // The following get-environment example returns the details and state of the specified environment.
+ * const input = {
+ *   "ApplicationId": "339ohji",
+ *   "EnvironmentId": "54j1r29"
+ * };
+ * const command = new GetEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationId": "339ohji",
+ *   "Id": "54j1r29",
+ *   "Name": "Example-Environment",
+ *   "State": "READY_FOR_DEPLOYMENT"
+ * }
+ * *\/
+ * // example id: to-retrieve-environment-details-1632266924806
+ * ```
+ *
  */
 export class GetEnvironmentCommand extends $Command<
   GetEnvironmentCommandInput,

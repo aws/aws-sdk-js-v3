@@ -50,6 +50,23 @@ export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityR
  * @see {@link CheckDNSAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @example To check the availability of a CNAME
+ * ```javascript
+ * // The following operation checks the availability of the subdomain my-cname:
+ * const input = {
+ *   "CNAMEPrefix": "my-cname"
+ * };
+ * const command = new CheckDNSAvailabilityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Available": true,
+ *   "FullyQualifiedCNAME": "my-cname.us-west-2.elasticbeanstalk.com"
+ * }
+ * *\/
+ * // example id: to-check-the-availability-of-a-cname-1456268589537
+ * ```
+ *
  */
 export class CheckDNSAvailabilityCommand extends $Command<
   CheckDNSAvailabilityCommandInput,

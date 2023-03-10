@@ -54,6 +54,17 @@ export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To delete an instance profile
+ * ```javascript
+ * // The following command deletes the instance profile named ExampleInstanceProfile
+ * const input = {
+ *   "InstanceProfileName": "ExampleInstanceProfile"
+ * };
+ * const command = new DeleteInstanceProfileCommand(input);
+ * await client.send(command);
+ * // example id: 12d74fb8-3433-49db-8171-a1fc764e354d
+ * ```
+ *
  */
 export class DeleteInstanceProfileCommand extends $Command<
   DeleteInstanceProfileCommandInput,

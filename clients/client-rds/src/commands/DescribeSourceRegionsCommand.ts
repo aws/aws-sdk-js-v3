@@ -57,6 +57,71 @@ export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage,
  * @see {@link DescribeSourceRegionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To describe source regions
+ * ```javascript
+ * // To list the AWS regions where a Read Replica can be created.
+ * const input = {};
+ * const command = new DescribeSourceRegionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SourceRegions": [
+ *     {
+ *       "Endpoint": "https://rds.ap-northeast-1.amazonaws.com",
+ *       "RegionName": "ap-northeast-1",
+ *       "Status": "available"
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.ap-northeast-2.amazonaws.com",
+ *       "RegionName": "ap-northeast-2",
+ *       "Status": "available"
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.ap-south-1.amazonaws.com",
+ *       "RegionName": "ap-south-1",
+ *       "Status": "available"
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.ap-southeast-1.amazonaws.com",
+ *       "RegionName": "ap-southeast-1",
+ *       "Status": "available"
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.ap-southeast-2.amazonaws.com",
+ *       "RegionName": "ap-southeast-2",
+ *       "Status": "available"
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.eu-central-1.amazonaws.com",
+ *       "RegionName": "eu-central-1",
+ *       "Status": "available"
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.eu-west-1.amazonaws.com",
+ *       "RegionName": "eu-west-1",
+ *       "Status": "available"
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.sa-east-1.amazonaws.com",
+ *       "RegionName": "sa-east-1",
+ *       "Status": "available"
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.us-west-1.amazonaws.com",
+ *       "RegionName": "us-west-1",
+ *       "Status": "available"
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.us-west-2.amazonaws.com",
+ *       "RegionName": "us-west-2",
+ *       "Status": "available"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-source-regions-1473457722410
+ * ```
+ *
  */
 export class DescribeSourceRegionsCommand extends $Command<
   DescribeSourceRegionsCommandInput,

@@ -53,6 +53,17 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
  * @see {@link UpdateAccountSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @example UpdateAccountSendingEnabled
+ * ```javascript
+ * // The following example updated the sending status for this account.
+ * const input = {
+ *   "Enabled": true
+ * };
+ * const command = new UpdateAccountSendingEnabledCommand(input);
+ * await client.send(command);
+ * // example id: updateaccountsendingenabled-1469047741333
+ * ```
+ *
  */
 export class UpdateAccountSendingEnabledCommand extends $Command<
   UpdateAccountSendingEnabledCommandInput,

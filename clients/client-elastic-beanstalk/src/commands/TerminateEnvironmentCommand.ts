@@ -50,6 +50,37 @@ export interface TerminateEnvironmentCommandOutput extends EnvironmentDescriptio
  * @see {@link TerminateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @example To terminate an environment
+ * ```javascript
+ * // The following operation terminates an Elastic Beanstalk environment named my-env:
+ * const input = {
+ *   "EnvironmentName": "my-env"
+ * };
+ * const command = new TerminateEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AbortableOperationInProgress": false,
+ *   "ApplicationName": "my-app",
+ *   "CNAME": "my-env.elasticbeanstalk.com",
+ *   "DateCreated": "2015-08-12T18:52:53.622Z",
+ *   "DateUpdated": "2015-08-12T19:05:54.744Z",
+ *   "EndpointURL": "awseb-e-f-AWSEBLoa-1I9XUMP4-8492WNUP202574.us-west-2.elb.amazonaws.com",
+ *   "EnvironmentId": "e-fh2eravpns",
+ *   "EnvironmentName": "my-env",
+ *   "Health": "Grey",
+ *   "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+ *   "Status": "Terminating",
+ *   "Tier": {
+ *     "Name": "WebServer",
+ *     "Type": "Standard",
+ *     "Version": " "
+ *   }
+ * }
+ * *\/
+ * // example id: to-terminate-an-environment-1456277888556
+ * ```
+ *
  */
 export class TerminateEnvironmentCommand extends $Command<
   TerminateEnvironmentCommandInput,

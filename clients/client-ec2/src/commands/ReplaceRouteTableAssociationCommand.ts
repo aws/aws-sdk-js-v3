@@ -56,6 +56,23 @@ export interface ReplaceRouteTableAssociationCommandOutput
  * @see {@link ReplaceRouteTableAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To replace the route table associated with a subnet
+ * ```javascript
+ * // This example associates the specified route table with the subnet for the specified route table association.
+ * const input = {
+ *   "AssociationId": "rtbassoc-781d0d1a",
+ *   "RouteTableId": "rtb-22574640"
+ * };
+ * const command = new ReplaceRouteTableAssociationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NewAssociationId": "rtbassoc-3a1f0f58"
+ * }
+ * *\/
+ * // example id: ec2-replace-route-table-association-1
+ * ```
+ *
  */
 export class ReplaceRouteTableAssociationCommand extends $Command<
   ReplaceRouteTableAssociationCommandInput,

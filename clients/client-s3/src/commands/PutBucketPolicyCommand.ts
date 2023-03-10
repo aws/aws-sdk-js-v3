@@ -72,6 +72,18 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @example Set bucket policy
+ * ```javascript
+ * // The following example sets a permission policy on a bucket.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{ \"Sid\": \"id-1\",\"Effect\": \"Allow\",\"Principal\": {\"AWS\": \"arn:aws:iam::123456789012:root\"}, \"Action\": [ \"s3:PutObject\",\"s3:PutObjectAcl\"], \"Resource\": [\"arn:aws:s3:::acl3/*\" ] } ]}"
+ * };
+ * const command = new PutBucketPolicyCommand(input);
+ * await client.send(command);
+ * // example id: set-bucket-policy-1482448903302
+ * ```
+ *
  */
 export class PutBucketPolicyCommand extends $Command<
   PutBucketPolicyCommandInput,

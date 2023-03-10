@@ -58,6 +58,52 @@ export interface PurchaseScheduledInstancesCommandOutput extends PurchaseSchedul
  * @see {@link PurchaseScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To purchase a Scheduled Instance
+ * ```javascript
+ * // This example purchases a Scheduled Instance.
+ * const input = {
+ *   "PurchaseRequests": [
+ *     {
+ *       "InstanceCount": 1,
+ *       "PurchaseToken": "eyJ2IjoiMSIsInMiOjEsImMiOi..."
+ *     }
+ *   ]
+ * };
+ * const command = new PurchaseScheduledInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ScheduledInstanceSet": [
+ *     {
+ *       "AvailabilityZone": "us-west-2b",
+ *       "CreateDate": "2016-01-25T21:43:38.612Z",
+ *       "HourlyPrice": "0.095",
+ *       "InstanceCount": 1,
+ *       "InstanceType": "c4.large",
+ *       "NetworkPlatform": "EC2-VPC",
+ *       "NextSlotStartTime": "2016-01-31T09:00:00Z",
+ *       "Platform": "Linux/UNIX",
+ *       "Recurrence": {
+ *         "Frequency": "Weekly",
+ *         "Interval": 1,
+ *         "OccurrenceDaySet": [
+ *           1
+ *         ],
+ *         "OccurrenceRelativeToEnd": false,
+ *         "OccurrenceUnit": ""
+ *       },
+ *       "ScheduledInstanceId": "sci-1234-1234-1234-1234-123456789012",
+ *       "SlotDurationInHours": 32,
+ *       "TermEndDate": "2017-01-31T09:00:00Z",
+ *       "TermStartDate": "2016-01-31T09:00:00Z",
+ *       "TotalScheduledInstanceHours": 1696
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-purchase-scheduled-instances-1
+ * ```
+ *
  */
 export class PurchaseScheduledInstancesCommand extends $Command<
   PurchaseScheduledInstancesCommandInput,

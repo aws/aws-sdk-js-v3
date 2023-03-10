@@ -53,6 +53,27 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  * @see {@link DeleteFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
+ * @example To delete a face
+ * ```javascript
+ * // This operation deletes one or more faces from a Rekognition collection.
+ * const input = {
+ *   "CollectionId": "myphotos",
+ *   "FaceIds": [
+ *     "ff43d742-0c13-5d16-a3e8-03d3f58e980b"
+ *   ]
+ * };
+ * const command = new DeleteFacesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DeletedFaces": [
+ *     "ff43d742-0c13-5d16-a3e8-03d3f58e980b"
+ *   ]
+ * }
+ * *\/
+ * // example id: to-delete-a-face-1482182799377
+ * ```
+ *
  */
 export class DeleteFacesCommand extends $Command<
   DeleteFacesCommandInput,

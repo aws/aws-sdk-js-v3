@@ -52,6 +52,27 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  * @see {@link DescribeAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
+ * @example To get the details about an account
+ * ```javascript
+ * // The following example shows a user in the master account (111111111111) asking for details about account 555555555555:
+ * const input = {
+ *   "AccountId": "555555555555"
+ * };
+ * const command = new DescribeAccountCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Account": {
+ *     "Arn": "arn:aws:organizations::111111111111:account/o-exampleorgid/555555555555",
+ *     "Email": "anika@example.com",
+ *     "Id": "555555555555",
+ *     "Name": "Beta Account"
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-the-details-about-an-account-1472503166868
+ * ```
+ *
  */
 export class DescribeAccountCommand extends $Command<
   DescribeAccountCommandInput,

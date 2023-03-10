@@ -81,6 +81,37 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  * @see {@link CreateSizeConstraintSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
+ * @example To create a size constraint
+ * ```javascript
+ * // The following example creates size constraint set named MySampleSizeConstraintSet.
+ * const input = {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "Name": "MySampleSizeConstraintSet"
+ * };
+ * const command = new CreateSizeConstraintSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "SizeConstraintSet": {
+ *     "Name": "MySampleSizeConstraintSet",
+ *     "SizeConstraintSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     "SizeConstraints": [
+ *       {
+ *         "ComparisonOperator": "GT",
+ *         "FieldToMatch": {
+ *           "Type": "QUERY_STRING"
+ *         },
+ *         "Size": 0,
+ *         "TextTransformation": "NONE"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: createsizeconstraint-1474299140754
+ * ```
+ *
  */
 export class CreateSizeConstraintSetCommand extends $Command<
   CreateSizeConstraintSetCommandInput,

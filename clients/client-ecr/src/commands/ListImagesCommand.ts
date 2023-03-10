@@ -56,6 +56,27 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @see {@link ListImagesCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ * @example To list all images in a repository
+ * ```javascript
+ * // This example lists all of the images in the repository named ubuntu in the default registry in the current account.
+ * const input = {
+ *   "repositoryName": "ubuntu"
+ * };
+ * const command = new ListImagesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "imageIds": [
+ *     {
+ *       "imageDigest": "sha256:764f63476bdff6d83a09ba2a818f0d35757063724a9ac3ba5019c56f74ebf42a",
+ *       "imageTag": "precise"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: listimages-example-1470868161594
+ * ```
+ *
  */
 export class ListImagesCommand extends $Command<
   ListImagesCommandInput,

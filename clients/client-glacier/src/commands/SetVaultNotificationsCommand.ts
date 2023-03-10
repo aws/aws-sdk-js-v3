@@ -82,6 +82,25 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  * @see {@link SetVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ * @example To configure a vault to post a message to an Amazon SNS topic when jobs complete
+ * ```javascript
+ * // The example sets the examplevault notification configuration.
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "examplevault",
+ *   "vaultNotificationConfig": {
+ *     "Events": [
+ *       "ArchiveRetrievalCompleted",
+ *       "InventoryRetrievalCompleted"
+ *     ],
+ *     "SNSTopic": "arn:aws:sns:us-west-2:012345678901:mytopic"
+ *   }
+ * };
+ * const command = new SetVaultNotificationsCommand(input);
+ * await client.send(command);
+ * // example id: to-configure-a-vault-to-post-a-message-to-an-amazon-simple-notification-service-amazon-sns-topic-when-jobs-complete-1482186397475
+ * ```
+ *
  */
 export class SetVaultNotificationsCommand extends $Command<
   SetVaultNotificationsCommandInput,

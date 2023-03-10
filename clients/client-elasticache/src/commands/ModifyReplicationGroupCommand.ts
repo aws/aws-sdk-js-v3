@@ -65,6 +65,80 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  * @see {@link ModifyReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @example ModifyReplicationGroup
+ * ```javascript
+ * //
+ * const input = {
+ *   "ApplyImmediately": true,
+ *   "ReplicationGroupDescription": "Modified replication group",
+ *   "ReplicationGroupId": "my-redis-rg",
+ *   "SnapshotRetentionLimit": 30,
+ *   "SnapshottingClusterId": "my-redis-rg-001"
+ * };
+ * const command = new ModifyReplicationGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReplicationGroup": {
+ *     "AutomaticFailover": "enabled",
+ *     "Description": "Modified replication group",
+ *     "MemberClusters": [
+ *       "my-redis-rg-001",
+ *       "my-redis-rg-002",
+ *       "my-redis-rg-003"
+ *     ],
+ *     "NodeGroups": [
+ *       {
+ *         "NodeGroupId": "0001",
+ *         "NodeGroupMembers": [
+ *           {
+ *             "CacheClusterId": "my-redis-rg-001",
+ *             "CacheNodeId": "0001",
+ *             "CurrentRole": "primary",
+ *             "PreferredAvailabilityZone": "us-east-1b",
+ *             "ReadEndpoint": {
+ *               "Address": "my-redis-rg-001.abcdef.0001.use1.cache.amazonaws.com",
+ *               "Port": 6379
+ *             }
+ *           },
+ *           {
+ *             "CacheClusterId": "my-redis-rg-002",
+ *             "CacheNodeId": "0001",
+ *             "CurrentRole": "replica",
+ *             "PreferredAvailabilityZone": "us-east-1a",
+ *             "ReadEndpoint": {
+ *               "Address": "my-redis-rg-002.abcdef.0001.use1.cache.amazonaws.com",
+ *               "Port": 6379
+ *             }
+ *           },
+ *           {
+ *             "CacheClusterId": "my-redis-rg-003",
+ *             "CacheNodeId": "0001",
+ *             "CurrentRole": "replica",
+ *             "PreferredAvailabilityZone": "us-east-1c",
+ *             "ReadEndpoint": {
+ *               "Address": "my-redis-rg-003.abcdef.0001.use1.cache.amazonaws.com",
+ *               "Port": 6379
+ *             }
+ *           }
+ *         ],
+ *         "PrimaryEndpoint": {
+ *           "Address": "my-redis-rg.abcdef.ng.0001.use1.cache.amazonaws.com",
+ *           "Port": 6379
+ *         },
+ *         "Status": "available"
+ *       }
+ *     ],
+ *     "PendingModifiedValues": {},
+ *     "ReplicationGroupId": "my-redis-rg",
+ *     "SnapshottingClusterId": "my-redis-rg-002",
+ *     "Status": "available"
+ *   }
+ * }
+ * *\/
+ * // example id: modifyreplicationgroup-1483039689581
+ * ```
+ *
  */
 export class ModifyReplicationGroupCommand extends $Command<
   ModifyReplicationGroupCommandInput,

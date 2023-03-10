@@ -67,6 +67,22 @@ export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput,
  * @see {@link GetBucketLocationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @example To get bucket location
+ * ```javascript
+ * // The following example returns bucket location.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new GetBucketLocationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LocationConstraint": "us-west-2"
+ * }
+ * *\/
+ * // example id: to-get-bucket-location-1481594573609
+ * ```
+ *
  */
 export class GetBucketLocationCommand extends $Command<
   GetBucketLocationCommandInput,

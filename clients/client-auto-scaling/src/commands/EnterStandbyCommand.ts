@@ -56,6 +56,37 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  * @see {@link EnterStandbyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To move instances into standby mode
+ * ```javascript
+ * // This example puts the specified instance into standby mode.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "InstanceIds": [
+ *     "i-93633f9b"
+ *   ],
+ *   "ShouldDecrementDesiredCapacity": true
+ * };
+ * const command = new EnterStandbyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Activities": [
+ *     {
+ *       "ActivityId": "ffa056b4-6ed3-41ba-ae7c-249dfae6eba1",
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "Cause": "At 2015-04-12T15:10:23Z instance i-93633f9b was moved to standby in response to a user request, shrinking the capacity from 2 to 1.",
+ *       "Description": "Moving EC2 instance to Standby: i-93633f9b",
+ *       "Details": "details",
+ *       "Progress": 50,
+ *       "StartTime": "2015-04-12T15:10:23.640Z",
+ *       "StatusCode": "InProgress"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: autoscaling-enter-standby-1
+ * ```
+ *
  */
 export class EnterStandbyCommand extends $Command<
   EnterStandbyCommandInput,

@@ -50,6 +50,27 @@ export interface GetConfigurationProfileCommandOutput extends ConfigurationProfi
  * @see {@link GetConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ * @example To retrieve configuration profile details
+ * ```javascript
+ * // The following get-configuration-profile example returns the details of the specified configuration profile.
+ * const input = {
+ *   "ApplicationId": "339ohji",
+ *   "ConfigurationProfileId": "ur8hx2f"
+ * };
+ * const command = new GetConfigurationProfileCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationId": "339ohji",
+ *   "Id": "ur8hx2f",
+ *   "LocationUri": "ssm-parameter://Example-Parameter",
+ *   "Name": "Example-Configuration-Profile",
+ *   "RetrievalRoleArn": "arn:aws:iam::111122223333:role/Example-App-Config-Role"
+ * }
+ * *\/
+ * // example id: to-retrieve-configuration-profile-details-1632266081013
+ * ```
+ *
  */
 export class GetConfigurationProfileCommand extends $Command<
   GetConfigurationProfileCommandInput,

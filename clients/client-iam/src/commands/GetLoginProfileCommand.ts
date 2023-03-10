@@ -59,6 +59,25 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  * @see {@link GetLoginProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To get password information for an IAM user
+ * ```javascript
+ * // The following command gets information about the password for the IAM user named Anika.
+ * const input = {
+ *   "UserName": "Anika"
+ * };
+ * const command = new GetLoginProfileCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LoginProfile": {
+ *     "CreateDate": "2012-09-21T23:03:39Z",
+ *     "UserName": "Anika"
+ *   }
+ * }
+ * *\/
+ * // example id: d6b580cc-909f-4925-9caa-d425cbc1ad47
+ * ```
+ *
  */
 export class GetLoginProfileCommand extends $Command<
   GetLoginProfileCommandInput,

@@ -53,6 +53,17 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
  * @see {@link CreateReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @example CreateReceiptRuleSet
+ * ```javascript
+ * // The following example creates an empty receipt rule set:
+ * const input = {
+ *   "RuleSetName": "MyRuleSet"
+ * };
+ * const command = new CreateReceiptRuleSetCommand(input);
+ * await client.send(command);
+ * // example id: createreceiptruleset-1469058761646
+ * ```
+ *
  */
 export class CreateReceiptRuleSetCommand extends $Command<
   CreateReceiptRuleSetCommandInput,

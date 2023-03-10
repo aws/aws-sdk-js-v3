@@ -71,6 +71,18 @@ export interface GetObjectTorrentCommandOutput
  * @see {@link GetObjectTorrentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @example To retrieve torrent files for an object
+ * ```javascript
+ * // The following example retrieves torrent files of an object.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new GetObjectTorrentCommand(input);
+ * await client.send(command);
+ * // example id: to-retrieve-torrent-files-for-an-object-1481834115959
+ * ```
+ *
  */
 export class GetObjectTorrentCommand extends $Command<
   GetObjectTorrentCommandInput,

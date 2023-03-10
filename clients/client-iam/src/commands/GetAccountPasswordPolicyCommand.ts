@@ -51,6 +51,31 @@ export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswor
  * @see {@link GetAccountPasswordPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To see the current account password policy
+ * ```javascript
+ * // The following command displays details about the password policy for the current AWS account.
+ * const input = undefined;
+ * const command = new GetAccountPasswordPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "PasswordPolicy": {
+ *     "AllowUsersToChangePassword": false,
+ *     "ExpirePasswords": false,
+ *     "HardExpiry": false,
+ *     "MaxPasswordAge": 90,
+ *     "MinimumPasswordLength": 8,
+ *     "PasswordReusePrevention": 12,
+ *     "RequireLowercaseCharacters": false,
+ *     "RequireNumbers": true,
+ *     "RequireSymbols": true,
+ *     "RequireUppercaseCharacters": false
+ *   }
+ * }
+ * *\/
+ * // example id: 5e4598c7-c425-431f-8af1-19073b3c4a5f
+ * ```
+ *
  */
 export class GetAccountPasswordPolicyCommand extends $Command<
   GetAccountPasswordPolicyCommandInput,

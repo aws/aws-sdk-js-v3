@@ -50,6 +50,25 @@ export interface CreateDevicePoolCommandOutput extends CreateDevicePoolResult, _
  * @see {@link CreateDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ * @example To create a new device pool
+ * ```javascript
+ * // The following example creates a new device pool named MyDevicePool inside an existing project.
+ * const input = {
+ *   "name": "MyDevicePool",
+ *   "description": "My Android devices",
+ *   "projectArn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
+ *   "rules": []
+ * };
+ * const command = new CreateDevicePoolCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "devicePool": {}
+ * }
+ * *\/
+ * // example id: createdevicepool-example-1470862210860
+ * ```
+ *
  */
 export class CreateDevicePoolCommand extends $Command<
   CreateDevicePoolCommandInput,

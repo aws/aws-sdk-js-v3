@@ -51,6 +51,18 @@ export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __Metad
  * @see {@link AddClientIDToOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To add a client ID (audience) to an Open-ID Connect (OIDC) provider
+ * ```javascript
+ * // The following add-client-id-to-open-id-connect-provider command adds the client ID my-application-ID to the OIDC provider named server.example.com:
+ * const input = {
+ *   "ClientID": "my-application-ID",
+ *   "OpenIDConnectProviderArn": "arn:aws:iam::123456789012:oidc-provider/server.example.com"
+ * };
+ * const command = new AddClientIDToOpenIDConnectProviderCommand(input);
+ * await client.send(command);
+ * // example id: 028e91f4-e2a6-4d59-9e3b-4965a3fb19be
+ * ```
+ *
  */
 export class AddClientIDToOpenIDConnectProviderCommand extends $Command<
   AddClientIDToOpenIDConnectProviderCommandInput,

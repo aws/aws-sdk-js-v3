@@ -55,6 +55,55 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @example DescribeEvents
+ * ```javascript
+ * // Describes all the cache-cluster events for the past 120 minutes.
+ * const input = {
+ *   "Duration": 360,
+ *   "SourceType": "cache-cluster"
+ * };
+ * const command = new DescribeEventsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Events": [
+ *     {
+ *       "Date": "2016-12-22T16:27:56.088Z",
+ *       "Message": "Added cache node 0001 in availability zone us-east-1e",
+ *       "SourceIdentifier": "redis-cluster",
+ *       "SourceType": "cache-cluster"
+ *     },
+ *     {
+ *       "Date": "2016-12-22T16:27:56.078Z",
+ *       "Message": "Cache cluster created",
+ *       "SourceIdentifier": "redis-cluster",
+ *       "SourceType": "cache-cluster"
+ *     },
+ *     {
+ *       "Date": "2016-12-22T16:05:17.326Z",
+ *       "Message": "Added cache node 0002 in availability zone us-east-1c",
+ *       "SourceIdentifier": "my-memcached2",
+ *       "SourceType": "cache-cluster"
+ *     },
+ *     {
+ *       "Date": "2016-12-22T16:05:17.323Z",
+ *       "Message": "Added cache node 0001 in availability zone us-east-1e",
+ *       "SourceIdentifier": "my-memcached2",
+ *       "SourceType": "cache-cluster"
+ *     },
+ *     {
+ *       "Date": "2016-12-22T16:05:17.314Z",
+ *       "Message": "Cache cluster created",
+ *       "SourceIdentifier": "my-memcached2",
+ *       "SourceType": "cache-cluster"
+ *     }
+ *   ],
+ *   "Marker": ""
+ * }
+ * *\/
+ * // example id: describeevents-1481843894757
+ * ```
+ *
  */
 export class DescribeEventsCommand extends $Command<
   DescribeEventsCommandInput,

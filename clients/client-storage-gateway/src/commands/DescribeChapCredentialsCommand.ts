@@ -52,6 +52,29 @@ export interface DescribeChapCredentialsCommandOutput extends DescribeChapCreden
  * @see {@link DescribeChapCredentialsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To describe CHAP credetnitals for an iSCSI
+ * ```javascript
+ * // Returns an array of Challenge-Handshake Authentication Protocol (CHAP) credentials information for a specified iSCSI target, one for each target-initiator pair.
+ * const input = {
+ *   "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+ * };
+ * const command = new DescribeChapCredentialsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChapCredentials": [
+ *     {
+ *       "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
+ *       "SecretToAuthenticateInitiator": "111111111111",
+ *       "SecretToAuthenticateTarget": "222222222222",
+ *       "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-chap-credetnitals-for-an-iscsi-1471467462967
+ * ```
+ *
  */
 export class DescribeChapCredentialsCommand extends $Command<
   DescribeChapCredentialsCommandInput,

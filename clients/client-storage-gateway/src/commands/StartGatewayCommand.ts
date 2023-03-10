@@ -62,6 +62,22 @@ export interface StartGatewayCommandOutput extends StartGatewayOutput, __Metadat
  * @see {@link StartGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To start a gateway service
+ * ```javascript
+ * // Starts a gateway service that was previously shut down.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+ * };
+ * const command = new StartGatewayCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+ * }
+ * *\/
+ * // example id: to-start-a-gateway-service-1472150722315
+ * ```
+ *
  */
 export class StartGatewayCommand extends $Command<
   StartGatewayCommandInput,

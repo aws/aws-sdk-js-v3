@@ -58,6 +58,27 @@ export interface ListSizeConstraintSetsCommandOutput extends ListSizeConstraintS
  * @see {@link ListSizeConstraintSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
+ * @example To list a size constraint sets
+ * ```javascript
+ * // The following example returns an array of up to 100 size contraint match sets.
+ * const input = {
+ *   "Limit": 100
+ * };
+ * const command = new ListSizeConstraintSetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SizeConstraintSets": [
+ *     {
+ *       "Name": "MySampleSizeConstraintSet",
+ *       "SizeConstraintSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: listsizeconstraintsets-1474300067597
+ * ```
+ *
  */
 export class ListSizeConstraintSetsCommand extends $Command<
   ListSizeConstraintSetsCommandInput,

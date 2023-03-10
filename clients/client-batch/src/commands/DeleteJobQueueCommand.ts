@@ -53,6 +53,17 @@ export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __M
  * @see {@link DeleteJobQueueCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
+ * @example To delete a job queue
+ * ```javascript
+ * // This example deletes the GPGPU job queue.
+ * const input = {
+ *   "jobQueue": "GPGPU"
+ * };
+ * const command = new DeleteJobQueueCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-job-queue-1481153508134
+ * ```
+ *
  */
 export class DeleteJobQueueCommand extends $Command<
   DeleteJobQueueCommandInput,

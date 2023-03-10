@@ -57,6 +57,17 @@ export interface CreateKeyPairCommandOutput extends KeyPair, __MetadataBearer {}
  * @see {@link CreateKeyPairCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To create a key pair
+ * ```javascript
+ * // This example creates a key pair named my-key-pair.
+ * const input = {
+ *   "KeyName": "my-key-pair"
+ * };
+ * const command = new CreateKeyPairCommand(input);
+ * await client.send(command);
+ * // example id: ec2-create-key-pair-1
+ * ```
+ *
  */
 export class CreateKeyPairCommand extends $Command<
   CreateKeyPairCommandInput,

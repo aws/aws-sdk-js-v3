@@ -61,6 +61,24 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
+ * @example To add a resource-based policy to a secret
+ * ```javascript
+ * // The following example shows how to add a resource-based policy to a secret.
+ * const input = {
+ *   "ResourcePolicy": "{\n\"Version\":\"2012-10-17\",\n\"Statement\":[{\n\"Effect\":\"Allow\",\n\"Principal\":{\n\"AWS\":\"arn:aws:iam::123456789012:root\"\n},\n\"Action\":\"secretsmanager:GetSecretValue\",\n\"Resource\":\"*\"\n}]\n}",
+ *   "SecretId": "MyTestDatabaseSecret"
+ * };
+ * const command = new PutResourcePolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   "Name": "MyTestDatabaseSecret"
+ * }
+ * *\/
+ * // example id: to-add-a-resource-based-policy-to-a-secret-1530209881839
+ * ```
+ *
  */
 export class PutResourcePolicyCommand extends $Command<
   PutResourcePolicyCommandInput,

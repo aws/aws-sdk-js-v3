@@ -59,6 +59,40 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  * @see {@link DescribeInstanceRefreshesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To list instance refreshes
+ * ```javascript
+ * // This example describes the instance refreshes for the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group"
+ * };
+ * const command = new DescribeInstanceRefreshesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InstanceRefreshes": [
+ *     {
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "InstanceRefreshId": "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b",
+ *       "InstancesToUpdate": 5,
+ *       "PercentageComplete": 0,
+ *       "StartTime": "2020-06-02T18:11:27Z",
+ *       "Status": "InProgress"
+ *     },
+ *     {
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "EndTime": "2020-06-02T16:53:37Z",
+ *       "InstanceRefreshId": "dd7728d0-5bc4-4575-96a3-1b2c52bf8bb1",
+ *       "InstancesToUpdate": 0,
+ *       "PercentageComplete": 100,
+ *       "StartTime": "2020-06-02T16:43:19Z",
+ *       "Status": "Successful"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-instance-refreshes-1592959593746
+ * ```
+ *
  */
 export class DescribeInstanceRefreshesCommand extends $Command<
   DescribeInstanceRefreshesCommandInput,

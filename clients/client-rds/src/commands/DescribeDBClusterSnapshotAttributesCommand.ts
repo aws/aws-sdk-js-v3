@@ -59,6 +59,22 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * @see {@link DescribeDBClusterSnapshotAttributesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To list DB cluster snapshot attributes
+ * ```javascript
+ * // This example lists attributes for the specified DB cluster snapshot.
+ * const input = {
+ *   "DBClusterSnapshotIdentifier": "mydbclustersnapshot"
+ * };
+ * const command = new DescribeDBClusterSnapshotAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterSnapshotAttributesResult": {}
+ * }
+ * *\/
+ * // example id: describe-db-cluster-snapshot-attributes-6752ade3-0c7b-4b06-a8e4-b76bf4e2d3571
+ * ```
+ *
  */
 export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
   DescribeDBClusterSnapshotAttributesCommandInput,

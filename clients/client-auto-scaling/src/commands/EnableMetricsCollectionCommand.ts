@@ -50,6 +50,18 @@ export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {
  * @see {@link EnableMetricsCollectionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To enable metrics collection for an Auto Scaling group
+ * ```javascript
+ * // This example enables data collection for the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "Granularity": "1Minute"
+ * };
+ * const command = new EnableMetricsCollectionCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-enable-metrics-collection-1
+ * ```
+ *
  */
 export class EnableMetricsCollectionCommand extends $Command<
   EnableMetricsCollectionCommandInput,

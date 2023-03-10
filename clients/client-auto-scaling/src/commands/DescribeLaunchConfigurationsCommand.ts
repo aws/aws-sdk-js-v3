@@ -50,6 +50,41 @@ export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigu
  * @see {@link DescribeLaunchConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To describe Auto Scaling launch configurations
+ * ```javascript
+ * // This example describes the specified launch configuration.
+ * const input = {
+ *   "LaunchConfigurationNames": [
+ *     "my-launch-config"
+ *   ]
+ * };
+ * const command = new DescribeLaunchConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LaunchConfigurations": [
+ *     {
+ *       "AssociatePublicIpAddress": true,
+ *       "BlockDeviceMappings": [],
+ *       "CreatedTime": "2014-05-07T17:39:28.599Z",
+ *       "EbsOptimized": false,
+ *       "ImageId": "ami-043a5034",
+ *       "InstanceMonitoring": {
+ *         "Enabled": true
+ *       },
+ *       "InstanceType": "t1.micro",
+ *       "LaunchConfigurationARN": "arn:aws:autoscaling:us-west-2:123456789012:launchConfiguration:98d3b196-4cf9-4e88-8ca1-8547c24ced8b:launchConfigurationName/my-launch-config",
+ *       "LaunchConfigurationName": "my-launch-config",
+ *       "SecurityGroups": [
+ *         "sg-67ef0308"
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: autoscaling-describe-launch-configurations-1
+ * ```
+ *
  */
 export class DescribeLaunchConfigurationsCommand extends $Command<
   DescribeLaunchConfigurationsCommandInput,

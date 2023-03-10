@@ -56,6 +56,25 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * @see {@link GetInstancesHealthStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ * @example GetInstancesHealthStatus example
+ * ```javascript
+ * // This example gets the current health status of one or more instances that are associate with a specified service.
+ * const input = {
+ *   "ServiceId": "srv-e4anhexample0004"
+ * };
+ * const command = new GetInstancesHealthStatusCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Status": {
+ *     "i-abcd1234": "HEALTHY",
+ *     "i-abcd1235": "UNHEALTHY"
+ *   }
+ * }
+ * *\/
+ * // example id: getinstanceshealthstatus-example-1590115176146
+ * ```
+ *
  */
 export class GetInstancesHealthStatusCommand extends $Command<
   GetInstancesHealthStatusCommandInput,

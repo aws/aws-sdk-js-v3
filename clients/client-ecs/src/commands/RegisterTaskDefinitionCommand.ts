@@ -67,6 +67,59 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * @see {@link RegisterTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @example To register a task definition
+ * ```javascript
+ * // This example registers a task definition to the specified family.
+ * const input = {
+ *   "containerDefinitions": [
+ *     {
+ *       "name": "sleep",
+ *       "command": [
+ *         "sleep",
+ *         "360"
+ *       ],
+ *       "cpu": 10,
+ *       "essential": true,
+ *       "image": "busybox",
+ *       "memory": 10
+ *     }
+ *   ],
+ *   "family": "sleep360",
+ *   "taskRoleArn": "",
+ *   "volumes": []
+ * };
+ * const command = new RegisterTaskDefinitionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "taskDefinition": {
+ *     "containerDefinitions": [
+ *       {
+ *         "name": "sleep",
+ *         "command": [
+ *           "sleep",
+ *           "360"
+ *         ],
+ *         "cpu": 10,
+ *         "environment": [],
+ *         "essential": true,
+ *         "image": "busybox",
+ *         "memory": 10,
+ *         "mountPoints": [],
+ *         "portMappings": [],
+ *         "volumesFrom": []
+ *       }
+ *     ],
+ *     "family": "sleep360",
+ *     "revision": 1,
+ *     "taskDefinitionArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/sleep360:19",
+ *     "volumes": []
+ *   }
+ * }
+ * *\/
+ * // example id: to-register-a-task-definition-1470764550877
+ * ```
+ *
  */
 export class RegisterTaskDefinitionCommand extends $Command<
   RegisterTaskDefinitionCommandInput,

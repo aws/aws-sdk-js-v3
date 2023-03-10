@@ -113,6 +113,20 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  * @see {@link ImportKeyMaterialCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @example To import key material into a KMS key
+ * ```javascript
+ * // The following example imports key material into the specified KMS key.
+ * const input = {
+ *   "EncryptedKeyMaterial": "<binary data>",
+ *   "ExpirationModel": "KEY_MATERIAL_DOES_NOT_EXPIRE",
+ *   "ImportToken": "<binary data>",
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new ImportKeyMaterialCommand(input);
+ * await client.send(command);
+ * // example id: to-import-key-material-into-a-cmk-1480630551969
+ * ```
+ *
  */
 export class ImportKeyMaterialCommand extends $Command<
   ImportKeyMaterialCommandInput,

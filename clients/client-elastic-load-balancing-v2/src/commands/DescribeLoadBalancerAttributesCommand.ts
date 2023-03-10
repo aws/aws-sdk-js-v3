@@ -78,6 +78,43 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  * @see {@link DescribeLoadBalancerAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @example To describe load balancer attributes
+ * ```javascript
+ * // This example describes the attributes of the specified load balancer.
+ * const input = {
+ *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+ * };
+ * const command = new DescribeLoadBalancerAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Attributes": [
+ *     {
+ *       "Key": "access_logs.s3.enabled",
+ *       "Value": "false"
+ *     },
+ *     {
+ *       "Key": "idle_timeout.timeout_seconds",
+ *       "Value": "60"
+ *     },
+ *     {
+ *       "Key": "access_logs.s3.prefix",
+ *       "Value": ""
+ *     },
+ *     {
+ *       "Key": "deletion_protection.enabled",
+ *       "Value": "false"
+ *     },
+ *     {
+ *       "Key": "access_logs.s3.bucket",
+ *       "Value": ""
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elbv2-describe-load-balancer-attributes-1
+ * ```
+ *
  */
 export class DescribeLoadBalancerAttributesCommand extends $Command<
   DescribeLoadBalancerAttributesCommandInput,

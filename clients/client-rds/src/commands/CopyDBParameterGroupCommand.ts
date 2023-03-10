@@ -50,6 +50,24 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * @see {@link CopyDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To copy a DB parameter group
+ * ```javascript
+ * // This example copies a DB parameter group.
+ * const input = {
+ *   "SourceDBParameterGroupIdentifier": "mymysqlparametergroup",
+ *   "TargetDBParameterGroupDescription": "My MySQL parameter group copy",
+ *   "TargetDBParameterGroupIdentifier": "mymysqlparametergroup-copy"
+ * };
+ * const command = new CopyDBParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBParameterGroup": {}
+ * }
+ * *\/
+ * // example id: copy-db-parameter-group-610d4dba-2c87-467f-ae5d-edd7f8e47349
+ * ```
+ *
  */
 export class CopyDBParameterGroupCommand extends $Command<
   CopyDBParameterGroupCommandInput,

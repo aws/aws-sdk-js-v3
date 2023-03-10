@@ -51,6 +51,23 @@ export interface GetContactPolicyCommandOutput extends GetContactPolicyResult, _
  * @see {@link GetContactPolicyCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
+ * @example To list the resource policies of a contact
+ * ```javascript
+ * // The following get-contact-policy example lists the resource policies associated with the specified contact.
+ * const input = {
+ *   "ContactArn": "arn:aws:ssm-contacts:us-east-1:111122223333:contact/akuam"
+ * };
+ * const command = new GetContactPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ContactArn": "arn:aws:ssm-contacts:us-east-1:111122223333:contact/akuam",
+ *   "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"SharePolicyForDocumentationDralia\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"222233334444\"},\"Action\":[\"ssm-contacts:GetContact\",\"ssm-contacts:StartEngagement\",\"ssm-contacts:DescribeEngagement\",\"ssm-contacts:ListPagesByEngagement\",\"ssm-contacts:StopEngagement\"],\"Resource\":[\"arn:aws:ssm-contacts:*:111122223333:contact/akuam\",\"arn:aws:ssm-contacts:*:111122223333:engagement/akuam/*\"]}]}"
+ * }
+ * *\/
+ * // example id: to-list-the-details-of-a-contact-channel-1630365682730
+ * ```
+ *
  */
 export class GetContactPolicyCommand extends $Command<
   GetContactPolicyCommandInput,

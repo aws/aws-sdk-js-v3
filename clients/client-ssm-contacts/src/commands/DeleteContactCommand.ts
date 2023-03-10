@@ -53,6 +53,17 @@ export interface DeleteContactCommandOutput extends DeleteContactResult, __Metad
  * @see {@link DeleteContactCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
+ * @example To delete a contact
+ * ```javascript
+ * // The following delete-contact example deletes a contact. The contact will no longer be reachable from any escalation plan that refers to them.
+ * const input = {
+ *   "ContactId": "arn:aws:ssm-contacts:us-east-1:111122223333:contact/alejr"
+ * };
+ * const command = new DeleteContactCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-contact-1630361093863
+ * ```
+ *
  */
 export class DeleteContactCommand extends $Command<
   DeleteContactCommandInput,

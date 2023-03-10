@@ -54,6 +54,23 @@ export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRa
  * @see {@link DeleteBandwidthRateLimitCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To delete bandwidth rate limits of gateway
+ * ```javascript
+ * // Deletes the bandwidth rate limits of a gateway; either the upload or download limit, or both.
+ * const input = {
+ *   "BandwidthType": "All",
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * };
+ * const command = new DeleteBandwidthRateLimitCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * }
+ * *\/
+ * // example id: to-delete-bandwidth-rate-limits-of-gateway-1471373225520
+ * ```
+ *
  */
 export class DeleteBandwidthRateLimitCommand extends $Command<
   DeleteBandwidthRateLimitCommandInput,

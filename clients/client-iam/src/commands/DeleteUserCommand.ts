@@ -74,6 +74,17 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To delete an IAM user
+ * ```javascript
+ * // The following command removes the IAM user named Bob from the current account.
+ * const input = {
+ *   "UserName": "Bob"
+ * };
+ * const command = new DeleteUserCommand(input);
+ * await client.send(command);
+ * // example id: a13dc3f9-59fe-42d9-abbb-fb98b204fdf0
+ * ```
+ *
  */
 export class DeleteUserCommand extends $Command<
   DeleteUserCommandInput,

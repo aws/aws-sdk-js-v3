@@ -50,6 +50,24 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  * @see {@link AttachNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To attach a network interface to an instance
+ * ```javascript
+ * // This example attaches the specified network interface to the specified instance.
+ * const input = {
+ *   "DeviceIndex": 1,
+ *   "InstanceId": "i-1234567890abcdef0",
+ *   "NetworkInterfaceId": "eni-e5aa89a3"
+ * };
+ * const command = new AttachNetworkInterfaceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AttachmentId": "eni-attach-66c4350a"
+ * }
+ * *\/
+ * // example id: ec2-attach-network-interface-1
+ * ```
+ *
  */
 export class AttachNetworkInterfaceCommand extends $Command<
   AttachNetworkInterfaceCommandInput,

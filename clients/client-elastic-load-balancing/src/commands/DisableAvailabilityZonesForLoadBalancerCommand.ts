@@ -64,6 +64,27 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
  * @see {@link DisableAvailabilityZonesForLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @example To disable an Availability Zone for a load balancer
+ * ```javascript
+ * // This example removes the specified Availability Zone from the set of Availability Zones for the specified load balancer.
+ * const input = {
+ *   "AvailabilityZones": [
+ *     "us-west-2a"
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new DisableAvailabilityZonesForLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AvailabilityZones": [
+ *     "us-west-2b"
+ *   ]
+ * }
+ * *\/
+ * // example id: elb-disable-availability-zones-for-load-balancer-1
+ * ```
+ *
  */
 export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
   DisableAvailabilityZonesForLoadBalancerCommandInput,

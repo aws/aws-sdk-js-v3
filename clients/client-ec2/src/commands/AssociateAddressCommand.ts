@@ -77,6 +77,52 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * @see {@link AssociateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To associate an Elastic IP address in EC2-VPC
+ * ```javascript
+ * // This example associates the specified Elastic IP address with the specified instance in a VPC.
+ * const input = {
+ *   "AllocationId": "eipalloc-64d5890a",
+ *   "InstanceId": "i-0b263919b6498b123"
+ * };
+ * const command = new AssociateAddressCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AssociationId": "eipassoc-2bebb745"
+ * }
+ * *\/
+ * // example id: ec2-associate-address-1
+ * ```
+ *
+ * @example To associate an Elastic IP address with a network interface
+ * ```javascript
+ * // This example associates the specified Elastic IP address with the specified network interface.
+ * const input = {
+ *   "AllocationId": "eipalloc-64d5890a",
+ *   "NetworkInterfaceId": "eni-1a2b3c4d"
+ * };
+ * const command = new AssociateAddressCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AssociationId": "eipassoc-2bebb745"
+ * }
+ * *\/
+ * // example id: ec2-associate-address-2
+ * ```
+ *
+ * @example To associate an Elastic IP address in EC2-Classic
+ * ```javascript
+ * // This example associates an Elastic IP address with an instance in EC2-Classic.
+ * const input = {
+ *   "InstanceId": "i-07ffe74c7330ebf53",
+ *   "PublicIp": "198.51.100.0"
+ * };
+ * const command = new AssociateAddressCommand(input);
+ * await client.send(command);
+ * // example id: ec2-associate-address-3
+ * ```
+ *
  */
 export class AssociateAddressCommand extends $Command<
   AssociateAddressCommandInput,

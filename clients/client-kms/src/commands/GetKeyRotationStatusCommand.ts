@@ -102,6 +102,22 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  * @see {@link GetKeyRotationStatusCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @example To retrieve the rotation status for a KMS key
+ * ```javascript
+ * // The following example retrieves the status of automatic annual rotation of the key material for the specified KMS key.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new GetKeyRotationStatusCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyRotationEnabled": true
+ * }
+ * *\/
+ * // example id: to-retrieve-the-rotation-status-for-a-cmk-1479172287408
+ * ```
+ *
  */
 export class GetKeyRotationStatusCommand extends $Command<
   GetKeyRotationStatusCommandInput,

@@ -50,6 +50,17 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
  * @see {@link DeleteRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ * @example To delete a specific remote access session
+ * ```javascript
+ * // The following example deletes a specific remote access session.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:session:EXAMPLE-GUID-123-456"
+ * };
+ * const command = new DeleteRemoteAccessSessionCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-specific-remote-access-session-1470971431677
+ * ```
+ *
  */
 export class DeleteRemoteAccessSessionCommand extends $Command<
   DeleteRemoteAccessSessionCommandInput,

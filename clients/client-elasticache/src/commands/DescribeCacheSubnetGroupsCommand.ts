@@ -53,6 +53,55 @@ export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroup
  * @see {@link DescribeCacheSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @example DescribeCacheSubnetGroups
+ * ```javascript
+ * // Describes up to 25 cache subnet groups.
+ * const input = {
+ *   "MaxRecords": 25
+ * };
+ * const command = new DescribeCacheSubnetGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CacheSubnetGroups": [
+ *     {
+ *       "CacheSubnetGroupDescription": "Default CacheSubnetGroup",
+ *       "CacheSubnetGroupName": "default",
+ *       "Subnets": [
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1a"
+ *           },
+ *           "SubnetIdentifier": "subnet-1a2b3c4d"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1c"
+ *           },
+ *           "SubnetIdentifier": "subnet-a1b2c3d4"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1e"
+ *           },
+ *           "SubnetIdentifier": "subnet-abcd1234"
+ *         },
+ *         {
+ *           "SubnetAvailabilityZone": {
+ *             "Name": "us-east-1b"
+ *           },
+ *           "SubnetIdentifier": "subnet-1234abcd"
+ *         }
+ *       ],
+ *       "VpcId": "vpc-91280df6"
+ *     }
+ *   ],
+ *   "Marker": ""
+ * }
+ * *\/
+ * // example id: describecachesubnetgroups-1482439214064
+ * ```
+ *
  */
 export class DescribeCacheSubnetGroupsCommand extends $Command<
   DescribeCacheSubnetGroupsCommandInput,

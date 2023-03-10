@@ -47,6 +47,42 @@ export interface GetDeviceCommandOutput extends GetDeviceResult, __MetadataBeare
  * @see {@link GetDeviceCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ * @example To get information about a device
+ * ```javascript
+ * // The following example returns information about a specific device.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2::device:123EXAMPLE"
+ * };
+ * const command = new GetDeviceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "device": {
+ *     "name": "LG G2 (Sprint)",
+ *     "arn": "arn:aws:devicefarm:us-west-2::device:A0E6E6E1059E45918208DF75B2B7EF6C",
+ *     "cpu": {
+ *       "architecture": "armeabi-v7a",
+ *       "clock": 2265.6,
+ *       "frequency": "MHz"
+ *     },
+ *     "formFactor": "PHONE",
+ *     "heapSize": 256000000,
+ *     "image": "75B2B7EF6C12345EXAMPLE",
+ *     "manufacturer": "LG",
+ *     "memory": 16000000000,
+ *     "model": "G2 (Sprint)",
+ *     "os": "4.2.2",
+ *     "platform": "ANDROID",
+ *     "resolution": {
+ *       "height": 1920,
+ *       "width": 1080
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: getdevice-example-1470870602173
+ * ```
+ *
  */
 export class GetDeviceCommand extends $Command<
   GetDeviceCommandInput,

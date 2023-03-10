@@ -59,6 +59,23 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * @see {@link RebootDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To reboot a DB instance
+ * ```javascript
+ * // This example reboots the specified DB instance without forcing a failover.
+ * const input = {
+ *   "DBInstanceIdentifier": "mymysqlinstance",
+ *   "ForceFailover": false
+ * };
+ * const command = new RebootDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstance": {}
+ * }
+ * *\/
+ * // example id: reboot-db-instance-b9ce8a0a-2920-451d-a1f3-01d288aa7366
+ * ```
+ *
  */
 export class RebootDBInstanceCommand extends $Command<
   RebootDBInstanceCommandInput,

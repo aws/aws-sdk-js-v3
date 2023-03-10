@@ -50,6 +50,18 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
  * @see {@link DescribeOptionGroupOptionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To list information about DB option group options
+ * ```javascript
+ * // This example lists information for all option group options for the specified DB engine.
+ * const input = {
+ *   "EngineName": "mysql",
+ *   "MajorEngineVersion": "5.6"
+ * };
+ * const command = new DescribeOptionGroupOptionsCommand(input);
+ * await client.send(command);
+ * // example id: describe-option-group-options-30d735a4-81f1-49e4-b3f2-5dc45d50c8ed
+ * ```
+ *
  */
 export class DescribeOptionGroupOptionsCommand extends $Command<
   DescribeOptionGroupOptionsCommandInput,

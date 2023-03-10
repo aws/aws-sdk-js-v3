@@ -55,6 +55,18 @@ export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetRes
  * @see {@link CloneReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @example CloneReceiptRuleSet
+ * ```javascript
+ * // The following example creates a receipt rule set by cloning an existing one:
+ * const input = {
+ *   "OriginalRuleSetName": "RuleSetToClone",
+ *   "RuleSetName": "RuleSetToCreate"
+ * };
+ * const command = new CloneReceiptRuleSetCommand(input);
+ * await client.send(command);
+ * // example id: clonereceiptruleset-1469055039770
+ * ```
+ *
  */
 export class CloneReceiptRuleSetCommand extends $Command<
   CloneReceiptRuleSetCommandInput,

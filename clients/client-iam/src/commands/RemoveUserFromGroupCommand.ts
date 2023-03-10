@@ -45,6 +45,18 @@ export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
  * @see {@link RemoveUserFromGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To remove a user from an IAM group
+ * ```javascript
+ * // The following command removes the user named Bob from the IAM group named Admins.
+ * const input = {
+ *   "GroupName": "Admins",
+ *   "UserName": "Bob"
+ * };
+ * const command = new RemoveUserFromGroupCommand(input);
+ * await client.send(command);
+ * // example id: fb54d5b4-0caf-41d8-af0e-10a84413f174
+ * ```
+ *
  */
 export class RemoveUserFromGroupCommand extends $Command<
   RemoveUserFromGroupCommandInput,

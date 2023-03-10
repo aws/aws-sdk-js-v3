@@ -50,6 +50,32 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  * @see {@link GetTaskProtectionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @example To get the protection status of a task
+ * ```javascript
+ * // In this example, we get the protection status for a single task.
+ * const input = {
+ *   "cluster": "test-task-protection",
+ *   "tasks": [
+ *     "b8b1cf532d0e46ba8d44a40d1de16772"
+ *   ]
+ * };
+ * const command = new GetTaskProtectionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failures": [],
+ *   "protectedTasks": [
+ *     {
+ *       "expirationDate": "2022-11-02T06:56:32.553Z",
+ *       "protectionEnabled": true,
+ *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/b8b1cf532d0e46ba8d44a40d1de16772"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: get-the-protection-status-for-a-single-task-2022-11-02T06:56:32.553Z
+ * ```
+ *
  */
 export class GetTaskProtectionCommand extends $Command<
   GetTaskProtectionCommandInput,

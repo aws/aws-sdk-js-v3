@@ -50,6 +50,27 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ * @example List tags for resource
+ * ```javascript
+ * // Lists all tags associated with an assessment template.
+ * const input = {
+ *   "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-gcwFliYu"
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "tags": [
+ *     {
+ *       "key": "Name",
+ *       "value": "Example"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: list-tags-for-resource-1481067025240
+ * ```
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

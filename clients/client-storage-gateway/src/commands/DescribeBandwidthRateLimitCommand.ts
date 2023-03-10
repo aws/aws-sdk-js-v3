@@ -58,6 +58,24 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  * @see {@link DescribeBandwidthRateLimitCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To describe the bandwidth rate limits of a gateway
+ * ```javascript
+ * // Returns a value for a bandwidth rate limit if set. If not set, then only the gateway ARN is returned.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * };
+ * const command = new DescribeBandwidthRateLimitCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AverageDownloadRateLimitInBitsPerSec": 204800,
+ *   "AverageUploadRateLimitInBitsPerSec": 102400,
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * }
+ * *\/
+ * // example id: to-describe-the-bandwidth-rate-limits-of-a-gateway-1471384826404
+ * ```
+ *
  */
 export class DescribeBandwidthRateLimitCommand extends $Command<
   DescribeBandwidthRateLimitCommandInput,

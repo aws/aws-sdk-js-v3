@@ -62,6 +62,26 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  * @see {@link AddWorkingStorageCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To add storage on local disk
+ * ```javascript
+ * // Configures one or more gateway local disks as working storage for a gateway. (Working storage is also referred to as upload buffer.)
+ * const input = {
+ *   "DiskIds": [
+ *     "pci-0000:03:00.0-scsi-0:0:0:0",
+ *     "pci-0000:03:00.0-scsi-0:0:1:0"
+ *   ],
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * };
+ * const command = new AddWorkingStorageCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * }
+ * *\/
+ * // example id: to-add-storage-on-local-disk-1471294305401
+ * ```
+ *
  */
 export class AddWorkingStorageCommand extends $Command<
   AddWorkingStorageCommandInput,

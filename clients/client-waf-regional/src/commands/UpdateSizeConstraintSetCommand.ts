@@ -100,6 +100,36 @@ export interface UpdateSizeConstraintSetCommandOutput extends UpdateSizeConstrai
  * @see {@link UpdateSizeConstraintSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ * @example To update a size constraint set
+ * ```javascript
+ * // The following example deletes a SizeConstraint object (filters) in a size constraint set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
+ * const input = {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "SizeConstraintSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *   "Updates": [
+ *     {
+ *       "Action": "DELETE",
+ *       "SizeConstraint": {
+ *         "ComparisonOperator": "GT",
+ *         "FieldToMatch": {
+ *           "Type": "QUERY_STRING"
+ *         },
+ *         "Size": 0,
+ *         "TextTransformation": "NONE"
+ *       }
+ *     }
+ *   ]
+ * };
+ * const command = new UpdateSizeConstraintSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ * }
+ * *\/
+ * // example id: updatesizeconstraintset-1475531697891
+ * ```
+ *
  */
 export class UpdateSizeConstraintSetCommand extends $Command<
   UpdateSizeConstraintSetCommandInput,

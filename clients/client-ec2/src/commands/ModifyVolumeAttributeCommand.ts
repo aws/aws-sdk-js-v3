@@ -51,6 +51,21 @@ export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link ModifyVolumeAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To modify a volume attribute
+ * ```javascript
+ * // This example sets the ``autoEnableIo`` attribute of the volume with the ID ``vol-1234567890abcdef0`` to ``true``. If the command succeeds, no output is returned.
+ * const input = {
+ *   "AutoEnableIO": {
+ *     "Value": true
+ *   },
+ *   "DryRun": true,
+ *   "VolumeId": "vol-1234567890abcdef0"
+ * };
+ * const command = new ModifyVolumeAttributeCommand(input);
+ * await client.send(command);
+ * // example id: to-modify-a-volume-attribute-1472508596749
+ * ```
+ *
  */
 export class ModifyVolumeAttributeCommand extends $Command<
   ModifyVolumeAttributeCommandInput,

@@ -47,6 +47,19 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  * @see {@link ReplaceRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To replace a route
+ * ```javascript
+ * // This example replaces the specified route in the specified table table. The new route matches the specified CIDR and sends the traffic to the specified virtual private gateway.
+ * const input = {
+ *   "DestinationCidrBlock": "10.0.0.0/16",
+ *   "GatewayId": "vgw-9a4cacf3",
+ *   "RouteTableId": "rtb-22574640"
+ * };
+ * const command = new ReplaceRouteCommand(input);
+ * await client.send(command);
+ * // example id: ec2-replace-route-1
+ * ```
+ *
  */
 export class ReplaceRouteCommand extends $Command<
   ReplaceRouteCommandInput,

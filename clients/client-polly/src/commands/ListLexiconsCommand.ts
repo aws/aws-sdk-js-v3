@@ -50,6 +50,32 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  * @see {@link ListLexiconsCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
+ * @example To list all lexicons in a region
+ * ```javascript
+ * // Returns a list of pronunciation lexicons stored in an AWS Region.
+ * const input = {};
+ * const command = new ListLexiconsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Lexicons": [
+ *     {
+ *       "Attributes": {
+ *         "Alphabet": "ipa",
+ *         "LanguageCode": "en-US",
+ *         "LastModified": 1478542980.117,
+ *         "LexemesCount": 1,
+ *         "LexiconArn": "arn:aws:polly:us-east-1:123456789012:lexicon/example",
+ *         "Size": 503
+ *       },
+ *       "Name": "example"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-all-lexicons-in-a-region-1481842106487
+ * ```
+ *
  */
 export class ListLexiconsCommand extends $Command<
   ListLexiconsCommandInput,

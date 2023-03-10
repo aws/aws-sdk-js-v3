@@ -69,6 +69,35 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
  * @see {@link GetBucketCorsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @example To get cors configuration set on a bucket
+ * ```javascript
+ * // The following example returns cross-origin resource sharing (CORS) configuration set on a bucket.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new GetBucketCorsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CORSRules": [
+ *     {
+ *       "AllowedHeaders": [
+ *         "Authorization"
+ *       ],
+ *       "AllowedMethods": [
+ *         "GET"
+ *       ],
+ *       "AllowedOrigins": [
+ *         "*"
+ *       ],
+ *       "MaxAgeSeconds": 3000
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-get-cors-configuration-set-on-a-bucket-1481596855475
+ * ```
+ *
  */
 export class GetBucketCorsCommand extends $Command<
   GetBucketCorsCommandInput,

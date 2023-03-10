@@ -52,6 +52,37 @@ export interface ListGroupsForUserCommandOutput extends ListGroupsForUserRespons
  * @see {@link ListGroupsForUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To list the groups that an IAM user belongs to
+ * ```javascript
+ * // The following command displays the groups that the IAM user named Bob belongs to.
+ * const input = {
+ *   "UserName": "Bob"
+ * };
+ * const command = new ListGroupsForUserCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Groups": [
+ *     {
+ *       "Arn": "arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/product_1234/engineering/Test",
+ *       "CreateDate": "2016-11-30T14:10:01.156Z",
+ *       "GroupId": "AGP2111111111EXAMPLE",
+ *       "GroupName": "Test",
+ *       "Path": "/division_abc/subdivision_xyz/product_1234/engineering/"
+ *     },
+ *     {
+ *       "Arn": "arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/product_1234/Managers",
+ *       "CreateDate": "2016-06-12T20:14:52.032Z",
+ *       "GroupId": "AGPI222222222SEXAMPLE",
+ *       "GroupName": "Managers",
+ *       "Path": "/division_abc/subdivision_xyz/product_1234/"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: 278ec2ee-fc28-4136-83fb-433af0ae46a2
+ * ```
+ *
  */
 export class ListGroupsForUserCommand extends $Command<
   ListGroupsForUserCommandInput,

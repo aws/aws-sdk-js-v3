@@ -53,6 +53,31 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * @see {@link CreateDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ * @example To create a deployment strategy
+ * ```javascript
+ * // The following create-deployment-strategy example creates a deployment strategy called Example-Deployment that takes 15 minutes and deploys the configuration to 25% of the application at a time. The strategy is also copied to an SSM Document.
+ * const input = {
+ *   "DeploymentDurationInMinutes": 15,
+ *   "GrowthFactor": 25,
+ *   "Name": "Example-Deployment",
+ *   "ReplicateTo": "SSM_DOCUMENT"
+ * };
+ * const command = new CreateDeploymentStrategyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DeploymentDurationInMinutes": 15,
+ *   "FinalBakeTimeInMinutes": 0,
+ *   "GrowthFactor": 25,
+ *   "GrowthType": "LINEAR",
+ *   "Id": "1225qzk",
+ *   "Name": "Example-Deployment",
+ *   "ReplicateTo": "SSM_DOCUMENT"
+ * }
+ * *\/
+ * // example id: to-create-a-deployment-strategy-1632264783812
+ * ```
+ *
  */
 export class CreateDeploymentStrategyCommand extends $Command<
   CreateDeploymentStrategyCommandInput,

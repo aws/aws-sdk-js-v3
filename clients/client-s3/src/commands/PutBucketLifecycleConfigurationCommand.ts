@@ -136,6 +136,37 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * @see {@link PutBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @example Put bucket lifecycle
+ * ```javascript
+ * // The following example replaces existing lifecycle configuration, if any, on the specified bucket.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "LifecycleConfiguration": {
+ *     "Rules": [
+ *       {
+ *         "Expiration": {
+ *           "Days": 3650
+ *         },
+ *         "Filter": {
+ *           "Prefix": "documents/"
+ *         },
+ *         "ID": "TestOnly",
+ *         "Status": "Enabled",
+ *         "Transitions": [
+ *           {
+ *             "Days": 365,
+ *             "StorageClass": "GLACIER"
+ *           }
+ *         ]
+ *       }
+ *     ]
+ *   }
+ * };
+ * const command = new PutBucketLifecycleConfigurationCommand(input);
+ * await client.send(command);
+ * // example id: put-bucket-lifecycle-1482264533092
+ * ```
+ *
  */
 export class PutBucketLifecycleConfigurationCommand extends $Command<
   PutBucketLifecycleConfigurationCommandInput,

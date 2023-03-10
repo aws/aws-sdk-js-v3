@@ -46,6 +46,17 @@ export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
  * @see {@link VerifyEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @example VerifyEmailAddress
+ * ```javascript
+ * // The following example starts the email address verification process with Amazon SES:
+ * const input = {
+ *   "EmailAddress": "user@example.com"
+ * };
+ * const command = new VerifyEmailAddressCommand(input);
+ * await client.send(command);
+ * // example id: verifyemailaddress-1469048849187
+ * ```
+ *
  */
 export class VerifyEmailAddressCommand extends $Command<
   VerifyEmailAddressCommandInput,

@@ -59,6 +59,18 @@ export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link AttachRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To attach a managed policy to an IAM role
+ * ```javascript
+ * // The following command attaches the AWS managed policy named ReadOnlyAccess to the IAM role named ReadOnlyRole.
+ * const input = {
+ *   "PolicyArn": "arn:aws:iam::aws:policy/ReadOnlyAccess",
+ *   "RoleName": "ReadOnlyRole"
+ * };
+ * const command = new AttachRolePolicyCommand(input);
+ * await client.send(command);
+ * // example id: 3e1b8c7c-99c8-4fc4-a20c-131fe3f22c7e
+ * ```
+ *
  */
 export class AttachRolePolicyCommand extends $Command<
   AttachRolePolicyCommandInput,

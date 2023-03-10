@@ -88,6 +88,26 @@ export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse,
  * @see {@link VerifyDomainDkimCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @example VerifyDomainDkim
+ * ```javascript
+ * // The following example generates DKIM tokens for a domain that has been verified with Amazon SES:
+ * const input = {
+ *   "Domain": "example.com"
+ * };
+ * const command = new VerifyDomainDkimCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DkimTokens": [
+ *     "EXAMPLEq76owjnks3lnluwg65scbemvw",
+ *     "EXAMPLEi3dnsj67hstzaj673klariwx2",
+ *     "EXAMPLEwfbtcukvimehexktmdtaz6naj"
+ *   ]
+ * }
+ * *\/
+ * // example id: verifydomaindkim-1469049503083
+ * ```
+ *
  */
 export class VerifyDomainDkimCommand extends $Command<
   VerifyDomainDkimCommandInput,

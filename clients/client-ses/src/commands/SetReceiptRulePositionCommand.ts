@@ -53,6 +53,19 @@ export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePosit
  * @see {@link SetReceiptRulePositionCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @example SetReceiptRulePosition
+ * ```javascript
+ * // The following example sets the position of a receipt rule in a receipt rule set:
+ * const input = {
+ *   "After": "PutRuleAfterThisRule",
+ *   "RuleName": "RuleToReposition",
+ *   "RuleSetName": "MyRuleSet"
+ * };
+ * const command = new SetReceiptRulePositionCommand(input);
+ * await client.send(command);
+ * // example id: setreceiptruleposition-1469058530550
+ * ```
+ *
  */
 export class SetReceiptRulePositionCommand extends $Command<
   SetReceiptRulePositionCommandInput,

@@ -59,6 +59,28 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  * @see {@link ReleaseAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To release an Elastic IP address for EC2-VPC
+ * ```javascript
+ * // This example releases an Elastic IP address for use with instances in a VPC.
+ * const input = {
+ *   "AllocationId": "eipalloc-64d5890a"
+ * };
+ * const command = new ReleaseAddressCommand(input);
+ * await client.send(command);
+ * // example id: ec2-release-address-1
+ * ```
+ *
+ * @example To release an Elastic IP addresses for EC2-Classic
+ * ```javascript
+ * // This example releases an Elastic IP address for use with instances in EC2-Classic.
+ * const input = {
+ *   "PublicIp": "198.51.100.0"
+ * };
+ * const command = new ReleaseAddressCommand(input);
+ * await client.send(command);
+ * // example id: ec2-release-address-2
+ * ```
+ *
  */
 export class ReleaseAddressCommand extends $Command<
   ReleaseAddressCommandInput,

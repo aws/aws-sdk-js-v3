@@ -57,6 +57,26 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @see {@link GetAuthorizationTokenCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ * @example To obtain an authorization token
+ * ```javascript
+ * // This example gets an authorization token for your default registry.
+ * const input = {};
+ * const command = new GetAuthorizationTokenCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "authorizationData": [
+ *     {
+ *       "authorizationToken": "QVdTOkN...",
+ *       "expiresAt": "1470951892432",
+ *       "proxyEndpoint": "https://012345678901.dkr.ecr.us-west-2.amazonaws.com"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: getauthorizationtoken-example-1470867047084
+ * ```
+ *
  */
 export class GetAuthorizationTokenCommand extends $Command<
   GetAuthorizationTokenCommandInput,

@@ -50,6 +50,31 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ * @example ListTagsForResource example
+ * ```javascript
+ * // This example lists the tags of a resource.
+ * const input = {
+ *   "ResourceARN": "arn:aws:servicediscovery:us-east-1:123456789012:namespace/ns-ylexjili4cdxy3xm"
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Tags": [
+ *     {
+ *       "Key": "Project",
+ *       "Value": "Zeta"
+ *     },
+ *     {
+ *       "Key": "Department",
+ *       "Value": "Engineering"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: listtagsforresource-example-1590093928416
+ * ```
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

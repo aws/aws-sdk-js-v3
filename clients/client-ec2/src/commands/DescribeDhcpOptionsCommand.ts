@@ -52,6 +52,41 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  * @see {@link DescribeDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To describe a DHCP options set
+ * ```javascript
+ * // This example describes the specified DHCP options set.
+ * const input = {
+ *   "DhcpOptionsIds": [
+ *     "dopt-d9070ebb"
+ *   ]
+ * };
+ * const command = new DescribeDhcpOptionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DhcpOptions": [
+ *     {
+ *       "DhcpConfigurations": [
+ *         {
+ *           "Key": "domain-name-servers",
+ *           "Values": [
+ *             {
+ *               "Value": "10.2.5.2"
+ *             },
+ *             {
+ *               "Value": "10.2.5.1"
+ *             }
+ *           ]
+ *         }
+ *       ],
+ *       "DhcpOptionsId": "dopt-d9070ebb"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-describe-dhcp-options-1
+ * ```
+ *
  */
 export class DescribeDhcpOptionsCommand extends $Command<
   DescribeDhcpOptionsCommandInput,

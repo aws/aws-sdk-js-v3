@@ -52,6 +52,64 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
  * @see {@link DescribeSpotFleetRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To describe a Spot fleet request
+ * ```javascript
+ * // This example describes the specified Spot fleet request.
+ * const input = {
+ *   "SpotFleetRequestIds": [
+ *     "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
+ *   ]
+ * };
+ * const command = new DescribeSpotFleetRequestsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SpotFleetRequestConfigs": [
+ *     {
+ *       "SpotFleetRequestConfig": {
+ *         "IamFleetRole": "arn:aws:iam::123456789012:role/my-spot-fleet-role",
+ *         "LaunchSpecifications": [
+ *           {
+ *             "EbsOptimized": false,
+ *             "ImageId": "ami-1a2b3c4d",
+ *             "InstanceType": "cc2.8xlarge",
+ *             "NetworkInterfaces": [
+ *               {
+ *                 "AssociatePublicIpAddress": true,
+ *                 "DeleteOnTermination": false,
+ *                 "DeviceIndex": 0,
+ *                 "SecondaryPrivateIpAddressCount": 0,
+ *                 "SubnetId": "subnet-a61dafcf"
+ *               }
+ *             ]
+ *           },
+ *           {
+ *             "EbsOptimized": false,
+ *             "ImageId": "ami-1a2b3c4d",
+ *             "InstanceType": "r3.8xlarge",
+ *             "NetworkInterfaces": [
+ *               {
+ *                 "AssociatePublicIpAddress": true,
+ *                 "DeleteOnTermination": false,
+ *                 "DeviceIndex": 0,
+ *                 "SecondaryPrivateIpAddressCount": 0,
+ *                 "SubnetId": "subnet-a61dafcf"
+ *               }
+ *             ]
+ *           }
+ *         ],
+ *         "SpotPrice": "0.05",
+ *         "TargetCapacity": 20
+ *       },
+ *       "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE",
+ *       "SpotFleetRequestState": "active"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-describe-spot-fleet-requests-1
+ * ```
+ *
  */
 export class DescribeSpotFleetRequestsCommand extends $Command<
   DescribeSpotFleetRequestsCommandInput,

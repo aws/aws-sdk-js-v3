@@ -53,6 +53,31 @@ export interface UpdateReceiptRuleCommandOutput extends UpdateReceiptRuleRespons
  * @see {@link UpdateReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @example UpdateReceiptRule
+ * ```javascript
+ * // The following example updates a receipt rule to use an Amazon S3 action:
+ * const input = {
+ *   "Rule": {
+ *     "Actions": [
+ *       {
+ *         "S3Action": {
+ *           "BucketName": "MyBucket",
+ *           "ObjectKeyPrefix": "email"
+ *         }
+ *       }
+ *     ],
+ *     "Enabled": true,
+ *     "Name": "MyRule",
+ *     "ScanEnabled": true,
+ *     "TlsPolicy": "Optional"
+ *   },
+ *   "RuleSetName": "MyRuleSet"
+ * };
+ * const command = new UpdateReceiptRuleCommand(input);
+ * await client.send(command);
+ * // example id: updatereceiptrule-1469051756940
+ * ```
+ *
  */
 export class UpdateReceiptRuleCommand extends $Command<
   UpdateReceiptRuleCommandInput,

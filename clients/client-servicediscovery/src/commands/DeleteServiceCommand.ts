@@ -51,6 +51,17 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * @see {@link DeleteServiceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ * @example Example: Delete service
+ * ```javascript
+ * // Example: Delete service
+ * const input = {
+ *   "Id": "srv-p5zdwlg5uvvzjita"
+ * };
+ * const command = new DeleteServiceCommand(input);
+ * await client.send(command);
+ * // example id: example-delete-service-1587416462902
+ * ```
+ *
  */
 export class DeleteServiceCommand extends $Command<
   DeleteServiceCommandInput,

@@ -77,6 +77,67 @@ export interface InviteAccountToOrganizationCommandOutput
  * @see {@link InviteAccountToOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
+ * @example To invite an account to join an organization
+ * ```javascript
+ * // The following example shows the admin of the master account owned by bill@example.com inviting the account owned by juan@example.com to join an organization.
+ * const input = {
+ *   "Notes": "This is a request for Juan's account to join Bill's organization",
+ *   "Target": {
+ *     "Id": "juan@example.com",
+ *     "Type": "EMAIL"
+ *   }
+ * };
+ * const command = new InviteAccountToOrganizationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Handshake": {
+ *     "Action": "INVITE",
+ *     "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
+ *     "ExpirationTimestamp": "2017-02-16T09:36:05.02Z",
+ *     "Id": "h-examplehandshakeid111",
+ *     "Parties": [
+ *       {
+ *         "Id": "o-exampleorgid",
+ *         "Type": "ORGANIZATION"
+ *       },
+ *       {
+ *         "Id": "juan@example.com",
+ *         "Type": "EMAIL"
+ *       }
+ *     ],
+ *     "RequestedTimestamp": "2017-02-01T09:36:05.02Z",
+ *     "Resources": [
+ *       {
+ *         "Resources": [
+ *           {
+ *             "Type": "MASTER_EMAIL",
+ *             "Value": "bill@amazon.com"
+ *           },
+ *           {
+ *             "Type": "MASTER_NAME",
+ *             "Value": "Org Master Account"
+ *           },
+ *           {
+ *             "Type": "ORGANIZATION_FEATURE_SET",
+ *             "Value": "FULL"
+ *           }
+ *         ],
+ *         "Type": "ORGANIZATION",
+ *         "Value": "o-exampleorgid"
+ *       },
+ *       {
+ *         "Type": "EMAIL",
+ *         "Value": "juan@example.com"
+ *       }
+ *     ],
+ *     "State": "OPEN"
+ *   }
+ * }
+ * *\/
+ * // example id: to-invite-an-account-to-join-an-organization-1472508594110
+ * ```
+ *
  */
 export class InviteAccountToOrganizationCommand extends $Command<
   InviteAccountToOrganizationCommandInput,

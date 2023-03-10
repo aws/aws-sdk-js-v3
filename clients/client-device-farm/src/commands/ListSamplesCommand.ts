@@ -50,6 +50,23 @@ export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataB
  * @see {@link ListSamplesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ * @example To get information about samples
+ * ```javascript
+ * // The following example returns information about samples, given a specific Device Farm project.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
+ *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE"
+ * };
+ * const command = new ListSamplesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "samples": []
+ * }
+ * *\/
+ * // example id: to-get-information-about-samples-1472582847534
+ * ```
+ *
  */
 export class ListSamplesCommand extends $Command<
   ListSamplesCommandInput,

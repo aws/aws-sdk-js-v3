@@ -45,6 +45,17 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To delete a DB parameter group
+ * ```javascript
+ * // The following example deletes a DB parameter group.
+ * const input = {
+ *   "DBParameterGroupName": "mydbparamgroup3"
+ * };
+ * const command = new DeleteDBParameterGroupCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-db-parameter-group-1473888796509
+ * ```
+ *
  */
 export class DeleteDBParameterGroupCommand extends $Command<
   DeleteDBParameterGroupCommandInput,

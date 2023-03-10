@@ -59,6 +59,29 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To delete an Auto Scaling group
+ * ```javascript
+ * // This example deletes the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group"
+ * };
+ * const command = new DeleteAutoScalingGroupCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-delete-auto-scaling-group-1
+ * ```
+ *
+ * @example To delete an Auto Scaling group and all its instances
+ * ```javascript
+ * // This example deletes the specified Auto Scaling group and all its instances.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "ForceDelete": true
+ * };
+ * const command = new DeleteAutoScalingGroupCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-delete-auto-scaling-group-2
+ * ```
+ *
  */
 export class DeleteAutoScalingGroupCommand extends $Command<
   DeleteAutoScalingGroupCommandInput,

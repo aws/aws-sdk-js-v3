@@ -71,6 +71,30 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To create a snapshot
+ * ```javascript
+ * // This example creates a snapshot of the volume with a volume ID of ``vol-1234567890abcdef0`` and a short description to identify the snapshot.
+ * const input = {
+ *   "Description": "This is my root volume snapshot.",
+ *   "VolumeId": "vol-1234567890abcdef0"
+ * };
+ * const command = new CreateSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Description": "This is my root volume snapshot.",
+ *   "OwnerId": "012345678910",
+ *   "SnapshotId": "snap-066877671789bd71b",
+ *   "StartTime": "2014-02-28T21:06:01.000Z",
+ *   "State": "pending",
+ *   "Tags": [],
+ *   "VolumeId": "vol-1234567890abcdef0",
+ *   "VolumeSize": 8
+ * }
+ * *\/
+ * // example id: to-create-a-snapshot-1472502529790
+ * ```
+ *
  */
 export class CreateSnapshotCommand extends $Command<
   CreateSnapshotCommandInput,

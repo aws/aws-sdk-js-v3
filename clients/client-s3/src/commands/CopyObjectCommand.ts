@@ -235,6 +235,27 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  * @see {@link CopyObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @example To copy an object
+ * ```javascript
+ * // The following example copies an object from one bucket to another.
+ * const input = {
+ *   "Bucket": "destinationbucket",
+ *   "CopySource": "/sourcebucket/HappyFacejpg",
+ *   "Key": "HappyFaceCopyjpg"
+ * };
+ * const command = new CopyObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CopyObjectResult": {
+ *     "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *     "LastModified": "2016-12-15T17:38:53.000Z"
+ *   }
+ * }
+ * *\/
+ * // example id: to-copy-an-object-1481823186878
+ * ```
+ *
  */
 export class CopyObjectCommand extends $Command<
   CopyObjectCommandInput,

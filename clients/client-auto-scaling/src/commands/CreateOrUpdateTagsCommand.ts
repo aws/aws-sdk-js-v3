@@ -49,6 +49,32 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  * @see {@link CreateOrUpdateTagsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To create or update tags for an Auto Scaling group
+ * ```javascript
+ * // This example adds two tags to the specified Auto Scaling group.
+ * const input = {
+ *   "Tags": [
+ *     {
+ *       "Key": "Role",
+ *       "PropagateAtLaunch": true,
+ *       "ResourceId": "my-auto-scaling-group",
+ *       "ResourceType": "auto-scaling-group",
+ *       "Value": "WebServer"
+ *     },
+ *     {
+ *       "Key": "Dept",
+ *       "PropagateAtLaunch": true,
+ *       "ResourceId": "my-auto-scaling-group",
+ *       "ResourceType": "auto-scaling-group",
+ *       "Value": "Research"
+ *     }
+ *   ]
+ * };
+ * const command = new CreateOrUpdateTagsCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-create-or-update-tags-1
+ * ```
+ *
  */
 export class CreateOrUpdateTagsCommand extends $Command<
   CreateOrUpdateTagsCommandInput,

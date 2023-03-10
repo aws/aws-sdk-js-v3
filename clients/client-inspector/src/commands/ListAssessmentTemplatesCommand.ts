@@ -51,6 +51,29 @@ export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemp
  * @see {@link ListAssessmentTemplatesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ * @example List assessment templates
+ * ```javascript
+ * // Lists the assessment templates that correspond to the assessment targets that are specified by the ARNs of the assessment targets.
+ * const input = {
+ *   "assessmentTargetArns": [
+ *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
+ *   ],
+ *   "maxResults": 123
+ * };
+ * const command = new ListAssessmentTemplatesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "assessmentTemplateArns": [
+ *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw",
+ *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-Uza6ihLh"
+ *   ],
+ *   "nextToken": "1"
+ * }
+ * *\/
+ * // example id: list-assessment-templates-1481066623520
+ * ```
+ *
  */
 export class ListAssessmentTemplatesCommand extends $Command<
   ListAssessmentTemplatesCommandInput,

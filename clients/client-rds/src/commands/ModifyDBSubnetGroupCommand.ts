@@ -50,6 +50,26 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * @see {@link ModifyDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To change DB subnet group settings
+ * ```javascript
+ * // This example changes the specified setting for the specified DB subnet group.
+ * const input = {
+ *   "DBSubnetGroupName": "mydbsubnetgroup",
+ *   "SubnetIds": [
+ *     "subnet-70e1975a",
+ *     "subnet-747a5c49"
+ *   ]
+ * };
+ * const command = new ModifyDBSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSubnetGroup": {}
+ * }
+ * *\/
+ * // example id: modify-db-subnet-group-e34a97d9-8fe6-4239-a4ed-ad6e73a956b0
+ * ```
+ *
  */
 export class ModifyDBSubnetGroupCommand extends $Command<
   ModifyDBSubnetGroupCommandInput,

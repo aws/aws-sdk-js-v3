@@ -51,6 +51,17 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  * @see {@link DescribeReservedCacheNodesCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @example DescribeReservedCacheNodes
+ * ```javascript
+ * // Returns information about reserved cache nodes for this account, or about a specified reserved cache node. If the account has no reserved cache nodes, the operation returns an empty list, as shown here.
+ * const input = {
+ *   "MaxRecords": 25
+ * };
+ * const command = new DescribeReservedCacheNodesCommand(input);
+ * await client.send(command);
+ * // example id: describereservedcachenodes-1481742348045
+ * ```
+ *
  */
 export class DescribeReservedCacheNodesCommand extends $Command<
   DescribeReservedCacheNodesCommandInput,

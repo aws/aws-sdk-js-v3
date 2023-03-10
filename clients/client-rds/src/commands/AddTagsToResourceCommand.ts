@@ -47,6 +47,23 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To add tags to a resource
+ * ```javascript
+ * // This example adds a tag to an option group.
+ * const input = {
+ *   "ResourceName": "arn:aws:rds:us-east-1:992648334831:og:mymysqloptiongroup",
+ *   "Tags": [
+ *     {
+ *       "Key": "Staging",
+ *       "Value": "LocationDB"
+ *     }
+ *   ]
+ * };
+ * const command = new AddTagsToResourceCommand(input);
+ * await client.send(command);
+ * // example id: add-tags-to-resource-fa99ef50-228b-449d-b893-ca4d4e9768ab
+ * ```
+ *
  */
 export class AddTagsToResourceCommand extends $Command<
   AddTagsToResourceCommandInput,

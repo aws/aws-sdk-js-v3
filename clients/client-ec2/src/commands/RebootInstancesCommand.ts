@@ -49,6 +49,19 @@ export interface RebootInstancesCommandOutput extends __MetadataBearer {}
  * @see {@link RebootInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To reboot an EC2 instance
+ * ```javascript
+ * // This example reboots the specified EC2 instance.
+ * const input = {
+ *   "InstanceIds": [
+ *     "i-1234567890abcdef5"
+ *   ]
+ * };
+ * const command = new RebootInstancesCommand(input);
+ * await client.send(command);
+ * // example id: to-reboot-an-ec2-instance-1529358566382
+ * ```
+ *
  */
 export class RebootInstancesCommand extends $Command<
   RebootInstancesCommandInput,

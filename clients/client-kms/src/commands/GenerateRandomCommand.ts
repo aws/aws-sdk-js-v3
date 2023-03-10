@@ -64,6 +64,22 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  * @see {@link GenerateRandomCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @example To generate random data
+ * ```javascript
+ * // The following example generates 32 bytes of random data.
+ * const input = {
+ *   "NumberOfBytes": 32
+ * };
+ * const command = new GenerateRandomCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Plaintext": "<binary data>"
+ * }
+ * *\/
+ * // example id: to-generate-random-data-1479163645600
+ * ```
+ *
  */
 export class GenerateRandomCommand extends $Command<
   GenerateRandomCommandInput,

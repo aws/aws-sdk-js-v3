@@ -50,6 +50,26 @@ export interface UpdateApplicationCommandOutput extends Application, __MetadataB
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ * @example To update an application
+ * ```javascript
+ * // The following update-application example updates the name of the specified application.
+ * const input = {
+ *   "ApplicationId": "339ohji",
+ *   "Description": "",
+ *   "Name": "Example-Application"
+ * };
+ * const command = new UpdateApplicationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Description": "An application used for creating an example.",
+ *   "Id": "339ohji",
+ *   "Name": "Example-Application"
+ * }
+ * *\/
+ * // example id: to-update-an-application-1632330585893
+ * ```
+ *
  */
 export class UpdateApplicationCommand extends $Command<
   UpdateApplicationCommandInput,

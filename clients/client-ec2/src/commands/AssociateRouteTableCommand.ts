@@ -56,6 +56,23 @@ export interface AssociateRouteTableCommandOutput extends AssociateRouteTableRes
  * @see {@link AssociateRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To associate a route table with a subnet
+ * ```javascript
+ * // This example associates the specified route table with the specified subnet.
+ * const input = {
+ *   "RouteTableId": "rtb-22574640",
+ *   "SubnetId": "subnet-9d4a7b6"
+ * };
+ * const command = new AssociateRouteTableCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AssociationId": "rtbassoc-781d0d1a"
+ * }
+ * *\/
+ * // example id: ec2-associate-route-table-1
+ * ```
+ *
  */
 export class AssociateRouteTableCommand extends $Command<
   AssociateRouteTableCommandInput,

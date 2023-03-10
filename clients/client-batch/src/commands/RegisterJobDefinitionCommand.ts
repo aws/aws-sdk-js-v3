@@ -50,6 +50,82 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  * @see {@link RegisterJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
+ * @example To register a job definition
+ * ```javascript
+ * // This example registers a job definition for a simple container job.
+ * const input = {
+ *   "type": "container",
+ *   "containerProperties": {
+ *     "command": [
+ *       "sleep",
+ *       "10"
+ *     ],
+ *     "image": "busybox",
+ *     "resourceRequirements": [
+ *       {
+ *         "type": "MEMORY",
+ *         "value": "128"
+ *       },
+ *       {
+ *         "type": "VCPU",
+ *         "value": "1"
+ *       }
+ *     ]
+ *   },
+ *   "jobDefinitionName": "sleep10"
+ * };
+ * const command = new RegisterJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "jobDefinitionArn": "arn:aws:batch:us-east-1:012345678910:job-definition/sleep10:1",
+ *   "jobDefinitionName": "sleep10",
+ *   "revision": 1
+ * }
+ * *\/
+ * // example id: to-register-a-job-definition-1481154325325
+ * ```
+ *
+ * @example RegisterJobDefinition with tags
+ * ```javascript
+ * // This demonstrates calling the RegisterJobDefinition action, including tags.
+ * const input = {
+ *   "type": "container",
+ *   "containerProperties": {
+ *     "command": [
+ *       "sleep",
+ *       "30"
+ *     ],
+ *     "image": "busybox",
+ *     "resourceRequirements": [
+ *       {
+ *         "type": "MEMORY",
+ *         "value": "128"
+ *       },
+ *       {
+ *         "type": "VCPU",
+ *         "value": "1"
+ *       }
+ *     ]
+ *   },
+ *   "jobDefinitionName": "sleep30",
+ *   "tags": {
+ *     "Department": "Engineering",
+ *     "User": "JaneDoe"
+ *   }
+ * };
+ * const command = new RegisterJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "jobDefinitionArn": "arn:aws:batch:us-east-1:012345678910:job-definition/sleep30:1",
+ *   "jobDefinitionName": "sleep30",
+ *   "revision": 1
+ * }
+ * *\/
+ * // example id: registerjobdefinition-with-tags-1591290509028
+ * ```
+ *
  */
 export class RegisterJobDefinitionCommand extends $Command<
   RegisterJobDefinitionCommandInput,

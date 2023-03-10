@@ -65,6 +65,17 @@ export interface DeleteRoleCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To delete an IAM role
+ * ```javascript
+ * // The following command removes the role named Test-Role.
+ * const input = {
+ *   "RoleName": "Test-Role"
+ * };
+ * const command = new DeleteRoleCommand(input);
+ * await client.send(command);
+ * // example id: 053cdf74-9bda-44b8-bdbb-140fd5a32603
+ * ```
+ *
  */
 export class DeleteRoleCommand extends $Command<
   DeleteRoleCommandInput,

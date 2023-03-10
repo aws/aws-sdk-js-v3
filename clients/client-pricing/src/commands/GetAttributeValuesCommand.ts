@@ -53,6 +53,32 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * @see {@link GetAttributeValuesCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
  *
+ * @example To retrieve a list of attribute values
+ * ```javascript
+ * // This operation returns a list of values available for the given attribute.
+ * const input = {
+ *   "AttributeName": "volumeType",
+ *   "MaxResults": 2,
+ *   "ServiceCode": "AmazonEC2"
+ * };
+ * const command = new GetAttributeValuesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AttributeValues": [
+ *     {
+ *       "Value": "Throughput Optimized HDD"
+ *     },
+ *     {
+ *       "Value": "Provisioned IOPS"
+ *     }
+ *   ],
+ *   "NextToken": "GpgauEXAMPLEezucl5LV0w==:7GzYJ0nw0DBTJ2J66EoTIIynE6O1uXwQtTRqioJzQadBnDVgHPzI1en4BUQnPCLpzeBk9RQQAWaFieA4+DapFAGLgk+Z/9/cTw9GldnPOHN98+FdmJP7wKU3QQpQ8MQr5KOeBkIsAqvAQYdL0DkL7tHwPtE5iCEByAmg9gcC/yBU1vAOsf7R3VaNN4M5jMDv3woSWqASSIlBVB6tgW78YL22KhssoItM/jWW+aP6Jqtq4mldxp/ct6DWAl+xLFwHU/CbketimPPXyqHF3/UXDw=="
+ * }
+ * *\/
+ * // example id: to-retreive-attribute-values
+ * ```
+ *
  */
 export class GetAttributeValuesCommand extends $Command<
   GetAttributeValuesCommandInput,

@@ -53,6 +53,48 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  * @see {@link CreateCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @example CreateCacheCluster
+ * ```javascript
+ * // Creates a Memcached cluster with 2 nodes.
+ * const input = {
+ *   "AZMode": "cross-az",
+ *   "CacheClusterId": "my-memcached-cluster",
+ *   "CacheNodeType": "cache.r3.large",
+ *   "CacheSubnetGroupName": "default",
+ *   "Engine": "memcached",
+ *   "EngineVersion": "1.4.24",
+ *   "NumCacheNodes": 2,
+ *   "Port": 11211
+ * };
+ * const command = new CreateCacheClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CacheCluster": {
+ *     "AutoMinorVersionUpgrade": true,
+ *     "CacheClusterId": "my-memcached-cluster",
+ *     "CacheClusterStatus": "creating",
+ *     "CacheNodeType": "cache.r3.large",
+ *     "CacheParameterGroup": {
+ *       "CacheNodeIdsToReboot": [],
+ *       "CacheParameterGroupName": "default.memcached1.4",
+ *       "ParameterApplyStatus": "in-sync"
+ *     },
+ *     "CacheSecurityGroups": [],
+ *     "CacheSubnetGroupName": "default",
+ *     "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
+ *     "Engine": "memcached",
+ *     "EngineVersion": "1.4.24",
+ *     "NumCacheNodes": 2,
+ *     "PendingModifiedValues": {},
+ *     "PreferredAvailabilityZone": "Multiple",
+ *     "PreferredMaintenanceWindow": "wed:09:00-wed:10:00"
+ *   }
+ * }
+ * *\/
+ * // example id: createcachecluster-1474994727381
+ * ```
+ *
  */
 export class CreateCacheClusterCommand extends $Command<
   CreateCacheClusterCommandInput,

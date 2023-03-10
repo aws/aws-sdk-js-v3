@@ -52,6 +52,17 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * @see {@link DescribeEventSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To list information about DB event notification subscriptions
+ * ```javascript
+ * // This example lists information for the specified DB event notification subscription.
+ * const input = {
+ *   "SubscriptionName": "mymysqleventsubscription"
+ * };
+ * const command = new DescribeEventSubscriptionsCommand(input);
+ * await client.send(command);
+ * // example id: describe-event-subscriptions-11184a82-e58a-4d0c-b558-f3a7489e0850
+ * ```
+ *
  */
 export class DescribeEventSubscriptionsCommand extends $Command<
   DescribeEventSubscriptionsCommandInput,

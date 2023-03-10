@@ -81,6 +81,24 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * @see {@link CreateDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To create a DB cluster parameter group
+ * ```javascript
+ * // This example creates a DB cluster parameter group.
+ * const input = {
+ *   "DBClusterParameterGroupName": "mydbclusterparametergroup",
+ *   "DBParameterGroupFamily": "aurora5.6",
+ *   "Description": "My DB cluster parameter group"
+ * };
+ * const command = new CreateDBClusterParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterParameterGroup": {}
+ * }
+ * *\/
+ * // example id: create-db-cluster-parameter-group-8eb1c3ae-1965-4262-afe3-ee134c4430b1
+ * ```
+ *
  */
 export class CreateDBClusterParameterGroupCommand extends $Command<
   CreateDBClusterParameterGroupCommandInput,

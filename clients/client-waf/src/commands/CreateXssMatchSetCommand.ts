@@ -79,6 +79,35 @@ export interface CreateXssMatchSetCommandOutput extends CreateXssMatchSetRespons
  * @see {@link CreateXssMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
+ * @example To create an XSS match set
+ * ```javascript
+ * // The following example creates an XSS match set named MySampleXssMatchSet.
+ * const input = {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "Name": "MySampleXssMatchSet"
+ * };
+ * const command = new CreateXssMatchSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   "XssMatchSet": {
+ *     "Name": "MySampleXssMatchSet",
+ *     "XssMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     "XssMatchTuples": [
+ *       {
+ *         "FieldToMatch": {
+ *           "Type": "QUERY_STRING"
+ *         },
+ *         "TextTransformation": "URL_DECODE"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: createxssmatchset-1474560868500
+ * ```
+ *
  */
 export class CreateXssMatchSetCommand extends $Command<
   CreateXssMatchSetCommandInput,

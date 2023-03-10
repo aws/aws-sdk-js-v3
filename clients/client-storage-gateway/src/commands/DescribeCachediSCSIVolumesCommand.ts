@@ -55,6 +55,39 @@ export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachedi
  * @see {@link DescribeCachediSCSIVolumesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To describe gateway cached iSCSI volumes
+ * ```javascript
+ * // Returns a description of the gateway cached iSCSI volumes specified in the request.
+ * const input = {
+ *   "VolumeARNs": [
+ *     "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ *   ]
+ * };
+ * const command = new DescribeCachediSCSIVolumesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CachediSCSIVolumes": [
+ *     {
+ *       "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
+ *       "VolumeId": "vol-1122AABB",
+ *       "VolumeSizeInBytes": 1099511627776,
+ *       "VolumeStatus": "AVAILABLE",
+ *       "VolumeType": "CACHED iSCSI",
+ *       "VolumeiSCSIAttributes": {
+ *         "ChapEnabled": true,
+ *         "LunNumber": 1,
+ *         "NetworkInterfaceId": "10.243.43.207",
+ *         "NetworkInterfacePort": 3260,
+ *         "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-gateway-cached-iscsi-volumes-1471458094649
+ * ```
+ *
  */
 export class DescribeCachediSCSIVolumesCommand extends $Command<
   DescribeCachediSCSIVolumesCommandInput,

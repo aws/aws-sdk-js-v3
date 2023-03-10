@@ -55,6 +55,25 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
  * @see {@link DescribeSchemasCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @example Describe schemas
+ * ```javascript
+ * // Returns information about the schema for the specified endpoint.
+ * const input = {
+ *   "EndpointArn": "",
+ *   "Marker": "",
+ *   "MaxRecords": 123
+ * };
+ * const command = new DescribeSchemasCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "",
+ *   "Schemas": []
+ * }
+ * *\/
+ * // example id: describe-schemas-1481755933924
+ * ```
+ *
  */
 export class DescribeSchemasCommand extends $Command<
   DescribeSchemasCommandInput,

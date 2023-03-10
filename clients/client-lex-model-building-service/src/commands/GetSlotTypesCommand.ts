@@ -68,6 +68,45 @@ export interface GetSlotTypesCommandOutput extends GetSlotTypesResponse, __Metad
  * @see {@link GetSlotTypesCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
+ * @example To get a list of slot types
+ * ```javascript
+ * // This example shows how to get a list of all of the slot types in your account.
+ * const input = {
+ *   "maxResults": 10,
+ *   "nextToken": ""
+ * };
+ * const command = new GetSlotTypesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "slotTypes": [
+ *     {
+ *       "version": "$LATEST",
+ *       "name": "DocPizzaCrustType",
+ *       "createdDate": 1494359274.403,
+ *       "description": "Available crust types",
+ *       "lastUpdatedDate": 1494359274.403
+ *     },
+ *     {
+ *       "version": "$LATEST",
+ *       "name": "DocPizzaSauceType",
+ *       "createdDate": 1494356442.23,
+ *       "description": "Available pizza sauces",
+ *       "lastUpdatedDate": 1494356442.23
+ *     },
+ *     {
+ *       "version": "$LATEST",
+ *       "name": "DocPizzaType",
+ *       "createdDate": 1494359198.656,
+ *       "description": "Available pizzas",
+ *       "lastUpdatedDate": 1494359198.656
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-get-a-list-of-slot-types-1494432757458
+ * ```
+ *
  */
 export class GetSlotTypesCommand extends $Command<
   GetSlotTypesCommandInput,

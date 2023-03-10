@@ -137,6 +137,51 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @example CopySnapshot
+ * ```javascript
+ * // Copies a snapshot to a specified name.
+ * const input = {
+ *   "SourceSnapshotName": "my-snapshot",
+ *   "TargetBucket": "",
+ *   "TargetSnapshotName": "my-snapshot-copy"
+ * };
+ * const command = new CopySnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Snapshot": {
+ *     "AutoMinorVersionUpgrade": true,
+ *     "CacheClusterCreateTime": "2016-12-21T22:24:04.955Z",
+ *     "CacheClusterId": "my-redis4",
+ *     "CacheNodeType": "cache.m3.large",
+ *     "CacheParameterGroupName": "default.redis3.2",
+ *     "CacheSubnetGroupName": "default",
+ *     "Engine": "redis",
+ *     "EngineVersion": "3.2.4",
+ *     "NodeSnapshots": [
+ *       {
+ *         "CacheNodeCreateTime": "2016-12-21T22:24:04.955Z",
+ *         "CacheNodeId": "0001",
+ *         "CacheSize": "3 MB",
+ *         "SnapshotCreateTime": "2016-12-28T07:00:52Z"
+ *       }
+ *     ],
+ *     "NumCacheNodes": 1,
+ *     "Port": 6379,
+ *     "PreferredAvailabilityZone": "us-east-1c",
+ *     "PreferredMaintenanceWindow": "tue:09:30-tue:10:30",
+ *     "SnapshotName": "my-snapshot-copy",
+ *     "SnapshotRetentionLimit": 7,
+ *     "SnapshotSource": "manual",
+ *     "SnapshotStatus": "creating",
+ *     "SnapshotWindow": "07:00-08:00",
+ *     "VpcId": "vpc-3820329f3"
+ *   }
+ * }
+ * *\/
+ * // example id: copysnapshot-1482961393820
+ * ```
+ *
  */
 export class CopySnapshotCommand extends $Command<
   CopySnapshotCommandInput,

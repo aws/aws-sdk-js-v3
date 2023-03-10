@@ -52,6 +52,32 @@ export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __M
  * @see {@link DescribePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
+ * @example To get information about a policy
+ * ```javascript
+ * // The following example shows how to request information about a policy:/n/n
+ * const input = {
+ *   "PolicyId": "p-examplepolicyid111"
+ * };
+ * const command = new DescribePolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Policy": {
+ *     "Content": "{\\n  \\\"Version\\\": \\\"2012-10-17\\\",\\n  \\\"Statement\\\": [\\n    {\\n      \\\"Effect\\\": \\\"Allow\\\",\\n      \\\"Action\\\": \\\"*\\\",\\n      \\\"Resource\\\": \\\"*\\\"\\n    }\\n  ]\\n}",
+ *     "PolicySummary": {
+ *       "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
+ *       "AwsManaged": false,
+ *       "Description": "Enables admins to delegate S3 permissions",
+ *       "Id": "p-examplepolicyid111",
+ *       "Name": "AllowAllS3Actions",
+ *       "Type": "SERVICE_CONTROL_POLICY"
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-information-about-a-policy
+ * ```
+ *
  */
 export class DescribePolicyCommand extends $Command<
   DescribePolicyCommandInput,

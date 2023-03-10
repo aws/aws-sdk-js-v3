@@ -57,6 +57,36 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
  * @see {@link SetInstanceProtectionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To enable instance protection for an instance
+ * ```javascript
+ * // This example enables instance protection for the specified instance.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "InstanceIds": [
+ *     "i-93633f9b"
+ *   ],
+ *   "ProtectedFromScaleIn": true
+ * };
+ * const command = new SetInstanceProtectionCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-set-instance-protection-1
+ * ```
+ *
+ * @example To disable instance protection for an instance
+ * ```javascript
+ * // This example disables instance protection for the specified instance.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "InstanceIds": [
+ *     "i-93633f9b"
+ *   ],
+ *   "ProtectedFromScaleIn": false
+ * };
+ * const command = new SetInstanceProtectionCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-set-instance-protection-2
+ * ```
+ *
  */
 export class SetInstanceProtectionCommand extends $Command<
   SetInstanceProtectionCommandInput,

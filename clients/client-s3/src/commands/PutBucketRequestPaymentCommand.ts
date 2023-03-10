@@ -63,6 +63,20 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  * @see {@link PutBucketRequestPaymentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @example Set request payment configuration on a bucket.
+ * ```javascript
+ * // The following example sets request payment configuration on a bucket so that person requesting the download is charged.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "RequestPaymentConfiguration": {
+ *     "Payer": "Requester"
+ *   }
+ * };
+ * const command = new PutBucketRequestPaymentCommand(input);
+ * await client.send(command);
+ * // example id: set-request-payment-configuration-on-a-bucket-1482343596680
+ * ```
+ *
  */
 export class PutBucketRequestPaymentCommand extends $Command<
   PutBucketRequestPaymentCommandInput,

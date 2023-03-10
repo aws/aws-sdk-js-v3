@@ -57,6 +57,64 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * @see {@link DescribeTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @example To describe a task definition
+ * ```javascript
+ * // This example provides a description of the specified task definition.
+ * const input = {
+ *   "taskDefinition": "hello_world:8"
+ * };
+ * const command = new DescribeTaskDefinitionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "taskDefinition": {
+ *     "containerDefinitions": [
+ *       {
+ *         "name": "wordpress",
+ *         "cpu": 10,
+ *         "environment": [],
+ *         "essential": true,
+ *         "image": "wordpress",
+ *         "links": [
+ *           "mysql"
+ *         ],
+ *         "memory": 500,
+ *         "mountPoints": [],
+ *         "portMappings": [
+ *           {
+ *             "containerPort": 80,
+ *             "hostPort": 80
+ *           }
+ *         ],
+ *         "volumesFrom": []
+ *       },
+ *       {
+ *         "name": "mysql",
+ *         "cpu": 10,
+ *         "environment": [
+ *           {
+ *             "name": "MYSQL_ROOT_PASSWORD",
+ *             "value": "password"
+ *           }
+ *         ],
+ *         "essential": true,
+ *         "image": "mysql",
+ *         "memory": 500,
+ *         "mountPoints": [],
+ *         "portMappings": [],
+ *         "volumesFrom": []
+ *       }
+ *     ],
+ *     "family": "hello_world",
+ *     "revision": 8,
+ *     "taskDefinitionArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/hello_world:8",
+ *     "volumes": []
+ *   }
+ * }
+ * *\/
+ * // example id: 4c21eeb1-f1da-4a08-8c44-297fc8d0ea88
+ * ```
+ *
  */
 export class DescribeTaskDefinitionCommand extends $Command<
   DescribeTaskDefinitionCommandInput,

@@ -103,6 +103,39 @@ export interface GetServiceLastAccessedDetailsCommandOutput
  * @see {@link GetServiceLastAccessedDetailsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To get details from a previously-generated report
+ * ```javascript
+ * // The following operation gets details about the report with the job ID: examplef-1305-c245-eba4-71fe298bcda7
+ * const input = {
+ *   "JobId": "examplef-1305-c245-eba4-71fe298bcda7"
+ * };
+ * const command = new GetServiceLastAccessedDetailsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "IsTruncated": false,
+ *   "JobCompletionDate": "2018-10-24T19:47:35.241Z",
+ *   "JobCreationDate": "2018-10-24T19:47:31.466Z",
+ *   "JobStatus": "COMPLETED",
+ *   "ServicesLastAccessed": [
+ *     {
+ *       "LastAuthenticated": "2018-10-24T19:11:00Z",
+ *       "LastAuthenticatedEntity": "arn:aws:iam::123456789012:user/AWSExampleUser01",
+ *       "ServiceName": "AWS Identity and Access Management",
+ *       "ServiceNamespace": "iam",
+ *       "TotalAuthenticatedEntities": 2
+ *     },
+ *     {
+ *       "ServiceName": "Amazon Simple Storage Service",
+ *       "ServiceNamespace": "s3",
+ *       "TotalAuthenticatedEntities": 0
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: getserviceaccessdetails-policy-1541696298085
+ * ```
+ *
  */
 export class GetServiceLastAccessedDetailsCommand extends $Command<
   GetServiceLastAccessedDetailsCommandInput,

@@ -91,6 +91,23 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @example To tag a KMS key
+ * ```javascript
+ * // The following example tags a KMS key.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "Tags": [
+ *     {
+ *       "TagKey": "Purpose",
+ *       "TagValue": "Test"
+ *     }
+ *   ]
+ * };
+ * const command = new TagResourceCommand(input);
+ * await client.send(command);
+ * // example id: to-tag-a-cmk-1483997246518
+ * ```
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

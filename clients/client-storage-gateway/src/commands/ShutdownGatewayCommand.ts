@@ -73,6 +73,22 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  * @see {@link ShutdownGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @example To shut down a gateway service
+ * ```javascript
+ * // This operation shuts down the gateway service component running in the storage gateway's virtual machine (VM) and not the VM.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+ * };
+ * const command = new ShutdownGatewayCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+ * }
+ * *\/
+ * // example id: to-shut-down-a-gateway-service-1472150508835
+ * ```
+ *
  */
 export class ShutdownGatewayCommand extends $Command<
   ShutdownGatewayCommandInput,

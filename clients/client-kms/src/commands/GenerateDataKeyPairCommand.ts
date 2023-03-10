@@ -120,6 +120,27 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  * @see {@link GenerateDataKeyPairCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @example To generate an RSA key pair for encryption and decryption
+ * ```javascript
+ * // This example generates an RSA data key pair for encryption and decryption. The operation returns a plaintext public key and private key, and a copy of the private key that is encrypted under a symmetric encryption KMS key that you specify.
+ * const input = {
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "KeyPairSpec": "RSA_3072"
+ * };
+ * const command = new GenerateDataKeyPairCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "KeyPairSpec": "RSA_3072",
+ *   "PrivateKeyCiphertextBlob": "<binary data>",
+ *   "PrivateKeyPlaintext": "<binary data>",
+ *   "PublicKey": "<binary data>"
+ * }
+ * *\/
+ * // example id: to-generate-an-rsa-key-pair-for-encryption-and-decryption-1628619376878
+ * ```
+ *
  */
 export class GenerateDataKeyPairCommand extends $Command<
   GenerateDataKeyPairCommandInput,

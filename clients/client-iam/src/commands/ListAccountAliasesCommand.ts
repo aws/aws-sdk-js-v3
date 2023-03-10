@@ -52,6 +52,22 @@ export interface ListAccountAliasesCommandOutput extends ListAccountAliasesRespo
  * @see {@link ListAccountAliasesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @example To list account aliases
+ * ```javascript
+ * // The following command lists the aliases for the current account.
+ * const input = {};
+ * const command = new ListAccountAliasesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AccountAliases": [
+ *     "exmaple-corporation"
+ *   ]
+ * }
+ * *\/
+ * // example id: e27b457a-16f9-4e05-a006-3df7b3472741
+ * ```
+ *
  */
 export class ListAccountAliasesCommand extends $Command<
   ListAccountAliasesCommandInput,

@@ -52,6 +52,17 @@ export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @example To delete a security group
+ * ```javascript
+ * // This example deletes the specified security group.
+ * const input = {
+ *   "GroupId": "sg-903004f8"
+ * };
+ * const command = new DeleteSecurityGroupCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-security-group-1529024952972
+ * ```
+ *
  */
 export class DeleteSecurityGroupCommand extends $Command<
   DeleteSecurityGroupCommandInput,

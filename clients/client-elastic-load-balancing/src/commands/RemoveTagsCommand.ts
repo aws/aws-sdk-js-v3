@@ -51,6 +51,24 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * @see {@link RemoveTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @example To remove tags from a load balancer
+ * ```javascript
+ * // This example removes the specified tag from the specified load balancer.
+ * const input = {
+ *   "LoadBalancerNames": [
+ *     "my-load-balancer"
+ *   ],
+ *   "Tags": [
+ *     {
+ *       "Key": "project"
+ *     }
+ *   ]
+ * };
+ * const command = new RemoveTagsCommand(input);
+ * await client.send(command);
+ * // example id: elb-remove-tags-1
+ * ```
+ *
  */
 export class RemoveTagsCommand extends $Command<
   RemoveTagsCommandInput,

@@ -53,6 +53,26 @@ export interface DescribeTerminationPolicyTypesCommandOutput
  * @see {@link DescribeTerminationPolicyTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To describe termination policy types
+ * ```javascript
+ * // This example describes the available termination policy types.
+ * const input = undefined;
+ * const command = new DescribeTerminationPolicyTypesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TerminationPolicyTypes": [
+ *     "ClosestToNextInstanceHour",
+ *     "Default",
+ *     "NewestInstance",
+ *     "OldestInstance",
+ *     "OldestLaunchConfiguration"
+ *   ]
+ * }
+ * *\/
+ * // example id: autoscaling-describe-termination-policy-types-1
+ * ```
+ *
  */
 export class DescribeTerminationPolicyTypesCommand extends $Command<
   DescribeTerminationPolicyTypesCommandInput,

@@ -57,6 +57,18 @@ export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer 
  * @see {@link DeleteVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ * @example To delete the notification configuration set for a vault
+ * ```javascript
+ * // The example deletes the notification configuration set for the vault named examplevault.
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "examplevault"
+ * };
+ * const command = new DeleteVaultNotificationsCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-the-notification-configuration-set-for-a-vault-1481840646090
+ * ```
+ *
  */
 export class DeleteVaultNotificationsCommand extends $Command<
   DeleteVaultNotificationsCommandInput,

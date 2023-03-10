@@ -74,6 +74,46 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * @see {@link RunTaskCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @example To run a task on your default cluster
+ * ```javascript
+ * // This example runs the specified task definition on your default cluster.
+ * const input = {
+ *   "cluster": "default",
+ *   "taskDefinition": "sleep360:1"
+ * };
+ * const command = new RunTaskCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "tasks": [
+ *     {
+ *       "containerInstanceArn": "arn:aws:ecs:us-east-1:<aws_account_id>:container-instance/ffe3d344-77e2-476c-a4d0-bf560ad50acb",
+ *       "containers": [
+ *         {
+ *           "name": "sleep",
+ *           "containerArn": "arn:aws:ecs:us-east-1:<aws_account_id>:container/58591c8e-be29-4ddf-95aa-ee459d4c59fd",
+ *           "lastStatus": "PENDING",
+ *           "taskArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task/a9f21ea7-c9f5-44b1-b8e6-b31f50ed33c0"
+ *         }
+ *       ],
+ *       "desiredStatus": "RUNNING",
+ *       "lastStatus": "PENDING",
+ *       "overrides": {
+ *         "containerOverrides": [
+ *           {
+ *             "name": "sleep"
+ *           }
+ *         ]
+ *       },
+ *       "taskArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task/a9f21ea7-c9f5-44b1-b8e6-b31f50ed33c0",
+ *       "taskDefinitionArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/sleep360:1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: 6f238c83-a133-42cd-ab3d-abeca0560445
+ * ```
+ *
  */
 export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommandOutput, ECSClientResolvedConfig> {
   // Start section: command_properties

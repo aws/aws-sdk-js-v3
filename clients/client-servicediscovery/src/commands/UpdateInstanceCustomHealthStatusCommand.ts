@@ -54,6 +54,19 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  * @see {@link UpdateInstanceCustomHealthStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ * @example UpdateInstanceCustomHealthStatus Example
+ * ```javascript
+ * // This example submits a request to change the health status of an instance associated with a service with a custom health check to HEALTHY.
+ * const input = {
+ *   "InstanceId": "i-abcd1234",
+ *   "ServiceId": "srv-e4anhexample0004",
+ *   "Status": "HEALTHY"
+ * };
+ * const command = new UpdateInstanceCustomHealthStatusCommand(input);
+ * await client.send(command);
+ * // example id: updateinstancecustomhealthstatus-example-1590118408574
+ * ```
+ *
  */
 export class UpdateInstanceCustomHealthStatusCommand extends $Command<
   UpdateInstanceCustomHealthStatusCommandInput,

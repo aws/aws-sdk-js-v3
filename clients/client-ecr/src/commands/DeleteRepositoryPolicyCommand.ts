@@ -50,6 +50,24 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  * @see {@link DeleteRepositoryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ * @example To delete the policy associated with a repository
+ * ```javascript
+ * // This example deletes the policy associated with the repository named ubuntu in the current account.
+ * const input = {
+ *   "repositoryName": "ubuntu"
+ * };
+ * const command = new DeleteRepositoryPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "policyText": "{ ... }",
+ *   "registryId": "012345678901",
+ *   "repositoryName": "ubuntu"
+ * }
+ * *\/
+ * // example id: deleterepositorypolicy-example-1470866943748
+ * ```
+ *
  */
 export class DeleteRepositoryPolicyCommand extends $Command<
   DeleteRepositoryPolicyCommandInput,

@@ -134,6 +134,24 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * @see {@link DecryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @example To decrypt data
+ * ```javascript
+ * // The following example decrypts data that was encrypted with a KMS key.
+ * const input = {
+ *   "CiphertextBlob": "<binary data>",
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new DecryptCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "Plaintext": "<binary data>"
+ * }
+ * *\/
+ * // example id: to-decrypt-data-1478281622886
+ * ```
+ *
  */
 export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

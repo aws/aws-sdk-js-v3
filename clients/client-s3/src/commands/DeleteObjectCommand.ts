@@ -75,6 +75,30 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * @see {@link DeleteObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @example To delete an object (from a non-versioned bucket)
+ * ```javascript
+ * // The following example deletes an object from a non-versioned bucket.
+ * const input = {
+ *   "Bucket": "ExampleBucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new DeleteObjectCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-an-object-from-a-non-versioned-bucket-1481588533089
+ * ```
+ *
+ * @example To delete an object
+ * ```javascript
+ * // The following example deletes an object from an S3 bucket.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "objectkey.jpg"
+ * };
+ * const command = new DeleteObjectCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-an-object-1472850136595
+ * ```
+ *
  */
 export class DeleteObjectCommand extends $Command<
   DeleteObjectCommandInput,

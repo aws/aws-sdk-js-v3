@@ -55,6 +55,31 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @example ListTagsForResource
+ * ```javascript
+ * // Lists all cost allocation tags currently on the named resource. A cost allocation tag is a key-value pair where the key is case-sensitive and the value is optional. You can use cost allocation tags to categorize and track your AWS costs.
+ * const input = {
+ *   "ResourceName": "arn:aws:elasticache:us-west-2:<my-account-id>:cluster:mycluster"
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TagList": [
+ *     {
+ *       "Key": "APIVersion",
+ *       "Value": "20150202"
+ *     },
+ *     {
+ *       "Key": "Service",
+ *       "Value": "ElastiCache"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: listtagsforresource-1481748784584
+ * ```
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

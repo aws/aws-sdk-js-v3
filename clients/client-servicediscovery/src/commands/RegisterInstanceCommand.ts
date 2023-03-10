@@ -93,6 +93,28 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  * @see {@link RegisterInstanceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ * @example Example: Register Instance
+ * ```javascript
+ * // Example: Register Instance
+ * const input = {
+ *   "Attributes": {
+ *     "AWS_INSTANCE_IPV4": "172.2.1.3",
+ *     "AWS_INSTANCE_PORT": "808"
+ *   },
+ *   "CreatorRequestId": "7a48a98a-72e6-4849-bfa7-1a458e030d7b",
+ *   "InstanceId": "myservice-53",
+ *   "ServiceId": "srv-p5zdwlg5uvvzjita"
+ * };
+ * const command = new RegisterInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OperationId": "4yejorelbukcjzpnr6tlmrghsjwpngf4-k95yg2u7"
+ * }
+ * *\/
+ * // example id: example-register-instance-1587236116314
+ * ```
+ *
  */
 export class RegisterInstanceCommand extends $Command<
   RegisterInstanceCommandInput,

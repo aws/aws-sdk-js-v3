@@ -45,6 +45,17 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @example To delete an option group.
+ * ```javascript
+ * // This example deletes the specified option group.
+ * const input = {
+ *   "OptionGroupName": "mydboptiongroup"
+ * };
+ * const command = new DeleteOptionGroupCommand(input);
+ * await client.send(command);
+ * // example id: delete-db-option-group-578be2be-3095-431a-9ea4-9a3c3b0daef4
+ * ```
+ *
  */
 export class DeleteOptionGroupCommand extends $Command<
   DeleteOptionGroupCommandInput,

@@ -78,6 +78,21 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  * @see {@link RegisterScalableTargetCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
+ * @example To register an ECS service as a scalable target
+ * ```javascript
+ * // This example registers a scalable target from an Amazon ECS service called web-app that is running on the default cluster, with a minimum desired count of 1 task and a maximum desired count of 10 tasks.
+ * const input = {
+ *   "MaxCapacity": 10,
+ *   "MinCapacity": 1,
+ *   "ResourceId": "service/default/web-app",
+ *   "ScalableDimension": "ecs:service:DesiredCount",
+ *   "ServiceNamespace": "ecs"
+ * };
+ * const command = new RegisterScalableTargetCommand(input);
+ * await client.send(command);
+ * // example id: to-register-a-new-scalable-target-1470864910380
+ * ```
+ *
  */
 export class RegisterScalableTargetCommand extends $Command<
   RegisterScalableTargetCommandInput,

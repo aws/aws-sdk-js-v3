@@ -60,6 +60,26 @@ export interface DescribeLifecycleConfigurationCommandOutput
  * @see {@link DescribeLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ * @example To describe the lifecycle configuration for a file system
+ * ```javascript
+ * // This operation describes a file system's LifecycleConfiguration. EFS lifecycle management uses the LifecycleConfiguration object to identify which files to move to the EFS Infrequent Access (IA) storage class.
+ * const input = {
+ *   "FileSystemId": "fs-01234567"
+ * };
+ * const command = new DescribeLifecycleConfigurationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LifecyclePolicies": [
+ *     {
+ *       "TransitionToIA": "AFTER_30_DAYS"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-the-lifecycle-configuration-for-a-file-system-1551200664502
+ * ```
+ *
  */
 export class DescribeLifecycleConfigurationCommand extends $Command<
   DescribeLifecycleConfigurationCommandInput,

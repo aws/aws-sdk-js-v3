@@ -54,6 +54,24 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
  * @see {@link CreateHttpNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ * @example CreateHttpNamespace example
+ * ```javascript
+ * // This example creates an HTTP namespace.
+ * const input = {
+ *   "CreatorRequestId": "example-creator-request-id-0001",
+ *   "Description": "Example.com AWS Cloud Map HTTP Namespace",
+ *   "Name": "example-http.com"
+ * };
+ * const command = new CreateHttpNamespaceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OperationId": "httpvoqozuhfet5kzxoxg-a-response-example"
+ * }
+ * *\/
+ * // example id: createhttpnamespace-example-1590114811304
+ * ```
+ *
  */
 export class CreateHttpNamespaceCommand extends $Command<
   CreateHttpNamespaceCommandInput,

@@ -56,6 +56,59 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * @see {@link DescribeAutoScalingGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @example To describe an Auto Scaling group
+ * ```javascript
+ * // This example describes the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupNames": [
+ *     "my-auto-scaling-group"
+ *   ]
+ * };
+ * const command = new DescribeAutoScalingGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AutoScalingGroups": [
+ *     {
+ *       "AutoScalingGroupARN": "arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:930d940e-891e-4781-a11a-7b0acd480f03:autoScalingGroupName/my-auto-scaling-group",
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "AvailabilityZones": [
+ *         "us-west-2c"
+ *       ],
+ *       "CreatedTime": "2013-08-19T20:53:25.584Z",
+ *       "DefaultCooldown": 300,
+ *       "DesiredCapacity": 1,
+ *       "EnabledMetrics": [],
+ *       "HealthCheckGracePeriod": 300,
+ *       "HealthCheckType": "EC2",
+ *       "Instances": [
+ *         {
+ *           "AvailabilityZone": "us-west-2c",
+ *           "HealthStatus": "Healthy",
+ *           "InstanceId": "i-4ba0837f",
+ *           "LaunchConfigurationName": "my-launch-config",
+ *           "LifecycleState": "InService",
+ *           "ProtectedFromScaleIn": false
+ *         }
+ *       ],
+ *       "LaunchConfigurationName": "my-launch-config",
+ *       "LoadBalancerNames": [],
+ *       "MaxSize": 1,
+ *       "MinSize": 0,
+ *       "NewInstancesProtectedFromScaleIn": false,
+ *       "SuspendedProcesses": [],
+ *       "Tags": [],
+ *       "TerminationPolicies": [
+ *         "Default"
+ *       ],
+ *       "VPCZoneIdentifier": "subnet-12345678"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: autoscaling-describe-auto-scaling-groups-1
+ * ```
+ *
  */
 export class DescribeAutoScalingGroupsCommand extends $Command<
   DescribeAutoScalingGroupsCommandInput,

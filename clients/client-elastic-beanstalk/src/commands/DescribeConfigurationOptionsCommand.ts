@@ -53,6 +53,43 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  * @see {@link DescribeConfigurationOptionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @example To view configuration options for an environment
+ * ```javascript
+ * // The following operation retrieves descriptions of all available configuration options for an environment named my-env:
+ * const input = {
+ *   "ApplicationName": "my-app",
+ *   "EnvironmentName": "my-env"
+ * };
+ * const command = new DescribeConfigurationOptionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Options": [
+ *     {
+ *       "ChangeSeverity": "NoInterruption",
+ *       "DefaultValue": "30",
+ *       "MaxValue": 300,
+ *       "MinValue": 5,
+ *       "Name": "Interval",
+ *       "Namespace": "aws:elb:healthcheck",
+ *       "UserDefined": false,
+ *       "ValueType": "Scalar"
+ *     },
+ *     {
+ *       "ChangeSeverity": "NoInterruption",
+ *       "DefaultValue": "2000000",
+ *       "MinValue": 0,
+ *       "Name": "LowerThreshold",
+ *       "Namespace": "aws:autoscaling:trigger",
+ *       "UserDefined": false,
+ *       "ValueType": "Scalar"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-view-configuration-options-for-an-environment-1456276763917
+ * ```
+ *
  */
 export class DescribeConfigurationOptionsCommand extends $Command<
   DescribeConfigurationOptionsCommandInput,
