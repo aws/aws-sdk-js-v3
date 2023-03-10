@@ -52,6 +52,33 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  * @see {@link StartChangeRequestExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link AutomationDefinitionNotApprovedException} (client fault)
+ *  <p>Indicates that the Change Manager change template used in the change request was rejected or is
+ *    still in a pending state.</p>
+ *
+ * @throws {@link AutomationDefinitionNotFoundException} (client fault)
+ *  <p>An Automation runbook with the specified name couldn't be found.</p>
+ *
+ * @throws {@link AutomationDefinitionVersionNotFoundException} (client fault)
+ *  <p>An Automation runbook with the specified name and version couldn't be found.</p>
+ *
+ * @throws {@link AutomationExecutionLimitExceededException} (client fault)
+ *  <p>The number of simultaneously running Automation executions exceeded the allowable
+ *    limit.</p>
+ *
+ * @throws {@link IdempotentParameterMismatch} (client fault)
+ *  <p>Error returned when an idempotent operation is retried and the parameters don't match the
+ *    original call to the API with the same idempotency token. </p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidAutomationExecutionParametersException} (client fault)
+ *  <p>The supplied parameters for invoking the specified Automation runbook are incorrect. For
+ *    example, they may not match the set of parameters permitted for the specified Automation
+ *    document.</p>
+ *
+ *
  */
 export class StartChangeRequestExecutionCommand extends $Command<
   StartChangeRequestExecutionCommandInput,

@@ -50,6 +50,13 @@ export interface GetClassifierCommandOutput extends GetClassifierResponse, __Met
  * @see {@link GetClassifierCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
  */
 export class GetClassifierCommand extends $Command<
   GetClassifierCommandInput,

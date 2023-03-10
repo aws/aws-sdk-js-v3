@@ -50,6 +50,7 @@ export interface CreateVodSourceCommandOutput extends CreateVodSourceResponse, _
  * @see {@link CreateVodSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ *
  */
 export class CreateVodSourceCommand extends $Command<
   CreateVodSourceCommandInput,

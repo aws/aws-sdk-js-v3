@@ -71,6 +71,13 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * @see {@link CreateDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link DBParameterGroupAlreadyExistsFault} (client fault)
+ *  <p>A DB parameter group with the same name exists.</p>
+ *
+ * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
+ *  <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
+ *
+ *
  */
 export class CreateDBParameterGroupCommand extends $Command<
   CreateDBParameterGroupCommandInput,

@@ -51,6 +51,10 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link TooManyApplicationsException} (client fault)
+ *  <p>The specified account has reached its limit of applications.</p>
+ *
+ *
  * @example To create a new application
  * ```javascript
  * // The following operation creates a new application named my-app:

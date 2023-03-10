@@ -57,6 +57,16 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * @see {@link RegisterApplicationCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflict has occurred.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+ *
+ *
  */
 export class RegisterApplicationCommand extends $Command<
   RegisterApplicationCommandInput,

@@ -50,6 +50,17 @@ export interface GetHealthCheckCommandOutput extends GetHealthCheckResponse, __M
  * @see {@link GetHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link IncompatibleVersion} (client fault)
+ *  <p>The resource you're trying to access is unsupported on this Amazon Route 53
+ * 			endpoint.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHealthCheck} (client fault)
+ *  <p>No health check exists with the specified ID.</p>
+ *
+ *
  */
 export class GetHealthCheckCommand extends $Command<
   GetHealthCheckCommandInput,

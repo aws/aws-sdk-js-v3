@@ -78,6 +78,10 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  * @see {@link DescribeLoadBalancerAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link LoadBalancerNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ *
  * @example To describe load balancer attributes
  * ```javascript
  * // This example describes the attributes of the specified load balancer.

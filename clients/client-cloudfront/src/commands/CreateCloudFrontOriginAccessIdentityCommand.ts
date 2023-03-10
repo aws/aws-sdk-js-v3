@@ -56,6 +56,29 @@ export interface CreateCloudFrontOriginAccessIdentityCommandOutput
  * @see {@link CreateCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link CloudFrontOriginAccessIdentityAlreadyExists} (client fault)
+ *  <p>If the <code>CallerReference</code> is a value you already sent in a previous request
+ * 			to create an identity but the content of the
+ * 				<code>CloudFrontOriginAccessIdentityConfig</code> is different from the original
+ * 			request, CloudFront returns a <code>CloudFrontOriginAccessIdentityAlreadyExists</code> error.
+ * 		</p>
+ *
+ * @throws {@link InconsistentQuantities} (client fault)
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
+ * 			match.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link MissingBody} (client fault)
+ *  <p>This operation requires a body. Ensure that the body is present and the
+ * 				<code>Content-Type</code> header is set.</p>
+ *
+ * @throws {@link TooManyCloudFrontOriginAccessIdentities} (client fault)
+ *  <p>Processing your request would cause you to exceed the maximum number of origin access
+ * 			identities allowed.</p>
+ *
+ *
  */
 export class CreateCloudFrontOriginAccessIdentityCommand extends $Command<
   CreateCloudFrontOriginAccessIdentityCommandInput,

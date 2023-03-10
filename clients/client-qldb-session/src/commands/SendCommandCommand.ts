@@ -70,6 +70,27 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * @see {@link SendCommandCommandOutput} for command's `response` shape.
  * @see {@link QLDBSessionClientResolvedConfig | config} for QLDBSessionClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid parameter
+ *          value or a missing required parameter.</p>
+ *
+ * @throws {@link CapacityExceededException} (server fault)
+ *  <p>Returned when the request exceeds the processing capacity of the ledger.</p>
+ *
+ * @throws {@link InvalidSessionException} (client fault)
+ *  <p>Returned if the session doesn't exist anymore because it timed out or expired.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Returned if a resource limit such as number of active sessions is exceeded.</p>
+ *
+ * @throws {@link OccConflictException} (client fault)
+ *  <p>Returned when a transaction cannot be written to the journal due to a failure in the
+ *          verification phase of <i>optimistic concurrency control</i> (OCC).</p>
+ *
+ * @throws {@link RateExceededException} (client fault)
+ *  <p>Returned when the rate of requests exceeds the allowed throughput.</p>
+ *
+ *
  */
 export class SendCommandCommand extends $Command<
   SendCommandCommandInput,

@@ -73,6 +73,15 @@ export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyRespons
  * @see {@link SimulateCustomPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link PolicyEvaluationException} (server fault)
+ *  <p>The request failed because a provided policy could not be successfully evaluated. An
+ *       additional detailed message indicates the source of the failure.</p>
+ *
+ *
  */
 export class SimulateCustomPolicyCommand extends $Command<
   SimulateCustomPolicyCommandInput,

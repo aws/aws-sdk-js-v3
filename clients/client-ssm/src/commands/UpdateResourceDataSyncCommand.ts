@@ -59,6 +59,20 @@ export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataS
  * @see {@link UpdateResourceDataSyncCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ResourceDataSyncConflictException} (client fault)
+ *  <p>Another <code>UpdateResourceDataSync</code> request is being processed. Wait a few minutes
+ *    and try again.</p>
+ *
+ * @throws {@link ResourceDataSyncInvalidConfigurationException} (client fault)
+ *  <p>The specified sync configuration is invalid.</p>
+ *
+ * @throws {@link ResourceDataSyncNotFoundException} (client fault)
+ *  <p>The specified sync name wasn't found.</p>
+ *
+ *
  */
 export class UpdateResourceDataSyncCommand extends $Command<
   UpdateResourceDataSyncCommandInput,

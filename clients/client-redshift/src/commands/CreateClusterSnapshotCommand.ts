@@ -55,6 +55,32 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  * @see {@link CreateClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link ClusterSnapshotAlreadyExistsFault} (client fault)
+ *  <p>The value specified as a snapshot identifier is already used by an existing
+ *             snapshot.</p>
+ *
+ * @throws {@link ClusterSnapshotQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of cluster
+ *             snapshots.</p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link InvalidRetentionPeriodFault} (client fault)
+ *  <p>The retention period specified is either in the past or is not a valid value.</p>
+ *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ * @throws {@link TagLimitExceededFault} (client fault)
+ *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ *
  */
 export class CreateClusterSnapshotCommand extends $Command<
   CreateClusterSnapshotCommandInput,

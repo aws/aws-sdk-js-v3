@@ -54,6 +54,13 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  * @see {@link ListStatementsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ *
  */
 export class ListStatementsCommand extends $Command<
   ListStatementsCommandInput,

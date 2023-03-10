@@ -55,6 +55,16 @@ export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitRespo
  * @see {@link GetHostedZoneLimitCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link HostedZoneNotPrivate} (client fault)
+ *  <p>The specified hosted zone is a public hosted zone, not a private hosted zone.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ *
  */
 export class GetHostedZoneLimitCommand extends $Command<
   GetHostedZoneLimitCommandInput,

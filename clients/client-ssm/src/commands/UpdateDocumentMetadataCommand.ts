@@ -51,6 +51,20 @@ export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetad
  * @see {@link UpdateDocumentMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDocument} (client fault)
+ *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * @throws {@link InvalidDocumentOperation} (client fault)
+ *  <p>You attempted to delete a document while it is still shared. You must stop sharing the
+ *    document before you can delete it.</p>
+ *
+ * @throws {@link InvalidDocumentVersion} (client fault)
+ *  <p>The document version isn't valid or doesn't exist.</p>
+ *
+ *
  */
 export class UpdateDocumentMetadataCommand extends $Command<
   UpdateDocumentMetadataCommandInput,

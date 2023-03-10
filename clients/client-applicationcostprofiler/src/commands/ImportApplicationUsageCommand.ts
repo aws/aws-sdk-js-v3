@@ -57,6 +57,19 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  * @see {@link ImportApplicationUsageCommandOutput} for command's `response` shape.
  * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The calls to AWS Application Cost Profiler API are throttled. The request was denied.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints for the API.</p>
+ *
+ *
  */
 export class ImportApplicationUsageCommand extends $Command<
   ImportApplicationUsageCommandInput,

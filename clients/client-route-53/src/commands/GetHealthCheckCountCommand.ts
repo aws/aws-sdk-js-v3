@@ -50,6 +50,7 @@ export interface GetHealthCheckCountCommandOutput extends GetHealthCheckCountRes
  * @see {@link GetHealthCheckCountCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ *
  */
 export class GetHealthCheckCountCommand extends $Command<
   GetHealthCheckCountCommandInput,

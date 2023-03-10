@@ -53,6 +53,13 @@ export interface GetQueryLoggingConfigCommandOutput extends GetQueryLoggingConfi
  * @see {@link GetQueryLoggingConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchQueryLoggingConfig} (client fault)
+ *  <p>There is no DNS query logging configuration with the specified ID.</p>
+ *
+ *
  */
 export class GetQueryLoggingConfigCommand extends $Command<
   GetQueryLoggingConfigCommandInput,

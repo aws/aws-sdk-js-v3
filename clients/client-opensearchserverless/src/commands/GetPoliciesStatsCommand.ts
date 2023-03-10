@@ -55,6 +55,10 @@ export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse,
  * @see {@link GetPoliciesStatsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ *
  */
 export class GetPoliciesStatsCommand extends $Command<
   GetPoliciesStatsCommandInput,

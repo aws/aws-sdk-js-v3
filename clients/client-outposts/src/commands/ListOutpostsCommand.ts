@@ -53,6 +53,16 @@ export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __Metadat
  * @see {@link ListOutpostsCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ *
  */
 export class ListOutpostsCommand extends $Command<
   ListOutpostsCommandInput,

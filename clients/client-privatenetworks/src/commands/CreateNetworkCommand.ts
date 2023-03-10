@@ -50,6 +50,16 @@ export interface CreateNetworkCommandOutput extends CreateNetworkResponse, __Met
  * @see {@link CreateNetworkCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Information about an internal error.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation.</p>
+ *
+ *
  */
 export class CreateNetworkCommand extends $Command<
   CreateNetworkCommandInput,

@@ -172,6 +172,43 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have authorization to perform the requested action.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link NamespaceNotFoundException} (client fault)
+ *  <p>The specified namespace wasn't found.</p>
+ *
+ * @throws {@link PlatformTaskDefinitionIncompatibilityException} (client fault)
+ *  <p>The specified platform version doesn't satisfy the required capabilities of the task
+ * 			definition.</p>
+ *
+ * @throws {@link PlatformUnknownException} (client fault)
+ *  <p>The specified platform version doesn't exist.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link ServiceNotActiveException} (client fault)
+ *  <p>The specified service isn't active. You can't update a service that's inactive. If you
+ * 			have previously deleted a service, you can re-create it with <a>CreateService</a>.</p>
+ *
+ * @throws {@link ServiceNotFoundException} (client fault)
+ *  <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
+ * 			specific.</p>
+ *
+ *
  * @example To change the task definition used in a service
  * ```javascript
  * // This example updates the my-http-service service to use the amazon-ecs-sample task definition.

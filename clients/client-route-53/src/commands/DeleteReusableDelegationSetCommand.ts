@@ -60,6 +60,20 @@ export interface DeleteReusableDelegationSetCommandOutput
  * @see {@link DeleteReusableDelegationSetCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link DelegationSetInUse} (client fault)
+ *  <p>The specified delegation contains associated hosted zones which must be deleted before
+ * 			the reusable delegation set can be deleted.</p>
+ *
+ * @throws {@link DelegationSetNotReusable} (client fault)
+ *  <p>A reusable delegation set with the specified ID does not exist.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchDelegationSet} (client fault)
+ *  <p>A reusable delegation set with the specified ID does not exist.</p>
+ *
+ *
  */
 export class DeleteReusableDelegationSetCommand extends $Command<
   DeleteReusableDelegationSetCommandInput,

@@ -51,6 +51,16 @@ export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliv
  * @see {@link ListTagsForDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter has a value that is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You have already reached the limit for a requested resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ *
  */
 export class ListTagsForDeliveryStreamCommand extends $Command<
   ListTagsForDeliveryStreamCommandInput,

@@ -62,6 +62,19 @@ export interface SetLoadBalancerPoliciesOfListenerCommandOutput
  * @see {@link SetLoadBalancerPoliciesOfListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration change is not valid.</p>
+ *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The load balancer does not have a listener configured at the specified port.</p>
+ *
+ * @throws {@link PolicyNotFoundException} (client fault)
+ *  <p>One or more of the specified policies do not exist.</p>
+ *
+ *
  * @example To replace the policies associated with a listener
  * ```javascript
  * // This example replaces the policies that are currently associated with the specified listener.

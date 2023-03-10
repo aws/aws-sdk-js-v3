@@ -70,6 +70,19 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  * @see {@link CreateResourceDataSyncCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ResourceDataSyncAlreadyExistsException} (client fault)
+ *  <p>A sync configuration with the same name already exists.</p>
+ *
+ * @throws {@link ResourceDataSyncCountExceededException} (client fault)
+ *  <p>You have exceeded the allowed maximum sync configurations.</p>
+ *
+ * @throws {@link ResourceDataSyncInvalidConfigurationException} (client fault)
+ *  <p>The specified sync configuration is invalid.</p>
+ *
+ *
  */
 export class CreateResourceDataSyncCommand extends $Command<
   CreateResourceDataSyncCommandInput,

@@ -50,6 +50,55 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link ACLNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ClusterAlreadyExistsFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ClusterQuotaForCustomerExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InsufficientClusterCapacityFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidACLStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidCredentialsException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ParameterGroupNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ShardsPerClusterQuotaExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetGroupNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,

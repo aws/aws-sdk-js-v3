@@ -56,6 +56,13 @@ export interface DescribeStateMachineForExecutionCommandOutput
  * @see {@link DescribeStateMachineForExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link ExecutionDoesNotExist} (client fault)
+ *  <p>The specified execution does not exist.</p>
+ *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ *
  */
 export class DescribeStateMachineForExecutionCommand extends $Command<
   DescribeStateMachineForExecutionCommandInput,

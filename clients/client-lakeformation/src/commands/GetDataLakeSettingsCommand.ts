@@ -50,6 +50,16 @@ export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsRes
  * @see {@link GetDataLakeSettingsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ *
  */
 export class GetDataLakeSettingsCommand extends $Command<
   GetDataLakeSettingsCommandInput,

@@ -53,6 +53,26 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  * @see {@link UpdatePipelineCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link InvalidActionDeclarationException} (client fault)
+ *  <p>The action declaration was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidBlockerDeclarationException} (client fault)
+ *  <p>Reserved for future use.</p>
+ *
+ * @throws {@link InvalidStageDeclarationException} (client fault)
+ *  <p>The stage declaration was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidStructureException} (client fault)
+ *  <p>The structure was specified in an invalid format.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The number of pipelines associated with the AWS account has exceeded the limit
+ *             allowed for the account.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ *
  */
 export class UpdatePipelineCommand extends $Command<
   UpdatePipelineCommandInput,

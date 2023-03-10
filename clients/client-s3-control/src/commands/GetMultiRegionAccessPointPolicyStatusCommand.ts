@@ -73,6 +73,7 @@ export interface GetMultiRegionAccessPointPolicyStatusCommandOutput
  * @see {@link GetMultiRegionAccessPointPolicyStatusCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ *
  */
 export class GetMultiRegionAccessPointPolicyStatusCommand extends $Command<
   GetMultiRegionAccessPointPolicyStatusCommandInput,

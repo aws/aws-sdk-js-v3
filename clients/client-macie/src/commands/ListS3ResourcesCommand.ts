@@ -54,6 +54,17 @@ export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __M
  * @see {@link ListS3ResourcesCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>(Discontinued) You do not have required permissions to access the requested resource.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>(Discontinued) Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ *
  */
 export class ListS3ResourcesCommand extends $Command<
   ListS3ResourcesCommandInput,

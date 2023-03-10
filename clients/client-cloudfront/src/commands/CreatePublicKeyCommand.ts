@@ -50,6 +50,17 @@ export interface CreatePublicKeyCommandOutput extends CreatePublicKeyResult, __M
  * @see {@link CreatePublicKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link PublicKeyAlreadyExists} (client fault)
+ *  <p>The specified public key already exists.</p>
+ *
+ * @throws {@link TooManyPublicKeys} (client fault)
+ *  <p>The maximum number of public keys for field-level encryption have been created. To
+ * 			create a new public key, delete one of the existing keys.</p>
+ *
+ *
  */
 export class CreatePublicKeyCommand extends $Command<
   CreatePublicKeyCommandInput,

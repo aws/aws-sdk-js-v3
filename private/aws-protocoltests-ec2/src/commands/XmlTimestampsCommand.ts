@@ -43,6 +43,7 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsOutput, __Metad
  * @see {@link XmlTimestampsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
+ *
  */
 export class XmlTimestampsCommand extends $Command<
   XmlTimestampsCommandInput,

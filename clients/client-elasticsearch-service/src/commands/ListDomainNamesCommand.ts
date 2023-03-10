@@ -54,6 +54,13 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * @see {@link ListDomainNamesCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
+ *
  */
 export class ListDomainNamesCommand extends $Command<
   ListDomainNamesCommandInput,

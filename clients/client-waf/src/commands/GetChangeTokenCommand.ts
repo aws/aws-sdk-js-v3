@@ -64,6 +64,10 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  * @see {@link GetChangeTokenCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ *
  * @example To get a change token
  * ```javascript
  * // The following example returns a change token to use for a create, update or delete operation.

@@ -58,6 +58,13 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  * @see {@link DescribeTableStatisticsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  * @example Describe table statistics
  * ```javascript
  * // Returns table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted.

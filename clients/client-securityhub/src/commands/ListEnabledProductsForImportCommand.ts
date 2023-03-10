@@ -53,6 +53,17 @@ export interface ListEnabledProductsForImportCommandOutput
  * @see {@link ListEnabledProductsForImportCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ *
  */
 export class ListEnabledProductsForImportCommand extends $Command<
   ListEnabledProductsForImportCommandInput,

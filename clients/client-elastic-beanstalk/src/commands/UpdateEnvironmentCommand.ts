@@ -58,6 +58,14 @@ export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, 
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ * @throws {@link TooManyBucketsException} (client fault)
+ *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+ *
+ *
  * @example To update an environment to a new version
  * ```javascript
  * // The following operation updates an environment named "my-env" to version "v2" of the application to which it belongs:

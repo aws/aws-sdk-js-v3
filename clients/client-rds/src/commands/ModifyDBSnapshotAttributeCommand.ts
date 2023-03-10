@@ -66,6 +66,17 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  * @see {@link ModifyDBSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ * @throws {@link InvalidDBSnapshotStateFault} (client fault)
+ *  <p>The state of the DB snapshot doesn't allow deletion.</p>
+ *
+ * @throws {@link SharedSnapshotQuotaExceededFault} (client fault)
+ *  <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
+ *
+ *
  * @example To change DB snapshot attributes
  * ```javascript
  * // This example adds the specified attribute for the specified DB snapshot.

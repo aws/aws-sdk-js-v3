@@ -49,6 +49,7 @@ export interface PostPlayerActionCommandOutput extends PostPlayerActionOutput, _
  * @see {@link PostPlayerActionCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class PostPlayerActionCommand extends $Command<
   PostPlayerActionCommandInput,

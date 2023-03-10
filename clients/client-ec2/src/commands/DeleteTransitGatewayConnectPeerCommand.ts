@@ -52,6 +52,7 @@ export interface DeleteTransitGatewayConnectPeerCommandOutput
  * @see {@link DeleteTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DeleteTransitGatewayConnectPeerCommand extends $Command<
   DeleteTransitGatewayConnectPeerCommandInput,

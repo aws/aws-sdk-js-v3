@@ -45,6 +45,16 @@ export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteVcenterClientCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
+ *
  */
 export class DeleteVcenterClientCommand extends $Command<
   DeleteVcenterClientCommandInput,

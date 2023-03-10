@@ -50,6 +50,7 @@ export interface ConfigureLogsForChannelCommandOutput extends ConfigureLogsForCh
  * @see {@link ConfigureLogsForChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ *
  */
 export class ConfigureLogsForChannelCommand extends $Command<
   ConfigureLogsForChannelCommandInput,

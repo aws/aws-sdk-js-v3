@@ -50,6 +50,10 @@ export interface ListOrganizationsCommandOutput extends ListOrganizationsRespons
  * @see {@link ListOrganizationsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ *
  */
 export class ListOrganizationsCommand extends $Command<
   ListOrganizationsCommandInput,

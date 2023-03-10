@@ -51,6 +51,31 @@ export interface FailoverShardCommandOutput extends FailoverShardResponse, __Met
  * @see {@link FailoverShardCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link APICallRateForCustomerExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidKMSKeyFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ShardNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TestFailoverNotAvailableFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class FailoverShardCommand extends $Command<
   FailoverShardCommandInput,

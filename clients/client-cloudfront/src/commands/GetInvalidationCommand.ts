@@ -50,6 +50,16 @@ export interface GetInvalidationCommandOutput extends GetInvalidationResult, __M
  * @see {@link GetInvalidationCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchDistribution} (client fault)
+ *  <p>The specified distribution does not exist.</p>
+ *
+ * @throws {@link NoSuchInvalidation} (client fault)
+ *  <p>The specified invalidation does not exist.</p>
+ *
+ *
  */
 export class GetInvalidationCommand extends $Command<
   GetInvalidationCommandInput,

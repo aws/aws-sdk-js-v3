@@ -53,6 +53,7 @@ export interface GetTrafficPolicyInstanceCountCommandOutput
  * @see {@link GetTrafficPolicyInstanceCountCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ *
  */
 export class GetTrafficPolicyInstanceCountCommand extends $Command<
   GetTrafficPolicyInstanceCountCommandInput,

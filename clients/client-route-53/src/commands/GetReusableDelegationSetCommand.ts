@@ -52,6 +52,16 @@ export interface GetReusableDelegationSetCommandOutput extends GetReusableDelega
  * @see {@link GetReusableDelegationSetCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link DelegationSetNotReusable} (client fault)
+ *  <p>A reusable delegation set with the specified ID does not exist.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchDelegationSet} (client fault)
+ *  <p>A reusable delegation set with the specified ID does not exist.</p>
+ *
+ *
  */
 export class GetReusableDelegationSetCommand extends $Command<
   GetReusableDelegationSetCommandInput,

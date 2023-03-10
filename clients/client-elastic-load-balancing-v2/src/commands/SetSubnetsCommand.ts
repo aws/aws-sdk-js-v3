@@ -56,6 +56,25 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * @see {@link SetSubnetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link AllocationIdNotFoundException} (client fault)
+ *  <p>The specified allocation ID does not exist.</p>
+ *
+ * @throws {@link AvailabilityZoneNotSupportedException} (client fault)
+ *  <p>The specified Availability Zone is not supported.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration is not valid.</p>
+ *
+ * @throws {@link InvalidSubnetException} (client fault)
+ *  <p>The specified subnet is out of available addresses.</p>
+ *
+ * @throws {@link LoadBalancerNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link SubnetNotFoundException} (client fault)
+ *  <p>The specified subnet does not exist.</p>
+ *
+ *
  * @example To enable Availability Zones for a load balancer
  * ```javascript
  * // This example enables the Availability Zones for the specified subnets for the specified load balancer.

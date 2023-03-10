@@ -68,6 +68,40 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  * @see {@link UpdateContainerAgentCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link MissingVersionException} (client fault)
+ *  <p>Amazon ECS can't determine the current version of the Amazon ECS container agent on the
+ * 			container instance and doesn't have enough information to proceed with an update. This
+ * 			could be because the agent running on the container instance is a previous or custom
+ * 			version that doesn't use our version information.</p>
+ *
+ * @throws {@link NoUpdateAvailableException} (client fault)
+ *  <p>There's no update available for this Amazon ECS container agent. This might be because the
+ * 			agent is already running the latest version or because it's so old that there's no
+ * 			update path to the current version.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link UpdateInProgressException} (client fault)
+ *  <p>There's already a current Amazon ECS container agent update in progress on the container
+ * 			instance that's specified. If the container agent becomes disconnected while it's in a
+ * 			transitional stage, such as <code>PENDING</code> or <code>STAGING</code>, the update
+ * 			process can get stuck in that state. However, when the agent reconnects, it resumes
+ * 			where it stopped previously.</p>
+ *
+ *
  */
 export class UpdateContainerAgentCommand extends $Command<
   UpdateContainerAgentCommandInput,

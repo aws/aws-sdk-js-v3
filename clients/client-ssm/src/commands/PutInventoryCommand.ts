@@ -52,6 +52,65 @@ export interface PutInventoryCommandOutput extends PutInventoryResult, __Metadat
  * @see {@link PutInventoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link CustomSchemaCountLimitExceededException} (client fault)
+ *  <p>You have exceeded the limit for custom schemas. Delete one or more custom schemas and try
+ *    again.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidInstanceId} (client fault)
+ *  <p>The following problems can cause this exception:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You don't have permission to access the managed node.</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon Web Services Systems Manager Agent(SSM Agent) isn't running. Verify that SSM Agent is
+ *      running.</p>
+ *             </li>
+ *             <li>
+ *                <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p>
+ *             </li>
+ *             <li>
+ *                <p>The managed node isn't in valid state. Valid states are: <code>Running</code>,
+ *       <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are:
+ *       <code>Shutting-down</code> and <code>Terminated</code>.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link InvalidInventoryItemContextException} (client fault)
+ *  <p>You specified invalid keys or values in the <code>Context</code> attribute for
+ *     <code>InventoryItem</code>. Verify the keys and values, and try again.</p>
+ *
+ * @throws {@link InvalidItemContentException} (client fault)
+ *  <p>One or more content items isn't valid.</p>
+ *
+ * @throws {@link InvalidTypeNameException} (client fault)
+ *  <p>The parameter type name isn't valid.</p>
+ *
+ * @throws {@link ItemContentMismatchException} (client fault)
+ *  <p>The inventory item has invalid content. </p>
+ *
+ * @throws {@link ItemSizeLimitExceededException} (client fault)
+ *  <p>The inventory item size has exceeded the size limit.</p>
+ *
+ * @throws {@link SubTypeCountLimitExceededException} (client fault)
+ *  <p>The sub-type count exceeded the limit for the inventory type.</p>
+ *
+ * @throws {@link TotalSizeLimitExceededException} (client fault)
+ *  <p>The size of inventory data has exceeded the total size limit for the resource.</p>
+ *
+ * @throws {@link UnsupportedInventoryItemContextException} (client fault)
+ *  <p>The <code>Context</code> attribute that you specified for the <code>InventoryItem</code>
+ *    isn't allowed for this inventory type. You can only use the <code>Context</code> attribute with
+ *    inventory types like <code>AWS:ComplianceItem</code>.</p>
+ *
+ * @throws {@link UnsupportedInventorySchemaVersionException} (client fault)
+ *  <p>Inventory item type schema version has to match supported versions in the service. Check
+ *    output of GetInventorySchema to see the available schema version for each type.</p>
+ *
+ *
  */
 export class PutInventoryCommand extends $Command<
   PutInventoryCommandInput,

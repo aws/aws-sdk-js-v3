@@ -55,6 +55,24 @@ export interface StartDetectMitigationActionsTaskCommandOutput
  * @see {@link StartDetectMitigationActionsTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit has been exceeded.</p>
+ *
+ * @throws {@link TaskAlreadyExistsException} (client fault)
+ *  <p>
+ *             This exception occurs if you attempt to start a task with the same task-id as an existing task but with a different clientRequestToken.
+ *         </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ *
  */
 export class StartDetectMitigationActionsTaskCommand extends $Command<
   StartDetectMitigationActionsTaskCommandInput,

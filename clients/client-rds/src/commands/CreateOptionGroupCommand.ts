@@ -51,6 +51,13 @@ export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult,
  * @see {@link CreateOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link OptionGroupAlreadyExistsFault} (client fault)
+ *  <p>The option group you are trying to create already exists.</p>
+ *
+ * @throws {@link OptionGroupQuotaExceededFault} (client fault)
+ *  <p>The quota of 20 option groups was exceeded for this Amazon Web Services account.</p>
+ *
+ *
  * @example To create an option group
  * ```javascript
  * // This example creates an option group.

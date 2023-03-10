@@ -53,6 +53,7 @@ export interface RejectTransitGatewayPeeringAttachmentCommandOutput
  * @see {@link RejectTransitGatewayPeeringAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
   RejectTransitGatewayPeeringAttachmentCommandInput,

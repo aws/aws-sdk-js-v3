@@ -63,6 +63,14 @@ export interface GetServiceSettingCommandOutput extends GetServiceSettingResult,
  * @see {@link GetServiceSettingCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ServiceSettingNotFound} (client fault)
+ *  <p>The specified service setting wasn't found. Either the service name or the setting hasn't
+ *    been provisioned by the Amazon Web Services service team.</p>
+ *
+ *
  */
 export class GetServiceSettingCommand extends $Command<
   GetServiceSettingCommandInput,

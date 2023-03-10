@@ -50,6 +50,7 @@ export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAgg
  * @see {@link DescribeEntityAggregatesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
+ *
  */
 export class DescribeEntityAggregatesCommand extends $Command<
   DescribeEntityAggregatesCommandInput,

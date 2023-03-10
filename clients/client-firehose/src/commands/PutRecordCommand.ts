@@ -78,6 +78,26 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * @see {@link PutRecordCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter has a value that is not valid.</p>
+ *
+ * @throws {@link InvalidKMSResourceException} (client fault)
+ *  <p>Kinesis Data Firehose throws this exception when an attempt to put records or to start
+ *          or stop delivery stream encryption fails. This happens when the KMS service throws one of
+ *          the following exception types: <code>AccessDeniedException</code>,
+ *             <code>InvalidStateException</code>, <code>DisabledException</code>, or
+ *             <code>NotFoundException</code>.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unavailable. Back off and retry the operation. If you continue to see
+ *          the exception, throughput limits for the delivery stream may have been exceeded. For more
+ *          information about limits and how to request an increase, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Kinesis Data Firehose
+ *          Limits</a>.</p>
+ *
+ *
  */
 export class PutRecordCommand extends $Command<
   PutRecordCommandInput,

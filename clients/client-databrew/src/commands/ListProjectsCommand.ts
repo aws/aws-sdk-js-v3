@@ -50,6 +50,10 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * @see {@link ListProjectsCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input parameters for this request failed validation.</p>
+ *
+ *
  */
 export class ListProjectsCommand extends $Command<
   ListProjectsCommandInput,

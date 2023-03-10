@@ -52,6 +52,10 @@ export interface ListCloudFrontOriginAccessIdentitiesCommandOutput
  * @see {@link ListCloudFrontOriginAccessIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ *
  */
 export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
   ListCloudFrontOriginAccessIdentitiesCommandInput,

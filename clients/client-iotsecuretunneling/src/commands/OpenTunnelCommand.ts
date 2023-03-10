@@ -56,6 +56,10 @@ export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataB
  * @see {@link OpenTunnelCommandOutput} for command's `response` shape.
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Thrown when a tunnel limit is exceeded.</p>
+ *
+ *
  */
 export class OpenTunnelCommand extends $Command<
   OpenTunnelCommandInput,

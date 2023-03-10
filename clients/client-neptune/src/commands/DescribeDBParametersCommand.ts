@@ -50,6 +50,12 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  * @see {@link DescribeDBParametersCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBParameterGroupName</i> does not refer to an
+ *       existing DB parameter group.</p>
+ *
+ *
  */
 export class DescribeDBParametersCommand extends $Command<
   DescribeDBParametersCommandInput,

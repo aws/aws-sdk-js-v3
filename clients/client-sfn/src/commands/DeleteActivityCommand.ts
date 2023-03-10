@@ -50,6 +50,10 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
  * @see {@link DeleteActivityCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ *
  */
 export class DeleteActivityCommand extends $Command<
   DeleteActivityCommandInput,

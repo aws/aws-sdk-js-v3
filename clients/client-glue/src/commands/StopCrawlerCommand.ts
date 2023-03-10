@@ -50,6 +50,19 @@ export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __Metadat
  * @see {@link StopCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link CrawlerNotRunningException} (client fault)
+ *  <p>The specified crawler is not running.</p>
+ *
+ * @throws {@link CrawlerStoppingException} (client fault)
+ *  <p>The specified crawler is stopping.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
  */
 export class StopCrawlerCommand extends $Command<
   StopCrawlerCommandInput,

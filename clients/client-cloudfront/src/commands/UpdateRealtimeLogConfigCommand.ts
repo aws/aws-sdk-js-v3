@@ -70,6 +70,16 @@ export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogC
  * @see {@link UpdateRealtimeLogConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchRealtimeLogConfig} (client fault)
+ *  <p>The real-time log configuration does not exist.</p>
+ *
+ *
  */
 export class UpdateRealtimeLogConfigCommand extends $Command<
   UpdateRealtimeLogConfigCommandInput,

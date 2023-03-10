@@ -64,6 +64,28 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  * @see {@link AddCustomRoutingEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access permission.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You can't use both of those options.</p>
+ *
+ * @throws {@link EndpointAlreadyExistsException} (client fault)
+ *  <p>The endpoint that you specified doesn't exist.</p>
+ *
+ * @throws {@link EndpointGroupNotFoundException} (client fault)
+ *  <p>The endpoint group that you specified doesn't exist.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
+ *
  */
 export class AddCustomRoutingEndpointsCommand extends $Command<
   AddCustomRoutingEndpointsCommandInput,

@@ -50,6 +50,7 @@ export interface GetIpamAddressHistoryCommandOutput extends GetIpamAddressHistor
  * @see {@link GetIpamAddressHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class GetIpamAddressHistoryCommand extends $Command<
   GetIpamAddressHistoryCommandInput,

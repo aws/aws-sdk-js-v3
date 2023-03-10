@@ -52,6 +52,10 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
  * @see {@link ListReportsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ *
  */
 export class ListReportsCommand extends $Command<
   ListReportsCommandInput,

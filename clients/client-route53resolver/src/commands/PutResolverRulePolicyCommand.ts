@@ -51,6 +51,22 @@ export interface PutResolverRulePolicyCommandOutput extends PutResolverRulePolic
  * @see {@link PutResolverRulePolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * @throws {@link InvalidPolicyDocument} (client fault)
+ *  <p>The specified Resolver rule policy is invalid.</p>
+ *
+ * @throws {@link UnknownResourceException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ *
  */
 export class PutResolverRulePolicyCommand extends $Command<
   PutResolverRulePolicyCommandInput,

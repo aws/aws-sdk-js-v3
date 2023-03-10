@@ -50,6 +50,25 @@ export interface UpdateDefaultMailDomainCommandOutput extends UpdateDefaultMailD
  * @see {@link UpdateDefaultMailDomainCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link MailDomainNotFoundException} (client fault)
+ *  <p>The domain specified is not found in your organization.</p>
+ *
+ * @throws {@link MailDomainStateException} (client fault)
+ *  <p>After a domain has been added to the organization, it must be verified. The domain is
+ *          not yet verified.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
+ *
  */
 export class UpdateDefaultMailDomainCommand extends $Command<
   UpdateDefaultMailDomainCommandInput,

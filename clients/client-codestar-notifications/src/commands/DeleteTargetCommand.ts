@@ -54,6 +54,10 @@ export interface DeleteTargetCommandOutput extends DeleteTargetResult, __Metadat
  * @see {@link DeleteTargetCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ *
  */
 export class DeleteTargetCommand extends $Command<
   DeleteTargetCommandInput,

@@ -58,6 +58,20 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  * @see {@link ListPublicKeysCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link InvalidTimeRangeException} (client fault)
+ *  <p>Occurs if the timestamp values are not valid. Either the start time occurs after the end
+ *          time, or the time range is outside the range of possible values.</p>
+ *
+ * @throws {@link InvalidTokenException} (client fault)
+ *  <p>Reserved for future use.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ *
  */
 export class ListPublicKeysCommand extends $Command<
   ListPublicKeysCommandInput,

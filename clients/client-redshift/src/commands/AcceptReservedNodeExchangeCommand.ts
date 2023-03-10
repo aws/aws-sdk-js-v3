@@ -54,6 +54,29 @@ export interface AcceptReservedNodeExchangeCommandOutput
  * @see {@link AcceptReservedNodeExchangeCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link DependentServiceUnavailableFault} (client fault)
+ *  <p>Your request cannot be completed because a dependent internal service is
+ *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ *
+ * @throws {@link InvalidReservedNodeStateFault} (client fault)
+ *  <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
+ *
+ * @throws {@link ReservedNodeAlreadyExistsFault} (client fault)
+ *  <p>User already has a reservation with the given identifier.</p>
+ *
+ * @throws {@link ReservedNodeAlreadyMigratedFault} (client fault)
+ *  <p>Indicates that the reserved node has already been exchanged.</p>
+ *
+ * @throws {@link ReservedNodeNotFoundFault} (client fault)
+ *  <p>The specified reserved compute node not found.</p>
+ *
+ * @throws {@link ReservedNodeOfferingNotFoundFault} (client fault)
+ *  <p>Specified offering does not exist.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ *
  */
 export class AcceptReservedNodeExchangeCommand extends $Command<
   AcceptReservedNodeExchangeCommandInput,

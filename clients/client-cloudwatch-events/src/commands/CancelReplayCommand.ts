@@ -50,6 +50,20 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  * @see {@link CancelReplayCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link IllegalStatusException} (client fault)
+ *  <p>An error occurred because a replay can be canceled only when the state is Running or
+ *       Starting.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
+ *
  */
 export class CancelReplayCommand extends $Command<
   CancelReplayCommandInput,

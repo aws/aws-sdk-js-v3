@@ -44,6 +44,7 @@ export interface TimestampFormatHeadersCommandOutput extends TimestampFormatHead
  * @see {@link TimestampFormatHeadersCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ *
  */
 export class TimestampFormatHeadersCommand extends $Command<
   TimestampFormatHeadersCommandInput,

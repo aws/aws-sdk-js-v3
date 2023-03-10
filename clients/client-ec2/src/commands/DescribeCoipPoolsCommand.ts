@@ -50,6 +50,7 @@ export interface DescribeCoipPoolsCommandOutput extends DescribeCoipPoolsResult,
  * @see {@link DescribeCoipPoolsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribeCoipPoolsCommand extends $Command<
   DescribeCoipPoolsCommandInput,

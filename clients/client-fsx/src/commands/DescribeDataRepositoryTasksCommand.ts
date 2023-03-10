@@ -61,6 +61,19 @@ export interface DescribeDataRepositoryTasksCommandOutput
  * @see {@link DescribeDataRepositoryTasksCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link DataRepositoryTaskNotFound} (client fault)
+ *  <p>The data repository task or tasks you specified could not be found.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ *
  */
 export class DescribeDataRepositoryTasksCommand extends $Command<
   DescribeDataRepositoryTasksCommandInput,

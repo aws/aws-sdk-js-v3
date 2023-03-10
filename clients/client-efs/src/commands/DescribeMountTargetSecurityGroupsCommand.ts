@@ -67,6 +67,22 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  * @see {@link DescribeMountTargetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link IncorrectMountTargetState} (client fault)
+ *  <p>Returned if the mount target is not in the correct state for the
+ *             operation.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link MountTargetNotFound} (client fault)
+ *  <p>Returned if there is no mount target with the specified ID found in the
+ *             caller's Amazon Web Services account.</p>
+ *
+ *
  * @example To describe the security groups for a mount target
  * ```javascript
  * // This operation describes all of the security groups for a file system's mount target.

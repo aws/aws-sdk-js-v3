@@ -55,6 +55,13 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Exceeded the maximum limit for connections.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

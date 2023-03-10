@@ -56,6 +56,10 @@ export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataB
  * @see {@link UnsubscribeCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ *
  */
 export class UnsubscribeCommand extends $Command<
   UnsubscribeCommandInput,

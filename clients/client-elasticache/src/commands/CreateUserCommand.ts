@@ -47,6 +47,28 @@ export interface CreateUserCommandOutput extends User, __MetadataBearer {}
  * @see {@link CreateUserCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link DuplicateUserNameFault} (client fault)
+ *  <p>A user with this username already exists.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *
+ * @throws {@link UserAlreadyExistsFault} (client fault)
+ *  <p>A user with this ID already exists.</p>
+ *
+ * @throws {@link UserQuotaExceededFault} (client fault)
+ *  <p>The quota of users has been exceeded.</p>
+ *
+ *
  */
 export class CreateUserCommand extends $Command<
   CreateUserCommandInput,

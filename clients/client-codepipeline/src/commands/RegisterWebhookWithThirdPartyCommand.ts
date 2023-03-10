@@ -53,6 +53,14 @@ export interface RegisterWebhookWithThirdPartyCommandOutput
  * @see {@link RegisterWebhookWithThirdPartyCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ * @throws {@link WebhookNotFoundException} (client fault)
+ *  <p>The specified webhook was entered in an invalid format or cannot be
+ *             found.</p>
+ *
+ *
  */
 export class RegisterWebhookWithThirdPartyCommand extends $Command<
   RegisterWebhookWithThirdPartyCommandInput,

@@ -50,6 +50,13 @@ export interface GetMetadataCommandOutput extends GetMetadataResponse, __Metadat
  * @see {@link GetMetadataCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You don't have permission to perform this operation.</p>
+ *
+ *
  */
 export class GetMetadataCommand extends $Command<
   GetMetadataCommandInput,

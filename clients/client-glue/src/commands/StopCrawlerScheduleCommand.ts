@@ -52,6 +52,19 @@ export interface StopCrawlerScheduleCommandOutput extends StopCrawlerScheduleRes
  * @see {@link StopCrawlerScheduleCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link SchedulerNotRunningException} (client fault)
+ *  <p>The specified scheduler is not running.</p>
+ *
+ * @throws {@link SchedulerTransitioningException} (client fault)
+ *  <p>The specified scheduler is transitioning.</p>
+ *
+ *
  */
 export class StopCrawlerScheduleCommand extends $Command<
   StopCrawlerScheduleCommandInput,

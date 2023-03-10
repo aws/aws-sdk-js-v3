@@ -53,6 +53,7 @@ export interface CreateTransitGatewayRouteTableAnnouncementCommandOutput
  * @see {@link CreateTransitGatewayRouteTableAnnouncementCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CreateTransitGatewayRouteTableAnnouncementCommand extends $Command<
   CreateTransitGatewayRouteTableAnnouncementCommandInput,

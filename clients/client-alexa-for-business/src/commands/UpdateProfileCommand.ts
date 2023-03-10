@@ -50,6 +50,16 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * @see {@link UpdateProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NameInUseException} (client fault)
+ *  <p>The name sent in the request is already in use.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class UpdateProfileCommand extends $Command<
   UpdateProfileCommandInput,

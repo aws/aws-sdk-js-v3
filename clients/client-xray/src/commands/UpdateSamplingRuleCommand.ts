@@ -50,6 +50,13 @@ export interface UpdateSamplingRuleCommandOutput extends UpdateSamplingRuleResul
  * @see {@link UpdateSamplingRuleCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
+ *
  */
 export class UpdateSamplingRuleCommand extends $Command<
   UpdateSamplingRuleCommandInput,

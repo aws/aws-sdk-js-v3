@@ -54,6 +54,7 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
  * @see {@link GetVpnConnectionDeviceSampleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command<
   GetVpnConnectionDeviceSampleConfigurationCommandInput,

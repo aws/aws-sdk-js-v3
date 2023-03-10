@@ -60,6 +60,28 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  * @see {@link DiscoverInputSchemaCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter value is not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request JSON is not valid for the operation.</p>
+ *
+ * @throws {@link ResourceProvisionedThroughputExceededException} (client fault)
+ *  <p>Discovery failed to get a record from the streaming source because of the Kinesis
+ *       Streams <code>ProvisionedThroughputExceededException</code>. For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a> in the Amazon Kinesis Streams API Reference.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
+ * @throws {@link UnableToDetectSchemaException} (client fault)
+ *  <p>The data format is not valid. Kinesis Data Analytics cannot detect the schema for
+ *       the given streaming source.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
+ *       operation. </p>
+ *
+ *
  */
 export class DiscoverInputSchemaCommand extends $Command<
   DiscoverInputSchemaCommandInput,

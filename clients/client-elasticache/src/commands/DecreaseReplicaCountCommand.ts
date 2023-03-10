@@ -52,6 +52,45 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  * @see {@link DecreaseReplicaCountCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link ClusterQuotaForCustomerExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
+ *
+ * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
+ *  <p>The requested cache node type is not available in the specified Availability Zone.
+ *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *
+ * @throws {@link InvalidCacheClusterStateFault} (client fault)
+ *  <p>The requested cluster is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidReplicationGroupStateFault} (client fault)
+ *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>The VPC network is in an invalid state.</p>
+ *
+ * @throws {@link NodeGroupsPerReplicationGroupQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the maximum allowed number
+ *             of node groups (shards) in a single replication group. The default maximum is 90</p>
+ *
+ * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+ *
+ * @throws {@link NoOperationFault} (client fault)
+ *  <p>The operation was not performed because no changes were required.</p>
+ *
+ * @throws {@link ReplicationGroupNotFoundFault} (client fault)
+ *  <p>The specified replication group does not exist.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ *
  */
 export class DecreaseReplicaCountCommand extends $Command<
   DecreaseReplicaCountCommandInput,

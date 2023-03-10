@@ -50,6 +50,24 @@ export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescripti
  * @see {@link DescribeBackupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link PolicyNotFound} (client fault)
+ *  <p>Returned if the default file system policy is in effect for the EFS file system specified.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
+ *
+ *
  */
 export class DescribeBackupPolicyCommand extends $Command<
   DescribeBackupPolicyCommandInput,

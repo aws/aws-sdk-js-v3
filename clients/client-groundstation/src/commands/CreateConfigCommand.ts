@@ -51,6 +51,19 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * @see {@link CreateConfigCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
+ * @throws {@link DependencyException} (server fault)
+ *  <p>Dependency encountered an error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Account limits for this resource have been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource was not found.</p>
+ *
+ *
  */
 export class CreateConfigCommand extends $Command<
   CreateConfigCommandInput,

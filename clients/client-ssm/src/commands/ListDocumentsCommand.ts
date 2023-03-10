@@ -51,6 +51,16 @@ export interface ListDocumentsCommandOutput extends ListDocumentsResult, __Metad
  * @see {@link ListDocumentsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidFilterKey} (client fault)
+ *  <p>The specified key isn't valid.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ *
  */
 export class ListDocumentsCommand extends $Command<
   ListDocumentsCommandInput,

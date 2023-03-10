@@ -61,6 +61,11 @@ export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecyc
  * @see {@link DescribeLifecycleHookTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
  * @example To describe the available types of lifecycle hooks
  * ```javascript
  * // This example describes the available lifecycle hook types.

@@ -58,6 +58,22 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @see {@link GetSessionCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class GetSessionCommand extends $Command<
   GetSessionCommandInput,

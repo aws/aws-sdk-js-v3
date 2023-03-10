@@ -48,6 +48,13 @@ export interface ResendOperationAuthorizationCommandOutput extends __MetadataBea
  * @see {@link ResendOperationAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
+ *
  */
 export class ResendOperationAuthorizationCommand extends $Command<
   ResendOperationAuthorizationCommandInput,

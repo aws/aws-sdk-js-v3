@@ -56,6 +56,7 @@ export interface ReplaceNetworkAclAssociationCommandOutput
  * @see {@link ReplaceNetworkAclAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To replace the network ACL associated with a subnet
  * ```javascript
  * // This example associates the specified network ACL with the subnet for the specified network ACL association.

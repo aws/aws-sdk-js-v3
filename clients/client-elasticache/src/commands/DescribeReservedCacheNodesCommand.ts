@@ -51,6 +51,16 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  * @see {@link DescribeReservedCacheNodesCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link ReservedCacheNodeNotFoundFault} (client fault)
+ *  <p>The requested reserved cache node was not found.</p>
+ *
+ *
  * @example DescribeReservedCacheNodes
  * ```javascript
  * // Returns information about reserved cache nodes for this account, or about a specified reserved cache node. If the account has no reserved cache nodes, the operation returns an empty list, as shown here.

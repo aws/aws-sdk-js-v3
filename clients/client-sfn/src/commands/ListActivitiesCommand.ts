@@ -55,6 +55,10 @@ export interface ListActivitiesCommandOutput extends ListActivitiesOutput, __Met
  * @see {@link ListActivitiesCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link InvalidToken} (client fault)
+ *  <p>The provided token is not valid.</p>
+ *
+ *
  */
 export class ListActivitiesCommand extends $Command<
   ListActivitiesCommandInput,

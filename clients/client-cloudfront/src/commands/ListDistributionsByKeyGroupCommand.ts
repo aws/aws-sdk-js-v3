@@ -56,6 +56,13 @@ export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributi
  * @see {@link ListDistributionsByKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchResource} (client fault)
+ *  <p>A resource that was specified is not valid.</p>
+ *
+ *
  */
 export class ListDistributionsByKeyGroupCommand extends $Command<
   ListDistributionsByKeyGroupCommandInput,

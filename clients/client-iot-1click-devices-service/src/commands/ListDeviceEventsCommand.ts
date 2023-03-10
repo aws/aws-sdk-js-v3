@@ -55,6 +55,15 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * @see {@link ListDeviceEventsCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *
+ * @throws {@link RangeNotSatisfiableException} (client fault)
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *
+ *
  */
 export class ListDeviceEventsCommand extends $Command<
   ListDeviceEventsCommandInput,

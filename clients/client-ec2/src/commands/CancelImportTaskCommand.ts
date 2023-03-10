@@ -50,6 +50,7 @@ export interface CancelImportTaskCommandOutput extends CancelImportTaskResult, _
  * @see {@link CancelImportTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CancelImportTaskCommand extends $Command<
   CancelImportTaskCommandInput,

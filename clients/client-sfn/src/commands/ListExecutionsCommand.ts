@@ -58,6 +58,26 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * @see {@link ListExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link InvalidToken} (client fault)
+ *  <p>The provided token is not valid.</p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Could not find the referenced resource. Only state machine and activity ARNs are
+ *       supported.</p>
+ *
+ * @throws {@link StateMachineDoesNotExist} (client fault)
+ *  <p>The specified state machine does not exist.</p>
+ *
+ * @throws {@link StateMachineTypeNotSupported} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ *
  */
 export class ListExecutionsCommand extends $Command<
   ListExecutionsCommandInput,

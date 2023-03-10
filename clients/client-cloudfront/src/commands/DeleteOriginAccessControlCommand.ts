@@ -51,6 +51,24 @@ export interface DeleteOriginAccessControlCommandOutput extends __MetadataBearer
  * @see {@link DeleteOriginAccessControlCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchOriginAccessControl} (client fault)
+ *  <p>The origin access control does not exist.</p>
+ *
+ * @throws {@link OriginAccessControlInUse} (client fault)
+ *  <p>Cannot delete the origin access control because it's in use by one or more
+ * 			distributions.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ *
  */
 export class DeleteOriginAccessControlCommand extends $Command<
   DeleteOriginAccessControlCommandInput,

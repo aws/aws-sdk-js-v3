@@ -50,6 +50,13 @@ export interface GetFieldLevelEncryptionCommandOutput extends GetFieldLevelEncry
  * @see {@link GetFieldLevelEncryptionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchFieldLevelEncryptionConfig} (client fault)
+ *  <p>The specified configuration for field-level encryption doesn't exist.</p>
+ *
+ *
  */
 export class GetFieldLevelEncryptionCommand extends $Command<
   GetFieldLevelEncryptionCommandInput,

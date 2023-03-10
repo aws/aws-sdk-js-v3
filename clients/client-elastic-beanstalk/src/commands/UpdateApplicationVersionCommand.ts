@@ -54,6 +54,7 @@ export interface UpdateApplicationVersionCommandOutput extends ApplicationVersio
  * @see {@link UpdateApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
  * @example To change an application version's description
  * ```javascript
  * // The following operation updates the description of an application version named 22a0-stage-150819_185942:

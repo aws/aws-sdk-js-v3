@@ -52,6 +52,10 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  * @see {@link DisassociateServiceRoleFromAccountCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  General error information.
+ *
+ *
  */
 export class DisassociateServiceRoleFromAccountCommand extends $Command<
   DisassociateServiceRoleFromAccountCommandInput,

@@ -50,6 +50,11 @@ export interface BatchDeleteClusterSnapshotsCommandOutput extends BatchDeleteClu
  * @see {@link BatchDeleteClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link BatchDeleteRequestSizeExceededFault} (client fault)
+ *  <p>The maximum number for a batch delete of snapshots has been reached. The limit is
+ *             100. </p>
+ *
+ *
  */
 export class BatchDeleteClusterSnapshotsCommand extends $Command<
   BatchDeleteClusterSnapshotsCommandInput,

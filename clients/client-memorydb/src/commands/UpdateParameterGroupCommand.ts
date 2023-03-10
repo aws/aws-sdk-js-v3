@@ -50,6 +50,22 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * @see {@link UpdateParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterGroupStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ParameterGroupNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class UpdateParameterGroupCommand extends $Command<
   UpdateParameterGroupCommandInput,

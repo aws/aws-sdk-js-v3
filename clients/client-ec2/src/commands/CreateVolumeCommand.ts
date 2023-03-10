@@ -57,6 +57,7 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * @see {@link CreateVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To create a new volume
  * ```javascript
  * // This example creates an 80 GiB General Purpose (SSD) volume in the Availability Zone ``us-east-1a``.

@@ -62,6 +62,15 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  * @see {@link AddWorkingStorageCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
  * @example To add storage on local disk
  * ```javascript
  * // Configures one or more gateway local disks as working storage for a gateway. (Working storage is also referred to as upload buffer.)

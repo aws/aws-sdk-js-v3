@@ -50,6 +50,10 @@ export interface ListWavesCommandOutput extends ListWavesResponse, __MetadataBea
  * @see {@link ListWavesCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ *
  */
 export class ListWavesCommand extends $Command<ListWavesCommandInput, ListWavesCommandOutput, MgnClientResolvedConfig> {
   // Start section: command_properties

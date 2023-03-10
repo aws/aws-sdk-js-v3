@@ -50,6 +50,25 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SnapshotAlreadyExistsFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,

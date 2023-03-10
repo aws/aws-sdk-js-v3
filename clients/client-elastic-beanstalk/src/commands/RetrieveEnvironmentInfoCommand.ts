@@ -59,6 +59,7 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  * @see {@link RetrieveEnvironmentInfoCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
  * @example To retrieve tailed logs
  * ```javascript
  * // The following operation retrieves a link to logs from an environment named my-env:

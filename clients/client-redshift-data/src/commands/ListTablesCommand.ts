@@ -68,6 +68,16 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * @see {@link ListTablesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
+ * @throws {@link DatabaseConnectionException} (server fault)
+ *  <p>Connection to a database failed.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ *
  */
 export class ListTablesCommand extends $Command<
   ListTablesCommandInput,

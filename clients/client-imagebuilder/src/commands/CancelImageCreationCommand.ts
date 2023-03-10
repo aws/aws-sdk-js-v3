@@ -51,6 +51,35 @@ export interface CancelImageCreationCommandOutput extends CancelImageCreationRes
  * @see {@link CancelImageCreationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
+ * @throws {@link CallRateLimitExceededException} (client fault)
+ *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action, such as using an action or resource on
+ * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
+ * 			invalid resource identifier.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>You have specified a client token for an operation using parameter values that differ from
+ * 			a previous request that used the same client token.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>You have made a request for an action that is not supported by the service.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource that you are trying to operate on is currently in use. Review the message
+ * 			details and retry later.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unable to process your request at this time.</p>
+ *
+ *
  */
 export class CancelImageCreationCommand extends $Command<
   CancelImageCreationCommandInput,

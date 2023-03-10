@@ -41,6 +41,7 @@ export interface QueryListsCommandOutput extends __MetadataBearer {}
  * @see {@link QueryListsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
+ *
  */
 export class QueryListsCommand extends $Command<
   QueryListsCommandInput,

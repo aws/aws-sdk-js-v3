@@ -60,6 +60,13 @@ export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResul
  * @see {@link RebootCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link CacheClusterNotFoundFault} (client fault)
+ *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * @throws {@link InvalidCacheClusterStateFault} (client fault)
+ *  <p>The requested cluster is not in the <code>available</code> state.</p>
+ *
+ *
  * @example RebootCacheCluster
  * ```javascript
  * // Reboots the specified nodes in the names cluster.

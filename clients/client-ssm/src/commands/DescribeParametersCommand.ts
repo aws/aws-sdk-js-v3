@@ -62,6 +62,23 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  * @see {@link DescribeParametersCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidFilterKey} (client fault)
+ *  <p>The specified key isn't valid.</p>
+ *
+ * @throws {@link InvalidFilterOption} (client fault)
+ *  <p>The specified filter option isn't valid. Valid options are Equals and BeginsWith. For Path
+ *    filter, valid options are Recursive and OneLevel.</p>
+ *
+ * @throws {@link InvalidFilterValue} (client fault)
+ *  <p>The filter value isn't valid. Verify the value and try again.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ *
  */
 export class DescribeParametersCommand extends $Command<
   DescribeParametersCommandInput,

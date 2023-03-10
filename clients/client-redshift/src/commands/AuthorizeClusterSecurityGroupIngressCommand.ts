@@ -67,6 +67,21 @@ export interface AuthorizeClusterSecurityGroupIngressCommandOutput
  * @see {@link AuthorizeClusterSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link AuthorizationAlreadyExistsFault} (client fault)
+ *  <p>The specified CIDR block or EC2 security group is already authorized for the
+ *             specified cluster security group.</p>
+ *
+ * @throws {@link AuthorizationQuotaExceededFault} (client fault)
+ *  <p>The authorization quota for the cluster security group has been reached.</p>
+ *
+ * @throws {@link ClusterSecurityGroupNotFoundFault} (client fault)
+ *  <p>The cluster security group name does not refer to an existing cluster security
+ *             group.</p>
+ *
+ * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
+ *  <p>The state of the cluster security group is not <code>available</code>. </p>
+ *
+ *
  */
 export class AuthorizeClusterSecurityGroupIngressCommand extends $Command<
   AuthorizeClusterSecurityGroupIngressCommandInput,

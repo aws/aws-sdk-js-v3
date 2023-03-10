@@ -58,6 +58,13 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * @see {@link GetLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ *
  */
 export class GetLoggingConfigurationCommand extends $Command<
   GetLoggingConfigurationCommandInput,

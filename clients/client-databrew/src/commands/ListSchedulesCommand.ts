@@ -50,6 +50,10 @@ export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __Met
  * @see {@link ListSchedulesCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input parameters for this request failed validation.</p>
+ *
+ *
  */
 export class ListSchedulesCommand extends $Command<
   ListSchedulesCommandInput,

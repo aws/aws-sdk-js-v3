@@ -54,6 +54,15 @@ export interface GetSSHPublicKeyCommandOutput extends GetSSHPublicKeyResponse, _
  * @see {@link GetSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link UnrecognizedPublicKeyEncodingException} (client fault)
+ *  <p>The request was rejected because the public key encoding format is unsupported or
+ *       unrecognized.</p>
+ *
+ *
  */
 export class GetSSHPublicKeyCommand extends $Command<
   GetSSHPublicKeyCommandInput,

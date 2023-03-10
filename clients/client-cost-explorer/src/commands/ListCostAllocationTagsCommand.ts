@@ -51,6 +51,13 @@ export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationT
  * @see {@link ListCostAllocationTagsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ *
  */
 export class ListCostAllocationTagsCommand extends $Command<
   ListCostAllocationTagsCommandInput,

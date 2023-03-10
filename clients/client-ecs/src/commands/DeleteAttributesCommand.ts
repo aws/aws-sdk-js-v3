@@ -50,6 +50,19 @@ export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse,
  * @see {@link DeleteAttributesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link TargetNotFoundException} (client fault)
+ *  <p>The specified target wasn't found. You can view your available container instances
+ * 			with <a>ListContainerInstances</a>. Amazon ECS container instances are
+ * 			cluster-specific and Region-specific.</p>
+ *
+ *
  */
 export class DeleteAttributesCommand extends $Command<
   DeleteAttributesCommandInput,

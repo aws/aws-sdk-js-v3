@@ -65,6 +65,7 @@ export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageO
  * @see {@link GetMetricWidgetImageCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ *
  */
 export class GetMetricWidgetImageCommand extends $Command<
   GetMetricWidgetImageCommandInput,

@@ -56,6 +56,10 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * @see {@link DescribeDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ *
  */
 export class DescribeDeliveryStreamCommand extends $Command<
   DescribeDeliveryStreamCommandInput,

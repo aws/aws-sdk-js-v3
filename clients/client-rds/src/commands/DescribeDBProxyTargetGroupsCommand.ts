@@ -52,6 +52,16 @@ export interface DescribeDBProxyTargetGroupsCommandOutput
  * @see {@link DescribeDBProxyTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBProxyNotFoundFault} (client fault)
+ *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * @throws {@link DBProxyTargetGroupNotFoundFault} (client fault)
+ *  <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * @throws {@link InvalidDBProxyStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the proxy is in this state.</p>
+ *
+ *
  */
 export class DescribeDBProxyTargetGroupsCommand extends $Command<
   DescribeDBProxyTargetGroupsCommandInput,

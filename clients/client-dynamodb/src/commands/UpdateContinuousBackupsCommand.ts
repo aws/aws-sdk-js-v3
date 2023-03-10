@@ -61,6 +61,19 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  * @see {@link UpdateContinuousBackupsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ * @throws {@link ContinuousBackupsUnavailableException} (client fault)
+ *  <p>Backups have not yet been enabled for this table.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *
+ * @throws {@link TableNotFoundException} (client fault)
+ *  <p>A source table with the name <code>TableName</code> does not currently exist within
+ *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
+ *
+ *
  */
 export class UpdateContinuousBackupsCommand extends $Command<
   UpdateContinuousBackupsCommandInput,

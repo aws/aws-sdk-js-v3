@@ -54,6 +54,28 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  * @see {@link UpdateInstanceCustomHealthStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ * @throws {@link CustomHealthNotFound} (client fault)
+ *  <p>The health check for the instance that's specified by <code>ServiceId</code> and
+ *     <code>InstanceId</code> isn't a custom health check. </p>
+ *
+ * @throws {@link InstanceNotFound} (client fault)
+ *  <p>No instance exists with the specified ID, or the instance was recently registered, and
+ *    information about the instance hasn't propagated yet.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
+ *
+ * @throws {@link RequestLimitExceeded} (client fault)
+ *  <p>The operation can't be completed because you've reached the quota for the number of
+ *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
+ *     <i>Cloud Map Developer Guide</i>.</p>
+ *
+ * @throws {@link ServiceNotFound} (client fault)
+ *  <p>No service exists with the specified ID.</p>
+ *
+ *
  * @example UpdateInstanceCustomHealthStatus Example
  * ```javascript
  * // This example submits a request to change the health status of an instance associated with a service with a custom health check to HEALTHY.

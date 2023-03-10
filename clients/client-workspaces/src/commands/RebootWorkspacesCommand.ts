@@ -53,6 +53,10 @@ export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, _
  * @see {@link RebootWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>This operation is not supported.</p>
+ *
+ *
  */
 export class RebootWorkspacesCommand extends $Command<
   RebootWorkspacesCommandInput,

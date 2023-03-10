@@ -52,6 +52,7 @@ export interface DescribeTrafficMirrorSessionsCommandOutput
  * @see {@link DescribeTrafficMirrorSessionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribeTrafficMirrorSessionsCommand extends $Command<
   DescribeTrafficMirrorSessionsCommandInput,

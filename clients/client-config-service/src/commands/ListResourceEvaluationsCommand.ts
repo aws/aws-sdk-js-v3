@@ -50,6 +50,20 @@ export interface ListResourceEvaluationsCommandOutput extends ListResourceEvalua
  * @see {@link ListResourceEvaluationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified next token is invalid. Specify the
+ * 				<code>nextToken</code> string that was returned in the previous
+ * 			response to get the next page of results.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more of the specified parameters are invalid. Verify
+ * 			that your parameters are valid and try again.</p>
+ *
+ * @throws {@link InvalidTimeRangeException} (client fault)
+ *  <p>The specified time range is invalid. The earlier time is not
+ * 			chronologically before the later time.</p>
+ *
+ *
  */
 export class ListResourceEvaluationsCommand extends $Command<
   ListResourceEvaluationsCommandInput,

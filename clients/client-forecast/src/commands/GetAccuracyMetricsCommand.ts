@@ -66,6 +66,18 @@ export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsRespo
  * @see {@link GetAccuracyMetricsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ *
+ *
  */
 export class GetAccuracyMetricsCommand extends $Command<
   GetAccuracyMetricsCommandInput,

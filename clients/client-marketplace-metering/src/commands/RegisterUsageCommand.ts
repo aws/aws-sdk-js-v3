@@ -93,6 +93,38 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  * @see {@link RegisterUsageCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
  *
+ * @throws {@link CustomerNotEntitledException} (client fault)
+ *  <p>Exception thrown when the customer does not have a valid subscription for the
+ *             product.</p>
+ *
+ * @throws {@link DisabledApiException} (client fault)
+ *  <p>The API is disabled in the Region.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An internal error has occurred. Retry your request. If the problem persists, post a
+ *             message with details on the AWS forums.</p>
+ *
+ * @throws {@link InvalidProductCodeException} (client fault)
+ *  <p>The product code passed does not match the product code used for publishing the
+ *             product.</p>
+ *
+ * @throws {@link InvalidPublicKeyVersionException} (client fault)
+ *  <p>Public Key version is invalid.</p>
+ *
+ * @throws {@link InvalidRegionException} (client fault)
+ *  <p>
+ *             <code>RegisterUsage</code> must be called in the same AWS Region the ECS task was
+ *             launched in. This prevents a container from hardcoding a Region (e.g.
+ *             withRegion(“us-east-1”) when calling <code>RegisterUsage</code>.</p>
+ *
+ * @throws {@link PlatformNotSupportedException} (client fault)
+ *  <p>AWS Marketplace does not support metering usage from the underlying platform.
+ *             Currently, Amazon ECS, Amazon EKS, and AWS Fargate are supported.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The calls to the API are throttled.</p>
+ *
+ *
  */
 export class RegisterUsageCommand extends $Command<
   RegisterUsageCommandInput,

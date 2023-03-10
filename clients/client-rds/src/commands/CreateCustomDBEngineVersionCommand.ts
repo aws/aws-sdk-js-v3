@@ -50,6 +50,19 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * @see {@link CreateCustomDBEngineVersionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link CustomDBEngineVersionAlreadyExistsFault} (client fault)
+ *  <p>A CEV with the specified name already exists.</p>
+ *
+ * @throws {@link CustomDBEngineVersionQuotaExceededFault} (client fault)
+ *  <p>You have exceeded your CEV quota.</p>
+ *
+ * @throws {@link Ec2ImagePropertiesNotSupportedFault} (client fault)
+ *  <p>The AMI configuration prerequisite has not been met.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ *
  */
 export class CreateCustomDBEngineVersionCommand extends $Command<
   CreateCustomDBEngineVersionCommandInput,

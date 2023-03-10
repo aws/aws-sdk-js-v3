@@ -60,6 +60,13 @@ export interface PutDashboardCommandOutput extends PutDashboardOutput, __Metadat
  * @see {@link PutDashboardCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link DashboardInvalidInputError} (client fault)
+ *  <p>Some part of the dashboard data is invalid.</p>
+ *
+ * @throws {@link InternalServiceFault} (server fault)
+ *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *
+ *
  */
 export class PutDashboardCommand extends $Command<
   PutDashboardCommandInput,

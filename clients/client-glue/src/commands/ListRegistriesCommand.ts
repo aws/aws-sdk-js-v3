@@ -50,6 +50,16 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  * @see {@link ListRegistriesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ *
  */
 export class ListRegistriesCommand extends $Command<
   ListRegistriesCommandInput,

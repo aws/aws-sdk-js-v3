@@ -95,6 +95,30 @@ export interface GetMediaForFragmentListCommandOutput
  * @see {@link GetMediaForFragmentListCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
  *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded a limit. Try making the call later. For information about limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be
+ *             used.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>Status Code: 403, The caller is not authorized to perform an operation on the given
+ *             stream, or the token has expired.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *             <code>GetMedia</code> throws this error when Kinesis Video Streams can't find the stream
+ *             that you specified.</p>
+ *         <p>
+ *             <code>GetHLSStreamingSessionURL</code> and <code>GetDASHStreamingSessionURL</code> throw
+ *             this error if a session with a <code>PlaybackMode</code> of <code>ON_DEMAND</code> or
+ *                 <code>LIVE_REPLAY</code>is requested for a stream that has no fragments within the
+ *             requested time range, or if a session with a <code>PlaybackMode</code> of
+ *                 <code>LIVE</code> is requested for a stream that has no fragments within the last 30
+ *             seconds.</p>
+ *
+ *
  */
 export class GetMediaForFragmentListCommand extends $Command<
   GetMediaForFragmentListCommandInput,

@@ -50,6 +50,14 @@ export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage
  * @see {@link DescribeReservedNodesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link DependentServiceUnavailableFault} (client fault)
+ *  <p>Your request cannot be completed because a dependent internal service is
+ *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ *
+ * @throws {@link ReservedNodeNotFoundFault} (client fault)
+ *  <p>The specified reserved compute node not found.</p>
+ *
+ *
  */
 export class DescribeReservedNodesCommand extends $Command<
   DescribeReservedNodesCommandInput,

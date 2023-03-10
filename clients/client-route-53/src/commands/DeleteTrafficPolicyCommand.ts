@@ -66,6 +66,21 @@ export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyRes
  * @see {@link DeleteTrafficPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link ConcurrentModification} (client fault)
+ *  <p>Another user submitted a request to create, update, or delete the object at the same
+ * 			time that you did. Retry the request. </p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchTrafficPolicy} (client fault)
+ *  <p>No traffic policy exists with the specified ID.</p>
+ *
+ * @throws {@link TrafficPolicyInUse} (client fault)
+ *  <p>One or more traffic policy instances were created by using the specified traffic
+ * 			policy.</p>
+ *
+ *
  */
 export class DeleteTrafficPolicyCommand extends $Command<
   DeleteTrafficPolicyCommandInput,

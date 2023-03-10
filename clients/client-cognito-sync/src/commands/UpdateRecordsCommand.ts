@@ -52,6 +52,41 @@ export interface UpdateRecordsCommandOutput extends UpdateRecordsResponse, __Met
  * @see {@link UpdateRecordsCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
  *
+ * @throws {@link InternalErrorException} (server fault)
+ *  Indicates an internal service
+ *       error.
+ *
+ * @throws {@link InvalidLambdaFunctionOutputException} (client fault)
+ *  <p>The AWS Lambda function returned invalid output or an exception.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  Thrown when a request parameter does not comply
+ *       with the associated constraints.
+ *
+ * @throws {@link LambdaThrottledException} (client fault)
+ *  <p>AWS Lambda throttled your account, please contact AWS Support</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  Thrown when the limit on the number of objects or
+ *       operations has been exceeded.
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  Thrown when a user is not authorized to access the
+ *       requested resource.
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  Thrown if an update can't be applied because
+ *       the resource was changed by another call and this would result in a conflict.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Thrown if the resource doesn't
+ *       exist.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Thrown if the request is
+ *       throttled.
+ *
+ *
  */
 export class UpdateRecordsCommand extends $Command<
   UpdateRecordsCommandInput,

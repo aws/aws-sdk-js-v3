@@ -78,6 +78,7 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * @see {@link GetObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  * @example To retrieve tag set of a specific object version
  * ```javascript
  * // The following example retrieves tag set of an object. The request specifies object version.

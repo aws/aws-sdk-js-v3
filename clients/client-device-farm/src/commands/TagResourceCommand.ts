@@ -52,6 +52,24 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link TagOperationException} (client fault)
+ *  <p>The operation was not successful. Try again.</p>
+ *
+ * @throws {@link TagPolicyException} (client fault)
+ *  <p>The request doesn't comply with the AWS Identity and Access Management (IAM) tag
+ *             policy. Correct your request and then retry it.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The list of tags on the repository is over the limit. The maximum number of tags that
+ *             can be applied to a repository is 50. </p>
+ *
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

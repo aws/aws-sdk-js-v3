@@ -62,6 +62,14 @@ export interface DescribeClustersCommandOutput extends ClustersMessage, __Metada
  * @see {@link DescribeClustersCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ *
  */
 export class DescribeClustersCommand extends $Command<
   DescribeClustersCommandInput,

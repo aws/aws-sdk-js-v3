@@ -66,6 +66,12 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  * @see {@link GetPublicAccessBlockCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link NoSuchPublicAccessBlockConfiguration} (client fault)
+ *  <p>Amazon S3 throws this exception if you make a <code>GetPublicAccessBlock</code> request
+ *          against an account that doesn't have a <code>PublicAccessBlockConfiguration</code>
+ *          set.</p>
+ *
+ *
  */
 export class GetPublicAccessBlockCommand extends $Command<
   GetPublicAccessBlockCommandInput,

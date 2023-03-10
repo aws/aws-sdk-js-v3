@@ -71,6 +71,10 @@ export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, _
  * @see {@link StartDeviceSyncCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link DeviceNotRegisteredException} (client fault)
+ *  <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
+ *
+ *
  */
 export class StartDeviceSyncCommand extends $Command<
   StartDeviceSyncCommandInput,

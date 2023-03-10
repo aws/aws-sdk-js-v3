@@ -51,6 +51,20 @@ export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {
  * @see {@link DeleteRealtimeLogConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchRealtimeLogConfig} (client fault)
+ *  <p>The real-time log configuration does not exist.</p>
+ *
+ * @throws {@link RealtimeLogConfigInUse} (client fault)
+ *  <p>Cannot delete the real-time log configuration because it is attached to one or more
+ * 			cache behaviors.</p>
+ *
+ *
  */
 export class DeleteRealtimeLogConfigCommand extends $Command<
   DeleteRealtimeLogConfigCommandInput,

@@ -56,6 +56,10 @@ export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckO
  * @see {@link ConfigureHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ *
  * @example To specify the health check settings for your backend EC2 instances
  * ```javascript
  * // This example specifies the health check settings used to evaluate the health of your backend EC2 instances.

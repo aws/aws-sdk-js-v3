@@ -54,6 +54,13 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
  * @see {@link ModifyWorkspaceAccessPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  */
 export class ModifyWorkspaceAccessPropertiesCommand extends $Command<
   ModifyWorkspaceAccessPropertiesCommandInput,

@@ -54,6 +54,7 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
  * @see {@link DescribeStacksCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ *
  */
 export class DescribeStacksCommand extends $Command<
   DescribeStacksCommandInput,

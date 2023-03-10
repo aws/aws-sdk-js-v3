@@ -64,6 +64,14 @@ export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecur
  * @see {@link DescribeClusterSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterSecurityGroupNotFoundFault} (client fault)
+ *  <p>The cluster security group name does not refer to an existing cluster security
+ *             group.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ *
  */
 export class DescribeClusterSecurityGroupsCommand extends $Command<
   DescribeClusterSecurityGroupsCommandInput,

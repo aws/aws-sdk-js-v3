@@ -50,6 +50,10 @@ export interface GetCustomRulePolicyCommandOutput extends GetCustomRulePolicyRes
  * @see {@link GetCustomRulePolicyCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link NoSuchConfigRuleException} (client fault)
+ *  <p>The Config rule in the request is invalid. Verify that the rule is an Config Custom Policy rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ *
+ *
  */
 export class GetCustomRulePolicyCommand extends $Command<
   GetCustomRulePolicyCommandInput,

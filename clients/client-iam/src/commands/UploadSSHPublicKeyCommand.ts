@@ -54,6 +54,26 @@ export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyRespo
  * @see {@link UploadSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link DuplicateSSHPublicKeyException} (client fault)
+ *  <p>The request was rejected because the SSH public key is already associated with the
+ *       specified IAM user.</p>
+ *
+ * @throws {@link InvalidPublicKeyException} (client fault)
+ *  <p>The request was rejected because the public key is malformed or otherwise invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *       account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link UnrecognizedPublicKeyEncodingException} (client fault)
+ *  <p>The request was rejected because the public key encoding format is unsupported or
+ *       unrecognized.</p>
+ *
+ *
  */
 export class UploadSSHPublicKeyCommand extends $Command<
   UploadSSHPublicKeyCommandInput,

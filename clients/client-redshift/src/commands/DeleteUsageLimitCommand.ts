@@ -45,6 +45,13 @@ export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ * @throws {@link UsageLimitNotFoundFault} (client fault)
+ *  <p>The usage limit identifier can't be found.</p>
+ *
+ *
  */
 export class DeleteUsageLimitCommand extends $Command<
   DeleteUsageLimitCommandInput,

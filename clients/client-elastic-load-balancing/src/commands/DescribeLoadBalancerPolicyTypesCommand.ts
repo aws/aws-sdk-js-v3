@@ -63,6 +63,10 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput
  * @see {@link DescribeLoadBalancerPolicyTypesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link PolicyTypeNotFoundException} (client fault)
+ *  <p>One or more of the specified policy types do not exist.</p>
+ *
+ *
  * @example To describe a load balancer policy type defined by Elastic Load Balancing
  * ```javascript
  * // This example describes the specified load balancer policy type.

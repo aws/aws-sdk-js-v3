@@ -55,6 +55,15 @@ export interface DeleteBlueGreenDeploymentCommandOutput extends DeleteBlueGreenD
  * @see {@link DeleteBlueGreenDeploymentCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link BlueGreenDeploymentNotFoundFault} (client fault)
+ *  <p>
+ *             <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+ *
+ * @throws {@link InvalidBlueGreenDeploymentStateFault} (client fault)
+ *  <p>The blue/green deployment can't be switched over or deleted because there is an invalid configuration in
+ *             the green environment.</p>
+ *
+ *
  */
 export class DeleteBlueGreenDeploymentCommand extends $Command<
   DeleteBlueGreenDeploymentCommandInput,

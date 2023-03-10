@@ -50,6 +50,13 @@ export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueRes
  * @see {@link ImportCatalogToGlueCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
  */
 export class ImportCatalogToGlueCommand extends $Command<
   ImportCatalogToGlueCommandInput,

@@ -55,6 +55,42 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterContainsContainerInstancesException} (client fault)
+ *  <p>You can't delete a cluster that has registered container instances. First, deregister
+ * 			the container instances before you can delete the cluster. For more information, see
+ * 				<a>DeregisterContainerInstance</a>.</p>
+ *
+ * @throws {@link ClusterContainsServicesException} (client fault)
+ *  <p>You can't delete a cluster that contains services. First, update the service to reduce
+ * 			its desired task count to 0, and then delete the service. For more information, see
+ * 				<a>UpdateService</a> and <a>DeleteService</a>.</p>
+ *
+ * @throws {@link ClusterContainsTasksException} (client fault)
+ *  <p>You can't delete a cluster that has active tasks.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link UpdateInProgressException} (client fault)
+ *  <p>There's already a current Amazon ECS container agent update in progress on the container
+ * 			instance that's specified. If the container agent becomes disconnected while it's in a
+ * 			transitional stage, such as <code>PENDING</code> or <code>STAGING</code>, the update
+ * 			process can get stuck in that state. However, when the agent reconnects, it resumes
+ * 			where it stopped previously.</p>
+ *
+ *
  * @example To delete an empty cluster
  * ```javascript
  * // This example deletes an empty cluster in your default region.

@@ -54,6 +54,13 @@ export interface GetParametersCommandOutput extends GetParametersResult, __Metad
  * @see {@link GetParametersCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidKeyId} (client fault)
+ *  <p>The query key ID isn't valid.</p>
+ *
+ *
  */
 export class GetParametersCommand extends $Command<
   GetParametersCommandInput,

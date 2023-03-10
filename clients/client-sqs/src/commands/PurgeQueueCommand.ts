@@ -55,6 +55,13 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  * @see {@link PurgeQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link PurgeQueueInProgress} (client fault)
+ *  <p>Indicates that the specified queue previously received a <code>PurgeQueue</code> request within the last 60 seconds (the time it can take to delete the messages in the queue).</p>
+ *
+ * @throws {@link QueueDoesNotExist} (client fault)
+ *  <p>The specified queue doesn't exist.</p>
+ *
+ *
  */
 export class PurgeQueueCommand extends $Command<
   PurgeQueueCommandInput,

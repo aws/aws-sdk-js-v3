@@ -51,6 +51,11 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
  * @see {@link DescribeAddressCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
+ *
+ *
  * @example To describe an address for a job
  * ```javascript
  * // This operation describes an address for a job.

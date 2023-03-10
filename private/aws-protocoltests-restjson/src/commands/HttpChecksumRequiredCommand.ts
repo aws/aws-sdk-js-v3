@@ -45,6 +45,7 @@ export interface HttpChecksumRequiredCommandOutput extends HttpChecksumRequiredI
  * @see {@link HttpChecksumRequiredCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class HttpChecksumRequiredCommand extends $Command<
   HttpChecksumRequiredCommandInput,

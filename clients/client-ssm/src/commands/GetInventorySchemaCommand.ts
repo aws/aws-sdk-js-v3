@@ -51,6 +51,16 @@ export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResul
  * @see {@link GetInventorySchemaCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ * @throws {@link InvalidTypeNameException} (client fault)
+ *  <p>The parameter type name isn't valid.</p>
+ *
+ *
  */
 export class GetInventorySchemaCommand extends $Command<
   GetInventorySchemaCommandInput,

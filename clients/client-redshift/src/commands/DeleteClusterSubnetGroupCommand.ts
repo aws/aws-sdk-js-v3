@@ -45,6 +45,17 @@ export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer 
  * @see {@link DeleteClusterSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterSubnetGroupNotFoundFault} (client fault)
+ *  <p>The cluster subnet group name does not refer to an existing cluster subnet
+ *             group.</p>
+ *
+ * @throws {@link InvalidClusterSubnetGroupStateFault} (client fault)
+ *  <p>The cluster subnet group cannot be deleted because it is in use.</p>
+ *
+ * @throws {@link InvalidClusterSubnetStateFault} (client fault)
+ *  <p>The state of the subnet is invalid.</p>
+ *
+ *
  */
 export class DeleteClusterSubnetGroupCommand extends $Command<
   DeleteClusterSubnetGroupCommandInput,

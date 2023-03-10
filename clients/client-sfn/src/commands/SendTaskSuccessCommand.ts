@@ -52,6 +52,17 @@ export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __M
  * @see {@link SendTaskSuccessCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link InvalidOutput} (client fault)
+ *  <p>The provided JSON output data is not valid.</p>
+ *
+ * @throws {@link InvalidToken} (client fault)
+ *  <p>The provided token is not valid.</p>
+ *
+ * @throws {@link TaskDoesNotExist} (client fault)
+ *
+ * @throws {@link TaskTimedOut} (client fault)
+ *
+ *
  */
 export class SendTaskSuccessCommand extends $Command<
   SendTaskSuccessCommandInput,

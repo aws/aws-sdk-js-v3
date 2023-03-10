@@ -54,6 +54,18 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * @see {@link DescribeTargetHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link HealthUnavailableException} (server fault)
+ *  <p>The health of the specified targets could not be retrieved due to an internal
+ *       error.</p>
+ *
+ * @throws {@link InvalidTargetException} (client fault)
+ *  <p>The specified target does not exist, is not in the same VPC as the target group, or has an
+ *       unsupported instance type.</p>
+ *
+ * @throws {@link TargetGroupNotFoundException} (client fault)
+ *  <p>The specified target group does not exist.</p>
+ *
+ *
  * @example To describe the health of the targets for a target group
  * ```javascript
  * // This example describes the health of the targets for the specified target group. One target is healthy but the other is not specified in an action, so it can't receive traffic from the load balancer.

@@ -64,6 +64,16 @@ export interface ListLunaClientsCommandOutput extends ListLunaClientsResponse, _
  * @see {@link ListLunaClientsCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
  *
+ * @throws {@link CloudHsmInternalException} (server fault)
+ *  <p>Indicates that an internal error occurred.</p>
+ *
+ * @throws {@link CloudHsmServiceException} (client fault)
+ *  <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that one or more of the request parameters are not valid.</p>
+ *
+ *
  */
 export class ListLunaClientsCommand extends $Command<
   ListLunaClientsCommandInput,

@@ -63,6 +63,23 @@ export interface GetCostAndUsageWithResourcesCommandOutput
  * @see {@link GetCostAndUsageWithResourcesCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
+ * @throws {@link BillExpirationException} (client fault)
+ *  <p>The requested report expired. Update the date interval and try again.</p>
+ *
+ * @throws {@link DataUnavailableException} (client fault)
+ *  <p>The requested data is unavailable.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * @throws {@link RequestChangedException} (client fault)
+ *  <p>Your request parameters changed between pages. Try again with the old parameters or
+ *             without a pagination token.</p>
+ *
+ *
  */
 export class GetCostAndUsageWithResourcesCommand extends $Command<
   GetCostAndUsageWithResourcesCommandInput,

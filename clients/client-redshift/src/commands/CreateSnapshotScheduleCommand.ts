@@ -50,6 +50,25 @@ export interface CreateSnapshotScheduleCommandOutput extends SnapshotSchedule, _
  * @see {@link CreateSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidScheduleFault} (client fault)
+ *  <p>The schedule you submitted isn't valid.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ * @throws {@link ScheduleDefinitionTypeUnsupportedFault} (client fault)
+ *  <p>The definition you submitted is not supported.</p>
+ *
+ * @throws {@link SnapshotScheduleAlreadyExistsFault} (client fault)
+ *  <p>The specified snapshot schedule already exists. </p>
+ *
+ * @throws {@link SnapshotScheduleQuotaExceededFault} (client fault)
+ *  <p>You have exceeded the quota of snapshot schedules. </p>
+ *
+ * @throws {@link TagLimitExceededFault} (client fault)
+ *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ *
  */
 export class CreateSnapshotScheduleCommand extends $Command<
   CreateSnapshotScheduleCommandInput,

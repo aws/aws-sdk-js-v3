@@ -53,6 +53,22 @@ export interface CreateSolFunctionPackageCommandOutput extends CreateSolFunction
  * @see {@link CreateSolFunctionPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Insufficient permissions to make request.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error occurred. Problem on the server.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Service quotas have been exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Exception caused by throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *
+ *
  */
 export class CreateSolFunctionPackageCommand extends $Command<
   CreateSolFunctionPackageCommandInput,

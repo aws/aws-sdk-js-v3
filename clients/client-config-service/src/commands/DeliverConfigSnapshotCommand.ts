@@ -66,6 +66,19 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  * @see {@link DeliverConfigSnapshotCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link NoAvailableConfigurationRecorderException} (client fault)
+ *  <p>There are no configuration recorders available to provide the
+ * 			role needed to describe your resources. Create a configuration
+ * 			recorder.</p>
+ *
+ * @throws {@link NoRunningConfigurationRecorderException} (client fault)
+ *  <p>There is no configuration recorder running.</p>
+ *
+ * @throws {@link NoSuchDeliveryChannelException} (client fault)
+ *  <p>You have specified a delivery channel that does not
+ * 			exist.</p>
+ *
+ *
  */
 export class DeliverConfigSnapshotCommand extends $Command<
   DeliverConfigSnapshotCommandInput,

@@ -57,6 +57,37 @@ export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesO
  * @see {@link BatchGetRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link InvalidRepositoryNameException} (client fault)
+ *  <p>A specified repository name is not valid.</p>
+ *
+ *         <note>
+ *             <p>This exception occurs only when a specified repository name is not valid. Other
+ *                 exceptions occur when a required repository parameter is missing, or when a
+ *                 specified repository does not exist.</p>
+ *          </note>
+ *
+ * @throws {@link MaximumRepositoryNamesExceededException} (client fault)
+ *  <p>The maximum number of allowed repository names was exceeded. Currently, this number is 100.</p>
+ *
+ * @throws {@link RepositoryNamesRequiredException} (client fault)
+ *  <p>At least one repository name object is required, but was not specified.</p>
+ *
+ *
  */
 export class BatchGetRepositoriesCommand extends $Command<
   BatchGetRepositoriesCommandInput,

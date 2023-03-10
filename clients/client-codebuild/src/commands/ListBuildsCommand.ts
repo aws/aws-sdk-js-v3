@@ -50,6 +50,10 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * @see {@link ListBuildsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ *
  */
 export class ListBuildsCommand extends $Command<
   ListBuildsCommandInput,

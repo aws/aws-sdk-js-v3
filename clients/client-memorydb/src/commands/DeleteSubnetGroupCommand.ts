@@ -50,6 +50,16 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * @see {@link DeleteSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetGroupInUseFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetGroupNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class DeleteSubnetGroupCommand extends $Command<
   DeleteSubnetGroupCommandInput,

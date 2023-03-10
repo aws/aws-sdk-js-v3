@@ -51,6 +51,10 @@ export interface ScanProvisionedProductsCommandOutput extends ScanProvisionedPro
  * @see {@link ScanProvisionedProductsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ *
  */
 export class ScanProvisionedProductsCommand extends $Command<
   ScanProvisionedProductsCommandInput,

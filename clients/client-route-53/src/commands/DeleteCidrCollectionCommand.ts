@@ -52,6 +52,20 @@ export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionR
  * @see {@link DeleteCidrCollectionCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link CidrCollectionInUseException} (client fault)
+ *  <p>This CIDR collection is in use, and isn't empty.</p>
+ *
+ * @throws {@link ConcurrentModification} (client fault)
+ *  <p>Another user submitted a request to create, update, or delete the object at the same
+ * 			time that you did. Retry the request. </p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchCidrCollectionException} (client fault)
+ *  <p>The CIDR collection you specified, doesn't exist.</p>
+ *
+ *
  */
 export class DeleteCidrCollectionCommand extends $Command<
   DeleteCidrCollectionCommandInput,

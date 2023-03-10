@@ -52,6 +52,16 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
  * @see {@link SearchEntitiesCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class SearchEntitiesCommand extends $Command<
   SearchEntitiesCommandInput,

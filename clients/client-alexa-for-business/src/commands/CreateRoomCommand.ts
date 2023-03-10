@@ -50,6 +50,13 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * @see {@link CreateRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The resource being created already exists.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You are performing an action that would put you beyond your account's limits.</p>
+ *
+ *
  */
 export class CreateRoomCommand extends $Command<
   CreateRoomCommandInput,

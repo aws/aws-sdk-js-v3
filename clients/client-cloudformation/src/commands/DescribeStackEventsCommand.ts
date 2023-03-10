@@ -56,6 +56,7 @@ export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOut
  * @see {@link DescribeStackEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ *
  */
 export class DescribeStackEventsCommand extends $Command<
   DescribeStackEventsCommandInput,

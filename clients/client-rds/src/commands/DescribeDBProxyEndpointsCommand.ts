@@ -50,6 +50,13 @@ export interface DescribeDBProxyEndpointsCommandOutput extends DescribeDBProxyEn
  * @see {@link DescribeDBProxyEndpointsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBProxyEndpointNotFoundFault} (client fault)
+ *  <p>The DB proxy endpoint doesn't exist.</p>
+ *
+ * @throws {@link DBProxyNotFoundFault} (client fault)
+ *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ *
  */
 export class DescribeDBProxyEndpointsCommand extends $Command<
   DescribeDBProxyEndpointsCommandInput,

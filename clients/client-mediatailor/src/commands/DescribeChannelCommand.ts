@@ -50,6 +50,7 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * @see {@link DescribeChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ *
  */
 export class DescribeChannelCommand extends $Command<
   DescribeChannelCommandInput,

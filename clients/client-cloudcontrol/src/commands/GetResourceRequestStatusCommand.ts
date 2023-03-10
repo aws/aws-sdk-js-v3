@@ -52,6 +52,10 @@ export interface GetResourceRequestStatusCommandOutput extends GetResourceReques
  * @see {@link GetResourceRequestStatusCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
  *
+ * @throws {@link RequestTokenNotFoundException} (client fault)
+ *  <p>A resource operation with the specified request token can't be found.</p>
+ *
+ *
  */
 export class GetResourceRequestStatusCommand extends $Command<
   GetResourceRequestStatusCommandInput,

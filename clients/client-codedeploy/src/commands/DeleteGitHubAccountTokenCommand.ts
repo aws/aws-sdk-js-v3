@@ -50,6 +50,22 @@ export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccou
  * @see {@link DeleteGitHubAccountTokenCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link GitHubAccountTokenDoesNotExistException} (client fault)
+ *  <p>No GitHub account connection exists with the named specified in the call.</p>
+ *
+ * @throws {@link GitHubAccountTokenNameRequiredException} (client fault)
+ *  <p>The call is missing a required GitHub account connection name.</p>
+ *
+ * @throws {@link InvalidGitHubAccountTokenNameException} (client fault)
+ *  <p>The format of the specified GitHub account connection name is invalid.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>The API used does not support the deployment.</p>
+ *
+ * @throws {@link ResourceValidationException} (client fault)
+ *  <p>The specified resource could not be validated.</p>
+ *
+ *
  */
 export class DeleteGitHubAccountTokenCommand extends $Command<
   DeleteGitHubAccountTokenCommandInput,

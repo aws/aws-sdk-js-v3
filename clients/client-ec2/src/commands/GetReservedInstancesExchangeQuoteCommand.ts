@@ -54,6 +54,7 @@ export interface GetReservedInstancesExchangeQuoteCommandOutput
  * @see {@link GetReservedInstancesExchangeQuoteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class GetReservedInstancesExchangeQuoteCommand extends $Command<
   GetReservedInstancesExchangeQuoteCommandInput,

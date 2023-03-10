@@ -51,6 +51,21 @@ export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __M
  * @see {@link PutStoredQueryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link ResourceConcurrentModificationException} (client fault)
+ *  <p>Two users are trying to modify the same query at the same time. Wait for a moment and try again.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You have reached the limit of the number of tags you can use.
+ * 			For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
+ *                <b>Service Limits</b>
+ *             </a> in the Config Developer Guide.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The requested action is invalid.</p>
+ * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *
+ *
  */
 export class PutStoredQueryCommand extends $Command<
   PutStoredQueryCommandInput,

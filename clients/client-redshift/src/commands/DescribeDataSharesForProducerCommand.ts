@@ -52,6 +52,10 @@ export interface DescribeDataSharesForProducerCommandOutput
  * @see {@link DescribeDataSharesForProducerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidNamespaceFault} (client fault)
+ *  <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
+ *
+ *
  */
 export class DescribeDataSharesForProducerCommand extends $Command<
   DescribeDataSharesForProducerCommandInput,

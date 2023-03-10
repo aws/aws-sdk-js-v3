@@ -53,6 +53,7 @@ export interface DisassociateTransitGatewayPolicyTableCommandOutput
  * @see {@link DisassociateTransitGatewayPolicyTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DisassociateTransitGatewayPolicyTableCommand extends $Command<
   DisassociateTransitGatewayPolicyTableCommandInput,

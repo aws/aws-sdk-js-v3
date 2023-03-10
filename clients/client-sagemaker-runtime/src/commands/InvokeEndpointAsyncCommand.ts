@@ -61,6 +61,16 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  * @see {@link InvokeEndpointAsyncCommandOutput} for command's `response` shape.
  * @see {@link SageMakerRuntimeClientResolvedConfig | config} for SageMakerRuntimeClient's `config` shape.
  *
+ * @throws {@link InternalFailure} (server fault)
+ *  <p> An internal failure occurred. </p>
+ *
+ * @throws {@link ServiceUnavailable} (server fault)
+ *  <p> The service is unavailable. Try your call again. </p>
+ *
+ * @throws {@link ValidationError} (client fault)
+ *  <p> Inspect your request and try again. </p>
+ *
+ *
  */
 export class InvokeEndpointAsyncCommand extends $Command<
   InvokeEndpointAsyncCommandInput,

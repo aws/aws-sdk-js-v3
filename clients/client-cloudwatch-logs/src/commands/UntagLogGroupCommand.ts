@@ -57,6 +57,10 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  * @see {@link UntagLogGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ *
  */
 export class UntagLogGroupCommand extends $Command<
   UntagLogGroupCommandInput,

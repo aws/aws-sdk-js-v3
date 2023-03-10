@@ -58,6 +58,15 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * @see {@link DescribeStreamCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access a nonexistent table or index. The resource
+ *             might not be specified correctly, or its status might not be
+ *             <code>ACTIVE</code>.</p>
+ *
+ *
  * @example To describe a stream with a given stream ARN
  * ```javascript
  * // The following example describes a stream with a given stream ARN.

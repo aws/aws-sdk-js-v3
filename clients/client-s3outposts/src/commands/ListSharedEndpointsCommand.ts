@@ -63,6 +63,22 @@ export interface ListSharedEndpointsCommandOutput extends ListSharedEndpointsRes
  * @see {@link ListSharedEndpointsCommandOutput} for command's `response` shape.
  * @see {@link S3OutpostsClientResolvedConfig | config} for S3OutpostsClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access was denied for this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an exception with the internal server.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was an exception validating this data.</p>
+ *
+ *
  */
 export class ListSharedEndpointsCommand extends $Command<
   ListSharedEndpointsCommandInput,

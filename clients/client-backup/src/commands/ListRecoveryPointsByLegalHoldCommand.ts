@@ -53,6 +53,17 @@ export interface ListRecoveryPointsByLegalHoldCommandOutput
  * @see {@link ListRecoveryPointsByLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ *
  */
 export class ListRecoveryPointsByLegalHoldCommand extends $Command<
   ListRecoveryPointsByLegalHoldCommandInput,

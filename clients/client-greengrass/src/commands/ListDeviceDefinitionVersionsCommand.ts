@@ -52,6 +52,10 @@ export interface ListDeviceDefinitionVersionsCommandOutput
  * @see {@link ListDeviceDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
+ *
  */
 export class ListDeviceDefinitionVersionsCommand extends $Command<
   ListDeviceDefinitionVersionsCommandInput,

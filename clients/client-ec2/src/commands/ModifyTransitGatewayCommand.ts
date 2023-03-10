@@ -50,6 +50,7 @@ export interface ModifyTransitGatewayCommandOutput extends ModifyTransitGatewayR
  * @see {@link ModifyTransitGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class ModifyTransitGatewayCommand extends $Command<
   ModifyTransitGatewayCommandInput,

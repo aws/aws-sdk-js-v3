@@ -50,6 +50,19 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
  * @see {@link DeleteCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
+ *  <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ *
+ * @throws {@link InvalidCacheParameterGroupStateFault} (client fault)
+ *  <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ *
  * @example DeleteCacheParameterGroup
  * ```javascript
  * // Deletes the Amazon ElastiCache parameter group custom-mem1-4.

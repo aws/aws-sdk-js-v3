@@ -51,6 +51,13 @@ export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __M
  * @see {@link DescribeLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in the request aren't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ *
  */
 export class DescribeLedgerCommand extends $Command<
   DescribeLedgerCommandInput,

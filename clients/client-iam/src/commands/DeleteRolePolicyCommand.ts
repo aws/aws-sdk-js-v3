@@ -50,6 +50,25 @@ export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *       account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ * @throws {@link UnmodifiableEntityException} (client fault)
+ *  <p>The request was rejected because only the service that depends on the service-linked role
+ *       can modify or delete the role on your behalf. The error message includes the name of the
+ *       service that depends on this service-linked role. You must request the change through that
+ *       service.</p>
+ *
+ *
  * @example To remove a policy from an IAM role
  * ```javascript
  * // The following command removes the policy named ExamplePolicy from the role named Test-Role.

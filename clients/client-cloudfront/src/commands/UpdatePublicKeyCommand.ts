@@ -51,6 +51,29 @@ export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __M
  * @see {@link UpdatePublicKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link CannotChangeImmutablePublicKeyFields} (client fault)
+ *  <p>You can't change the value of a public key.</p>
+ *
+ * @throws {@link IllegalUpdate} (client fault)
+ *  <p>The update contains modifications that are not allowed.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchPublicKey} (client fault)
+ *  <p>The specified public key doesn't exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ *
  */
 export class UpdatePublicKeyCommand extends $Command<
   UpdatePublicKeyCommandInput,

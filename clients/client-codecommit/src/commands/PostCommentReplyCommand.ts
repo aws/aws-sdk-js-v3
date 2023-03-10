@@ -50,6 +50,37 @@ export interface PostCommentReplyCommandOutput extends PostCommentReplyOutput, _
  * @see {@link PostCommentReplyCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
+ * @throws {@link ClientRequestTokenRequiredException} (client fault)
+ *  <p>A client request token is required. A client request token is an unique,
+ *             client-generated idempotency token that, when provided in a request, ensures the request
+ *             cannot be repeated with a changed parameter. If a request is received with the same
+ *             parameters and a token is included, the request returns information about the initial
+ *             request that used that token.</p>
+ *
+ * @throws {@link CommentContentRequiredException} (client fault)
+ *  <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
+ *
+ * @throws {@link CommentContentSizeLimitExceededException} (client fault)
+ *  <p>The comment is too large. Comments are limited to 1,000 characters.</p>
+ *
+ * @throws {@link CommentDoesNotExistException} (client fault)
+ *  <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
+ *             then try again.</p>
+ *
+ * @throws {@link CommentIdRequiredException} (client fault)
+ *  <p>The comment ID is missing or null. A comment ID is required.</p>
+ *
+ * @throws {@link IdempotencyParameterMismatchException} (client fault)
+ *  <p>The client request token is not valid. Either the token is not in a valid format, or
+ *             the token has been used in a previous request and cannot be reused.</p>
+ *
+ * @throws {@link InvalidClientRequestTokenException} (client fault)
+ *  <p>The client request token is not valid.</p>
+ *
+ * @throws {@link InvalidCommentIdException} (client fault)
+ *  <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+ *
+ *
  */
 export class PostCommentReplyCommand extends $Command<
   PostCommentReplyCommandInput,

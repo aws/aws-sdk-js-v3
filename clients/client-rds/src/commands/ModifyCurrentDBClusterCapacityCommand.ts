@@ -67,6 +67,20 @@ export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCa
  * @see {@link ModifyCurrentDBClusterCapacityCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * @throws {@link InvalidDBClusterCapacityFault} (client fault)
+ *  <p>
+ *             <code>Capacity</code> isn't a valid Aurora Serverless DB cluster
+ *             capacity. Valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>,
+ *             <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ *
  */
 export class ModifyCurrentDBClusterCapacityCommand extends $Command<
   ModifyCurrentDBClusterCapacityCommandInput,

@@ -49,6 +49,7 @@ export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBeare
  * @see {@link UnassignPrivateIpAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To unassign a secondary private IP address from a network interface
  * ```javascript
  * // This example unassigns the specified private IP address from the specified network interface.

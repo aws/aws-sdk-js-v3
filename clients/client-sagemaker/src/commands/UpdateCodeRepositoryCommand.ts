@@ -50,6 +50,7 @@ export interface UpdateCodeRepositoryCommandOutput extends UpdateCodeRepositoryO
  * @see {@link UpdateCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class UpdateCodeRepositoryCommand extends $Command<
   UpdateCodeRepositoryCommandInput,

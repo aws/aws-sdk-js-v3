@@ -55,6 +55,7 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteEndpointCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class DeleteEndpointCommand extends $Command<
   DeleteEndpointCommandInput,

@@ -52,6 +52,15 @@ export interface BatchModifyClusterSnapshotsCommandOutput
  * @see {@link BatchModifyClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link BatchModifyClusterSnapshotsLimitExceededFault} (client fault)
+ *  <p>The maximum number for snapshot identifiers has been reached. The limit is 100.
+ *         </p>
+ *
+ * @throws {@link InvalidRetentionPeriodFault} (client fault)
+ *  <p>The retention period specified is either in the past or is not a valid value.</p>
+ *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ *
  */
 export class BatchModifyClusterSnapshotsCommand extends $Command<
   BatchModifyClusterSnapshotsCommandInput,

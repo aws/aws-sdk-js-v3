@@ -49,6 +49,7 @@ export interface HttpRequestWithLabelsAndTimestampFormatCommandOutput extends __
  * @see {@link HttpRequestWithLabelsAndTimestampFormatCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ *
  */
 export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
   HttpRequestWithLabelsAndTimestampFormatCommandInput,

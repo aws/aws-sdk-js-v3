@@ -55,6 +55,7 @@ export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
  * @see {@link CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand extends $Command<
   CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,

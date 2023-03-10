@@ -53,6 +53,23 @@ export interface DescribeAutomationStepExecutionsCommandOutput
  * @see {@link DescribeAutomationStepExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link AutomationExecutionNotFoundException} (client fault)
+ *  <p>There is no automation execution information for the requested automation execution
+ *    ID.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidFilterKey} (client fault)
+ *  <p>The specified key isn't valid.</p>
+ *
+ * @throws {@link InvalidFilterValue} (client fault)
+ *  <p>The filter value isn't valid. Verify the value and try again.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ *
  */
 export class DescribeAutomationStepExecutionsCommand extends $Command<
   DescribeAutomationStepExecutionsCommandInput,

@@ -52,6 +52,31 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (server fault)
+ *  <p>Another modification is being made. That modification must complete before you can make
+ *       your change.</p>
+ *
+ * @throws {@link InvalidServiceRoleException} (client fault)
+ *  <p>The service role is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A resource limit has been exceeded.</p>
+ *
+ * @throws {@link ProjectAlreadyExistsException} (client fault)
+ *  <p>An AWS CodeStar project with the same ID already exists in this region for the AWS account.
+ *       AWS CodeStar project IDs must be unique within a region for the AWS account.</p>
+ *
+ * @throws {@link ProjectConfigurationException} (client fault)
+ *  <p>Project configuration information is required but not specified.</p>
+ *
+ * @throws {@link ProjectCreationFailedException} (client fault)
+ *  <p>The project creation request was valid, but a nonspecific exception or error occurred
+ *       during project creation. The project could not be created in AWS CodeStar.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
+ *
  */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,

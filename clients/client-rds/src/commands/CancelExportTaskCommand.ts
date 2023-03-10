@@ -51,6 +51,13 @@ export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBea
  * @see {@link CancelExportTaskCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link ExportTaskNotFoundFault} (client fault)
+ *  <p>The export task doesn't exist.</p>
+ *
+ * @throws {@link InvalidExportTaskStateFault} (client fault)
+ *  <p>You can't cancel an export task that has completed.</p>
+ *
+ *
  */
 export class CancelExportTaskCommand extends $Command<
   CancelExportTaskCommandInput,

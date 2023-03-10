@@ -57,6 +57,29 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  * @see {@link ModifyReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
+ * @throws {@link InsufficientResourceCapacityFault} (client fault)
+ *  <p>There are not enough resources allocated to the database migration.</p>
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsFault} (client fault)
+ *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link StorageQuotaExceededFault} (client fault)
+ *  <p>The storage quota has been exceeded.</p>
+ *
+ * @throws {@link UpgradeDependencyFailureFault} (client fault)
+ *  <p>An upgrade dependency is preventing the database migration.</p>
+ *
+ *
  * @example Modify replication instance
  * ```javascript
  * // Modifies the replication instance to apply new settings. You can change one or more parameters by specifying these parameters and the new values in the request. Some settings are applied during the maintenance window.

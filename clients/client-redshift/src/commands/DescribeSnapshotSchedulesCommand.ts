@@ -52,6 +52,7 @@ export interface DescribeSnapshotSchedulesCommandOutput
  * @see {@link DescribeSnapshotSchedulesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ *
  */
 export class DescribeSnapshotSchedulesCommand extends $Command<
   DescribeSnapshotSchedulesCommandInput,

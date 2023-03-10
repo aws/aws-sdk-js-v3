@@ -59,6 +59,7 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
  * @see {@link PutAccessPointConfigurationForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ *
  */
 export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command<
   PutAccessPointConfigurationForObjectLambdaCommandInput,

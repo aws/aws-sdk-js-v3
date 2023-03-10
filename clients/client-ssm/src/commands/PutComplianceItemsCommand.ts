@@ -105,6 +105,30 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  * @see {@link PutComplianceItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link ComplianceTypeCountLimitExceededException} (client fault)
+ *  <p>You specified too many custom compliance types. You can specify a maximum of 10 different
+ *    types. </p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidItemContentException} (client fault)
+ *  <p>One or more content items isn't valid.</p>
+ *
+ * @throws {@link InvalidResourceId} (client fault)
+ *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+ *
+ * @throws {@link InvalidResourceType} (client fault)
+ *  <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance,
+ *    the instance must be a registered managed node.</p>
+ *
+ * @throws {@link ItemSizeLimitExceededException} (client fault)
+ *  <p>The inventory item size has exceeded the size limit.</p>
+ *
+ * @throws {@link TotalSizeLimitExceededException} (client fault)
+ *  <p>The size of inventory data has exceeded the total size limit for the resource.</p>
+ *
+ *
  */
 export class PutComplianceItemsCommand extends $Command<
   PutComplianceItemsCommandInput,

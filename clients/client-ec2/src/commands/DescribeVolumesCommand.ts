@@ -50,6 +50,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * @see {@link DescribeVolumesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe all volumes
  * ```javascript
  * // This example describes all of your volumes in the default region.

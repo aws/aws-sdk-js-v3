@@ -50,6 +50,7 @@ export interface ListDeviceFleetsCommandOutput extends ListDeviceFleetsResponse,
  * @see {@link ListDeviceFleetsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListDeviceFleetsCommand extends $Command<
   ListDeviceFleetsCommandInput,

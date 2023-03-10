@@ -50,6 +50,14 @@ export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineRes
  * @see {@link DeletePatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>Error returned if an attempt is made to delete a patch baseline that is registered for a
+ *    patch group.</p>
+ *
+ *
  */
 export class DeletePatchBaselineCommand extends $Command<
   DeletePatchBaselineCommandInput,

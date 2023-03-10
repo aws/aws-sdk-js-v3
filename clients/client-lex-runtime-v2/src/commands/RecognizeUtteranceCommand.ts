@@ -126,6 +126,31 @@ export interface RecognizeUtteranceCommandOutput
  * @see {@link RecognizeUtteranceCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link DependencyFailedException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class RecognizeUtteranceCommand extends $Command<
   RecognizeUtteranceCommandInput,

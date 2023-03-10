@@ -54,6 +54,19 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is not authenticated.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+ *
+ *
  */
 export class ListApplicationsCommand extends $Command<
   ListApplicationsCommandInput,

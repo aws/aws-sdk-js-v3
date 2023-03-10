@@ -49,6 +49,10 @@ export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBe
  * @see {@link DeleteConfigurationAggregatorCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link NoSuchConfigurationAggregatorException} (client fault)
+ *  <p>You have specified a configuration aggregator that does not exist.</p>
+ *
+ *
  */
 export class DeleteConfigurationAggregatorCommand extends $Command<
   DeleteConfigurationAggregatorCommandInput,

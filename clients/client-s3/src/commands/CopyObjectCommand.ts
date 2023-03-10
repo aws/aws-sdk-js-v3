@@ -235,6 +235,11 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  * @see {@link CopyObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link ObjectNotInActiveTierError} (client fault)
+ *  <p>The source object of the COPY action is not in the active tier and is only stored in
+ *          Amazon S3 Glacier.</p>
+ *
+ *
  * @example To copy an object
  * ```javascript
  * // The following example copies an object from one bucket to another.

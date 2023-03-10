@@ -59,6 +59,13 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  * @see {@link DeregisterInstancesFromLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link InvalidEndPointException} (client fault)
+ *  <p>The specified endpoint is not valid.</p>
+ *
+ *
  * @example To deregister instances from a load balancer
  * ```javascript
  * // This example deregisters the specified instance from the specified load balancer.

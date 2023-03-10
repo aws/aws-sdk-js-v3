@@ -56,6 +56,16 @@ export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput,
  * @see {@link SetRulePrioritiesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link PriorityInUseException} (client fault)
+ *  <p>The specified priority is in use.</p>
+ *
+ * @throws {@link RuleNotFoundException} (client fault)
+ *  <p>The specified rule does not exist.</p>
+ *
+ *
  * @example To set the rule priority
  * ```javascript
  * // This example sets the priority of the specified rule.

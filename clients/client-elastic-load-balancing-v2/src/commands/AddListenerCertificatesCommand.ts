@@ -60,6 +60,16 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  * @see {@link AddListenerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link CertificateNotFoundException} (client fault)
+ *  <p>The specified certificate does not exist.</p>
+ *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The specified listener does not exist.</p>
+ *
+ * @throws {@link TooManyCertificatesException} (client fault)
+ *  <p>You've reached the limit on the number of certificates per load balancer.</p>
+ *
+ *
  */
 export class AddListenerCertificatesCommand extends $Command<
   AddListenerCertificatesCommandInput,

@@ -47,6 +47,14 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link DeletePolicyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ * @throws {@link ServiceLinkedRoleFailure} (server fault)
+ *  <p>The service-linked role is not yet ready for use.</p>
+ *
+ *
  * @example To delete an Auto Scaling policy
  * ```javascript
  * // This example deletes the specified Auto Scaling policy.

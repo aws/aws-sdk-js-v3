@@ -50,6 +50,19 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  * @see {@link DescribeSourceServersCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>The account performing the request has not been initialized.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+ *
+ *
  */
 export class DescribeSourceServersCommand extends $Command<
   DescribeSourceServersCommandInput,

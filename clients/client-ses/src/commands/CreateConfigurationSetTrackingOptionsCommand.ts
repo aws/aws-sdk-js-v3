@@ -57,6 +57,27 @@ export interface CreateConfigurationSetTrackingOptionsCommandOutput
  * @see {@link CreateConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * @throws {@link InvalidTrackingOptionsException} (client fault)
+ *  <p>Indicates that the custom domain to be used for open and click tracking redirects is
+ *             invalid. This error appears most often in the following situations:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>When the tracking domain you specified is not verified in Amazon SES.</p>
+ *             </li>
+ *             <li>
+ *                 <p>When the tracking domain you specified is not a valid domain or
+ *                     subdomain.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link TrackingOptionsAlreadyExistsException} (client fault)
+ *  <p>Indicates that the configuration set you specified already contains a TrackingOptions
+ *             object.</p>
+ *
+ *
  */
 export class CreateConfigurationSetTrackingOptionsCommand extends $Command<
   CreateConfigurationSetTrackingOptionsCommandInput,

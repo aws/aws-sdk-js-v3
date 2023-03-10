@@ -54,6 +54,19 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * @see {@link PutReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
  *
+ * @throws {@link DuplicateReportNameException} (client fault)
+ *  <p>A report with the specified name already exists in the account. Specify a different report name.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * @throws {@link ReportLimitReachedException} (client fault)
+ *  <p>This account already has five reports defined. To define a new report, you must delete an existing report.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ *
  * @example To create a report named ExampleReport.
  * ```javascript
  * // The following example creates a AWS Cost and Usage report named ExampleReport.

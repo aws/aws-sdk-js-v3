@@ -56,6 +56,14 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
  * @see {@link DeleteClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterSnapshotNotFoundFault} (client fault)
+ *  <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ *
+ * @throws {@link InvalidClusterSnapshotStateFault} (client fault)
+ *  <p>The specified cluster snapshot is not in the <code>available</code> state, or other
+ *             accounts are authorized to access the snapshot. </p>
+ *
+ *
  */
 export class DeleteClusterSnapshotCommand extends $Command<
   DeleteClusterSnapshotCommandInput,

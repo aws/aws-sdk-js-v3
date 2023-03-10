@@ -50,6 +50,7 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * @see {@link StartChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ *
  */
 export class StartChannelCommand extends $Command<
   StartChannelCommandInput,

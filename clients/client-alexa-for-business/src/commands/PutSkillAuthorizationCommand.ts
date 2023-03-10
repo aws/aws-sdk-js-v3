@@ -52,6 +52,13 @@ export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizatio
  * @see {@link PutSkillAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The caller has no permissions to operate on the resource involved in the API call.</p>
+ *
+ *
  */
 export class PutSkillAuthorizationCommand extends $Command<
   PutSkillAuthorizationCommandInput,

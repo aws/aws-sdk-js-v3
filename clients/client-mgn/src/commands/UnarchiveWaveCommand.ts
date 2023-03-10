@@ -50,6 +50,16 @@ export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  * @see {@link UnarchiveWaveCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request could not be completed because its exceeded the service quota.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ *
  */
 export class UnarchiveWaveCommand extends $Command<
   UnarchiveWaveCommandInput,

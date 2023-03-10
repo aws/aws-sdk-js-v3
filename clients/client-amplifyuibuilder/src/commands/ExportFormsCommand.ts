@@ -50,6 +50,13 @@ export interface ExportFormsCommandOutput extends ExportFormsResponse, __Metadat
  * @see {@link ExportFormsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ *
  */
 export class ExportFormsCommand extends $Command<
   ExportFormsCommandInput,

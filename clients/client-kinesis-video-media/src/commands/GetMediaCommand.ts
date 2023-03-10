@@ -102,6 +102,31 @@ export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutp
  * @see {@link GetMediaCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoMediaClientResolvedConfig | config} for KinesisVideoMediaClient's `config` shape.
  *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *       allowed client calls. Try making the call later.</p>
+ *
+ * @throws {@link ConnectionLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *       allowed client connections.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *  <p> Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving
+ *       such an exception, the user must call <code>GetDataEndpoint</code> with
+ *         <code>AccessMode</code> set to "READ" and use the endpoint Kinesis Video returns in the next
+ *         <code>GetMedia</code> call. </p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>Status Code: 403, The caller is not authorized to perform an operation on the given
+ *       stream, or the token has expired.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Status Code: 404, The stream with the given name does not exist.</p>
+ *
+ *
  */
 export class GetMediaCommand extends $Command<
   GetMediaCommandInput,

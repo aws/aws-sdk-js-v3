@@ -52,6 +52,10 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  * @see {@link DescribeSessionsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ *
  */
 export class DescribeSessionsCommand extends $Command<
   DescribeSessionsCommandInput,

@@ -52,6 +52,15 @@ export interface ListGroupsForUserCommandOutput extends ListGroupsForUserRespons
  * @see {@link ListGroupsForUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
  * @example To list the groups that an IAM user belongs to
  * ```javascript
  * // The following command displays the groups that the IAM user named Bob belongs to.

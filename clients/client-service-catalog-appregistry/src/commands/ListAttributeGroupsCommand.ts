@@ -54,6 +54,13 @@ export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsRes
  * @see {@link ListAttributeGroupsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service is experiencing internal problems.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request has invalid or missing parameters.</p>
+ *
+ *
  */
 export class ListAttributeGroupsCommand extends $Command<
   ListAttributeGroupsCommandInput,

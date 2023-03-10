@@ -58,6 +58,28 @@ export interface CreateTrafficPolicyInstanceCommandOutput
  * @see {@link CreateTrafficPolicyInstanceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * @throws {@link NoSuchTrafficPolicy} (client fault)
+ *  <p>No traffic policy exists with the specified ID.</p>
+ *
+ * @throws {@link TooManyTrafficPolicyInstances} (client fault)
+ *  <p>This traffic policy instance can't be created because the current account has reached
+ * 			the limit on the number of traffic policy instances.</p>
+ *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
+ * 				<i>Amazon Route 53 Developer Guide</i>.</p>
+ *          <p>For information about how to get the current limit for an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>.</p>
+ *          <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a
+ * 				case</a> with the Amazon Web Services Support Center.</p>
+ *
+ * @throws {@link TrafficPolicyInstanceAlreadyExists} (client fault)
+ *  <p>There is already a traffic policy instance with the specified ID.</p>
+ *
+ *
  */
 export class CreateTrafficPolicyInstanceCommand extends $Command<
   CreateTrafficPolicyInstanceCommandInput,

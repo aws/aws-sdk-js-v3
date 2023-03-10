@@ -46,6 +46,7 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To delete a tag from a resource
  * ```javascript
  * // This example deletes the tag Stack=test from the specified image.

@@ -55,6 +55,11 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  * @see {@link SendBounceCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link MessageRejected} (client fault)
+ *  <p>Indicates that the action failed, and the message could not be sent. Check the error
+ *             stack for more information about what caused the error.</p>
+ *
+ *
  */
 export class SendBounceCommand extends $Command<
   SendBounceCommandInput,

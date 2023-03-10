@@ -50,6 +50,7 @@ export interface JsonListsCommandOutput extends JsonListsInputOutput, __Metadata
  * @see {@link JsonListsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class JsonListsCommand extends $Command<
   JsonListsCommandInput,

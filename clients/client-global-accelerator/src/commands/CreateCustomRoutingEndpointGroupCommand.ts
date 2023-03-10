@@ -58,6 +58,31 @@ export interface CreateCustomRoutingEndpointGroupCommandOutput
  * @see {@link CreateCustomRoutingEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
+ * @throws {@link AcceleratorNotFoundException} (client fault)
+ *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access permission.</p>
+ *
+ * @throws {@link EndpointGroupAlreadyExistsException} (client fault)
+ *  <p>The endpoint group that you specified already exists.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link InvalidPortRangeException} (client fault)
+ *  <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The listener that you specified doesn't exist.</p>
+ *
+ *
  */
 export class CreateCustomRoutingEndpointGroupCommand extends $Command<
   CreateCustomRoutingEndpointGroupCommandInput,

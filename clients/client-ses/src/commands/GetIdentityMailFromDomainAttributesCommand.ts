@@ -55,6 +55,7 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  * @see {@link GetIdentityMailFromDomainAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
  * @example GetIdentityMailFromDomainAttributes
  * ```javascript
  * // The following example returns the custom MAIL FROM attributes for an identity:

@@ -53,6 +53,14 @@ export interface DescribeGlobalSettingsCommandOutput extends DescribeGlobalSetti
  * @see {@link DescribeGlobalSettingsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *          parameter is of the wrong type.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ *
  */
 export class DescribeGlobalSettingsCommand extends $Command<
   DescribeGlobalSettingsCommandInput,

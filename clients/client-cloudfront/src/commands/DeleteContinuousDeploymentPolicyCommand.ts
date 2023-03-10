@@ -51,6 +51,27 @@ export interface DeleteContinuousDeploymentPolicyCommandOutput extends __Metadat
  * @see {@link DeleteContinuousDeploymentPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link ContinuousDeploymentPolicyInUse} (client fault)
+ *  <p>You cannot delete a continuous deployment policy that is associated with a primary
+ * 			distribution.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchContinuousDeploymentPolicy} (client fault)
+ *  <p>The continuous deployment policy doesn't exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ *
  */
 export class DeleteContinuousDeploymentPolicyCommand extends $Command<
   DeleteContinuousDeploymentPolicyCommandInput,

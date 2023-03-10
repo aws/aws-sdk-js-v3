@@ -56,6 +56,10 @@ export interface DescribeReplicationSubnetGroupsCommandOutput
  * @see {@link DescribeReplicationSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  * @example Describe replication subnet groups
  * ```javascript
  * // Returns information about the replication subnet groups.

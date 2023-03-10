@@ -50,6 +50,10 @@ export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __M
  * @see {@link CreateCliTokenCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>ResourceNotFoundException: The resource is not available.</p>
+ *
+ *
  */
 export class CreateCliTokenCommand extends $Command<
   CreateCliTokenCommandInput,

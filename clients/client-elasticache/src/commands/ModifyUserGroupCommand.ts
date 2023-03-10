@@ -50,6 +50,31 @@ export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * @see {@link ModifyUserGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link DefaultUserRequired} (client fault)
+ *  <p>You must add default user to a user group.</p>
+ *
+ * @throws {@link DuplicateUserNameFault} (client fault)
+ *  <p>A user with this username already exists.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidUserGroupStateFault} (client fault)
+ *  <p>The user group is not in an active state.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link UserGroupNotFoundFault} (client fault)
+ *  <p>The user group was not found or does not exist</p>
+ *
+ * @throws {@link UserNotFoundFault} (client fault)
+ *  <p>The user does not exist or could not be found.</p>
+ *
+ *
  */
 export class ModifyUserGroupCommand extends $Command<
   ModifyUserGroupCommandInput,

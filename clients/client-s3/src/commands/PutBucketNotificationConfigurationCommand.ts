@@ -102,6 +102,7 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  * @see {@link PutBucketNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  * @example Set notification configuration for a bucket
  * ```javascript
  * // The following example sets notification configuration on a bucket to publish the object created events to an SNS topic.

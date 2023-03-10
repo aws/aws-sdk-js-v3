@@ -61,6 +61,23 @@ export interface QueryForecastCommandOutput extends QueryForecastResponse, __Met
  * @see {@link QueryForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastqueryClientResolvedConfig | config} for ForecastqueryClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The value is invalid or is too long.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find that resource. Check the information that you've provided and try
+ *       again.</p>
+ *
+ *
  */
 export class QueryForecastCommand extends $Command<
   QueryForecastCommandInput,

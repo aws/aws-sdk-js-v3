@@ -55,6 +55,22 @@ export interface GetWorkUnitResultsCommandOutput
  * @see {@link GetWorkUnitResultsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link ExpiredException} (client fault)
+ *  <p>Contains details about an error where the query request expired.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>Contains details about an error where the query request was throttled.</p>
+ *
+ *
  */
 export class GetWorkUnitResultsCommand extends $Command<
   GetWorkUnitResultsCommandInput,

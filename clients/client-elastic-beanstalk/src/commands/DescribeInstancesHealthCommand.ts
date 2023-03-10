@@ -52,6 +52,14 @@ export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesH
  * @see {@link DescribeInstancesHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException} (client fault)
+ *  <p>A generic service exception has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more input parameters is not valid. Please correct the input parameters and try
+ *       the operation again.</p>
+ *
+ *
  * @example To view environment health
  * ```javascript
  * // The following operation retrieves health information for instances in an environment named my-env:

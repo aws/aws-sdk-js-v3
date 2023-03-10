@@ -51,6 +51,29 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  * @see {@link CreatePullThroughCacheRuleCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The operation did not succeed because it would have exceeded a service limit for your
+ *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
+ *             the Amazon Elastic Container Registry User Guide.</p>
+ *
+ * @throws {@link PullThroughCacheRuleAlreadyExistsException} (client fault)
+ *  <p>A pull through cache rule with these settings already exists for the private
+ *             registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UnsupportedUpstreamRegistryException} (client fault)
+ *  <p>The specified upstream registry isn't supported.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was an exception validating this request.</p>
+ *
+ *
  */
 export class CreatePullThroughCacheRuleCommand extends $Command<
   CreatePullThroughCacheRuleCommandInput,

@@ -44,6 +44,7 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsInputOutput, __Meta
  * @see {@link XmlIntEnumsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ *
  */
 export class XmlIntEnumsCommand extends $Command<
   XmlIntEnumsCommandInput,

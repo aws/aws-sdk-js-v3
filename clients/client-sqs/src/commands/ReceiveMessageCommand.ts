@@ -86,6 +86,13 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  * @see {@link ReceiveMessageCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link OverLimit} (client fault)
+ *  <p>The specified action violates a limit. For example, <code>ReceiveMessage</code>
+ *             returns this error if the maximum number of inflight messages is reached and
+ *                 <code>AddPermission</code> returns this error if the maximum number of permissions
+ *             for the queue is reached.</p>
+ *
+ *
  */
 export class ReceiveMessageCommand extends $Command<
   ReceiveMessageCommandInput,

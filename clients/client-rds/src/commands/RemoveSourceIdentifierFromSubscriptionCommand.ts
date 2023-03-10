@@ -53,6 +53,13 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * @see {@link RemoveSourceIdentifierFromSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link SourceNotFoundFault} (client fault)
+ *  <p>The requested source could not be found.</p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>The subscription name does not exist.</p>
+ *
+ *
  * @example To remove a source identifier from a DB event subscription
  * ```javascript
  * // This example removes the specified source identifier from the specified DB event subscription.

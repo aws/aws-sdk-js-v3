@@ -50,6 +50,10 @@ export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __Metad
  * @see {@link DescribeOptionGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link OptionGroupNotFoundFault} (client fault)
+ *  <p>The specified option group could not be found.</p>
+ *
+ *
  * @example To list information about DB option groups
  * ```javascript
  * // This example lists information for all option groups for the specified DB engine.

@@ -51,6 +51,13 @@ export interface DeregisterApplicationCommandOutput extends DeregisterApplicatio
  * @see {@link DeregisterApplicationCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+ *
+ *
  */
 export class DeregisterApplicationCommand extends $Command<
   DeregisterApplicationCommandInput,

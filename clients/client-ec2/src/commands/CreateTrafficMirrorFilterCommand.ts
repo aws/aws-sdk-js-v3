@@ -53,6 +53,7 @@ export interface CreateTrafficMirrorFilterCommandOutput extends CreateTrafficMir
  * @see {@link CreateTrafficMirrorFilterCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CreateTrafficMirrorFilterCommand extends $Command<
   CreateTrafficMirrorFilterCommandInput,

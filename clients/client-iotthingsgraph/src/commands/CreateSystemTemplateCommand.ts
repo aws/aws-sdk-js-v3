@@ -53,6 +53,19 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
  * @see {@link CreateSystemTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class CreateSystemTemplateCommand extends $Command<
   CreateSystemTemplateCommandInput,

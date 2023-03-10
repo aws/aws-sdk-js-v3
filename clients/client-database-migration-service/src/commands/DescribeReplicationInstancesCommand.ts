@@ -57,6 +57,10 @@ export interface DescribeReplicationInstancesCommandOutput
  * @see {@link DescribeReplicationInstancesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  * @example Describe replication instances
  * ```javascript
  * // Returns the status of the refresh-schemas operation.

@@ -52,6 +52,7 @@ export interface ModifyVerifiedAccessEndpointPolicyCommandOutput
  * @see {@link ModifyVerifiedAccessEndpointPolicyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class ModifyVerifiedAccessEndpointPolicyCommand extends $Command<
   ModifyVerifiedAccessEndpointPolicyCommandInput,

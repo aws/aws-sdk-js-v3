@@ -51,6 +51,16 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * @see {@link ListWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ *
  */
 export class ListWorkspacesCommand extends $Command<
   ListWorkspacesCommandInput,

@@ -75,6 +75,29 @@ export interface ChangeCidrCollectionCommandOutput extends ChangeCidrCollectionR
  * @see {@link ChangeCidrCollectionCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link CidrBlockInUseException} (client fault)
+ *  <p>This CIDR block is already in use.</p>
+ *
+ * @throws {@link CidrCollectionVersionMismatchException} (client fault)
+ *  <p>The CIDR collection version you provided, doesn't match the one in the
+ * 				<code>ListCidrCollections</code> operation.</p>
+ *
+ * @throws {@link ConcurrentModification} (client fault)
+ *  <p>Another user submitted a request to create, update, or delete the object at the same
+ * 			time that you did. Retry the request. </p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link LimitsExceeded} (client fault)
+ *  <p>This operation can't be completed because the current account has reached the
+ * 			limit on the resource you are trying to create. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
+ * 			Center.</p>
+ *
+ * @throws {@link NoSuchCidrCollectionException} (client fault)
+ *  <p>The CIDR collection you specified, doesn't exist.</p>
+ *
+ *
  */
 export class ChangeCidrCollectionCommand extends $Command<
   ChangeCidrCollectionCommandInput,

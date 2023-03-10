@@ -51,6 +51,39 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  * @see {@link CreateTopicCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * @throws {@link ConcurrentAccessException} (client fault)
+ *  <p>Can't perform multiple operations on a tag simultaneously. Perform the operations
+ *             sequentially.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Indicates an internal service error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Indicates that a request parameter does not comply with the associated
+ *             constraints.</p>
+ *
+ * @throws {@link InvalidSecurityException} (client fault)
+ *  <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
+ *             request using Signature Version 4.</p>
+ *
+ * @throws {@link StaleTagException} (client fault)
+ *  <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a
+ *             short while and then retry the operation.</p>
+ *
+ * @throws {@link TagLimitExceededException} (client fault)
+ *  <p>Can't add more than 50 tags to a topic.</p>
+ *
+ * @throws {@link TagPolicyException} (client fault)
+ *  <p>The request doesn't comply with the IAM tag policy. Correct your request and then
+ *             retry it.</p>
+ *
+ * @throws {@link TopicLimitExceededException} (client fault)
+ *  <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
+ *
+ *
  */
 export class CreateTopicCommand extends $Command<
   CreateTopicCommandInput,

@@ -50,6 +50,17 @@ export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __Metadat
  * @see {@link UpdateMapRunCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Could not find the referenced resource. Only state machine and activity ARNs are
+ *       supported.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ *
  */
 export class UpdateMapRunCommand extends $Command<
   UpdateMapRunCommandInput,

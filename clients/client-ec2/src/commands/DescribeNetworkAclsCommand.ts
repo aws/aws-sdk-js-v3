@@ -52,6 +52,7 @@ export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsRes
  * @see {@link DescribeNetworkAclsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe a network ACL
  * ```javascript
  * // This example describes the specified network ACL.

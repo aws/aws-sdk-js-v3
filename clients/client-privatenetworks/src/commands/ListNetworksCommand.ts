@@ -51,6 +51,16 @@ export interface ListNetworksCommandOutput extends ListNetworksResponse, __Metad
  * @see {@link ListNetworksCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Information about an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation.</p>
+ *
+ *
  */
 export class ListNetworksCommand extends $Command<
   ListNetworksCommandInput,

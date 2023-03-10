@@ -52,6 +52,7 @@ export interface ListModelBiasJobDefinitionsCommandOutput
  * @see {@link ListModelBiasJobDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListModelBiasJobDefinitionsCommand extends $Command<
   ListModelBiasJobDefinitionsCommandInput,

@@ -52,6 +52,7 @@ export interface DescribeVerifiedAccessInstancesCommandOutput
  * @see {@link DescribeVerifiedAccessInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribeVerifiedAccessInstancesCommand extends $Command<
   DescribeVerifiedAccessInstancesCommandInput,

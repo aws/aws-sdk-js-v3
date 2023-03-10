@@ -81,6 +81,14 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * @see {@link CreateDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBParameterGroupAlreadyExistsFault} (client fault)
+ *  <p>A DB parameter group with the same name exists.</p>
+ *
+ * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of DB parameter
+ *             groups.</p>
+ *
+ *
  * @example To create a DB cluster parameter group
  * ```javascript
  * // This example creates a DB cluster parameter group.

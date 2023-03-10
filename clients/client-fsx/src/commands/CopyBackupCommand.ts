@@ -70,6 +70,48 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * @see {@link CopyBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
+ * @throws {@link BackupNotFound} (client fault)
+ *  <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link IncompatibleParameterError} (client fault)
+ *  <p>The error returned when a second request is received with the same client request
+ *             token but different parameters settings. A client request token should always uniquely
+ *             identify a single request.</p>
+ *
+ * @throws {@link IncompatibleRegionForMultiAZ} (client fault)
+ *  <p>Amazon FSx doesn't support Multi-AZ Windows File Server copy backup in the
+ *          destination Region, so the copied backup can't be restored.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link InvalidDestinationKmsKey} (client fault)
+ *  <p>The Key Management Service (KMS) key of the destination backup is not
+ *          valid.</p>
+ *
+ * @throws {@link InvalidRegion} (client fault)
+ *  <p>The Region provided for <code>SourceRegion</code> is not valid or is in a different
+ *             Amazon Web Services partition.</p>
+ *
+ * @throws {@link InvalidSourceKmsKey} (client fault)
+ *  <p>The Key Management Service (KMS) key of the source backup is not
+ *          valid.</p>
+ *
+ * @throws {@link ServiceLimitExceeded} (client fault)
+ *  <p>An error indicating that a particular service limit was exceeded. You can increase
+ *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ * @throws {@link SourceBackupUnavailable} (client fault)
+ *  <p>The request was rejected because the lifecycle status of the source backup isn't
+ *             <code>AVAILABLE</code>.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>The requested operation is not supported for this resource or API.</p>
+ *
+ *
  * @example To copy a backup
  * ```javascript
  * // This operation copies an Amazon FSx backup.

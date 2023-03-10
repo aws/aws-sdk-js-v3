@@ -58,6 +58,26 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  * @see {@link StartDBInstanceAutomatedBackupsReplicationCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBInstanceAutomatedBackupQuotaExceededFault} (client fault)
+ *  <p>The quota for retained automated backups was exceeded. This prevents you
+ *             from retaining any additional automated backups. The retained automated backups
+ *             quota is the same as your DB Instance quota.</p>
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * @throws {@link StorageTypeNotSupportedFault} (client fault)
+ *  <p>Storage of the <code>StorageType</code> specified can't be associated
+ *             with the DB instance.</p>
+ *
+ *
  */
 export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
   StartDBInstanceAutomatedBackupsReplicationCommandInput,

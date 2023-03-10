@@ -63,6 +63,34 @@ export interface CreateAccessPointCommandOutput extends AccessPointDescription, 
  * @see {@link CreateAccessPointCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ * @throws {@link AccessPointAlreadyExists} (client fault)
+ *  <p>Returned if the access point that you are trying to create already exists, with the
+ *             creation token you provided in the request.</p>
+ *
+ * @throws {@link AccessPointLimitExceeded} (client fault)
+ *  <p>Returned if the Amazon Web Services account has already created the maximum number of access points
+ *             allowed per file system. For more informaton, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region">https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region</a>.</p>
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link IncorrectFileSystemLifeCycleState} (client fault)
+ *  <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Returned when the <code>CreateAccessPoint</code> API action is called too quickly and
+ *             the number of Access Points on the file system is nearing the
+ *             <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region">limit of 120</a>.</p>
+ *
+ *
  */
 export class CreateAccessPointCommand extends $Command<
   CreateAccessPointCommandInput,

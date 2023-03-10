@@ -50,6 +50,11 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  * @see {@link DescribeCertificatesCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
+ * @throws {@link CertificateNotFoundFault} (client fault)
+ *  <p>
+ *             <code>CertificateIdentifier</code> doesn't refer to an existing certificate. </p>
+ *
+ *
  */
 export class DescribeCertificatesCommand extends $Command<
   DescribeCertificatesCommandInput,

@@ -52,6 +52,44 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * @see {@link GetQueryResultsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link EventDataStoreARNInvalidException} (client fault)
+ *  <p>The specified event data store ARN is not valid or does not map to an event data store
+ *          in your account.</p>
+ *
+ * @throws {@link EventDataStoreNotFoundException} (client fault)
+ *  <p>The specified event data store was not found.</p>
+ *
+ * @throws {@link InactiveEventDataStoreException} (client fault)
+ *  <p>The event data store is inactive.</p>
+ *
+ * @throws {@link InsufficientEncryptionPolicyException} (client fault)
+ *  <p>This exception is thrown when the policy on the S3 bucket or KMS key does
+ *          not have sufficient permissions for the operation.</p>
+ *
+ * @throws {@link InvalidMaxResultsException} (client fault)
+ *  <p>This exception is thrown if the limit specified is not valid.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>A token that is not valid, or a token that was previously used in a request with
+ *          different parameters. This exception is thrown if the token is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * @throws {@link NoManagementAccountSLRExistsException} (client fault)
+ *  <p> This exception is thrown when the management account does not have a service-linked
+ *          role. </p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link QueryIdNotFoundException} (client fault)
+ *  <p>The query ID does not exist or does not map to a query.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ *
  */
 export class GetQueryResultsCommand extends $Command<
   GetQueryResultsCommandInput,

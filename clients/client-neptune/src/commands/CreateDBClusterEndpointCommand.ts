@@ -50,6 +50,27 @@ export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEnd
  * @see {@link CreateDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link DBClusterEndpointAlreadyExistsFault} (client fault)
+ *  <p>The specified custom endpoint cannot be created because it already exists.</p>
+ *
+ * @throws {@link DBClusterEndpointQuotaExceededFault} (client fault)
+ *  <p>The cluster already has the maximum number of custom endpoints.</p>
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The specified DB instance is not in the <i>available</i> state.</p>
+ *
+ *
  */
 export class CreateDBClusterEndpointCommand extends $Command<
   CreateDBClusterEndpointCommandInput,

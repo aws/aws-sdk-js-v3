@@ -50,6 +50,13 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResult, _
  * @see {@link ListUserProfilesCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token is not valid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
+ *
  */
 export class ListUserProfilesCommand extends $Command<
   ListUserProfilesCommandInput,

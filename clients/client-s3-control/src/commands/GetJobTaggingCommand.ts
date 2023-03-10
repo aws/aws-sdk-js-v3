@@ -74,6 +74,16 @@ export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __Metad
  * @see {@link GetJobTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class GetJobTaggingCommand extends $Command<
   GetJobTaggingCommandInput,

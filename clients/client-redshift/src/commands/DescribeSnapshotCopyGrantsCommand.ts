@@ -56,6 +56,14 @@ export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGra
  * @see {@link DescribeSnapshotCopyGrantsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ * @throws {@link SnapshotCopyGrantNotFoundFault} (client fault)
+ *  <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
+ *             correctly and that the grant exists in the destination region.</p>
+ *
+ *
  */
 export class DescribeSnapshotCopyGrantsCommand extends $Command<
   DescribeSnapshotCopyGrantsCommandInput,

@@ -54,6 +54,22 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  * @see {@link RevokeCacheSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link AuthorizationNotFoundFault} (client fault)
+ *  <p>The specified Amazon EC2 security group is not authorized for the specified cache security group.</p>
+ *
+ * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
+ *  <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *
+ * @throws {@link InvalidCacheSecurityGroupStateFault} (client fault)
+ *  <p>The current state of the cache security group does not allow deletion.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ *
  * @example DescribeCacheSecurityGroups
  * ```javascript
  * // Returns a list of cache security group descriptions. If a cache security group name is specified, the list contains only the description of that group.

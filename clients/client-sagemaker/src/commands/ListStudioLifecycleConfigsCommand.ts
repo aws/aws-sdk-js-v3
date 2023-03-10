@@ -50,6 +50,10 @@ export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifec
  * @see {@link ListStudioLifecycleConfigsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ *
  */
 export class ListStudioLifecycleConfigsCommand extends $Command<
   ListStudioLifecycleConfigsCommandInput,

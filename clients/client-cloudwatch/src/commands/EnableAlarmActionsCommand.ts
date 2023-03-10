@@ -45,6 +45,7 @@ export interface EnableAlarmActionsCommandOutput extends __MetadataBearer {}
  * @see {@link EnableAlarmActionsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ *
  */
 export class EnableAlarmActionsCommand extends $Command<
   EnableAlarmActionsCommandInput,

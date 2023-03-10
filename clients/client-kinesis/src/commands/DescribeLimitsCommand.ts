@@ -53,6 +53,11 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * @see {@link DescribeLimitsCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
+ *
  */
 export class DescribeLimitsCommand extends $Command<
   DescribeLimitsCommandInput,

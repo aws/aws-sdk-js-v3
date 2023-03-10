@@ -50,6 +50,16 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * @see {@link GetChannelCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
+ *
  */
 export class GetChannelCommand extends $Command<
   GetChannelCommandInput,

@@ -50,6 +50,13 @@ export interface BatchGetCrawlersCommandOutput extends BatchGetCrawlersResponse,
  * @see {@link BatchGetCrawlersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
  */
 export class BatchGetCrawlersCommand extends $Command<
   BatchGetCrawlersCommandInput,

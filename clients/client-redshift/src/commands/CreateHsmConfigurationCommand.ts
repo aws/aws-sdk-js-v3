@@ -56,6 +56,23 @@ export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurat
  * @see {@link CreateHsmConfigurationCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link HsmConfigurationAlreadyExistsFault} (client fault)
+ *  <p>There is already an existing Amazon Redshift HSM configuration with the specified
+ *             identifier.</p>
+ *
+ * @throws {@link HsmConfigurationQuotaExceededFault} (client fault)
+ *  <p>The quota for HSM configurations has been reached.
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ * @throws {@link TagLimitExceededFault} (client fault)
+ *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ *
  */
 export class CreateHsmConfigurationCommand extends $Command<
   CreateHsmConfigurationCommandInput,

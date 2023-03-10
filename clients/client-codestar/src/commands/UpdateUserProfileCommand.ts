@@ -52,6 +52,13 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResult,
  * @see {@link UpdateUserProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
  *
+ * @throws {@link UserProfileNotFoundException} (client fault)
+ *  <p>The user profile was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
+ *
  */
 export class UpdateUserProfileCommand extends $Command<
   UpdateUserProfileCommandInput,

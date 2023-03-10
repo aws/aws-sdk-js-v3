@@ -50,6 +50,24 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * @see {@link UpdateSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>An invalid subnet identifier was specified.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link SubnetGroupNotFoundFault} (client fault)
+ *  <p>The requested subnet group name does not refer to an existing subnet
+ *             group.</p>
+ *
+ * @throws {@link SubnetInUse} (client fault)
+ *  <p>The requested subnet is being used by another subnet group.</p>
+ *
+ * @throws {@link SubnetQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the allowed number of
+ *             subnets in a subnet group.</p>
+ *
+ *
  */
 export class UpdateSubnetGroupCommand extends $Command<
   UpdateSubnetGroupCommandInput,

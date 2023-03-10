@@ -53,6 +53,21 @@ export interface ResendValidationEmailCommandOutput extends __MetadataBearer {}
  * @see {@link ResendValidationEmailCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * @throws {@link InvalidDomainValidationOptionsException} (client fault)
+ *  <p>One or more values in the <a>DomainValidationOption</a> structure is
+ *       incorrect.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>Processing has reached an invalid state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account
+ *       cannot be found.</p>
+ *
+ *
  */
 export class ResendValidationEmailCommand extends $Command<
   ResendValidationEmailCommandInput,

@@ -50,6 +50,16 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * @see {@link ListExperimentsCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
+ *
  */
 export class ListExperimentsCommand extends $Command<
   ListExperimentsCommandInput,

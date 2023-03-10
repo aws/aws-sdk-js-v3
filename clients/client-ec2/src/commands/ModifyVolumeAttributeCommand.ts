@@ -51,6 +51,7 @@ export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link ModifyVolumeAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To modify a volume attribute
  * ```javascript
  * // This example sets the ``autoEnableIo`` attribute of the volume with the ID ``vol-1234567890abcdef0`` to ``true``. If the command succeeds, no output is returned.

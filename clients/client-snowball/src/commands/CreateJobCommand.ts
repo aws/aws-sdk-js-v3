@@ -174,6 +174,27 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  * @see {@link CreateJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @throws {@link ClusterLimitExceededException} (client fault)
+ *  <p>Job creation failed. Currently, clusters support five nodes. If you have fewer than
+ *       five nodes for your cluster and you have more nodes to create for this cluster, try again and
+ *       create jobs until your cluster has exactly five nodes.</p>
+ *
+ * @throws {@link Ec2RequestFailedException} (client fault)
+ *  <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+ *       action.</p>
+ *
+ * @throws {@link InvalidInputCombinationException} (client fault)
+ *  <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
+ *
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
+ *
+ * @throws {@link KMSRequestFailedException} (client fault)
+ *  <p>The provided Key Management Service key lacks the permissions to perform the specified
+ *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+ *
+ *
  * @example To create a job
  * ```javascript
  * // Creates a job to import or export data between Amazon S3 and your on-premises data center. Your AWS account must have the right trust policies and permissions in place to create a job for Snowball. If you're creating a job for a node in a cluster, you only need to provide the clusterId value; the other job attributes are inherited from the cluster.

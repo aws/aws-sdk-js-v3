@@ -51,6 +51,22 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @throws {@link Ec2RequestFailedException} (client fault)
+ *  <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+ *       action.</p>
+ *
+ * @throws {@link InvalidInputCombinationException} (client fault)
+ *  <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
+ *
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
+ *
+ * @throws {@link KMSRequestFailedException} (client fault)
+ *  <p>The provided Key Management Service key lacks the permissions to perform the specified
+ *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+ *
+ *
  * @example To create a cluster
  * ```javascript
  * // Creates an empty cluster. Each cluster supports five nodes. You use the CreateJob action separately to create the jobs for each of these nodes. The cluster does not ship until these five node jobs have been created.

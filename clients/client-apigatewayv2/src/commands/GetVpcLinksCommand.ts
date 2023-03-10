@@ -50,6 +50,13 @@ export interface GetVpcLinksCommandOutput extends GetVpcLinksResponse, __Metadat
  * @see {@link GetVpcLinksCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
+ *
  */
 export class GetVpcLinksCommand extends $Command<
   GetVpcLinksCommandInput,

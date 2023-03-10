@@ -51,6 +51,15 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  * @see {@link DownloadDBLogFilePortionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * @throws {@link DBLogFileNotFoundFault} (client fault)
+ *  <p>
+ *             <code>LogFileName</code> doesn't refer to an existing DB log file.</p>
+ *
+ *
  * @example To list information about DB log files
  * ```javascript
  * // This example lists information for the specified log file for the specified DB instance.

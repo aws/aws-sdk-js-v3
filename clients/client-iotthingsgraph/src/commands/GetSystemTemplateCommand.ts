@@ -52,6 +52,19 @@ export interface GetSystemTemplateCommandOutput extends GetSystemTemplateRespons
  * @see {@link GetSystemTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class GetSystemTemplateCommand extends $Command<
   GetSystemTemplateCommandInput,

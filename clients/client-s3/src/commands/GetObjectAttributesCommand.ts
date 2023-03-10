@@ -200,6 +200,10 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  * @see {@link GetObjectAttributesCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link NoSuchKey} (client fault)
+ *  <p>The specified key does not exist.</p>
+ *
+ *
  */
 export class GetObjectAttributesCommand extends $Command<
   GetObjectAttributesCommandInput,

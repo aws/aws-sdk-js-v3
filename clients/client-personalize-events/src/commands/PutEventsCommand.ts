@@ -50,6 +50,10 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  * @see {@link PutEventsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeEventsClientResolvedConfig | config} for PersonalizeEventsClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ *
  */
 export class PutEventsCommand extends $Command<
   PutEventsCommandInput,

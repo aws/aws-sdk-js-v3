@@ -53,6 +53,15 @@ export interface DiscoverPollEndpointCommandOutput extends DiscoverPollEndpointR
  * @see {@link DiscoverPollEndpointCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ *
  */
 export class DiscoverPollEndpointCommand extends $Command<
   DiscoverPollEndpointCommandInput,

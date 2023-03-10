@@ -97,6 +97,31 @@ export interface LookupEventsCommandOutput extends LookupEventsResponse, __Metad
  * @see {@link LookupEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link InvalidEventCategoryException} (client fault)
+ *  <p>Occurs if an event category that is not valid is specified as a value of
+ *             <code>EventCategory</code>.</p>
+ *
+ * @throws {@link InvalidLookupAttributesException} (client fault)
+ *  <p>Occurs when a lookup attribute is specified that is not valid.</p>
+ *
+ * @throws {@link InvalidMaxResultsException} (client fault)
+ *  <p>This exception is thrown if the limit specified is not valid.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>A token that is not valid, or a token that was previously used in a request with
+ *          different parameters. This exception is thrown if the token is not valid.</p>
+ *
+ * @throws {@link InvalidTimeRangeException} (client fault)
+ *  <p>Occurs if the timestamp values are not valid. Either the start time occurs after the end
+ *          time, or the time range is outside the range of possible values.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ *
  */
 export class LookupEventsCommand extends $Command<
   LookupEventsCommandInput,

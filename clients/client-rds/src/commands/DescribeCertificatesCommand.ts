@@ -55,6 +55,12 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  * @see {@link DescribeCertificatesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link CertificateNotFoundFault} (client fault)
+ *  <p>
+ *             <code>CertificateIdentifier</code> doesn't refer to an
+ *         existing certificate.</p>
+ *
+ *
  * @example To list certificates
  * ```javascript
  * // This example lists up to 20 certificates for the specified certificate identifier.

@@ -50,6 +50,7 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * @see {@link DescribeMovingAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe your moving addresses
  * ```javascript
  * // This example describes all of your moving Elastic IP addresses.

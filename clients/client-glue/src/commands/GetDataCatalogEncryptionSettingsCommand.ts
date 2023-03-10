@@ -52,6 +52,16 @@ export interface GetDataCatalogEncryptionSettingsCommandOutput
  * @see {@link GetDataCatalogEncryptionSettingsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
  */
 export class GetDataCatalogEncryptionSettingsCommand extends $Command<
   GetDataCatalogEncryptionSettingsCommandInput,

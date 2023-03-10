@@ -51,6 +51,31 @@ export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBea
  * @see {@link EnableLoggingCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link BucketNotFoundFault} (client fault)
+ *  <p>Could not find the specified S3 bucket.</p>
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link InsufficientS3BucketPolicyFault} (client fault)
+ *  <p>The cluster does not have read bucket or put object permissions on the S3 bucket
+ *             specified when enabling logging.</p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link InvalidS3BucketNameFault} (client fault)
+ *  <p>The S3 bucket name is invalid. For more information about naming rules, go to
+ *                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html">Bucket
+ *                 Restrictions and Limitations</a> in the Amazon Simple Storage Service (S3)
+ *             Developer Guide.</p>
+ *
+ * @throws {@link InvalidS3KeyPrefixFault} (client fault)
+ *  <p>The string specified for the logging S3 key prefix does not comply with the
+ *             documented constraints.</p>
+ *
+ *
  */
 export class EnableLoggingCommand extends $Command<
   EnableLoggingCommandInput,

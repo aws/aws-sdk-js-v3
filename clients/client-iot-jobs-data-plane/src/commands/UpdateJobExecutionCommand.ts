@@ -50,6 +50,27 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  * @see {@link UpdateJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.
  *
+ * @throws {@link CertificateValidationException} (client fault)
+ *  <p>The certificate is invalid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
+ *
+ * @throws {@link InvalidStateTransitionException} (client fault)
+ *  <p>An update attempted to change the job execution to a state that is invalid because of the job execution's
+ *          current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this
+ *          case, the body of the error message also contains the executionState field.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ *
  */
 export class UpdateJobExecutionCommand extends $Command<
   UpdateJobExecutionCommandInput,

@@ -50,6 +50,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

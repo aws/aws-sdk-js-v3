@@ -54,6 +54,13 @@ export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, _
  * @see {@link DescribeFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link NoSuchFunctionExists} (client fault)
+ *  <p>The function does not exist.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>This operation is not supported in this region.</p>
+ *
+ *
  */
 export class DescribeFunctionCommand extends $Command<
   DescribeFunctionCommandInput,

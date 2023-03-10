@@ -50,6 +50,19 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @throws {@link InvalidJobStateException} (client fault)
+ *  <p>The action can't be performed because the job's current state doesn't allow that action
+ *       to be performed.</p>
+ *
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
+ *
+ * @throws {@link KMSRequestFailedException} (client fault)
+ *  <p>The provided Key Management Service key lacks the permissions to perform the specified
+ *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+ *
+ *
  * @example To cancel a job for a Snowball device
  * ```javascript
  * // This operation cancels a job. You can only cancel a job before its JobState value changes to PreparingAppliance.

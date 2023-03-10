@@ -72,6 +72,10 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @see {@link DescribeServicesCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error occurred.</p>
+ *
+ *
  */
 export class DescribeServicesCommand extends $Command<
   DescribeServicesCommandInput,

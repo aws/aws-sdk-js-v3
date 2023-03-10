@@ -50,6 +50,7 @@ export interface DescribeSnapshotTierStatusCommandOutput extends DescribeSnapsho
  * @see {@link DescribeSnapshotTierStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribeSnapshotTierStatusCommand extends $Command<
   DescribeSnapshotTierStatusCommandInput,

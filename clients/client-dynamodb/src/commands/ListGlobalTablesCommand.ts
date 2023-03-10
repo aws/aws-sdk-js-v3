@@ -62,6 +62,12 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
  * @see {@link ListGlobalTablesCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *
+ *
  */
 export class ListGlobalTablesCommand extends $Command<
   ListGlobalTablesCommandInput,

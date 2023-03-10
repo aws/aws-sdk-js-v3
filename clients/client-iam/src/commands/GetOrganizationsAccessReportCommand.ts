@@ -70,6 +70,11 @@ export interface GetOrganizationsAccessReportCommandOutput
  * @see {@link GetOrganizationsAccessReportCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ *
  * @example To get details from a previously generated organizational unit report
  * ```javascript
  * // The following operation gets details about the report with the job ID: examplea-1234-b567-cde8-90fg123abcd4

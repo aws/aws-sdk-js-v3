@@ -57,6 +57,7 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  * @see {@link CreateVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To create a VPC
  * ```javascript
  * // This example creates a VPC with the specified CIDR block.

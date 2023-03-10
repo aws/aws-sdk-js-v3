@@ -160,6 +160,10 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * @see {@link HeadObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link NotFound} (client fault)
+ *  <p>The specified content does not exist.</p>
+ *
+ *
  * @example To retrieve metadata of an object without returning the object itself
  * ```javascript
  * // The following example retrieves an object metadata.

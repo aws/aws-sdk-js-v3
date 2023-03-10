@@ -53,6 +53,20 @@ export interface GetParameterCommandOutput extends GetParameterResult, __Metadat
  * @see {@link GetParameterCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidKeyId} (client fault)
+ *  <p>The query key ID isn't valid.</p>
+ *
+ * @throws {@link ParameterNotFound} (client fault)
+ *  <p>The parameter couldn't be found. Verify the name and try again.</p>
+ *
+ * @throws {@link ParameterVersionNotFound} (client fault)
+ *  <p>The specified parameter version wasn't found. Verify the parameter name and version, and try
+ *    again.</p>
+ *
+ *
  */
 export class GetParameterCommand extends $Command<
   GetParameterCommandInput,

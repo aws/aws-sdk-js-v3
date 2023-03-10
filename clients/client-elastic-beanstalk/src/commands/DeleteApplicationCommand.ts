@@ -50,6 +50,11 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link OperationInProgressException} (client fault)
+ *  <p>Unable to perform the specified operation because another operation that effects an
+ *       element in this activity is already in progress.</p>
+ *
+ *
  * @example To delete an application
  * ```javascript
  * // The following operation deletes an application named my-app:

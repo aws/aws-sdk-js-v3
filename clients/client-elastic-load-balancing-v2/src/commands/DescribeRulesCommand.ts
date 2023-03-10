@@ -55,6 +55,16 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  * @see {@link DescribeRulesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The specified listener does not exist.</p>
+ *
+ * @throws {@link RuleNotFoundException} (client fault)
+ *  <p>The specified rule does not exist.</p>
+ *
+ * @throws {@link UnsupportedProtocolException} (client fault)
+ *  <p>The specified protocol is not supported.</p>
+ *
+ *
  * @example To describe a rule
  * ```javascript
  * // This example describes the specified rule.

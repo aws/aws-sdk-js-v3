@@ -57,6 +57,14 @@ export interface ListServiceSpecificCredentialsCommandOutput
  * @see {@link ListServiceSpecificCredentialsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceNotSupportedException} (client fault)
+ *  <p>The specified service does not support service-specific credentials.</p>
+ *
+ *
  */
 export class ListServiceSpecificCredentialsCommand extends $Command<
   ListServiceSpecificCredentialsCommandInput,

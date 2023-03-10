@@ -50,6 +50,10 @@ export interface DeleteUserCommandOutput extends DeleteUserResult, __MetadataBea
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ *
  */
 export class DeleteUserCommand extends $Command<
   DeleteUserCommandInput,

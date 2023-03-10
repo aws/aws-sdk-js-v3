@@ -70,6 +70,13 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * @see {@link CreateDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
+ * @throws {@link DBParameterGroupAlreadyExistsFault} (client fault)
+ *  <p>A parameter group with the same name already exists.</p>
+ *
+ * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
+ *  <p>This request would cause you to exceed the allowed number of parameter groups.</p>
+ *
+ *
  */
 export class CreateDBClusterParameterGroupCommand extends $Command<
   CreateDBClusterParameterGroupCommandInput,

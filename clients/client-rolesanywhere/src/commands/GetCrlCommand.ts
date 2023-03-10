@@ -51,6 +51,10 @@ export interface GetCrlCommandOutput extends CrlDetailResponse, __MetadataBearer
  * @see {@link GetCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  */
 export class GetCrlCommand extends $Command<
   GetCrlCommandInput,

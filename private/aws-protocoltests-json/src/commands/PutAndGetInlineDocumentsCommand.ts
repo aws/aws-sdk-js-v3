@@ -47,6 +47,7 @@ export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDo
  * @see {@link PutAndGetInlineDocumentsCommandOutput} for command's `response` shape.
  * @see {@link JsonProtocolClientResolvedConfig | config} for JsonProtocolClient's `config` shape.
  *
+ *
  */
 export class PutAndGetInlineDocumentsCommand extends $Command<
   PutAndGetInlineDocumentsCommandInput,

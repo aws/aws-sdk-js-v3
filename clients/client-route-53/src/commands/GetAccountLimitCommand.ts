@@ -58,6 +58,10 @@ export interface GetAccountLimitCommandOutput extends GetAccountLimitResponse, _
  * @see {@link GetAccountLimitCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ *
  */
 export class GetAccountLimitCommand extends $Command<
   GetAccountLimitCommandInput,

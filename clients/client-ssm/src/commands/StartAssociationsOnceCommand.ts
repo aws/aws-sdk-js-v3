@@ -51,6 +51,13 @@ export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnc
  * @see {@link StartAssociationsOnceCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link AssociationDoesNotExist} (client fault)
+ *  <p>The specified association doesn't exist.</p>
+ *
+ * @throws {@link InvalidAssociation} (client fault)
+ *  <p>The association isn't valid or doesn't exist. </p>
+ *
+ *
  */
 export class StartAssociationsOnceCommand extends $Command<
   StartAssociationsOnceCommandInput,

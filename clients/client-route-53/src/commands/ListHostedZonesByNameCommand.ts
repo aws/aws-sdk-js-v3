@@ -106,6 +106,13 @@ export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNam
  * @see {@link ListHostedZonesByNameCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidDomainName} (client fault)
+ *  <p>The specified domain name is not valid.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ *
  */
 export class ListHostedZonesByNameCommand extends $Command<
   ListHostedZonesByNameCommandInput,

@@ -50,6 +50,10 @@ export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsRespons
  * @see {@link GetCrawlerMetricsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
  */
 export class GetCrawlerMetricsCommand extends $Command<
   GetCrawlerMetricsCommandInput,

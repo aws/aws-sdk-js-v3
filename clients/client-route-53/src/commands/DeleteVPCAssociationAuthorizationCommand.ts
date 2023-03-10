@@ -64,6 +64,25 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput
  * @see {@link DeleteVPCAssociationAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link ConcurrentModification} (client fault)
+ *  <p>Another user submitted a request to create, update, or delete the object at the same
+ * 			time that you did. Retry the request. </p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link InvalidVPCId} (client fault)
+ *  <p>The VPC ID that you specified either isn't a valid ID or the current account is not
+ * 			authorized to access this VPC.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * @throws {@link VPCAssociationAuthorizationNotFound} (client fault)
+ *  <p>The VPC that you specified is not authorized to be associated with the hosted
+ * 			zone.</p>
+ *
+ *
  */
 export class DeleteVPCAssociationAuthorizationCommand extends $Command<
   DeleteVPCAssociationAuthorizationCommandInput,

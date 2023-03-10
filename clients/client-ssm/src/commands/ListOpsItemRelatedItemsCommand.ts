@@ -51,6 +51,14 @@ export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelated
  * @see {@link ListOpsItemRelatedItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link OpsItemInvalidParameterException} (client fault)
+ *  <p>A specified parameter argument isn't valid. Verify the available arguments and try
+ *    again.</p>
+ *
+ *
  */
 export class ListOpsItemRelatedItemsCommand extends $Command<
   ListOpsItemRelatedItemsCommandInput,

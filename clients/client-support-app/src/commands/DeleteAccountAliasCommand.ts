@@ -51,6 +51,17 @@ export interface DeleteAccountAliasCommandOutput extends DeleteAccountAliasResul
  * @see {@link DeleteAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource is missing or doesn't exist, such as an account alias, Slack
+ *       channel configuration, or Slack workspace configuration.</p>
+ *
+ *
  */
 export class DeleteAccountAliasCommand extends $Command<
   DeleteAccountAliasCommandInput,

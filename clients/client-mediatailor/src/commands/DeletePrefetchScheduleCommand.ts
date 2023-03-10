@@ -50,6 +50,7 @@ export interface DeletePrefetchScheduleCommandOutput extends DeletePrefetchSched
  * @see {@link DeletePrefetchScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ *
  */
 export class DeletePrefetchScheduleCommand extends $Command<
   DeletePrefetchScheduleCommandInput,

@@ -68,6 +68,27 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  * @see {@link PutBotCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or
+ *       a required field is missing. Check the field values, and try
+ *       again.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p> There was a conflict processing the request. Try your request
+ *       again. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p> The checksum of the resource that you are trying to change does
+ *       not match the checksum in the request. Check the resource's checksum and
+ *       try again.</p>
+ *
+ *
  * @example To create a bot
  * ```javascript
  * // This example shows how to create a bot for ordering pizzas.

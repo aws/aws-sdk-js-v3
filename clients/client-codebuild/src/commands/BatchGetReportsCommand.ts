@@ -52,6 +52,10 @@ export interface BatchGetReportsCommandOutput extends BatchGetReportsOutput, __M
  * @see {@link BatchGetReportsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ *
  */
 export class BatchGetReportsCommand extends $Command<
   BatchGetReportsCommandInput,

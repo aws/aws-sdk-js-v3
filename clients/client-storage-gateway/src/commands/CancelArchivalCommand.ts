@@ -51,6 +51,15 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  * @see {@link CancelArchivalCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
  * @example To cancel virtual tape archiving
  * ```javascript
  * // Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated.

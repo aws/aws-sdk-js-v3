@@ -50,6 +50,7 @@ export interface CreateCarrierGatewayCommandOutput extends CreateCarrierGatewayR
  * @see {@link CreateCarrierGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CreateCarrierGatewayCommand extends $Command<
   CreateCarrierGatewayCommandInput,

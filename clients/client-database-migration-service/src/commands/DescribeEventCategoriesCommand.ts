@@ -58,6 +58,7 @@ export interface DescribeEventCategoriesCommandOutput extends DescribeEventCateg
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ *
  */
 export class DescribeEventCategoriesCommand extends $Command<
   DescribeEventCategoriesCommandInput,

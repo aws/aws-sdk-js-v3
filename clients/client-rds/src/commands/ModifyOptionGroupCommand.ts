@@ -50,6 +50,13 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  * @see {@link ModifyOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link InvalidOptionGroupStateFault} (client fault)
+ *  <p>The option group isn't in the <i>available</i> state.</p>
+ *
+ * @throws {@link OptionGroupNotFoundFault} (client fault)
+ *  <p>The specified option group could not be found.</p>
+ *
+ *
  * @example To modify an option group
  * ```javascript
  * // The following example adds an option to an option group.

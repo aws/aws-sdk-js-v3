@@ -61,6 +61,13 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  * @see {@link DeleteStateMachineCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ *
  */
 export class DeleteStateMachineCommand extends $Command<
   DeleteStateMachineCommandInput,

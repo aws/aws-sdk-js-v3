@@ -84,6 +84,13 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  * @see {@link AddPermissionCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link OverLimit} (client fault)
+ *  <p>The specified action violates a limit. For example, <code>ReceiveMessage</code>
+ *             returns this error if the maximum number of inflight messages is reached and
+ *                 <code>AddPermission</code> returns this error if the maximum number of permissions
+ *             for the queue is reached.</p>
+ *
+ *
  */
 export class AddPermissionCommand extends $Command<
   AddPermissionCommandInput,

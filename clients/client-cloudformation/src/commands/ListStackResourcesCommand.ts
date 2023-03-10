@@ -52,6 +52,7 @@ export interface ListStackResourcesCommandOutput extends ListStackResourcesOutpu
  * @see {@link ListStackResourcesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ *
  */
 export class ListStackResourcesCommand extends $Command<
   ListStackResourcesCommandInput,

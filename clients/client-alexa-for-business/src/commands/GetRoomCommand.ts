@@ -47,6 +47,10 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * @see {@link GetRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class GetRoomCommand extends $Command<
   GetRoomCommandInput,

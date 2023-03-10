@@ -50,6 +50,10 @@ export interface DescribeServiceActionCommandOutput extends DescribeServiceActio
  * @see {@link DescribeServiceActionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ *
  */
 export class DescribeServiceActionCommand extends $Command<
   DescribeServiceActionCommandInput,

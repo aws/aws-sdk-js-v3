@@ -50,6 +50,11 @@ export interface GetConnectorsCommandOutput extends GetConnectorsResponse, __Met
  * @see {@link GetConnectorsCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
  *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
+ *             and ensure that you are using the correct access keys.</p>
+ *
+ *
  */
 export class GetConnectorsCommand extends $Command<
   GetConnectorsCommandInput,

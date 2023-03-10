@@ -128,6 +128,16 @@ export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataB
  * @see {@link PollForTaskCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
  *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+ *
+ * @throws {@link TaskNotFoundException} (client fault)
+ *  <p>The specified task was not found. </p>
+ *
+ *
  */
 export class PollForTaskCommand extends $Command<
   PollForTaskCommandInput,

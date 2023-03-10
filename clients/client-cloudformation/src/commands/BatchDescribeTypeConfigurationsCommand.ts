@@ -55,6 +55,13 @@ export interface BatchDescribeTypeConfigurationsCommandOutput
  * @see {@link BatchDescribeTypeConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CFNRegistryException} (client fault)
+ *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * @throws {@link TypeConfigurationNotFoundException} (client fault)
+ *  <p>The specified extension configuration can't be found.</p>
+ *
+ *
  */
 export class BatchDescribeTypeConfigurationsCommand extends $Command<
   BatchDescribeTypeConfigurationsCommandInput,

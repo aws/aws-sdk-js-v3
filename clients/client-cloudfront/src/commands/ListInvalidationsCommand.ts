@@ -50,6 +50,16 @@ export interface ListInvalidationsCommandOutput extends ListInvalidationsResult,
  * @see {@link ListInvalidationsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchDistribution} (client fault)
+ *  <p>The specified distribution does not exist.</p>
+ *
+ *
  */
 export class ListInvalidationsCommand extends $Command<
   ListInvalidationsCommandInput,

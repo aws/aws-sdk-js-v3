@@ -47,6 +47,44 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
+ * @throws {@link InvalidRepositoryNameException} (client fault)
+ *  <p>A specified repository name is not valid.</p>
+ *
+ *         <note>
+ *             <p>This exception occurs only when a specified repository name is not valid. Other
+ *                 exceptions occur when a required repository parameter is missing, or when a
+ *                 specified repository does not exist.</p>
+ *          </note>
+ *
+ * @throws {@link InvalidResourceArnException} (client fault)
+ *  <p>The value for the resource ARN is not valid. For more information about resources in AWS CodeCommit, see
+ *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
+ *             in the AWS CodeCommit User Guide.</p>
+ *
+ * @throws {@link InvalidSystemTagUsageException} (client fault)
+ *  <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
+ *
+ * @throws {@link InvalidTagsMapException} (client fault)
+ *  <p>The map of tags is not valid.</p>
+ *
+ * @throws {@link RepositoryDoesNotExistException} (client fault)
+ *  <p>The specified repository does not exist.</p>
+ *
+ * @throws {@link ResourceArnRequiredException} (client fault)
+ *  <p>A valid Amazon Resource Name (ARN) for an AWS CodeCommit resource is required. For a list of valid resources in AWS CodeCommit, see
+ *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
+ *             in the AWS CodeCommit User Guide.</p>
+ *
+ * @throws {@link TagPolicyException} (client fault)
+ *  <p>The tag policy is not valid.</p>
+ *
+ * @throws {@link TagsMapRequiredException} (client fault)
+ *  <p>A map of tags is required.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The maximum number of tags for an AWS CodeCommit resource has been exceeded.</p>
+ *
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

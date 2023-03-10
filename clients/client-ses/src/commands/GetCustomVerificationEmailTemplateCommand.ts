@@ -56,6 +56,11 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  * @see {@link GetCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link CustomVerificationEmailTemplateDoesNotExistException} (client fault)
+ *  <p>Indicates that a custom verification email template with the name you specified does
+ *             not exist.</p>
+ *
+ *
  */
 export class GetCustomVerificationEmailTemplateCommand extends $Command<
   GetCustomVerificationEmailTemplateCommandInput,

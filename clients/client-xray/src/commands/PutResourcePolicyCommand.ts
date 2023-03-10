@@ -55,6 +55,26 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult,
  * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
+ * @throws {@link InvalidPolicyRevisionIdException} (client fault)
+ *  <p>A policy revision id was provided which does not match the latest policy revision. This exception is also
+ *     if a policy revision id of 0 is provided via <code>PutResourcePolicy</code> and a policy with the same name already exists.</p>
+ *
+ * @throws {@link LockoutPreventionException} (client fault)
+ *  <p>The provided resource policy would prevent the caller of this request from calling PutResourcePolicy in the future.</p>
+ *
+ * @throws {@link MalformedPolicyDocumentException} (client fault)
+ *  <p>Invalid policy document provided in request.</p>
+ *
+ * @throws {@link PolicyCountLimitExceededException} (client fault)
+ *  <p>Exceeded the maximum number of resource policies for a target Amazon Web Services account.</p>
+ *
+ * @throws {@link PolicySizeLimitExceededException} (client fault)
+ *  <p>Exceeded the maximum size for a resource policy.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
+ *
  */
 export class PutResourcePolicyCommand extends $Command<
   PutResourcePolicyCommandInput,

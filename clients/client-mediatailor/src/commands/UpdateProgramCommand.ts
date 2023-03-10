@@ -50,6 +50,7 @@ export interface UpdateProgramCommandOutput extends UpdateProgramResponse, __Met
  * @see {@link UpdateProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ *
  */
 export class UpdateProgramCommand extends $Command<
   UpdateProgramCommandInput,

@@ -45,6 +45,15 @@ export interface DeleteEventSubscriptionCommandOutput extends __MetadataBearer {
  * @see {@link DeleteEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidSubscriptionStateFault} (client fault)
+ *  <p>The subscription request is invalid because it is a duplicate request. This
+ *             subscription request is already in progress.</p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>An Amazon Redshift event notification subscription with the specified name does not
+ *             exist.</p>
+ *
+ *
  */
 export class DeleteEventSubscriptionCommand extends $Command<
   DeleteEventSubscriptionCommandInput,

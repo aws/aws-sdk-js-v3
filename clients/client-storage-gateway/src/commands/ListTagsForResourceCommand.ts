@@ -51,6 +51,15 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
  * @example To list tags that have been added to a resource
  * ```javascript
  * // Lists the tags that have been added to the specified resource.

@@ -51,6 +51,13 @@ export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRule
  * @see {@link ListApprovalRuleTemplatesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
+ * @throws {@link InvalidContinuationTokenException} (client fault)
+ *  <p>The specified continuation token is not valid.</p>
+ *
+ * @throws {@link InvalidMaxResultsException} (client fault)
+ *  <p>The specified number of maximum results is not valid.</p>
+ *
+ *
  */
 export class ListApprovalRuleTemplatesCommand extends $Command<
   ListApprovalRuleTemplatesCommandInput,

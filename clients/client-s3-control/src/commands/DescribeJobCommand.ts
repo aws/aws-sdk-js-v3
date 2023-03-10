@@ -76,6 +76,19 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * @see {@link DescribeJobCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class DescribeJobCommand extends $Command<
   DescribeJobCommandInput,

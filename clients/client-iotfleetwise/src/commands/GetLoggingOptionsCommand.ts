@@ -50,6 +50,16 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * @see {@link GetLoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ *
  */
 export class GetLoggingOptionsCommand extends $Command<
   GetLoggingOptionsCommandInput,

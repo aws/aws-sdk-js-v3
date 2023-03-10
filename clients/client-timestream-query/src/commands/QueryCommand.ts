@@ -78,6 +78,31 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * @see {@link QueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> You are not authorized to perform this action. </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p> Unable to poll results for a cancelled query. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>
+ *             Timestream was unable to fully process this request because of an internal
+ *             server error. </p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *  <p>The requested endpoint was not valid.</p>
+ *
+ * @throws {@link QueryExecutionException} (client fault)
+ *  <p>
+ *             Timestream was unable to run the query successfully. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> Invalid or malformed request. </p>
+ *
+ *
  */
 export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput, TimestreamQueryClientResolvedConfig> {
   // Start section: command_properties

@@ -50,6 +50,10 @@ export interface UpdateFunctionDefinitionCommandOutput extends UpdateFunctionDef
  * @see {@link UpdateFunctionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
+ *
  */
 export class UpdateFunctionDefinitionCommand extends $Command<
   UpdateFunctionDefinitionCommandInput,

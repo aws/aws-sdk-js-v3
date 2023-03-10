@@ -58,6 +58,10 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
  * @see {@link DescribeDBInstanceAutomatedBackupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBInstanceAutomatedBackupNotFoundFault} (client fault)
+ *  <p>No automated backup for this DB instance was found.</p>
+ *
+ *
  */
 export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
   DescribeDBInstanceAutomatedBackupsCommandInput,

@@ -77,6 +77,41 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
  * @see {@link GetResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
  *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The request processing failed because of an unknown error, exception, or failure. You
+ *             can retry the request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This error indicates one of the following:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>A parameter is missing.</p>
+ *             </li>
+ *             <li>
+ *                 <p>A malformed string was supplied for the request parameter.</p>
+ *             </li>
+ *             <li>
+ *                 <p>An out-of-range value was supplied for the request parameter.</p>
+ *             </li>
+ *             <li>
+ *                 <p>The target ID is invalid, unsupported, or doesn't exist.</p>
+ *             </li>
+ *             <li>
+ *                 <p>You can't access the Amazon S3 bucket for report storage. For more information, see
+ *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html#bucket-policies-org-report">Additional Requirements for Organization-wide Tag Compliance
+ *                         Reports</a> in the <i>Organizations User Guide.</i>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link PaginationTokenExpiredException} (client fault)
+ *  <p>A <code>PaginationToken</code> is valid for a maximum of 15 minutes. Your request was
+ *             denied because the specified <code>PaginationToken</code> has expired.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>The request was denied to limit the frequency of submitted requests.</p>
+ *
+ *
  */
 export class GetResourcesCommand extends $Command<
   GetResourcesCommandInput,

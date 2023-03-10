@@ -64,6 +64,19 @@ export interface CreateAppCookieStickinessPolicyCommandOutput
  * @see {@link CreateAppCookieStickinessPolicyCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link DuplicatePolicyNameException} (client fault)
+ *  <p>A policy with the specified name already exists for this load balancer.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration change is not valid.</p>
+ *
+ * @throws {@link TooManyPoliciesException} (client fault)
+ *  <p>The quota for the number of policies for this load balancer has been reached.</p>
+ *
+ *
  * @example To generate a stickiness policy for your load balancer
  * ```javascript
  * // This example generates a stickiness policy that follows the sticky session lifetimes of the application-generated cookie.

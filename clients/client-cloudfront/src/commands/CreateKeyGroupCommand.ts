@@ -58,6 +58,24 @@ export interface CreateKeyGroupCommandOutput extends CreateKeyGroupResult, __Met
  * @see {@link CreateKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link KeyGroupAlreadyExists} (client fault)
+ *  <p>A key group with this name already exists. You must provide a unique name. To modify
+ * 			an existing key group, use <code>UpdateKeyGroup</code>.</p>
+ *
+ * @throws {@link TooManyKeyGroups} (client fault)
+ *  <p>You have reached the maximum number of key groups for this Amazon Web Services account. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * @throws {@link TooManyPublicKeysInKeyGroup} (client fault)
+ *  <p>The number of public keys in this key group is more than the maximum allowed. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ *
  */
 export class CreateKeyGroupCommand extends $Command<
   CreateKeyGroupCommandInput,

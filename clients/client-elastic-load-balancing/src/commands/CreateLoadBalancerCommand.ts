@@ -67,6 +67,45 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link CertificateNotFoundException} (client fault)
+ *  <p>The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM)
+ *             or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might
+ *             indicate that the certificate is not fully available yet.</p>
+ *
+ * @throws {@link DuplicateAccessPointNameException} (client fault)
+ *  <p>The specified load balancer name already exists for this account.</p>
+ *
+ * @throws {@link DuplicateTagKeysException} (client fault)
+ *  <p>A tag key was specified more than once.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration change is not valid.</p>
+ *
+ * @throws {@link InvalidSchemeException} (client fault)
+ *  <p>The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.</p>
+ *
+ * @throws {@link InvalidSecurityGroupException} (client fault)
+ *  <p>One or more of the specified security groups do not exist.</p>
+ *
+ * @throws {@link InvalidSubnetException} (client fault)
+ *  <p>The specified VPC has no associated Internet gateway.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link SubnetNotFoundException} (client fault)
+ *  <p>One or more of the specified subnets do not exist.</p>
+ *
+ * @throws {@link TooManyAccessPointsException} (client fault)
+ *  <p>The quota for the number of load balancers has been reached.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The quota for the number of tags that can be assigned to a load balancer has been reached.</p>
+ *
+ * @throws {@link UnsupportedProtocolException} (client fault)
+ *  <p>The specified protocol or signature version is not supported.</p>
+ *
+ *
  * @example To create an HTTP load balancer in a VPC
  * ```javascript
  * // This example creates a load balancer with an HTTP listener in a VPC.

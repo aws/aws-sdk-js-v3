@@ -52,6 +52,44 @@ export interface UpdateFieldLevelEncryptionConfigCommandOutput
  * @see {@link UpdateFieldLevelEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link IllegalUpdate} (client fault)
+ *  <p>The update contains modifications that are not allowed.</p>
+ *
+ * @throws {@link InconsistentQuantities} (client fault)
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
+ * 			match.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchFieldLevelEncryptionConfig} (client fault)
+ *  <p>The specified configuration for field-level encryption doesn't exist.</p>
+ *
+ * @throws {@link NoSuchFieldLevelEncryptionProfile} (client fault)
+ *  <p>The specified profile for field-level encryption doesn't exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ * @throws {@link QueryArgProfileEmpty} (client fault)
+ *  <p>No profile specified for the field-level encryption query argument.</p>
+ *
+ * @throws {@link TooManyFieldLevelEncryptionContentTypeProfiles} (client fault)
+ *  <p>The maximum number of content type profiles for field-level encryption have been
+ * 			created.</p>
+ *
+ * @throws {@link TooManyFieldLevelEncryptionQueryArgProfiles} (client fault)
+ *  <p>The maximum number of query arg profiles for field-level encryption have been
+ * 			created.</p>
+ *
+ *
  */
 export class UpdateFieldLevelEncryptionConfigCommand extends $Command<
   UpdateFieldLevelEncryptionConfigCommandInput,

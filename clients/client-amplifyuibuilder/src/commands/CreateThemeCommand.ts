@@ -50,6 +50,20 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  * @see {@link CreateThemeCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>The resource specified in the request conflicts with an existing resource.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
+ *       maximum number of service resources or operations for your Amazon Web Services account. </p>
+ *
+ *
  */
 export class CreateThemeCommand extends $Command<
   CreateThemeCommandInput,

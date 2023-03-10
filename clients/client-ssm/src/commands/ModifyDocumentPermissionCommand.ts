@@ -53,6 +53,28 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  * @see {@link ModifyDocumentPermissionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link DocumentLimitExceeded} (client fault)
+ *  <p>You can have at most 500 active SSM documents.</p>
+ *
+ * @throws {@link DocumentPermissionLimit} (client fault)
+ *  <p>The document can't be shared with more Amazon Web Services accounts. You can specify a maximum of 20
+ *    accounts per API operation to share a private document.</p>
+ *          <p>By default, you can share a private document with a maximum of 1,000 accounts and publicly
+ *    share up to five documents.</p>
+ *          <p>If you need to increase the quota for privately or publicly shared Systems Manager documents, contact
+ *    Amazon Web Services Support.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDocument} (client fault)
+ *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * @throws {@link InvalidPermissionType} (client fault)
+ *  <p>The permission type isn't supported. <i>Share</i> is the only supported
+ *    permission type.</p>
+ *
+ *
  */
 export class ModifyDocumentPermissionCommand extends $Command<
   ModifyDocumentPermissionCommandInput,

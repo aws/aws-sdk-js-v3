@@ -49,6 +49,7 @@ export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
  * @see {@link DisassociateRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To disassociate a route table
  * ```javascript
  * // This example disassociates the specified route table from its associated subnet.

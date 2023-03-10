@@ -45,6 +45,32 @@ export interface DeleteTopicCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteTopicCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * @throws {@link ConcurrentAccessException} (client fault)
+ *  <p>Can't perform multiple operations on a tag simultaneously. Perform the operations
+ *             sequentially.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Indicates an internal service error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Indicates that a request parameter does not comply with the associated
+ *             constraints.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Indicates that the requested resource does not exist.</p>
+ *
+ * @throws {@link StaleTagException} (client fault)
+ *  <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a
+ *             short while and then retry the operation.</p>
+ *
+ * @throws {@link TagPolicyException} (client fault)
+ *  <p>The request doesn't comply with the IAM tag policy. Correct your request and then
+ *             retry it.</p>
+ *
+ *
  */
 export class DeleteTopicCommand extends $Command<
   DeleteTopicCommandInput,

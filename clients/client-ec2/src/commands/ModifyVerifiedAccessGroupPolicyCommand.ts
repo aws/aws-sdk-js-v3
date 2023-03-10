@@ -52,6 +52,7 @@ export interface ModifyVerifiedAccessGroupPolicyCommandOutput
  * @see {@link ModifyVerifiedAccessGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class ModifyVerifiedAccessGroupPolicyCommand extends $Command<
   ModifyVerifiedAccessGroupPolicyCommandInput,

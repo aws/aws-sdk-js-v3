@@ -66,6 +66,14 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  * @see {@link GetClusterCredentialsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ *
  */
 export class GetClusterCredentialsCommand extends $Command<
   GetClusterCredentialsCommandInput,

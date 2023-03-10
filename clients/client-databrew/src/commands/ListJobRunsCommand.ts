@@ -50,6 +50,13 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * @see {@link ListJobRunsCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input parameters for this request failed validation.</p>
+ *
+ *
  */
 export class ListJobRunsCommand extends $Command<
   ListJobRunsCommandInput,

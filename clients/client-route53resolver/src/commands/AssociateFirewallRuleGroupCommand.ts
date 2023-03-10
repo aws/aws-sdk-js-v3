@@ -50,6 +50,31 @@ export interface AssociateFirewallRuleGroupCommandOutput extends AssociateFirewa
  * @see {@link AssociateFirewallRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested state transition isn't valid. For example, you can't delete a firewall
+ * 			domain list if it is in the process of being deleted, or you can't import domains into a
+ * 			domain list that is in the process of being deleted.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request caused one or more limits to be exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+ *
+ *
  */
 export class AssociateFirewallRuleGroupCommand extends $Command<
   AssociateFirewallRuleGroupCommandInput,

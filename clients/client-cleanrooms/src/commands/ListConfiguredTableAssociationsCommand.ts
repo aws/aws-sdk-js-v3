@@ -52,6 +52,19 @@ export interface ListConfiguredTableAssociationsCommandOutput
  * @see {@link ListConfiguredTableAssociationsCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Caller does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error during processing of request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the specified constraints.</p>
+ *
+ *
  */
 export class ListConfiguredTableAssociationsCommand extends $Command<
   ListConfiguredTableAssociationsCommandInput,

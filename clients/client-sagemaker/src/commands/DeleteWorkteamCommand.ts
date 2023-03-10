@@ -50,6 +50,11 @@ export interface DeleteWorkteamCommandOutput extends DeleteWorkteamResponse, __M
  * @see {@link DeleteWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ *
  */
 export class DeleteWorkteamCommand extends $Command<
   DeleteWorkteamCommandInput,

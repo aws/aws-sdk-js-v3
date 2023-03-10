@@ -46,6 +46,7 @@ export interface RestartAppServerCommandOutput extends __MetadataBearer {}
  * @see {@link RestartAppServerCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
  * @example To restart application servers
  * ```javascript
  * // The following operation restarts application servers on all instances in an environment named my-env:

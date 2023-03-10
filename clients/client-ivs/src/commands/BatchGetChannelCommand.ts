@@ -50,6 +50,7 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * @see {@link BatchGetChannelCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
+ *
  */
 export class BatchGetChannelCommand extends $Command<
   BatchGetChannelCommandInput,

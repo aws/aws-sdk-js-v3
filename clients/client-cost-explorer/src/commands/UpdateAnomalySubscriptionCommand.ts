@@ -50,6 +50,16 @@ export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySub
  * @see {@link UpdateAnomalySubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * @throws {@link UnknownMonitorException} (client fault)
+ *  <p>The cost anomaly monitor does not exist for the account. </p>
+ *
+ * @throws {@link UnknownSubscriptionException} (client fault)
+ *  <p>The cost anomaly subscription does not exist for the account. </p>
+ *
+ *
  */
 export class UpdateAnomalySubscriptionCommand extends $Command<
   UpdateAnomalySubscriptionCommandInput,

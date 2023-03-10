@@ -51,6 +51,16 @@ export interface DetectDominantLanguageCommandOutput extends DetectDominantLangu
  * @see {@link DetectDominantLanguageCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link TextSizeLimitExceededException} (client fault)
+ *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+ *
+ *
  */
 export class DetectDominantLanguageCommand extends $Command<
   DetectDominantLanguageCommandInput,

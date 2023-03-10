@@ -52,6 +52,18 @@ export interface ListMobileDeviceAccessRulesCommandOutput
  * @see {@link ListMobileDeviceAccessRulesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
+ *
  */
 export class ListMobileDeviceAccessRulesCommand extends $Command<
   ListMobileDeviceAccessRulesCommandInput,

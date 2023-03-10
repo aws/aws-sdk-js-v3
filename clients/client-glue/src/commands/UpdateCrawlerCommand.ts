@@ -52,6 +52,22 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  * @see {@link UpdateCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link CrawlerRunningException} (client fault)
+ *  <p>The operation cannot be performed because the crawler is already running.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link VersionMismatchException} (client fault)
+ *  <p>There was a version conflict.</p>
+ *
+ *
  */
 export class UpdateCrawlerCommand extends $Command<
   UpdateCrawlerCommandInput,

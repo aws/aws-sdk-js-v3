@@ -55,6 +55,19 @@ export interface CreateMonitoringSubscriptionCommandOutput
  * @see {@link CreateMonitoringSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link MonitoringSubscriptionAlreadyExists} (client fault)
+ *  <p>A monitoring subscription already exists for the specified distribution.</p>
+ *
+ * @throws {@link NoSuchDistribution} (client fault)
+ *  <p>The specified distribution does not exist.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>This operation is not supported in this region.</p>
+ *
+ *
  */
 export class CreateMonitoringSubscriptionCommand extends $Command<
   CreateMonitoringSubscriptionCommandInput,

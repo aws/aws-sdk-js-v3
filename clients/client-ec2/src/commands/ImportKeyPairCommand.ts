@@ -52,6 +52,7 @@ export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __Metad
  * @see {@link ImportKeyPairCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class ImportKeyPairCommand extends $Command<
   ImportKeyPairCommandInput,

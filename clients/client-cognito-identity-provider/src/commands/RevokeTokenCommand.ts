@@ -57,6 +57,32 @@ export interface RevokeTokenCommandOutput extends RevokeTokenResponse, __Metadat
  * @see {@link RevokeTokenCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>Exception that is thrown when the request isn't authorized. This can happen due to an
+ *             invalid access token in the request.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>Exception that is thrown when you attempt to perform an operation that isn't enabled
+ *             for the user pool client.</p>
+ *
+ * @throws {@link UnsupportedTokenTypeException} (client fault)
+ *  <p>Exception that is thrown when an unsupported token is passed to an operation.</p>
+ *
+ *
  */
 export class RevokeTokenCommand extends $Command<
   RevokeTokenCommandInput,

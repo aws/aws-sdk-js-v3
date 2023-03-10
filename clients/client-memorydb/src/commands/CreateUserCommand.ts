@@ -50,6 +50,25 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @see {@link CreateUserCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link DuplicateUserNameFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link UserAlreadyExistsFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link UserQuotaExceededFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class CreateUserCommand extends $Command<
   CreateUserCommandInput,

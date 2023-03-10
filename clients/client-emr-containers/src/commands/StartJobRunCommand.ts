@@ -51,6 +51,16 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * @see {@link StartJobRunCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This is an internal server exception.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There are invalid parameters in the client request.</p>
+ *
+ *
  */
 export class StartJobRunCommand extends $Command<
   StartJobRunCommandInput,

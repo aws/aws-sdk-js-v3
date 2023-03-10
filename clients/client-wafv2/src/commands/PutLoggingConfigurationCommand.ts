@@ -92,6 +92,67 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * @see {@link PutLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>Your request is valid, but WAF couldn’t perform the operation because of a system
+ *          problem. Retry your request. </p>
+ *
+ * @throws {@link WAFInvalidOperationException} (client fault)
+ *  <p>The operation isn't valid. </p>
+ *
+ * @throws {@link WAFInvalidParameterException} (client fault)
+ *  <p>The operation failed because WAF didn't recognize a parameter in the request. For
+ *          example: </p>
+ *          <ul>
+ *             <li>
+ *                <p>You specified a parameter name or value that isn't valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
+ *                can’t be nested. </p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that
+ *                isn't among the types available at <a>DefaultAction</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                with which a web ACL can't be associated.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link WAFLimitsExceededException} (client fault)
+ *  <p>WAF couldn’t perform the operation because you exceeded your resource limit. For
+ *          example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services
+ *          account. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
+ *             <i>WAF Developer Guide</i>.</p>
+ *
+ * @throws {@link WAFLogDestinationPermissionIssueException} (client fault)
+ *  <p>The operation failed because you don't have the permissions that your logging
+ *          configuration requires. For information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging web ACL traffic information</a>
+ *          in the <i>WAF Developer Guide</i>.</p>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>WAF couldn’t perform the operation because your resource doesn't exist.
+ *        If you've just created a resource that you're using in this operation, you might
+ *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
+ *        for changes to propagate. </p>
+ *
+ * @throws {@link WAFOptimisticLockException} (client fault)
+ *  <p>WAF couldn’t save your changes because you tried to update or delete a resource
+ *          that has changed since you last retrieved it. Get the resource again, make any changes you
+ *          need to make to the new copy, and retry your operation. </p>
+ *
+ * @throws {@link WAFServiceLinkedRoleErrorException} (client fault)
+ *  <p>WAF is not able to access the service linked role. This can be caused by a
+ *          previous <code>PutLoggingConfiguration</code> request, which can lock the service linked
+ *          role for about 20 seconds. Please try your request again. The service linked role can also
+ *          be locked by a previous <code>DeleteServiceLinkedRole</code> request, which can lock the
+ *          role for 15 minutes or more. If you recently made a call to
+ *             <code>DeleteServiceLinkedRole</code>, wait at least 15 minutes and try the request
+ *          again. If you receive this same exception again, you will have to wait additional time
+ *          until the role is unlocked.</p>
+ *
+ *
  */
 export class PutLoggingConfigurationCommand extends $Command<
   PutLoggingConfigurationCommandInput,

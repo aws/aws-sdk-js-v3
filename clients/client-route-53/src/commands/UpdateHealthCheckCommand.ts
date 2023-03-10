@@ -53,6 +53,17 @@ export interface UpdateHealthCheckCommandOutput extends UpdateHealthCheckRespons
  * @see {@link UpdateHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link HealthCheckVersionMismatch} (client fault)
+ *  <p>The value of <code>HealthCheckVersion</code> in the request doesn't match the value of
+ * 				<code>HealthCheckVersion</code> in the health check.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHealthCheck} (client fault)
+ *  <p>No health check exists with the specified ID.</p>
+ *
+ *
  */
 export class UpdateHealthCheckCommand extends $Command<
   UpdateHealthCheckCommandInput,

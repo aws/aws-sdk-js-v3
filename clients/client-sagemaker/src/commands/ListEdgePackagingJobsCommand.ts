@@ -50,6 +50,7 @@ export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJob
  * @see {@link ListEdgePackagingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListEdgePackagingJobsCommand extends $Command<
   ListEdgePackagingJobsCommandInput,

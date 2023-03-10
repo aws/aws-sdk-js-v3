@@ -52,6 +52,22 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link ElasticInferenceClientResolvedConfig | config} for ElasticInferenceClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>
+ *             Raised when a malformed input has been provided to the API.
+ *         </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>
+ *             Raised when an unexpected error occurred during request processing.
+ *         </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *             Raised when the requested resource cannot be found.
+ *         </p>
+ *
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

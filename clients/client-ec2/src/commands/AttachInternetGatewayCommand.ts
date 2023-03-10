@@ -46,6 +46,7 @@ export interface AttachInternetGatewayCommandOutput extends __MetadataBearer {}
  * @see {@link AttachInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To attach an Internet gateway to a VPC
  * ```javascript
  * // This example attaches the specified Internet gateway to the specified VPC.

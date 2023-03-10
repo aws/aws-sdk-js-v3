@@ -55,6 +55,11 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  * @see {@link ModifyDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ *
  */
 export class ModifyDBSnapshotCommand extends $Command<
   ModifyDBSnapshotCommandInput,

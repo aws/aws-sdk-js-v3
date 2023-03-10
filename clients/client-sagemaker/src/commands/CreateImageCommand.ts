@@ -52,6 +52,14 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * @see {@link CreateImageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ *
  */
 export class CreateImageCommand extends $Command<
   CreateImageCommandInput,

@@ -50,6 +50,21 @@ export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __M
  * @see {@link PutCodeBindingCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *
+ * @throws {@link GoneException} (client fault)
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *
+ *
  */
 export class PutCodeBindingCommand extends $Command<
   PutCodeBindingCommandInput,

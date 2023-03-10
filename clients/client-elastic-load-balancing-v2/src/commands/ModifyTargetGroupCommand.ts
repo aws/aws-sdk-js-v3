@@ -55,6 +55,13 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
  * @see {@link ModifyTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration is not valid.</p>
+ *
+ * @throws {@link TargetGroupNotFoundException} (client fault)
+ *  <p>The specified target group does not exist.</p>
+ *
+ *
  * @example To modify the health check configuration for a target group
  * ```javascript
  * // This example changes the configuration of the health checks used to evaluate the health of the targets for the specified target group.

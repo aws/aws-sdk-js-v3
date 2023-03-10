@@ -54,6 +54,27 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
  * @see {@link DeleteResponseHeadersPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link IllegalDelete} (client fault)
+ *  <p>You cannot delete a managed policy.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchResponseHeadersPolicy} (client fault)
+ *  <p>The response headers policy does not exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ * @throws {@link ResponseHeadersPolicyInUse} (client fault)
+ *  <p>Cannot delete the response headers policy because it is attached to one or more cache
+ * 			behaviors in a CloudFront distribution.</p>
+ *
+ *
  */
 export class DeleteResponseHeadersPolicyCommand extends $Command<
   DeleteResponseHeadersPolicyCommandInput,

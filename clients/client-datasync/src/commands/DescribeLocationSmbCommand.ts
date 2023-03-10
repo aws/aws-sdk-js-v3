@@ -50,6 +50,13 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
  * @see {@link DescribeLocationSmbCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ *
  */
 export class DescribeLocationSmbCommand extends $Command<
   DescribeLocationSmbCommandInput,

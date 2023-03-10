@@ -54,6 +54,19 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  * @see {@link UpdateCollectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>When creating a collection, thrown when a collection with the same name already exists
+ *             or is being created. When deleting a collection, thrown when the collection is not in
+ *             the ACTIVE or FAILED state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required
+ *             input.</p>
+ *
+ *
  */
 export class UpdateCollectionCommand extends $Command<
   UpdateCollectionCommandInput,

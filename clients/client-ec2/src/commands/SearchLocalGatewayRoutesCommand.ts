@@ -50,6 +50,7 @@ export interface SearchLocalGatewayRoutesCommandOutput extends SearchLocalGatewa
  * @see {@link SearchLocalGatewayRoutesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class SearchLocalGatewayRoutesCommand extends $Command<
   SearchLocalGatewayRoutesCommandInput,

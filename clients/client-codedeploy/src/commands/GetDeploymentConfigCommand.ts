@@ -50,6 +50,20 @@ export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOut
  * @see {@link GetDeploymentConfigCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link DeploymentConfigDoesNotExistException} (client fault)
+ *  <p>The deployment configuration does not exist with the IAM user or
+ *                 Amazon Web Services account.</p>
+ *
+ * @throws {@link DeploymentConfigNameRequiredException} (client fault)
+ *  <p>The deployment configuration name was not specified.</p>
+ *
+ * @throws {@link InvalidComputePlatformException} (client fault)
+ *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ *
+ * @throws {@link InvalidDeploymentConfigNameException} (client fault)
+ *  <p>The deployment configuration name was specified in an invalid format.</p>
+ *
+ *
  */
 export class GetDeploymentConfigCommand extends $Command<
   GetDeploymentConfigCommandInput,

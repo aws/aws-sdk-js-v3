@@ -52,6 +52,26 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * @see {@link ChangeTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHealthCheck} (client fault)
+ *  <p>No health check exists with the specified ID.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * @throws {@link PriorRequestNotComplete} (client fault)
+ *  <p>If Amazon Route 53 can't process a request before the next request arrives, it will
+ * 			reject subsequent requests for the same hosted zone and return an <code>HTTP 400
+ * 				error</code> (<code>Bad request</code>). If Route 53 returns this error repeatedly
+ * 			for the same request, we recommend that you wait, in intervals of increasing duration,
+ * 			before you try the request again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ *
  * @example To add or remove tags from a hosted zone or health check
  * ```javascript
  * // The following example adds two tags and removes one tag from the hosted zone with ID Z3M3LMPEXAMPLE.

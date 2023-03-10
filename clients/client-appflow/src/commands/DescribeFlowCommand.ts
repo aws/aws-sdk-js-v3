@@ -50,6 +50,15 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * @see {@link DescribeFlowCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *       later. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource specified in the request (such as the source or destination connector
+ *       profile) is not found. </p>
+ *
+ *
  */
 export class DescribeFlowCommand extends $Command<
   DescribeFlowCommandInput,

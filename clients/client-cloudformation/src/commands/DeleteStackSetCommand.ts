@@ -51,6 +51,16 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  * @see {@link DeleteStackSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link OperationInProgressException} (client fault)
+ *  <p>Another operation is currently in progress for this stack set. Only one operation can be
+ *          performed for a stack set at a given time.</p>
+ *
+ * @throws {@link StackSetNotEmptyException} (client fault)
+ *  <p>You can't yet delete this stack set, because it still contains one or more stack
+ *          instances. Delete all stack instances from the stack set before deleting the stack
+ *          set.</p>
+ *
+ *
  */
 export class DeleteStackSetCommand extends $Command<
   DeleteStackSetCommandInput,

@@ -57,6 +57,13 @@ export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
  * @see {@link DescribeOutboundCrossClusterSearchConnectionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>The request processing has failed because of invalid pagination token provided by customer. Returns an HTTP status code of 400. </p>
+ *
+ *
  */
 export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Command<
   DescribeOutboundCrossClusterSearchConnectionsCommandInput,

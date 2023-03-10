@@ -76,6 +76,16 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * @see {@link CreateSchemaCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ *
  */
 export class CreateSchemaCommand extends $Command<
   CreateSchemaCommandInput,

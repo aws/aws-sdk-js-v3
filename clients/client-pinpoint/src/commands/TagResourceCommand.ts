@@ -45,6 +45,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

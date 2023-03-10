@@ -51,6 +51,10 @@ export interface ListStackInstancesCommandOutput extends ListStackInstancesOutpu
  * @see {@link ListStackInstancesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link StackSetNotFoundException} (client fault)
+ *  <p>The specified stack set doesn't exist.</p>
+ *
+ *
  */
 export class ListStackInstancesCommand extends $Command<
   ListStackInstancesCommandInput,

@@ -80,6 +80,7 @@ export interface GetBucketAnalyticsConfigurationCommandOutput
  * @see {@link GetBucketAnalyticsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  */
 export class GetBucketAnalyticsConfigurationCommand extends $Command<
   GetBucketAnalyticsConfigurationCommandInput,

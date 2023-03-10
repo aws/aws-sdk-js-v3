@@ -46,6 +46,16 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
  * @see {@link SetV2LoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ *
  */
 export class SetV2LoggingOptionsCommand extends $Command<
   SetV2LoggingOptionsCommandInput,

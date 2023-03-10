@@ -50,6 +50,7 @@ export interface ListDeviceDefinitionsCommandOutput extends ListDeviceDefinition
  * @see {@link ListDeviceDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ *
  */
 export class ListDeviceDefinitionsCommand extends $Command<
   ListDeviceDefinitionsCommandInput,

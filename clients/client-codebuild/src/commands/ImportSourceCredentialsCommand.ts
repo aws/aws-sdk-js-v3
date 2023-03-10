@@ -51,6 +51,17 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  * @see {@link ImportSourceCredentialsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
+ * @throws {@link AccountLimitExceededException} (client fault)
+ *  <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same
+ *             settings already exists.</p>
+ *
+ *
  */
 export class ImportSourceCredentialsCommand extends $Command<
   ImportSourceCredentialsCommandInput,

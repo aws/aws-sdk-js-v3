@@ -51,6 +51,23 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  * @see {@link CreateCustomActionTypeCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Unable to modify the tag due to a simultaneous update request.</p>
+ *
+ * @throws {@link InvalidTagsException} (client fault)
+ *  <p>The specified resource tags are invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The number of pipelines associated with the AWS account has exceeded the limit
+ *             allowed for the account.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The tags limit for a resource has been exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ *
  */
 export class CreateCustomActionTypeCommand extends $Command<
   CreateCustomActionTypeCommandInput,

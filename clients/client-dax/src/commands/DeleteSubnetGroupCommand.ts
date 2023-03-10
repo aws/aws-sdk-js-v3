@@ -54,6 +54,17 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * @see {@link DeleteSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link SubnetGroupInUseFault} (client fault)
+ *  <p>The specified subnet group is currently in use.</p>
+ *
+ * @throws {@link SubnetGroupNotFoundFault} (client fault)
+ *  <p>The requested subnet group name does not refer to an existing subnet
+ *             group.</p>
+ *
+ *
  */
 export class DeleteSubnetGroupCommand extends $Command<
   DeleteSubnetGroupCommandInput,

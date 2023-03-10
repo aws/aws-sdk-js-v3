@@ -50,6 +50,13 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
  * @see {@link DescribeAttackCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Exception that indicates the specified <code>AttackId</code> does not exist, or the requester does not have the appropriate permissions to access the <code>AttackId</code>.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ *
  */
 export class DescribeAttackCommand extends $Command<
   DescribeAttackCommandInput,

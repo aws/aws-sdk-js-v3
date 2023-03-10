@@ -52,6 +52,16 @@ export interface StartCrawlerCommandOutput extends StartCrawlerResponse, __Metad
  * @see {@link StartCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link CrawlerRunningException} (client fault)
+ *  <p>The operation cannot be performed because the crawler is already running.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
  */
 export class StartCrawlerCommand extends $Command<
   StartCrawlerCommandInput,

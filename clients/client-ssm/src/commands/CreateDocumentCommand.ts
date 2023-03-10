@@ -53,6 +53,25 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  * @see {@link CreateDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link DocumentAlreadyExists} (client fault)
+ *  <p>The specified document already exists.</p>
+ *
+ * @throws {@link DocumentLimitExceeded} (client fault)
+ *  <p>You can have at most 500 active SSM documents.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDocumentContent} (client fault)
+ *  <p>The content for the document isn't valid.</p>
+ *
+ * @throws {@link InvalidDocumentSchemaVersion} (client fault)
+ *  <p>The version of the document schema isn't supported.</p>
+ *
+ * @throws {@link MaxDocumentSizeExceeded} (client fault)
+ *  <p>The size limit of a document is 64 KB.</p>
+ *
+ *
  */
 export class CreateDocumentCommand extends $Command<
   CreateDocumentCommandInput,

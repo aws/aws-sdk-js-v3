@@ -52,6 +52,7 @@ export interface ListCuratedEnvironmentImagesCommandOutput
  * @see {@link ListCuratedEnvironmentImagesCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
+ *
  */
 export class ListCuratedEnvironmentImagesCommand extends $Command<
   ListCuratedEnvironmentImagesCommandInput,

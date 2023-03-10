@@ -49,6 +49,10 @@ export interface DeleteModelExplainabilityJobDefinitionCommandOutput extends __M
  * @see {@link DeleteModelExplainabilityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
+ *
  */
 export class DeleteModelExplainabilityJobDefinitionCommand extends $Command<
   DeleteModelExplainabilityJobDefinitionCommandInput,

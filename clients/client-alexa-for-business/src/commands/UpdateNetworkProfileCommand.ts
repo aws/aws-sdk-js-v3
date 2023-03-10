@@ -50,6 +50,22 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
  * @see {@link UpdateNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link InvalidCertificateAuthorityException} (client fault)
+ *  <p>The Certificate Authority can't issue or revoke a certificate.</p>
+ *
+ * @throws {@link InvalidSecretsManagerResourceException} (client fault)
+ *  <p>A password in SecretsManager is in an invalid state.</p>
+ *
+ * @throws {@link NameInUseException} (client fault)
+ *  <p>The name sent in the request is already in use.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class UpdateNetworkProfileCommand extends $Command<
   UpdateNetworkProfileCommandInput,

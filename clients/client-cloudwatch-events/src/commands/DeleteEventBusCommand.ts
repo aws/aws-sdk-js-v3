@@ -46,6 +46,13 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteEventBusCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ *
  */
 export class DeleteEventBusCommand extends $Command<
   DeleteEventBusCommandInput,

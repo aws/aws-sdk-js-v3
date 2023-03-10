@@ -50,6 +50,7 @@ export interface ListLabelingJobsCommandOutput extends ListLabelingJobsResponse,
  * @see {@link ListLabelingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListLabelingJobsCommand extends $Command<
   ListLabelingJobsCommandInput,

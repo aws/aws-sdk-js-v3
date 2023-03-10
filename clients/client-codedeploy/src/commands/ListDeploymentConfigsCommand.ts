@@ -50,6 +50,10 @@ export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfig
  * @see {@link ListDeploymentConfigsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format.</p>
+ *
+ *
  */
 export class ListDeploymentConfigsCommand extends $Command<
   ListDeploymentConfigsCommandInput,

@@ -50,6 +50,16 @@ export interface EnableInsightRulesCommandOutput extends EnableInsightRulesOutpu
  * @see {@link EnableInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The operation exceeded one or more limits.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>An input parameter that is required is missing.</p>
+ *
+ *
  */
 export class EnableInsightRulesCommand extends $Command<
   EnableInsightRulesCommandInput,

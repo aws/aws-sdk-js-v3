@@ -87,6 +87,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe a single attribute for your AWS account
  * ```javascript
  * // This example describes the supported-platforms attribute for your AWS account.

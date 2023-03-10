@@ -62,6 +62,11 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * @see {@link ListPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
  */
 export class ListPoliciesCommand extends $Command<
   ListPoliciesCommandInput,

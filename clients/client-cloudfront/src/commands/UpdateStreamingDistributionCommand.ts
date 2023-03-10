@@ -50,6 +50,52 @@ export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamin
  * @see {@link UpdateStreamingDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link CNAMEAlreadyExists} (client fault)
+ *  <p>The CNAME specified is already defined for CloudFront.</p>
+ *
+ * @throws {@link IllegalUpdate} (client fault)
+ *  <p>The update contains modifications that are not allowed.</p>
+ *
+ * @throws {@link InconsistentQuantities} (client fault)
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
+ * 			match.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link InvalidOriginAccessControl} (client fault)
+ *  <p>The origin access control is not valid.</p>
+ *
+ * @throws {@link InvalidOriginAccessIdentity} (client fault)
+ *  <p>The origin access identity is not valid or doesn't exist.</p>
+ *
+ * @throws {@link MissingBody} (client fault)
+ *  <p>This operation requires a body. Ensure that the body is present and the
+ * 				<code>Content-Type</code> header is set.</p>
+ *
+ * @throws {@link NoSuchStreamingDistribution} (client fault)
+ *  <p>The specified streaming distribution does not exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ * @throws {@link TooManyStreamingDistributionCNAMEs} (client fault)
+ *  <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+ *
+ * @throws {@link TooManyTrustedSigners} (client fault)
+ *  <p>Your request contains more trusted signers than are allowed per distribution.</p>
+ *
+ * @throws {@link TrustedSignerDoesNotExist} (client fault)
+ *  <p>One or more of your trusted signers don't exist.</p>
+ *
+ *
  */
 export class UpdateStreamingDistributionCommand extends $Command<
   UpdateStreamingDistributionCommandInput,

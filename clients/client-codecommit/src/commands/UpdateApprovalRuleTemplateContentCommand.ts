@@ -54,6 +54,29 @@ export interface UpdateApprovalRuleTemplateContentCommandOutput
  * @see {@link UpdateApprovalRuleTemplateContentCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
+ * @throws {@link ApprovalRuleTemplateContentRequiredException} (client fault)
+ *  <p>The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.</p>
+ *
+ * @throws {@link ApprovalRuleTemplateDoesNotExistException} (client fault)
+ *  <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the AWS Region where the template
+ *         was created, and then try again.</p>
+ *
+ * @throws {@link ApprovalRuleTemplateNameRequiredException} (client fault)
+ *  <p>An approval rule template name is required, but was not specified.</p>
+ *
+ * @throws {@link InvalidApprovalRuleTemplateContentException} (client fault)
+ *  <p>The content of the approval rule template is not valid.</p>
+ *
+ * @throws {@link InvalidApprovalRuleTemplateNameException} (client fault)
+ *  <p>The name of the approval rule template is not valid. Template names must be between 1
+ *             and 100 valid characters in length. For more information about limits in AWS CodeCommit,
+ *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
+ *                 CodeCommit User Guide</a>.</p>
+ *
+ * @throws {@link InvalidRuleContentSha256Exception} (client fault)
+ *  <p>The SHA-256 hash signature for the rule content is not valid.</p>
+ *
+ *
  */
 export class UpdateApprovalRuleTemplateContentCommand extends $Command<
   UpdateApprovalRuleTemplateContentCommandInput,

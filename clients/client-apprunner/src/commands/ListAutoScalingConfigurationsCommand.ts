@@ -56,6 +56,13 @@ export interface ListAutoScalingConfigurationsCommandOutput
  * @see {@link ListAutoScalingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An unexpected service exception occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ *
  */
 export class ListAutoScalingConfigurationsCommand extends $Command<
   ListAutoScalingConfigurationsCommandInput,

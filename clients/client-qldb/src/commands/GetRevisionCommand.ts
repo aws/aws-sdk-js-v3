@@ -52,6 +52,16 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  * @see {@link GetRevisionCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in the request aren't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ResourcePreconditionNotMetException} (client fault)
+ *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
+ *
+ *
  */
 export class GetRevisionCommand extends $Command<
   GetRevisionCommandInput,

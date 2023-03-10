@@ -50,6 +50,7 @@ export interface ListTransformJobsCommandOutput extends ListTransformJobsRespons
  * @see {@link ListTransformJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListTransformJobsCommand extends $Command<
   ListTransformJobsCommandInput,

@@ -51,6 +51,14 @@ export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBe
  * @see {@link DisableLoggingCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ *
  */
 export class DisableLoggingCommand extends $Command<
   DisableLoggingCommandInput,

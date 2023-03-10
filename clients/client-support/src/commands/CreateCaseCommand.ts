@@ -82,6 +82,20 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * @see {@link CreateCaseCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
+ * @throws {@link AttachmentSetExpired} (client fault)
+ *  <p>The expiration time of the attachment set has passed. The set expires 1 hour after it
+ *             is created.</p>
+ *
+ * @throws {@link AttachmentSetIdNotFound} (client fault)
+ *  <p>An attachment set with the specified ID could not be found.</p>
+ *
+ * @throws {@link CaseCreationLimitExceeded} (client fault)
+ *  <p>The case creation limit for the account has been exceeded.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error occurred.</p>
+ *
+ *
  */
 export class CreateCaseCommand extends $Command<
   CreateCaseCommandInput,

@@ -72,6 +72,13 @@ export interface ListConflictingAliasesCommandOutput extends ListConflictingAlia
  * @see {@link ListConflictingAliasesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchDistribution} (client fault)
+ *  <p>The specified distribution does not exist.</p>
+ *
+ *
  */
 export class ListConflictingAliasesCommand extends $Command<
   ListConflictingAliasesCommandInput,

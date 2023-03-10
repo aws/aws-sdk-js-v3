@@ -54,6 +54,23 @@ export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
  * @see {@link DescribeEffectivePatchesForPatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link DoesNotExistException} (client fault)
+ *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
+ *    baseline, doesn't exist.</p>
+ *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
+ *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidResourceId} (client fault)
+ *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+ *
+ * @throws {@link UnsupportedOperatingSystem} (client fault)
+ *  <p>The operating systems you specified isn't supported, or the operation isn't supported for
+ *    the operating system.</p>
+ *
+ *
  */
 export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
   DescribeEffectivePatchesForPatchBaselineCommandInput,

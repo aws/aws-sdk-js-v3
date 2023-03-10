@@ -50,6 +50,7 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * @see {@link DeleteChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ *
  */
 export class DeleteChannelCommand extends $Command<
   DeleteChannelCommandInput,

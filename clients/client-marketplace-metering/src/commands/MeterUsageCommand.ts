@@ -64,6 +64,50 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  * @see {@link MeterUsageCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
  *
+ * @throws {@link CustomerNotEntitledException} (client fault)
+ *  <p>Exception thrown when the customer does not have a valid subscription for the
+ *             product.</p>
+ *
+ * @throws {@link DuplicateRequestException} (client fault)
+ *  <p>A metering record has already been emitted by the same EC2 instance, ECS task, or EKS
+ *             pod for the given {<code>usageDimension</code>, <code>timestamp</code>} with a different
+ *                 <code>usageQuantity</code>.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An internal error has occurred. Retry your request. If the problem persists, post a
+ *             message with details on the AWS forums.</p>
+ *
+ * @throws {@link InvalidEndpointRegionException} (client fault)
+ *  <p>The endpoint being called is in a AWS Region different from your EC2 instance, ECS
+ *             task, or EKS pod. The Region of the Metering Service endpoint and the AWS Region of the
+ *             resource must match.</p>
+ *
+ * @throws {@link InvalidProductCodeException} (client fault)
+ *  <p>The product code passed does not match the product code used for publishing the
+ *             product.</p>
+ *
+ * @throws {@link InvalidTagException} (client fault)
+ *  <p>The tag is invalid, or the number of tags is greater than 5.</p>
+ *
+ * @throws {@link InvalidUsageAllocationsException} (client fault)
+ *  <p>The usage allocation objects are invalid, or the number of allocations is greater than
+ *             500 for a single usage record.</p>
+ *
+ * @throws {@link InvalidUsageDimensionException} (client fault)
+ *  <p>The usage dimension does not match one of the <code>UsageDimensions</code> associated
+ *             with products.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The calls to the API are throttled.</p>
+ *
+ * @throws {@link TimestampOutOfBoundsException} (client fault)
+ *  <p>The <code>timestamp</code> value passed in the <code>UsageRecord</code> is out of
+ *             allowed range.</p>
+ *         <p>For <code>BatchMeterUsage</code>, if any of the records are outside of the allowed
+ *             range, the entire batch is not processed. You must remove invalid records and try
+ *             again.</p>
+ *
+ *
  */
 export class MeterUsageCommand extends $Command<
   MeterUsageCommandInput,

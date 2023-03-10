@@ -56,6 +56,13 @@ export interface GetJobDetailsCommandOutput extends GetJobDetailsOutput, __Metad
  * @see {@link GetJobDetailsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The job was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ *
  */
 export class GetJobDetailsCommand extends $Command<
   GetJobDetailsCommandInput,

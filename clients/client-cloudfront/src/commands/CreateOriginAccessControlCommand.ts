@@ -56,6 +56,19 @@ export interface CreateOriginAccessControlCommandOutput extends CreateOriginAcce
  * @see {@link CreateOriginAccessControlCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link OriginAccessControlAlreadyExists} (client fault)
+ *  <p>An origin access control with the specified parameters already exists.</p>
+ *
+ * @throws {@link TooManyOriginAccessControls} (client fault)
+ *  <p>The number of origin access controls in your Amazon Web Services account exceeds the maximum
+ * 			allowed.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ *
  */
 export class CreateOriginAccessControlCommand extends $Command<
   CreateOriginAccessControlCommandInput,

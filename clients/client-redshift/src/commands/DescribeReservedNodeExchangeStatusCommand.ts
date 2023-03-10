@@ -54,6 +54,16 @@ export interface DescribeReservedNodeExchangeStatusCommandOutput
  * @see {@link DescribeReservedNodeExchangeStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ReservedNodeExchangeNotFoundFault} (client fault)
+ *  <p>The reserved-node exchange status wasn't found.</p>
+ *
+ * @throws {@link ReservedNodeNotFoundFault} (client fault)
+ *  <p>The specified reserved compute node not found.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ *
  */
 export class DescribeReservedNodeExchangeStatusCommand extends $Command<
   DescribeReservedNodeExchangeStatusCommandInput,

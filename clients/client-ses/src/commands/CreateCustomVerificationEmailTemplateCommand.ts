@@ -52,6 +52,23 @@ export interface CreateCustomVerificationEmailTemplateCommandOutput extends __Me
  * @see {@link CreateCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link CustomVerificationEmailInvalidContentException} (client fault)
+ *  <p>Indicates that custom verification email template provided content is invalid.</p>
+ *
+ * @throws {@link CustomVerificationEmailTemplateAlreadyExistsException} (client fault)
+ *  <p>Indicates that a custom verification email template with the name you specified
+ *             already exists.</p>
+ *
+ * @throws {@link FromEmailAddressNotVerifiedException} (client fault)
+ *  <p>Indicates that the sender address specified for a custom verification email is not
+ *             verified, and is therefore not eligible to send the custom verification email. </p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Indicates that a resource could not be created because of service limits. For a list
+ *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
+ *             Guide</a>.</p>
+ *
+ *
  */
 export class CreateCustomVerificationEmailTemplateCommand extends $Command<
   CreateCustomVerificationEmailTemplateCommandInput,

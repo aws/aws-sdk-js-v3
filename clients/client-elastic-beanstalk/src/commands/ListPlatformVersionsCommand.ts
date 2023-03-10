@@ -54,6 +54,14 @@ export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsR
  * @see {@link ListPlatformVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException} (client fault)
+ *  <p>A generic service exception has occurred.</p>
+ *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ *
  */
 export class ListPlatformVersionsCommand extends $Command<
   ListPlatformVersionsCommandInput,

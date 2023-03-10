@@ -52,6 +52,13 @@ export interface GetCloudFrontOriginAccessIdentityCommandOutput
  * @see {@link GetCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchCloudFrontOriginAccessIdentity} (client fault)
+ *  <p>The specified origin access identity does not exist.</p>
+ *
+ *
  */
 export class GetCloudFrontOriginAccessIdentityCommand extends $Command<
   GetCloudFrontOriginAccessIdentityCommandInput,

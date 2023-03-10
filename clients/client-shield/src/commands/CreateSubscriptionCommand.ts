@@ -55,6 +55,13 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionRespo
  * @see {@link CreateSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>Exception indicating the specified resource already exists. If available, this exception includes details in additional properties. </p>
+ *
+ *
  */
 export class CreateSubscriptionCommand extends $Command<
   CreateSubscriptionCommandInput,

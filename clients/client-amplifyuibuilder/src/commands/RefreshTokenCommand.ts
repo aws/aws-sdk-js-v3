@@ -50,6 +50,10 @@ export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __Metad
  * @see {@link RefreshTokenCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ *
  */
 export class RefreshTokenCommand extends $Command<
   RefreshTokenCommandInput,

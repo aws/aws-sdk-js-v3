@@ -51,6 +51,14 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * @see {@link DescribeSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link SubnetGroupNotFoundFault} (client fault)
+ *  <p>The requested subnet group name does not refer to an existing subnet
+ *             group.</p>
+ *
+ *
  */
 export class DescribeSubnetGroupsCommand extends $Command<
   DescribeSubnetGroupsCommandInput,

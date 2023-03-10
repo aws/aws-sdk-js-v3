@@ -56,6 +56,16 @@ export interface UpdateCustomRoutingAcceleratorCommandOutput
  * @see {@link UpdateCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
+ * @throws {@link AcceleratorNotFoundException} (client fault)
+ *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ *
  */
 export class UpdateCustomRoutingAcceleratorCommand extends $Command<
   UpdateCustomRoutingAcceleratorCommandInput,

@@ -55,6 +55,10 @@ export interface ListOriginAccessControlsCommandOutput extends ListOriginAccessC
  * @see {@link ListOriginAccessControlsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ *
  */
 export class ListOriginAccessControlsCommand extends $Command<
   ListOriginAccessControlsCommandInput,

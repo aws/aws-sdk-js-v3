@@ -50,6 +50,16 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  * @see {@link CreateDBProxyCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBProxyAlreadyExistsFault} (client fault)
+ *  <p>The specified proxy name must be unique for all proxies owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * @throws {@link DBProxyQuotaExceededFault} (client fault)
+ *  <p>Your Amazon Web Services account already has the maximum number of proxies in the specified Amazon Web Services Region.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+ *
+ *
  */
 export class CreateDBProxyCommand extends $Command<
   CreateDBProxyCommandInput,

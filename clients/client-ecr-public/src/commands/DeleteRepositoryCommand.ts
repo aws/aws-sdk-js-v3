@@ -52,6 +52,25 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * @see {@link DeleteRepositoryCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *          request.</p>
+ *
+ * @throws {@link RepositoryNotEmptyException} (client fault)
+ *  <p>The specified repository contains images. To delete a repository that contains images,
+ *          you must force the deletion with the <code>force</code> parameter.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository can't be found. Check the spelling of the specified repository
+ *          and ensure that you're performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UnsupportedCommandException} (client fault)
+ *  <p>The action isn't supported in this Region.</p>
+ *
+ *
  */
 export class DeleteRepositoryCommand extends $Command<
   DeleteRepositoryCommandInput,

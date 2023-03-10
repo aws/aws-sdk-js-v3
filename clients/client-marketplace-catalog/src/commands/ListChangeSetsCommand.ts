@@ -59,6 +59,19 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  * @see {@link ListChangeSetsCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>There was an internal service exception.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Too many requests.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An error occurred during validation.</p>
+ *
+ *
  */
 export class ListChangeSetsCommand extends $Command<
   ListChangeSetsCommandInput,

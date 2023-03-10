@@ -50,6 +50,33 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  * @see {@link StartAutomationExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link AutomationDefinitionNotFoundException} (client fault)
+ *  <p>An Automation runbook with the specified name couldn't be found.</p>
+ *
+ * @throws {@link AutomationDefinitionVersionNotFoundException} (client fault)
+ *  <p>An Automation runbook with the specified name and version couldn't be found.</p>
+ *
+ * @throws {@link AutomationExecutionLimitExceededException} (client fault)
+ *  <p>The number of simultaneously running Automation executions exceeded the allowable
+ *    limit.</p>
+ *
+ * @throws {@link IdempotentParameterMismatch} (client fault)
+ *  <p>Error returned when an idempotent operation is retried and the parameters don't match the
+ *    original call to the API with the same idempotency token. </p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidAutomationExecutionParametersException} (client fault)
+ *  <p>The supplied parameters for invoking the specified Automation runbook are incorrect. For
+ *    example, they may not match the set of parameters permitted for the specified Automation
+ *    document.</p>
+ *
+ * @throws {@link InvalidTarget} (client fault)
+ *  <p>The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might
+ *    not have permission to perform the operation.</p>
+ *
+ *
  */
 export class StartAutomationExecutionCommand extends $Command<
   StartAutomationExecutionCommandInput,

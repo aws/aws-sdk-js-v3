@@ -110,6 +110,35 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  * @see {@link UpdateIndexTypeCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The credentials that you used to call this operation don't have the minimum required
+ *             permissions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You tried to create a new view or index when one already exists, and you either didn't
+ *             specify or specified a different idempotency token as the original request.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed because of internal service error. Try your request again
+ *             later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>You specified a resource that doesn't exist. Check the ID or ARN that you used to
+ *             identity the resource, and try again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request failed because it exceeds a service quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request failed because you exceeded a rate limit for this operation. For more
+ *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
+ *                 for Resource Explorer</a>.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
+ *             for the operation, and try again.</p>
+ *
+ *
  */
 export class UpdateIndexTypeCommand extends $Command<
   UpdateIndexTypeCommandInput,

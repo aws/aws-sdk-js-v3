@@ -52,6 +52,41 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  * @see {@link ModifyCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link CacheClusterNotFoundFault} (client fault)
+ *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
+ *  <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ *
+ * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
+ *  <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *
+ * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
+ *  <p>The requested cache node type is not available in the specified Availability Zone.
+ *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *
+ * @throws {@link InvalidCacheClusterStateFault} (client fault)
+ *  <p>The requested cluster is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link InvalidCacheSecurityGroupStateFault} (client fault)
+ *  <p>The current state of the cache security group does not allow deletion.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>The VPC network is in an invalid state.</p>
+ *
+ * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
+ *
+ * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+ *
+ *
  * @example ModifyCacheCluster
  * ```javascript
  * // Copies a snapshot to a specified name.

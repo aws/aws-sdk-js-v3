@@ -52,6 +52,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * @see {@link DescribeOrderableDBInstanceOptionsCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ *
  */
 export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
   DescribeOrderableDBInstanceOptionsCommandInput,

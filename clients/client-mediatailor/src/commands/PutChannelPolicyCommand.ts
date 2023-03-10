@@ -50,6 +50,7 @@ export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse,
  * @see {@link PutChannelPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ *
  */
 export class PutChannelPolicyCommand extends $Command<
   PutChannelPolicyCommandInput,

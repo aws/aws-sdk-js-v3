@@ -50,6 +50,16 @@ export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse,
  * @see {@link CreateSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The resource being created already exists.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You are performing an action that would put you beyond your account's limits.</p>
+ *
+ *
  */
 export class CreateSkillGroupCommand extends $Command<
   CreateSkillGroupCommandInput,

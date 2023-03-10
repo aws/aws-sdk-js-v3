@@ -50,6 +50,15 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>This exception is thrown if the request contains a semantic error. The precise meaning
+ *             will depend on the API, and will be documented in the error message.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>A service resource associated with the request could not be found. Clients should not
+ *             retry such requests.</p>
+ *
+ *
  * @example To list tags for a cluster
  * ```javascript
  * // This example lists all of the tags for the `beta` cluster.

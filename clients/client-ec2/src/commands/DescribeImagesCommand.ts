@@ -53,6 +53,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * @see {@link DescribeImagesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe an AMI
  * ```javascript
  * // This example describes the specified AMI.

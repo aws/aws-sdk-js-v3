@@ -53,6 +53,16 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  * @see {@link CreateAddressCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @throws {@link InvalidAddressException} (client fault)
+ *  <p>The address provided was invalid. Check the address with your region's carrier, and try
+ *       again.</p>
+ *
+ * @throws {@link UnsupportedAddressException} (client fault)
+ *  <p>The address is either outside the serviceable area for your region, or an error
+ *       occurred. Check the address with your region's carrier and try again. If the issue persists,
+ *       contact Amazon Web Services Support.</p>
+ *
+ *
  * @example To create an address for a job
  * ```javascript
  * // This operation creates an address for a job. Addresses are validated at the time of creation. The address you provide must be located within the serviceable area of your region. If the address is invalid or unsupported, then an exception is thrown.

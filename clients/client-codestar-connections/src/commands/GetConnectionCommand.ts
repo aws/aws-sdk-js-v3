@@ -54,6 +54,13 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * @see {@link GetConnectionCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ * @throws {@link ResourceUnavailableException} (client fault)
+ *  <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+ *
+ *
  */
 export class GetConnectionCommand extends $Command<
   GetConnectionCommandInput,

@@ -63,6 +63,16 @@ export interface GetSavingsPlansUtilizationDetailsCommandOutput
  * @see {@link GetSavingsPlansUtilizationDetailsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
+ * @throws {@link DataUnavailableException} (client fault)
+ *  <p>The requested data is unavailable.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ *
  */
 export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
   GetSavingsPlansUtilizationDetailsCommandInput,

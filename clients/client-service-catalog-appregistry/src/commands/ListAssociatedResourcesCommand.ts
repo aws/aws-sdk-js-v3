@@ -74,6 +74,16 @@ export interface ListAssociatedResourcesCommandOutput extends ListAssociatedReso
  * @see {@link ListAssociatedResourcesCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service is experiencing internal problems.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request has invalid or missing parameters.</p>
+ *
+ *
  */
 export class ListAssociatedResourcesCommand extends $Command<
   ListAssociatedResourcesCommandInput,

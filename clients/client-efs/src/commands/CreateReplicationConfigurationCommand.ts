@@ -133,6 +133,46 @@ export interface CreateReplicationConfigurationCommandOutput
  * @see {@link CreateReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemLimitExceeded} (client fault)
+ *  <p>Returned if the Amazon Web Services account has already created the maximum number of file systems
+ *             allowed per account.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link IncorrectFileSystemLifeCycleState} (client fault)
+ *  <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ * @throws {@link InsufficientThroughputCapacity} (server fault)
+ *  <p>Returned if there's not enough capacity to provision additional throughput. This value
+ *             might be returned when you try to create a file system in provisioned throughput mode,
+ *             when you attempt to increase the provisioned throughput of an existing file system, or
+ *             when you attempt to change an existing file system from Bursting Throughput to
+ *             Provisioned Throughput mode. Try again later.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link ReplicationNotFound} (client fault)
+ *  <p>Returned if the specified file system does not have a replication
+ *             configuration.</p>
+ *
+ * @throws {@link ThroughputLimitExceeded} (client fault)
+ *  <p>Returned if the throughput mode or amount of provisioned throughput can't be changed
+ *             because the throughput limit of 1024 MiB/s has been reached.</p>
+ *
+ * @throws {@link UnsupportedAvailabilityZone} (client fault)
+ *  <p>Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
+ *
+ *
  */
 export class CreateReplicationConfigurationCommand extends $Command<
   CreateReplicationConfigurationCommandInput,

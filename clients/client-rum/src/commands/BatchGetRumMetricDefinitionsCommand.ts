@@ -52,6 +52,19 @@ export interface BatchGetRumMetricDefinitionsCommandOutput
  * @see {@link BatchGetRumMetricDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal service exception.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the arguments for the request is not valid.</p>
+ *
+ *
  */
 export class BatchGetRumMetricDefinitionsCommand extends $Command<
   BatchGetRumMetricDefinitionsCommandInput,

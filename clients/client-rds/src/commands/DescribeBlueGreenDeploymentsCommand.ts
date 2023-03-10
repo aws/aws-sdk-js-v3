@@ -57,6 +57,11 @@ export interface DescribeBlueGreenDeploymentsCommandOutput
  * @see {@link DescribeBlueGreenDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link BlueGreenDeploymentNotFoundFault} (client fault)
+ *  <p>
+ *             <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+ *
+ *
  */
 export class DescribeBlueGreenDeploymentsCommand extends $Command<
   DescribeBlueGreenDeploymentsCommandInput,

@@ -65,6 +65,33 @@ export interface RestoreTableFromClusterSnapshotCommandOutput
  * @see {@link RestoreTableFromClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link ClusterSnapshotNotFoundFault} (client fault)
+ *  <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ *
+ * @throws {@link InProgressTableRestoreQuotaExceededFault} (client fault)
+ *  <p>You have exceeded the allowed number of table restore requests. Wait for your
+ *             current table restore requests to complete before making a new request.</p>
+ *
+ * @throws {@link InvalidClusterSnapshotStateFault} (client fault)
+ *  <p>The specified cluster snapshot is not in the <code>available</code> state, or other
+ *             accounts are authorized to access the snapshot. </p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link InvalidTableRestoreArgumentFault} (client fault)
+ *  <p>The value specified for the <code>sourceDatabaseName</code>,
+ *                 <code>sourceSchemaName</code>, or <code>sourceTableName</code> parameter, or a
+ *             combination of these, doesn't exist in the snapshot.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ *
  */
 export class RestoreTableFromClusterSnapshotCommand extends $Command<
   RestoreTableFromClusterSnapshotCommandInput,

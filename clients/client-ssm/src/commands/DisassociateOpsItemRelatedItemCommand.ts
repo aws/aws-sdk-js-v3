@@ -54,6 +54,21 @@ export interface DisassociateOpsItemRelatedItemCommandOutput
  * @see {@link DisassociateOpsItemRelatedItemCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link OpsItemInvalidParameterException} (client fault)
+ *  <p>A specified parameter argument isn't valid. Verify the available arguments and try
+ *    again.</p>
+ *
+ * @throws {@link OpsItemNotFoundException} (client fault)
+ *  <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
+ *
+ * @throws {@link OpsItemRelatedItemAssociationNotFoundException} (client fault)
+ *  <p>The association wasn't found using the parameters you specified in the call. Verify the
+ *    information and try again.</p>
+ *
+ *
  */
 export class DisassociateOpsItemRelatedItemCommand extends $Command<
   DisassociateOpsItemRelatedItemCommandInput,

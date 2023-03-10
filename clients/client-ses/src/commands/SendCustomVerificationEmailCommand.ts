@@ -60,6 +60,25 @@ export interface SendCustomVerificationEmailCommandOutput
  * @see {@link SendCustomVerificationEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * @throws {@link CustomVerificationEmailTemplateDoesNotExistException} (client fault)
+ *  <p>Indicates that a custom verification email template with the name you specified does
+ *             not exist.</p>
+ *
+ * @throws {@link FromEmailAddressNotVerifiedException} (client fault)
+ *  <p>Indicates that the sender address specified for a custom verification email is not
+ *             verified, and is therefore not eligible to send the custom verification email. </p>
+ *
+ * @throws {@link MessageRejected} (client fault)
+ *  <p>Indicates that the action failed, and the message could not be sent. Check the error
+ *             stack for more information about what caused the error.</p>
+ *
+ * @throws {@link ProductionAccessNotGrantedException} (client fault)
+ *  <p>Indicates that the account has not been granted production access.</p>
+ *
+ *
  */
 export class SendCustomVerificationEmailCommand extends $Command<
   SendCustomVerificationEmailCommandInput,

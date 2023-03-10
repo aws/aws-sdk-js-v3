@@ -50,6 +50,13 @@ export interface ListTemplateActionsCommandOutput extends ListTemplateActionsRes
  * @see {@link ListTemplateActionsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ *
  */
 export class ListTemplateActionsCommand extends $Command<
   ListTemplateActionsCommandInput,

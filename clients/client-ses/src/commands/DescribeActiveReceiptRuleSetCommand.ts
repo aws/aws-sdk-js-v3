@@ -56,6 +56,7 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  * @see {@link DescribeActiveReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
  * @example DescribeActiveReceiptRuleSet
  * ```javascript
  * // The following example returns the metadata and receipt rules for the receipt rule set that is currently active:

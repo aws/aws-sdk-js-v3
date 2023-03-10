@@ -55,6 +55,13 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * @see {@link DescribeDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *
+ *
  */
 export class DescribeDeviceCommand extends $Command<
   DescribeDeviceCommandInput,

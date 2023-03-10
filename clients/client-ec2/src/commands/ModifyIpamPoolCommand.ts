@@ -49,6 +49,7 @@ export interface ModifyIpamPoolCommandOutput extends ModifyIpamPoolResult, __Met
  * @see {@link ModifyIpamPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class ModifyIpamPoolCommand extends $Command<
   ModifyIpamPoolCommandInput,

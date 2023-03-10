@@ -50,6 +50,42 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @see {@link UpdateChannelCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link ChannelAlreadyExistsException} (client fault)
+ *  <p>
+ *          This exception is thrown when the provided channel already exists.
+ *       </p>
+ *
+ * @throws {@link ChannelARNInvalidException} (client fault)
+ *  <p>This exception is thrown when the specified value of <code>ChannelARN</code> is not
+ *          valid.</p>
+ *
+ * @throws {@link ChannelNotFoundException} (client fault)
+ *  <p>This exception is thrown when CloudTrail cannot find the specified channel.</p>
+ *
+ * @throws {@link EventDataStoreARNInvalidException} (client fault)
+ *  <p>The specified event data store ARN is not valid or does not map to an event data store
+ *          in your account.</p>
+ *
+ * @throws {@link EventDataStoreNotFoundException} (client fault)
+ *  <p>The specified event data store was not found.</p>
+ *
+ * @throws {@link InactiveEventDataStoreException} (client fault)
+ *  <p>The event data store is inactive.</p>
+ *
+ * @throws {@link InvalidEventDataStoreCategoryException} (client fault)
+ *  <p>This exception is thrown when event categories of specified event data stores are not
+ *          valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ *
  */
 export class UpdateChannelCommand extends $Command<
   UpdateChannelCommandInput,

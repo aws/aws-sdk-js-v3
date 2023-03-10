@@ -57,6 +57,22 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  * @see {@link StopStreamCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ChannelNotBroadcasting} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link StreamUnavailable} (server fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
+ *
  */
 export class StopStreamCommand extends $Command<
   StopStreamCommandInput,

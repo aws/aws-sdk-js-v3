@@ -64,6 +64,7 @@ export interface AssociateEnclaveCertificateIamRoleCommandOutput
  * @see {@link AssociateEnclaveCertificateIamRoleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class AssociateEnclaveCertificateIamRoleCommand extends $Command<
   AssociateEnclaveCertificateIamRoleCommandInput,

@@ -55,6 +55,13 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
  * @see {@link GetScalingPlanResourceForecastDataCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
  *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
+ *
+ *
  */
 export class GetScalingPlanResourceForecastDataCommand extends $Command<
   GetScalingPlanResourceForecastDataCommandInput,

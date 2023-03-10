@@ -137,6 +137,131 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * @see {@link CreateCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @throws {@link CloudHsmClusterInUseException} (client fault)
+ *  <p>The request was rejected because the specified CloudHSM cluster is already associated with an
+ *       CloudHSM key store in the account, or it shares a backup history with an CloudHSM key store in the
+ *       account. Each CloudHSM key store in the account must be associated with a different CloudHSM
+ *       cluster.</p>
+ *          <p>CloudHSM clusters that share a backup history have the same cluster certificate. To view the
+ *       cluster certificate of an CloudHSM cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
+ *
+ * @throws {@link CloudHsmClusterInvalidConfigurationException} (client fault)
+ *  <p>The request was rejected because the associated CloudHSM cluster did not meet the
+ *       configuration requirements for an CloudHSM key store.</p>
+ *          <ul>
+ *             <li>
+ *                <p>The CloudHSM cluster must be configured with private subnets in at least two different
+ *           Availability Zones in the Region.</p>
+ *             </li>
+ *             <li>
+ *                <p>The <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">security group for
+ *             the cluster</a> (cloudhsm-cluster-<i><cluster-id></i>-sg) must
+ *           include inbound rules and outbound rules that allow TCP traffic on ports 2223-2225. The
+ *             <b>Source</b> in the inbound rules and the <b>Destination</b> in the outbound rules must match the security group
+ *           ID. These rules are set by default when you create the CloudHSM cluster. Do not delete or
+ *           change them. To get information about a particular security group, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html">DescribeSecurityGroups</a> operation.</p>
+ *             </li>
+ *             <li>
+ *                <p>The CloudHSM cluster must contain at least as many HSMs as the operation requires. To add
+ *           HSMs, use the CloudHSM <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">CreateHsm</a> operation.</p>
+ *                <p>For the <a>CreateCustomKeyStore</a>, <a>UpdateCustomKeyStore</a>, and <a>CreateKey</a> operations, the CloudHSM cluster must have at least two
+ *           active HSMs, each in a different Availability Zone. For the <a>ConnectCustomKeyStore</a> operation, the CloudHSM must contain at least one active
+ *           HSM.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For information about the requirements for an CloudHSM cluster that is associated with an
+ *       CloudHSM key store, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">Assemble the Prerequisites</a>
+ *       in the <i>Key Management Service Developer Guide</i>. For information about creating a private subnet for an CloudHSM cluster,
+ *       see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">Create a Private
+ *         Subnet</a> in the <i>CloudHSM User Guide</i>. For information about cluster security groups, see
+ *         <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">Configure a Default Security
+ *         Group</a> in the <i>
+ *                <i>CloudHSM User Guide</i>
+ *             </i>. </p>
+ *
+ * @throws {@link CloudHsmClusterNotActiveException} (client fault)
+ *  <p>The request was rejected because the CloudHSM cluster associated with the CloudHSM key store is
+ *       not active. Initialize and activate the cluster and try the command again. For detailed
+ *       instructions, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">Getting
+ *         Started</a> in the <i>CloudHSM User Guide</i>.</p>
+ *
+ * @throws {@link CloudHsmClusterNotFoundException} (client fault)
+ *  <p>The request was rejected because KMS cannot find the CloudHSM cluster with the specified
+ *       cluster ID. Retry the request with a different cluster ID.</p>
+ *
+ * @throws {@link CustomKeyStoreNameInUseException} (client fault)
+ *  <p>The request was rejected because the specified custom key store name is already assigned
+ *       to another custom key store in the account. Try again with a custom key store name that is
+ *       unique in the account.</p>
+ *
+ * @throws {@link IncorrectTrustAnchorException} (client fault)
+ *  <p>The request was rejected because the trust anchor certificate in the request to create an
+ *       CloudHSM key store is not the trust anchor certificate for the specified CloudHSM cluster.</p>
+ *          <p>When you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr">initialize the CloudHSM cluster</a>, you create the trust anchor certificate and save it
+ *       in the <code>customerCA.crt</code> file.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
+ *       <i>Key Management Service Developer Guide</i>.</p>
+ *
+ * @throws {@link XksProxyIncorrectAuthenticationCredentialException} (client fault)
+ *  <p>The request was rejected because the proxy credentials failed to authenticate to the
+ *       specified external key store proxy. The specified external key store proxy rejected a status
+ *       request from KMS due to invalid credentials. This can indicate an error in the credentials
+ *       or in the identification of the external key store proxy.</p>
+ *
+ * @throws {@link XksProxyInvalidConfigurationException} (client fault)
+ *  <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
+ *       the requirements for an external key store proxy. For details, see the exception
+ *       message.</p>
+ *
+ * @throws {@link XksProxyInvalidResponseException} (client fault)
+ *  <p></p>
+ *          <p>KMS cannot interpret the response it received from the external key store proxy. The
+ *       problem might be a poorly constructed response, but it could also be a transient network
+ *       issue. If you see this error repeatedly, report it to the proxy vendor.</p>
+ *
+ * @throws {@link XksProxyUriEndpointInUseException} (client fault)
+ *  <p>The request was rejected because the concatenation of the <code>XksProxyUriEndpoint</code>
+ *       is already associated with an external key store in the Amazon Web Services account and Region. Each
+ *       external key store in an account and Region must use a unique external key store proxy
+ *       address.</p>
+ *
+ * @throws {@link XksProxyUriInUseException} (client fault)
+ *  <p>The request was rejected because the concatenation of the <code>XksProxyUriEndpoint</code>
+ *       and <code>XksProxyUriPath</code> is already associated with an external key store in the
+ *       Amazon Web Services account and Region. Each external key store in an account and Region must use a unique
+ *       external key store proxy API address.</p>
+ *
+ * @throws {@link XksProxyUriUnreachableException} (client fault)
+ *  <p>KMS was unable to reach the specified <code>XksProxyUriPath</code>. The path must be
+ *       reachable before you create the external key store or update its settings.</p>
+ *          <p>This exception is also thrown when the external key store proxy response to a <code>GetHealthStatus</code>
+ *       request indicates that all external key manager instances are unavailable.</p>
+ *
+ * @throws {@link XksProxyVpcEndpointServiceInUseException} (client fault)
+ *  <p>The request was rejected because the specified Amazon VPC endpoint service is already
+ *       associated with an external key store in the Amazon Web Services account and Region. Each external key store
+ *       in an Amazon Web Services account and Region must use a different Amazon VPC endpoint service.</p>
+ *
+ * @throws {@link XksProxyVpcEndpointServiceInvalidConfigurationException} (client fault)
+ *  <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
+ *       the requirements for an external key store proxy. For details, see the exception message and
+ *         <a href="kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the requirements</a> for Amazon VPC endpoint service connectivity for an external key
+ *       store.</p>
+ *
+ * @throws {@link XksProxyVpcEndpointServiceNotFoundException} (client fault)
+ *  <p>The request was rejected because KMS could not find the specified VPC endpoint service.
+ *       Use <a>DescribeCustomKeyStores</a> to verify the VPC endpoint service name for the
+ *       external key store. Also, confirm that the <code>Allow principals</code> list for the VPC
+ *       endpoint service includes the KMS service principal for the Region, such as
+ *         <code>cks.kms.us-east-1.amazonaws.com</code>.</p>
+ *
+ *
  * @example To create an AWS CloudHSM key store
  * ```javascript
  * // This example creates a custom key store that is associated with an AWS CloudHSM cluster.

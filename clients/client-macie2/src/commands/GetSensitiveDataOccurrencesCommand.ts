@@ -52,6 +52,25 @@ export interface GetSensitiveDataOccurrencesCommandOutput
  * @see {@link GetSensitiveDataOccurrencesCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  <p>Provides information about an error that occurred due to an unprocessable entity.</p>
+ *
+ *
  */
 export class GetSensitiveDataOccurrencesCommand extends $Command<
   GetSensitiveDataOccurrencesCommandInput,

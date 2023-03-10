@@ -52,6 +52,7 @@ export interface ListOrganizationServiceAccessStatusCommandOutput
  * @see {@link ListOrganizationServiceAccessStatusCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
+ *
  */
 export class ListOrganizationServiceAccessStatusCommand extends $Command<
   ListOrganizationServiceAccessStatusCommandInput,

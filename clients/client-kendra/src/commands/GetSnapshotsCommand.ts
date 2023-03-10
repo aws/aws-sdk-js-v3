@@ -52,6 +52,23 @@ export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __Metad
  * @see {@link GetSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action. Please ensure you have the
+ *             required permission policies and user accounts and try again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The input to the request is not valid. Please provide the correct input and try
+ *             again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
+ *             resource and try again.</p>
+ *
+ *
  */
 export class GetSnapshotsCommand extends $Command<
   GetSnapshotsCommandInput,

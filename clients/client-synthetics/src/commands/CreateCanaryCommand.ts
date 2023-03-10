@@ -63,6 +63,16 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * @see {@link CreateCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unknown internal error occurred.</p>
+ *
+ * @throws {@link RequestEntityTooLargeException} (client fault)
+ *  <p>One of the input resources is larger than is allowed.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter could not be validated.</p>
+ *
+ *
  */
 export class CreateCanaryCommand extends $Command<
   CreateCanaryCommandInput,

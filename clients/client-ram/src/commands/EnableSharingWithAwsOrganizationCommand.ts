@@ -60,6 +60,16 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
  * @see {@link EnableSharingWithAwsOrganizationCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The requested operation is not permitted.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is not available.</p>
+ *
+ *
  */
 export class EnableSharingWithAwsOrganizationCommand extends $Command<
   EnableSharingWithAwsOrganizationCommandInput,

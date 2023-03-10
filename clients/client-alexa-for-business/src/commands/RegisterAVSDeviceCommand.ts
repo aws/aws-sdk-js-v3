@@ -51,6 +51,19 @@ export interface RegisterAVSDeviceCommandOutput extends RegisterAVSDeviceRespons
  * @see {@link RegisterAVSDeviceCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link InvalidDeviceException} (client fault)
+ *  <p>The device is in an invalid state.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You are performing an action that would put you beyond your account's limits.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class RegisterAVSDeviceCommand extends $Command<
   RegisterAVSDeviceCommandInput,

@@ -52,6 +52,11 @@ export interface ListAccountAliasesCommandOutput extends ListAccountAliasesRespo
  * @see {@link ListAccountAliasesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
  * @example To list account aliases
  * ```javascript
  * // The following command lists the aliases for the current account.

@@ -54,6 +54,86 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  * @see {@link PutInsightSelectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link CloudTrailARNInvalidException} (client fault)
+ *  <p>This exception is thrown when an operation is called with a trail ARN that is not valid.
+ *          The following is the format of a trail ARN.</p>
+ *          <p>
+ *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+ *          </p>
+ *          <p>This exception is also thrown when you call <code>AddTags</code> or <code>RemoveTags</code> on a trail, event data store, or channel with a resource ARN that is not valid.</p>
+ *          <p>The following is the format of an event data store ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:12345678910:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          </p>
+ *          <p>The following is the format of a channel ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+ *          </p>
+ *
+ * @throws {@link InsufficientEncryptionPolicyException} (client fault)
+ *  <p>This exception is thrown when the policy on the S3 bucket or KMS key does
+ *          not have sufficient permissions for the operation.</p>
+ *
+ * @throws {@link InsufficientS3BucketPolicyException} (client fault)
+ *  <p>This exception is thrown when the policy on the S3 bucket is not sufficient.</p>
+ *
+ * @throws {@link InvalidHomeRegionException} (client fault)
+ *  <p>This exception is thrown when an operation is called on a trail from a region other than
+ *          the region in which the trail was created.</p>
+ *
+ * @throws {@link InvalidInsightSelectorsException} (client fault)
+ *  <p>The formatting or syntax of the <code>InsightSelectors</code> JSON statement in your
+ *             <code>PutInsightSelectors</code> or <code>GetInsightSelectors</code> request is not
+ *          valid, or the specified insight type in the <code>InsightSelectors</code> statement is not
+ *          a valid insight type.</p>
+ *
+ * @throws {@link InvalidTrailNameException} (client fault)
+ *  <p>This exception is thrown when the provided trail name is not valid. Trail names must
+ *          meet the following requirements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
+ *                (_), or dashes (-)</p>
+ *             </li>
+ *             <li>
+ *                <p>Start with a letter or number, and end with a letter or number</p>
+ *             </li>
+ *             <li>
+ *                <p>Be between 3 and 128 characters</p>
+ *             </li>
+ *             <li>
+ *                <p>Have no adjacent periods, underscores or dashes. Names like
+ *                   <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Not be in IP address format (for example, 192.168.5.4)</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link KmsException} (client fault)
+ *  <p>This exception is thrown when there is an issue with the specified KMS
+ *          key and the trail or event data store can't be updated.</p>
+ *
+ * @throws {@link NoManagementAccountSLRExistsException} (client fault)
+ *  <p> This exception is thrown when the management account does not have a service-linked
+ *          role. </p>
+ *
+ * @throws {@link NotOrganizationMasterAccountException} (client fault)
+ *  <p>This exception is thrown when the Amazon Web Services account making the request to
+ *          create or update an organization trail or event data store is not the management account
+ *          for an organization in Organizations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store.html">Create an event data store</a>.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link S3BucketDoesNotExistException} (client fault)
+ *  <p>This exception is thrown when the specified S3 bucket does not exist.</p>
+ *
+ * @throws {@link TrailNotFoundException} (client fault)
+ *  <p>This exception is thrown when the trail with the given name is not found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ *
  */
 export class PutInsightSelectorsCommand extends $Command<
   PutInsightSelectorsCommandInput,

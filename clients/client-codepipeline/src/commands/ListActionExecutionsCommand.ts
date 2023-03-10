@@ -50,6 +50,21 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  * @see {@link ListActionExecutionsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format. Make sure that the next token
+ *             you provide is the token returned by a previous call.</p>
+ *
+ * @throws {@link PipelineExecutionNotFoundException} (client fault)
+ *  <p>The pipeline execution was specified in an invalid format or cannot be found, or an
+ *             execution ID does not belong to the specified pipeline. </p>
+ *
+ * @throws {@link PipelineNotFoundException} (client fault)
+ *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ *
  */
 export class ListActionExecutionsCommand extends $Command<
   ListActionExecutionsCommandInput,

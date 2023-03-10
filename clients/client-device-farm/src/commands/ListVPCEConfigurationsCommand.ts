@@ -51,6 +51,13 @@ export interface ListVPCEConfigurationsCommandOutput extends ListVPCEConfigurati
  * @see {@link ListVPCEConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
+ *
  */
 export class ListVPCEConfigurationsCommand extends $Command<
   ListVPCEConfigurationsCommandInput,

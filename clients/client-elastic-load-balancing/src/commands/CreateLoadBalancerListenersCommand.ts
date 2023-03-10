@@ -56,6 +56,24 @@ export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBala
  * @see {@link CreateLoadBalancerListenersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link CertificateNotFoundException} (client fault)
+ *  <p>The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM)
+ *             or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might
+ *             indicate that the certificate is not fully available yet.</p>
+ *
+ * @throws {@link DuplicateListenerException} (client fault)
+ *  <p>A listener already exists for the specified load balancer name and port, but with a different instance port, protocol, or SSL certificate.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration change is not valid.</p>
+ *
+ * @throws {@link UnsupportedProtocolException} (client fault)
+ *  <p>The specified protocol or signature version is not supported.</p>
+ *
+ *
  * @example To create an HTTP listener for a load balancer
  * ```javascript
  * // This example creates a listener for your load balancer at port 80 using the HTTP protocol.

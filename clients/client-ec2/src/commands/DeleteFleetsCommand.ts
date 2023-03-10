@@ -72,6 +72,7 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  * @see {@link DeleteFleetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DeleteFleetsCommand extends $Command<
   DeleteFleetsCommandInput,

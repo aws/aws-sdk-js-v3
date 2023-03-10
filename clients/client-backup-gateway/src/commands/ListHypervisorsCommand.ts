@@ -50,6 +50,17 @@ export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __M
  * @see {@link ListHypervisorsCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>TPS has been limited to protect against intentional or unintentional
+ *     high request volumes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The operation did not succeed because a validation error occurred.</p>
+ *
+ *
  */
 export class ListHypervisorsCommand extends $Command<
   ListHypervisorsCommandInput,

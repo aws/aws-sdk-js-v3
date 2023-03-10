@@ -51,6 +51,7 @@ export interface ListWorkforcesCommandOutput extends ListWorkforcesResponse, __M
  * @see {@link ListWorkforcesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListWorkforcesCommand extends $Command<
   ListWorkforcesCommandInput,

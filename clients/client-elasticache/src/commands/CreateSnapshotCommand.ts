@@ -54,6 +54,47 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link CacheClusterNotFoundFault} (client fault)
+ *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * @throws {@link InvalidCacheClusterStateFault} (client fault)
+ *  <p>The requested cluster is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidReplicationGroupStateFault} (client fault)
+ *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link ReplicationGroupNotFoundFault} (client fault)
+ *  <p>The specified replication group does not exist.</p>
+ *
+ * @throws {@link SnapshotAlreadyExistsFault} (client fault)
+ *  <p>You already have a snapshot with the given name.</p>
+ *
+ * @throws {@link SnapshotFeatureNotSupportedFault} (client fault)
+ *  <p>You attempted one of the following operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Creating a snapshot of a Redis cluster running on a <code>cache.t1.micro</code> cache
+ *                     node.</p>
+ *             </li>
+ *             <li>
+ *                <p>Creating a snapshot of a cluster that is running Memcached rather than Redis.</p>
+ *             </li>
+ *          </ul>
+ *          <p>Neither of these are supported by ElastiCache.</p>
+ *
+ * @throws {@link SnapshotQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *
+ *
  * @example CreateSnapshot - NonClustered Redis, no read-replicas
  * ```javascript
  * // Creates a snapshot of a non-clustered Redis cluster that has only one node.

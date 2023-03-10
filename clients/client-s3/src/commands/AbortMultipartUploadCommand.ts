@@ -88,6 +88,10 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  * @see {@link AbortMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link NoSuchUpload} (client fault)
+ *  <p>The specified multipart upload does not exist.</p>
+ *
+ *
  * @example To abort a multipart upload
  * ```javascript
  * // The following example aborts a multipart upload.

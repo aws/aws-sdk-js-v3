@@ -52,6 +52,7 @@ export interface CreateFpgaImageCommandOutput extends CreateFpgaImageResult, __M
  * @see {@link CreateFpgaImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CreateFpgaImageCommand extends $Command<
   CreateFpgaImageCommandInput,

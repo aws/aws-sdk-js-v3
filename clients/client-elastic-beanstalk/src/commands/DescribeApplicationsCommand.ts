@@ -50,6 +50,7 @@ export interface DescribeApplicationsCommandOutput extends ApplicationDescriptio
  * @see {@link DescribeApplicationsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
  * @example To view a list of applications
  * ```javascript
  * // The following operation retrieves information about applications in the current region:

@@ -50,6 +50,7 @@ export interface ListResourceDefinitionsCommandOutput extends ListResourceDefini
  * @see {@link ListResourceDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ *
  */
 export class ListResourceDefinitionsCommand extends $Command<
   ListResourceDefinitionsCommandInput,

@@ -58,6 +58,19 @@ export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlRes
  * @see {@link GetPriceListFileUrlCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>General authentication failure. The request wasn't signed correctly.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters had an invalid value.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ *
  */
 export class GetPriceListFileUrlCommand extends $Command<
   GetPriceListFileUrlCommandInput,

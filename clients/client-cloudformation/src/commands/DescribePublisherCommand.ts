@@ -67,6 +67,10 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  * @see {@link DescribePublisherCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CFNRegistryException} (client fault)
+ *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ *
  */
 export class DescribePublisherCommand extends $Command<
   DescribePublisherCommandInput,

@@ -61,6 +61,7 @@ export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesR
  * @see {@link ListIdentityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
  * @example ListIdentityPolicies
  * ```javascript
  * // The following example returns a list of sending authorization policies that are attached to an identity:

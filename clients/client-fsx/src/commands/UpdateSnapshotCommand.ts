@@ -50,6 +50,16 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * @see {@link UpdateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link SnapshotNotFound} (client fault)
+ *  <p>No Amazon FSx snapshots were found based on the supplied parameters.</p>
+ *
+ *
  */
 export class UpdateSnapshotCommand extends $Command<
   UpdateSnapshotCommandInput,

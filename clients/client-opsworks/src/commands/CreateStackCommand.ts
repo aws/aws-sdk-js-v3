@@ -55,6 +55,10 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * @see {@link CreateStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ *
  */
 export class CreateStackCommand extends $Command<
   CreateStackCommandInput,

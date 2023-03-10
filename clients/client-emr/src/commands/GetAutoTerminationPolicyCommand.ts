@@ -50,6 +50,7 @@ export interface GetAutoTerminationPolicyCommandOutput extends GetAutoTerminatio
  * @see {@link GetAutoTerminationPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ *
  */
 export class GetAutoTerminationPolicyCommand extends $Command<
   GetAutoTerminationPolicyCommandInput,

@@ -55,6 +55,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  * @see {@link DescribeLaunchTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe the versions for a launch template
  * ```javascript
  * // This example describes the versions for the specified launch template.

@@ -59,6 +59,11 @@ export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKe
  * @see {@link GetContextKeysForCustomPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ *
  */
 export class GetContextKeysForCustomPolicyCommand extends $Command<
   GetContextKeysForCustomPolicyCommandInput,

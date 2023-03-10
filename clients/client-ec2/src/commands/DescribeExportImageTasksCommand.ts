@@ -50,6 +50,7 @@ export interface DescribeExportImageTasksCommandOutput extends DescribeExportIma
  * @see {@link DescribeExportImageTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribeExportImageTasksCommand extends $Command<
   DescribeExportImageTasksCommandInput,

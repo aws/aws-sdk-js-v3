@@ -52,6 +52,13 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  * @see {@link ListAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ *
  */
 export class ListAssociationsCommand extends $Command<
   ListAssociationsCommandInput,

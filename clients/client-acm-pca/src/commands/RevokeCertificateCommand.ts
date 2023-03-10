@@ -64,6 +64,37 @@ export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
  * @see {@link RevokeCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>A previous update to your private CA is still ongoing.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
+ * 			resource.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request action cannot be performed or is prohibited.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The state of the private CA does not allow this action to occur.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine
+ * 			the quota that was exceeded.</p>
+ *
+ * @throws {@link RequestAlreadyProcessedException} (client fault)
+ *  <p>Your request has already been completed.</p>
+ *
+ * @throws {@link RequestFailedException} (client fault)
+ *  <p>The request has failed for an unspecified reason.</p>
+ *
+ * @throws {@link RequestInProgressException} (client fault)
+ *  <p>Your request is already in progress.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
+ * 			cannot be found.</p>
+ *
+ *
  */
 export class RevokeCertificateCommand extends $Command<
   RevokeCertificateCommandInput,

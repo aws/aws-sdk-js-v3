@@ -50,6 +50,17 @@ export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMess
  * @see {@link DeletePartnerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link PartnerNotFoundFault} (client fault)
+ *  <p>The name of the partner was not found.</p>
+ *
+ * @throws {@link UnauthorizedPartnerIntegrationFault} (client fault)
+ *  <p>The partner integration is not authorized.</p>
+ *
+ *
  */
 export class DeletePartnerCommand extends $Command<
   DeletePartnerCommandInput,

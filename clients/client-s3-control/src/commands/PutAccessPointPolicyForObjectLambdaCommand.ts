@@ -63,6 +63,7 @@ export interface PutAccessPointPolicyForObjectLambdaCommandOutput extends __Meta
  * @see {@link PutAccessPointPolicyForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ *
  */
 export class PutAccessPointPolicyForObjectLambdaCommand extends $Command<
   PutAccessPointPolicyForObjectLambdaCommandInput,

@@ -50,6 +50,22 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request was received.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>There was an internal server error.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request specifies something that doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>There were too many requests.</p>
+ *
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

@@ -52,6 +52,16 @@ export interface DescribeStorageVirtualMachinesCommandOutput
  * @see {@link DescribeStorageVirtualMachinesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link StorageVirtualMachineNotFound} (client fault)
+ *  <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
+ *
+ *
  */
 export class DescribeStorageVirtualMachinesCommand extends $Command<
   DescribeStorageVirtualMachinesCommandInput,

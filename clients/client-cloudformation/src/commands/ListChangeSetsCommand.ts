@@ -51,6 +51,7 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __Met
  * @see {@link ListChangeSetsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ *
  */
 export class ListChangeSetsCommand extends $Command<
   ListChangeSetsCommandInput,

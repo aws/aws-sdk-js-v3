@@ -50,6 +50,29 @@ export interface BatchGetDeploymentGroupsCommandOutput extends BatchGetDeploymen
  * @see {@link BatchGetDeploymentGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link ApplicationDoesNotExistException} (client fault)
+ *  <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ *
+ * @throws {@link ApplicationNameRequiredException} (client fault)
+ *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * @throws {@link BatchLimitExceededException} (client fault)
+ *  <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
+ *
+ * @throws {@link DeploymentConfigDoesNotExistException} (client fault)
+ *  <p>The deployment configuration does not exist with the IAM user or
+ *                 Amazon Web Services account.</p>
+ *
+ * @throws {@link DeploymentGroupNameRequiredException} (client fault)
+ *  <p>The deployment group name was not specified.</p>
+ *
+ * @throws {@link InvalidApplicationNameException} (client fault)
+ *  <p>The application name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidDeploymentGroupNameException} (client fault)
+ *  <p>The deployment group name was specified in an invalid format.</p>
+ *
+ *
  */
 export class BatchGetDeploymentGroupsCommand extends $Command<
   BatchGetDeploymentGroupsCommandInput,

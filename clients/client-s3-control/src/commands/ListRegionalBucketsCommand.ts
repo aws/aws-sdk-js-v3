@@ -55,6 +55,7 @@ export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsRes
  * @see {@link ListRegionalBucketsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ *
  */
 export class ListRegionalBucketsCommand extends $Command<
   ListRegionalBucketsCommandInput,

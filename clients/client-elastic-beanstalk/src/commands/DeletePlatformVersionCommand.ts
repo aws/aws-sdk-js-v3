@@ -50,6 +50,21 @@ export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersio
  * @see {@link DeletePlatformVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException} (client fault)
+ *  <p>A generic service exception has occurred.</p>
+ *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ * @throws {@link OperationInProgressException} (client fault)
+ *  <p>Unable to perform the specified operation because another operation that effects an
+ *       element in this activity is already in progress.</p>
+ *
+ * @throws {@link PlatformVersionStillReferencedException} (client fault)
+ *  <p>You cannot delete the platform version because there are still environments running on it.</p>
+ *
+ *
  */
 export class DeletePlatformVersionCommand extends $Command<
   DeletePlatformVersionCommandInput,

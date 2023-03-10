@@ -55,6 +55,7 @@ export interface ModifyTrafficMirrorFilterRuleCommandOutput
  * @see {@link ModifyTrafficMirrorFilterRuleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class ModifyTrafficMirrorFilterRuleCommand extends $Command<
   ModifyTrafficMirrorFilterRuleCommandInput,

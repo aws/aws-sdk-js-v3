@@ -45,6 +45,24 @@ export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link DistributionNotDisabled} (client fault)
+ *  <p>The specified CloudFront distribution is not disabled. You must disable the distribution
+ * 			before you can delete it.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchDistribution} (client fault)
+ *  <p>The specified distribution does not exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ *
  */
 export class DeleteDistributionCommand extends $Command<
   DeleteDistributionCommandInput,

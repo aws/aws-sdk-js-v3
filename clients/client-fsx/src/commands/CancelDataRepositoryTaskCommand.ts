@@ -62,6 +62,22 @@ export interface CancelDataRepositoryTaskCommandOutput extends CancelDataReposit
  * @see {@link CancelDataRepositoryTaskCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link DataRepositoryTaskEnded} (client fault)
+ *  <p>The data repository task could not be canceled because the task has already ended.</p>
+ *
+ * @throws {@link DataRepositoryTaskNotFound} (client fault)
+ *  <p>The data repository task or tasks you specified could not be found.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>The requested operation is not supported for this resource or API.</p>
+ *
+ *
  */
 export class CancelDataRepositoryTaskCommand extends $Command<
   CancelDataRepositoryTaskCommandInput,

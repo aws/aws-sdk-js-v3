@@ -47,6 +47,7 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * @see {@link NoInputAndOutputCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
+ *
  */
 export class NoInputAndOutputCommand extends $Command<
   NoInputAndOutputCommandInput,

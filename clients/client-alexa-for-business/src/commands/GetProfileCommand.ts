@@ -50,6 +50,10 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * @see {@link GetProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class GetProfileCommand extends $Command<
   GetProfileCommandInput,

@@ -55,6 +55,17 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  * @see {@link GetEntitlementsCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceEntitlementServiceClientResolvedConfig | config} for MarketplaceEntitlementServiceClient's `config` shape.
  *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An internal error has occurred. Retry your request. If the problem persists, post a
+ *    message with details on the AWS forums.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in your request was invalid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The calls to the GetEntitlements API are throttled.</p>
+ *
+ *
  */
 export class GetEntitlementsCommand extends $Command<
   GetEntitlementsCommandInput,

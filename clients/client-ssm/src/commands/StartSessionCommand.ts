@@ -59,6 +59,20 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * @see {@link StartSessionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDocument} (client fault)
+ *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * @throws {@link TargetNotConnected} (client fault)
+ *  <p>The specified target managed node for the session isn't fully configured for use with Session Manager.
+ *    For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html">Getting started with
+ *     Session Manager</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. This error is also returned if you
+ *    attempt to start a session on a managed node that is located in a different account or
+ *    Region</p>
+ *
+ *
  */
 export class StartSessionCommand extends $Command<
   StartSessionCommandInput,

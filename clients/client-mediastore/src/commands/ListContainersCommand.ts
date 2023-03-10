@@ -58,6 +58,10 @@ export interface ListContainersCommandOutput extends ListContainersOutput, __Met
  * @see {@link ListContainersCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ *
  */
 export class ListContainersCommand extends $Command<
   ListContainersCommandInput,

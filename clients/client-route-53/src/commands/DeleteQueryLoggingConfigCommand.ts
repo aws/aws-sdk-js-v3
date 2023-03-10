@@ -54,6 +54,17 @@ export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggin
  * @see {@link DeleteQueryLoggingConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link ConcurrentModification} (client fault)
+ *  <p>Another user submitted a request to create, update, or delete the object at the same
+ * 			time that you did. Retry the request. </p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchQueryLoggingConfig} (client fault)
+ *  <p>There is no DNS query logging configuration with the specified ID.</p>
+ *
+ *
  */
 export class DeleteQueryLoggingConfigCommand extends $Command<
   DeleteQueryLoggingConfigCommandInput,

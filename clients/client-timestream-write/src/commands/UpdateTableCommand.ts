@@ -56,6 +56,29 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * @see {@link UpdateTableCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>
+ *          Timestream was unable to fully process this request because of an internal server
+ *          error.</p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *  <p>The requested endpoint was not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access a nonexistent resource. The resource might not be
+ *          specified correctly, or its status might not be ACTIVE.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> Too many requests were made by a user and they exceeded the service quotas. The request
+ *          was throttled.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> An invalid or malformed request.</p>
+ *
+ *
  */
 export class UpdateTableCommand extends $Command<
   UpdateTableCommandInput,

@@ -52,6 +52,13 @@ export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetR
  * @see {@link CreateThreatIntelSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
+ *
  */
 export class CreateThreatIntelSetCommand extends $Command<
   CreateThreatIntelSetCommandInput,

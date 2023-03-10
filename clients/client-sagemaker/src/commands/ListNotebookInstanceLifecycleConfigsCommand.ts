@@ -52,6 +52,7 @@ export interface ListNotebookInstanceLifecycleConfigsCommandOutput
  * @see {@link ListNotebookInstanceLifecycleConfigsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListNotebookInstanceLifecycleConfigsCommand extends $Command<
   ListNotebookInstanceLifecycleConfigsCommandInput,

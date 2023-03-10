@@ -52,6 +52,10 @@ export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult,
  * @see {@link DeleteUserProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
+ *
  */
 export class DeleteUserProfileCommand extends $Command<
   DeleteUserProfileCommandInput,

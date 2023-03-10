@@ -50,6 +50,10 @@ export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParamete
  * @see {@link GetRoomSkillParameterCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class GetRoomSkillParameterCommand extends $Command<
   GetRoomSkillParameterCommandInput,

@@ -51,6 +51,17 @@ export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMet
  * @see {@link GetContainerAPIMetadataCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
+ *
  */
 export class GetContainerAPIMetadataCommand extends $Command<
   GetContainerAPIMetadataCommandInput,

@@ -52,6 +52,33 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  * @see {@link SubscribeCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * @throws {@link FilterPolicyLimitExceededException} (client fault)
+ *  <p>Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To
+ *             add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support
+ *             Center.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Indicates an internal service error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Indicates that a request parameter does not comply with the associated
+ *             constraints.</p>
+ *
+ * @throws {@link InvalidSecurityException} (client fault)
+ *  <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
+ *             request using Signature Version 4.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Indicates that the requested resource does not exist.</p>
+ *
+ * @throws {@link SubscriptionLimitExceededException} (client fault)
+ *  <p>Indicates that the customer already owns the maximum allowed number of
+ *             subscriptions.</p>
+ *
+ *
  */
 export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeCommandOutput, SNSClientResolvedConfig> {
   // Start section: command_properties

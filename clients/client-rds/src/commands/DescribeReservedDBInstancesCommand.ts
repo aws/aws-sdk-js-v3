@@ -50,6 +50,10 @@ export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInst
  * @see {@link DescribeReservedDBInstancesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link ReservedDBInstanceNotFoundFault} (client fault)
+ *  <p>The specified reserved DB Instance not found.</p>
+ *
+ *
  * @example To list information about reserved DB instances
  * ```javascript
  * // This example lists information for all reserved DB instances for the specified DB instance class, duration, product, offering type, and availability zone settings.

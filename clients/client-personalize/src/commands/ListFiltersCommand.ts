@@ -50,6 +50,13 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * @see {@link ListFiltersCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid.</p>
+ *
+ *
  */
 export class ListFiltersCommand extends $Command<
   ListFiltersCommandInput,

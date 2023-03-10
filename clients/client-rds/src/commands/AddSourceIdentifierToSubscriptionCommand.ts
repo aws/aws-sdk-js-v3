@@ -52,6 +52,13 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * @see {@link AddSourceIdentifierToSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link SourceNotFoundFault} (client fault)
+ *  <p>The requested source could not be found.</p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>The subscription name does not exist.</p>
+ *
+ *
  * @example To add a source identifier to an event notification subscription
  * ```javascript
  * // This example add a source identifier to an event notification subscription.

@@ -200,6 +200,47 @@ export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamin
  * @see {@link GetDASHStreamingSessionURLCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
  *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded a limit. Try making the call later. For information about limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be
+ *             used.</p>
+ *
+ * @throws {@link InvalidCodecPrivateDataException} (client fault)
+ *  <p>The codec private data in at least one of the tracks of the video stream is not valid
+ *             for this operation.</p>
+ *
+ * @throws {@link MissingCodecPrivateDataException} (client fault)
+ *  <p>No codec private data was found in at least one of tracks of the video stream.</p>
+ *
+ * @throws {@link NoDataRetentionException} (client fault)
+ *  <p>A streaming session was requested for a stream that does not retain data (that is, has
+ *             a <code>DataRetentionInHours</code> of 0). </p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>Status Code: 403, The caller is not authorized to perform an operation on the given
+ *             stream, or the token has expired.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *             <code>GetMedia</code> throws this error when Kinesis Video Streams can't find the stream
+ *             that you specified.</p>
+ *         <p>
+ *             <code>GetHLSStreamingSessionURL</code> and <code>GetDASHStreamingSessionURL</code> throw
+ *             this error if a session with a <code>PlaybackMode</code> of <code>ON_DEMAND</code> or
+ *                 <code>LIVE_REPLAY</code>is requested for a stream that has no fragments within the
+ *             requested time range, or if a session with a <code>PlaybackMode</code> of
+ *                 <code>LIVE</code> is requested for a stream that has no fragments within the last 30
+ *             seconds.</p>
+ *
+ * @throws {@link UnsupportedStreamMediaTypeException} (client fault)
+ *  <p>The type of the media (for example, h.264 or h.265 video or ACC or G.711 audio) could
+ *             not be determined from the codec IDs of the tracks in the first fragment for a playback
+ *             session. The codec ID for track 1 should be <code>V_MPEG/ISO/AVC</code> and, optionally,
+ *             the codec ID for track 2 should be <code>A_AAC</code>.</p>
+ *
+ *
  */
 export class GetDASHStreamingSessionURLCommand extends $Command<
   GetDASHStreamingSessionURLCommandInput,

@@ -45,6 +45,7 @@ export interface BodyWithXmlNameCommandOutput extends BodyWithXmlNameInputOutput
  * @see {@link BodyWithXmlNameCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ *
  */
 export class BodyWithXmlNameCommand extends $Command<
   BodyWithXmlNameCommandInput,

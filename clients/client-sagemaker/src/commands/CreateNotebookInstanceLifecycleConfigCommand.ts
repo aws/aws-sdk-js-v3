@@ -65,6 +65,11 @@ export interface CreateNotebookInstanceLifecycleConfigCommandOutput
  * @see {@link CreateNotebookInstanceLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ *
  */
 export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
   CreateNotebookInstanceLifecycleConfigCommandInput,

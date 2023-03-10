@@ -62,6 +62,25 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  * @see {@link StartSyncExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link InvalidExecutionInput} (client fault)
+ *  <p>The provided JSON input data is not valid.</p>
+ *
+ * @throws {@link InvalidName} (client fault)
+ *  <p>The provided name is not valid.</p>
+ *
+ * @throws {@link StateMachineDeleting} (client fault)
+ *  <p>The specified state machine is being deleted.</p>
+ *
+ * @throws {@link StateMachineDoesNotExist} (client fault)
+ *  <p>The specified state machine does not exist.</p>
+ *
+ * @throws {@link StateMachineTypeNotSupported} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class StartSyncExecutionCommand extends $Command<
   StartSyncExecutionCommandInput,

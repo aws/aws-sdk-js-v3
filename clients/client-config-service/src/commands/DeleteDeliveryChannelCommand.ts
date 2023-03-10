@@ -47,6 +47,15 @@ export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteDeliveryChannelCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link LastDeliveryChannelDeleteFailedException} (client fault)
+ *  <p>You cannot delete the delivery channel you specified because
+ * 			the configuration recorder is running.</p>
+ *
+ * @throws {@link NoSuchDeliveryChannelException} (client fault)
+ *  <p>You have specified a delivery channel that does not
+ * 			exist.</p>
+ *
+ *
  */
 export class DeleteDeliveryChannelCommand extends $Command<
   DeleteDeliveryChannelCommandInput,

@@ -67,6 +67,7 @@ export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwners
  * @see {@link GetBucketOwnershipControlsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  */
 export class GetBucketOwnershipControlsCommand extends $Command<
   GetBucketOwnershipControlsCommandInput,

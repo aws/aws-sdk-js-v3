@@ -59,6 +59,10 @@ export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsR
  * @see {@link DescribeEventDetailsCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
+ * @throws {@link UnsupportedLocale} (client fault)
+ *  <p>The specified locale is not supported.</p>
+ *
+ *
  */
 export class DescribeEventDetailsCommand extends $Command<
   DescribeEventDetailsCommandInput,

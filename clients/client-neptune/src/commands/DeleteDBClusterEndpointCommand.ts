@@ -50,6 +50,16 @@ export interface DeleteDBClusterEndpointCommandOutput extends DeleteDBClusterEnd
  * @see {@link DeleteDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link DBClusterEndpointNotFoundFault} (client fault)
+ *  <p>The specified custom endpoint doesn't exist.</p>
+ *
+ * @throws {@link InvalidDBClusterEndpointStateFault} (client fault)
+ *  <p>The requested operation cannot be performed on the endpoint while the endpoint is in this state.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The DB cluster is not in a valid state.</p>
+ *
+ *
  */
 export class DeleteDBClusterEndpointCommand extends $Command<
   DeleteDBClusterEndpointCommandInput,

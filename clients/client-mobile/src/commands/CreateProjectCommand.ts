@@ -52,6 +52,49 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>
+ *             The request cannot be processed because some parameter is not valid or the project
+ *             state prevents the operation from being performed.
+ *         </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>
+ *             The service has encountered an unexpected error condition which prevents it from
+ *             servicing the request.
+ *         </p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>
+ *             There are too many AWS Mobile Hub projects in the account or the account has
+ *             exceeded the maximum number of resources in some AWS service. You should create
+ *             another sub-account using AWS Organizations or remove some resources and retry
+ *             your request.
+ *         </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>
+ *             No entity can be found with the specified identifier.
+ *         </p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>
+ *             The service is temporarily unavailable. The request should be retried after some
+ *             time delay.
+ *         </p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>
+ *             Too many requests have been received for this AWS account in too short a time. The
+ *             request should be retried after some time delay.
+ *         </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>
+ *             Credentials of the caller are insufficient to authorize the request.
+ *         </p>
+ *
+ *
  */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,

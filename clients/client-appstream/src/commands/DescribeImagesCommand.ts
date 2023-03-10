@@ -50,6 +50,13 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * @see {@link DescribeImagesCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ *
  */
 export class DescribeImagesCommand extends $Command<
   DescribeImagesCommandInput,

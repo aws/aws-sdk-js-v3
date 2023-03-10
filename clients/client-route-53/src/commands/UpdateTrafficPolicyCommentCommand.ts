@@ -51,6 +51,17 @@ export interface UpdateTrafficPolicyCommentCommandOutput extends UpdateTrafficPo
  * @see {@link UpdateTrafficPolicyCommentCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link ConcurrentModification} (client fault)
+ *  <p>Another user submitted a request to create, update, or delete the object at the same
+ * 			time that you did. Retry the request. </p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchTrafficPolicy} (client fault)
+ *  <p>No traffic policy exists with the specified ID.</p>
+ *
+ *
  */
 export class UpdateTrafficPolicyCommentCommand extends $Command<
   UpdateTrafficPolicyCommentCommandInput,

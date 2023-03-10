@@ -50,6 +50,15 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * @see {@link GetInsightsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> Your account isn't registered with Audit Manager. Check the delegated
+ *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *          later. </p>
+ *
+ *
  */
 export class GetInsightsCommand extends $Command<
   GetInsightsCommandInput,

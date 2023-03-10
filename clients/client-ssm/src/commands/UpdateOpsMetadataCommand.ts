@@ -50,6 +50,24 @@ export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult,
  * @see {@link UpdateOpsMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link OpsMetadataInvalidArgumentException} (client fault)
+ *  <p>One of the arguments passed is invalid. </p>
+ *
+ * @throws {@link OpsMetadataKeyLimitExceededException} (client fault)
+ *  <p>The OpsMetadata object exceeds the maximum number of OpsMetadata keys that you can assign to
+ *    an application in Application Manager.</p>
+ *
+ * @throws {@link OpsMetadataNotFoundException} (client fault)
+ *  <p>The OpsMetadata object doesn't exist. </p>
+ *
+ * @throws {@link OpsMetadataTooManyUpdatesException} (client fault)
+ *  <p>The system is processing too many concurrent updates. Wait a few moments and try
+ *    again.</p>
+ *
+ *
  */
 export class UpdateOpsMetadataCommand extends $Command<
   UpdateOpsMetadataCommandInput,

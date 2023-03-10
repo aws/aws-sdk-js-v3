@@ -52,6 +52,16 @@ export interface PutAccountAliasCommandOutput extends PutAccountAliasResult, __M
  * @see {@link PutAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
+ *
+ *
  */
 export class PutAccountAliasCommand extends $Command<
   PutAccountAliasCommandInput,

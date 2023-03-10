@@ -74,6 +74,7 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  * @see {@link ModifySpotFleetRequestCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To increase the target capacity of a Spot fleet request
  * ```javascript
  * // This example increases the target capacity of the specified Spot fleet request.

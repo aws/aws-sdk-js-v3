@@ -53,6 +53,7 @@ export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityRes
  * @see {@link VerifyEmailIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
  * @example VerifyEmailIdentity
  * ```javascript
  * // The following example starts the email address verification process with Amazon SES:

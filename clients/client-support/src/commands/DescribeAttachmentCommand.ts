@@ -68,6 +68,17 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  * @see {@link DescribeAttachmentCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
+ * @throws {@link AttachmentIdNotFound} (client fault)
+ *  <p>An attachment with the specified ID could not be found.</p>
+ *
+ * @throws {@link DescribeAttachmentLimitExceeded} (client fault)
+ *  <p>The limit for the number of <a>DescribeAttachment</a> requests in a short
+ *             period of time has been exceeded.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error occurred.</p>
+ *
+ *
  */
 export class DescribeAttachmentCommand extends $Command<
   DescribeAttachmentCommandInput,

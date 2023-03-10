@@ -57,6 +57,41 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  * @see {@link CompleteLayerUploadCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
+ * @throws {@link EmptyUploadException} (client fault)
+ *  <p>The specified layer upload doesn't contain any layer parts.</p>
+ *
+ * @throws {@link InvalidLayerException} (client fault)
+ *  <p>The layer digest calculation performed by Amazon ECR when the image layer doesn't match the
+ *          digest specified.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *          request.</p>
+ *
+ * @throws {@link LayerAlreadyExistsException} (client fault)
+ *  <p>The image layer already exists in the associated repository.</p>
+ *
+ * @throws {@link LayerPartTooSmallException} (client fault)
+ *  <p>Layer parts must be at least 5 MiB in size.</p>
+ *
+ * @throws {@link RegistryNotFoundException} (client fault)
+ *  <p>The registry doesn't exist.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository can't be found. Check the spelling of the specified repository
+ *          and ensure that you're performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UnsupportedCommandException} (client fault)
+ *  <p>The action isn't supported in this Region.</p>
+ *
+ * @throws {@link UploadNotFoundException} (client fault)
+ *  <p>The upload can't be found, or the specified upload ID isn't valid for this
+ *          repository.</p>
+ *
+ *
  */
 export class CompleteLayerUploadCommand extends $Command<
   CompleteLayerUploadCommandInput,

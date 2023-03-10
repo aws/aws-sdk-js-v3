@@ -53,6 +53,13 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @see {@link ListInstancesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ *
  */
 export class ListInstancesCommand extends $Command<
   ListInstancesCommandInput,

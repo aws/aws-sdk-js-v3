@@ -76,6 +76,16 @@ export interface DeprecateDomainCommandOutput extends __MetadataBearer {}
  * @see {@link DeprecateDomainCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
+ * @throws {@link DomainDeprecatedFault} (client fault)
+ *  <p>Returned when the specified domain has been deprecated.</p>
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
+ *
  */
 export class DeprecateDomainCommand extends $Command<
   DeprecateDomainCommandInput,

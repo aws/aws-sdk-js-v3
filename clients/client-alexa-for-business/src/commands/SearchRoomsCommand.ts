@@ -51,6 +51,7 @@ export interface SearchRoomsCommandOutput extends SearchRoomsResponse, __Metadat
  * @see {@link SearchRoomsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ *
  */
 export class SearchRoomsCommand extends $Command<
   SearchRoomsCommandInput,

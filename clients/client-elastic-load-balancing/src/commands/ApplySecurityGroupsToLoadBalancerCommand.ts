@@ -58,6 +58,16 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
  * @see {@link ApplySecurityGroupsToLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration change is not valid.</p>
+ *
+ * @throws {@link InvalidSecurityGroupException} (client fault)
+ *  <p>One or more of the specified security groups do not exist.</p>
+ *
+ *
  * @example To associate a security group with a load balancer in a VPC
  * ```javascript
  * // This example associates a security group with the specified load balancer in a VPC.

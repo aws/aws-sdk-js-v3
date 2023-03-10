@@ -49,6 +49,7 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  * @see {@link DescribeSubnetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe the subnets for a VPC
  * ```javascript
  * // This example describes the subnets for the specified VPC.

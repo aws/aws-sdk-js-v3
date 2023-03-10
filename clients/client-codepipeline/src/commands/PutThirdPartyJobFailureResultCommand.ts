@@ -49,6 +49,19 @@ export interface PutThirdPartyJobFailureResultCommandOutput extends __MetadataBe
  * @see {@link PutThirdPartyJobFailureResultCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link InvalidClientTokenException} (client fault)
+ *  <p>The client token was specified in an invalid format</p>
+ *
+ * @throws {@link InvalidJobStateException} (client fault)
+ *  <p>The job state was specified in an invalid format.</p>
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The job was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ *
  */
 export class PutThirdPartyJobFailureResultCommand extends $Command<
   PutThirdPartyJobFailureResultCommandInput,

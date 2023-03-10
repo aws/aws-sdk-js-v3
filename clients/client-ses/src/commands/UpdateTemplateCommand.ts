@@ -53,6 +53,15 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * @see {@link UpdateTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link InvalidTemplateException} (client fault)
+ *  <p>Indicates that the template that you specified could not be rendered. This issue may
+ *             occur when a template refers to a partial that does not exist.</p>
+ *
+ * @throws {@link TemplateDoesNotExistException} (client fault)
+ *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
+ *             account.</p>
+ *
+ *
  */
 export class UpdateTemplateCommand extends $Command<
   UpdateTemplateCommandInput,

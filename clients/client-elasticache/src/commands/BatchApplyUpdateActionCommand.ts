@@ -50,6 +50,13 @@ export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResults
  * @see {@link BatchApplyUpdateActionCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link ServiceUpdateNotFoundFault} (client fault)
+ *  <p>The service update doesn't exist</p>
+ *
+ *
  */
 export class BatchApplyUpdateActionCommand extends $Command<
   BatchApplyUpdateActionCommandInput,

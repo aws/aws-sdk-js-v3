@@ -52,6 +52,14 @@ export interface CreateCostCategoryDefinitionCommandOutput
  * @see {@link CreateCostCategoryDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p> You've reached the limit on the number of resources you can create, or exceeded the
+ *             size of an individual resource. </p>
+ *
+ *
  */
 export class CreateCostCategoryDefinitionCommand extends $Command<
   CreateCostCategoryDefinitionCommandInput,

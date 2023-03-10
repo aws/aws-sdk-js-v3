@@ -59,6 +59,7 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  * @see {@link SetIdentityMailFromDomainCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
  * @example SetIdentityMailFromDomain
  * ```javascript
  * // The following example configures Amazon SES to use a custom MAIL FROM domain for an identity:

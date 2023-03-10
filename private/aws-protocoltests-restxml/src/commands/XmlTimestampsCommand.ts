@@ -46,6 +46,7 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsInputOutput, __
  * @see {@link XmlTimestampsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ *
  */
 export class XmlTimestampsCommand extends $Command<
   XmlTimestampsCommandInput,

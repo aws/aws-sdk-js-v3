@@ -60,6 +60,17 @@ export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __Metad
  * @see {@link PutCorsPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
+ * @throws {@link ContainerInUseException} (client fault)
+ *  <p>The container that you specified in the request already exists or is being
+ *          updated.</p>
+ *
+ * @throws {@link ContainerNotFoundException} (client fault)
+ *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ *
  */
 export class PutCorsPolicyCommand extends $Command<
   PutCorsPolicyCommandInput,

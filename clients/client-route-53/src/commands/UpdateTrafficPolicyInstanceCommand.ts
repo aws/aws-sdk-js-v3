@@ -75,6 +75,29 @@ export interface UpdateTrafficPolicyInstanceCommandOutput
  * @see {@link UpdateTrafficPolicyInstanceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link ConflictingTypes} (client fault)
+ *  <p>You tried to update a traffic policy instance by using a traffic policy version that
+ * 			has a different DNS type than the current type for the instance. You specified the type
+ * 			in the JSON document in the <code>CreateTrafficPolicy</code> or
+ * 				<code>CreateTrafficPolicyVersion</code>request. </p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchTrafficPolicy} (client fault)
+ *  <p>No traffic policy exists with the specified ID.</p>
+ *
+ * @throws {@link NoSuchTrafficPolicyInstance} (client fault)
+ *  <p>No traffic policy instance exists with the specified ID.</p>
+ *
+ * @throws {@link PriorRequestNotComplete} (client fault)
+ *  <p>If Amazon Route 53 can't process a request before the next request arrives, it will
+ * 			reject subsequent requests for the same hosted zone and return an <code>HTTP 400
+ * 				error</code> (<code>Bad request</code>). If Route 53 returns this error repeatedly
+ * 			for the same request, we recommend that you wait, in intervals of increasing duration,
+ * 			before you try the request again.</p>
+ *
+ *
  */
 export class UpdateTrafficPolicyInstanceCommand extends $Command<
   UpdateTrafficPolicyInstanceCommandInput,

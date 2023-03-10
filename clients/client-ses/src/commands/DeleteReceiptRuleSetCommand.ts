@@ -56,6 +56,10 @@ export interface DeleteReceiptRuleSetCommandOutput extends DeleteReceiptRuleSetR
  * @see {@link DeleteReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link CannotDeleteException} (client fault)
+ *  <p>Indicates that the delete operation could not be completed.</p>
+ *
+ *
  * @example DeleteReceiptRuleSet
  * ```javascript
  * // The following example deletes a receipt rule set:

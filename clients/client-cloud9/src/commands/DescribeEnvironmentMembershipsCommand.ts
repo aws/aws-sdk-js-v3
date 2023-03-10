@@ -52,6 +52,28 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  * @see {@link DescribeEnvironmentMembershipsCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The target request is invalid.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflict occurred.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>An access permissions issue occurred.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error occurred.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A service limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The target resource cannot be found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many service requests were made over the given time period.</p>
+ *
+ *
  * @example DescribeEnvironmentMemberships1
  * ```javascript
  * // The following example gets information about all of the environment members for the specified development environment.

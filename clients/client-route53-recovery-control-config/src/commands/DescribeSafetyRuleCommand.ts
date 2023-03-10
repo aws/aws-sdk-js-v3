@@ -54,6 +54,13 @@ export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleRespo
  * @see {@link DescribeSafetyRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+ *
+ *
  */
 export class DescribeSafetyRuleCommand extends $Command<
   DescribeSafetyRuleCommandInput,

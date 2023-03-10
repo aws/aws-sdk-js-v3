@@ -58,6 +58,21 @@ export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer 
  * @see {@link PutConfigurationRecorderCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link InvalidConfigurationRecorderNameException} (client fault)
+ *  <p>You have provided a configuration recorder name that is not
+ * 			valid.</p>
+ *
+ * @throws {@link InvalidRecordingGroupException} (client fault)
+ *  <p>Config throws an exception if the recording group does not contain a valid list of resource types. Invalid values might also be incorrectly formatted.</p>
+ *
+ * @throws {@link InvalidRoleException} (client fault)
+ *  <p>You have provided a null or empty role ARN.</p>
+ *
+ * @throws {@link MaxNumberOfConfigurationRecordersExceededException} (client fault)
+ *  <p>You have reached the limit of the number of recorders you can
+ * 			create.</p>
+ *
+ *
  */
 export class PutConfigurationRecorderCommand extends $Command<
   PutConfigurationRecorderCommandInput,

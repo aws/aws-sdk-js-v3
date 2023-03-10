@@ -80,6 +80,19 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  * @see {@link CreateJobCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link IdempotencyException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class CreateJobCommand extends $Command<
   CreateJobCommandInput,

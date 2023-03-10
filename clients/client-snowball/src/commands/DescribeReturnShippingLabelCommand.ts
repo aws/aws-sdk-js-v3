@@ -50,6 +50,19 @@ export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturn
  * @see {@link DescribeReturnShippingLabelCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You get this exception when you call <code>CreateReturnShippingLabel</code> more than once
+ *       when other requests are not completed.</p>
+ *
+ * @throws {@link InvalidJobStateException} (client fault)
+ *  <p>The action can't be performed because the job's current state doesn't allow that action
+ *       to be performed.</p>
+ *
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
+ *
+ *
  */
 export class DescribeReturnShippingLabelCommand extends $Command<
   DescribeReturnShippingLabelCommandInput,

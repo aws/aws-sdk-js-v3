@@ -51,6 +51,13 @@ export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, _
  * @see {@link DeleteConstraintCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ *
  */
 export class DeleteConstraintCommand extends $Command<
   DeleteConstraintCommandInput,

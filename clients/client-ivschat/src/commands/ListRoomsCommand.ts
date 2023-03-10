@@ -51,6 +51,16 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
  * @see {@link ListRoomsCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
+ *
  */
 export class ListRoomsCommand extends $Command<
   ListRoomsCommandInput,

@@ -54,6 +54,38 @@ export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, _
  * @see {@link CheckoutLicenseCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link NoEntitlementsAllowedException} (client fault)
+ *  <p>There are no entitlements found for this license, or the entitlement maximum count is reached.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link RedirectException} (client fault)
+ *  <p>This is not the correct Region for the resource. Try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link UnsupportedDigitalSignatureMethodException} (client fault)
+ *  <p>The digital signature method is unsupported. Try your request again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The provided input is not valid. Try your request again.</p>
+ *
+ *
  */
 export class CheckoutLicenseCommand extends $Command<
   CheckoutLicenseCommandInput,

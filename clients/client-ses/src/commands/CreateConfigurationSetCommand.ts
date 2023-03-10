@@ -54,6 +54,20 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @see {@link CreateConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link ConfigurationSetAlreadyExistsException} (client fault)
+ *  <p>Indicates that the configuration set could not be created because of a naming
+ *             conflict.</p>
+ *
+ * @throws {@link InvalidConfigurationSetException} (client fault)
+ *  <p>Indicates that the configuration set is invalid. See the error message for
+ *             details.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Indicates that a resource could not be created because of service limits. For a list
+ *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
+ *             Guide</a>.</p>
+ *
+ *
  */
 export class CreateConfigurationSetCommand extends $Command<
   CreateConfigurationSetCommandInput,

@@ -54,6 +54,10 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  * @see {@link DescribeRegionSettingsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ *
  */
 export class DescribeRegionSettingsCommand extends $Command<
   DescribeRegionSettingsCommandInput,

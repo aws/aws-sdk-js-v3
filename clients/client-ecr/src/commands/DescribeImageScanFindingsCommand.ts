@@ -50,6 +50,28 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  * @see {@link DescribeImageScanFindingsCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ * @throws {@link ImageNotFoundException} (client fault)
+ *  <p>The image requested does not exist in the specified repository.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository could not be found. Check the spelling of the specified
+ *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * @throws {@link ScanNotFoundException} (client fault)
+ *  <p>The specified image scan could not be found. Ensure that image scanning is enabled on
+ *             the repository and try again.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was an exception validating this request.</p>
+ *
+ *
  */
 export class DescribeImageScanFindingsCommand extends $Command<
   DescribeImageScanFindingsCommandInput,

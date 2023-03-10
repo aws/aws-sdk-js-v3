@@ -54,6 +54,16 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  * @see {@link SetIpAddressTypeCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration is not valid.</p>
+ *
+ * @throws {@link InvalidSubnetException} (client fault)
+ *  <p>The specified subnet is out of available addresses.</p>
+ *
+ * @throws {@link LoadBalancerNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ *
  */
 export class SetIpAddressTypeCommand extends $Command<
   SetIpAddressTypeCommandInput,

@@ -50,6 +50,7 @@ export interface ListLoggerDefinitionsCommandOutput extends ListLoggerDefinition
  * @see {@link ListLoggerDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ *
  */
 export class ListLoggerDefinitionsCommand extends $Command<
   ListLoggerDefinitionsCommandInput,

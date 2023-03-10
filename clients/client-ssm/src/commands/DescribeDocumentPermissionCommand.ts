@@ -52,6 +52,24 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
  * @see {@link DescribeDocumentPermissionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDocument} (client fault)
+ *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * @throws {@link InvalidDocumentOperation} (client fault)
+ *  <p>You attempted to delete a document while it is still shared. You must stop sharing the
+ *    document before you can delete it.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ * @throws {@link InvalidPermissionType} (client fault)
+ *  <p>The permission type isn't supported. <i>Share</i> is the only supported
+ *    permission type.</p>
+ *
+ *
  */
 export class DescribeDocumentPermissionCommand extends $Command<
   DescribeDocumentPermissionCommandInput,

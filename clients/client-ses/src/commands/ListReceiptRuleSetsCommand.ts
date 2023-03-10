@@ -55,6 +55,7 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  * @see {@link ListReceiptRuleSetsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
  * @example ListReceiptRuleSets
  * ```javascript
  * // The following example lists the receipt rule sets that exist under an AWS account:

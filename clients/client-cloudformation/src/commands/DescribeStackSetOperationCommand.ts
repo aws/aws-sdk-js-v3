@@ -50,6 +50,13 @@ export interface DescribeStackSetOperationCommandOutput extends DescribeStackSet
  * @see {@link DescribeStackSetOperationCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link OperationNotFoundException} (client fault)
+ *  <p>The specified ID refers to an operation that doesn't exist.</p>
+ *
+ * @throws {@link StackSetNotFoundException} (client fault)
+ *  <p>The specified stack set doesn't exist.</p>
+ *
+ *
  */
 export class DescribeStackSetOperationCommand extends $Command<
   DescribeStackSetOperationCommandInput,

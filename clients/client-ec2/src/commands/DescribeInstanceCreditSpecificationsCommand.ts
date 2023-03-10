@@ -71,6 +71,7 @@ export interface DescribeInstanceCreditSpecificationsCommandOutput
  * @see {@link DescribeInstanceCreditSpecificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribeInstanceCreditSpecificationsCommand extends $Command<
   DescribeInstanceCreditSpecificationsCommandInput,

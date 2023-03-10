@@ -50,6 +50,19 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @see {@link UpdateUserCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidUserStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link UserNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class UpdateUserCommand extends $Command<
   UpdateUserCommandInput,

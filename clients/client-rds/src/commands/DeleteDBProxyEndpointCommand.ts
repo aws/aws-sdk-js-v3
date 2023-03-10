@@ -52,6 +52,13 @@ export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpoin
  * @see {@link DeleteDBProxyEndpointCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBProxyEndpointNotFoundFault} (client fault)
+ *  <p>The DB proxy endpoint doesn't exist.</p>
+ *
+ * @throws {@link InvalidDBProxyEndpointStateFault} (client fault)
+ *  <p>You can't perform this operation while the DB proxy endpoint is in a particular state.</p>
+ *
+ *
  */
 export class DeleteDBProxyEndpointCommand extends $Command<
   DeleteDBProxyEndpointCommandInput,

@@ -57,6 +57,7 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * @see {@link DescribeInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe the instance type
  * ```javascript
  * // This example describes the instance type of the specified instance.

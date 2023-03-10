@@ -81,6 +81,7 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
  * @see {@link CreateAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ *
  */
 export class CreateAccessPointCommand extends $Command<
   CreateAccessPointCommandInput,

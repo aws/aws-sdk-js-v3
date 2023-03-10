@@ -115,6 +115,19 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  * @see {@link PutJobTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>Amazon S3 throws this exception if you have too many tags in your tag set.</p>
+ *
+ *
  */
 export class PutJobTaggingCommand extends $Command<
   PutJobTaggingCommandInput,

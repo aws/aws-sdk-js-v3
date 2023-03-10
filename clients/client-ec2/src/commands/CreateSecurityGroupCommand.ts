@@ -67,6 +67,7 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  * @see {@link CreateSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To create a security group for a VPC
  * ```javascript
  * // This example creates a security group for the specified VPC.

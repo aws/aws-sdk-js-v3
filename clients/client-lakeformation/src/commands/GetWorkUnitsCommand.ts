@@ -50,6 +50,22 @@ export interface GetWorkUnitsCommandOutput extends GetWorkUnitsResponse, __Metad
  * @see {@link GetWorkUnitsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link ExpiredException} (client fault)
+ *  <p>Contains details about an error where the query request expired.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link WorkUnitsNotReadyYetException} (client fault)
+ *  <p>Contains details about an error related to work units not being ready.</p>
+ *
+ *
  */
 export class GetWorkUnitsCommand extends $Command<
   GetWorkUnitsCommandInput,

@@ -55,6 +55,11 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @see {@link ListUsersCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
  * @example To list IAM users
  * ```javascript
  * // The following command lists the IAM users in the current account.

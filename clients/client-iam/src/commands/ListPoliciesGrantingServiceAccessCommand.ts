@@ -91,6 +91,15 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  * @see {@link ListPoliciesGrantingServiceAccessCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ *
  * @example To list policies that allow access to a service
  * ```javascript
  * // The following operation lists policies that allow ExampleUser01 to access IAM or EC2.

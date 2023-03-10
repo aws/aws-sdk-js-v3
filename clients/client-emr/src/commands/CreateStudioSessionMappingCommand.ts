@@ -49,6 +49,14 @@ export interface CreateStudioSessionMappingCommandOutput extends __MetadataBeare
  * @see {@link CreateStudioSessionMappingCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Indicates that an error occurred while processing the request and that the request was
+ *          not completed.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ *
  */
 export class CreateStudioSessionMappingCommand extends $Command<
   CreateStudioSessionMappingCommandInput,

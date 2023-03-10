@@ -155,6 +155,28 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  * @see {@link SendRawEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link AccountSendingPausedException} (client fault)
+ *  <p>Indicates that email sending is disabled for your entire Amazon SES account.</p>
+ *         <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
+ *
+ * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * @throws {@link ConfigurationSetSendingPausedException} (client fault)
+ *  <p>Indicates that email sending is disabled for the configuration set.</p>
+ *         <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
+ *
+ * @throws {@link MailFromDomainNotVerifiedException} (client fault)
+ *  <p> Indicates that the message could not be sent because Amazon SES could not read the MX
+ *             record required to use the specified MAIL FROM domain. For information about editing the
+ *             custom MAIL FROM domain settings for an identity, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ *
+ * @throws {@link MessageRejected} (client fault)
+ *  <p>Indicates that the action failed, and the message could not be sent. Check the error
+ *             stack for more information about what caused the error.</p>
+ *
+ *
  * @example SendRawEmail
  * ```javascript
  * // The following example sends an email with an attachment:

@@ -52,6 +52,23 @@ export interface ImportHypervisorConfigurationCommandOutput
  * @see {@link ImportHypervisorConfigurationCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The operation cannot proceed because you have insufficient permissions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The operation cannot proceed because it is not supported.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>TPS has been limited to protect against intentional or unintentional
+ *     high request volumes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The operation did not succeed because a validation error occurred.</p>
+ *
+ *
  */
 export class ImportHypervisorConfigurationCommand extends $Command<
   ImportHypervisorConfigurationCommandInput,

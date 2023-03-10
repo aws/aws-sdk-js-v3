@@ -218,6 +218,7 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  * @see {@link UploadPartCopyCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  * @example To upload a part by copying byte range from an existing object as data source
  * ```javascript
  * // The following example uploads a part of a multipart upload by copying a specified byte range from an existing object as data source.

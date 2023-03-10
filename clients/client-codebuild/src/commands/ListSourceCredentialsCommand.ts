@@ -50,6 +50,10 @@ export interface ListSourceCredentialsCommandOutput extends ListSourceCredential
  * @see {@link ListSourceCredentialsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ *
  */
 export class ListSourceCredentialsCommand extends $Command<
   ListSourceCredentialsCommandInput,

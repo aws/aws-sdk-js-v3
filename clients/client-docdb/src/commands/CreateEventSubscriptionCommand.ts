@@ -52,6 +52,28 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
+ * @throws {@link EventSubscriptionQuotaExceededFault} (client fault)
+ *  <p>You have reached the maximum number of event subscriptions. </p>
+ *
+ * @throws {@link SNSInvalidTopicFault} (client fault)
+ *  <p>Amazon SNS has responded that there is a problem with the specified topic. </p>
+ *
+ * @throws {@link SNSNoAuthorizationFault} (client fault)
+ *  <p>You do not have permission to publish to the SNS topic Amazon Resource Name (ARN). </p>
+ *
+ * @throws {@link SNSTopicArnNotFoundFault} (client fault)
+ *  <p>The SNS topic Amazon Resource Name (ARN) does not exist. </p>
+ *
+ * @throws {@link SourceNotFoundFault} (client fault)
+ *  <p>The requested source could not be found. </p>
+ *
+ * @throws {@link SubscriptionAlreadyExistFault} (client fault)
+ *  <p>The provided subscription name already exists. </p>
+ *
+ * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
+ *  <p>The provided category does not exist. </p>
+ *
+ *
  */
 export class CreateEventSubscriptionCommand extends $Command<
   CreateEventSubscriptionCommandInput,

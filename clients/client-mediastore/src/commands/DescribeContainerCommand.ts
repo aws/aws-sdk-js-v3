@@ -56,6 +56,13 @@ export interface DescribeContainerCommandOutput extends DescribeContainerOutput,
  * @see {@link DescribeContainerCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
+ * @throws {@link ContainerNotFoundException} (client fault)
+ *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ *
  */
 export class DescribeContainerCommand extends $Command<
   DescribeContainerCommandInput,

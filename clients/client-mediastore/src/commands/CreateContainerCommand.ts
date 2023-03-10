@@ -51,6 +51,17 @@ export interface CreateContainerCommandOutput extends CreateContainerOutput, __M
  * @see {@link CreateContainerCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
+ * @throws {@link ContainerInUseException} (client fault)
+ *  <p>The container that you specified in the request already exists or is being
+ *          updated.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A service limit has been exceeded.</p>
+ *
+ *
  */
 export class CreateContainerCommand extends $Command<
   CreateContainerCommandInput,

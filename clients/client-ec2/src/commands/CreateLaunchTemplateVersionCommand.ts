@@ -58,6 +58,7 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  * @see {@link CreateLaunchTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To create a launch template version
  * ```javascript
  * // This example creates a new launch template version based on version 1 of the specified launch template and specifies a different AMI ID.

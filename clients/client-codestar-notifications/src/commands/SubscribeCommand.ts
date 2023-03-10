@@ -56,6 +56,16 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  * @see {@link SubscribeCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
+ * @throws {@link ConfigurationException} (client fault)
+ *  <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>AWS CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ *
  */
 export class SubscribeCommand extends $Command<
   SubscribeCommandInput,

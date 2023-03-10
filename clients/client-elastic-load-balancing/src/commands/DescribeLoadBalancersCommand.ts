@@ -54,6 +54,13 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeAccessPoints
  * @see {@link DescribeLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link DependencyThrottleException} (client fault)
+ *  <p>A request made by Elastic Load Balancing to another service exceeds the maximum request rate permitted for your account.</p>
+ *
+ *
  * @example To describe one of your load balancers
  * ```javascript
  * // This example describes the specified load balancer.

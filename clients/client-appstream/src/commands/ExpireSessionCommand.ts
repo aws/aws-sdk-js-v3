@@ -50,6 +50,7 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResult, __Metad
  * @see {@link ExpireSessionCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ *
  */
 export class ExpireSessionCommand extends $Command<
   ExpireSessionCommandInput,

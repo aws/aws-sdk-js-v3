@@ -55,6 +55,7 @@ export interface CreateEgressOnlyInternetGatewayCommandOutput
  * @see {@link CreateEgressOnlyInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CreateEgressOnlyInternetGatewayCommand extends $Command<
   CreateEgressOnlyInternetGatewayCommandInput,

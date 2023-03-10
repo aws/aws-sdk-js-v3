@@ -47,6 +47,10 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * @see {@link PutEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ *
  */
 export class PutEventsCommand extends $Command<
   PutEventsCommandInput,

@@ -52,6 +52,10 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * @see {@link ListSchemasCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid.</p>
+ *
+ *
  */
 export class ListSchemasCommand extends $Command<
   ListSchemasCommandInput,

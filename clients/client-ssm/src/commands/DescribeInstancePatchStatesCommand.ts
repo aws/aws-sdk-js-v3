@@ -50,6 +50,13 @@ export interface DescribeInstancePatchStatesCommandOutput extends DescribeInstan
  * @see {@link DescribeInstancePatchStatesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ *
  */
 export class DescribeInstancePatchStatesCommand extends $Command<
   DescribeInstancePatchStatesCommandInput,

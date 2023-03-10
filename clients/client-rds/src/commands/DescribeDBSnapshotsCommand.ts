@@ -50,6 +50,11 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * @see {@link DescribeDBSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ *
  * @example To list DB snapshot attributes
  * ```javascript
  * // This example lists all manually-created, shared snapshots for the specified DB instance.

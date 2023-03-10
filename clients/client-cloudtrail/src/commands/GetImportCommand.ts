@@ -47,6 +47,19 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * @see {@link GetImportCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link ImportNotFoundException} (client fault)
+ *  <p> The specified import was not found. </p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ *
  */
 export class GetImportCommand extends $Command<
   GetImportCommandInput,

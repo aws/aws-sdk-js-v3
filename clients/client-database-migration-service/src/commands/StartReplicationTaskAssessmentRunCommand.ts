@@ -62,6 +62,45 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  * @see {@link StartReplicationTaskAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * @throws {@link KMSAccessDeniedFault} (client fault)
+ *  <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
+ *
+ * @throws {@link KMSDisabledFault} (client fault)
+ *  <p>The specified KMS key isn't enabled.</p>
+ *
+ * @throws {@link KMSFault} (client fault)
+ *  <p>An Key Management Service (KMS) error is preventing access to KMS.</p>
+ *
+ * @throws {@link KMSInvalidStateFault} (client fault)
+ *  <p>The state of the specified KMS resource isn't valid for this request.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>DMS cannot access the KMS key.</p>
+ *
+ * @throws {@link KMSNotFoundFault} (client fault)
+ *  <p>The specified KMS entity or resource can't be found.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsFault} (client fault)
+ *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link S3AccessDeniedFault} (client fault)
+ *  <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+ *
+ * @throws {@link S3ResourceNotFoundFault} (client fault)
+ *  <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
+ *             found.</p>
+ *
+ *
  */
 export class StartReplicationTaskAssessmentRunCommand extends $Command<
   StartReplicationTaskAssessmentRunCommandInput,

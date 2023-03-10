@@ -52,6 +52,20 @@ export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBear
  * @see {@link DeleteCustomRoutingListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
+ * @throws {@link AssociatedEndpointGroupFoundException} (client fault)
+ *  <p>The listener that you specified has an endpoint group associated with it. You must remove all dependent resources
+ * 			from a listener before you can delete it.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The listener that you specified doesn't exist.</p>
+ *
+ *
  */
 export class DeleteCustomRoutingListenerCommand extends $Command<
   DeleteCustomRoutingListenerCommandInput,

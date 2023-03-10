@@ -96,6 +96,27 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  * @see {@link BatchGetItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>Your request rate is too high. The Amazon Web Services SDKs for DynamoDB
+ *             automatically retry requests that receive this exception. Your request is eventually
+ *             successful, unless your retry queue is too large to finish. Reduce the frequency of
+ *             requests and use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ *
+ * @throws {@link RequestLimitExceeded} (client fault)
+ *  <p>Throughput exceeds the current throughput quota for your account. Please contact
+ *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+ *             quota increase.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access a nonexistent table or index. The resource might not
+ *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ *
  * @example To retrieve multiple items from a table
  * ```javascript
  * // This example reads multiple items from the Music table using a batch of three GetItem requests.  Only the AlbumTitle attribute is returned.

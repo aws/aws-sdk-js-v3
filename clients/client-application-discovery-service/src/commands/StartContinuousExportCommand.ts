@@ -54,6 +54,37 @@ export interface StartContinuousExportCommandOutput extends StartContinuousExpor
  * @see {@link StartContinuousExportCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *       policy associated with this account.</p>
+ *
+ * @throws {@link ConflictErrorException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link HomeRegionNotSetException} (client fault)
+ *  <p>The home region is not set. Set the home region to continue.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of one or more parameters are either invalid or out of range. Verify the
+ *       parameter values and try again.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not permitted.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>This issue occurs when the same <code>clientRequestToken</code> is used with the
+ *         <code>StartImportTask</code> action, but with different parameters. For example, you use the
+ *       same request token but have two different import URLs, you can encounter this issue. If the
+ *       import tasks are meant to be different, use a different <code>clientRequestToken</code>, and
+ *       try again.</p>
+ *
+ * @throws {@link ServerInternalErrorException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ *
  */
 export class StartContinuousExportCommand extends $Command<
   StartContinuousExportCommandInput,

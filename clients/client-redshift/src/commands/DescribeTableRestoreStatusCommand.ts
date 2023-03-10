@@ -55,6 +55,14 @@ export interface DescribeTableRestoreStatusCommandOutput extends TableRestoreSta
  * @see {@link DescribeTableRestoreStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link TableRestoreNotFoundFault} (client fault)
+ *  <p>The specified <code>TableRestoreRequestId</code> value was not found.</p>
+ *
+ *
  */
 export class DescribeTableRestoreStatusCommand extends $Command<
   DescribeTableRestoreStatusCommandInput,

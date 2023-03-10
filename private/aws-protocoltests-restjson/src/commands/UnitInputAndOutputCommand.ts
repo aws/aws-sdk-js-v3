@@ -43,6 +43,7 @@ export interface UnitInputAndOutputCommandOutput extends __MetadataBearer {}
  * @see {@link UnitInputAndOutputCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class UnitInputAndOutputCommand extends $Command<
   UnitInputAndOutputCommandInput,

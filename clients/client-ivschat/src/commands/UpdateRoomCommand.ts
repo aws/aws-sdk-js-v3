@@ -50,6 +50,19 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * @see {@link UpdateRoomCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link PendingVerification} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
+ *
  */
 export class UpdateRoomCommand extends $Command<
   UpdateRoomCommandInput,

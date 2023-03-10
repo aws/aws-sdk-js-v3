@@ -65,6 +65,33 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  * @see {@link UpdateStateMachineCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link InvalidDefinition} (client fault)
+ *  <p>The provided Amazon States Language definition is not valid.</p>
+ *
+ * @throws {@link InvalidLoggingConfiguration} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidTracingConfiguration} (client fault)
+ *  <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not
+ *       been set to <code>true</code> or <code>false</code>.</p>
+ *
+ * @throws {@link MissingRequiredParameter} (client fault)
+ *  <p>Request is missing a required parameter. This error occurs if both <code>definition</code>
+ *       and <code>roleArn</code> are not specified.</p>
+ *
+ * @throws {@link StateMachineDeleting} (client fault)
+ *  <p>The specified state machine is being deleted.</p>
+ *
+ * @throws {@link StateMachineDoesNotExist} (client fault)
+ *  <p>The specified state machine does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ *
  */
 export class UpdateStateMachineCommand extends $Command<
   UpdateStateMachineCommandInput,

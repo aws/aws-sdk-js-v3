@@ -57,6 +57,19 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
  * @see {@link LogoutCommandOutput} for command's `response` shape.
  * @see {@link SSOClientResolvedConfig | config} for SSOClient's `config` shape.
  *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that a problem occurred with the input to the request. For example, a required
+ *       parameter might be missing or out of range.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Indicates that the request is being made too frequently and is more than what the server
+ *       can handle.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>Indicates that the request is not authorized. This can happen due to an invalid access
+ *       token in the request.</p>
+ *
+ *
  */
 export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOutput, SSOClientResolvedConfig> {
   // Start section: command_properties

@@ -61,6 +61,19 @@ export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResul
  * @see {@link DeleteMessageBatchCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link BatchEntryIdsNotDistinct} (client fault)
+ *  <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
+ *
+ * @throws {@link EmptyBatchRequest} (client fault)
+ *  <p>The batch request doesn't contain any entries.</p>
+ *
+ * @throws {@link InvalidBatchEntryId} (client fault)
+ *  <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
+ *
+ * @throws {@link TooManyEntriesInBatchRequest} (client fault)
+ *  <p>The batch request contains more entries than permissible.</p>
+ *
+ *
  */
 export class DeleteMessageBatchCommand extends $Command<
   DeleteMessageBatchCommandInput,

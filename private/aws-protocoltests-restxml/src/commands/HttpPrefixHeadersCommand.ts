@@ -44,6 +44,7 @@ export interface HttpPrefixHeadersCommandOutput extends HttpPrefixHeadersInputOu
  * @see {@link HttpPrefixHeadersCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ *
  */
 export class HttpPrefixHeadersCommand extends $Command<
   HttpPrefixHeadersCommandInput,

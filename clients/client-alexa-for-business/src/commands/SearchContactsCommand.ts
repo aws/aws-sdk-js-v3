@@ -51,6 +51,7 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * @see {@link SearchContactsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ *
  */
 export class SearchContactsCommand extends $Command<
   SearchContactsCommandInput,

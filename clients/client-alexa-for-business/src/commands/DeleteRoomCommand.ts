@@ -50,6 +50,13 @@ export interface DeleteRoomCommandOutput extends DeleteRoomResponse, __MetadataB
  * @see {@link DeleteRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class DeleteRoomCommand extends $Command<
   DeleteRoomCommandInput,

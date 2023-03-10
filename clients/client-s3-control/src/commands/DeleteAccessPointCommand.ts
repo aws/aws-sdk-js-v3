@@ -65,6 +65,7 @@ export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ *
  */
 export class DeleteAccessPointCommand extends $Command<
   DeleteAccessPointCommandInput,

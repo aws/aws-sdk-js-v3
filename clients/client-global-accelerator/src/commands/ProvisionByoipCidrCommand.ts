@@ -59,6 +59,23 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrRespo
  * @see {@link ProvisionByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access permission.</p>
+ *
+ * @throws {@link IncorrectCidrStateException} (client fault)
+ *  <p>The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be
+ * 		incorrect for this action.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
+ *
  */
 export class ProvisionByoipCidrCommand extends $Command<
   ProvisionByoipCidrCommandInput,

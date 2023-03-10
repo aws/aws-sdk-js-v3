@@ -69,6 +69,51 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationResult,
  * @see {@link UpdateAssociationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link AssociationDoesNotExist} (client fault)
+ *  <p>The specified association doesn't exist.</p>
+ *
+ * @throws {@link AssociationVersionLimitExceeded} (client fault)
+ *  <p>You have reached the maximum number versions allowed for an association. Each association
+ *    has a limit of 1,000 versions. </p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidAssociationVersion} (client fault)
+ *  <p>The version you specified isn't valid. Use ListAssociationVersions to view all versions of
+ *    an association according to the association ID. Or, use the <code>$LATEST</code> parameter to
+ *    view the latest version of the association.</p>
+ *
+ * @throws {@link InvalidDocument} (client fault)
+ *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * @throws {@link InvalidDocumentVersion} (client fault)
+ *  <p>The document version isn't valid or doesn't exist.</p>
+ *
+ * @throws {@link InvalidOutputLocation} (client fault)
+ *  <p>The output location isn't valid or doesn't exist.</p>
+ *
+ * @throws {@link InvalidParameters} (client fault)
+ *  <p>You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM
+ *    document). You can only supply values to parameters defined in the SSM document.</p>
+ *
+ * @throws {@link InvalidSchedule} (client fault)
+ *  <p>The schedule is invalid. Verify your cron or rate expression and try again.</p>
+ *
+ * @throws {@link InvalidTarget} (client fault)
+ *  <p>The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might
+ *    not have permission to perform the operation.</p>
+ *
+ * @throws {@link InvalidTargetMaps} (client fault)
+ *  <p>TargetMap parameter isn't valid.</p>
+ *
+ * @throws {@link InvalidUpdate} (client fault)
+ *  <p>The update isn't valid.</p>
+ *
+ * @throws {@link TooManyUpdates} (client fault)
+ *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
+ *
  */
 export class UpdateAssociationCommand extends $Command<
   UpdateAssociationCommandInput,

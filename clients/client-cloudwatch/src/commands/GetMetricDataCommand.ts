@@ -97,6 +97,10 @@ export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __Metad
  * @see {@link GetMetricDataCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The next token specified is invalid.</p>
+ *
+ *
  */
 export class GetMetricDataCommand extends $Command<
   GetMetricDataCommandInput,

@@ -50,6 +50,19 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  * @see {@link DescribeParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ParameterGroupNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class DescribeParameterGroupsCommand extends $Command<
   DescribeParameterGroupsCommandInput,

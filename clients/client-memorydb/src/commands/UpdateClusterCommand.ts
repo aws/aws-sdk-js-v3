@@ -50,6 +50,55 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link ACLNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ClusterQuotaForCustomerExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidACLStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidKMSKeyFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidNodeStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link NoOperationFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ParameterGroupNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ShardsPerClusterQuotaExceededFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class UpdateClusterCommand extends $Command<
   UpdateClusterCommandInput,

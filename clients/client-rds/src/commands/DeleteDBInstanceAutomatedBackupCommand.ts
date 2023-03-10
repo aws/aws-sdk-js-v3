@@ -52,6 +52,14 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
  * @see {@link DeleteDBInstanceAutomatedBackupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBInstanceAutomatedBackupNotFoundFault} (client fault)
+ *  <p>No automated backup for this DB instance was found.</p>
+ *
+ * @throws {@link InvalidDBInstanceAutomatedBackupStateFault} (client fault)
+ *  <p>The automated backup is in an invalid state.
+ *             For example, this automated backup is associated with an active instance.</p>
+ *
+ *
  */
 export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
   DeleteDBInstanceAutomatedBackupCommandInput,

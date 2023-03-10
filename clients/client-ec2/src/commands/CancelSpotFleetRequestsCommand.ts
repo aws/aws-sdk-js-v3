@@ -56,6 +56,7 @@ export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetReq
  * @see {@link CancelSpotFleetRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To cancel a Spot fleet request
  * ```javascript
  * // This example cancels the specified Spot fleet request and terminates its associated Spot Instances.

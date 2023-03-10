@@ -70,6 +70,22 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * @see {@link CreateCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
+ * @throws {@link InvalidArgsException} (client fault)
+ *  <p>One or more of the specified arguments was not valid.</p>
+ *
+ * @throws {@link InvalidPolicyException} (client fault)
+ *  <p>The resource policy is invalid or is missing a required statement. For general
+ * 			information about IAM policy and statement structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json">Overview of JSON Policies</a>.</p>
+ *
+ * @throws {@link InvalidTagException} (client fault)
+ *  <p>The tag associated with the CA is not valid. The invalid argument is contained in the
+ * 			message field.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine
+ * 			the quota that was exceeded.</p>
+ *
+ *
  */
 export class CreateCertificateAuthorityCommand extends $Command<
   CreateCertificateAuthorityCommandInput,

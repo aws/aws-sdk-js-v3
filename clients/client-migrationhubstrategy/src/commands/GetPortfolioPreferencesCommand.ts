@@ -54,6 +54,20 @@ export interface GetPortfolioPreferencesCommandOutput extends GetPortfolioPrefer
  * @see {@link GetPortfolioPreferencesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> The AWS user account does not have permission to perform the action. Check the
+ *       AWS Identity and Access Management (IAM) policy associated with this account.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ID in the request is not found. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> The request was denied due to request throttling. </p>
+ *
+ *
  */
 export class GetPortfolioPreferencesCommand extends $Command<
   GetPortfolioPreferencesCommandInput,

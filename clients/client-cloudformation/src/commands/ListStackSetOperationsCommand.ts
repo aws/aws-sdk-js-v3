@@ -50,6 +50,10 @@ export interface ListStackSetOperationsCommandOutput extends ListStackSetOperati
  * @see {@link ListStackSetOperationsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link StackSetNotFoundException} (client fault)
+ *  <p>The specified stack set doesn't exist.</p>
+ *
+ *
  */
 export class ListStackSetOperationsCommand extends $Command<
   ListStackSetOperationsCommandInput,

@@ -60,6 +60,14 @@ export interface PutAccountPreferencesCommandOutput extends PutAccountPreference
  * @see {@link PutAccountPreferencesCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ *
  */
 export class PutAccountPreferencesCommand extends $Command<
   PutAccountPreferencesCommandInput,

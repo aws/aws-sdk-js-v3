@@ -57,6 +57,29 @@ export interface CreateTrafficPolicyVersionCommandOutput extends CreateTrafficPo
  * @see {@link CreateTrafficPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link ConcurrentModification} (client fault)
+ *  <p>Another user submitted a request to create, update, or delete the object at the same
+ * 			time that you did. Retry the request. </p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link InvalidTrafficPolicyDocument} (client fault)
+ *  <p>The format of the traffic policy document that you specified in the
+ * 				<code>Document</code> element is not valid.</p>
+ *
+ * @throws {@link NoSuchTrafficPolicy} (client fault)
+ *  <p>No traffic policy exists with the specified ID.</p>
+ *
+ * @throws {@link TooManyTrafficPolicyVersionsForCurrentPolicy} (client fault)
+ *  <p>This traffic policy version can't be created because you've reached the limit of 1000
+ * 			on the number of versions that you can create for the current traffic policy.</p>
+ *          <p>To create more traffic policy versions, you can use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html">GetTrafficPolicy</a>
+ * 			to get the traffic policy document for a specified traffic policy version, and then use
+ * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a> to create a new traffic policy using the traffic policy
+ * 			document.</p>
+ *
+ *
  */
 export class CreateTrafficPolicyVersionCommand extends $Command<
   CreateTrafficPolicyVersionCommandInput,

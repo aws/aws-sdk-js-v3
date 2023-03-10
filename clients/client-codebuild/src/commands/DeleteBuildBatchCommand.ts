@@ -50,6 +50,10 @@ export interface DeleteBuildBatchCommandOutput extends DeleteBuildBatchOutput, _
  * @see {@link DeleteBuildBatchCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ *
  */
 export class DeleteBuildBatchCommand extends $Command<
   DeleteBuildBatchCommandInput,

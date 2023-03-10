@@ -91,6 +91,31 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
+ *
+ * @throws {@link NamespaceNotFound} (client fault)
+ *  <p>No namespace exists with the specified ID.</p>
+ *
+ * @throws {@link RequestLimitExceeded} (client fault)
+ *  <p>The operation can't be completed because you've reached the quota for the number of
+ *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
+ *     <i>Cloud Map Developer Guide</i>.</p>
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p>The resource can't be created because you've reached the quota on the number of
+ *    resources.</p>
+ *
+ * @throws {@link ServiceAlreadyExists} (client fault)
+ *  <p>The service can't be created because a service with the same name already exists.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be
+ *    applied to a resource is 50.</p>
+ *
+ *
  * @example Example: Create service
  * ```javascript
  * // Example: Create service

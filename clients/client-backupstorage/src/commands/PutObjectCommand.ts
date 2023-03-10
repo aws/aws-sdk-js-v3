@@ -59,6 +59,31 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * @see {@link PutObjectCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *
+ * @throws {@link IllegalArgumentException} (client fault)
+ *  Non-retryable exception, indicates client error (wrong argument passed to API).
+ *     See exception message for details.
+ *
+ * @throws {@link KMSInvalidKeyUsageException} (client fault)
+ *  Non-retryable exception. Indicates the KMS key usage is incorrect. See exception message for details.
+ *
+ * @throws {@link NotReadableInputStreamException} (client fault)
+ *  Retryalble exception. Indicated issues while reading an input stream due to the networking issues or connection drop on the client side.
+ *
+ * @throws {@link RetryableException} (server fault)
+ *  Retryable exception. In general indicates internal failure that can be fixed by retry.
+ *
+ * @throws {@link ServiceInternalException} (server fault)
+ *  Deprecated. To be removed from the model.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  Retryable exception, indicates internal server error.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Increased rate over throttling limits. Can be retried with exponential backoff.
+ *
+ *
  */
 export class PutObjectCommand extends $Command<
   PutObjectCommandInput,

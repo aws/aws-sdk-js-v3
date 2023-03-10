@@ -77,6 +77,47 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link AllocationIdNotFoundException} (client fault)
+ *  <p>The specified allocation ID does not exist.</p>
+ *
+ * @throws {@link AvailabilityZoneNotSupportedException} (client fault)
+ *  <p>The specified Availability Zone is not supported.</p>
+ *
+ * @throws {@link DuplicateLoadBalancerNameException} (client fault)
+ *  <p>A load balancer with the specified name already exists.</p>
+ *
+ * @throws {@link DuplicateTagKeysException} (client fault)
+ *  <p>A tag key was specified more than once.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration is not valid.</p>
+ *
+ * @throws {@link InvalidSchemeException} (client fault)
+ *  <p>The requested scheme is not valid.</p>
+ *
+ * @throws {@link InvalidSecurityGroupException} (client fault)
+ *  <p>The specified security group does not exist.</p>
+ *
+ * @throws {@link InvalidSubnetException} (client fault)
+ *  <p>The specified subnet is out of available addresses.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>A specified resource is in use.</p>
+ *
+ * @throws {@link SubnetNotFoundException} (client fault)
+ *  <p>The specified subnet does not exist.</p>
+ *
+ * @throws {@link TooManyLoadBalancersException} (client fault)
+ *  <p>You've reached the limit on the number of load balancers for your Amazon Web Services
+ *       account.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You've reached the limit on the number of tags per load balancer.</p>
+ *
+ *
  * @example To create an Internet-facing load balancer
  * ```javascript
  * // This example creates an Internet-facing load balancer and enables the Availability Zones for the specified subnets.

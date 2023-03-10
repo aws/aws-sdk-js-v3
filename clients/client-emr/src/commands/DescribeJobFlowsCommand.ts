@@ -72,6 +72,11 @@ export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, _
  * @see {@link DescribeJobFlowsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Indicates that an error occurred while processing the request and that the request was
+ *          not completed.</p>
+ *
+ *
  */
 export class DescribeJobFlowsCommand extends $Command<
   DescribeJobFlowsCommandInput,

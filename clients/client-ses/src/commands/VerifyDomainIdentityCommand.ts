@@ -56,6 +56,7 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
  * @see {@link VerifyDomainIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
  * @example VerifyDomainIdentity
  * ```javascript
  * // The following example starts the domain verification process with Amazon SES:

@@ -47,6 +47,7 @@ export interface ModifyIpamScopeCommandOutput extends ModifyIpamScopeResult, __M
  * @see {@link ModifyIpamScopeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class ModifyIpamScopeCommand extends $Command<
   ModifyIpamScopeCommandInput,

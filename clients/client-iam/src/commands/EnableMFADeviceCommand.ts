@@ -47,6 +47,33 @@ export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
  * @see {@link EnableMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link EntityAlreadyExistsException} (client fault)
+ *  <p>The request was rejected because it attempted to create a resource that already
+ *       exists.</p>
+ *
+ * @throws {@link EntityTemporarilyUnmodifiableException} (client fault)
+ *  <p>The request was rejected because it referenced an entity that is temporarily unmodifiable,
+ *       such as a user name that was deleted and then recreated. The error indicates that the request
+ *       is likely to succeed if you try again after waiting several minutes. The error message
+ *       describes the entity.</p>
+ *
+ * @throws {@link InvalidAuthenticationCodeException} (client fault)
+ *  <p>The request was rejected because the authentication code was not recognized. The error
+ *       message describes the specific error.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *       account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
  */
 export class EnableMFADeviceCommand extends $Command<
   EnableMFADeviceCommandInput,

@@ -50,6 +50,20 @@ export interface DeleteApprovalRuleTemplateCommandOutput extends DeleteApprovalR
  * @see {@link DeleteApprovalRuleTemplateCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
+ * @throws {@link ApprovalRuleTemplateInUseException} (client fault)
+ *  <p>The approval rule template is associated with one or more repositories. You cannot delete a template that is associated with a repository. Remove
+ *         all associations, and then try again.</p>
+ *
+ * @throws {@link ApprovalRuleTemplateNameRequiredException} (client fault)
+ *  <p>An approval rule template name is required, but was not specified.</p>
+ *
+ * @throws {@link InvalidApprovalRuleTemplateNameException} (client fault)
+ *  <p>The name of the approval rule template is not valid. Template names must be between 1
+ *             and 100 valid characters in length. For more information about limits in AWS CodeCommit,
+ *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
+ *                 CodeCommit User Guide</a>.</p>
+ *
+ *
  */
 export class DeleteApprovalRuleTemplateCommand extends $Command<
   DeleteApprovalRuleTemplateCommandInput,

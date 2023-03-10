@@ -57,6 +57,7 @@ export interface DescribeClassicLinkInstancesCommandOutput
  * @see {@link DescribeClassicLinkInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribeClassicLinkInstancesCommand extends $Command<
   DescribeClassicLinkInstancesCommandInput,

@@ -57,6 +57,11 @@ export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysRespons
  * @see {@link ListSSHPublicKeysCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ *
  */
 export class ListSSHPublicKeysCommand extends $Command<
   ListSSHPublicKeysCommandInput,

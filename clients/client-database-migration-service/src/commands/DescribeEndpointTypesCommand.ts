@@ -54,6 +54,7 @@ export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointType
  * @see {@link DescribeEndpointTypesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ *
  * @example Describe endpoint types
  * ```javascript
  * // Returns information about the type of endpoints available.

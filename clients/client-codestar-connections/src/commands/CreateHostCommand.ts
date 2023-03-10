@@ -61,6 +61,10 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  * @see {@link CreateHostCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Exceeded the maximum limit for connections.</p>
+ *
+ *
  */
 export class CreateHostCommand extends $Command<
   CreateHostCommandInput,

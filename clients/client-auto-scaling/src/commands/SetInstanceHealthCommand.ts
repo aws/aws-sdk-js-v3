@@ -47,6 +47,11 @@ export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
  * @see {@link SetInstanceHealthCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
  * @example To set the health status of an instance
  * ```javascript
  * // This example sets the health status of the specified instance to Unhealthy.

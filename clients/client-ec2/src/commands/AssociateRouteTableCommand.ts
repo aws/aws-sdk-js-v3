@@ -56,6 +56,7 @@ export interface AssociateRouteTableCommandOutput extends AssociateRouteTableRes
  * @see {@link AssociateRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To associate a route table with a subnet
  * ```javascript
  * // This example associates the specified route table with the specified subnet.

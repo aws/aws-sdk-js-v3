@@ -53,6 +53,14 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsRespo
  * @see {@link ListMemberAccountsCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
+ * @throws {@link InternalErrorException} (client fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry
+ *       your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ *
  */
 export class ListMemberAccountsCommand extends $Command<
   ListMemberAccountsCommandInput,

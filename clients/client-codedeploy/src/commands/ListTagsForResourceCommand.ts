@@ -51,6 +51,17 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link ArnNotSupportedException} (client fault)
+ *  <p> The specified ARN is not supported. For example, it might be an ARN for a resource
+ *             that is not expected. </p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p> The specified ARN is not in a valid format. </p>
+ *
+ * @throws {@link ResourceArnRequiredException} (client fault)
+ *  <p> The ARN of a resource is required, but was not found. </p>
+ *
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

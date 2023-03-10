@@ -77,6 +77,7 @@ export interface DeleteBucketLifecycleConfigurationCommandOutput extends __Metad
  * @see {@link DeleteBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ *
  */
 export class DeleteBucketLifecycleConfigurationCommand extends $Command<
   DeleteBucketLifecycleConfigurationCommandInput,

@@ -81,6 +81,27 @@ export interface StartMedicalStreamTranscriptionCommandOutput
  * @see {@link StartMedicalStreamTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link TranscribeStreamingClientResolvedConfig | config} for TranscribeStreamingClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>One or more arguments to the <code>StartStreamTranscription</code>,
+ *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
+ *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
+ *       used not valid values. Check the specified parameters and try your request again.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A new stream started with the same session ID. The current stream has been terminated.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>A problem occurred while processing the audio. Amazon Transcribe terminated
+ *       processing.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
+ *       limit. Break your audio stream into smaller chunks and try your request again.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable. Try your request later.</p>
+ *
+ *
  */
 export class StartMedicalStreamTranscriptionCommand extends $Command<
   StartMedicalStreamTranscriptionCommandInput,

@@ -56,6 +56,7 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
  * @see {@link ModifyInstanceCreditSpecificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class ModifyInstanceCreditSpecificationCommand extends $Command<
   ModifyInstanceCreditSpecificationCommandInput,

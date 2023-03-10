@@ -47,6 +47,16 @@ export interface ModifySnapshotScheduleCommandOutput extends SnapshotSchedule, _
  * @see {@link ModifySnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidScheduleFault} (client fault)
+ *  <p>The schedule you submitted isn't valid.</p>
+ *
+ * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
+ *  <p>We could not find the specified snapshot schedule. </p>
+ *
+ * @throws {@link SnapshotScheduleUpdateInProgressFault} (client fault)
+ *  <p>The specified snapshot schedule is already being updated.</p>
+ *
+ *
  */
 export class ModifySnapshotScheduleCommand extends $Command<
   ModifySnapshotScheduleCommandInput,

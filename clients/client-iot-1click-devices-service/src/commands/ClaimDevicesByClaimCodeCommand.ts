@@ -55,6 +55,13 @@ export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClai
  * @see {@link ClaimDevicesByClaimCodeCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
  *
+ * @throws {@link ForbiddenException} (client fault)
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *
+ *
  */
 export class ClaimDevicesByClaimCodeCommand extends $Command<
   ClaimDevicesByClaimCodeCommandInput,

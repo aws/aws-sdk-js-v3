@@ -54,6 +54,19 @@ export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceR
  * @see {@link DeleteSystemInstanceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class DeleteSystemInstanceCommand extends $Command<
   DeleteSystemInstanceCommandInput,

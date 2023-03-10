@@ -54,6 +54,24 @@ export interface StopHumanLoopCommandOutput extends StopHumanLoopResponse, __Met
  * @see {@link StopHumanLoopCommandOutput} for command's `response` shape.
  * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>We couldn't process your request because of an issue with the server. Try again
+ *       later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We couldn't find the requested resource. Check that your resources exists and were created
+ *       in the same AWS Region as your request, and try your request again. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded
+ *       the
+ *       maximum number of requests.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The
+ *       request isn't valid. Check the syntax and try again.</p>
+ *
+ *
  */
 export class StopHumanLoopCommand extends $Command<
   StopHumanLoopCommandInput,

@@ -57,6 +57,49 @@ export interface InitiateDocumentVersionUploadCommandOutput
  * @see {@link InitiateDocumentVersionUploadCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
+ * @throws {@link DraftUploadOutOfSyncException} (client fault)
+ *  <p>This exception is thrown when a valid checkout ID is not presented on document
+ *             version upload calls for a document that has been checked out from Web client.</p>
+ *
+ * @throws {@link EntityAlreadyExistsException} (client fault)
+ *  <p>The resource already exists.</p>
+ *
+ * @throws {@link EntityNotExistsException} (client fault)
+ *  <p>The resource does not exist.</p>
+ *
+ * @throws {@link FailedDependencyException} (client fault)
+ *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
+ *             under the control of the organization is failing, such as a connected Active
+ *             Directory.</p>
+ *
+ * @throws {@link InvalidPasswordException} (client fault)
+ *  <p>The password is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The maximum of 100,000 files and folders under the parent folder has been exceeded.</p>
+ *
+ * @throws {@link ProhibitedStateException} (client fault)
+ *  <p>The specified document version is not in the INITIALIZED state.</p>
+ *
+ * @throws {@link ResourceAlreadyCheckedOutException} (client fault)
+ *  <p>The resource is already checked out.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * @throws {@link StorageLimitExceededException} (client fault)
+ *  <p>The storage limit has been exceeded.</p>
+ *
+ * @throws {@link StorageLimitWillExceedException} (client fault)
+ *  <p>The storage limit will be exceeded.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>The operation is not permitted.</p>
+ *
+ * @throws {@link UnauthorizedResourceAccessException} (client fault)
+ *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ *
  */
 export class InitiateDocumentVersionUploadCommand extends $Command<
   InitiateDocumentVersionUploadCommandInput,

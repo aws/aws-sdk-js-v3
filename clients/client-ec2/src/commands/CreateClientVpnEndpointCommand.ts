@@ -52,6 +52,7 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  * @see {@link CreateClientVpnEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CreateClientVpnEndpointCommand extends $Command<
   CreateClientVpnEndpointCommandInput,

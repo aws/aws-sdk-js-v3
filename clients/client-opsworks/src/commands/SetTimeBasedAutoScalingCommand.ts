@@ -52,6 +52,13 @@ export interface SetTimeBasedAutoScalingCommandOutput extends __MetadataBearer {
  * @see {@link SetTimeBasedAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ *
  */
 export class SetTimeBasedAutoScalingCommand extends $Command<
   SetTimeBasedAutoScalingCommandInput,

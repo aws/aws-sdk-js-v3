@@ -55,6 +55,19 @@ export interface ListWebsiteCertificateAuthoritiesCommandOutput
  * @see {@link ListWebsiteCertificateAuthoritiesCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
  *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this action.</p>
+ *
+ *
  */
 export class ListWebsiteCertificateAuthoritiesCommand extends $Command<
   ListWebsiteCertificateAuthoritiesCommandInput,

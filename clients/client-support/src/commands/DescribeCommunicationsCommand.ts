@@ -73,6 +73,13 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  * @see {@link DescribeCommunicationsCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
+ * @throws {@link CaseIdNotFound} (client fault)
+ *  <p>The requested <code>caseId</code> couldn't be located.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error occurred.</p>
+ *
+ *
  */
 export class DescribeCommunicationsCommand extends $Command<
   DescribeCommunicationsCommandInput,

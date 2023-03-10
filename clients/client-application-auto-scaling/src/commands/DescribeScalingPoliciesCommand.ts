@@ -57,6 +57,27 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * @see {@link DescribeScalingPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
+ * @throws {@link ConcurrentUpdateException} (server fault)
+ *  <p>Concurrent updates caused an exception, for example, if you request an update to an
+ *          Application Auto Scaling resource that already has a pending update.</p>
+ *
+ * @throws {@link FailedResourceAccessException} (client fault)
+ *  <p>Failed access to resources caused an exception. This exception is thrown when Application Auto Scaling
+ *          is unable to retrieve the alarms associated with a scaling policy due to a client error,
+ *          for example, if the role ARN specified for a scalable target does not have permission to
+ *          call the CloudWatch <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> on your behalf.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token supplied was invalid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception was thrown for a validation issue. Review the available parameters for the
+ *          API request.</p>
+ *
+ *
  * @example To describe scaling policies
  * ```javascript
  * // This example describes the scaling policies for the ECS service namespace.

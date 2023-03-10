@@ -51,6 +51,10 @@ export interface DescribeAccountPreferencesCommandOutput extends DescribeAccount
  * @see {@link DescribeAccountPreferencesCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ *
  */
 export class DescribeAccountPreferencesCommand extends $Command<
   DescribeAccountPreferencesCommandInput,

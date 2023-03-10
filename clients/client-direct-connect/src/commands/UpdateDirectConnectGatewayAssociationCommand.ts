@@ -54,6 +54,13 @@ export interface UpdateDirectConnectGatewayAssociationCommandOutput
  * @see {@link UpdateDirectConnectGatewayAssociationCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
+ *
  */
 export class UpdateDirectConnectGatewayAssociationCommand extends $Command<
   UpdateDirectConnectGatewayAssociationCommandInput,

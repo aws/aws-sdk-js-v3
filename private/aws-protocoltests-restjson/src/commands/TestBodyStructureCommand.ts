@@ -49,6 +49,7 @@ export interface TestBodyStructureCommandOutput extends TestBodyStructureInputOu
  * @see {@link TestBodyStructureCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class TestBodyStructureCommand extends $Command<
   TestBodyStructureCommandInput,

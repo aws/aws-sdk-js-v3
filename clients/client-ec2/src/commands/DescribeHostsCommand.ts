@@ -50,6 +50,7 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
  * @see {@link DescribeHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribeHostsCommand extends $Command<
   DescribeHostsCommandInput,

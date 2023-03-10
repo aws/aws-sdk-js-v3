@@ -50,6 +50,10 @@ export interface SearchProvisionedProductsCommandOutput extends SearchProvisione
  * @see {@link SearchProvisionedProductsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ *
  */
 export class SearchProvisionedProductsCommand extends $Command<
   SearchProvisionedProductsCommandInput,

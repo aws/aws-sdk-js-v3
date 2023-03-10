@@ -50,6 +50,21 @@ export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThrou
  * @see {@link DeletePullThroughCacheRuleCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link PullThroughCacheRuleNotFoundException} (client fault)
+ *  <p>The pull through cache rule was not found. Specify a valid pull through cache rule and
+ *             try again.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was an exception validating this request.</p>
+ *
+ *
  */
 export class DeletePullThroughCacheRuleCommand extends $Command<
   DeletePullThroughCacheRuleCommandInput,

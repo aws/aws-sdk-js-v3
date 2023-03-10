@@ -59,6 +59,13 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * @see {@link DescribeCanariesCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unknown internal error occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter could not be validated.</p>
+ *
+ *
  */
 export class DescribeCanariesCommand extends $Command<
   DescribeCanariesCommandInput,

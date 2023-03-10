@@ -64,6 +64,14 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  * @see {@link SendTaskHeartbeatCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link InvalidToken} (client fault)
+ *  <p>The provided token is not valid.</p>
+ *
+ * @throws {@link TaskDoesNotExist} (client fault)
+ *
+ * @throws {@link TaskTimedOut} (client fault)
+ *
+ *
  */
 export class SendTaskHeartbeatCommand extends $Command<
   SendTaskHeartbeatCommandInput,

@@ -54,6 +54,10 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  * @see {@link CreateUserProfileCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ *
  */
 export class CreateUserProfileCommand extends $Command<
   CreateUserProfileCommandInput,

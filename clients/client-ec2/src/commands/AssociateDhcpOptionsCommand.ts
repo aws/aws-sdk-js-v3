@@ -48,6 +48,7 @@ export interface AssociateDhcpOptionsCommandOutput extends __MetadataBearer {}
  * @see {@link AssociateDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To associate a DHCP options set with a VPC
  * ```javascript
  * // This example associates the specified DHCP options set with the specified VPC.

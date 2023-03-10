@@ -65,6 +65,16 @@ export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataB
  * @see {@link ListCrawlsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
  */
 export class ListCrawlsCommand extends $Command<
   ListCrawlsCommandInput,

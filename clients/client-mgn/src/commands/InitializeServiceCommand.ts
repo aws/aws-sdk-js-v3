@@ -50,6 +50,13 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  * @see {@link InitializeServiceCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Operating denied due to a file permission or access check error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
+ *
  */
 export class InitializeServiceCommand extends $Command<
   InitializeServiceCommandInput,

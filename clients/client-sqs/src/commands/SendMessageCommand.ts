@@ -55,6 +55,13 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  * @see {@link SendMessageCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link InvalidMessageContents} (client fault)
+ *  <p>The message contains characters outside the allowed set.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>Error code 400. Unsupported operation.</p>
+ *
+ *
  */
 export class SendMessageCommand extends $Command<
   SendMessageCommandInput,

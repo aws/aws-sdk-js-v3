@@ -44,6 +44,7 @@ export interface NullAndEmptyHeadersClientCommandOutput extends NullAndEmptyHead
  * @see {@link NullAndEmptyHeadersClientCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class NullAndEmptyHeadersClientCommand extends $Command<
   NullAndEmptyHeadersClientCommandInput,

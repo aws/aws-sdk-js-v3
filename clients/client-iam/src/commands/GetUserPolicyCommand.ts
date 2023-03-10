@@ -64,6 +64,15 @@ export interface GetUserPolicyCommandOutput extends GetUserPolicyResponse, __Met
  * @see {@link GetUserPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
  */
 export class GetUserPolicyCommand extends $Command<
   GetUserPolicyCommandInput,

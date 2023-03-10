@@ -48,6 +48,15 @@ export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBeare
  * @see {@link DeleteHsmClientCertificateCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link HsmClientCertificateNotFoundFault} (client fault)
+ *  <p>There is no Amazon Redshift HSM client certificate with the specified
+ *             identifier.</p>
+ *
+ * @throws {@link InvalidHsmClientCertificateStateFault} (client fault)
+ *  <p>The specified HSM client certificate is not in the <code>available</code> state, or
+ *             it is still in use by one or more Amazon Redshift clusters.</p>
+ *
+ *
  */
 export class DeleteHsmClientCertificateCommand extends $Command<
   DeleteHsmClientCertificateCommandInput,

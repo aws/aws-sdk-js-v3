@@ -56,6 +56,36 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
+ * @throws {@link CodeValidationException} (client fault)
+ *  <p>The user-provided application code (query) is not valid. This can be a simple syntax
+ *       error.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Exception thrown as a result of concurrent modifications to an application. This error can
+ *       be the result of attempting to modify an application without using the current application
+ *       ID.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter value is not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request JSON is not valid for the operation.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The number of allowed resources has been exceeded.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The application is not available for this operation.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>Application created with too many tags, or too many tags added to an application. Note that the maximum
+ *         number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
+ *       operation. </p>
+ *
+ *
  */
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,

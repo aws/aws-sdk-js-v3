@@ -52,6 +52,7 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * @see {@link ListTemplatesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
  */
 export class ListTemplatesCommand extends $Command<
   ListTemplatesCommandInput,

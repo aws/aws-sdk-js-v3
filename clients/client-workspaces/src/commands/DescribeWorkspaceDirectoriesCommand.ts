@@ -52,6 +52,10 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * @see {@link DescribeWorkspaceDirectoriesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ *
  */
 export class DescribeWorkspaceDirectoriesCommand extends $Command<
   DescribeWorkspaceDirectoriesCommandInput,

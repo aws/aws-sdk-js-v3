@@ -55,6 +55,7 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  * @see {@link ModifyInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To modify the instance type
  * ```javascript
  * // This example modifies the instance type of the specified stopped instance.

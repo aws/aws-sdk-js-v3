@@ -50,6 +50,7 @@ export interface GetManagedScalingPolicyCommandOutput extends GetManagedScalingP
  * @see {@link GetManagedScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ *
  */
 export class GetManagedScalingPolicyCommand extends $Command<
   GetManagedScalingPolicyCommandInput,

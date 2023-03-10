@@ -54,6 +54,35 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * @see {@link RegisterWorkspaceDirectoryCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>This operation is not supported.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link UnsupportedNetworkConfigurationException} (client fault)
+ *  <p>The configuration of this network is not supported for this operation, or your network configuration
+ *          conflicts with the Amazon WorkSpaces management network IP range. For more information, see
+ *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html">
+ *             Configure a VPC for Amazon WorkSpaces</a>.</p>
+ *
+ * @throws {@link WorkspacesDefaultRoleNotFoundException} (client fault)
+ *  <p>The workspaces_DefaultRole role could not be found. If this is the first time you are registering a directory, you
+ *          will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">Creating the workspaces_DefaultRole Role</a>.</p>
+ *
+ *
  */
 export class RegisterWorkspaceDirectoryCommand extends $Command<
   RegisterWorkspaceDirectoryCommandInput,

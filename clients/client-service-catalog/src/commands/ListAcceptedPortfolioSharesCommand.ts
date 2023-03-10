@@ -52,6 +52,13 @@ export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPo
  * @see {@link ListAcceptedPortfolioSharesCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
+ *
  */
 export class ListAcceptedPortfolioSharesCommand extends $Command<
   ListAcceptedPortfolioSharesCommandInput,

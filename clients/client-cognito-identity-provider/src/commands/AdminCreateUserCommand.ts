@@ -85,6 +85,66 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  * @see {@link AdminCreateUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
+ * @throws {@link CodeDeliveryFailureException} (client fault)
+ *  <p>This exception is thrown when a verification code fails to deliver
+ *             successfully.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidLambdaResponseException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link InvalidPasswordException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
+ *
+ * @throws {@link InvalidSmsRoleAccessPolicyException} (client fault)
+ *  <p>This exception is returned when the role provided for SMS configuration doesn't have
+ *             permission to publish using Amazon SNS.</p>
+ *
+ * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
+ *  <p>This exception is thrown when the trust relationship is not valid for the role
+ *             provided for SMS configuration. This can happen if you don't trust
+ *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *             not match what is provided in the SMS configuration for the user pool.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link PreconditionNotMetException} (client fault)
+ *  <p>This exception is thrown when a precondition is not met.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UnexpectedLambdaException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with
+ *             Lambda.</p>
+ *
+ * @throws {@link UnsupportedUserStateException} (client fault)
+ *  <p>The request failed because the user is in an unsupported state.</p>
+ *
+ * @throws {@link UserLambdaValidationException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception
+ *             with the Lambda service.</p>
+ *
+ * @throws {@link UsernameExistsException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters a user name that already
+ *             exists in the user pool.</p>
+ *
+ * @throws {@link UserNotFoundException} (client fault)
+ *  <p>This exception is thrown when a user isn't found.</p>
+ *
+ *
  */
 export class AdminCreateUserCommand extends $Command<
   AdminCreateUserCommandInput,

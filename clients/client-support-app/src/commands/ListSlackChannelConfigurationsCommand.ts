@@ -52,6 +52,13 @@ export interface ListSlackChannelConfigurationsCommandOutput
  * @see {@link ListSlackChannelConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ *
  */
 export class ListSlackChannelConfigurationsCommand extends $Command<
   ListSlackChannelConfigurationsCommandInput,

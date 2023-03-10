@@ -50,6 +50,7 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link ModifyImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To make an AMI public
  * ```javascript
  * // This example makes the specified AMI public.

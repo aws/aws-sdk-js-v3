@@ -68,6 +68,50 @@ export interface UpdateOriginRequestPolicyCommandOutput extends UpdateOriginRequ
  * @see {@link UpdateOriginRequestPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link IllegalUpdate} (client fault)
+ *  <p>The update contains modifications that are not allowed.</p>
+ *
+ * @throws {@link InconsistentQuantities} (client fault)
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
+ * 			match.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchOriginRequestPolicy} (client fault)
+ *  <p>The origin request policy does not exist.</p>
+ *
+ * @throws {@link OriginRequestPolicyAlreadyExists} (client fault)
+ *  <p>An origin request policy with this name already exists. You must provide a unique
+ * 			name. To modify an existing origin request policy, use
+ * 				<code>UpdateOriginRequestPolicy</code>.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ * @throws {@link TooManyCookiesInOriginRequestPolicy} (client fault)
+ *  <p>The number of cookies in the origin request policy exceeds the maximum. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * @throws {@link TooManyHeadersInOriginRequestPolicy} (client fault)
+ *  <p>The number of headers in the origin request policy exceeds the maximum. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * @throws {@link TooManyQueryStringsInOriginRequestPolicy} (client fault)
+ *  <p>The number of query strings in the origin request policy exceeds the maximum. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ *
  */
 export class UpdateOriginRequestPolicyCommand extends $Command<
   UpdateOriginRequestPolicyCommandInput,

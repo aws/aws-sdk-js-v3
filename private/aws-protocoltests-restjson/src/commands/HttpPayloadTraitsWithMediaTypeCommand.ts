@@ -50,6 +50,7 @@ export interface HttpPayloadTraitsWithMediaTypeCommandOutput
  * @see {@link HttpPayloadTraitsWithMediaTypeCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
   HttpPayloadTraitsWithMediaTypeCommandInput,

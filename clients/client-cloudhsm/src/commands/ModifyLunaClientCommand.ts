@@ -62,6 +62,10 @@ export interface ModifyLunaClientCommandOutput extends ModifyLunaClientResponse,
  * @see {@link ModifyLunaClientCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
  *
+ * @throws {@link CloudHsmServiceException} (client fault)
+ *  <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+ *
+ *
  */
 export class ModifyLunaClientCommand extends $Command<
   ModifyLunaClientCommandInput,

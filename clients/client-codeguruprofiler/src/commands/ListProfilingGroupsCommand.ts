@@ -56,6 +56,13 @@ export interface ListProfilingGroupsCommandOutput extends ListProfilingGroupsRes
  * @see {@link ListProfilingGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ *
  */
 export class ListProfilingGroupsCommand extends $Command<
   ListProfilingGroupsCommandInput,

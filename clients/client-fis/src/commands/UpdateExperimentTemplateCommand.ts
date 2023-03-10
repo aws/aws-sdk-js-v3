@@ -50,6 +50,16 @@ export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentT
  * @see {@link UpdateExperimentTemplateCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource cannot be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have exceeded your service quota.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ *
+ *
  */
 export class UpdateExperimentTemplateCommand extends $Command<
   UpdateExperimentTemplateCommandInput,

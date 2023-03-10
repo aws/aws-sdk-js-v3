@@ -50,6 +50,16 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * @see {@link GetLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
+ *
  */
 export class GetLoggingConfigurationCommand extends $Command<
   GetLoggingConfigurationCommandInput,

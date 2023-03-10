@@ -50,6 +50,7 @@ export interface CreateSubnetCidrReservationCommandOutput extends CreateSubnetCi
  * @see {@link CreateSubnetCidrReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CreateSubnetCidrReservationCommand extends $Command<
   CreateSubnetCidrReservationCommandInput,

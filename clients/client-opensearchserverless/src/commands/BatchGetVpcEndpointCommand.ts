@@ -56,6 +56,14 @@ export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointRes
  * @see {@link BatchGetVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required
+ *             input.</p>
+ *
+ *
  */
 export class BatchGetVpcEndpointCommand extends $Command<
   BatchGetVpcEndpointCommandInput,

@@ -50,6 +50,10 @@ export interface DescribeImagePermissionsCommandOutput extends DescribeImagePerm
  * @see {@link DescribeImagePermissionsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ *
  */
 export class DescribeImagePermissionsCommand extends $Command<
   DescribeImagePermissionsCommandInput,

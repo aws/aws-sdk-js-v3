@@ -58,6 +58,13 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * @see {@link ListIPSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFInvalidAccountException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
+ *
  * @example To list IP sets
  * ```javascript
  * // The following example returns an array of up to 100 IP match sets.

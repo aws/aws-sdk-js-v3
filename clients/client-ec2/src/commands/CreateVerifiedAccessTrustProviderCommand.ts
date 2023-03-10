@@ -55,6 +55,7 @@ export interface CreateVerifiedAccessTrustProviderCommandOutput
  * @see {@link CreateVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CreateVerifiedAccessTrustProviderCommand extends $Command<
   CreateVerifiedAccessTrustProviderCommandInput,

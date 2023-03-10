@@ -61,6 +61,7 @@ export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyR
  * @see {@link DeleteIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
  * @example DeleteIdentityPolicy
  * ```javascript
  * // The following example deletes a sending authorization policy for an identity:

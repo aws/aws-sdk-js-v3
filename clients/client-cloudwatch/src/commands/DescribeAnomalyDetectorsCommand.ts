@@ -56,6 +56,19 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * @see {@link DescribeAnomalyDetectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link InternalServiceFault} (server fault)
+ *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The next token specified is invalid.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Parameters were used together that cannot be used together.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ *
  */
 export class DescribeAnomalyDetectorsCommand extends $Command<
   DescribeAnomalyDetectorsCommandInput,

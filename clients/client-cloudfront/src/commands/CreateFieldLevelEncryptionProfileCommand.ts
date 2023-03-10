@@ -52,6 +52,34 @@ export interface CreateFieldLevelEncryptionProfileCommandOutput
  * @see {@link CreateFieldLevelEncryptionProfileCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link FieldLevelEncryptionProfileAlreadyExists} (client fault)
+ *  <p>The specified profile for field-level encryption already exists.</p>
+ *
+ * @throws {@link FieldLevelEncryptionProfileSizeExceeded} (client fault)
+ *  <p>The maximum size of a profile for field-level encryption was exceeded.</p>
+ *
+ * @throws {@link InconsistentQuantities} (client fault)
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
+ * 			match.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchPublicKey} (client fault)
+ *  <p>The specified public key doesn't exist.</p>
+ *
+ * @throws {@link TooManyFieldLevelEncryptionEncryptionEntities} (client fault)
+ *  <p>The maximum number of encryption entities for field-level encryption have been
+ * 			created.</p>
+ *
+ * @throws {@link TooManyFieldLevelEncryptionFieldPatterns} (client fault)
+ *  <p>The maximum number of field patterns for field-level encryption have been
+ * 			created.</p>
+ *
+ * @throws {@link TooManyFieldLevelEncryptionProfiles} (client fault)
+ *  <p>The maximum number of profiles for field-level encryption have been created.</p>
+ *
+ *
  */
 export class CreateFieldLevelEncryptionProfileCommand extends $Command<
   CreateFieldLevelEncryptionProfileCommandInput,

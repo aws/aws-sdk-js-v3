@@ -50,6 +50,10 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
  * @see {@link ListApiDestinationsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ *
  */
 export class ListApiDestinationsCommand extends $Command<
   ListApiDestinationsCommandInput,

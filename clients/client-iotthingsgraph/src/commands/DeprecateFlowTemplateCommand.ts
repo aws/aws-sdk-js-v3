@@ -52,6 +52,19 @@ export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplat
  * @see {@link DeprecateFlowTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class DeprecateFlowTemplateCommand extends $Command<
   DeprecateFlowTemplateCommandInput,

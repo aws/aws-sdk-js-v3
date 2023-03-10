@@ -56,6 +56,7 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
  * @see {@link UpdateSecurityGroupRuleDescriptionsEgressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To update an outbound security group rule description
  * ```javascript
  * // This example updates the description for the specified security group rule.

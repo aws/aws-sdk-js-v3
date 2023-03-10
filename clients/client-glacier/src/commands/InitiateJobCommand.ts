@@ -54,6 +54,29 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * @see {@link InitiateJobCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ * @throws {@link InsufficientCapacityException} (client fault)
+ *  <p>Returned if there is insufficient capacity to process this expedited request. This
+ *          error only applies to expedited retrievals and not to standard or bulk
+ *          retrievals.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link PolicyEnforcedException} (client fault)
+ *  <p>Returned if a retrieval job would exceed the current data policy's retrieval rate
+ *          limit. For more information about data retrieval policies,</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
+ *          exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returned if the service cannot complete the request.</p>
+ *
+ *
  * @example To initiate an inventory-retrieval job
  * ```javascript
  * // The example initiates an inventory-retrieval job for the vault named examplevault.

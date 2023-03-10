@@ -55,6 +55,10 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * @see {@link DescribeAlarmHistoryCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The next token specified is invalid.</p>
+ *
+ *
  */
 export class DescribeAlarmHistoryCommand extends $Command<
   DescribeAlarmHistoryCommandInput,

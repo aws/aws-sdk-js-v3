@@ -75,6 +75,11 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  * @see {@link UpdateWorkforceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
+ *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *
+ *
  */
 export class UpdateWorkforceCommand extends $Command<
   UpdateWorkforceCommandInput,

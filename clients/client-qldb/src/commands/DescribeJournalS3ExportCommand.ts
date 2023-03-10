@@ -58,6 +58,10 @@ export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3E
  * @see {@link DescribeJournalS3ExportCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ *
  */
 export class DescribeJournalS3ExportCommand extends $Command<
   DescribeJournalS3ExportCommandInput,

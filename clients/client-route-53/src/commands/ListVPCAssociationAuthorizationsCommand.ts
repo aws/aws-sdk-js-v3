@@ -57,6 +57,17 @@ export interface ListVPCAssociationAuthorizationsCommandOutput
  * @see {@link ListVPCAssociationAuthorizationsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link InvalidPaginationToken} (client fault)
+ *  <p>The value that you specified to get the second or subsequent page of results is
+ * 			invalid.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ *
  */
 export class ListVPCAssociationAuthorizationsCommand extends $Command<
   ListVPCAssociationAuthorizationsCommandInput,

@@ -57,6 +57,13 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * @see {@link CreateWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
+ *
  */
 export class CreateWorkspacesCommand extends $Command<
   CreateWorkspacesCommandInput,

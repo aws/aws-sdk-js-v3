@@ -54,6 +54,19 @@ export interface CreatePlacementCommandOutput extends CreatePlacementResponse, _
  * @see {@link CreatePlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class CreatePlacementCommand extends $Command<
   CreatePlacementCommandInput,

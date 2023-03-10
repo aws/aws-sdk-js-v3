@@ -42,6 +42,10 @@ export interface PingCommandOutput extends PingResponse, __MetadataBearer {}
  * @see {@link PingCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Information about an internal error.</p>
+ *
+ *
  */
 export class PingCommand extends $Command<PingCommandInput, PingCommandOutput, PrivateNetworksClientResolvedConfig> {
   // Start section: command_properties

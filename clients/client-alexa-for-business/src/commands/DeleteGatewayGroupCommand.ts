@@ -50,6 +50,10 @@ export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupRespo
  * @see {@link DeleteGatewayGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link ResourceAssociatedException} (client fault)
+ *  <p>Another resource is associated with the resource in the request.</p>
+ *
+ *
  */
 export class DeleteGatewayGroupCommand extends $Command<
   DeleteGatewayGroupCommandInput,

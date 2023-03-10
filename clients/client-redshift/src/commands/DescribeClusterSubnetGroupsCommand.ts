@@ -60,6 +60,14 @@ export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetG
  * @see {@link DescribeClusterSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterSubnetGroupNotFoundFault} (client fault)
+ *  <p>The cluster subnet group name does not refer to an existing cluster subnet
+ *             group.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ *
  */
 export class DescribeClusterSubnetGroupsCommand extends $Command<
   DescribeClusterSubnetGroupsCommandInput,

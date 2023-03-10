@@ -50,6 +50,10 @@ export interface CreateLoggerDefinitionCommandOutput extends CreateLoggerDefinit
  * @see {@link CreateLoggerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
+ *
  */
 export class CreateLoggerDefinitionCommand extends $Command<
   CreateLoggerDefinitionCommandInput,

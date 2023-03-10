@@ -50,6 +50,7 @@ export interface DeleteVerifiedAccessGroupCommandOutput extends DeleteVerifiedAc
  * @see {@link DeleteVerifiedAccessGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DeleteVerifiedAccessGroupCommand extends $Command<
   DeleteVerifiedAccessGroupCommandInput,

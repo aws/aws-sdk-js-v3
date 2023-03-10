@@ -53,6 +53,7 @@ export interface RestoreSnapshotFromRecycleBinCommandOutput
  * @see {@link RestoreSnapshotFromRecycleBinCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class RestoreSnapshotFromRecycleBinCommand extends $Command<
   RestoreSnapshotFromRecycleBinCommandInput,

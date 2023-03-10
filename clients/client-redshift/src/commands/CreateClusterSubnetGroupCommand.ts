@@ -56,6 +56,42 @@ export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubn
  * @see {@link CreateClusterSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterSubnetGroupAlreadyExistsFault} (client fault)
+ *  <p>A <i>ClusterSubnetGroupName</i> is already used by an existing
+ *             cluster subnet group. </p>
+ *
+ * @throws {@link ClusterSubnetGroupQuotaExceededFault} (client fault)
+ *  <p>The request would result in user exceeding the allowed number of cluster subnet
+ *             groups.
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ * @throws {@link ClusterSubnetQuotaExceededFault} (client fault)
+ *  <p>The request would result in user exceeding the allowed number of subnets in a
+ *             cluster subnet groups.
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
+ *  <p>The request cannot be completed because a dependent service is throttling requests
+ *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is not valid, or not all of the subnets are in the same
+ *             VPC.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ * @throws {@link TagLimitExceededFault} (client fault)
+ *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ *
  */
 export class CreateClusterSubnetGroupCommand extends $Command<
   CreateClusterSubnetGroupCommandInput,

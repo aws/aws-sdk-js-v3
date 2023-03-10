@@ -51,6 +51,11 @@ export interface DescribeLoggingStatusCommandOutput extends LoggingStatus, __Met
  * @see {@link DescribeLoggingStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ *
  */
 export class DescribeLoggingStatusCommand extends $Command<
   DescribeLoggingStatusCommandInput,

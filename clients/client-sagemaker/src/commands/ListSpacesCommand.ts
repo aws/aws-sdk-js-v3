@@ -50,6 +50,7 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * @see {@link ListSpacesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListSpacesCommand extends $Command<
   ListSpacesCommandInput,

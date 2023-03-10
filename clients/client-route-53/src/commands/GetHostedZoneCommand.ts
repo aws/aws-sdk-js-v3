@@ -52,6 +52,13 @@ export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __Met
  * @see {@link GetHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ *
  * @example To get information about a hosted zone
  * ```javascript
  * // The following example gets information about the Z3M3LMPEXAMPLE hosted zone.

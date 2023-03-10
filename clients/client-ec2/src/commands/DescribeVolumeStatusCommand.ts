@@ -79,6 +79,7 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * @see {@link DescribeVolumeStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe the status of a single volume
  * ```javascript
  * // This example describes the status for the volume ``vol-1234567890abcdef0``.

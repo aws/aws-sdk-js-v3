@@ -50,6 +50,23 @@ export interface DeleteEndpointAccessCommandOutput extends EndpointAccess, __Met
  * @see {@link DeleteEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link EndpointNotFoundFault} (client fault)
+ *  <p>The endpoint name doesn't refer to an existing endpoint.</p>
+ *
+ * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
+ *  <p>The state of the cluster security group is not <code>available</code>. </p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link InvalidEndpointStateFault} (client fault)
+ *  <p>The status of the endpoint is not valid.</p>
+ *
+ *
  */
 export class DeleteEndpointAccessCommand extends $Command<
   DeleteEndpointAccessCommandInput,

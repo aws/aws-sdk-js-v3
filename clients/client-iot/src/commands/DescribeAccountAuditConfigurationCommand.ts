@@ -55,6 +55,13 @@ export interface DescribeAccountAuditConfigurationCommandOutput
  * @see {@link DescribeAccountAuditConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ *
  */
 export class DescribeAccountAuditConfigurationCommand extends $Command<
   DescribeAccountAuditConfigurationCommandInput,

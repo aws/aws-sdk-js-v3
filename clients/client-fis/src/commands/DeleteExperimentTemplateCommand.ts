@@ -50,6 +50,13 @@ export interface DeleteExperimentTemplateCommandOutput extends DeleteExperimentT
  * @see {@link DeleteExperimentTemplateCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ *
+ *
  */
 export class DeleteExperimentTemplateCommand extends $Command<
   DeleteExperimentTemplateCommandInput,

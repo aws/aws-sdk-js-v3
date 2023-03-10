@@ -48,6 +48,7 @@ export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
  * @see {@link QueryTimestampsCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ *
  */
 export class QueryTimestampsCommand extends $Command<
   QueryTimestampsCommandInput,

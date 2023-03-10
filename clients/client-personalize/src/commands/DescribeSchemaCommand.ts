@@ -51,6 +51,13 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * @see {@link DescribeSchemaCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
+ *
  */
 export class DescribeSchemaCommand extends $Command<
   DescribeSchemaCommandInput,

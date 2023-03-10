@@ -44,6 +44,7 @@ export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutpu
  * @see {@link RecursiveXmlShapesCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ *
  */
 export class RecursiveXmlShapesCommand extends $Command<
   RecursiveXmlShapesCommandInput,

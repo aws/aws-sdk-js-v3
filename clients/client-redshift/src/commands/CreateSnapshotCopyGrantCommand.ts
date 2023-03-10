@@ -57,6 +57,28 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
  * @see {@link CreateSnapshotCopyGrantCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
+ *  <p>The request cannot be completed because a dependent service is throttling requests
+ *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * @throws {@link SnapshotCopyGrantAlreadyExistsFault} (client fault)
+ *  <p>The snapshot copy grant can't be created because a grant with the same name already
+ *             exists.</p>
+ *
+ * @throws {@link SnapshotCopyGrantQuotaExceededFault} (client fault)
+ *  <p>The Amazon Web Services account has exceeded the maximum number of snapshot copy grants in this
+ *             region.</p>
+ *
+ * @throws {@link TagLimitExceededFault} (client fault)
+ *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ *
  */
 export class CreateSnapshotCopyGrantCommand extends $Command<
   CreateSnapshotCopyGrantCommandInput,

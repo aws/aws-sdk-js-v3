@@ -52,6 +52,10 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * @see {@link GetConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service is experiencing internal problems.</p>
+ *
+ *
  */
 export class GetConfigurationCommand extends $Command<
   GetConfigurationCommandInput,

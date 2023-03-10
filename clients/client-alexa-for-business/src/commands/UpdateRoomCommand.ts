@@ -50,6 +50,13 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * @see {@link UpdateRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link NameInUseException} (client fault)
+ *  <p>The name sent in the request is already in use.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class UpdateRoomCommand extends $Command<
   UpdateRoomCommandInput,

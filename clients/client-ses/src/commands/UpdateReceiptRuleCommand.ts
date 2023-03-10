@@ -53,6 +53,36 @@ export interface UpdateReceiptRuleCommandOutput extends UpdateReceiptRuleRespons
  * @see {@link UpdateReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link InvalidLambdaFunctionException} (client fault)
+ *  <p>Indicates that the provided AWS Lambda function is invalid, or that Amazon SES could
+ *             not execute the provided function, possibly due to permissions issues. For information
+ *             about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *
+ * @throws {@link InvalidS3ConfigurationException} (client fault)
+ *  <p>Indicates that the provided Amazon S3 bucket or AWS KMS encryption key is invalid, or
+ *             that Amazon SES could not publish to the bucket, possibly due to permissions issues. For
+ *             information about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *
+ * @throws {@link InvalidSnsTopicException} (client fault)
+ *  <p>Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not
+ *             publish to the topic, possibly due to permissions issues. For information about giving
+ *             permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Indicates that a resource could not be created because of service limits. For a list
+ *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
+ *             Guide</a>.</p>
+ *
+ * @throws {@link RuleDoesNotExistException} (client fault)
+ *  <p>Indicates that the provided receipt rule does not exist.</p>
+ *
+ * @throws {@link RuleSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the provided receipt rule set does not exist.</p>
+ *
+ *
  * @example UpdateReceiptRule
  * ```javascript
  * // The following example updates a receipt rule to use an Amazon S3 action:

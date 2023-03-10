@@ -48,6 +48,7 @@ export interface TestPayloadStructureCommandOutput extends TestPayloadStructureI
  * @see {@link TestPayloadStructureCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class TestPayloadStructureCommand extends $Command<
   TestPayloadStructureCommandInput,

@@ -54,6 +54,13 @@ export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse,
  * @see {@link GetDeviceMethodsCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *
+ *
  */
 export class GetDeviceMethodsCommand extends $Command<
   GetDeviceMethodsCommandInput,

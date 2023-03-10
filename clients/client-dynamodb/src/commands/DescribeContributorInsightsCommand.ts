@@ -51,6 +51,14 @@ export interface DescribeContributorInsightsCommandOutput extends DescribeContri
  * @see {@link DescribeContributorInsightsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access a nonexistent table or index. The resource might not
+ *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ *
  */
 export class DescribeContributorInsightsCommand extends $Command<
   DescribeContributorInsightsCommandInput,

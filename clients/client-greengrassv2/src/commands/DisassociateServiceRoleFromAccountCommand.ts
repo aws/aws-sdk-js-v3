@@ -55,6 +55,10 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  * @see {@link DisassociateServiceRoleFromAccountCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ *
  */
 export class DisassociateServiceRoleFromAccountCommand extends $Command<
   DisassociateServiceRoleFromAccountCommandInput,

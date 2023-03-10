@@ -51,6 +51,22 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * @see {@link RegisterClientCommandOutput} for command's `response` shape.
  * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates that an error from the service occurred while trying to process a
+ *       request.</p>
+ *
+ * @throws {@link InvalidClientMetadataException} (client fault)
+ *  <p>Indicates that the client information sent in the request during registration is
+ *       invalid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a required
+ *       parameter might be missing or out of range.</p>
+ *
+ * @throws {@link InvalidScopeException} (client fault)
+ *  <p>Indicates that the scope provided in the request is invalid.</p>
+ *
+ *
  */
 export class RegisterClientCommand extends $Command<
   RegisterClientCommandInput,

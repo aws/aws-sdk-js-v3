@@ -50,6 +50,10 @@ export interface DescribeImageCommandOutput extends DescribeImageResponse, __Met
  * @see {@link DescribeImageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
+ *
  */
 export class DescribeImageCommand extends $Command<
   DescribeImageCommandInput,

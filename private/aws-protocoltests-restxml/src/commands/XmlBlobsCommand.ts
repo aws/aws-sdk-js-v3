@@ -41,6 +41,7 @@ export interface XmlBlobsCommandOutput extends XmlBlobsInputOutput, __MetadataBe
  * @see {@link XmlBlobsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ *
  */
 export class XmlBlobsCommand extends $Command<
   XmlBlobsCommandInput,

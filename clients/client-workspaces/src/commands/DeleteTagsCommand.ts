@@ -50,6 +50,13 @@ export interface DeleteTagsCommandOutput extends DeleteTagsResult, __MetadataBea
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  */
 export class DeleteTagsCommand extends $Command<
   DeleteTagsCommandInput,

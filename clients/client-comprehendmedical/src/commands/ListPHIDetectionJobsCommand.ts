@@ -55,6 +55,23 @@ export interface ListPHIDetectionJobsCommandOutput extends ListPHIDetectionJobsR
  * @see {@link ListPHIDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal server error occurred. Retry your request. </p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p> The request that you made is invalid. Check your request to determine why it's invalid
+ *       and then retry the request.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p> You have made too many requests within a short period of time. Wait for a short time and
+ *       then try your request again. Contact customer support for more information about a service
+ *       limit increase. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The filter that you specified for the operation is invalid. Check the filter values that
+ *       you entered and try your request again.</p>
+ *
+ *
  */
 export class ListPHIDetectionJobsCommand extends $Command<
   ListPHIDetectionJobsCommandInput,

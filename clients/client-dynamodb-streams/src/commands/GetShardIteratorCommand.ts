@@ -57,6 +57,29 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * @see {@link GetShardIteratorCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access a nonexistent table or index. The resource
+ *             might not be specified correctly, or its status might not be
+ *             <code>ACTIVE</code>.</p>
+ *
+ * @throws {@link TrimmedDataAccessException} (client fault)
+ *  <p>The operation attempted to read past the oldest stream record in a shard.</p>
+ *          <p>In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream. You might receive a TrimmedDataAccessException if:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You request a shard iterator with a sequence number older than the trim point (24 hours).</p>
+ *             </li>
+ *             <li>
+ *                <p>You obtain a shard iterator, but before you use the iterator in a <code>GetRecords</code>
+ *         request, a stream record in the shard exceeds the 24 hour period and is trimmed. This causes
+ *         the iterator to access a record that no longer exists.</p>
+ *             </li>
+ *          </ul>
+ *
+ *
  * @example To obtain a shard iterator for the provided stream ARN and shard ID
  * ```javascript
  * // The following example returns a shard iterator for the provided stream ARN and shard ID.

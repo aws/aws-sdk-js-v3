@@ -56,6 +56,29 @@ export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyRes
  * @see {@link DeleteKeySigningKeyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link ConcurrentModification} (client fault)
+ *  <p>Another user submitted a request to create, update, or delete the object at the same
+ * 			time that you did. Retry the request. </p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link InvalidKeySigningKeyStatus} (client fault)
+ *  <p>The key-signing key (KSK) status isn't valid or another KSK has the status
+ * 				<code>INTERNAL_FAILURE</code>.</p>
+ *
+ * @throws {@link InvalidKMSArn} (client fault)
+ *  <p>The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC
+ * 			signing.</p>
+ *
+ * @throws {@link InvalidSigningStatus} (client fault)
+ *  <p>Your hosted zone status isn't valid for this operation. In the hosted zone, change the
+ * 			status to enable <code>DNSSEC</code> or disable <code>DNSSEC</code>.</p>
+ *
+ * @throws {@link NoSuchKeySigningKey} (client fault)
+ *  <p>The specified key-signing key (KSK) doesn't exist.</p>
+ *
+ *
  */
 export class DeleteKeySigningKeyCommand extends $Command<
   DeleteKeySigningKeyCommandInput,

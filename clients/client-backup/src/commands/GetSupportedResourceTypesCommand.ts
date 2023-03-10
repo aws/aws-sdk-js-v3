@@ -45,6 +45,10 @@ export interface GetSupportedResourceTypesCommandOutput extends GetSupportedReso
  * @see {@link GetSupportedResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ *
  */
 export class GetSupportedResourceTypesCommand extends $Command<
   GetSupportedResourceTypesCommandInput,

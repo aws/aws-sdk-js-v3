@@ -52,6 +52,13 @@ export interface GetOriginAccessControlConfigCommandOutput
  * @see {@link GetOriginAccessControlConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchOriginAccessControl} (client fault)
+ *  <p>The origin access control does not exist.</p>
+ *
+ *
  */
 export class GetOriginAccessControlConfigCommand extends $Command<
   GetOriginAccessControlConfigCommandInput,

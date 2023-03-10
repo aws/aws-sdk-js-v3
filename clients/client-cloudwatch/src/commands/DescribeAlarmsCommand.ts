@@ -54,6 +54,10 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * @see {@link DescribeAlarmsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The next token specified is invalid.</p>
+ *
+ *
  */
 export class DescribeAlarmsCommand extends $Command<
   DescribeAlarmsCommandInput,

@@ -52,6 +52,21 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  * @see {@link DeleteActivationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidActivation} (client fault)
+ *  <p>The activation isn't valid. The activation might have been deleted, or the ActivationId and
+ *    the ActivationCode don't match.</p>
+ *
+ * @throws {@link InvalidActivationId} (client fault)
+ *  <p>The activation ID isn't valid. Verify the you entered the correct ActivationId or
+ *    ActivationCode and try again.</p>
+ *
+ * @throws {@link TooManyUpdates} (client fault)
+ *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
+ *
  */
 export class DeleteActivationCommand extends $Command<
   DeleteActivationCommandInput,

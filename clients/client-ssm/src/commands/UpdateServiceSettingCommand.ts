@@ -63,6 +63,17 @@ export interface UpdateServiceSettingCommandOutput extends UpdateServiceSettingR
  * @see {@link UpdateServiceSettingCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ServiceSettingNotFound} (client fault)
+ *  <p>The specified service setting wasn't found. Either the service name or the setting hasn't
+ *    been provisioned by the Amazon Web Services service team.</p>
+ *
+ * @throws {@link TooManyUpdates} (client fault)
+ *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
+ *
  */
 export class UpdateServiceSettingCommand extends $Command<
   UpdateServiceSettingCommandInput,

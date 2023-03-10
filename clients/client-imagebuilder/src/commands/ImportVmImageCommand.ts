@@ -58,6 +58,18 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  * @see {@link ImportVmImageCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action, such as using an action or resource on
+ * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
+ * 			invalid resource identifier.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unable to process your request at this time.</p>
+ *
+ *
  */
 export class ImportVmImageCommand extends $Command<
   ImportVmImageCommandInput,

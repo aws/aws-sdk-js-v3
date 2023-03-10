@@ -53,6 +53,14 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteDBSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+ *
+ * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
+ *  <p>The state of the DB security group doesn't allow deletion.</p>
+ *
+ *
  * @example To delete a DB security group
  * ```javascript
  * // The following example deletes a DB security group.

@@ -61,6 +61,120 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  * @see {@link RestoreFromClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link AccessToSnapshotDeniedFault} (client fault)
+ *  <p>The owner of the specified snapshot has not authorized your account to access the
+ *             snapshot.</p>
+ *
+ * @throws {@link ClusterAlreadyExistsFault} (client fault)
+ *  <p>The account already has a cluster with the given identifier.</p>
+ *
+ * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
+ *  <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ * @throws {@link ClusterQuotaExceededFault} (client fault)
+ *  <p>The request would exceed the allowed number of cluster instances for this account.
+ *
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ * @throws {@link ClusterSecurityGroupNotFoundFault} (client fault)
+ *  <p>The cluster security group name does not refer to an existing cluster security
+ *             group.</p>
+ *
+ * @throws {@link ClusterSnapshotNotFoundFault} (client fault)
+ *  <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ *
+ * @throws {@link ClusterSubnetGroupNotFoundFault} (client fault)
+ *  <p>The cluster subnet group name does not refer to an existing cluster subnet
+ *             group.</p>
+ *
+ * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
+ *  <p>The request cannot be completed because a dependent service is throttling requests
+ *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * @throws {@link DependentServiceUnavailableFault} (client fault)
+ *  <p>Your request cannot be completed because a dependent internal service is
+ *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ *
+ * @throws {@link HsmClientCertificateNotFoundFault} (client fault)
+ *  <p>There is no Amazon Redshift HSM client certificate with the specified
+ *             identifier.</p>
+ *
+ * @throws {@link HsmConfigurationNotFoundFault} (client fault)
+ *  <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+ *
+ * @throws {@link InsufficientClusterCapacityFault} (client fault)
+ *  <p>The number of nodes specified exceeds the allotted capacity of the
+ *             cluster.</p>
+ *
+ * @throws {@link InvalidClusterSnapshotStateFault} (client fault)
+ *  <p>The specified cluster snapshot is not in the <code>available</code> state, or other
+ *             accounts are authorized to access the snapshot. </p>
+ *
+ * @throws {@link InvalidClusterSubnetGroupStateFault} (client fault)
+ *  <p>The cluster subnet group cannot be deleted because it is in use.</p>
+ *
+ * @throws {@link InvalidClusterTrackFault} (client fault)
+ *  <p>The provided cluster track name is not valid.</p>
+ *
+ * @throws {@link InvalidElasticIpFault} (client fault)
+ *  <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
+ *
+ * @throws {@link InvalidReservedNodeStateFault} (client fault)
+ *  <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
+ *
+ * @throws {@link InvalidRestoreFault} (client fault)
+ *  <p>The restore is invalid.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is not valid, or not all of the subnets are in the same
+ *             VPC.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>The cluster subnet group does not cover all Availability Zones.</p>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * @throws {@link NumberOfNodesPerClusterLimitExceededFault} (client fault)
+ *  <p>The operation would exceed the number of nodes allowed for a cluster.</p>
+ *
+ * @throws {@link NumberOfNodesQuotaExceededFault} (client fault)
+ *  <p>The operation would exceed the number of nodes allotted to the account.
+ *
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ * @throws {@link ReservedNodeAlreadyExistsFault} (client fault)
+ *  <p>User already has a reservation with the given identifier.</p>
+ *
+ * @throws {@link ReservedNodeAlreadyMigratedFault} (client fault)
+ *  <p>Indicates that the reserved node has already been exchanged.</p>
+ *
+ * @throws {@link ReservedNodeNotFoundFault} (client fault)
+ *  <p>The specified reserved compute node not found.</p>
+ *
+ * @throws {@link ReservedNodeOfferingNotFoundFault} (client fault)
+ *  <p>Specified offering does not exist.</p>
+ *
+ * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
+ *  <p>We could not find the specified snapshot schedule. </p>
+ *
+ * @throws {@link TagLimitExceededFault} (client fault)
+ *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ *
  */
 export class RestoreFromClusterSnapshotCommand extends $Command<
   RestoreFromClusterSnapshotCommandInput,

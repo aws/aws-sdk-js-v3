@@ -62,6 +62,46 @@ export interface CreateResponseHeadersPolicyCommandOutput extends CreateResponse
  * @see {@link CreateResponseHeadersPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InconsistentQuantities} (client fault)
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
+ * 			match.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link ResponseHeadersPolicyAlreadyExists} (client fault)
+ *  <p>A response headers policy with this name already exists. You must provide a unique
+ * 			name. To modify an existing response headers policy, use
+ * 				<code>UpdateResponseHeadersPolicy</code>.</p>
+ *
+ * @throws {@link TooLongCSPInResponseHeadersPolicy} (client fault)
+ *  <p>The length of the <code>Content-Security-Policy</code> header value in the response
+ * 			headers policy exceeds the maximum.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * @throws {@link TooManyCustomHeadersInResponseHeadersPolicy} (client fault)
+ *  <p>The number of custom headers in the response headers policy exceeds the
+ * 			maximum.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * @throws {@link TooManyRemoveHeadersInResponseHeadersPolicy} (client fault)
+ *  <p>The number of headers in <code>RemoveHeadersConfig</code> in the response headers
+ * 			policy exceeds the maximum.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * @throws {@link TooManyResponseHeadersPolicies} (client fault)
+ *  <p>You have reached the maximum number of response headers policies for this
+ * 			Amazon Web Services account.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ *
  */
 export class CreateResponseHeadersPolicyCommand extends $Command<
   CreateResponseHeadersPolicyCommandInput,

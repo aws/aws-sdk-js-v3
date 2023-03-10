@@ -44,6 +44,7 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
  * @see {@link JsonUnionsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class JsonUnionsCommand extends $Command<
   JsonUnionsCommandInput,

@@ -46,6 +46,24 @@ export interface DeleteJobExecutionCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link InvalidStateTransitionException} (client fault)
+ *  <p>An attempt was made to change to an invalid state, for example by deleting a job or a
+ *          job execution which is "IN_PROGRESS" without setting the <code>force</code>
+ *          parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ *
  */
 export class DeleteJobExecutionCommand extends $Command<
   DeleteJobExecutionCommandInput,

@@ -50,6 +50,13 @@ export interface BatchUpdateClusterCommandOutput extends BatchUpdateClusterRespo
  * @see {@link BatchUpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceUpdateNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class BatchUpdateClusterCommand extends $Command<
   BatchUpdateClusterCommandInput,

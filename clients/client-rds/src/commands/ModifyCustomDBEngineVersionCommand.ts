@@ -59,6 +59,13 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * @see {@link ModifyCustomDBEngineVersionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link CustomDBEngineVersionNotFoundFault} (client fault)
+ *  <p>The specified CEV was not found.</p>
+ *
+ * @throws {@link InvalidCustomDBEngineVersionStateFault} (client fault)
+ *  <p>You can't delete the CEV.</p>
+ *
+ *
  */
 export class ModifyCustomDBEngineVersionCommand extends $Command<
   ModifyCustomDBEngineVersionCommandInput,
